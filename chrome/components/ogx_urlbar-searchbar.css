@@ -27,9 +27,9 @@
 #urlbar{min-height: 26px !important;}
 #urlbar[focused=true] #urlbar-background{border-radius: 4px !important;}
 #urlbar[open=true] #urlbar-background {
-    border-radius: 10px !important;  
+    border-radius: 10px !important;
+    border-color: transparent !important;
 }
-
 /*Search-bar*/
 
 #searchbar {
