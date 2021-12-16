@@ -9,7 +9,7 @@
   
   /*Esta variable es la que usará el tema para personalizarlo completamente*/
   
-  --general-color: var(--blue);
+  --general-color: var(--fuchsia);
    
   /*-----------------------------------Gradientes------------------------------------*/
   --gradient: linear-gradient(to bottom right, color-mix(in srgb, var(--general-color) 90%, var(--lwt-tab-text)) , var(--general-color), color-mix(in srgb, var(--general-color) 80%, black)) !important;                                     
