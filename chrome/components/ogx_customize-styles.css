@@ -24,7 +24,7 @@
 }
 #customization-done-button:is(:active, :hover):not([disabled]) {
     background-color: var(--button-primary-hover-bgcolor) !important;
-    border-color: #2b5abf !important;
+    border-color: var(--general-color) !important;
 }
 /*Borde Redondeado - menú de debordamiento*/
 
