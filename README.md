@@ -9,6 +9,8 @@ https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/
 
 ![imagen](https://user-images.githubusercontent.com/22057609/146305631-e21fe062-8134-41f6-85d3-540df2f58f54.png)
 
+Neutral theme: https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-proton/
+
 Theme to Opera GX Lovers. v89-90 versions of the browser.
 
 (ES) Reglas Css para vestir de GX a Firefox
