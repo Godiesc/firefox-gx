@@ -1,0 +1,19 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
+   https://github.com/Godiesc/opera-gx */
+
+/*"Botón de cerrar pestaña"*/
+.tab-close-button {
+    margin-inline-start: 0px !important;
+    width: 16px !important;
+    height: 16px !important;
+    padding: 3px !important;
+    margin-inline-end: -5px !important;
+    border-radius: 8px !important;
+    margin-top: -2px !important;
+}
+.tab-close-button:hover {
+    background-color: var(--toolbarbutton-active-background) !important;
+}
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+    display: -moz-box !important
+}

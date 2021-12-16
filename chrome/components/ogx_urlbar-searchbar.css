@@ -1,0 +1,124 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+/*"toolbar_top_separator": "#17161c"*/
+#navigator-toolbox{--tabs-border-color: transparent !important; }
+.browser-toolbar{
+    border-top: 1px solid var(--identity-tab-color , var(--toolbar-bgcolor)) !important;
+    border-image: var(--panel-separator-zap-gradient2) 1 !important; margin-top: -1px !important;}                 
+/*"toolbar_bottom_separator"*/
+/*#navigator-toolbox { border-bottom: 1px solid var(--toolbar-bgcolor) !important; border-image: var(--panel-separator-zap-gradient) 1 !important;  }*/
+
+/*"bookmark_text": "#b3d9ff"*/
+.browser-toolbar:not(.titlebar-color) {color: var(--tab-text) !important;}              
+
+/*"personalizar barra de busqueda"*/
+.browserContainer > findbar:-moz-lwtheme {color: #d3d3d3 !important;}     
+.findbar-find-status[status="notfound"] {color: #ff6951 !important;}
+
+/*Vizualización correcta del porcentaje de zoom mostrado en la urlbar*/
+#urlbar-zoom-button {padding: 0px 2px !important;}
+
+/*"popup_highlight"*/
+.urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
+    background-color: var(--general-color) !important; color: #ffffff !important} 
+
+/*"Urlbar"*/
+#urlbar{min-height: 26px !important;}
+#urlbar[focused=true] #urlbar-background{border-radius: 4px !important;}
+#urlbar[open=true] #urlbar-background {
+    border-radius: 10px !important;  
+}
+
+/*Search-bar*/
+
+#searchbar {
+    min-height: 26px !important;
+    max-height: 26px !important;  
+}
+#searchbar:focus-within {
+    border-color: var(--general-color) !important;
+    box-shadow: none !important;
+    background-color: var(--lwt-toolbar-field-focus) !important;
+}
+#PopupSearchAutoComplete {  
+    margin-top: -3px !important;    
+    border-radius: 0 0 4px 4px !important;
+    --arrowpanel-border-color: var(--lwt-toolbar-field-focus) !important;
+}
+/*Páginas seguras de firefox"*/
+
+#identity-box[pageproxystate="valid"].notSecureText>.identity-box-button:hover:not([open]), #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button:hover:not([open]) {
+    background-color: var(--button-primary-bgcolor) !important;
+    color: white !important;
+}
+#identity-box[pageproxystate="valid"].notSecureText>.identity-box-button[open="true"], #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button[open="true"] {
+    background-color: var(--button-primary-hover-bgcolor) !important;
+    color: white !important;
+}
+#identity-popup-security-button {
+    margin-bottom: 0px !important
+}
+/*"Íconos de la urlbar más pequeños"*/
+
+#tracking-protection-icon, #identity-icon, .sharing-icon, #permissions-granted-icon, #blocked-permissions-container>.blocked-permission-icon {
+    height: 14px !important;
+    width: 14px !important;
+}
+#tracking-protection-icon {
+    margin-inline-start: 1px !important
+}
+#tracking-protection-icon-container {
+    padding: 3px !important;
+}
+/*"Color verde de la descripción de web segura"*/
+
+description#identity-popup-content-owner-label, description#identity-popup-content-owner, description#identity-popup-content-verifier, #identity-popup-securityView-body>button {
+    color: #2cf62c !important
+}
+/*fondo :hover de íconos de la urlbar"*/
+
+.urlbar-icon {
+    margin-left: 2px !important
+}
+.identity-box-button:hover:not([open="true"]) {
+    background-color: transparent !important;
+}
+#identity-icon-box:hover:not([open="true"]),#identity-permission-box:hover:not([open="true"]), #tracking-protection-icon-container:hover:not([open="true"]), 
+.urlbar-page-action:not([disabled],[open="true"]):hover, #urlbar-go-button:hover, .search-go-button:hover, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:hover  {
+    background-color: var(--toolbarbutton-hover-background) !important; 
+}
+/*fondo active de íconos de la urlbar"*/
+
+#identity-icon-box[open="true"],#identity-permission-box[open="true"], #tracking-protection-icon-container[open="true"], .urlbar-page-action:not([disabled])[open="true"] , #urlbar-go-button[open="true"], .search-go-button[open="true"] ,
+:not(.urlbar-icon-wrapper)>.urlbar-icon[open="true"], :not(.urlbar-icon-wrapper)>.urlbar-icon[open="true"], .urlbar-icon-wrapper[open="true"], .urlbar-icon-wrapper[open="true"], .identity-box-button[open="true"], #tracking-protection-icon-container[open="true"], 
+.identity-box-button[open="true"] .urlbar-page-action:not([disabled]):hover, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button[open="true"] {
+    background-color: var(--toolbarbutton-active-background) !important;
+}
+/*Eliminar ícono de -sitio anclado- en las sugerencias de busqueda*/
+
+.urlbarView-type-icon{
+    display: none !important;
+}
+
+/*------------toolbar autohide--------------------
+#nav-bar {
+  /* customize this value. 
+  --navbar-margin: -32px;
+
+  margin-top: var(--navbar-margin);
+  margin-bottom: 0;
+  z-index: -100;
+  transition: all 0.1s ease !important;
+  opacity: 0;
+}
+
+#navigator-toolbox:focus-within > #nav-bar,
+#navigator-toolbox:hover > #nav-bar
+{
+  margin-top: 0;
+  margin-bottom: var(--navbar-margin);
+  z-index: 100;
+  opacity: 1;
+}
+*/

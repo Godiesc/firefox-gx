@@ -1,0 +1,33 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+/*---------------------------Página -> "Personalizar Toolbar---------------------------*/
+
+/*"Color de fondo e íconos en "Perzonalizar barra de herramientas"*/
+#customization-container {color: var(--lwt-text-color) !important; background-color: var(--toolbar-bgcolor) !important;} 
+
+.customizationmode-button {
+    background-color: color-mix(in srgb, var(--button-primary-bgcolor) 10%, transparent) !important;
+    border-color: var(--general-color) !important;
+    color: var(--lwt-tab-text) !important;
+    border-radius: 4px !important;
+}
+.customizationmode-button:is(:active, :hover):not([disabled]), .customizationmode-button[open], .customizationmode-button[checked] {
+    background-color: var(--button-primary-hover-bgcolor) !important;
+    border-color: var(--button-primary-hover-bgcolor) !important;
+    color: var(--lwt-tab-text) !important;
+}
+#customization-done-button {
+    color: #fff !important;
+    border-color: var(--general-color) !important;
+    background-color: var(--button-active-bgcolor) !important;
+}
+#customization-done-button:is(:active, :hover):not([disabled]) {
+    background-color: var(--button-primary-hover-bgcolor) !important;
+    border-color: #2b5abf !important;
+}
+/*Borde Redondeado - menú de debordamiento*/
+
+.panel-arrowcontent {
+    border-radius: 4px !important;
+}

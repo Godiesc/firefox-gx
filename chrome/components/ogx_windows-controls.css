@@ -1,0 +1,23 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+/*WindowsControls borde redondeado*/
+
+.titlebar-button{
+    color: var(--general-color) !important;    
+}
+.titlebar-button:hover:not(.titlebar-close){
+    background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+.titlebar-button:not(.titlebar-close) {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+}
+.titlebar-min, .titlebar-max, .titlebar-restore, .titlebar-close {
+    border-radius: 0 !important;
+   
+}
+.titlebar-close:hover {
+    border-radius: 0 !important;
+}

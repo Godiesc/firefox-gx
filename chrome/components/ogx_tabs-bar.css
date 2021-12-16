@@ -1,0 +1,89 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+/*Imagenes superiores*/
+ #navigator-toolbox { background-image:  none !important;}
+
+/*Color bolita de cargando página*/
+#tabbrowser-tabs{
+    --tab-loading-fill: var(--general-color) !important;
+}
+/*Centrar botón "Open Newtab"*/
+#TabsToolbar .toolbarbutton-1 {       
+    fill: var(--general-color) !important;  
+    padding-left: 0px !important;
+    padding-top: 3px !important;
+    height: 32px !important;
+    padding-right: 12px !important;
+    width: 12px !important;
+}
+#tabs-newtab-button:hover .toolbarbutton-icon {
+    background: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;  
+}
+/*favicon de pagina newtab*/
+.tab-icon-stack .tab-icon-image[src="chrome://branding/content/icon32.png"] {
+    background: url("../images/foxlogo1.svg")!important;
+    background-size: 16px !important;
+    padding-left: 16px !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+/*"tab_line": "#126e82"*/
+#tabbrowser-tabs {--tab-line-color: transparent !important}
+#tabbrowser-tabs { --lwt-tab-line-color: var(--gradient, transparent) !important; }
+
+/*"Medidas menores para scroll de pestañas"*/
+#tabbrowser-tabs{ --uc-tabs-scrollbutton-border: 0px !important; }
+#scrollbutton-up, #scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; }
+
+/*Regla para visualizar mejor el seleccionar varias pestañas*/
+.tabbrowser-tab[multiselected]:-moz-lwtheme {
+    color: var(--lwt-tab-text) !important;
+    --tab-line-color: transparent !important;
+}
+.tabbrowser-tab[multiselected]>.tab-stack>.tab-background:is([multiselected]), .tabbrowser-tab>.tab-stack>.tab-content:is([multiselected]) {
+    background: var(--general-color) !important;
+}
+/*Color de las pestañas no seleccionadas*/
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
+  background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; transition-duration: 0ms !important;
+}
+/* Reduce spacing between pinned and regular tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {
+    margin-inline-start: 4px !important;
+}
+/*Pestaña activa*/
+.tab-label, .tab-icon-image, .tab-icon-overlay, .tab-icon-overlay , tab-icon-pending{ margin-top: -2px !important;
+}
+.tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 2px !important}
+.tabbrowser-tab .tab-background{height: 32px !important; margin-left: -1px !important; margin-right: -1px !important}
+.tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
+    background-image: var(--gradient) !important;
+    border-radius:6px 2px 0 0 !important;
+    height: 32px !important;
+    margin-left: -1px !important;
+    margin-right: -1px !important
+}
+.tabbrowser-tab .tab-content {margin-top: 3px !important; height: 31px !important;}
+.tabbrowser-tab:not([pinned], [multiselected])[selected="true"] .tab-content:not([multiselected]) {
+    background-color: var(--toolbar-bgcolor) !important;
+    border-radius: 6px 2px 0 0 !important;
+    margin-top: 3px !important;
+    height: 31px !important;
+    transition-duration: 0ms !important;   
+}
+.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: 32px !important; margin-left: -1px !important; margin-right: -1px !important;}
+.tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
+    background-image: var(--gradient) !important;
+    border-radius: 6px 2px 0 0 !important;
+    height: 32px !important;
+    margin-left: -1px !important;
+    margin-right: -1px !important;
+}
+.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: 3px !important; height: 31px !important;}
+.tabbrowser-tab:is([pinned])[selected="true"]:not([multiselected]) .tab-content {
+    background-color: var(--toolbar-bgcolor) !important;
+    border-radius: 6px 2px 0 0 !important;
+    margin-top: 3px !important;
+    height: 31px !important;   
+}

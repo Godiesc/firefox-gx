@@ -1,0 +1,41 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+/* HTML5 dark mode web notifs */
+
+@-moz-document url("chrome://global/content/alerts/alert.xhtml") {
+    #alertBox {
+        border-color: rgb(48, 48, 48, .4) !important;
+        border-radius: 4px !important;
+        background-color: #101010 !important;
+        color: rgba(255, 255, 255, 0.800000011920929) !important;
+    }
+    #alertSourceLabel {
+        color: #9400ff !important;
+        /*proton color: rgb(5,209,241)*/
+    }
+    #alertSettings {
+        -moz-context-properties: fill, fill-opacity !important;
+        padding: 3px !important;
+        margin: 0px 2px -3px 0px !important;
+        color: inherit !important;
+        border-radius: 4px !important;
+        transform: scale(0.91, 0.91) !important;
+    }
+    #alertSettings:hover, #alertSettings[open] {
+        background-color: #313131 !important;
+    }
+    menupopup {
+        --panel-color: rgba(255, 255, 255, 0.800000011920929) !important;
+        --panel-border-color: rgb(48, 48, 48) !important;
+        --panel-background: #101010 !important;
+        --menuitem-hover-background-color: #313131 !important;
+        --menuitem-disabled-hover-background-color: #1f1f1f !important;
+        --menu-color: rgba(255, 255, 255, 0.8) !important;
+        --menu-disabled-color: color-mix(in srgb, #101010 65%, rgb(255, 255, 255))!important;
+        --menu-border-color: var(--panel-separator-color, Field) !important;
+    }
+    #alertImage {
+        border-radius: 4px !important;
+    }
+}
