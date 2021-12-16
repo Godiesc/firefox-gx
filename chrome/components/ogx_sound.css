@@ -14,7 +14,7 @@
 /*.tab-icon-image:not([pinned]) {
     opacity: 1 !important;
 }*/
-.tab-icon-overlay[activemedia-blocked], .tab-icon-overlay, .tab-icon-overlay:is([pinned]) {
+.tab-icon-overlay, .tab-icon-overlay:is([pinned]) {
     height:13px !important;
     width: 14px !important;
     z-index: 1;
@@ -29,6 +29,7 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
 .tab-icon-overlay[activemedia-blocked]:is([pinned]) {
     opacity: 0.8 !important;
     margin-right: 0px !important;
+    left: 8px !important;       
 }
 .tab-icon-overlay[activemedia-blocked]:is([pinned]):hover {   
     background-color: transparent !important;
@@ -40,7 +41,8 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
     border-radius: 10px !important;    
     animation: none !important;
     height: 16px !important;
-    width: 16px !important;
+    width: 16px !important;   
+    left: 0 !important;
 }
 .tab-icon-overlay[activemedia-blocked]:hover {
     stroke: #d10000cc !important;
