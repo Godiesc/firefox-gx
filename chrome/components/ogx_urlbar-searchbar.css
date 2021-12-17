@@ -5,7 +5,8 @@
 #navigator-toolbox{--tabs-border-color: transparent !important; }
 #nav-bar{    
     border-top: 1px solid var(--identity-tab-color , var(--toolbar-bgcolor)) !important;
-    border-image: var(--panel-separator-zap-gradient2) 1 !important; margin-top: -1px !important;    
+    border-image: var(--panel-separator-zap-gradient2) 1 !important; margin-top: -1px !important;
+    padding-top:1px !important;
 }
 /*"toolbar_bottom_separator"*/
 #navigator-toolbox { border-bottom: 1px solid var(--toolbar-bgcolor) !important;  }
