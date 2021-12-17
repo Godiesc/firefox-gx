@@ -194,6 +194,5 @@
 }
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
     background-image: url("chrome://global/skin/icons/performance.svg");
-    margin-inline-start: 0px !important;
-    
+    margin-inline-start: 0px !important;    
 }
