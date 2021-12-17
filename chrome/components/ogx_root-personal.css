@@ -8,11 +8,11 @@
   --blue: #4c4cff;            --lightblue: #45a1ff;
   
   /*                                                               
-    Esta variable usará el tema para personalizar el userContent.  | 
+    Esta variable usará el tema para personalizar el userContent   | 
                                                                    |      
-    Accent-color obtenido del tema que uses. |                     |
-                                             v                     v          */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--blue));
+    Acent color obtenido del tema que uses. |                      |
+                                            v                      v     */
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--green));
    
   /*-----------------------------------Gradientes------------------------------------*/
   --gradient: linear-gradient(to bottom right, color-mix(in srgb, var(--general-color) 90%, var(--lwt-tab-text)) , var(--general-color), color-mix(in srgb, var(--general-color) 80%, black)) !important;                                     
