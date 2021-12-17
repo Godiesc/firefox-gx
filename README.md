@@ -33,18 +33,6 @@ It has manual customization of the accent color for userContent.css (new-tab, pr
 ![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
 
 ______________________________________________________________________________________________________________________________________________________
-
-    <li>Download the theme with the big green button: "Code" >> Download.zip</li>
-
-    Go to your Firefox profile.
-        Open about:support
-        Click the button beside Profile Folder
-
-    Drag the Chrome folder to your profile directory
-
-    Drag the user.js file to your profile directory
-
-    Restart Firefox.
-
+   
 # -> Example of about:support
 ![about-support](https://user-images.githubusercontent.com/22057609/120349392-b372f980-c2c3-11eb-904d-b088168fd849.png)
