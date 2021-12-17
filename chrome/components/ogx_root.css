@@ -30,7 +30,7 @@
     var(--toolbar-bgcolor) 75%) !important;                                             /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbar-field-focus-color: var(--lwt-tab-text) !important;                          /*"toolbar_field_text_focus": "#e5e5e6"*/
   --toolbar-field-focus-border-color: transparent !important;                           /*"toolbar_field_border_focus": "#005F66"*/
-  --lwt-toolbar-field-highlight: var(--button-hover-bgcolor) !important;                       /*"toolbar_field_highlight": "#006f80"*/
+  --lwt-toolbar-field-highlight: var(--button-active-bgcolor) !important;               /*"toolbar_field_highlight": "#006f80"*/
   --lwt-toolbar-field-highlight-text: var(--lwt-tab-text) !important;                   /*"toolbar_field_highlight_text": "#eaeaea"*/
     
   /*--lwt-selected-tab-background-color: red !important;                                /*"tab_selected":"#363540"*/
