@@ -12,8 +12,8 @@
 
 /*Color label deshabilitado "protección contra rastreo"*/
 .protections-popup-category.notFound {color: #777777 !important;}
-.panel-info-button:not([disabled]):is([checked],:hover, :active) {background-color: #4e6bfd65 !important;}
-.panel-info-button:not([disabled]):is(:hover) {background-color: #4e6bfdbb !important;}
+.panel-info-button:not([disabled]):is([checked],:hover, :active) {background-color: var(--button-hover-bgcolor) !important;}
+.panel-info-button:not([disabled]):is(:hover) {background-color: var(--button-active-bgcolor) !important;}
 
 /*Color Sidebar*/
 #sidebar-box{
