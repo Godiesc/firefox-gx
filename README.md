@@ -28,7 +28,7 @@ Additionally You should install the themes from firefox add-ons web page: https:
 
 _____________________________________________________________________________________________________________________________________________________
 
-It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The css in --> chrome --> components --> ogx_root-personal.css has the variable --general-color to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
+It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The css in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
 
 ![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
 
