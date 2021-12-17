@@ -67,7 +67,7 @@
   
   --button-bgcolor: color-mix(in srgb, var(--general-color) 20%, transparent) !important;             /*Color de butons*/
   --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 50%, transparent) !important;       /*Color de fondo de menuitems :hover*/
-  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 37%, transparent) !important;      /*color clic en menuitems*/
+  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 60%, transparent) !important;      /*color clic en menuitems*/
   
   --urlbar-icon-padding: 4px !important;                                                              /*padding de los iconos de la urlbar*/
   --panel-separator-color: color-mix(in srgb, var(--general-color) 50%, transparent) !important;      /*separadores de menu desplegable de marcadores*/
@@ -77,13 +77,13 @@
   --autocomplete-popup-separator-color: transparent !important;                                       /*color separador urlbar y sujerencias de búsqueda*/
   
   /*ColorBotónGuardar*/
-    --button-primary-bgcolor: var(--general-color) !important;
+    --button-primary-bgcolor: var(--button-hover-bgcolor) !important;
 
     /*ColorLetrasBotónGuardar*/
     --button-primary-color: #eaeaea !important;
 
     /*ColorBotónGuardar:Hover*/
-    --button-primary-hover-bgcolor: color-mix(in srgb,var(--button-primary-bgcolor) 70%, transparent ) !important;
+    --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;
 
     /*ColorBotónGuardar:clic*/
     --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;
