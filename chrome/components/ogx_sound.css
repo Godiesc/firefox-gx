@@ -57,7 +57,7 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
 }
 /*------ícono  reproduciendose-------*/
 @keyframes slide2{ from { transform: scale(1.0,1.0);}to {transform: scale(0.5,0.5);}}
-.tab-icon-overlay:is([sharing],[soundplaying]):not([pinned]) {border-radius: 10px !important; top: 17px !important; left: 8px !important; 
+.tab-icon-overlay:is([soundplaying]):not([pinned]) {border-radius: 10px !important; top: 17px !important; left: 8px !important; 
   width: 12px !important; height: 3px !important; opacity: 1 !important;
   color: transparent !important; background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important; stroke: transparent !important;
   animation: 500ms infinite ease-in-out; animation-name: slide1;} 
