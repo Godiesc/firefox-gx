@@ -26,8 +26,8 @@
   --toolbar-field-color: var(--lwt-tab-text) !important;                        /*"toolbar_field_text":"#e2e9e9"*/
   --toolbar-field-border-color: var(--toolbar-bgcolor) !important;              /*"toolbar_field_border": "#363540"*/
   
-  --lwt-toolbar-field-focus: color-mix(in srgb, var(--general-color),
-    var(--toolbar-bgcolor) 75%) !important;                                             /*"toolbar_field_focus": "#1a1b25FB"*/
+/*--toolbar-field-focus-background-color: color-mix(in srgb,
+    var(--general-color), var(--toolbar-bgcolor) 75%) !important;                       /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbar-field-focus-color: var(--lwt-tab-text) !important;                          /*"toolbar_field_text_focus": "#e5e5e6"*/
   --toolbar-field-focus-border-color: transparent !important;                           /*"toolbar_field_border_focus": "#005F66"*/
   --lwt-toolbar-field-highlight: var(--button-active-bgcolor) !important;               /*"toolbar_field_highlight": "#006f80"*/
@@ -49,7 +49,7 @@
   --toolbarbutton-inner-padding: 5px !important;                                      /*Toolbar buttons más pequeños*/
   --toolbarbutton-outer-padding: 3px !important;                                      /*Toolbar buttons más espaciados*/
   --toolbarbutton-border-radius: 0px !important;                                      /*forma de los buttons*/
-  --tab-block-margin: 2px 0px !important;                                             /*margenes pestañas*/
+  --tab-block-margin: 1px 0px !important;                                             /*margenes pestañas*/
   --tab-min-height:  32px !important;                                                 /*tamaño pestañas*/
   --tabs-shadow-size: 0px !important;                                                 /*sombras de pestaña*/
   --tab-border-radius: 6px 2px 0 0 !important;                                        /*forma de la pestaña*/
@@ -74,7 +74,7 @@
   
   --urlbar-popup-url-color: color-mix(in srgb, var(--general-color) 86%, var(--lwt-tab-text)) !important;                                          /*Color urls de sujerencias de búsqueda*/
   --autocomplete-popup-hover-background: var(--button-active-bgcolor) !important;                     /*Color hover de sujerencias de búsqueda*/
-  --autocomplete-popup-separator-color: transparent !important;                                       /*color separador urlbar y sujerencias de búsqueda*/
+  --autocomplete-popup-separator-color: var(--toolbar-field-focus-background-color) !important;                                       /*color separador urlbar y sugerencias de búsqueda*/
   
   /*ColorBotónGuardar*/
     --button-primary-bgcolor: var(--button-hover-bgcolor) !important;
