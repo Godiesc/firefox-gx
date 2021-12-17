@@ -38,25 +38,25 @@ panel menulist, panel menulist:not([open]) {
     border-radius: 0px !important;
 }
 panel menulist:hover, panel menulist[open] {
-    background-color: var(--general-color) !important;
+    background-color: var(--button-active-bgcolor) !important;
     color: #eaeaea !important;
     box-shadow: none !important;
 }
-/*Color -fondo y borde- menu desplegable (flecha hacia abajo)*/
+/*Color -fondo y borde-(flecha hacia abajo)*/
 
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
     border-color: color-mix(in srgb, var(--general-color) 100%, var(--lwt-tab-text, Field)) !important;
     border-radius: 0px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
-    border-color: var(--general-color) !important;
-    background-color: var(--general-color) !important;
+    border-color: var(--button-active-bgcolor) !important;
+    background-color: var(--button-active-bgcolor) !important;
     color: #eaeaea !important;
 }
-/*Color -fondo y letras - botón menu desplegable*/
+/*Color -fondo y "letras" - menu desplegable*/
 
 treechildren::-moz-tree-row(selected) {
-    background-color: var(--general-color) !important;
+    background-color: var(--button-active-bgcolor) !important;
 }
 treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected), treechildren::-moz-tree-cell-text(selected) {
     color: white !important;
@@ -67,7 +67,7 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
 /*Color de "highlight" inputtext*/
 
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
-    background-color: var(--general-color) !important;
+    background-color: var(--button-active-bgcolor) !important;
     color: white !important;
 }
 /*Imagen grande Marcador*/
