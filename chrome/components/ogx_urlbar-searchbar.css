@@ -21,7 +21,7 @@
 
 /*"popup_highlight"*/
 .urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
-    background-color: var(--general-color) !important; color: #ffffff !important} 
+    background-color: var(--button-hover-bgcolor) !important; color: #ffffff !important}
 
 /*"Urlbar"*/
 #urlbar{min-height: 26px !important;}
