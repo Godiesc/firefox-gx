@@ -205,9 +205,9 @@ button:not(.category) {background-color:color-mix(in srgb, var(--in-content-page
     border-color: color-mix(in srgb, var(--general-color) 40%, transparent) !important;} /*color de botones */
 button:hover {background-color: var(--general-color) !important; color: #fafafa !important; border-color: var(--general-color) !important;}
 #categories > .category{background-color: var(--in-content-page-background) !important;}
-#categories > .category:hover{background-color: var(--general-color) !important; color: White !important;}
-#categories > .category[selected]  {background-color: var(--general-color) !important; color: #fff !important;}
-#categories > .category[selected]:hover { background-color: color-mix(in srgb, var(--general-color)76%, transparent) !important;  color: white !important;}
+#categories > .category:hover{background-color: color-mix(in srgb, var(--general-color)75%, transparent) !important; color: White !important;}
+#categories > .category[selected]  {background-color: color-mix(in srgb, var(--general-color)65%, transparent) !important; color: #fff !important;}
+#categories > .category[selected]:hover { background-color: color-mix(in srgb, var(--general-color)75%, transparent) !important;  color: white !important;}
 button.primary {background-color: color-mix(in srgb, var(--general-color)26%, transparent) !important;  color: white !important;}   
 button.primary:hover {background-color: var(--general-color) !important;  color: #eaeaea !important;}
 th.column{color: #eaeaea !important; background-color:color-mix(in srgb, var(--general-color)20%, transparent)  !important;}
