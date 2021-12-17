@@ -3,11 +3,13 @@
 
 /*"toolbar_top_separator": "#17161c"*/
 #navigator-toolbox{--tabs-border-color: transparent !important; }
-.browser-toolbar{
+#nav-bar{    
     border-top: 1px solid var(--identity-tab-color , var(--toolbar-bgcolor)) !important;
-    border-image: var(--panel-separator-zap-gradient2) 1 !important; margin-top: -1px !important;}                 
+    border-image: var(--panel-separator-zap-gradient2) 1 !important; margin-top: -1px !important;
+    padding-top:1px !important;        
+}
 /*"toolbar_bottom_separator"*/
-/*#navigator-toolbox { border-bottom: 1px solid var(--toolbar-bgcolor) !important; border-image: var(--panel-separator-zap-gradient) 1 !important;  }*/
+#navigator-toolbox { border-bottom: 1px solid var(--toolbar-bgcolor) !important;  }
 
 /*"bookmark_text": "#b3d9ff"*/
 .browser-toolbar:not(.titlebar-color) {color: var(--tab-text) !important;}              
@@ -25,10 +27,14 @@
 
 /*"Urlbar"*/
 #urlbar{min-height: 26px !important;}
+#urlbar:not([open=true]){margin-top: -1px !important;}
 #urlbar[focused=true] #urlbar-background{border-radius: 4px !important;}
 #urlbar[open=true] #urlbar-background {
     border-radius: 10px !important;
-    border-color: transparent !important;
+    border-color: transparent !important;    
+}
+#urlbar[breakout][breakout-extend]>#urlbar-input-container {
+    margin-top: -1px !important;  
 }
 /*Search-bar*/
 
@@ -39,12 +45,12 @@
 #searchbar:focus-within {
     border-color: var(--general-color) !important;
     box-shadow: none !important;
-    background-color: var(--lwt-toolbar-field-focus) !important;
+    background-color: var(--toolbar-field-focus-background-color) !important;
 }
 #PopupSearchAutoComplete {  
     margin-top: -3px !important;    
     border-radius: 0 0 4px 4px !important;
-    --arrowpanel-border-color: var(--lwt-toolbar-field-focus) !important;
+    --arrowpanel-border-color: var(--general-color) !important;
 }
 /*Páginas seguras de firefox"*/
 
@@ -69,7 +75,7 @@
     margin-inline-start: 1px !important
 }
 #tracking-protection-icon-container {
-    padding: 3px !important;
+    padding: 4px !important;
 }
 /*"Color verde de la descripción de web segura"*/
 
@@ -100,25 +106,3 @@ description#identity-popup-content-owner-label, description#identity-popup-conte
 .urlbarView-type-icon{
     display: none !important;
 }
-
-/*------------toolbar autohide--------------------
-#nav-bar {
-  /* customize this value. 
-  --navbar-margin: -32px;
-
-  margin-top: var(--navbar-margin);
-  margin-bottom: 0;
-  z-index: -100;
-  transition: all 0.1s ease !important;
-  opacity: 0;
-}
-
-#navigator-toolbox:focus-within > #nav-bar,
-#navigator-toolbox:hover > #nav-bar
-{
-  margin-top: 0;
-  margin-bottom: var(--navbar-margin);
-  z-index: 100;
-  opacity: 1;
-}
-*/
