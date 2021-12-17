@@ -4,15 +4,16 @@
 /*"Botón de cerrar pestaña"*/
 .tab-close-button {
     margin-inline-start: 0px !important;
-    width: 16px !important;
-    height: 16px !important;
-    padding: 3px !important;
+    width: 18px !important;
+    height: 18px !important;
+    padding: 4px !important;
     margin-inline-end: -5px !important;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     margin-top: -2px !important;
 }
 .tab-close-button:hover {
-    background-color: var(--toolbarbutton-active-background) !important;
+    background-color: var(--lwt-frame, var(--lwt-accent-color)) !important;
+    color: var(--general-color) !important;    
 }
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
     display: -moz-box !important
