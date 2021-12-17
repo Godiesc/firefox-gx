@@ -23,11 +23,11 @@
     background-color: var(--button-active-bgcolor) !important;
 }
 #customization-done-button:is(:active, :hover):not([disabled]) {
-    background-color: var(--button-primary-hover-bgcolor) !important;
+    background-color: var(--button-bgcolor) !important;
     border-color: var(--general-color) !important;
 }
 /*Borde Redondeado - menú de debordamiento*/
 
 .panel-arrowcontent {
-    border-radius: 4px !important;
+    border-radius: 0px !important;
 }
