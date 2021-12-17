@@ -21,11 +21,11 @@ tab:is([pinned]):not([selected]) .tab-context-line {max-width: 12px !important; 
 .identity-color-yellow {--identity-tab-color: #e6b803 !important; --identity-icon-color: #e6b803 !important;}
 .identity-color-turquoise {--identity-tab-color: #03b48d !important; --identity-icon-color: #03b48d !important;}
 
-.identity-color-blue >.tab-stack > .tab-content:is([selected="true"]) .tab-label{color: #1bbfff !important;}
-.identity-color-green >.tab-stack > .tab-content:is([selected="true"]) .tab-label{color: #6be19c !important; } 
-.identity-color-orange >.tab-stack > .tab-content:is([selected="true"]) .tab-label{color: #eb9b37 !important; } 
-.identity-color-red >.tab-stack > .tab-content:is([selected="true"]) .tab-label{color: #ff6666 !important;}
-.identity-color-pink >.tab-stack > .tab-content:is([selected="true"]) .tab-label{color: #ff99eb !important;} 
-.identity-color-purple >.tab-stack > .tab-content:is([selected="true"]) .tab-label{color: #caa4da !important;}
-.identity-color-yellow >.tab-stack > .tab-content:is([selected="true"]) .tab-label{color: #e6b803 !important;}
-.identity-color-turquoise >.tab-stack > .tab-content:is([selected="true"]) .tab-label{color: #00c79a !important;} 
+.identity-color-blue >.tab-stack > .tab-content .tab-label{color: #1bbfff !important;}
+.identity-color-green >.tab-stack > .tab-content .tab-label{color: #6be19c !important; } 
+.identity-color-orange >.tab-stack > .tab-content .tab-label{color: #eb9b37 !important; } 
+.identity-color-red >.tab-stack > .tab-content .tab-label{color: #ff6666 !important;}
+.identity-color-pink >.tab-stack > .tab-content .tab-label{color: #ff99eb !important;} 
+.identity-color-purple >.tab-stack > .tab-content .tab-label{color: #caa4da !important;}
+.identity-color-yellow >.tab-stack > .tab-content .tab-label{color: #e6b803 !important;}
+.identity-color-turquoise >.tab-stack > .tab-content .tab-label{color: #00c79a !important;} 
