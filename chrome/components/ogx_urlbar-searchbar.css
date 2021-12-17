@@ -22,10 +22,12 @@
 /*Vizualización correcta del porcentaje de zoom mostrado en la urlbar*/
 #urlbar-zoom-button {padding: 0px 2px !important;}
 
-/*"popup_highlight"*/
+/*"popup_highlight" - 1.- keyboard highlight 2.-mouse highlight*/
 .urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
-    background-color: var(--button-active-bgcolor) !important; color: #ffffff !important} 
-
+    background-color: var(--button-active-bgcolor) !important; color: #ffffff !important}
+.urlbarView-row:hover .urlbarView-url {
+    color: #fff !important;
+}
 /*"Urlbar"*/
 #urlbar{min-height: 26px !important;}
 #urlbar:not([open=true]){margin-top: -1px !important;}
