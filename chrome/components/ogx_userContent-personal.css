@@ -46,7 +46,7 @@ window, dialog {                                                                
     --in-content-primary-button-background-active: var(--general-color) !important;  /*color de los radiobutton (clic) con check*/
                       
     --in-content-box-background:color-mix(in srgb,var(--in-content-page-background)
-        94% ,var(--in-content-text-color)) !important;                                  /*color de los textbox y fondo de menús desplegables*/
+        64% ,black) !important;                                                         /*color de los textbox y fondo de menús desplegables*/
     --in-content-box-border-color: var(--general-color) !important;                     /*color del borde de los textbox*/
     --in-content-box-background-odd: color-mix(
         in srgb, var(--general-color) 20%, transparent) !important;                     /*color destinción entre filas de una tabla-atajos de busqueda*/
@@ -202,8 +202,8 @@ window, dialog {                                                                
 
 /*Colores varios de la interfaz de complementos y configuración*/
 @-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support) {
-button:not(.category) {background-color:color-mix(in srgb, var(--in-content-page-background)94%, var(--general-color)) !important;
-    border-color: color-mix(in srgb, var(--general-color) 40%, transparent) !important;} /*color de botones */
+button:not(.category) {background-color: var(--in-content-page-background) !important;
+    border-color: color-mix(in srgb, var(--general-color), transparent) !important;} /*color de botones */
 button:hover {background-color: var(--general-color) !important; color: #fafafa !important; border-color: var(--general-color) !important;}
 #categories > .category{background-color: var(--in-content-page-background) !important;}
 #categories > .category:hover{background-color: color-mix(in srgb, var(--general-color)75%, transparent) !important; color: White !important;}
@@ -212,7 +212,7 @@ button:hover {background-color: var(--general-color) !important; color: #fafafa 
 button.primary {background-color: color-mix(in srgb, var(--general-color)26%, transparent) !important;  color: white !important;}   
 button.primary:hover {background-color: var(--general-color) !important;  color: #eaeaea !important;}
 th.column{color: #eaeaea !important; background-color:color-mix(in srgb, var(--general-color)20%, transparent)  !important;}
-panel-list {background:color-mix(in srgb, var(--in-content-page-background)94%, var(--general-color))!important;}
+panel-list {background: var(--in-content-page-background) !important;}
 .dialogBox {--in-content-page-background: #101019 !important;} /*Color de ventana de ventanas emergentes en "configuración"*/
 .subcategory:not([hidden]) ~ .subcategory { border-image: var(--panel-separator-zap-gradient) 1 !important;} /*Linea separadora en "configuración"*/
 }
