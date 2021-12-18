@@ -15,8 +15,8 @@
   
   --arrowpanel-background: #181322 !important;                                 /*"popup": "#1c1b22Fa"*/
   --arrowpanel-color: var(--lwt-tab-text) !important;                          /*"popup_text": "#dfdfdf"*/  
-  --arrowpanel-border-color: color-mix(in srgb, var(--general-color)           /*"popup_border": "#304f60"*/
-    10%, var(--arrowpanel-background) ) !important;
+  --arrowpanel-border-color: var(--lwt-accent-color,
+    var(--lwt-frame)) !important;                                              /*"popup_border": "#304f60"*/    
 /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);      /*"popup_highlight": "#006f80"*/
   
   /*--lwt-popup-brighttext-url-color: var(--general-color) !important;          /*"color de label: El sitio no funciona?"*/
