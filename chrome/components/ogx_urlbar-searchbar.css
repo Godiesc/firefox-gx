@@ -55,6 +55,16 @@
     border-radius: 0 0 4px 4px !important;
     --arrowpanel-border-color: var(--general-color) !important;
 }
+/*Páginas de extensiones*/
+
+#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
+    background: transparent !important;
+    padding-left:3px !important;
+    padding-right:4px !important;
+}
+#identity-box.extensionPage label{
+    display: none !important;
+}
 /*Páginas seguras de firefox"*/
 
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button:hover:not([open]), #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button:hover:not([open]) {
