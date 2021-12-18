@@ -59,6 +59,8 @@
   --panel-subview-body-padding: 4px 0px !important;                                   /*Padding menús*/
   --arrowpanel-padding: 1.3em !important;                                             /*Otro padding de menús*/
   --arrowpanel-menuitem-margin: 0 0px !important;                                     /*margenes de menús*/
+   
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, black) !important;   /*Color input backgrond en Marcadores*/
   
   --arrowpanel-menuitem-border-radius: 0px !important;                                /*forma de menuitems :hover*/
   --panel-separator-margin-vertical: 4px;                                             /*margen vertical entre los separadores*/
