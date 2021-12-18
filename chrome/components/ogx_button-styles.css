@@ -84,3 +84,13 @@ richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel
   margin-top: 4px !important;
   margin-inline-start: 4px !important;
 }
+/*Color de iconos de la toolbar cuando están activos(dado clic)*/
+
+#nav-bar .toolbarbutton-1:active:not([disabled="true"]) > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1:active:not([disabled="true"]) > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1:active:not([disabled="true"]) > .toolbarbutton-badge-stack,
+#nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
+    fill: var(--general-color)
+}
