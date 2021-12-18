@@ -57,7 +57,9 @@ window, dialog {                                                                
         var(--general-color) !important;                                            /*color de la label colorida y de enlaces*/
     --in-content-deemphasized-text: #fff !important;                                /*color de la descripción  de los temas y extensiones*/
   
-    --in-content-border-color:  var(--general-color) !important;                    /*Linea separadora en la configuración*/                    
+    --in-content-border-color:  var(--general-color) !important;                    /*Linea separadora en la configuración*/
+    --in-content-table-border-color: color-mix(
+        in srgb, var(--general-color) 50%, transparent) !important;                 /*Borde de tablas*/
   
     --in-content-button-background: #282337 !important;                             /*color de botones*/
     --in-content-button-background-hover: color-mix(in srgb, 
@@ -212,6 +214,7 @@ button:hover {background-color: var(--general-color) !important; color: #fafafa 
 button.primary {background-color: color-mix(in srgb, var(--general-color)26%, transparent) !important;  color: white !important;}   
 button.primary:hover {background-color: var(--general-color) !important;  color: #eaeaea !important;}
 th.column{color: #eaeaea !important; background-color:color-mix(in srgb, var(--general-color)20%, transparent)  !important;}
+td { border: 1px solid var(--in-content-table-border-color) !important;}
 panel-list {background: var(--in-content-page-background) !important;}
 .dialogBox {--in-content-page-background: #101019 !important;} /*Color de ventana de ventanas emergentes en "configuración"*/
 .subcategory:not([hidden]) ~ .subcategory { border-image: var(--panel-separator-zap-gradient) 1 !important;} /*Linea separadora en "configuración"*/
