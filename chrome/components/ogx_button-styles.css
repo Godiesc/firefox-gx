@@ -34,7 +34,7 @@
 /*Color del botón menú deplegable*/
 
 panel menulist, panel menulist:not([open]) {
-    box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--general-color) 100%, var(--lwt-tab-text, Field)) !important;
+    box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--general-color) 50%, var(--arrowpanel-background)) !important;
     border-radius: 0px !important;
 }
 panel menulist:hover, panel menulist[open] {
@@ -45,7 +45,7 @@ panel menulist:hover, panel menulist[open] {
 /*Color -fondo y borde-(flecha hacia abajo)*/
 
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
-    border-color: color-mix(in srgb, var(--general-color) 100%, var(--lwt-tab-text, Field)) !important;
+    border-color: color-mix(in srgb, var(--general-color) 50%, var(--arrowpanel-background)) !important;
     border-radius: 0px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
