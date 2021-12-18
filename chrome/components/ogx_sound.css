@@ -68,10 +68,10 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
     stroke: color-mix(in srgb, var(--general-color) 65%, transparent)  !important; transition-duration: 0ms !important;
   fill-opacity: 1 !important; animation: none !important;}
 
-  /*Compartiendo microfono y cámara*/
-  .tab-icon-overlay:not([crashed]):is([sharing]) {top: 10px !important; stroke: transparent !important;} 
-
+ /*Compartiendo microfono y cámara*/
+  .tab-icon-overlay:not([crashed]):is([sharing]) {top: 16px !important; stroke: transparent !important; background-color: transparent !important;} 
 /*Añadido*/
+
 /*----ícono "reproduciendo" hover----*/
 
 tab:not([pinned])[selected] .tab-icon-overlay:not([pinned])[soundplaying]:hover, tab:is([pinned][selected]) .tab-icon-overlay:is([pinned][soundplaying]):hover {
