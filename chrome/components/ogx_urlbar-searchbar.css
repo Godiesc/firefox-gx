@@ -4,7 +4,7 @@
 /*"toolbar_top_separator": "#17161c"*/
 #navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
 #nav-bar{    
-    border-top: 1px solid var(--identity-tab-color , var(--toolbar-bgcolor)) !important;
+    border-top: 1px solid var(--toolbar-bgcolor) !important;    
     border-image: var(--panel-separator-zap-gradient2) 1 !important; margin-top: -1px !important;
     padding-top:1px !important;
     padding-bottom:1px !important;
@@ -26,7 +26,7 @@
 .urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
     background-color: var(--button-active-bgcolor) !important; color: #ffffff !important}
 .urlbarView-row:hover .urlbarView-url {
-    color: #fff !important;
+    color: var(--toolbar-field-focus-color) !important;
 }
 /*"Urlbar"*/
 #urlbar{min-height: 26px !important;}
