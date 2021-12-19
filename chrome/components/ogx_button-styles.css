@@ -30,7 +30,7 @@
 }
 /*Color del botón menú deplegable*/
 panel menulist, panel menulist:not([open]) {
-    box-shadow: inset 0 0 0 1px var(--button-bgcolor) !important;
+    box-shadow: inset 0 0 0 1px var(--button-hover-bgcolor) !important;
     border-radius: 0px !important;
 }
 panel menulist:hover, panel menulist[open] {
@@ -40,7 +40,7 @@ panel menulist:hover, panel menulist[open] {
 }
 /*Color -fondo y borde-(flecha hacia abajo)*/
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
-    border-color: var(--button-bgcolor) !important;
+    border-color: var(--button-hover-bgcolor) !important;
     border-radius: 0px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
