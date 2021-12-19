@@ -7,8 +7,8 @@
 #customization-container {color: var(--lwt-text-color) !important; background-color: var(--toolbar-bgcolor) !important;} 
 
 .customizationmode-button {
-    background-color: color-mix(in srgb, var(--button-primary-bgcolor) 10%, transparent) !important;
-    border-color: var(--general-color) !important;
+    background-color: var(--toolbar-bgcolor) !important;
+    border-color: var(--button-hover-bgcolor) !important;
     color: var(--lwt-tab-text) !important;
     border-radius: 4px !important;
 }
@@ -27,7 +27,6 @@
     border-color: var(--general-color) !important;
 }
 /*Borde Redondeado - menú de debordamiento*/
-
 .panel-arrowcontent {
     border-radius: 0px !important;
 }
