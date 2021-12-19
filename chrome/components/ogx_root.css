@@ -94,7 +94,7 @@
     --focus-outline-color: var(--general-color) !important;
 
     /*Color borde en InputText*/
-    --input-border-color: var(--focus-outline-color) !important;
+    --input-border-color: var(--button-hover-bgcolor) !important;
 
     /*Colores checkbox —v*/
     --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;
