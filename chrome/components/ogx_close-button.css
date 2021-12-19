@@ -2,18 +2,17 @@
    https://github.com/Godiesc/opera-gx */
 
 /*"Botón de cerrar pestaña"*/
-.tab-close-button {
-    margin-inline-start: 0px !important;
+.tab-close-button {    
     width: 18px !important;
     height: 18px !important;
-    padding: 4px !important;
-    margin-inline-end: -5px !important;
-    border-radius: 10px !important;
+    padding: 4px !important;   
+    border-radius: 0px !important;
     margin-top: -2px !important;
 }
 .tab-close-button:hover {
     background-color: var(--lwt-frame, var(--lwt-accent-color)) !important;
-    color: var(--general-color) !important;    
+    color: var(--identity-tab-color, var(--general-color)) !important;      
+    padding: 3px !important;
 }
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
     display: -moz-box !important
