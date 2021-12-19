@@ -9,7 +9,6 @@
 #editBookmarkPanel toolbarseparator, #downloadsFooterButtons > toolbarseparator, .cui-widget-panelview menuseparator, .cui-widget-panel toolbarseparator {    
     border-image: var(--panel-separator-zap-gradient) 1 !important;   
 }
-
 /*Color label deshabilitado "protección contra rastreo"*/
 .protections-popup-category.notFound {color: #777777 !important;}
 .panel-info-button:not([disabled]):is([checked],:hover, :active) {background-color: var(--button-hover-bgcolor) !important;}
@@ -17,9 +16,12 @@
 
 /*Color Sidebar*/
 #sidebar-box{
-  background-color: var(--toolbar-bgcolor) !important;
+ --sidebar-background-color: var(--toolbar-bgcolor) !important;
 }
-
+#sidebar-switcher-target:is(:hover, [open]) {    
+    color: var(--general-color) !important;
+    outline: 1px solid var(--button-hover-bgcolor) !important;
+}
 /*-----------------íconos en el menú de hamburguesa----------------------*/
 
 /*Posicion y margen de los íconos*/
