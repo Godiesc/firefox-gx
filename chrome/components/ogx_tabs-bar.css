@@ -63,7 +63,7 @@
 .tabbrowser-tab .tab-content {margin-top: 2px !important; height: 31px !important;}
 .tabbrowser-tab:not([pinned], [multiselected])[selected="true"] .tab-content:not([multiselected]) {
     background-color: var(--toolbar-bgcolor) !important;
-    border-radius: 5px 2px 0 0 !important;    
+    border-radius: 6px 2px 0 0 !important;    
 }
 .tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: 32px !important; margin-left: -1px !important; margin-right: -1px !important;}
 .tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
@@ -73,5 +73,5 @@
 .tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: 2px !important; height: 31px !important;}
 .tabbrowser-tab:is([pinned])[selected="true"]:not([multiselected]) .tab-content {
     background-color: var(--toolbar-bgcolor) !important;
-    border-radius: 5px 2px 0 0 !important;   
+    border-radius: 6px 2px 0 0 !important;   
 }
