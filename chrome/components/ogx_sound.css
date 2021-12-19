@@ -8,12 +8,8 @@
     from { transform: scale(1.0, 1.0); }
       to { transform: scale(0.6, 1.0); }
 }
-
 /*--------ícono de sonido simpre visible en pestañas con sonido, sin dejar de mostrar el favicon-------*/
 
-/*.tab-icon-image:not([pinned]) {
-    opacity: 1 !important;
-}*/
 .tab-icon-overlay, .tab-icon-overlay:is([pinned]) {
     height:13px !important;
     width: 14px !important;
@@ -64,29 +60,25 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
 .tabbrowser-tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{border-radius: 10px !important; top: 0px !important; left: 0px !important; 
   width: 16px !important; height: 16px !important;
     color: black !important; 
-    background: color-mix(in srgb, var(--general-color) 65%, transparent)  !important; transition-duration: 0ms !important;
-    stroke: color-mix(in srgb, var(--general-color) 65%, transparent)  !important; transition-duration: 0ms !important;
+    background: var(--general-color)  !important; transition-duration: 0ms !important;
+    stroke: var(--general-color)  !important; transition-duration: 0ms !important;
   fill-opacity: 1 !important; animation: none !important;}
 
- /*Compartiendo microfono y cámara*/
+  /*Compartiendo microfono y cámara*/
   .tab-icon-overlay:not([crashed]):is([sharing]) {top: 16px !important; stroke: transparent !important; background-color: transparent !important;} 
-/*Añadido*/
 
+/*Añadido*/
 /*----ícono "reproduciendo" hover----*/
 
-tab:not([pinned])[selected] .tab-icon-overlay:not([pinned])[soundplaying]:hover, tab:is([pinned][selected]) .tab-icon-overlay:is([pinned][soundplaying]):hover {
-    list-style-image: url("../images/muted.svg") !important;
-    stroke: var(--toolbar-bgcolor) !important;
-    color: var(--general-color) !important;
-    background-color: var(--toolbar-bgcolor) !important;
+tab:not([pinned])[selected] .tab-icon-overlay:not([pinned])[soundplaying]:hover {
+    list-style-image: url("../images/muted.svg") !important;        
+    transform: scale(1.1) !important;
+    padding: 1px !important;
 }
-tab:not([pinned], [selected]) .tab-icon-overlay:hover:is([sharing], [soundplaying]) {
-    color: var(--lwt-tab-text) !important;
-    list-style-image: url("../images/muted.svg") !important;
-    background: color-mix(in srgb, var(--general-color) 11%, var(--toolbar-bgcolor)) !important;
-    stroke: color-mix(in srgb, var(--general-color) 11%, var(--toolbar-bgcolor)) !important;
-    opacity: 1 !important;
-    color: var(--lwt-tab-text) !important;
+tab:not([pinned], [selected]) .tab-icon-overlay:hover:is([sharing], [soundplaying]) {   
+    list-style-image: url("../images/muted.svg") !important;        
+    transform: scale(1.1) !important;
+    padding: 1px !important;    
 }
 /*------muteado-------*/
 
