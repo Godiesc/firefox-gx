@@ -1,13 +1,13 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-:root{  
+:root{   
   --lwt-accent-color: #08080d !important;                                      /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                      /*"frame": "#17161c" */
   --lwt-text-color: #b3b3b3 !important;                                        /*"tab_background_text": "#c3c3c3"*/
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;      /*"frame_inactive": "#17161c" */
   
-  --lwt-tab-text: #ffffff !important;                                          /*"tab_text": "#ffffff"*/
+  --lwt-tab-text: #eaeaea !important;                                          /*"tab_text": "#ffffff"*/
   
   --toolbar-bgcolor: #101019 !important;                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   
@@ -69,14 +69,14 @@
   
   --button-bgcolor: color-mix(in srgb, var(--general-color) 20%, transparent) !important;             /*Color de butons*/
   --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 50%, transparent) !important;       /*Color de fondo de menuitems :hover*/
-  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 60%, transparent) !important;      /*color clic en menuitems*/
+  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 65%, transparent) !important;      /*color clic en menuitems*/
   
   --urlbar-icon-padding: 4px !important;                                                              /*padding de los iconos de la urlbar*/
   --panel-separator-color: color-mix(in srgb, var(--general-color) 50%, transparent) !important;      /*separadores de menu desplegable de marcadores*/
   
-  --urlbar-popup-url-color: color-mix(in srgb, var(--general-color) 86%, var(--lwt-tab-text)) !important;                                          /*Color urls de sujerencias de búsqueda*/
-  --autocomplete-popup-hover-background: var(--button-active-bgcolor) !important;                     /*Color hover de sujerencias de búsqueda*/
-  --autocomplete-popup-separator-color: var(--toolbar-field-focus-background-color) !important;                                       /*color separador urlbar y sugerencias de búsqueda*/
+  --urlbar-popup-url-color: color-mix(in srgb, var(--general-color) 86%, var(--lwt-tab-text)) !important;    /*Color urls de sujerencias de búsqueda*/
+  --autocomplete-popup-hover-background: var(--button-active-bgcolor) !important;                            /*Color hover de sujerencias de búsqueda*/
+  --autocomplete-popup-separator-color: var(--toolbar-field-focus-background-color) !important;              /*color separador urlbar y sugerencias de búsqueda*/
   
   /*ColorBotónGuardar*/
     --button-primary-bgcolor: var(--button-hover-bgcolor) !important;
