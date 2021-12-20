@@ -2,6 +2,8 @@
    https://github.com/Godiesc/opera-gx */
 
 /*-"Radiobutton"-ProtecciónAntirastreo*/
+.protections-popup-tp-switch:not([enabled]){background-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;}
+.protections-popup-tp-switch:not([enabled]):hover{background-color: var(--button-bgcolor) !important;}
 .protections-popup-tp-switch[enabled]:hover {
     background-color: var(--general-color) !important;
     border-color: transparent !important;
