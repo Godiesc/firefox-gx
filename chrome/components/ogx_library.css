@@ -14,7 +14,7 @@
         margin: 2px 2px 2px 2px !important;
     }
     #main-menubar> :hover, menubar>menu[_moz-menuactive="true"][open="true"] {
-        background: var(--general-color, #0060bf) !important;
+        background: var(--button-active-bgcolor, #0060bf) !important;
     }
     toolbar {
         background-color: var(--organizer-pane-background) !important;
@@ -48,7 +48,7 @@
         margin-bottom: 2px !important;
     }
     #contentView treecol:hover{
-        background-color: var(--general-color, #0060bf) !important;
+        background-color: var(--button-active-bgcolor, #0060bf) !important;
     }
     #placeContent treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text() {
         color: var(--organizer-color) !important;
@@ -64,11 +64,11 @@
     /*Fondo inputText al Editar*/
     #editBookmarkPanelRows>vbox>input, #editBookmarkPanelRows>vbox>hbox>input {
         background: color-mix(in srgb, var(--organizer-pane-background) 90%, var(--organizer-color)) !important;
-        border-color: var(--general-color, #0060bf) !important;
+        border-color: var(--button-active-bgcolor, #0060bf) !important;
     }
     /*Color "selected" de items*/
     #places treechildren:not(.autocomplete-treebody)::-moz-tree-row(selected), #placesList>treechildren::-moz-tree-row(selected) {
-        background: linear-gradient(to right, var(--general-color, #0060bf) 70%, var(--toolbar-bgcolor) 100%) !important;
+        background: linear-gradient(to right, var(--button-active-bgcolor, #0060bf) 70%, var(--toolbar-bgcolor) 100%) !important;
         margin-left: 2px !important;
         margin-right:  2px !important;
         border-radius: 4px !important;
