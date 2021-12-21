@@ -58,28 +58,6 @@ menuseparator {
 menu[disabled="true"], menuitem[disabled="true"] {
     color: color-mix(in srgb, var(--arrowpanel-background)80%, var(--arrowpanel-color)) !important;
 }
-/*Color letras :hover al pasar mouse sobre items del menú*/
-
-panel treechildren::-moz-tree-row(selected), panel button:hover, menu:not([disabled="true"]):hover, menu[_moz-menuactive], menu[open], menuitem:not([disabled="true"]):hover, menuitem:not([disabled="true"])[_moz-menuactive] {
-    color: var(--arrowpanel-color) !important;
-}
-/*Color letras del menú desplegable*/
-
-#editBMPanel_folderMenuList>menupopup>menuitem {
-    color: var(--arrowpanel-color) !important;
-}
-/*Margenes menú desplegable marcadores*/
-
-#PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader {  
-    margin-left: 0px !important;
-    margin-right: 0px !important;     
-}
-/*Separador de items menú desplegable marcadores*/
-
-#PlacesToolbar menupopup[placespopup="true"] menuseparator{
-   margin-left: 4px !important;
-   margin-right: 4px !important;
-}
 /*Aspecto cuadro deplegable mouse hover*/
 
 #tabbrowser-tab-tooltip,#places-tooltip-insecure-icon,
@@ -90,7 +68,7 @@ panel treechildren::-moz-tree-row(selected), panel button:hover, menu:not([disab
 	color: var(--lwt-tab-text) !important;
 	width: auto !important;
 	height: auto !important;
-	background: color-mix(in srgb, var(--arrowpanel-background) 94%, white) !important;    
+	background: color-mix(in srgb, var(--arrowpanel-background) 92%, white) !important;    
 	border-color: color-mix(in srgb, var(--arrowpanel-background), black) !important;    
 	margin-inline-start: 4x !important;
     margin-inline-end: 4x !important;
