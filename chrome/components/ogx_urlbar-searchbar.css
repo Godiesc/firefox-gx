@@ -33,7 +33,9 @@
     margin-inline-start: 0px !important;
     margin-inline-end: 0px !important;
     width: -moz-available !important; }
-.urlbarView-row-inner{ padding-left: 10px !important;
+.urlbarView-row-inner{ padding-left: 10px !important;}
+#urlbar .search-panel-header{ padding-left: 8px !important; }
+#urlbar .search-one-offs {padding-right: 6px !important; 
 }
 /* Urlbar */
 #urlbar{min-height: 26px !important;}
