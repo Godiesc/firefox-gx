@@ -12,14 +12,14 @@
                                                                    |      
     Acent color obtenido del tema que uses. |                      |
                                             v                      v     */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--green));
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
    
   /*-----------------------------------Gradientes------------------------------------*/
   --gradient: linear-gradient(to bottom right, color-mix(in srgb, var(--general-color) 90%, var(--lwt-tab-text)) , var(--general-color), color-mix(in srgb, var(--general-color) 80%, black)) !important;                                     
-  --panel-separator-zap-gradient: linear-gradient(to left, var(--general-color) , #ff000000) !important;
-  --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 80%, var(--toolbar-bgcolor)) 80% , transparent 100%) !important;
+  --panel-separator-zap-gradient: linear-gradient(to left, var(--button-active-bgcolor) , #ff000000) !important;
+  --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 80%, var(--toolbar-bgcolor, Field)) 80% , transparent 100%) !important;
   
-  --button-bgcolor: color-mix(in srgb, var(--general-color) 20%, transparent) !important;             /*Color de buttons*/
-  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 50%, transparent) !important;       /*Color de fondo de menuitems :hover*/
-  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 65%, transparent) !important;      /*color clic en menuitems*/
+  --button-bgcolor: color-mix(in srgb, var(--general-color) 10%, transparent) !important;             /*Color de buttons*/
+  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color de fondo de menuitems :hover*/
+  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /*color clic en menuitems*/
 }
