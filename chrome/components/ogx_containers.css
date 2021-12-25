@@ -8,7 +8,7 @@
 .identity-color-blue {--identity-tab-color: #2574A7 !important; --identity-icon-color: #2574A7 !important;}
 .identity-color-green {--identity-tab-color: #1E934F !important; --identity-icon-color: #1Eb34F !important;}
 .identity-color-orange {--identity-tab-color: #e67e22 !important; --identity-icon-color: #e67e22 !important;}
-.identity-color-red {--identity-tab-color: #ff392b !important; --identity-icon-color: #dd293b !important; }
+.identity-color-red {--identity-tab-color: #ff3940 !important; --identity-icon-color: #ff3940 !important; }
 .identity-color-pink {--identity-tab-color: #ff33bb !important; --identity-icon-color: #ff33bb !important;}
 .identity-color-purple {--identity-tab-color: #813E9D !important; --identity-icon-color: #813E9D !important;}
 .identity-color-yellow {--identity-tab-color: #e6b803 !important; --identity-icon-color: #e6b803 !important;}
@@ -17,7 +17,7 @@
 .identity-color-blue >.tab-stack > .tab-content .tab-label{color: #1bbfff !important;}
 .identity-color-green >.tab-stack > .tab-content .tab-label{color: #6be19c !important; } 
 .identity-color-orange >.tab-stack > .tab-content .tab-label{color: #eb9b37 !important; } 
-.identity-color-red >.tab-stack > .tab-content .tab-label{color: #ff4455 !important;}
+.identity-color-red >.tab-stack > .tab-content .tab-label{color: #ff3940 !important;}
 .identity-color-pink >.tab-stack > .tab-content .tab-label{color: #ff99eb !important;} 
 .identity-color-purple >.tab-stack > .tab-content .tab-label{color: #caa4da !important;}
 .identity-color-yellow >.tab-stack > .tab-content .tab-label{color: #e6b803 !important;}
