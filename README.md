@@ -1,17 +1,9 @@
 # Opera-Gx
 Firefox Theme CSS to Opera GX Lovers. 
 
-![imagen](https://user-images.githubusercontent.com/22057609/147390489-26ab41d5-b259-4f00-a31c-d0ba3d114ea1.png)
+![Opera_GX](https://user-images.githubusercontent.com/22057609/147392240-aad0b30b-baf0-4cb3-a140-6ffcddaf09a2.png)
 
-https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/
-
-![imagen](https://user-images.githubusercontent.com/22057609/147390542-6e4d71fe-d00e-4f10-8355-f81963bda5a9.png)
-
-![imagen](https://user-images.githubusercontent.com/22057609/147390602-28d383d9-489f-417f-b555-06b6a23466e1.png)
-
-![imagen](https://user-images.githubusercontent.com/22057609/147390658-eb5d82b2-7d36-4072-b42e-68ef02dbc1dd.png)
-
-![imagen](https://user-images.githubusercontent.com/22057609/147390779-9656bb0d-c559-41cf-9875-8ae46f8188e2.png)
+![SplashOperaGX](https://user-images.githubusercontent.com/22057609/147392243-069c4bd3-e68f-4149-973e-a512c01e4e5a.png)
 _____________________________________________________________________________________________________________________________________________________
 # How to install
 Theme to Opera GX Lovers. v89-90 versions of the browser.
