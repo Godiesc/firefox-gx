@@ -1,7 +1,7 @@
 # Opera-Gx
 Firefox Theme CSS to Opera GX Lovers. 
 
-![imagen](https://user-images.githubusercontent.com/22057609/147390459-492e59ba-90fb-40ec-a83e-2e6e50e2687c.png)
+![imagen](https://user-images.githubusercontent.com/22057609/147390489-26ab41d5-b259-4f00-a31c-d0ba3d114ea1.png)
 
 ![imagen](https://user-images.githubusercontent.com/22057609/146305253-e257fbc0-993b-4e79-a0b4-0c0e6c95228b.png)
 
