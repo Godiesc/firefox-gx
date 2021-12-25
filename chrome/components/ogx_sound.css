@@ -118,11 +118,15 @@ tab:not([pinned], [selected]) .tab-icon-overlay:hover:is([sharing], [soundplayin
 
 .tab-icon-overlay:is([pinned][muted]) {
     list-style-image: url("../images/muted.svg") !important;
+    top: -4px !important;
+    left: 12px !important;
 }
 .tab-icon-overlay:is([pinned][soundplaying]) {
     stroke: var(--lwt-accent-color) !important;
     color: var(--lwt-tab-text) !important;
     background-color: var(--lwt-accent-color) !important;
+    top: -4px !important;
+    left: 12px !important;
 }
 /*ícono "reproduciendo" y "muteado" Pinned :hover*/
 
