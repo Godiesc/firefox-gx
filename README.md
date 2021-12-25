@@ -9,6 +9,8 @@ https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/
 
 ![imagen](https://user-images.githubusercontent.com/22057609/147390602-28d383d9-489f-417f-b555-06b6a23466e1.png)
 
+![imagen](https://user-images.githubusercontent.com/22057609/147390658-eb5d82b2-7d36-4072-b42e-68ef02dbc1dd.png)
+
 # How to install
 Theme to Opera GX Lovers. v89-90 versions of the browser.
 
