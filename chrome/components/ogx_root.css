@@ -15,7 +15,7 @@
   
   --arrowpanel-background: #181322 !important;                                 /*"popup": "#1c1b22Fa"*/
   --arrowpanel-color: var(--lwt-tab-text) !important;                          /*"popup_text": "#dfdfdf"*/  
-  --arrowpanel-border-color: var(--lwt-accent-color,
+  --arrowpanel-border-color: var(--toolbarbutton-hover-background,
     var(--lwt-frame)) !important;                                              /*"popup_border": "#304f60"*/    
 /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);      /*"popup_highlight": "#006f80"*/
   
@@ -75,13 +75,13 @@
   --autocomplete-popup-separator-color: var(--toolbar-field-focus-background-color) !important;              /*color separador urlbar y sugerencias de búsqueda*/
   
   /*ColorBotónGuardar*/
-    --button-primary-bgcolor: var(--button-hover-bgcolor) !important;
+    --button-primary-bgcolor: var(--button-active-bgcolor) !important;
 
     /*ColorLetrasBotónGuardar*/
     --button-primary-color: #eaeaea !important;
 
     /*ColorBotónGuardar:Hover*/
-    --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;
+    --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;
 
     /*ColorBotónGuardar:clic*/
     --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;
