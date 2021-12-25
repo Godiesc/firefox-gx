@@ -11,7 +11,7 @@
 }
 .tab-close-button:hover {
     background-color: var(--lwt-frame, var(--lwt-accent-color)) !important;
-    color: var(--identity-tab-color, var(--general-color)) !important;
+    color: var(--identity-tab-color, var(--general-color)) !important;      
 }
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
     display: -moz-box !important
