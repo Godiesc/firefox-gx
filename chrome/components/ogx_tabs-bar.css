@@ -2,7 +2,7 @@
    https://github.com/Godiesc/opera-gx */
 
 /*Imagenes superiores*/
- #navigator-toolbox { background-image:  none !important;}
+/*#navigator-toolbox { background-image:  none !important;}*/
 
 /*Color bolita de cargando página*/
 #tabbrowser-tabs{
@@ -23,9 +23,10 @@
 .tab-icon-stack .tab-icon-image[src="chrome://branding/content/icon32.png"] {
     background: url("../images/foxlogo1.svg")!important;
     background-size: 16px !important;
-    padding-left: 16px !important;
+    padding-left: 18px !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    fill: var(--identity-icon-color, var(--general-color)) !important;
 }
 /*"tab_line": "#126e82"*/
 #tabbrowser-tabs {--tab-line-color: transparent !important}
@@ -52,7 +53,8 @@
     margin-inline-start: 4px !important;
 }
 /*Pestaña activa*/
-.tab-label, .tab-icon-image, .tab-icon-overlay, tab-icon-pending, .tab-sharing-icon-overlay { margin-top: -2px !important;
+.tab-label, .tab-icon-image, .tab-icon-overlay,
+.tab-icon-pending, .tab-sharing-icon-overlay, .tab-throbber { margin-top: -2px !important;
 }
 .tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 2px !important}
 .tabbrowser-tab .tab-background{height: 32px !important; margin-left: -1px !important; margin-right: -1px !important}
