@@ -1,5 +1,5 @@
 # Opera-Gx
-Firefox Theme CSS to Opera GX Lovers. <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">Blue</a>
+Firefox Theme CSS to Opera GX Lovers. <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">Fuchsia 🔴</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">Blue 🔵</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-green-dark/">Geen 🟢</a> <a href= "https://addons.mozilla.org/es/firefox/addon/hexadorsip_operagx-2020/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser">Personalizado 🌈</a>
 
 ![Opera_GX](https://user-images.githubusercontent.com/22057609/147392240-aad0b30b-baf0-4cb3-a140-6ffcddaf09a2.png)
 
