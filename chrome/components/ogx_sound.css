@@ -32,13 +32,14 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
     opacity: 1 !important;    
 }
 .tab-icon-overlay[activemedia-blocked] {
+    top: 2px !important;
     stroke: #d10000cc !important;
     fill: #ffffff !important;
     border-radius: 10px !important;    
     animation: none !important;
     height: 16px !important;
     width: 16px !important;   
-    left: 0 !important;
+    left: -1px !important;
 }
 .tab-icon-overlay[activemedia-blocked]:hover {
     stroke: #d10000cc !important;
@@ -53,11 +54,11 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
 }
 /*------ícono  reproduciendose-------*/
 @keyframes slide2{ from { transform: scale(1.0,1.0);}to {transform: scale(0.5,0.5);}}
-.tab-icon-overlay:is([soundplaying]):not([pinned]) {border-radius: 10px !important; top: 17px !important; left: 8px !important; 
+.tab-icon-overlay:is([soundplaying]):not([pinned]) {border-radius: 10px !important; top: 19px !important; left: 8px !important; 
   width: 12px !important; height: 3px !important; opacity: 1 !important;
   color: transparent !important; background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important; stroke: transparent !important;
   animation: 500ms infinite ease-in-out; animation-name: slide1;} 
-.tabbrowser-tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{border-radius: 10px !important; top: 0px !important; left: 0px !important; 
+.tabbrowser-tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{border-radius: 10px !important; top: 2px !important; left: 0px !important; 
   width: 16px !important; height: 16px !important;
     color: black !important; 
     background: var(--general-color)  !important; transition-duration: 0ms !important;
@@ -65,7 +66,7 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
   fill-opacity: 1 !important; animation: none !important;}
 
   /*Compartiendo microfono y cámara*/
-  .tab-icon-overlay:not([crashed]):is([sharing]) {top: 16px !important; stroke: transparent !important; background-color: transparent !important;} 
+  .tab-icon-overlay:not([crashed]):is([sharing]) {top: 17px !important; stroke: transparent !important; background-color: transparent !important;} 
 
 /*Añadido*/
 /*----ícono "reproduciendo" hover----*/
@@ -84,7 +85,7 @@ tab:not([pinned], [selected]) .tab-icon-overlay:hover:is([sharing], [soundplayin
 
 .tab-icon-overlay[muted]:not([pinned]) {
     border-radius: 10px !important;
-    top: 0px;
+    top: 2px;
     left: 0px !important;
     margin-right: 0px !important;
     animation: none !important;
