@@ -22,9 +22,9 @@ window, dialog {                                                                
     --in-content-box-background: #1d1d38  !important;
     --in-content-box-border-color: #3d3d88  !important;
     
-    --in-content-button-background: #2B2A4f !important;                         /*color de botones*/
-    --in-content-button-background-hover: var(--general-color) !important;      /*color de botones :hover*/
-    --in-content-button-background-active: #101019 !important;                  /*color de botones al darle clic*/    
+    --in-content-button-background: #2B2A4f !important;                             /*color de botones*/
+    --in-content-button-background-hover: var(--button-hover-bgcolor) !important;   /*color de botones :hover*/
+    --in-content-button-background-active: #101019 !important;                      /*color de botones al darle clic*/    
 }
 :host, :root {                                                                  /*Colores varios de paginas de about:addons y about:settings*/
     --in-content-page-background: #101019 !important;                           /*Fondo general*/
@@ -62,9 +62,7 @@ window, dialog {                                                                
         in srgb, var(--general-color) 50%, transparent) !important;                 /*Borde de tablas*/
   
     --in-content-button-background: #282337 !important;                             /*color de botones*/
-    --in-content-button-background-hover: color-mix(in srgb, 
-        var(--in-content-button-background)94%, 
-        var(--in-content-text-color)) !important;                                   /*color de botones :hover*/
+    --in-content-button-background-hover: var(--button-hover-bgcolor) !important;   /*color de botones :hover*/
     --in-content-button-background-active: var(--general-color) !important;         /*color de botones al darle clic*/
   
     --in-content-link-color: #0099ff !important;                                    /*color de links*/
@@ -241,7 +239,7 @@ window, dialog {                                                                
 /*Colores varios de la interfaz de complementos y configuración*/
 @-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support) {    
 button:not(.category) {background-color: var(--in-content-page-background) !important; border-color: color-mix(in srgb, var(--general-color), transparent) !important;}
-button:hover {background-color: var(--general-color) !important; color: #fafafa !important; border-color: var(--general-color) !important;}
+button:hover {background-color: var(--button-hover-bgcolor) !important; color: #fafafa !important; border-color: var(--button-hover-bgcolor) !important;}
 #categories > .category{background-color: var(--in-content-page-background) !important;}
 #categories > .category:hover{background-color: var(--button-hover-bgcolor) !important; color: White !important;}
 #categories > .category[selected]  {background-color: var(--button-active-bgcolor) !important; color: #fff !important;}
@@ -263,7 +261,7 @@ panel-list {background: var(--in-content-page-background) !important;}
 }
 /*Personalizacion de la página newtab*/    
 @-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
- body {background: url("../images/newtab/wallpaper.png") no-repeat fixed !important; background-size: cover !important;} 
+ body {background: url("../images/newtab/wallpaper6.png") no-repeat fixed !important; background-size: cover !important;} 
 .logo-and-wordmark .logo {
     background: url("../images/foxlogo.svg") no-repeat !important; 
     background-size: cover !important; display: inline-block !important;
