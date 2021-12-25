@@ -14,24 +14,23 @@
 }
 /*color Rojo de boton "borrar marcador"*/
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton {
-    background-color: transparent !important;
-    color: #ff3f43 !important;
-    box-shadow: inset 0px 0px 0 1px #ff263f !important;
-    border-radius: 0px !important;
+    background-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
+    color: #eaeaea !important;
+    box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--arrowpanel-background) 78%, var(--lwt-tab-text)) !important;
+    border-radius: 4px !important;
 }
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton:hover {
-    background-color: #ff2626 !important;
+    background-color: #ff3636 !important;
     color: #f0f6fc !important;
     box-shadow: none !important;
-    border-radius: 0px !important;
 }
 /*color letras de boton "Guardar" marcador en :hover*/
-#editBookmarkPanelBottomButtons>#editBookmarkPanelDoneButton {
+#editBookmarkPanelBottomButtons>#editBookmarkPanelDoneButton {   
     color: #eaeaea !important;
-    border-radius: 0px !important;
+    border-radius: 4px !important;
 }
 /*Color del botón menú deplegable*/
-panel menulist, panel menulist:not([open]) {
+panel menulist, panel menulist:not([open]) {    
     box-shadow: inset 0 0 0 1px var(--button-hover-bgcolor) !important;
     border-radius: 0px !important;
 }
