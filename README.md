@@ -5,7 +5,7 @@ Firefox Theme CSS to Opera GX Lovers.
 
 https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/
 
-![imagen](https://user-images.githubusercontent.com/22057609/146305631-e21fe062-8134-41f6-85d3-540df2f58f54.png)
+![imagen](https://user-images.githubusercontent.com/22057609/147390542-6e4d71fe-d00e-4f10-8355-f81963bda5a9.png)
 
 Neutral theme: https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-proton/
 
