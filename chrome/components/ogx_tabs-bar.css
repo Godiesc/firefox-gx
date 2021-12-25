@@ -21,7 +21,7 @@
 }
 /*favicon de pagina newtab*/
 .tab-icon-stack .tab-icon-image[src="chrome://branding/content/icon32.png"] {
-    background: url("../images/foxlogo1.svg")!important;
+    background: url("../images/foxlogofavicon.svg")!important;
     background-size: 16px !important;
     padding-left: 18px !important;
     background-position: center !important;
