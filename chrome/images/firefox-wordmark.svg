@@ -32,22 +32,22 @@
        inkscape:collect="always"
        id="56">
       <stop
-         style="stop-color:#fa00ff;stop-opacity:0.6901961"
-         offset="0"
-         id="stop851" />
+         class="alt-stop"
+         offset="0%"
+         id="stop3" />
       <stop
-         style="stop-color:#00bbff;stop-opacity:1"
+         class="middle-stop"
          offset="1"
-         id="stop853" />
+         id="stop5" />
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
        xlink:href="#56"
        id="linearGradient857"
-       x1="-25.85523"
-       y1="22.018658"
-       x2="226.98471"
-       y2="20.665659"
+       x1="0.1900003"
+       y1="22.695158"
+       x2="172.33842"
+       y2="22.532024"
        gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
@@ -64,10 +64,10 @@
      id="namedview6"
      showgrid="false"
      inkscape:zoom="2.9563954"
-     inkscape:cx="94.881104"
+     inkscape:cx="78.015465"
      inkscape:cy="47.178857"
-     inkscape:window-x="5"
-     inkscape:window-y="79"
+     inkscape:window-x="0"
+     inkscape:window-y="72"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg4"
      inkscape:document-rotation="0" />
