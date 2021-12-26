@@ -10,11 +10,16 @@
 }
 /*Centrar botón "Open Newtab"*/
 #TabsToolbar .toolbarbutton-1 {       
-    fill: var(--general-color) !important;  
-    padding-left: 0px !important;    
+    fill: var(--general-color) !important;
+    padding-left: 1px !important;
+    max-height: 32px !important;
+    min-height: 32px !important;    
+}
+#tabs-newtab-button image{
+    padding: 4px !important; height: 24px !important; width: 24px !important;
 }
 #tabs-newtab-button:hover .toolbarbutton-icon {
-    background: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;    
+    background: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
 }
 /*favicon de pagina newtab*/
 .tab-icon-stack .tab-icon-image[src="chrome://branding/content/icon32.png"] {
