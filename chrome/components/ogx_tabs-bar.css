@@ -12,7 +12,6 @@
 #TabsToolbar .toolbarbutton-1 {       
     fill: var(--general-color) !important;
     padding-left: 1px !important;
-    padding-right: 2px !important;
     max-height: 32px !important;
     min-height: 32px !important;    
 }
