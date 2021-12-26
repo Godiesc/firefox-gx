@@ -1,0 +1,159 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+/*Imagenes superiores*/
+/*#navigator-toolbox { background-image:  none !important;}*/
+
+/*Color bolita de cargando página*/
+#tabbrowser-tabs{
+    --tab-loading-fill: var(--general-color) !important;
+}
+/*Centrar botón "Open Newtab"*/
+#TabsToolbar .toolbarbutton-1 {       
+    fill: var(--general-color) !important;
+    padding-left: 1px !important;    
+    max-height: 32px !important;
+    min-height: 32px !important;    
+}
+#tabs-newtab-button image{
+    padding: 4px !important; height: 24px !important; width: 24px !important; border-radius: 2px !important;
+}
+#tabs-newtab-button:hover .toolbarbutton-icon {
+    background: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
+}
+/*favicon de pagina newtab*/
+.tab-icon-stack .tab-icon-image[src="chrome://branding/content/icon32.png"] {
+    background: url("../images/foxlogofavicon.svg")!important;
+    background-size: 16px !important;
+    padding-left: 18px !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    fill: var(--identity-icon-color, var(--general-color)) !important;
+}
+/*"tab_line": "#126e82"*/
+#tabbrowser-tabs {--tab-line-color: transparent !important}
+#tabbrowser-tabs { --lwt-tab-line-color: var(--gradient, transparent) !important; }
+
+/*"Medidas menores para scroll de pestañas"*/
+#tabbrowser-tabs{ --uc-tabs-scrollbutton-border: 0px !important; }
+#scrollbutton-up, #scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; }
+
+/*Regla para visualizar mejor el seleccionar varias pestañas*/
+.tabbrowser-tab[multiselected]:-moz-lwtheme {
+    color: var(--lwt-tab-text) !important;
+    --tab-line-color: transparent !important;
+}
+.tabbrowser-tab[multiselected]>.tab-stack>.tab-background:is([multiselected]), .tabbrowser-tab>.tab-stack>.tab-content:is([multiselected]) {
+    background: var(--general-color) !important;
+}
+/*Color de las pestañas no seleccionadas*/
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
+  background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; transition-duration: 0ms !important;
+}
+/* Reduce spacing between pinned and regular tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {
+    margin-inline-start: 4px !important;
+}
+/*Pestaña activa*/
+.tab-label, .tab-icon-image, .tab-icon-overlay,
+.tab-icon-pending, .tab-sharing-icon-overlay, .tab-throbber { margin-top: -2px !important;
+}
+.tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 2px !important}
+.tabbrowser-tab .tab-background{height: 32px !important; margin-left: -1px !important; margin-right: -1px !important}
+.tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
+    background-image: var(--gradient) !important;
+    border-radius:6px 2px 0 0 !important;   
+}
+.tabbrowser-tab .tab-content {margin-top: 2px !important; height: 31px !important;}
+.tabbrowser-tab:not([pinned], [multiselected])[selected="true"] .tab-content:not([multiselected]) {
+    background-color: var(--lwt-selected-tab-background-color) !important;
+    border-radius: 6px 2px 0 0 !important;    
+}
+.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: 32px !important; margin-left: -1px !important; margin-right: -1px !important;}
+.tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
+    background-image: var(--gradient) !important;
+    border-radius: 6px 2px 0 0 !important;
+}
+.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: 2px !important; height: 31px !important;}
+.tabbrowser-tab:is([pinned])[selected="true"]:not([multiselected]) .tab-content {
+    background-color: var(--lwt-selected-tab-background-color) !important;
+    border-radius: 6px 2px 0 0 !important;   
+}
+
+/* S E T T I N G S */
+:root {
+  --navbarWidth:36vw; /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/ 
+}
+/* H I D I N G   E L E M E N T S */
+/* Comment or uncomment depending of what elements you want to hide */
+
+/* Back button */
+/* #back-button { display: none !important } */
+
+/* Hide back button only when disabled */
+#back-button[disabled="true"] { display: none !important }
+
+/* Forward button */
+/* #forward-button { display: none !important } */
+
+/* Hide forward button only when disabled */
+#forward-button[disabled="true"] { display: none !important }
+
+/* "Shield" icon */
+#tracking-protection-icon-container { display: none !important }
+
+/* Site information button */
+#identity-box[disabled="true"] { display: none !important }
+
+/* This is the "Search with" indicator on the urlbar */
+/* #urlbar-search-mode-indicator { display: none !important } */
+
+/* Zoom button */
+/* #urlbar-zoom-button { display: none !important } */
+
+/* Page action (right three dash button) */
+/* #pageActionButton { display: none !important } */
+
+/* These are the buttons on the right of the urlbar */
+/* #page-action-buttons { display: none !important } */
+
+/* #urlbar-label-box { display: none !important } */
+
+/* This one is the hamburger menu! */
+/* CAUTION: if you hide this some popups may be bugged */
+/* #PanelUI-button { display: none !important } */
+
+/* Tab close button */
+/* .tab-close-button { display: none !important } */
+
+/* Enable this to show the tab close button when hovering the tab */
+/* .tabbrowser-tab:hover .tab-close-button { display: -moz-inline-box !important } */
+
+/*============================================================================*/
+
+/* Oneline tweak */
+#TabsToolbar {
+  margin-left : var(--navbarWidth) !important;
+}
+#nav-bar {
+  margin-right: calc(100vw - var(--navbarWidth)) !important;
+  margin-top  : -34px !important;
+  height      : 33px !important;
+}
+/* Espacio de arrastre */
+.titlebar-spacer {
+width: 10px !important;
+}
+/* Hide urlbar elements when not active */
+.urlbar-icon, #userContext-indicator, #userContext-label {
+  fill        : transparent !important;
+  background  : transparent !important;
+  color       : transparent !important;  
+}
+#urlbar-container:not([open=true]){ min-width: 22vw !important;}
+#nav-bar, #urlbar:is([open=true]){ min-width: 28vw !important;}
+#urlbar:hover .urlbar-icon,
+#urlbar:active .urlbar-icon, 
+#urlbar[focused] .urlbar-icon {
+  fill        : var(--toolbar-color) !important;
+}
