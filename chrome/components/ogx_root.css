@@ -33,7 +33,7 @@
   --lwt-toolbar-field-highlight: var(--button-active-bgcolor) !important;               /*"toolbar_field_highlight": "#006f80"*/
   --lwt-toolbar-field-highlight-text: var(--lwt-tab-text) !important;                   /*"toolbar_field_highlight_text": "#eaeaea"*/
     
-  /*--lwt-selected-tab-background-color: red !important;                                /*"tab_selected":"#363540"*/
+  --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;               /*"tab_selected":"#363540"*/
 
   --chrome-content-separator-color: var(--toolbar-bgcolor) !important;                  /*"toolbar_bottom_separator": "#181818"*/
   
