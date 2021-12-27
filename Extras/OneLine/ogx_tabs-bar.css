@@ -84,6 +84,34 @@
 :root {
   --navbarWidth:36vw; /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/ 
 }
+/* Oneline tweak */
+#TabsToolbar {
+  margin-left : var(--navbarWidth) !important;
+}
+#nav-bar {
+  margin-right: calc(100vw - var(--navbarWidth)) !important;
+  margin-top  : -34px !important;
+  height      : 33px !important; 
+  border-image: var(--panel-separator-zap-gradient2) 1 !important;
+}
+/* Espacio de arrastre */
+.titlebar-spacer {
+width: 10px !important;
+}
+/* Hide urlbar elements when not active */
+.urlbar-icon, #userContext-indicator, #userContext-label {
+  fill        : transparent !important;
+  background  : transparent !important;
+  color       : transparent !important;  
+}
+#urlbar-container:not([open=true]){ min-width: 22vw !important;}
+#nav-bar, #urlbar:is([open=true]){ min-width: 28vw !important;}
+#urlbar:hover .urlbar-icon,
+#urlbar:active .urlbar-icon, 
+#urlbar[focused] .urlbar-icon {
+  fill        : var(--toolbar-color) !important;
+}
+
 /* H I D I N G   E L E M E N T S */
 /* Comment or uncomment depending of what elements you want to hide */
 
@@ -130,30 +158,3 @@
 /* .tabbrowser-tab:hover .tab-close-button { display: -moz-inline-box !important } */
 
 /*============================================================================*/
-
-/* Oneline tweak */
-#TabsToolbar {
-  margin-left : var(--navbarWidth) !important;
-}
-#nav-bar {
-  margin-right: calc(100vw - var(--navbarWidth)) !important;
-  margin-top  : -34px !important;
-  height      : 33px !important;
-}
-/* Espacio de arrastre */
-.titlebar-spacer {
-width: 10px !important;
-}
-/* Hide urlbar elements when not active */
-.urlbar-icon, #userContext-indicator, #userContext-label {
-  fill        : transparent !important;
-  background  : transparent !important;
-  color       : transparent !important;  
-}
-#urlbar-container:not([open=true]){ min-width: 22vw !important;}
-#nav-bar, #urlbar:is([open=true]){ min-width: 28vw !important;}
-#urlbar:hover .urlbar-icon,
-#urlbar:active .urlbar-icon, 
-#urlbar[focused] .urlbar-icon {
-  fill        : var(--toolbar-color) !important;
-}
