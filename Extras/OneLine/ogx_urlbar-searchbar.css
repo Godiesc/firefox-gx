@@ -8,8 +8,21 @@
 #navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
 
 /*"toolbar_bottom_separator"*/
-#navigator-toolbox { 
-    border-image: var(--panel-separator-zap-gradient2) 1 !important;    
+#navigator-toolbox {    
+    border-image: var(--panel-separator-zap-gradient2) 1 !important;
+}
+/*"Linea bajo las pestañas y navbar"*/
+#PersonalToolbar {
+    border-top: 1px solid red !important;
+    margin-top: 0px !important;
+    border-image: var(--panel-separator-zap-gradient2) 1 !important;
+    
+    margin-bottom: -1px !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+    
+    background-color: var(--lwt-selected-tab-background-color) !important;
+    background: var(--lwt-selected-tab-background-color) !important;
 }
 /*"bookmark_text": "#b3d9ff"*/
 .browser-toolbar:not(.titlebar-color) {color: var(--tab-text) !important;}              
