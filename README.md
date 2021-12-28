@@ -4,6 +4,10 @@ Firefox Theme CSS to Opera GX Skin Lovers. <a href= "https://addons.mozilla.org/
 ![Opera_GX](https://user-images.githubusercontent.com/22057609/147393357-ec4b9237-6910-469a-b5c2-4a7ea8557845.png)
 
 ![SplashOperaGX](https://user-images.githubusercontent.com/22057609/147392243-069c4bd3-e68f-4149-973e-a512c01e4e5a.png)
+
+-> Extras -> OneLine
+![imagen](https://user-images.githubusercontent.com/22057609/147591405-cac7e07a-d0bc-4ccf-aa82-4245c1a8bab7.png)
+
 _____________________________________________________________________________________________________________________________________________________
 # How to install
 Theme to Opera GX Lovers. v89-90 versions of the browser.
