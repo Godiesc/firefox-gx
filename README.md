@@ -8,7 +8,7 @@ Firefox Theme CSS to Opera GX Skin Lovers. <a href= "https://addons.mozilla.org/
 <b>-> Extras -> OneLine</b></br>
 Theme Fuchsia: https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/
 
-![imagen](https://user-images.githubusercontent.com/22057609/147632187-a50e5d24-8918-405c-8aeb-e925caea1e59.png)
+![imagen](https://user-images.githubusercontent.com/22057609/147632259-fa412e3c-b81c-4e3a-aac0-205e24e74302.png)
 _____________________________________________________________________________________________________________________________________________________
 # How to install
 Theme to Opera GX Lovers. v89-90 versions of the browser.
