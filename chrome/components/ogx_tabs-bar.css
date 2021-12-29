@@ -48,7 +48,7 @@
 }
 /*Color de las pestañas no seleccionadas*/
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
-  background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; clip-path: polygon(6px 0%, 200% 0%, 0% 200%, 0% 6px);
+  background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
 /* Reduce spacing between pinned and regular tabs */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {
@@ -62,20 +62,20 @@
 .tabbrowser-tab .tab-background{height: 32px !important; margin-left: -1px !important; margin-right: -1px !important}
 .tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
     background-image: var(--gradient) !important;
-    clip-path: polygon(6px 0%, 200% 0%, 0% 200%, 0% 6px);
+    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
 .tabbrowser-tab .tab-content {margin-top: 2px !important; height: 31px !important;}
 .tabbrowser-tab:not([pinned], [multiselected])[selected="true"] .tab-content:not([multiselected]) {
     background-color: var(--lwt-selected-tab-background-color) !important;
-    clip-path: polygon(6px 0%, 200% 0%, 0% 200%, 0% 6px);
+    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
 .tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: 32px !important; margin-left: -1px !important; margin-right: -1px !important;}
 .tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
     background-image: var(--gradient) !important;
-    clip-path: polygon(6px 0%, 200% 0%, 0% 200%, 0% 6px);
+    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
 .tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: 2px !important; height: 31px !important;}
 .tabbrowser-tab:is([pinned])[selected="true"]:not([multiselected]) .tab-content {
     background-color: var(--lwt-selected-tab-background-color) !important;
-    clip-path: polygon(6px 0%, 200% 0%, 0% 200%, 0% 6px);
+    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
