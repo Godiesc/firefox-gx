@@ -6,8 +6,7 @@
     width: 18px !important;
     height: 18px !important;
     padding: 4px !important;   
-    border-radius: 0px !important;
-    margin-top: -2px !important;
+    border-radius: 0px !important;  
 }
 .tab-close-button:hover {
     background-color: var(--lwt-frame, var(--lwt-accent-color)) !important;
