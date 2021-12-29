@@ -11,7 +11,7 @@
 /*Centrar botón "Open Newtab"*/
 #TabsToolbar .toolbarbutton-1 {       
     fill: var(--general-color) !important;
-    padding-left: 1px !important;
+    padding-left: 2px !important;
     max-height: 32px !important;
     min-height: 32px !important;    
 }
@@ -58,7 +58,7 @@
 .tab-label, .tab-icon-image, .tab-icon-overlay,
 .tab-icon-pending, .tab-sharing-icon-overlay, .tab-throbber { margin-top: -2px !important;
 }
-.tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 2px !important}
+.tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 1px !important}
 .tabbrowser-tab .tab-background{height: 32px !important; margin-left: -1px !important; margin-right: -1px !important}
 .tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
     background-image: var(--gradient) !important;
