@@ -1,7 +1,7 @@
 # Opera-Gx Theme to Firefox Css
 Firefox Theme CSS to Opera GX Skin Lovers. <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-green-dark/">🟢Geen</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/hexadorsip_operagx-2020/">🌈Custom</a>
 
-![Opera_GX](https://user-images.githubusercontent.com/22057609/147393357-ec4b9237-6910-469a-b5c2-4a7ea8557845.png)
+![OperaGX3](https://user-images.githubusercontent.com/22057609/147631773-7217a675-b129-44d4-8f7c-93cea538aab8.png)
 
 ![SplashOperaGX](https://user-images.githubusercontent.com/22057609/147392243-069c4bd3-e68f-4149-973e-a512c01e4e5a.png)
 
