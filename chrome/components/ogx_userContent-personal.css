@@ -45,13 +45,13 @@ window, dialog {                                                                
         in srgb, var(--general-color) 60%, transparent) !important;                  /*color de los radiobutton (fondo) :hover*/  
     --in-content-primary-button-background-active: var(--general-color) !important;  /*color de los radiobutton (clic) con check*/
                       
-    --in-content-box-background:color-mix(in srgb,var(--in-content-page-background)
-        64% ,black) !important;                                                         /*color de los textbox y fondo de menús desplegables*/
-    --in-content-box-border-color: var(--general-color) !important;                     /*color del borde de los textbox*/
+    --in-content-box-background: #1c1726 !important;                                    /*color de los textbox y fondo de menús desplegables*/
+    --in-content-box-border-color: #4a3e65 !important;                     /*color del borde de los textbox*/
     --in-content-box-background-odd: color-mix(
         in srgb, var(--general-color) 20%, transparent) !important;                     /*color destinción entre filas de una tabla-atajos de busqueda*/
     --in-content-box-info-background: color-mix(
         in srgb, var(--general-color) 10%, transparent) !important;                     /*color de la caja de elementos que se sincronizan*/
+    --section-highlight-background-color: var(--in-content-box-info-background) !important;
   
     --in-content-primary-button-background: 
         var(--general-color) !important;                                            /*color de la label colorida y de enlaces*/
@@ -82,7 +82,9 @@ window, dialog {                                                                
     --in-content-item-selected: var(--general-color) !important;                     /*Color de fondo al pasar por los items de un combobox (teclas de direccion)"*/
     --in-content-item-selected-text:  var(--in-content-text-color) !important;       /*Color de label al pasar por los items de un combobox (teclas de direccion)"*/
     
-    --in-content-focus-outline-color: var(--general-color) !important;               /*color de focus de txt "buscar..."*/     
+    --in-content-focus-outline-color: var(--general-color) !important;               /*color de focus de txt "buscar..."*/  
+    --gradiente-casual: linear-gradient(to right,#2e273f 90%, transparent ) !important;
+    
 }
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {  
     body {
@@ -151,16 +153,16 @@ window, dialog {                                                                
 .home-section .section .slider:hover {background-color: var(--button-hover-bgcolor) !important;}
     
  /*Color de fondo al "editar" un sitio anclado*/  
-.modal {background-color: var(--newtab-background-color) !important;  border-image: var(--panel-separator-zap-gradient) 1 !important;}
+.modal {background-color: var(--newtab-background-color) !important;  border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 .modalOverlayOuter{
     }
 /* Fondo y borde del menú de 3 puntos */
 .context-menu {background-color: var(--newtab-background-color) !important; border-radius: 0px !important;
  box-shadow: 0px 0px 0 1px #00000070, 1px 1px 6px 0px black !important; 
- border: 1px solid var(--newtab-border-color); border-image: var(--panel-separator-zap-gradient) 1 !important;}
+ border: 1px solid var(--newtab-border-color); border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 /* linea separadora */
 .context-menu .separator{margin-left: 6px !important; margin-right: 6px !important; width: -moz-available !important;
-    border-image: var(--panel-separator-zap-gradient) 1 !important;}
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;}
     
 /*--------Color al pasar por los items del menú de 3 puntos----------*/
 .context-menu > ul > li > a:is(:focus, :hover), .context-menu > ul > li > button:is(:focus, :hover) {
@@ -203,12 +205,12 @@ window, dialog {                                                                
         .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
         box-shadow: 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
     /* Separador*/
-        .home-section .divider { border-image: var(--panel-separator-zap-gradient) 1 !important;}    
+        .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}    
   
 *{scrollbar-width: none !important }
     
- /*Eliminar cuadro de búsqueda
-.search-inner-wrapper{ display: none !important;}*/
+ /*Eliminar cuadro de búsqueda*/
+.search-inner-wrapper{ display: none !important;}
   
 .search-inner-wrapper{margin-top: 50px !important;  box-shadow: 0px 0px 0px 1px #ffffff10 !important;
     backdrop-filter: blur(8px); border-radius: 8px !important;}
@@ -238,22 +240,60 @@ window, dialog {                                                                
 
 /*Colores varios de la interfaz de complementos y configuración*/
 @-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support) {    
-button:not(.category) {background-color: var(--in-content-page-background) !important; border-color: color-mix(in srgb, var(--general-color), transparent) !important;}
+button:not(.category) {background-color: #251f33 !important; border-color: #3e3455 !important;}
 button:hover {background-color: var(--button-hover-bgcolor) !important; color: #fafafa !important; border-color: var(--button-hover-bgcolor) !important;}
-#categories > .category{background-color: var(--in-content-page-background) !important;}
+#categories{ margin: 70px 15px 0 -18px !important;}
+.sidebar-footer-list { margin-inline: 4px 4px !important; }
+    
+#categories > .category{background-color: var(--in-content-box-background) !important;}
 #categories > .category:hover{background-color: var(--button-hover-bgcolor) !important; color: White !important;}
-#categories > .category[selected]  {background-color: var(--button-active-bgcolor) !important; color: #fff !important;}
+#categories > .category[selected]  {background-color: transparent !important; color: color-mix(in srgb, var(--general-color)90%, white) !important; text-decoration: underline !important;}
 #categories > .category[selected]:hover { background-color: var(--button-hover-bgcolor) !important;  color: white !important;}
-button.primary {background-color: var(--button-active-bgcolor) !important;  color: white !important;}   
+button.primary {background-color: var(--button-active-bgcolor) !important;  color: white !important; border-color: transparent !important;}   
 button.primary:hover {background-color: var(--button-hover-bgcolor) !important;  color: #eaeaea !important;}
 th.column{color: #eaeaea !important; background-color:color-mix(in srgb, var(--general-color)20%, transparent)  !important;}
 td { border: 1px solid var(--in-content-table-border-color) !important;}
-panel-list {background: var(--in-content-page-background) !important;}
+panel-list {background: #251f33 !important;}
 .dialogBox {--in-content-page-background: #101019 !important;} /*Color de ventana de ventanas emergentes en "configuración"*/
-.subcategory:not([hidden]) ~ .subcategory { border-image: var(--panel-separator-zap-gradient) 1 !important;} /*Linea separadora en "configuración"*/
+.subcategory:not([hidden]) ~ .subcategory { border-image: var(--panel-separator-zap-gradient1) 1 !important;} /*Linea separadora en "configuración"*/
+.card[active="true"]{ background-color: color-mix(in srgb, var(--in-content-box-background)96%, white) !important; outline: 1px solid var(--in-content-box-border-color) !important;}
+.card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)30%, transparent) !important;}
+.addon.card:hover{ outline: transparent !important;}
+#categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { background: var(--in-content-box-background) !important;}
+.navigation, #sidebar{ border-right: 1px solid #4a3e65 !important;}
+.sticky-container{ border-bottom: 1px solid #4a3e65 !important; box-shadow: 3px 3px 7px #00000050 !important;}
+#main{ margin-inline-start: 10% !important;}
+.main-search {  padding-inline-end: 28px; max-width: 100% !important; padding: 20px 20px !important; }
+.main-search .search-label { display: none !important;}
+.main-heading { margin-top: -52px !important;  margin-bottom: 4px !important; min-width: 50% !important; }
+.main-heading .spacer {  display: none !important;}
+#policies-container, #searchInput {
+    min-height: 32px; border-radius: 16px !important;
+    margin: 20px 70px 20px !important;}
+#policies-container:hover, #searchInput:hover {
+    border-color: var(--general-color) !important;
+    outline: 1px solid var(--general-color) !important; }
+.content-blocking-category.selected {
+    background-color: var(--in-content-box-background) !important;}
+.content-blocking-category.selected {  border-color: color-mix(in srgb, var(--in-content-box-background)90%, white) !important; }
+search-addons > search-textbox {  border-radius: 16px !important;}
+search-addons > search-textbox:hover { outline: 1px solid var(--general-color) !important; border-color: transparent !important;}
+}
+
+@-moz-document url-prefix(about:preferences){    
+ #mainPrefPane{ padding-top: 20px !important; width: 100% !important; }
+.pane-container { margin-inline-start: 50px !important; margin-inline-end: 50px !important;}
+.sticky-container {
+    background: var(--in-content-box-background) !important;
+    background: linear-gradient(to right, var(--in-content-box-background) 94%, var(--in-content-page-background)) !important;
+    width: 125% !important;
+    margin-left: -98px !important;
+    border-bottom: 1px solid red !important; 
+    border-image: var(--gradiente-casual) 1 !important;
+    box-shadow: -7px 3px 7px #00000050 !important;
+    }
 }
 /*------------------------Logo y Wordmaark------------------------/*
-
 /*Colores fill para logo y wordmark*/
 .main-stop { stop-color: var(--general-color) !important; }
 .middle-stop { stop-color: color-mix(in srgb, var(--general-color) 65%, transparent) !important;}
@@ -261,19 +301,29 @@ panel-list {background: var(--in-content-page-background) !important;}
 }
 /*Personalizacion de la página newtab*/    
 @-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
- body {background: url("../images/newtab/wallpaper.png") no-repeat fixed !important; background-size: cover !important;} 
+ body {background: url("../images/newtab/wallpaper11.png") no-repeat fixed !important; background-size: cover !important;} 
 .logo-and-wordmark .logo {
-    background: url("../images/foxlogo.svg") no-repeat !important; 
-    background-size: cover !important; display: inline-block !important;
-    height: 80px !important; width: 75px !important; -moz-context-properties: fill !important; }    
+  background: url("../images/foxlogo.svg") no-repeat !important; 
+  background-size: cover !important; display: inline-block !important;
+  height: 80px !important; width: 75px !important; -moz-context-properties: fill !important; }    
 .wordmark {
-    background: url("../images/firefox-wordmark.svg") no-repeat center center !important; background-size: 134px !important;
-    -moz-context-properties: fill !important; display: inline-block !important; height: 82px !important; 
-    margin-inline-start: 16px !important; width: 134px !important;
-    }
+  background: url("../images/firefox-wordmark.svg") no-repeat center center !important; background-size: 134px !important; 
+  -moz-context-properties: fill !important; display: inline-block !important; height: 82px !important; 
+  margin-inline-start: 16px !important; width: 134px !important;}
 .search-wrapper .logo-and-wordmark {margin-bottom: 0px !important;}
 .promo-cta .button { color: #cacaca !important;}}
 
 @-moz-document url('about:config'), regexp("^about:(neterror|certerror).*") {
-.button[autofocus], .button[type="submit"], .button[default], button.primary {
- color: #cacaca !important; }}
+.button[autofocus], .button[type="submit"], .button[default], button.primary:not(:hover) {
+ background-color: var(--button-active-bgcolor) !important;  color: white !important; border-color: transparent !important; }
+    button.primary{color: white !important;}}
+
+/* Página previa a cargar una página. */
+@-moz-document url-prefix(about:blank) { html > body:empty { background-color: #101019 !important;  } }
+@-moz-document url(about:blank) {  html > body:empty { background-color: #101019 !important;  } }
+
+ @-moz-document url-prefix(https://www.facebook.com/watch){
+  .ecyo15nh {width: 1108px !important;}  .o36gj0jk {width:221px !important;} .o36gj0jk {width:221px !important;}  .f9o22wc5 {margin-left: 0px !important;}
+  .grtyclo8 {max-width: 754px !important;} .rirtxc74 {max-width: 250px !important;} .fjf4s8hc {padding-left: 0px !important; margin-left: -16px !important;}
+  .fer614ym {min-width: 225px !important;} .fjf4s8hc {padding-left: 0px !important;}  .f7vcsfb0 {padding-right: 190px !important;}
+}

@@ -2,7 +2,7 @@
    https://github.com/Godiesc/opera-gx */
 
 /*Label de medios "Reproduciendo" modifiado*/
-.tab-secondary-label{display: none !important; transition-duration: 0ms !important}
+.tab-secondary-label{display: none !important;}
 
 @keyframes slide1 {
     from { transform: scale(1.0, 1.0); }
@@ -11,13 +11,11 @@
 /*--------ícono de sonido simpre visible en pestañas con sonido, sin dejar de mostrar el favicon-------*/
 
 .tab-icon-overlay, .tab-icon-overlay:is([pinned]) {
-    height:13px !important;
-    width: 14px !important;
-    z-index: 1;
-    padding: 0px !important;  
-    background-color: var(--toolbar-bgcolor) !important;
-    stroke: var(--toolbar-bgcolor) !important;
-    left: 8px !important;
+    height:16px !important;
+    width: 16px !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    stroke: transparent !important;
 }
 tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
     opacity: 0 !important;
@@ -32,19 +30,18 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
     opacity: 1 !important;    
 }
 .tab-icon-overlay[activemedia-blocked] {
-    top: 2px !important;
+    background: transparent !important;
     stroke: #d10000cc !important;
-    fill: #ffffff !important;
-    border-radius: 10px !important;    
+    fill: #ffffffee !important;
+    border-radius: 0px !important;    
     animation: none !important;
     height: 16px !important;
     width: 16px !important;   
-    left: -1px !important;
 }
 .tab-icon-overlay[activemedia-blocked]:hover {
-    stroke: #d10000cc !important;
+    stroke: #d10000 !important;
     fill: #ffffff !important;
-    border-radius: 10px !important;    
+    border-radius: 0px !important;    
     animation: none !important;
     height: 16px !important;
     width: 16px !important;
@@ -53,86 +50,116 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important
 }
 /*------ícono  reproduciendose-------*/
-@keyframes slide2{ from { transform: scale(1.0,1.0);}to {transform: scale(0.5,0.5);}}
-.tab-icon-overlay:is([soundplaying]):not([pinned]) {border-radius: 10px !important; top: 19px !important; left: 8px !important; 
+.tab-icon-overlay:is([soundplaying]):not([pinned]) {
+  border-radius: 2px !important;
+  top: 19px !important; left: 2px !important; 
   width: 12px !important; height: 3px !important; opacity: 1 !important;
-  color: transparent !important; background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important; stroke: transparent !important;
+  color: transparent !important;   
+  background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important; 
+  stroke: transparent !important;
+  box-shadow: none !important;
   animation: 500ms infinite ease-in-out; animation-name: slide1;} 
-.tabbrowser-tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{border-radius: 10px !important; top: 2px !important; left: -1px !important; 
-  width: 16px !important; height: 16px !important;
-    color: black !important; 
-    background: var(--general-color)  !important; transition-duration: 0ms !important;
-    stroke: var(--general-color)  !important; transition-duration: 0ms !important;
-  fill-opacity: 1 !important; animation: none !important;}
+
+tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{
+    top: 0px !important; left: 0px !important;
+    width: 16px !important; height: 16px !important;
+    color: var(--lwt-tab-text) !important; 
+    background: transparent  !important; 
+    stroke: transparent  !important;
+    fill-opacity: 1 !important; animation: none !important;}
 
   /*Compartiendo microfono y cámara*/
-  .tab-icon-overlay:not([crashed]):is([sharing]) {top: 17px !important; stroke: transparent !important; background-color: transparent !important;} 
+  .tab-icon-overlay:not([crashed]):is([sharing]) {top: 19px !important; stroke: transparent !important; background-color: transparent !important;} 
 
-/*Añadido*/
 /*----ícono "reproduciendo" hover----*/
-
-tab:not([pinned])[selected] .tab-icon-overlay:not([pinned])[soundplaying]:hover {
-    list-style-image: url("../images/muted.svg") !important;        
+tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
+    /*list-style-image: url("../images/muted.svg") !important;        */
+    color: var(--lwt-tab-text) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important;
     transform: scale(1.1) !important;
-    padding: 1px !important;
-}
-tab:not([pinned], [selected]) .tab-icon-overlay:hover:is([sharing], [soundplaying]) {   
-    list-style-image: url("../images/muted.svg") !important;        
-    transform: scale(1.1) !important;
-    padding: 1px !important;    
+    padding: 0px !important;
 }
 /*------muteado-------*/
-
-.tab-icon-overlay[muted]:not([pinned]) {
-    border-radius: 10px !important;
-    top: 2px;
-    left: -1px !important;
-    margin-right: 0px !important;
-    animation: none !important;
+/* muteado */
+.tab-icon-overlay:not([pinned])[muted]{
+    list-style-image: url("../images/muted.svg") !important;
+    top: 0px;  left: 0px !important;
     height: 16px !important;
     width: 16px !important;
-    list-style-image: url("../images/muted.svg") !important;
-    border-radius: 0px !important;
-}
-/*muteado no seleccionado y seleccionado*/
-
-
-.tab-icon-overlay:is([selected="true"][muted]), .tab-icon-overlay:is([pinned][selected="true"][muted]), .tab-icon-overlay:is([pinned][selected="true"][soundplaying]) {
-    !important;
-        
+    color: var(--lwt-tab-text) !important;
+    background-color: transparent !important;
+    stroke: transparent !important;
+    fill-opacity: 0.8 !important;
 }
 /*muteado hover*/
-
-.tab-icon-overlay:not([pinned])[selected="true"][muted]:hover {
-    stroke: var(--lwt-selected-tab-background-color) !important;
-    background-color: var(--lwt-selected-tab-background-color) !important;
-    color: var(--lwt-tab-text) !important;
+.tab-icon-overlay:not([pinned])[muted]:hover {
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg")!important;
-}
-.tab-icon-overlay:not([pinned], [selected="true"])[muted]:hover {
-    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg")!important;
-    background-color: color-mix(in srgb, var(--lwt-tab-text) 11%, var(--lwt-accent-color)) !important;
-    stroke: color-mix(in srgb, var(--lwt-tab-text) 11%, var(--lwt-accent-color)) !important;
+    color: color-mix(in srgb, var(--toolbarbutton-icon-fill), white) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
+    fill-opacity: 1 !important;
 }
 /*-----------ícono "reproduciendo" Pinned-----------*/
+.tab-icon-overlay:is([soundplaying][pinned]) {
+  border-radius: 10px !important; 
+  top: 20px !important; left: 3px !important;
+  width: 11px !important; height: 3px !important; opacity: 1 !important; 
+  color: transparent !important; 
+  background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important;
+  stroke: none !important;
+  box-shadow: none !important;
+  animation: 500ms infinite ease-in-out; animation-name: slide1;
+} 
+.tabbrowser-tab:is([pinned]):hover .tab-icon-overlay:is([pinned])[soundplaying]{
+    border-radius: 2px !important; 
+    top: 1px !important; left: 0px !important; 
+    width: 16px !important; height: 16px !important;
+    color: var(--toolbarbutton-icon-fill) !important; 
+    background: transparent  !important; 
+    stroke: transparent  !important;
+    transform: scale(1.1) !important;
+    padding: 1px !important;
+    box-shadow: 0 1px 0px var(--identity-icon-color, #00000000) !important;
+    fill-opacity: 1 !important; animation: none !important;
+}
+.tabbrowser-tab:is([soundplaying],[muted]):hover .tab-icon-image:is([pinned]){
+    opacity: 0 !important;
+}
+/*.tabbrowser-tab:not([selected]):is([muted]):hover .tab-icon-image:is([pinned]){
+    display: none !important;
+}*/
 
+/* muteado pinned*/
 .tab-icon-overlay:is([pinned][muted]) {
+    border-radius: 2px !important;
     list-style-image: url("../images/muted.svg") !important;
-    top: -4px !important;
-    left: 12px !important;
-}
-.tab-icon-overlay:is([pinned][soundplaying]) {
-    stroke: var(--lwt-accent-color) !important;
+    width: 16px !important; height: 16px !important;
     color: var(--lwt-tab-text) !important;
-    background-color: var(--lwt-accent-color) !important;
-    top: -4px !important;
-    left: 12px !important;
+    background-color: transparent !important;
+    stroke: transparent !important;
+    transform: scale(1.1) !important;
+    padding: 1px !important;
+    box-shadow: 0 1px 0px var(--identity-icon-color, #00000000) !important;
+    top: 1px !important;
+    left: 0px !important;
+    fill-opacity: 0.7 !important;
 }
-/*ícono "reproduciendo" y "muteado" Pinned :hover*/
-
-.tab-icon-overlay:is([pinned][muted]):hover {
-    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;
+/*ícono "muteado" y "reproduciendo" Pinned :hover*/
+.tabbrowser-tab:is([pinned]):hover  .tab-icon-overlay:is([pinned][muted]):hover {
+    /*list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;*/
+    width: 16px !important; height: 16px !important;
+    color: color-mix(in srgb, var(--toolbarbutton-icon-fill), white) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
+    fill-opacity: 1 !important;
 }
-.tab-icon-overlay:is([pinned][soundplaying]):hover {
-    list-style-image: url("../images/muted.svg") !important;
+.tabbrowser-tab:is([pinned]):hover .tab-icon-overlay:is([pinned][soundplaying]):hover {
+    /*list-style-image: url("../images/muted.svg") !important;*/
+    padding: 0px !important;
+    fill-opacity: 1 !important;
+    color: color-mix(in srgb, var(--toolbarbutton-icon-fill), white) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
+    stroke: transparent !important;
+    fill-opacity: 1 !important;
 }
+/* Eliminar ícono de sonido cuando la página está cargandose */
+.tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture]) .tab-throbber{ visibility: visible }
+.tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-icon-overlay{ opacity: 0 !important; }

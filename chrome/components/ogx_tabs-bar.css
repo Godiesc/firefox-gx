@@ -12,20 +12,20 @@
 #TabsToolbar .toolbarbutton-1 {       
     fill: var(--general-color) !important;
     padding-left: 2px !important;
-    max-height: 32px !important;
-    min-height: 32px !important;    
+    max-height: var(--tab-min-height) !important;
+    min-height: var(--tab-min-height) !important;    
 }
 #tabs-newtab-button image{
-    padding: 4px !important; height: 24px !important; width: 24px !important; border-radius: 2px !important;
+    padding: 3px !important; height: 22px !important; width: 22px !important; border-radius: 2px !important;
 }
 #tabs-newtab-button:hover .toolbarbutton-icon {
     background: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
 }
 /*favicon de pagina newtab*/
 .tab-icon-stack .tab-icon-image[src="chrome://branding/content/icon32.png"] {
-    background: url("../images/foxlogofavicon.svg")!important;
-    background-size: 16px !important;
-    padding-left: 18px !important;
+    background: url("../images/foxlogofavicon.svg") no-repeat center;
+    background-size: 16px 16px !important;
+    padding-left: 16px !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     fill: var(--identity-icon-color, var(--general-color)) !important;
@@ -37,7 +37,12 @@
 /*"Medidas menores para scroll de pestañas"*/
 #tabbrowser-tabs{ --uc-tabs-scrollbutton-border: 0px !important; }
 #scrollbutton-up, #scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; }
-
+#alltabs-button {
+    display: none !important;
+}
+/* Tamaño horizontal pestañas */
+.tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 200px !important 
+}
 /*Regla para visualizar mejor el seleccionar varias pestañas*/
 .tabbrowser-tab[multiselected]:-moz-lwtheme {
     color: var(--lwt-tab-text) !important;
@@ -48,33 +53,38 @@
 }
 /*Color de las pestañas no seleccionadas*/
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
-  background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
+  background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; border-radius: 0px !important;
+  clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
 /* Reduce spacing between pinned and regular tabs */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {
-    margin-inline-start: 4px !important;
+    margin-inline-start: 0px !important;
+}
+/* Eliminar espacio de arrastre - izquierda*/
+.titlebar-spacer[type="pre-tabs"]{
+    display: none !important
 }
 /*Pestaña activa*/
 .tab-content { padding-bottom:  2px !important;    
 }
 .tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 1px !important}
-.tabbrowser-tab .tab-background{height: 32px !important; margin-left: -1px !important; margin-right: -1px !important}
+.tabbrowser-tab .tab-background{height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important}
 .tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
     background-image: var(--gradient) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
-.tabbrowser-tab .tab-content {margin-top: 2px !important; height: 31px !important;}
+.tabbrowser-tab .tab-content {margin-top: calc(var(--margin-top) + 1px) !important; height: var(--tab-min-height) !important;}
 .tabbrowser-tab:not([pinned], [multiselected])[selected="true"] .tab-content:not([multiselected]) {
     background-color: var(--lwt-selected-tab-background-color) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
     border-radius: 6px 2px 0 0 !important;
 }
-.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: 32px !important; margin-left: -1px !important; margin-right: -1px !important;}
+.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important;}
 .tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
     background-image: var(--gradient) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
-.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: 2px !important; height: 31px !important;}
+.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: calc(var(--margin-top) + 1px) !important;}
 .tabbrowser-tab:is([pinned])[selected="true"]:not([multiselected]) .tab-content {
     background-color: var(--lwt-selected-tab-background-color) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);

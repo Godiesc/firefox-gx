@@ -2,13 +2,38 @@
    https://github.com/Godiesc/opera-gx */
 
 /*rework en la Linea de Contenedores*/
-.tab-context-line {display: none !important; }
-
+.tab-context-line {display: none !important; 
+}
+/*rework en la Linea de Contenedores-BordeFavicon - pinnedtabs*/
+.tab-icon-pending[pinned], .tab-sharing-icon-overlay, .tab-throbber[busy][pinned], .tab-throbber:is([busy][pinned]), .tab-icon-image[pinned] {
+    box-shadow: 0 1px 0px var(--identity-icon-color, #00000000) !important;
+    border-radius: 0px !important;
+    padding-block: 1px 1px !important;
+    width: 16px !important;
+    height: 18px !important;
+}
+/* Linea bajo la label de la pestaña contenedora*/
+tab:not([selected]) .tab-content .tab-label{
+    box-shadow: 0 1px 0 var(--identity-tab-color) !important;
+    margin-bottom: 1px !important;
+    clip-path: polygon(0px 0%, 200% 0%, 100% 200%, 100% 20px, 20px 100%, 0px 11900%, 0px -0px);
+}
+tab[selected]  .tab-content .tab-label{
+    box-shadow: 0 1px 0 var(--identity-tab-color) !important;
+    margin-bottom: 1px !important;
+    clip-path: polygon(0px 0%, 200% 0%, 100% 200%, 100% 20px, 132px 100%, 0px 11900%, 0px -0px);
+    opacity: 1 !important;
+}
+/* Color contenedor default */
+.identity-color-toolbar {
+    --identity-tab-color: #0c86ee !important;
+    --identity-icon-color: #0c86ee !important;
+}
 /*Personalización de colores y presentación de pestañas en contenedores*//*Personalización de colores y presentación de pestañas en contenedores*/
 .identity-color-blue {--identity-tab-color: #2574A7 !important; --identity-icon-color: #2574A7 !important;}
 .identity-color-green {--identity-tab-color: #1E934F !important; --identity-icon-color: #1Eb34F !important;}
 .identity-color-orange {--identity-tab-color: #e67e22 !important; --identity-icon-color: #e67e22 !important;}
-.identity-color-red {--identity-tab-color: #ff3940 !important; --identity-icon-color: #ff3940 !important; }
+.identity-color-red {--identity-tab-color: #ff2940 !important; --identity-icon-color: #ff2940 !important; }
 .identity-color-pink {--identity-tab-color: #ff33bb !important; --identity-icon-color: #ff33bb !important;}
 .identity-color-purple {--identity-tab-color: #813E9D !important; --identity-icon-color: #813E9D !important;}
 .identity-color-yellow {--identity-tab-color: #e6b803 !important; --identity-icon-color: #e6b803 !important;}
@@ -17,52 +42,8 @@
 .identity-color-blue >.tab-stack > .tab-content .tab-label{color: #1bbfff !important;}
 .identity-color-green >.tab-stack > .tab-content .tab-label{color: #6be19c !important; } 
 .identity-color-orange >.tab-stack > .tab-content .tab-label{color: #eb9b37 !important; } 
-.identity-color-red >.tab-stack > .tab-content .tab-label{color: #ff3940 !important;}
+.identity-color-red >.tab-stack > .tab-content .tab-label{color: #ff6960 !important;}
 .identity-color-pink >.tab-stack > .tab-content .tab-label{color: #ff99eb !important;} 
 .identity-color-purple >.tab-stack > .tab-content .tab-label{color: #caa4da !important;}
 .identity-color-yellow >.tab-stack > .tab-content .tab-label{color: #e6b803 !important;}
 .identity-color-turquoise >.tab-stack > .tab-content .tab-label{color: #00c79a !important;}
-
-/*rework en la Linea de Contenedores-BordeFavicon*/
-
-.tab-icon-pending:not([selected]), .tab-sharing-icon-overlay:not([selected]), .tab-throbber[busy]:not([pinned]), .tab-throbber:is([busy][pinned]), .tab-icon-image:not([selected]) {
-    box-shadow: 0 -1px 0px var(--identity-icon-color, #00000000) !important;
-    border-radius: 4px 0 0 0px !important;
-    padding: 2px !important;
-    width: 20px !important;
-    height: 20px !important
-}
-.tab-icon-pending[selected], .tab-sharing-icon-overlay[selected], .tab-icon-image[selected] {
-        box-shadow: 0 -1px 0px var(--identity-icon-color, #00000000), -1px 0 0px var(--identity-icon-color, #00000000) !important;
-    border-radius: 4px 0 0 0px !important;
-    padding: 2px !important;
-    width: 20px !important;
-    height: 20px !important;
-}
-.tab-icon-pending:not([pinned]), .tab-sharing-icon-overlay:not([pinned]), .tab-icon-image:not([pinned]) {
-    margin-right: 5px !important;
-    margin-left: -3px !important
-}
-.tab-icon-pending[pinned], .tab-sharing-icon-overlay[pinned], .tab-icon-image[pinned] {
-    margin-right: -1px !important;
-    margin-left: -3px !important
-}
-/*Nuevos margenes - CargandoPágina*/
-
-.tab-throbber[busy]:not([pinned]) {
-    border-radius: 0px !important;
-    padding: 0px !important;
-    height: 20px !important;
-    width: 16px !important;
-    margin-right: 6px !important;
-    opacity: 1 !important;
-}
-.tab-throbber:is([busy][pinned]) {
-    border-radius: 0px !important;
-    padding: 0px !important;
-    height: 20px !important;
-    width: 16px !important;
-    opacity: 1 !important;
-    margin-right: 1px !important;
-    margin-left: -1px !important
-}

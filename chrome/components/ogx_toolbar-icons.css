@@ -1,0 +1,59 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+/* --------------- Íconos -------------------*/
+/* back button */
+#back-button image {
+    padding-inline-start: 0 !important;
+    margin-left: 0px !important;
+    list-style-image: url("../images/back.svg") !important;
+}
+/* forward - go button */
+#forward-button image {
+    list-style-image: url("../images/forward.svg") !important;
+}
+/* Reload button */
+#reload-button{
+    list-style-image: url("../images/reload.svg") !important;
+    animation: none !important;
+}
+#stop-button{
+    list-style-image: url("../images/stop.svg") !important;
+    animation: none !important;
+}
+/* Eliminar animación boton stop-reload */
+#stop-button .toolbarbutton-animatable-image, #reload-button .toolbarbutton-animatable-image{
+animation-duration: 0ms !important;
+}
+/* home button*/
+#home-button image{
+    list-style-image: url("../images/home.svg") !important;
+}
+/* Ícono bookmark */
+#pageAction-panel-bookmark[starred], #star-button[starred] {
+    list-style-image: url("../images/bookmark.svg") !important; }
+#pageAction-panel-bookmark, #star-button {
+    list-style-image: url("../images/bookmark-empty.svg") !important;
+}
+/* Ícono protección contra rastreo */
+#urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box > #tracking-protection-icon {
+    list-style-image: url("../images/shield.svg") !important;
+    fill: var(--general-color) !important;
+    opacity: 0.9 !important;
+}
+#urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box[hasException] > #tracking-protection-icon {
+    list-style-image: url(chrome://browser/skin/tracking-protection-disabled.svg) !important;
+    fill: var(--buttons-destructive-bgcolor) !important;
+}
+/* ícono candado */
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon, #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
+    list-style-image: url("../images/security.svg") !important;
+}
+/* Ícono permisos adicionales */
+#permissions-granted-icon {
+    list-style-image: url("../images/permissions.svg") !important;
+}
+/* reader mode */
+#reader-mode-button > .urlbar-icon {
+    list-style-image: url("../images/read-mode.svg") !important;
+}

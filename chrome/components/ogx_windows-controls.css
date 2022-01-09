@@ -2,22 +2,22 @@
    https://github.com/Godiesc/opera-gx */
 
 /*WindowsControls borde redondeado*/
-
 .titlebar-button{
-    color: var(--general-color) !important;    
+    color: var(--general-color) !important;
+    padding-left: 13px !important;
+    padding-right: 13px !important;
 }
 .titlebar-button:hover:not(.titlebar-close){
-    background-color: var(--toolbarbutton-hover-background) !important;
+    background-color: #2e273f !important;
 }
-
-.titlebar-button:not(.titlebar-close) {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+.titlebar-min{
+    padding-top: 12px !important;
+    padding-bottom: 0px !important;
 }
-.titlebar-min, .titlebar-max, .titlebar-restore, .titlebar-close {
-    border-radius: 0 !important;
-   
+.titlebar-min image, .titlebar-max image, .titlebar-close image{
+    border-radius: 0 !important;  
+    height: 14px !important; width: 14px !important;
 }
-.titlebar-close:hover {
-    border-radius: 0 !important;
+.titlebar-restore image{
+    height: 14px !important; width: 13px !important;
 }

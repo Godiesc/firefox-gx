@@ -26,7 +26,7 @@ menuseparator {
     border-color: var(--panel-separator-color, #50505090) !important;
     margin-left: 0px !important;
     margin-right: 4px !important;  
-    border-image: var(--panel-separator-zap-gradient) 1 !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 /*Colores generales*/
 

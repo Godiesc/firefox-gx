@@ -2,24 +2,23 @@
    https://github.com/Godiesc/opera-gx */
 
 :root{   
-  --lwt-accent-color: #08080d !important;                                      /*"frame": "#17161c" */
+  --lwt-accent-color: #09080d !important;                                      /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                      /*"frame": "#17161c" */
-  --lwt-text-color: #b3b3b3 !important;                                        /*"tab_background_text": "#c3c3c3"*/
+  --lwt-text-color: #cecece !important;                                        /*"tab_background_text": "#c3c3c3"*/
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;      /*"frame_inactive": "#17161c" */
   
-  --lwt-tab-text: #eaeaea !important;                                          /*"tab_text": "#ffffff"*/
+  --lwt-tab-text: #fff !important;                                             /*"tab_text": "#ffffff"*/
   
   --toolbar-bgcolor: #101019 !important;                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   
   /*--toolbar-color: #8e8085 !important;                                       /*"ColorLabelMarcadores":"#1a1b25"*/
   
-  --arrowpanel-background: #181322 !important;                                 /*"popup": "#1c1b22Fa"*/
+  --arrowpanel-background: #1c1726 !important;                                 /*"popup": "#1c1b22Fa"*/
   --arrowpanel-color: var(--lwt-tab-text) !important;                          /*"popup_text": "#dfdfdf"*/  
-  --arrowpanel-border-color: var(--toolbarbutton-hover-background,
-    var(--lwt-frame)) !important;                                              /*"popup_border": "#304f60"*/    
+  --arrowpanel-border-color: var(--lwt-frame) !important;                      /*"popup_border": "#304f60"*/    
 /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);      /*"popup_highlight": "#006f80"*/
   
-  /*--lwt-popup-brighttext-url-color: var(--general-color) !important;          /*"color de label: El sitio no funciona?"*/
+  --lwt-brighttext-url-color: #ff3a4acc !important;                             /*"color de label: El sitio no funciona?"*/
   
   --panel-description-color: var(--general-color) !important;                   /*"Color de letras de: correo de la cuenta, y dispositivos conectados"*/
   --toolbar-field-background-color: var(--toolbar-bgcolor) !important;          /*"toolbar_field":"#1a1b25"*/
@@ -30,32 +29,35 @@
     var(--general-color), var(--toolbar-bgcolor) 75%) !important;                       /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbar-field-focus-color: var(--lwt-tab-text) !important;                          /*"toolbar_field_text_focus": "#e5e5e6"*/
   --toolbar-field-focus-border-color: transparent !important;                           /*"toolbar_field_border_focus": "#005F66"*/
-  --lwt-toolbar-field-highlight: var(--button-active-bgcolor) !important;               /*"toolbar_field_highlight": "#006f80"*/
-  --lwt-toolbar-field-highlight-text: var(--lwt-tab-text) !important;                   /*"toolbar_field_highlight_text": "#eaeaea"*/
+  --lwt-toolbar-field-highlight: var(--general-color) !important;                       /*"toolbar_field_highlight": "#006f80"*/
+  --lwt-toolbar-field-highlight-text: var(--lwt-frame) !important;                      /*"toolbar_field_highlight_text": "#eaeaea"*/
     
   --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;               /*"tab_selected":"#363540"*/
 
   --chrome-content-separator-color: var(--toolbar-bgcolor) !important;                  /*"toolbar_bottom_separator": "#181818"*/
   
-  /*--toolbarbutton-icon-fill: #cfcfd1 !important;                                      /*"icons": "#00dbfd"*/
+  --toolbarbutton-icon-fill: #b6b6d2 !important;                                        /*"icons": "#00dbfd"*/
   /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /*"icons_attention": "#00dbfd"*/    
   
-  --toolbarbutton-hover-background: #251f33 !important;                                                        /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 80%, black) !important;          /*"button_background_hover": "#26242e"*/
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, black) !important;         /*"button_background_active": "#131217"*/
 
   
   --lwt-sidebar-background-color: var(--toolbar-bgcolor) !important;                  /*Sidebar-background*/
   
-  --toolbarbutton-inner-padding: 5px !important;                                      /*Toolbar buttons más pequeños*/
-  --toolbarbutton-outer-padding: 3px !important;                                      /*Toolbar buttons más espaciados*/
+  --toolbarbutton-inner-padding: 4px !important;                                      /*Toolbar buttons más pequeños*/
+  --toolbarbutton-outer-padding: 4px !important;                                      /*Toolbar buttons más espaciados*/
   --toolbarbutton-border-radius: 0px !important;                                      /*forma de los buttons*/
-  --tab-block-margin: 1px 0px !important;                                             /*margenes pestañas*/
-  --tab-min-height:  32px !important;                                                 /*tamaño pestañas*/
+  
+  --tab-block-margin: 0px !important;                                                 /*margenes pestañas*/
+  --margin-top: 0px !important;                                                       /*margen top pestañas - variable personal*/
+  
+  --tab-min-height:  calc(30px + var(--tab-block-margin)) !important;                 /*tamaño pestañas*/
   --tabs-shadow-size: 0px !important;                                                 /*sombras de pestaña*/
   --tab-border-radius: 6px 2px 0 0 !important;                                        /*forma de la pestaña*/
   
   --arrowpanel-menuitem-padding: 7px !important;                                      /*menu mas pequeño*/
-  --arrowpanel-border-radius: 0px !important;                                         /*forma de los menús*/
+  --arrowpanel-border-radius: 4px !important;                                         /*forma de los menús*/
   --panel-subview-body-padding: 4px 0px !important;                                   /*Padding menús*/
   --arrowpanel-padding: 1.3em !important;                                             /*Otro padding de menús*/
   --arrowpanel-menuitem-margin: 0 0px !important;                                     /*margenes de menús*/
@@ -63,16 +65,16 @@
   --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, black) !important;   /*Color input backgrond en Marcadores*/
   
   --arrowpanel-menuitem-border-radius: 0px !important;                                /*forma de menuitems :hover*/
-  --panel-separator-margin-vertical: 4px;                                             /*margen vertical entre los separadores*/
-  --panel-separator-margin-horizontal: 6px !important;                                /*Margen horizontal de los separadores*/
+  --panel-separator-margin-vertical: 3px !important;                                  /*margen vertical entre los separadores*/
+  --panel-separator-margin-horizontal: 0px !important;                                /*Margen horizontal de los separadores*/
   --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
   
   --urlbar-icon-padding: 4px !important;                                                              /*padding de los iconos de la urlbar*/
-  --panel-separator-color: color-mix(in srgb, var(--general-color) 50%, transparent) !important;      /*separadores de menu desplegable de marcadores*/
+  --panel-separator-color: var(--general-color) !important;      /*separadores de menu desplegable de marcadores*/
   
-  --urlbar-popup-url-color: color-mix(in srgb, var(--general-color) 86%, var(--lwt-tab-text)) !important;    /*Color urls de sujerencias de búsqueda*/
-  --autocomplete-popup-hover-background: var(--button-active-bgcolor) !important;                            /*Color hover de sujerencias de búsqueda*/
-  --autocomplete-popup-separator-color: var(--toolbar-field-focus-background-color) !important;              /*color separador urlbar y sugerencias de búsqueda*/
+  --urlbar-popup-url-color: var(--general-color) !important;                                                /*Color urls de sujerencias de búsqueda*/
+  --autocomplete-popup-hover-background: var(--button-hover-bgcolor) !important;                            /*Color hover de sujerencias de búsqueda*/
+  --autocomplete-popup-separator-color: transparent !important;                                             /*color separador urlbar y sugerencias de búsqueda*/
   
   /*ColorBotónGuardar*/
     --button-primary-bgcolor: var(--button-active-bgcolor) !important;
@@ -90,7 +92,7 @@
     --focus-outline-color: var(--general-color) !important;
 
     /*Color borde en InputText*/
-    --input-border-color: var(--button-hover-bgcolor) !important;
+    --input-border-color: #4a3e65 !important;
 
     /*Colores checkbox —v*/
     --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;

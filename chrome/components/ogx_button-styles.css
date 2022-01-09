@@ -1,6 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
+/*Botones generales*/
 /*-"Radiobutton"-ProtecciónAntirastreo*/
 .protections-popup-tp-switch:not([enabled]){background-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;}
 .protections-popup-tp-switch:not([enabled]):hover{background-color: var(--button-bgcolor) !important;}
@@ -13,16 +14,24 @@
     border-color: transparent !important;
 }
 /*color Rojo de boton "borrar marcador"*/
+#editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton label{
+display: none !important;
+}
+#editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton{
+background: url("../images/delete.svg") no-repeat center/16px !important;
+    fill: var(--toolbarbutton-icon-fill) !important;
+    -moz-context-properties: fill !important;
+}
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton {
-    background-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
-    color: #eaeaea !important;
-    box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--arrowpanel-background) 78%, var(--lwt-tab-text)) !important;
-    border-radius: 4px !important;
+    background-color: #2e273f !important;
+    box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
+    border-radius: 2px !important;
 }
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton:hover {
-    background-color: #ff3636 !important;
+    background-color: #ff2b22 !important;
     color: #f0f6fc !important;
     box-shadow: none !important;
+    fill: white !important;
 }
 /*color letras de boton "Guardar" marcador en :hover*/
 #editBookmarkPanelBottomButtons>#editBookmarkPanelDoneButton {   
@@ -30,8 +39,9 @@
     border-radius: 4px !important;
 }
 /*Color del botón menú deplegable*/
-panel menulist, panel menulist:not([open]) {    
-    box-shadow: inset 0 0 0 1px var(--button-hover-bgcolor) !important;
+panel menulist, panel menulist:not([open]) {
+    background-color: #2e273f !important;
+    box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
     border-radius: 0px !important;
 }
 panel menulist:hover, panel menulist[open] {
@@ -41,7 +51,8 @@ panel menulist:hover, panel menulist[open] {
 }
 /*Color -fondo y borde-(flecha hacia abajo)*/
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
-    border-color: var(--button-hover-bgcolor) !important;
+    background-color: #2e273f !important;
+    border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
     border-radius: 0px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
@@ -55,6 +66,15 @@ treechildren::-moz-tree-row(selected) {
 }
 treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected), treechildren::-moz-tree-cell-text(selected) {
     color: white !important;
+}
+
+#editBMPanel_folderTree treechildren{
+    background-color: var(--arrowpanel-background) !important;
+    border-color: red !important;
+}
+#editBMPanel_tagsSelector{
+    background-color: #2e273f !important;
+    border: 1px solid var(--input-border-color) !important;
 }
 /*--------------------------Marcadores----------------------------------*/
 
@@ -77,10 +97,10 @@ richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel
   margin-top: 4px !important;
   margin-inline-start: 4px !important;
 }
-/*Color de iconos de la toolbar cuando están activos(dado clic)*/
-#nav-bar .toolbarbutton-1:active:not([disabled="true"]) > .toolbarbutton-icon,
-#nav-bar .toolbarbutton-1:active:not([disabled="true"]) > .toolbarbutton-text,
-#nav-bar .toolbarbutton-1:active:not([disabled="true"]) > .toolbarbutton-badge-stack,
+/*Color de iconos de la toolbar cuando están :hover */
+#nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-badge-stack,
 #nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-icon,
 #nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-text,
 #nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
