@@ -3,6 +3,7 @@
 :root{
     --toolbar-bgcolor: transparent !important;
     --lwt-selected-tab-background-color: #101019 !important;
+    --toolbarbutton-hover-background: #2e273f !important;
 }
 /*"toolbar_top_separator": "#17161c"*/
 #navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
@@ -36,21 +37,29 @@
 
 /* "popup_highlight" -> 1.- keyboard highlight 2.-mouse highlight*/
 .urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
-    background-color: var(--button-active-bgcolor) !important; color: #ffffff !important; }
-.urlbarView-row:hover .urlbarView-url {
-    color: var(--toolbar-field-focus-color) !important;
+    background-color: var(--button-hover-bgcolor) !important; color: #ffffff !important;}
+
+.urlbarView-row .urlbarView-url {font-weight: 501 !important}
+.urlbarView-title{font-size: 1.06em !important; }
+.urlbarView-tags, .urlbarView-url, .urlbarView-title:not(:empty) ~ .urlbarView-action { font-size: 1.0em !important; }
+.urlbarView-row:hover .urlbarView-url { color: var(--toolbar-field-focus-color) !important;
 }
-/* Sugerencias de búsqueda*/
+/* tamaño letras urlbar */
+#urlbar-input {
+    opacity: 0.9 !important;
+    font-weight: 501 !important;    
+}
+/* Sugerencias de búsqueda */
 .urlbarView {
-    margin-inline-start: -9px !important;
-    margin-inline-end: -9px !important;
-    width: -moz-available !important; 
-    margin-top: -6px !important; 
-    margin-bottom:  -6px !important;}
-.urlbarView-row-inner{ padding-left: 12px !important;}
+    margin-inline-start: -11px !important;
+    margin-inline-end: -11px !important;
+    width: -moz-available !important; }
+.urlbarView-row{ margin-top:-7px !important;  margin-bottom: 5px !important; }
+.urlbarView-row-inner{ padding-left: 14px !important;}
 #urlbar .search-panel-header{ padding-left: 14px !important; }
-#urlbar .search-one-offs {padding-right: 6px !important; 
-}
+#urlbar .search-one-offs {padding-right: 14px !important; }
+.urlbarView-results { margin-bottom: -14px !important; }
+
 .urlbarView-row:hover .urlbarView-favicon { 
     background: var(--toolbar-field-focus-background-color) !important;
 }
@@ -59,22 +68,30 @@
     margin-top: -2px !important; margin-bottom:  -2px !important;
     clip-path: circle(50%);
 }
-.urlbarView-row[label]::before {
+/* Label "Sugerencias de firefox - Sugerencias de google" */
+.urlbarView-row[label] {margin-top: 16px !important;}
+.urlbarView-row[label]::before {    
     margin-inline-start: 12px !important;
-    text-decoration-color: var(--general-color) !important;
     font-weight: bold !important;
-    letter-spacing: 0.1em !important;
+    letter-spacing: 0.04em !important;
 }
 /* Urlbar */
+.toolbarbutton-1>.toolbarbutton-icon { margin-block: 0px !important;  margin-top: 1px !important; }
+#PanelUI-button{margin-top: 1px !important; z-index: 1 !important; }
+#urlbar-container{ margin-top: 3px !important; }
+
 #urlbar{min-height: 26px !important; padding-left: 8px !important; padding-right: 8px !important; border-radius: 4px !important;}
 #urlbar-background{border-radius: 4px !important;}
 #urlbar:not([open=true],[focused=true]):hover #urlbar-background{ background-color: var(--toolbar-field-focus-background-color) !important; 
     border-radius: 4px !important; transition-duration: 200ms !important; border-color: transparent !important; }
-
-#urlbar[focused=true] #urlbar-background{border-radius: 0px !important;}
+#urlbar:not([open=true]){margin-top: -1px !important;}
+#urlbar[focused=true] #urlbar-background{border-radius: 4px !important;}
 #urlbar[open=true] #urlbar-background {
     border-radius: 10px !important;
     border-color: transparent !important;    
+}
+#urlbar[breakout][breakout-extend]>#urlbar-input-container {
+    margin-top: -1px !important;
 }
 #urlbar-input, #urlbar-scheme{
     padding-left: 6px !important;
@@ -100,57 +117,106 @@
 /*Páginas de extensiones*/
 #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
     background: transparent !important;
-    padding-left:3px !important;
-    padding-right:4px !important;
-}
+    padding-left:4px !important;
+    padding-right:5px !important;}
 #identity-box.extensionPage label{
     display: none !important;
 }
 /*Páginas seguras de firefox"*/
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button:hover:not([open]), #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button:hover:not([open]) {
     background-color: var(--button-primary-bgcolor) !important;
-    color: white !important;
+    color: white !important;  
 }
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button[open="true"], #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button[open="true"] {
     background-color: var(--button-primary-hover-bgcolor) !important;
     color: white !important;
 }
+/* alinear: "Conexión segura" en candado*/
 #identity-popup-security-button {
-    margin-bottom: 0px !important
+    margin-bottom: 0px !important;
 }
-/*"Íconos de la urlbar más pequeños"*/
-#tracking-protection-icon, #identity-icon, .sharing-icon, #permissions-granted-icon, #blocked-permissions-container>.blocked-permission-icon {
+/* Barrra de marcadores :hover */
+toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
+    background-color: #251f33 !important; }
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+    border-radius: 2px !important;
+}
+/* Íconos de la urlbar más pequeños */
+/* Tamaño */
+#tracking-protection-icon, #identity-icon, .sharing-icon, #blocked-permissions-container>.blocked-permission-icon{
     height: 14px !important;
     width: 14px !important;
+    margin-left: -2px !important;
+    margin-right: -2px !important;
+    color: var(--toolbarbutton-icon-fill) !important;
 }
+/* box, caja de íconos*/
+#identity-icon-box, #tracking-protection-icon-container, #identity-permission-box {   
+    margin-block: 2px !important;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    color: var(--toolbarbutton-icon-fill) !important;
+}
+#permissions-granted-icon, #identity-permission-box[hasPermissions]{
+     height: 14px !important;
+     width: 14px !important;
+     margin-right: 2px !important;
+}
+/* ícono Portección contra rastreo */
 #tracking-protection-icon {
-    margin-inline-start: 1px !important
-}
+    margin-inline-start: 1px !important; }
 #tracking-protection-icon-container {
-    padding: 3px !important;
+    padding: 0px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+.identity-box-button:hover:not([open="true"]) { 
+    background-color: transparent !important; 
+}
+.urlbar-page-action {
+    width: 18px !important;    
+    margin: 2px !important;
+    padding: 2px !important;
+    color: var(--toolbarbutton-icon-fill) !important;
+}
+/*fondo :hover de íconos de la urlbar"*/
+#identity-icon-box:hover:not([open="true"]),#identity-permission-box:hover:not([open="true"]), #tracking-protection-icon-container:hover:not([open="true"]), 
+.urlbar-page-action:not([disabled],[open="true"]):hover, #urlbar-go-button:hover, .search-go-button:hover, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:hover  {
+    background-color: color-mix(in srgb, var(--button-bgcolor) 90%, white) !important;
 }
 /*"Color verde de la descripción de web segura"*/
 description#identity-popup-content-owner-label, description#identity-popup-content-owner, description#identity-popup-content-verifier, #identity-popup-securityView-body>button {
     color: #2cf62c !important
 }
-/*fondo :hover de íconos de la urlbar"*/
-.urlbar-icon {
-    margin-left: 2px !important
-}
-.identity-box-button:hover:not([open="true"]) {
-    background-color: transparent !important;
-}
-#identity-icon-box:hover:not([open="true"]),#identity-permission-box:hover:not([open="true"]), #tracking-protection-icon-container:hover:not([open="true"]), 
-.urlbar-page-action:not([disabled],[open="true"]):hover, #urlbar-go-button:hover, .search-go-button:hover, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:hover  {
-    background-color: color-mix(in srgb, var(--toolbarbutton-hover-background) 85%, black) !important;
-}
 /*fondo active de íconos de la urlbar"*/
 #identity-icon-box[open="true"],#identity-permission-box[open="true"], #tracking-protection-icon-container[open="true"], .urlbar-page-action:not([disabled])[open="true"] , #urlbar-go-button[open="true"], .search-go-button[open="true"] ,
 :not(.urlbar-icon-wrapper)>.urlbar-icon[open="true"], :not(.urlbar-icon-wrapper)>.urlbar-icon[open="true"], .urlbar-icon-wrapper[open="true"], .urlbar-icon-wrapper[open="true"], .identity-box-button[open="true"], #tracking-protection-icon-container[open="true"], 
 .identity-box-button[open="true"] .urlbar-page-action:not([disabled]):hover, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button[open="true"] {
-    background-color: var(--toolbarbutton-active-background) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 82%, white) !important; !important;
+    border-radius: 2px !important;
 }
 /*Eliminar ícono de -sitio anclado- en las sugerencias de busqueda*/
 .urlbarView-type-icon{
     display: none !important;
+}
+/* separador izquierda y derecha urlbar */
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{
+    background: url("../images/urlbar-separator.svg") no-repeat left;
+    background-size: 7px 16px !important;
+    content: ""; display: block;
+    padding-top: 24px !important;
+    margin-left: -1px !important;
+    -moz-context-properties: fill !important;
+    fill: var(--toolbarbutton-icon-fill) !important;
+    opacity: 0.3 !important;
+}
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{
+    background: url("../images/urlbar-separator.svg") no-repeat right;
+    background-size: 7px 16px !important;
+    content: ""; display: block;  height: 16px; 
+    margin-top: -20px !important;
+    margin-right: -1px !important;
+    fill: var(--toolbarbutton-icon-fill) !important;
+    -moz-context-properties: fill !important;
+    opacity: 0.3 !important;
 }
