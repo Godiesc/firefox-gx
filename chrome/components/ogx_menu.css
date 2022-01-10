@@ -13,7 +13,7 @@
 #toolbar-menubar[autohide="true"] + #TabsToolbar{
   padding-left: var(--padding-left-tab) !important;
 }
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
+@media{
   :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top:7px !important;}
 }
 /* margen izquierda pestañas*/
@@ -58,13 +58,13 @@
 .panel-arrowcontainer{
     margin: var(--uc-panel-margin,0);
 }
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
+@media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
 padding-top: 25px !important;
     width: 27.5em !important;
 }
 }
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
+@media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
     padding: 0px !important;
@@ -78,6 +78,7 @@ padding-top: 25px !important;
     --arrowpanel-border-color: var(--lwt-frame) !important;
     --arrowpanel-background: #251f33 !important;
     --arrowpanel-menuitem-padding: 5px !important;
+}
 }
 /* Separadores*/
 #appMenu-popup.cui-widget-panel toolbarseparator{
