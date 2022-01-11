@@ -48,6 +48,7 @@
 #PanelUI-menu-button[open] > stack{
     background-color: #251f33 !important;
     padding-right: 11px !important;
+    padding-bottom: 6px !important;
     border-color: var(--lwt-frame) !important;
 }
 /* Margenes del menú Open*/
