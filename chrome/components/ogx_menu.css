@@ -66,7 +66,7 @@ padding-top: 24px !important;
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
-    margin-top: -29px !important;
+    margin-top: -30px !important;
     clip-path: polygon(
         var(--padding-left-tab) 0%, 
         200% 0%, 0% 200%,
