@@ -25,7 +25,7 @@ background: url("../images/delete.svg") no-repeat center/16px !important;
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton {
     background-color: #2e273f !important;
     box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
-    border-radius: 2px !important;
+    border-radius: 3px !important;
 }
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton:hover {
     background-color: #ff2b22 !important;
@@ -42,7 +42,7 @@ background: url("../images/delete.svg") no-repeat center/16px !important;
 panel menulist, panel menulist:not([open]) {
     background-color: #2e273f !important;
     box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
-    border-radius: 0px !important;
+    border-radius: 3px !important;
 }
 panel menulist:hover, panel menulist[open] {
     background-color: var(--button-active-bgcolor) !important;
@@ -53,7 +53,7 @@ panel menulist:hover, panel menulist[open] {
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
     background-color: #2e273f !important;
     border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
-    border-radius: 0px !important
+    border-radius: 3px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
     border-color: var(--button-active-bgcolor) !important;
@@ -93,7 +93,7 @@ richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel
   box-shadow: inset 0px 0px 0 1px var(--button-bgcolor) !important;
   width: 16px !important;
   height: 16px !important;
-  border-radius: 0px !important;
+  border-radius: 3px !important;
   margin-top: 4px !important;
   margin-inline-start: 4px !important;
 }
