@@ -18,14 +18,14 @@
 }
 /* margen izquierda pestañas*/
 #PanelUI-menu-button{ 
-    padding: 1px 0 0 0 !important;}
+    padding: 2px 0 0 0 !important;}
 /* Logo */
 #PanelUI-menu-button > stack{
   list-style-image: url("../images/foxmenu.svg") !important;
   display: -moz-box;
   height: calc(var(--tab-min-height) - 1px) !important;
   width: var(--pading-left-tab) !important;
-  padding: 5px 10px 5px 8px !important;
+  padding: 4px 9px 5px 8px !important;
   fill: var(--general-color) !important;
   border: 1px solid transparent !important;
 }
@@ -48,33 +48,29 @@
 #PanelUI-menu-button[open] > stack{
     background-color: #251f33 !important;
     padding-right: 11px !important;
-    padding-bottom: 6px !important;
     border-color: var(--lwt-frame) !important;
 }
-/* Margenes del menú Open */
-#appMenu-popup{
-    --uc-panel-margin: -5px 0 0 -4px;
-}
-.panel-arrowcontainer{
-    margin: var(--uc-panel-margin,0);
+/* Margenes del menú Open*/
+slot{  margin: 0px !important; }
+#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #identity-popup, 
+#permission-popup, #protections-popup, #appMenu-notification-popup{
+    margin-top: 0px !important;
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
-padding-top: 25px !important;
+padding-top: 24px !important;
     width: 27.5em !important;
 }
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
-    padding: 0px !important;
-    margin-top: -30px !important;
-    margin-left: -12px !important;
+    margin-top: -29px !important;
     clip-path: polygon(
         var(--padding-left-tab) 0%, 
         200% 0%, 0% 200%,
-        0% calc(var(--tab-min-height) - 1px), 
-        var(--padding-left-tab) calc(var(--tab-min-height) - 1px));
+        0% calc(var(--tab-min-height) - 2px), 
+        var(--padding-left-tab) calc(var(--tab-min-height) - 2px));
     --arrowpanel-border-color: var(--lwt-frame) !important;
     --arrowpanel-background: #251f33 !important;
     --arrowpanel-menuitem-padding: 5px !important;
