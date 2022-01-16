@@ -7,10 +7,10 @@
 #customization-container {color: var(--lwt-text-color) !important; background-color: var(--toolbar-bgcolor) !important;} 
 
 .customizationmode-button {
-    background-color: var(--toolbar-bgcolor) !important;
-    border-color: var(--button-hover-bgcolor) !important;
+    background-color: #2e273f !important;
+    border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
     color: var(--lwt-tab-text) !important;
-    border-radius: 4px !important;
+    border-radius: 3px !important;
 }
 .customizationmode-button:is(:active, :hover):not([disabled]), .customizationmode-button[open], .customizationmode-button[checked] {
     background-color: var(--button-primary-hover-bgcolor) !important;
