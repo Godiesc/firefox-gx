@@ -217,7 +217,6 @@ window, dialog {                                                                
     
 /* Actividad reciente */
 .compact-cards .card-outer .card-details{
-    backdrop-filter: blur(10px) !important;
 }
 /*fondo pequeño de los favICON de los sitios anclados*/
 .top-site-icon{background-color: transparent !important;}
