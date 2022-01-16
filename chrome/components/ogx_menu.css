@@ -73,8 +73,9 @@ padding-top: 24px !important;
         0% calc(var(--tab-min-height) - 2px), 
         var(--padding-left-tab) calc(var(--tab-min-height) - 2px));
     --arrowpanel-border-color: var(--lwt-frame) !important;
+    --arrowpanel-border-radius: 0px !important;
     --arrowpanel-background: #251f33 !important;
-    --arrowpanel-menuitem-padding: 5px !important;
+    --arrowpanel-menuitem-padding: 5px !important;     
 }
 }
 /* Separadores*/
