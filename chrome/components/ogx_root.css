@@ -18,12 +18,12 @@
   --arrowpanel-border-color: var(--lwt-frame) !important;                      /*"popup_border": "#304f60"*/    
 /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);      /*"popup_highlight": "#006f80"*/
   
-  --lwt-brighttext-url-color: #ff3a4acc !important;                             /*"color de label: El sitio no funciona?"*/
+  --lwt-brighttext-url-color: #ff3a4acc !important;                            /*"color de label: El sitio no funciona?"*/
   
-  --panel-description-color: var(--general-color) !important;                   /*"Color de letras de: correo de la cuenta, y dispositivos conectados"*/
-  --toolbar-field-background-color: var(--toolbar-bgcolor) !important;          /*"toolbar_field":"#1a1b25"*/
-  --toolbar-field-color: var(--lwt-tab-text) !important;                        /*"toolbar_field_text":"#e2e9e9"*/
-  --toolbar-field-border-color: var(--toolbar-bgcolor) !important;              /*"toolbar_field_border": "#363540"*/
+  --panel-description-color: var(--general-color) !important;                  /*"Color de letras de: correo de la cuenta, y dispositivos conectados"*/
+  --toolbar-field-background-color: var(--toolbar-bgcolor) !important;         /*"toolbar_field":"#1a1b25"*/
+  --toolbar-field-color: var(--lwt-tab-text) !important;                       /*"toolbar_field_text":"#e2e9e9"*/
+  --toolbar-field-border-color: var(--toolbar-bgcolor) !important;             /*"toolbar_field_border": "#363540"*/
   
 /*--toolbar-field-focus-background-color: color-mix(in srgb,
     var(--general-color), var(--toolbar-bgcolor) 75%) !important;                       /*"toolbar_field_focus": "#1a1b25FB"*/
@@ -70,7 +70,7 @@
   --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
   
   --urlbar-icon-padding: 4px !important;                                                              /*padding de los iconos de la urlbar*/
-  --panel-separator-color: var(--general-color) !important;      /*separadores de menu desplegable de marcadores*/
+  --panel-separator-color: var(--general-color) !important;                                           /*separadores de menu desplegable de marcadores*/
   
   --urlbar-popup-url-color: var(--general-color) !important;                                                /*Color urls de sujerencias de búsqueda*/
   --autocomplete-popup-hover-background: var(--button-hover-bgcolor) !important;                            /*Color hover de sujerencias de búsqueda*/
