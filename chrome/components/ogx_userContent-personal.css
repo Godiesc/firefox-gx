@@ -46,7 +46,7 @@ window, dialog {                                                                
     --in-content-primary-button-background-active: var(--general-color) !important;  /*color de los radiobutton (clic) con check*/
                       
     --in-content-box-background: #1c1726 !important;                                    /*color de los textbox y fondo de menús desplegables*/
-    --in-content-box-border-color: #4a3e65 !important;                     /*color del borde de los textbox*/
+    --in-content-box-border-color: #4a3e65 !important;                                  /*color del borde de los textbox*/
     --in-content-box-background-odd: color-mix(
         in srgb, var(--general-color) 20%, transparent) !important;                     /*color destinción entre filas de una tabla-atajos de busqueda*/
     --in-content-box-info-background: color-mix(
@@ -57,7 +57,7 @@ window, dialog {                                                                
         var(--general-color) !important;                                            /*color de la label colorida y de enlaces*/
     --in-content-deemphasized-text: #fff !important;                                /*color de la descripción  de los temas y extensiones*/
   
-    --in-content-border-color:  var(--general-color) !important;                    /*Linea separadora en la configuración*/
+    --in-content-border-color:  #4a3e65 !important;                                 /*Linea separadora en la configuración*/
     --in-content-table-border-color: color-mix(
         in srgb, var(--general-color) 50%, transparent) !important;                 /*Borde de tablas*/
   
@@ -83,7 +83,7 @@ window, dialog {                                                                
     --in-content-item-selected-text:  var(--in-content-text-color) !important;       /*Color de label al pasar por los items de un combobox (teclas de direccion)"*/
     
     --in-content-focus-outline-color: var(--general-color) !important;               /*color de focus de txt "buscar..."*/  
-    --gradiente-casual: linear-gradient(to right,#2e273f 90%, transparent ) !important;
+    --gradiente-casual: linear-gradient(to right, #4a3e65 90%, transparent ) !important;
     
 }
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {  
@@ -258,8 +258,7 @@ panel-list {background: #251f33 !important;}
 .card[active="true"]{ background-color: color-mix(in srgb, var(--in-content-box-background)96%, white) !important; outline: 1px solid var(--in-content-box-border-color) !important;}
 .card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)30%, transparent) !important;}
 .addon.card:hover{ outline: transparent !important;}
-#categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { background: var(--in-content-box-background) !important;}
-.navigation, #sidebar{ border-right: 1px solid #4a3e65 !important;}
+#categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { background: var(--in-content-box-background) !important;}    
 .sticky-container{ border-bottom: 1px solid #4a3e65 !important; box-shadow: 3px 3px 7px #00000050 !important;}
 #main{ margin-inline-start: 10% !important;}
 .main-search {  padding-inline-end: 28px; max-width: 100% !important; padding: 20px 20px !important; }
@@ -300,7 +299,7 @@ search-addons > search-textbox:hover { outline: 1px solid var(--general-color) !
 }
 /*Personalizacion de la página newtab*/    
 @-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
- body {background: url("../images/newtab/wallpaper.png") no-repeat fixed !important; background-size: cover !important;} 
+ body {background: url("../images/newtab/wallpape.png") no-repeat fixed !important; background-size: cover !important;} 
 .logo-and-wordmark .logo {
   background: url("../images/foxlogo.svg") no-repeat !important; 
   background-size: cover !important; display: inline-block !important;
