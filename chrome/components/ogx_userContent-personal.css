@@ -272,12 +272,12 @@ panel-list {background: #251f33 !important;}
     margin: 20px 70px 20px !important;}
 #policies-container:hover, #searchInput:hover {
     border-color: var(--general-color) !important;
-    outline: 1px solid var(--general-color) !important; }
+    outline: 2px solid var(--general-color) !important; }
 .content-blocking-category.selected {
     background-color: var(--in-content-box-background) !important;}
 .content-blocking-category.selected {  border-color: color-mix(in srgb, var(--in-content-box-background)90%, white) !important; }
 search-addons > search-textbox {  border-radius: 16px !important;}
-search-addons > search-textbox:hover { outline: 1px solid var(--general-color) !important; border-color: transparent !important;}
+search-addons > search-textbox:hover { outline: 2px solid var(--general-color) !important; border-color: transparent !important;}
 }
 
 @-moz-document url-prefix(about:preferences){    
