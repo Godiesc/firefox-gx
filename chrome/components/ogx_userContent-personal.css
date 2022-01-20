@@ -84,6 +84,7 @@ window, dialog {                                                                
     
     --in-content-focus-outline-color: var(--general-color) !important;               /*color de focus de txt "buscar..."*/  
     --gradiente-casual: linear-gradient(to right, #4a3e65 90%, transparent ) !important;
+    --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;
     
 }
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {  
@@ -241,7 +242,7 @@ window, dialog {                                                                
 @-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support) {    
 button:not(.category) {background-color: #251f33 !important; border-color: #3e3455 !important;}
 button:hover {background-color: var(--button-hover-bgcolor) !important; color: #fafafa !important; border-color: var(--button-hover-bgcolor) !important;}
-#categories{ margin: 70px 15px 0 -18px !important;}
+#categories{ margin: 70px 15px 0 -18px !important; }
 .sidebar-footer-list { margin-inline: 4px 4px !important; }
     
 #categories > .category{background-color: var(--in-content-box-background) !important;}
@@ -255,9 +256,10 @@ td { border: 1px solid var(--in-content-table-border-color) !important;}
 panel-list {background: #251f33 !important;}
 .dialogBox {--in-content-page-background: #101019 !important;} /*Color de ventana de ventanas emergentes en "configuración"*/
 .subcategory:not([hidden]) ~ .subcategory { border-image: var(--panel-separator-zap-gradient1) 1 !important;} /*Linea separadora en "configuración"*/
-.card[active="true"]{ background-color: color-mix(in srgb, var(--in-content-box-background)96%, white) !important; outline: 1px solid var(--in-content-box-border-color) !important;}
-.card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)30%, transparent) !important;}
-.addon.card:hover{ outline: transparent !important;}
+.card[active="true"]{ background-color: color-mix(in srgb, var(--in-content-box-background)96%, white) !important; 
+    outline: 1px solid var(--in-content-box-border-color) !important; outline-width: 2px !important; transition-duration: 0ms !important;}
+.card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)20%, transparent) !important;}
+.addon.card:hover{ outline-color: var(--general-color) !important; border-radius: 4px !important;}
 #categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { background: var(--in-content-box-background) !important;}    
 .sticky-container{ border-bottom: 1px solid #4a3e65 !important; box-shadow: 3px 3px 7px #00000050 !important;}
 #main{ margin-inline-start: 10% !important;}
@@ -299,7 +301,7 @@ search-addons > search-textbox:hover { outline: 1px solid var(--general-color) !
 }
 /*Personalizacion de la página newtab*/    
 @-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
- body {background: url("../images/newtab/wallpaper.png") no-repeat fixed !important; background-size: cover !important;} 
+ body {background: url("../images/newtab/wallpape.png") no-repeat fixed !important; background-size: cover !important;} 
 .logo-and-wordmark .logo {
   background: url("../images/foxlogo.svg") no-repeat !important; 
   background-size: cover !important; display: inline-block !important;
