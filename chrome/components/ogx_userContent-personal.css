@@ -247,8 +247,9 @@ button:hover {background-color: var(--button-hover-bgcolor) !important; color: #
     
 #categories > .category{background-color: var(--in-content-box-background) !important;}
 #categories > .category:hover{background-color: var(--button-hover-bgcolor) !important; color: White !important;}
-#categories > .category[selected]  {background-color: transparent !important; color: color-mix(in srgb, var(--general-color)90%, white) !important; text-decoration: underline !important;}
-#categories > .category[selected]:hover { background-color: var(--button-hover-bgcolor) !important;  color: white !important;}
+#categories > .category[selected] , #categories > .category[selected] > .category-name {background-color: transparent !important; color: color-mix(in srgb, var(--general-color)90%, white) !important; text-decoration: underline !important;}
+#categories > .category[selected]:hover{ background-color: var(--button-hover-bgcolor) !important;  color: white !important;}
+#categories > .category[selected]:hover > .category-name{ background-color: transparent; color: white !important; }
 button.primary {background-color: var(--button-active-bgcolor) !important;  color: white !important; border-color: transparent !important;}   
 button.primary:hover {background-color: var(--button-hover-bgcolor) !important;  color: #eaeaea !important;}
 th.column{color: #eaeaea !important; background-color:color-mix(in srgb, var(--general-color)20%, transparent)  !important;}
