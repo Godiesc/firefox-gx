@@ -267,7 +267,7 @@ panel-list {background: #251f33 !important;}
 .main-search {  padding-inline-end: 28px; max-width: 100% !important; padding: 20px 20px !important; }
 .main-search .search-label { display: none !important;}
 .main-heading { margin-top: -52px !important;  margin-bottom: 4px !important; min-width: 50% !important; }
-.main-heading .spacer {  display: none !important;}
+.main-heading .spacer { max-width: 20px !important;}
 #policies-container, #searchInput {
     min-height: 32px; border-radius: 16px !important;
     margin: 20px 70px 20px !important;}
