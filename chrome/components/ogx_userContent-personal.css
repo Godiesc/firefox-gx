@@ -27,7 +27,7 @@ window, dialog {                                                                
     --in-content-button-background-active: #101019 !important;                      /*color de botones al darle clic*/    
 }
 :host, :root {                                                                  /*Colores varios de paginas de about:addons y about:settings*/
-    --in-content-page-background: #101019 !important;                           /*Fondo general*/
+    --in-content-page-background: #121019 !important;                           /*Fondo general*/
     --in-content-text-color: #fff !important;                                   /*Color general de label*/
     --in-content-page-color: #fff !important;                                   /*color de texto general*/
     --checkbox-unchecked-bgcolor: var(--in-content-page-background) !important; /*color de los checkbox vacíos*/
@@ -65,7 +65,7 @@ window, dialog {                                                                
     --in-content-button-background-hover: var(--button-hover-bgcolor) !important;   /*color de botones :hover*/
     --in-content-button-background-active: var(--general-color) !important;         /*color de botones al darle clic*/
   
-    --in-content-link-color: #0099ff !important;                                    /*color de links*/
+    --in-content-link-color: var(--general-color) !important;                                    /*color de links*/
     --in-content-link-color-hover: #00ccff !important;                              /*color de links*/
     --in-content-link-color-active:  #0099ff !important;                            /*color de links*/
     --in-content-link-color-visited: #0099ff !important;                            /*color de links*/
@@ -272,13 +272,12 @@ panel-list {background: #251f33 !important;}
     min-height: 32px; border-radius: 16px !important;
     margin: 20px 70px 20px !important;}
 #policies-container:hover, #searchInput:hover {
-    border-color: var(--general-color) !important;
-    outline: 2px solid var(--general-color) !important; }
+    border-color: var(--general-color) !important;}
 .content-blocking-category.selected {
     background-color: var(--in-content-box-background) !important;}
 .content-blocking-category.selected {  border-color: color-mix(in srgb, var(--in-content-box-background)90%, white) !important; }
 search-addons > search-textbox {  border-radius: 16px !important;}
-search-addons > search-textbox:hover { outline: 2px solid var(--general-color) !important; border-color: transparent !important;}
+search-addons > search-textbox:hover {  border-color: var(--general-color) !important;}
 }
 
 @-moz-document url-prefix(about:preferences){    
