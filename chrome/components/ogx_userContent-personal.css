@@ -265,6 +265,7 @@ panel-list {background: #251f33 !important;}
 .card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)20%, transparent) !important;}
 .addon.card:hover{ outline-color: var(--general-color) !important; border-radius: 4px !important;}
 #categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { background: var(--in-content-box-background) !important;}    
+.navigation, #sidebar{ border-right: 1px solid #4a3e65 !important;}
 .sticky-container{ border-bottom: 1px solid #4a3e65 !important; box-shadow: 3px 3px 7px #00000050 !important;}
 #main{ margin-inline-start: 10% !important;}
 .main-search {  padding-inline-end: 28px; max-width: 100% !important; padding: 20px 20px !important; }
