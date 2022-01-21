@@ -79,6 +79,7 @@
 }
 #urlbar-input, #urlbar-scheme{
     padding-left: 6px !important;
+    padding-block: 3px 4px !important;
 }
 /*Search-bar*/
 #searchbar {
