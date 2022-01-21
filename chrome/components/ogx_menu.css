@@ -23,9 +23,9 @@
 #PanelUI-menu-button > stack{
   list-style-image: url("../images/foxmenu.svg") !important;
   display: -moz-box;
-  height: calc(var(--tab-min-height) - 1px) !important;
+  height: calc(var(--tab-min-height) - (1px + var(--tab-block-margin))) !important;
   width: var(--pading-left-tab) !important;
-  padding: 4px 9px 5px 8px !important;
+  padding: 4px 10px 5px 8px !important;
   fill: var(--general-color) !important;
   border: 1px solid transparent !important;
 }
@@ -43,7 +43,7 @@
 }
 /* menu Hover y active*/
 #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
-  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 98%, white) !important;
+  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important;
 }
 #PanelUI-menu-button[open] > stack{
     background-color: #251f33 !important;
@@ -59,7 +59,7 @@ slot{  margin: 0px !important; }
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
-padding-top: 24px !important;
+padding-top: calc(24px + var(--tab-block-margin)) !important;
     width: 27.5em !important;
 }
 }
