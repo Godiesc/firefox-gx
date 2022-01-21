@@ -107,12 +107,19 @@
     display: none !important;
 }
 /*Páginas seguras de firefox"*/
+#identity-box[pageproxystate="valid"].chromeUI #identity-icon {
+  list-style-image: url("../images/foxFill.svg") !important; fill: var(--general-color) !important; -moz-context-properties: fill !important;
+    width: 15px !important; height: 15px !important; }
+#identity-icon-label { display: none !important; }
+#identity-box[pageproxystate="valid"].notSecureText > .identity-box-button, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button, #urlbar-label-box {
+    background-color: transparent !important;
+}
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button:hover:not([open]), #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button:hover:not([open]) {
-    background-color: var(--button-primary-bgcolor) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 86%, white) !important;
     color: white !important;  
 }
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button[open="true"], #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button[open="true"] {
-    background-color: var(--button-primary-hover-bgcolor) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 72%, white) !important;
     color: white !important;
 }
 /* alinear: "Conexión segura" en candado*/
