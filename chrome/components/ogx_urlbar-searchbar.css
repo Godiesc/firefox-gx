@@ -110,7 +110,9 @@
 /*Páginas seguras de firefox"*/
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
   list-style-image: url("../images/foxFill.svg") !important; fill: var(--general-color) !important; -moz-context-properties: fill !important;
-    width: 15px !important; height: 15px !important; }
+    width: 15px !important; height: 15px !important; margin-left: -6px !important; margin-right: -6px !important; padding-right: 0px !important;}
+#identity-box[pageproxystate="valid"].notSecureText, #identity-box[pageproxystate="valid"].chromeUI, #identity-box[pageproxystate="valid"].extensionPage, #urlbar-label-box {
+  margin-inline-end: 4px !important; }
 #identity-icon-label { display: none !important; }
 #identity-box[pageproxystate="valid"].notSecureText > .identity-box-button, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button, #urlbar-label-box {
     background-color: transparent !important;

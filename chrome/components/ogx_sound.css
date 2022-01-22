@@ -101,8 +101,8 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
 /*-----------ícono "reproduciendo" Pinned-----------*/
 .tab-icon-overlay:is([soundplaying][pinned]) {
   border-radius: 10px !important; 
-  top: 20px !important; left: 3px !important;
-  width: 11px !important; height: 3px !important; opacity: 1 !important; 
+  top: 20px !important; left: 2px !important;
+  width: 12px !important; height: 3px !important; opacity: 1 !important; 
   color: transparent !important; 
   background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important;
   stroke: none !important;

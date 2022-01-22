@@ -31,41 +31,35 @@ window, dialog {                                                                
     --in-content-text-color: #fff !important;                                   /*Color general de label*/
     --in-content-page-color: #fff !important;                                   /*color de texto general*/
     --checkbox-unchecked-bgcolor: var(--in-content-page-background) !important; /*color de los checkbox vacíos*/
-    --checkbox-unchecked-hover-bgcolor: 
-        var(--general-color) !important;                                        /*color de los checkbox hover*/
+    --checkbox-unchecked-hover-bgcolor: var(--general-color) !important;        /*color de los checkbox hover*/
     --checkbox-unchecked-active-bgcolor: #26264f !important;                    /*color de los checkbox al darle clic*/
   
-    --checkbox-checked-bgcolor: var(--general-color) !important;                /*color de los checkbox con check*/
+    --checkbox-checked-bgcolor: var(--button-active-bgcolor) !important;                /*color de los checkbox con check*/
     --checkbox-checked-color: var(--in-content-text-color) !important;          /*color de la palomita check*/
-    --checkbox-checked-hover-bgcolor: color-mix(
-        in srgb, var(--general-color) 70%, transparent) !important;             /*color de los checkbox con check :hover*/
+    --checkbox-checked-hover-bgcolor: var(--button-hover-bgcolor) !important;             /*color de los checkbox con check :hover*/
   
-    --in-content-primary-button-text-color: #192045 !important;                      /*color de los radiobutton (circulo) con check*/
-    --in-content-primary-button-background-hover: color-mix(
-        in srgb, var(--general-color) 60%, transparent) !important;                  /*color de los radiobutton (fondo) :hover*/  
-    --in-content-primary-button-background-active: var(--general-color) !important;  /*color de los radiobutton (clic) con check*/
+    --in-content-primary-button-text-color: var(--in-content-button-background) !important;     /*color de los radiobutton (circulo) con check*/
+    --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;      /*color de los radiobutton (fondo) :hover*/  
+    --in-content-primary-button-background-active: var(--general-color) !important;             /*color de los radiobutton (clic) con check*/
                       
-    --in-content-box-background: #1c1726 !important;                                    /*color de los textbox y fondo de menús desplegables*/
-    --in-content-box-border-color: #4a3e65 !important;                                  /*color del borde de los textbox*/
-    --in-content-box-background-odd: color-mix(
-        in srgb, var(--general-color) 20%, transparent) !important;                     /*color destinción entre filas de una tabla-atajos de busqueda*/
-    --in-content-box-info-background: color-mix(
-        in srgb, var(--general-color) 10%, transparent) !important;                     /*color de la caja de elementos que se sincronizan*/
+    --in-content-box-background: #1c1726 !important;                                        /*color de los textbox y fondo de menús desplegables*/
+    --in-content-box-border-color: #4a3e65 !important;                                      /*color del borde de los textbox*/
+    --in-content-box-background-odd: var(--button-bgcolor) !important;                      /*color destinción entre filas de una tabla-atajos de busqueda*/
+    --in-content-box-info-background: var(--in-content-box-background-odd) !important;      /*color de la caja de elementos que se sincronizan*/
     --section-highlight-background-color: var(--in-content-box-info-background) !important;
   
     --in-content-primary-button-background: 
-        var(--general-color) !important;                                            /*color de la label colorida y de enlaces*/
-    --in-content-deemphasized-text: #fff !important;                                /*color de la descripción  de los temas y extensiones*/
+        var(--general-color) !important;                                               /*color de la label colorida y de enlaces*/
+    --in-content-deemphasized-text: #fff !important;                                   /*color de la descripción  de los temas y extensiones*/
   
-    --in-content-border-color:  #4a3e65 !important;                                 /*Linea separadora en la configuración*/
-    --in-content-table-border-color: color-mix(
-        in srgb, var(--general-color) 50%, transparent) !important;                 /*Borde de tablas*/
+    --in-content-border-color:  var(--in-content-box-border-color) !important;         /*Linea separadora en la configuración*/
+    --in-content-table-border-color: var(--in-content-box-border-color) !important;    /*Borde de tablas*/
   
-    --in-content-button-background: #282337 !important;                             /*color de botones*/
-    --in-content-button-background-hover: var(--button-hover-bgcolor) !important;   /*color de botones :hover*/
-    --in-content-button-background-active: var(--general-color) !important;         /*color de botones al darle clic*/
+    --in-content-button-background: #282337 !important;                                 /*color de botones*/
+    --in-content-button-background-hover: var(--button-hover-bgcolor) !important;       /*color de botones :hover*/
+    --in-content-button-background-active: var(--button-active-bgcolor) !important;     /*color de botones al darle clic*/
   
-    --in-content-link-color: var(--general-color) !important;                                    /*color de links*/
+    --in-content-link-color: var(--general-color) !important;                       /*color de links*/
     --in-content-link-color-hover: #00ccff !important;                              /*color de links*/
     --in-content-link-color-active:  #0099ff !important;                            /*color de links*/
     --in-content-link-color-visited: #0099ff !important;                            /*color de links*/
@@ -79,7 +73,7 @@ window, dialog {                                                                
     --in-content-item-hover: color-mix(in srgb,
         var(--general-color), transparent) !important;                               /*Color de fondo al pasar por los items de un combobox"*/
     --in-content-item-hover-text: var(--in-content-text-color) !important;           /*Color de label del item hover del combobox"*/
-    --in-content-item-selected: var(--general-color) !important;                     /*Color de fondo al pasar por los items de un combobox (teclas de direccion)"*/
+    --in-content-item-selected: var(--button-active-bgcolor) !important;             /*Color de fondo al pasar por los items de un combobox (teclas de direccion)"*/
     --in-content-item-selected-text:  var(--in-content-text-color) !important;       /*Color de label al pasar por los items de un combobox (teclas de direccion)"*/
     
     --in-content-focus-outline-color: var(--general-color) !important;               /*color de focus de txt "buscar..."*/  
@@ -255,13 +249,13 @@ button:hover {background-color: var(--button-hover-bgcolor) !important; color: #
 #categories > .category[selected]:hover > .category-name{ background-color: transparent; color: white !important; text-decoration: 2px underline white !important;}
 button.primary {background-color: var(--button-active-bgcolor) !important;  color: white !important; border-color: transparent !important;}   
 button.primary:hover {background-color: var(--button-hover-bgcolor) !important;  color: #eaeaea !important;}
-th.column{color: #eaeaea !important; background-color:color-mix(in srgb, var(--general-color)20%, transparent)  !important;}
+th.column{color: #eaeaea !important; background-color: var(--in-content-button-background)  !important;}
 td { border: 1px solid var(--in-content-table-border-color) !important;}
 panel-list {background: #251f33 !important;}
 .dialogBox {--in-content-page-background: #101019 !important;} /*Color de ventana de ventanas emergentes en "configuración"*/
 .subcategory:not([hidden]) ~ .subcategory { border-image: var(--panel-separator-zap-gradient1) 1 !important;} /*Linea separadora en "configuración"*/
 .card[active="true"]{ background-color: color-mix(in srgb, var(--in-content-box-background)96%, white) !important; 
-    outline: 1px solid var(--in-content-box-border-color) !important; outline-width: 2px !important; transition-duration: 0ms !important;}
+    outline: 1px solid var(--in-content-box-border-color) !important; outline-width: 2px !important; }
 .card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)20%, transparent) !important;}
 .addon.card:hover{ outline-color: var(--general-color) !important; border-radius: 4px !important;}
 #categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { background: var(--in-content-box-background) !important;}    
@@ -325,3 +319,9 @@ search-addons > search-textbox:hover {  border-color: var(--general-color) !impo
 /* Página previa a cargar una página. */
 @-moz-document url-prefix(about:blank) { html > body:empty { background-color: #101019 !important;  } }
 @-moz-document url(about:blank) {  html > body:empty { background-color: #101019 !important;  } }
+
+@-moz-document url-prefix(https://www.facebook.com/watch){
+  .ecyo15nh {width: 1108px !important;}  .o36gj0jk {width:221px !important;} .o36gj0jk {width:221px !important;}  .f9o22wc5 {margin-left: 0px !important;}
+  .grtyclo8 {max-width: 754px !important;} .rirtxc74 {max-width: 250px !important;} .fjf4s8hc {padding-left: 0px !important; margin-left: -16px !important;}
+  .fer614ym {min-width: 225px !important;} .fjf4s8hc {padding-left: 0px !important;}  .f7vcsfb0 {padding-right: 190px !important;}
+}
