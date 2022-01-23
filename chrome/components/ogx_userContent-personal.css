@@ -240,13 +240,13 @@ button:hover {background-color: var(--button-hover-bgcolor) !important; color: #
 .sidebar-footer-list { margin-inline: 4px 4px !important; color:  #bfb6d2 !important;}
     
 #categories > .category{background-color: var(--in-content-box-background) !important; color: #bfb6d2 !important;}
-#categories > .category:hover{background-color: var(--button-hover-bgcolor) !important; color: White !important;}
+#categories > .category:hover{background-color: transparent !important; color: White !important; text-decoration: 1px underline white !important; text-underline-offset: 4px !important; }
 .category .category-name { font-weight: bold !important; font-size: 0.9em !important;}
 #categories > .category[selected] , #categories > .category[selected] > .category-name {background-color: transparent !important; 
-    color: color-mix(in srgb, var(--general-color)90%, white) !important; text-decoration: 2px underline var(--general-color)!important;
-    text-underline-offset: 4px !important;}
-#categories > .category[selected]:hover{ background-color: var(--button-hover-bgcolor) !important;  color: white !important;}
-#categories > .category[selected]:hover > .category-name{ background-color: transparent; color: white !important; text-decoration: 2px underline white !important;}
+    color: color-mix(in srgb, var(--general-color) 90%, white) !important;}
+#categories > .category[selected]:hover{ color: var(--general-color) !important;}
+#categories > .category[selected]:hover > .category-name{ background-color: transparent; color: color: var(--general-color) !important;  text-decoration: 1px underline var(--general-color)!important;
+    text-underline-offset: 4px !important; }
 button.primary {background-color: var(--button-active-bgcolor) !important;  color: white !important; border-color: transparent !important;}   
 button.primary:hover {background-color: var(--button-hover-bgcolor) !important;  color: #eaeaea !important;}
 th.column{color: #eaeaea !important; background-color: var(--in-content-button-background)  !important;}
@@ -256,7 +256,7 @@ panel-list {background: #251f33 !important;}
 .subcategory:not([hidden]) ~ .subcategory { border-image: var(--panel-separator-zap-gradient1) 1 !important;} /*Linea separadora en "configuración"*/
 .card[active="true"]{ background-color: color-mix(in srgb, var(--in-content-box-background)96%, white) !important; 
     outline: 1px solid var(--in-content-box-border-color) !important; outline-width: 2px !important; }
-.card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)20%, transparent) !important;}
+.card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)30%, transparent) !important;}
 .addon.card:hover{ outline-color: var(--general-color) !important; border-radius: 4px !important;}
 #categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { background: var(--in-content-box-background) !important;}    
 .navigation, #sidebar{ border-right: 1px solid #4a3e65 !important;}
