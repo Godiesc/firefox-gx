@@ -161,5 +161,5 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     fill-opacity: 1 !important;
 }
 /* Eliminar ícono de sonido cuando la página está cargandose */
-.tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture]) .tab-throbber{ visibility: visible }
+.tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-throbber{ visibility: visible !important; opacity: 1 !important;}
 .tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-icon-overlay{ opacity: 0 !important; }
