@@ -61,10 +61,10 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
   animation: 500ms infinite ease-in-out; animation-name: slide1;} 
 
 tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{
-    top: 0px !important; left: 0px !important;
+    top: 0px !important; left: 0px !important; border-radius: 50% !important;
     width: 16px !important; height: 16px !important;
-    color: var(--lwt-tab-text) !important; 
-    background: transparent  !important; 
+    color: var(--toolbar-bgcolor) !important; 
+    background: var(--identity-icon-color,var(--general-color))  !important; 
     stroke: transparent  !important;
     fill-opacity: 1 !important; animation: none !important;}
 
@@ -74,8 +74,8 @@ tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{
 /*----ícono "reproduciendo" hover----*/
 tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     /*list-style-image: url("../images/muted.svg") !important;        */
-    color: var(--lwt-tab-text) !important;
-    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important;
+    /*color: var(--lwt-tab-text) !important;*/
+    background: var(--identity-icon-color,var(--general-color))  !important; 
     transform: scale(1.1) !important;
     padding: 0px !important;
 }
