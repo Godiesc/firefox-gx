@@ -13,19 +13,25 @@
 #toolbar-menubar[autohide="true"] + #TabsToolbar{
   padding-left: var(--padding-left-tab) !important;
 }
-@media{
-  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top:7px !important;}
+@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
+  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top: 8px !important; } }
+@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
+  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: 1px 0 1px 0 !important; 
+  max-height: calc(var(--tab-min-height) + 1px) !important;
+  min-height:  calc(var(--tab-min-height) + 1px) !important;}
 }
 /* margen izquierda pestañas*/
 #PanelUI-menu-button{ 
-    padding: 2px 0 0 0 !important;}
+    padding: 0px 0 0 0 !important;}
 /* Logo */
 #PanelUI-menu-button > stack{
   list-style-image: url("../images/foxmenu.svg") !important;
   display: -moz-box;
-  height: calc(var(--tab-min-height) - (1px + var(--tab-block-margin))) !important;
-  width: var(--pading-left-tab) !important;
-  padding: 4px 10px 5px 8px !important;
+  max-height: var(--tab-min-height) !important;
+  min-height: var(--tab-min-height) !important;
+  max-width: var(--padding-left-tab) !important;
+  min-width: var(--padding-left-tab) !important;
+  padding-left: 8px !important;
   fill: var(--general-color) !important;
   border: 1px solid transparent !important;
 }
@@ -47,8 +53,6 @@
 }
 #PanelUI-menu-button[open] > stack{
     background-color: #251f33 !important;
-    padding-right: 11px !important;
-    padding-bottom: 6px !important;
     border-color: var(--lwt-frame) !important;
 }
 /* Margenes del menú Open*/
@@ -59,19 +63,19 @@ slot{  margin: 0px !important; }
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
-padding-top: calc(24px + var(--tab-block-margin)) !important;
+    padding-top: calc(24px + var(--tab-block-margin)) !important;
     width: 27.5em !important;
 }
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
-    margin-top: -30px !important;
+    margin-top: -29px !important;
     clip-path: polygon(
-        var(--padding-left-tab) 0%, 
+        calc(var(--padding-left-tab) - 1px) 0%, 
         200% 0%, 0% 200%,
         0% calc(var(--tab-min-height) - 2px), 
-        var(--padding-left-tab) calc(var(--tab-min-height) - 2px));
+        calc(var(--padding-left-tab) - 1px) calc(var(--tab-min-height) - 2px));
     --arrowpanel-border-color: var(--lwt-frame) !important;
     --arrowpanel-border-radius: 0px !important;
     --arrowpanel-background: #251f33 !important;
@@ -112,9 +116,10 @@ padding-top: calc(24px + var(--tab-block-margin)) !important;
 }
 /*ícono account*/
 #appMenu-fxa-label2{
-    /*margin-inline-end: -25px !important;*/
+    margin-inline-start: -8px !important;
 }
-#appMenu-fxa-label2{
+@media{
+    :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
     margin-left: -8px !important;
     border-top: 1px solid var(--button-active-bgcolor) !important;
     border-image: var(--panel-separator-zap-gradient3) 1 !important;

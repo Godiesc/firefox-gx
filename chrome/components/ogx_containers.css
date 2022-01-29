@@ -15,11 +15,11 @@
 /* Linea bajo la label de la pestaña contenedora*/
 tab:not([selected]) .tab-content .tab-label{
     box-shadow: 0 2px 0 var(--identity-tab-color) !important;
-    clip-path: polygon(0px 0%, 200% 0%, 100% 200%, 100% 20px, 20px 100%, 0px 11900%, 0px -0px);
+    clip-path: polygon(0px 0%, 200% 0%, 200% 200%, 100% 20px, 20px 96%, 0px 11900%, 0px 0px);
 }
 tab[selected]  .tab-content .tab-label{
     box-shadow: 0 2px 0 var(--identity-tab-color) !important;
-    clip-path: polygon(0px 0%, 200% 0%, 100% 200%, 100% 20px, 132px 100%, 0px 11900%, 0px -0px);
+    clip-path: polygon(0px 0%, 200% 0%, 200% 200%, 100% 20px, 132px 96%, 0px 11900%, 0px -0px);
     opacity: 1 !important;
 }
 /* Color contenedor default */

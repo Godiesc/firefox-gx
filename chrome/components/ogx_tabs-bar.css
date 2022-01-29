@@ -70,7 +70,7 @@
 .tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 1px !important}
 .tabbrowser-tab .tab-background{height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important}
 .tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
-    background-image: var(--gradient) !important;
+    background: var(--gradient) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
 .tabbrowser-tab .tab-content {margin-top: calc(var(--margin-top) + 1px) !important; height: calc(var(--tab-min-height) + 2px) !important;}
@@ -81,7 +81,7 @@
 }
 .tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important;}
 .tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
-    background-image: var(--gradient) !important;
+    background: var(--gradient) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
 .tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: calc(var(--margin-top) + 1px) !important; height: calc(var(--tab-min-height) + 2px)}
@@ -89,4 +89,13 @@
     background-color: var(--lwt-selected-tab-background-color) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
     border-radius: 6px 2px 0 0 !important;
+}
+/*"toolbar_top_separator": "#17161c"*/
+#navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
+#nav-bar{    
+    border-top: 1px solid var(--toolbar-bgcolor) !important;    
+    border-image: var(--panel-separator-zap-gradient2) 1 !important; 
+    margin-top: -1px !important;
+    padding-top:1px !important;
+    padding-bottom:1px !important;
 }

@@ -75,7 +75,7 @@ tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{
 tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     /*list-style-image: url("../images/muted.svg") !important;        */
     /*color: var(--lwt-tab-text) !important;*/
-    background: var(--identity-icon-color,var(--general-color))  !important; 
+    background: var(--identity-icon-color,var(--general-color))  !important;
     transform: scale(1.1) !important;
     padding: 1px !important;
 }
