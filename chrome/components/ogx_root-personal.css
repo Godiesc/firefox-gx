@@ -13,7 +13,7 @@
                                                                    |      
     Accent color obtenido del tema que uses. |                     |
                                              v                     v     */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--green));
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
    
   /*-----------------------------------Gradientes------------------------------------*/
   --gradient: var(--general-color) !important;                                     
