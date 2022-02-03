@@ -188,21 +188,20 @@ description#identity-popup-content-owner-label, description#identity-popup-conte
 }
 /* separador izquierda y derecha urlbar */
 #urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{
-    background: url("../images/urlbar-separator.svg") no-repeat left;
-    background-size: 7px 16px !important;
-    content: ""; display: block;
+    background: url("../images/urlbar-separator.svg") no-repeat left; content: ""; display: block;
+    background-size: 16px 16px !important;
     padding-top: 27px !important;
-    margin-left: -1px !important;
+    margin-left: -7px !important;
     -moz-context-properties: fill !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     opacity: 0.3 !important;
 }
 #urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{
-    background: url("../images/urlbar-separator.svg") no-repeat right;
-    background-size: 7px 16px !important;
-    content: ""; display: block;  height: 16px; 
+    background: url("../images/urlbar-separator.svg") no-repeat right; content: ""; display: block; 
+    background-size: 16px 16px !important;
+    height: 16px; 
     margin-top: -21px !important;
-    margin-right: -1px !important;
+    margin-right: -7px !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
     opacity: 0.3 !important;
