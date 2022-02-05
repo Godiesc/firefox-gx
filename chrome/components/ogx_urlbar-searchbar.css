@@ -43,7 +43,7 @@
     background: var(--toolbar-field-focus-background-color) !important;
 }
 .urlbarView-favicon{
-    padding: 6px !important; border-radius: 10px !important;
+    padding: 6px !important; border-radius: 8px !important;
     margin-top: -2px !important; margin-bottom:  -2px !important;
     clip-path: circle(50%);
 }
