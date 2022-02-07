@@ -51,16 +51,17 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
 }
 /*------ícono  reproduciendose-------*/
 .tab-icon-overlay:is([soundplaying]):not([pinned]) {
+  list-style-image: url("../images/Beats.webp") !important;
   border-radius: 2px !important;
-  top: 19px !important; left: 2px !important; 
-  width: 12px !important; height: 3px !important; opacity: 1 !important;
+  width: 100% !important;
+  top: 9px !important; left: -3px !important; 
+  opacity: 1 !important;
   color: transparent !important;   
-  background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important; 
   stroke: transparent !important;
   box-shadow: none !important;
-  animation: 500ms infinite ease-in-out; animation-name: slide1;} 
-
+} 
 tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{
+    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;
     top: 0px !important; left: 0px !important; border-radius: 50% !important;
     width: 16px !important; height: 16px !important;
     color: var(--toolbar-bgcolor) !important; 

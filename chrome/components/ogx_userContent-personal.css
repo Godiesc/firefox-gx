@@ -319,3 +319,9 @@ search-addons > search-textbox:hover {  border-color: var(--general-color) !impo
 /* Página previa a cargar una página. */
 @-moz-document url-prefix(about:blank) { html > body:empty { background-color: #101019 !important;  } }
 @-moz-document url(about:blank) {  html > body:empty { background-color: #101019 !important;  } }
+
+@-moz-document url-prefix(https://www.facebook.com/watch){
+  .ecyo15nh {width: 1108px !important;}  .o36gj0jk {width:221px !important;} .o36gj0jk {width:221px !important;}  .f9o22wc5 {margin-left: 0px !important;}
+  .grtyclo8 {max-width: 754px !important;} .rirtxc74 {max-width: 250px !important;} .fjf4s8hc {padding-left: 0px !important; margin-left: -16px !important;}
+  .fer614ym {min-width: 225px !important;} .fjf4s8hc {padding-left: 0px !important;}  .f7vcsfb0 {padding-right: 190px !important;}
+}
