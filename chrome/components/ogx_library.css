@@ -35,7 +35,6 @@
     /*---------------sidebar Izquierda----------------*/
     #placesList, #places treechildren::-moz-tree-row {
         color: var(--organizer-color) !important;
-        background-color: var(--organizer-pane-background) !important;
     }
     #placesView>splitter {
         border-color: var(--organizer-border-color) !important;
@@ -68,13 +67,11 @@
     }
     /*Color "selected" de items*/
     #places treechildren:not(.autocomplete-treebody)::-moz-tree-row(selected), #placesList>treechildren::-moz-tree-row(selected) {
-        background: linear-gradient(to right, var(--button-active-bgcolor, #0060bf) 70%, var(--toolbar-bgcolor) 100%) !important;
-        margin-left: 2px !important;
-        margin-right:  2px !important;
-        border-radius: 4px !important;
+        background: var(--button-active-bgcolor, #0060bf)  !important;
+        outline: none !important;
     }
     #placeContent treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected), #placesList>treechildren::-moz-tree-cell-text(selected) {
-        color: #eaeaea !important;
+        color: #fff !important;
     }
     #places treechildren::-moz-tree-image {
         fill: var(--organizer-color) !important;
