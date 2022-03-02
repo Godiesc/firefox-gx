@@ -20,6 +20,14 @@
   max-height: calc(var(--tab-min-height) + 1px) !important;
   min-height:  calc(var(--tab-min-height) + 1px) !important;}
 }
+/*For Nightly versión - Delete the code above when arrive to stable*/
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
+  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top: 8px !important; } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
+  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: 1px 0 1px 0 !important; 
+  max-height: calc(var(--tab-min-height) + 1px) !important;
+  min-height:  calc(var(--tab-min-height) + 1px) !important;}
+}
 /* margen izquierda pestañas*/
 #PanelUI-menu-button{ 
     padding: 0px 0 0 0 !important;}
