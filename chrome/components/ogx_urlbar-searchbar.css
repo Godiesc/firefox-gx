@@ -74,6 +74,10 @@
 @media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){ #urlbar-input, #urlbar-scheme{
     padding-bottom: 1px !important;
     }}
+/*For nightly version, delete the code above when arrive to stable.*/
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #urlbar-input, #urlbar-scheme{
+    padding-bottom: 1px !important;
+    }}
 /*Search-bar*/
 #searchbar {
     min-height: 27px !important;
