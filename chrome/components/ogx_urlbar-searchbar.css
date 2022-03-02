@@ -56,7 +56,7 @@
 }
 /* Urlbar */
 #urlbar{min-height: 29px !important; padding-left: 10px !important; padding-right: 10px !important; border-radius: 4px !important;}
-#urlbar:not([open=true],[focused=true]) #urlbar-background{border-radius: 4px !important; transition-delay: 200ms !important;}
+#urlbar:not([open=true],[focused=true]) #urlbar-background{border-radius: 4px !important; transition: ease-in 150ms !important; transition-delay: 200ms !important;}
 #urlbar:not([open=true],[focused=true]):hover #urlbar-background { background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     border-radius: 4px !important; border-color: transparent !important; transition: ease-in 150ms !important; transition-delay: 200ms !important;}
 #urlbar:not([open=true]){margin-top: -1px !important;}
