@@ -205,7 +205,7 @@ window, dialog {                                                                
 *{scrollbar-width: none !important }
     
  /*Eliminar cuadro de búsqueda*/
-.search-inner-wrapper{ display: none !important;}
+/*.search-inner-wrapper{ display: none !important;}*/
   
 .search-inner-wrapper{margin-top: 50px !important;  box-shadow: 0px 0px 0px 1px #ffffff10 !important;
     backdrop-filter: blur(8px); border-radius: 8px !important;}
