@@ -5,7 +5,7 @@ Firefox Theme CSS to Opera GX Skin Lovers. <a href= "https://addons.mozilla.org/
 
 ![FireGX](https://user-images.githubusercontent.com/22057609/148698855-3f8cb1b4-fa53-4fa8-b32e-6cfb3a9ad258.png)
 
-![OperaGX3](https://user-images.githubusercontent.com/22057609/147631773-7217a675-b129-44d4-8f7c-93cea538aab8.png)
+![animated](https://user-images.githubusercontent.com/22057609/156900954-11ab52e2-1199-46ce-802f-ab22c62b71de.png)
 
 <b>-> Extras -> OneLine</b></br>
 Theme Fuchsia: https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/
