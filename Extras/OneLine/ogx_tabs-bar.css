@@ -59,15 +59,15 @@
     margin-inline-start: 0px !important;
 }
 /*Pestaña activa*/
-.tab-content { padding-bottom:  2px !important;    
+.tab-content { padding-bottom:  4px !important;    
 }
 .tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 1px !important}
 .tabbrowser-tab .tab-background{height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important}
 .tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
-    background-image: var(--gradient) !important;
+    background: var(--gradient) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
-.tabbrowser-tab .tab-content {margin-top: calc(var(--margin-top) + 1px) !important;}
+.tabbrowser-tab .tab-content {margin-top: calc(var(--margin-top) + 1px) !important; height: calc(var(--tab-min-height) + 2px) !important;}
 .tabbrowser-tab:not([pinned], [multiselected])[selected="true"] .tab-content:not([multiselected]) {
     background-color: var(--lwt-selected-tab-background-color) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
@@ -75,16 +75,15 @@
 }
 .tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important;}
 .tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
-    background-image: var(--gradient) !important;
+    background: var(--gradient) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
-.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: calc(var(--margin-top) + 1px) !important;}
+.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: calc(var(--margin-top) + 1px) !important; height: calc(var(--tab-min-height) + 2px)}
 .tabbrowser-tab:is([pinned])[selected="true"]:not([multiselected]) .tab-content {
     background-color: var(--lwt-selected-tab-background-color) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
     border-radius: 6px 2px 0 0 !important;
 }
-
 /* S E T T I N G S */
 :root {
   --navbarWidth:36vw; /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/ 
