@@ -2,13 +2,11 @@
    https://github.com/Godiesc/opera-gx */
 
 /*Menú contextual*/
-
 menupopup>menuitem, menupopup>menu {
     padding-block: 0.3em !important;
     border-radius: 0px !important; 
 }
 /*borde izquierda y derecha del menú contextual*/
-
 menugroup>menuitem:first-child {
     padding-left: 4px !important;
 }
@@ -16,12 +14,10 @@ menugroup>menuitem:last-child {
     padding-right: 4px !important;
 }
 /* context menu top buttons radius */
-
 menugroup>menuitem>hbox>image {
-    border-radius: 0px !important;
+    border-radius: 2px !important;
 }
 /*separador de items*/
-
 menuseparator {
     border-color: var(--panel-separator-color, #50505090) !important;
     margin-left: 0px !important;
@@ -29,7 +25,6 @@ menuseparator {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 /*Colores generales*/
-
 .menupopup-arrowscrollbox {
     background: var(--arrowpanel-background, #50505090) !important;
     background-color: #251f33 !important;
@@ -40,7 +35,6 @@ menuseparator {
     --menuitem-hover-background-color: color-mix(in srgb, var(--button-hover-bgcolor, #0060bf) 99%, var(--organizer-color, var(--arrowpanel-color))) !important;
 }
 /*ColoresMenú*/
-
 .menupopup {
     --panel-color: var(--arrowpanel-color, FieldText) !important;
     /*ColorLetrasDelMenú*/
@@ -54,12 +48,10 @@ menuseparator {
     /*LineaSeparadoraItems*/
 }
 /*íconos deshabilitados*/
-
 menu[disabled="true"], menuitem[disabled="true"] {
     color: color-mix(in srgb, var(--arrowpanel-background)80%, var(--arrowpanel-color)) !important;
 }
 /*Aspecto cuadro deplegable mouse hover*/
-
 #tabbrowser-tab-tooltip,#places-tooltip-insecure-icon,
 #btTooltip,#un-toolbar-tooltip,
 #tooltip,.tooltip,#aHTMLTooltip,
@@ -71,11 +63,11 @@ menu[disabled="true"], menuitem[disabled="true"] {
 	background: color-mix(in srgb, var(--arrowpanel-background) 96%, white) !important;    
 	border-color: color-mix(in srgb, var(--arrowpanel-background)80%, white) !important;
 	margin-inline-start: 4x !important;
-    margin-inline-end: 4x !important;
+    	margin-inline-end: 4x !important;
 	font-family: Fira Sans !important;
 	font-size: 14px !important;
 	opacity: 1 !important;
 	padding-top: 3px !important;
-    padding-bottom: 0px !important;
+    	padding-bottom: 0px !important;
 	border-radius: 0px !important;
 }
