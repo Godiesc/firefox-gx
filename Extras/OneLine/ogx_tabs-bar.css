@@ -100,11 +100,11 @@
 /* Espacio de arrastre */
 .titlebar-spacer {
     display: -moz-box !important;
-width: 10px !important;
+    width: 10px !important;
 }
 /* urlbar open */
 #urlbar-container:not([open=true]){ min-width: 22vw !important;}
-#urlbar:focus-within  { min-width: 48vw !important; }
+#urlbar:focus-within  { min-width: 50vw !important; }
 }
 
 /* H I D I N G   E L E M E N T S */
