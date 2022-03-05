@@ -54,7 +54,7 @@ panel menulist:hover, panel menulist[open] {
     border-radius: 3px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
-    border-color: var(--button-active-bgcolor) !important;
+    border-color: transparent !important;
     background-color: var(--button-active-bgcolor) !important;
     color: #eaeaea !important;
 }
@@ -83,7 +83,7 @@ richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel
 }
 /*Imagen grande Marcador*/
 #editBookmarkPanelImage{
-    box-shadow: inset 0px 0px 0 1px var(--button-bgcolor) !important;
+    box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
 }
 /*Favicon Marcador*/
 #editBookmarkPanelFavicon[src] {
