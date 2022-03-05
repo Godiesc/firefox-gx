@@ -94,6 +94,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
 }
 /*muteado hover*/
 .tab-icon-overlay:not([pinned])[muted]:hover {
+    border-radius: 2px !important;
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg")!important;
     color: color-mix(in srgb, var(--toolbarbutton-icon-fill), white) !important;
     background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
