@@ -3,9 +3,7 @@ Firefox Theme CSS to Opera GX Skin Lovers. <a href= "https://addons.mozilla.org/
 
 -> Other color themes: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/"> 💜Purple</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/"> 💚Aquamarine</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/"> 🦧Orange</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/"> 💠Cyan</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/"> 🍏GreenLight</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/"> 💛Yellow</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a>
 
-![FireGX](https://user-images.githubusercontent.com/22057609/148698855-3f8cb1b4-fa53-4fa8-b32e-6cfb3a9ad258.png)
-
-![animated](https://user-images.githubusercontent.com/22057609/156900954-11ab52e2-1199-46ce-802f-ab22c62b71de.png)
+![finalanimated](https://user-images.githubusercontent.com/22057609/156902551-7bb9ee28-2505-44f1-8c26-72bb994c9610.png)
 
 <b>-> Extras -> OneLine</b></br>
 Theme Fuchsia: https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/
