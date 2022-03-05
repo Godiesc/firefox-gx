@@ -34,10 +34,11 @@
     margin-inline-end: -11px !important;
     width: -moz-available !important; }
 .urlbarView-row{ margin-top:-7px !important;  margin-bottom: 5px !important; }
-.urlbarView-row-inner{ padding-left: 14px !important;}
+.urlbarView-row-inner{ padding-left: 14px !important; }
 #urlbar .search-panel-header{ padding-left: 14px !important; }
-#urlbar .search-one-offs {padding-right: 14px !important; }
-.urlbarView-results { margin-bottom: -14px !important; }
+#urlbar .search-one-offs{padding-right: 14px !important;  }
+.urlbarView-results{ margin-bottom: -14px !important; }
+#urlbar .searchbar-engine-one-off-item{ border-radius: 3px !important; }
 
 .urlbarView-row:hover .urlbarView-favicon { 
     background: var(--toolbar-field-focus-background-color) !important;
