@@ -1,5 +1,5 @@
 # Opera-Gx Theme to Firefox Css
-(ES) Tema para los amantes de la skin GX del navegaador Opera. Compatibilidad completa con la versión estable del navegador.
+(ES) Tema para los amantes de la skin GX del navegaador Opera. Compatibilidad completa con la versión estable del navegador.</br>
 (EN) Theme to Opera GX Skin Lovers. Complete Compatibility with stable version of the browser.
 
 ![finalanimated](https://user-images.githubusercontent.com/22057609/156902551-7bb9ee28-2505-44f1-8c26-72bb994c9610.png)
