@@ -1,6 +1,6 @@
 # Opera-Gx Theme to Firefox Css
-<li>(ES) Tema para los amantes de la skin GX de Opera. Compatibilidad completa con la versión estable del navegador.</li>
-<li>(EN) Theme to Opera GX Skin Lovers. Complete Compatibility with stable version of the browser.</li>
+<ul><li>(ES) Tema para los amantes de la skin GX de Opera. Compatibilidad completa con la versión estable del navegador.</li>
+<li>(EN) Theme to Opera GX Skin Lovers. Complete Compatibility with stable version of the browser.</li></ul>
 
 ![finalanimated](https://user-images.githubusercontent.com/22057609/156902551-7bb9ee28-2505-44f1-8c26-72bb994c9610.png)
 
@@ -26,8 +26,8 @@
 <li> Otros Colores - Other Colors: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/"> 💜Purple</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/"> 💚Aquamarine</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/"> 🦧Orange</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/"> 💠Cyan</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/"> 🍏GreenLight</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/"> 💛Yellow</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
 
 # Extras 
-<li> OneLine - <a href ="https://i.imgur.com/aSYLqvZ.png">Preview</a></li>
-<li>Play/Pause icon button extension. </li>
+<ul><li> OneLine - <a href ="https://i.imgur.com/aSYLqvZ.png">Preview</a></li>
+<li>Play/Pause icon button extension. </li></ul>
 
 # Personalizar - Customize
 <ul><b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
@@ -40,10 +40,10 @@
 ![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
 
 # Compatibilidad - Compatibility 
-<li>Windows 10 (Tested - Probado) ✔</li>
+<ul><li>Windows 10 (Tested - Probado) ✔</li>
 <li>Linux - Manjaro (tested - Probado) ✔ - <a href="https://i.imgur.com/bDKNoBn.png">Preview</a></li>
 <li>Windows 7 (Not tested - No probado)</li>
-<li>Windows 11 (Not tested - No Probado)</li>
+<li>Windows 11 (Not tested - No Probado)</li></ul>
 
 # Example of about:support
 
