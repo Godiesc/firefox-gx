@@ -19,19 +19,18 @@ ________________________________________________________________________________
 # How to install
 Theme to Opera GX Lovers. v98+ versions of the browser.
 
-<ol>(ES) Reglas Css para vestir de GX a Firefox</ol>
+<ol>(ES) Reglas Css para vestir de GX a Firefox
 
    <li>Descarga el tema con el gran botón verde: "Code" >> Download.zip</li> 
    <li>Copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox.
-   <li>reinicia el navegador.</li>
+   <li>reinicia el navegador.</li></ol>
    
 Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </br>
 
-<ol>(EN) CSS rules to make Firefox GX</ol>
-
+<ol>(EN) CSS rules to make Firefox GX
    <li>Download the theme with the big green button: "Code" >> Download.zip</li> 
    <li>Copy the Chrome folder and the user.js file into your Firefox profile directory.
-   <li>restart the browser. </li> </br>
+   <li>restart the browser. </li></ol></br>
    
 To find out your profile directory go to about:support or about:profiles.
 
