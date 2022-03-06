@@ -37,7 +37,7 @@
 <li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
    --> <b>A restart of the browser is necessary!!!. </b></p></li></ul>
 
-![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
+![Captura de pantalla 2022-03-06 142414](https://user-images.githubusercontent.com/22057609/156938940-c71bf201-a758-451e-b9b2-b30ea09ae53b.png)
 
 # Compatibilidad - Compatibility
 
