@@ -30,8 +30,8 @@ Theme to Opera GX Lovers. v98+ versions of the browser.
    <li>Copy the Chrome folder and the user.js file into your Firefox profile directory. </li>
    <li>restart the browser. </li></ol></br>
    
-Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </br>
-To find out your profile directory go to about:support or about:profiles.
+<li>Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </li></br>
+<li>To find out your profile directory go to about:support or about:profiles.</li>
 _____________________________________________________________________________________________________________________________________________________
 
 It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The css in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
