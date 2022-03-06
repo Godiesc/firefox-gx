@@ -24,16 +24,14 @@ Theme to Opera GX Lovers. v98+ versions of the browser.
    <li>Descarga el tema con el gran botón verde: "Code" >> Download.zip</li>
    <li>Copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>reinicia el navegador.</li></ol>
-   
-Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </br>
 
 <ol>(EN) CSS rules to make Firefox GX
    <li>Download the theme with the big green button: "Code" >> Download.zip</li> 
    <li>Copy the Chrome folder and the user.js file into your Firefox profile directory. </li>
    <li>restart the browser. </li></ol></br>
    
+Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </br>
 To find out your profile directory go to about:support or about:profiles.
-
 _____________________________________________________________________________________________________________________________________________________
 
 It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The css in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
