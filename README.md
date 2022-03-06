@@ -40,10 +40,12 @@
 ![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
 
 # Compatibilidad - Compatibility 
-<ul><li>Windows 10 (Tested - Probado) ✔</li>
+<ul>
+<li>Windows 10 (Tested - Probado) ✔</li>
 <li>Linux - Manjaro (tested - Probado) ✔ - <a href="https://i.imgur.com/bDKNoBn.png">Preview</a></li>
 <li>Windows 7 (Not tested - No probado)</li>
-<li>Windows 11 (Not tested - No Probado)</li></ul>
+<li>Windows 11 (Not tested - No Probado)</li>
+</ul>
 
 # Example of about:support
 
