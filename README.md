@@ -17,17 +17,17 @@ ________________________________________________________________________________
 -> Other Color Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/"> 💜Purple</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/"> 💚Aquamarine</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/"> 🦧Orange</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/"> 💠Cyan</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/"> 🍏GreenLight</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/"> 💛Yellow</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a>
 _____________________________________________________________________________________________________________________________________________________
 # How to install
-Theme to Opera GX Lovers. v89-90 versions of the browser.
+Theme to Opera GX Lovers. v98+ versions of the browser.
 
 (ES) Reglas Css para vestir de GX a Firefox
 
-Pasos para aplicar este tema: Descarga el tema con el gran botón verde: "Code" >> Download.zip, Copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox y reinicia el navegador. Para encontrar el directorio de tu perfil ve a about:support or about:profiles.
+Descarga el tema con el gran botón verde: "Code" >> Download.zip, Copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox y reinicia el navegador. Para encontrar el directorio de tu perfil ve a about:support or about:profiles.
 
 Additionally You should install the themes from firefox add-ons web page: https://addons.mozilla.org/es/firefox/user/7024772/
 
 (EN) CSS rules to make Firefox GX
 
-Steps to apply this theme: Download the theme with the big green button: "Code" >> Download.zip , Copy the Chrome folder and the user.js file into your Firefox profile directory and restart the browser. To find out your profile directory go to about:support or about:profiles.
+Download the theme with the big green button: "Code" >> Download.zip , Copy the Chrome folder and the user.js file into your Firefox profile directory and restart the browser. To find out your profile directory go to about:support or about:profiles.
 
 Additionally You should install the themes from firefox add-ons web page: https://addons.mozilla.org/es/firefox/user/7024772/
 
