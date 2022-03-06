@@ -96,13 +96,6 @@
 #urlbar-input, #urlbar-scheme{
     padding-left: 6px !important;
 }
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){ #urlbar-input, #urlbar-scheme{
-    padding-bottom: 2px !important;
-    }}
-/*For nightly version, delete the code above when arrive to stable.*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #urlbar-input, #urlbar-scheme{
-    padding-bottom: 2px !important;
-    }}
 /*Search-bar*/
 #searchbar {
     min-height: 26px !important;
@@ -190,8 +183,8 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     background-color: transparent !important; 
 }
 .urlbar-page-action {
-    width: 18px !important;    
-    margin: 1px !important;
+    width: 18px !important;
+    margin-block: 1px !important;
     padding: 2px !important;
     color: var(--toolbarbutton-icon-fill) !important;
 }
@@ -216,3 +209,6 @@ description#identity-popup-content-owner-label, description#identity-popup-conte
 .urlbarView-type-icon{
     display: none !important;
 }
+/* separador izquierda y derecha urlbar */
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{ padding-top: 25px !important;}
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -21px !important;}
