@@ -1,12 +1,17 @@
-# Opera-Gx Theme to Firefox Css - 
+# Opera-Gx Theme to Firefox Css
 Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 
 ![finalanimated](https://user-images.githubusercontent.com/22057609/156902551-7bb9ee28-2505-44f1-8c26-72bb994c9610.png)
 
-<b>-> Extras -> OneLine</b></br>
-
-![imagen](https://user-images.githubusercontent.com/22057609/147632259-fa412e3c-b81c-4e3a-aac0-205e24e74302.png)
-
+# Extras 
+-> OneLine</b></br>
+<a href ="https://i.imgur.com/83Jp3VM.png">Preview</a>
+____________________________________________________________________________________________________________________________________________________
+# Compatibilidad - Compatibility 
+<li>Windows 7 (Not tested - No probado)</li>
+<li>Windows 10 (Tested - Probado)</li>
+<li>Windows 11 (Not tested - No Probado)</li>
+<li>Linux - Manjaro (tested)</li><a href="https://i.imgur.com/bDKNoBn.png">Preview</a>
 <b> -> Compatible with linux (Tested in Manjaro - KDE).
    
 ![imagen](https://user-images.githubusercontent.com/22057609/151068244-4e61dec3-4965-487f-b8ab-10ba0d66a39f.png)
