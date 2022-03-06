@@ -35,9 +35,9 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 <li>(EN)To find out your profile directory go to about:support or about:profiles.</li>
 
 # Personalizar - Customize
-<ul><b><u>Fondo Nueva Pestaña - NewTab Wallpaper</u></b>
+<ul><b>Fondo Nueva Pestaña - NewTab Wallpaper</b>
 <li><p>Into the directory: chrome >> images >> newtab there is a set of wallpapers , the image that the theme will select by default is the one with the name: "wallpaper.png", you could rename the image you want with that name and the theme will select that one, you could add your own images.</p></li>
-<li><p>You could edit the file ogx_userContent-personal.css into the "components" folder, the line 302 has the code to change the name of the image, put the name of the image your like<p></li></ul></br>
+<li><p>You could edit the file ogx_userContent-personal.css into the "components" folder, the line 302 has the code to change the name of the image, put the name of the image your like. <p></li></ul></br>
 
 <ul><b>Color Principal - Accent Color</b>
 <li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
