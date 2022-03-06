@@ -20,13 +20,13 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 
 # ¿Cómo instalar? - How to install?
 
-<ol>(ES) Pasos para configurar el tema:
+<ol><b>(ES) Pasos para configurar el tema:</b>
 
    <li>Descarga el tema con el gran botón verde: "Code" >> Download.zip</li>
    <li>Copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>reinicia el navegador.</li></ol>
 
-<ol>(EN) Steps to config the theme:
+<ol><b>(EN) Steps to config the theme:</b>
    <li>Download the theme with the big green button: "Code" >> Download.zip</li> 
    <li>Copy the Chrome folder and the user.js file into your Firefox profile directory. </li>
    <li>restart the browser. </li></ol></br>
@@ -46,4 +46,5 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 ![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
    
 # -> Example of about:support
-![about-support](https://user-images.githubusercontent.com/22057609/120349392-b372f980-c2c3-11eb-904d-b088168fd849.png)
+
+![120349392-b372f980-c2c3-11eb-904d-b088168fd849](https://user-images.githubusercontent.com/22057609/156908375-824f8679-56a5-4d09-a86f-353a7f61135e.png)
