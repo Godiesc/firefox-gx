@@ -14,7 +14,7 @@
 
 <ol><b>(EN) Steps to config the theme:</b>
    <li>Download the theme with the big green button: "Code" >> Download.zip</li> 
-   <li>Copy the Chrome folder and the user.js file into your Firefox profile directory. </li>
+   <li>Copy the chrome folder and the user.js file into your Firefox profile directory. </li>
    <li>restart the browser. </li></ol></br>
    
 <li>(ES) Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </li></br>
