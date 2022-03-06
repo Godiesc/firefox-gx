@@ -35,7 +35,7 @@
 <li><p>You could edit the file ogx_userContent-personal.css into the "components" folder, the line 302 has the code to change the name of the image, put the name of the image your like. <p></li></ul></br>
 <ul><b><i>Color Principal - Accent Color</i></b>
 <li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
-   --> <b>A restart of the browser is necessary!!!.</p></li> </b>
+   --> <b>A restart of the browser is necessary!!!. </b></p></li></ul>
 
 ![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
 
