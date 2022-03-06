@@ -18,19 +18,19 @@ ________________________________________________________________________________
 _____________________________________________________________________________________________________________________________________________________
 # ¿Cómo instalar? - How to install?
 
-<ol>(ES) Reglas Css para vestir de GX a Firefox
+<ol>(ES) Pasos para configurar el tema:
 
    <li>Descarga el tema con el gran botón verde: "Code" >> Download.zip</li>
    <li>Copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>reinicia el navegador.</li></ol>
 
-<ol>(EN) CSS rules to make Firefox GX
+<ol>(EN) Steps to config the theme:
    <li>Download the theme with the big green button: "Code" >> Download.zip</li> 
    <li>Copy the Chrome folder and the user.js file into your Firefox profile directory. </li>
    <li>restart the browser. </li></ol></br>
    
-<li>Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </li></br>
-<li>To find out your profile directory go to about:support or about:profiles.</li>
+<li>(ES)Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </li></br>
+<li>(EN)To find out your profile directory go to about:support or about:profiles.</li>
 _____________________________________________________________________________________________________________________________________________________
 
 It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The css in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
