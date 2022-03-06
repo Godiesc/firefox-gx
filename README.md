@@ -7,22 +7,16 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 <li> OneLine - <a href ="https://i.imgur.com/aSYLqvZ.png">Preview</a></li>
 <li>Play/Pause icon button extension. </li>
 
-____________________________________________________________________________________________________________________________________________________
-
 # Compatibilidad - Compatibility 
 <li>Windows 10 (Tested - Probado) ✔</li>
 <li>Linux - Manjaro (tested - Probado) ✔ - <a href="https://i.imgur.com/bDKNoBn.png">Preview</a></li>
 <li>Windows 7 (Not tested - No probado)</li>
 <li>Windows 11 (Not tested - No Probado)</li>
 
-_____________________________________________________________________________________________________________________________________________________
-
 # Temas - Themes
 -> Temas Principales - Main Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/">🟢Geen</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/hexadorsip_operagx-2020/">🌈Custom</a> 
 
 -> Otros Colores - Other Color Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/"> 💜Purple</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/"> 💚Aquamarine</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/"> 🦧Orange</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/"> 💠Cyan</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/"> 🍏GreenLight</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/"> 💛Yellow</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a>
-
-_____________________________________________________________________________________________________________________________________________________
 
 # ¿Cómo instalar? - How to install?
 
@@ -40,14 +34,10 @@ ________________________________________________________________________________
 <li>(ES)Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </li></br>
 <li>(EN)To find out your profile directory go to about:support or about:profiles.</li>
 
-_____________________________________________________________________________________________________________________________________________________
-
 It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The css in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
 --> <b>A restart of the browser is necessary!!!. </b>
 
 ![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
-
-______________________________________________________________________________________________________________________________________________________
    
 # -> Example of about:support
 ![about-support](https://user-images.githubusercontent.com/22057609/120349392-b372f980-c2c3-11eb-904d-b088168fd849.png)
