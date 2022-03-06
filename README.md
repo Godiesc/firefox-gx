@@ -17,7 +17,7 @@
    <li>Copy the chrome folder and the user.js file into your Firefox profile directory. </li>
    <li>restart the browser. </li></ol></br>
    
-<li>(ES) Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </li></br>
+<li>(ES) Para encontrar el directorio de tu perfil ve a about:support or about:profiles. </li>
 <li>(EN) To find out your profile directory go to about:support or about:profiles.</li>
 
 # Temas - Themes
