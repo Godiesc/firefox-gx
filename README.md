@@ -8,9 +8,9 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 ____________________________________________________________________________________________________________________________________________________
 # Compatibilidad - Compatibility 
 <li>Windows 7 (Not tested - No probado)</li>
-<li>Windows 10 (Tested - Probado)</li>
+<li>Windows 10 (Tested - Probado) ✔</li>
 <li>Windows 11 (Not tested - No Probado)</li>
-<li>Linux - Manjaro (tested - Probado) - <a href="https://i.imgur.com/bDKNoBn.png">Preview</a></li> 
+<li>Linux - Manjaro (tested - Probado) ✔ - <a href="https://i.imgur.com/bDKNoBn.png">Preview</a></li> 
 _____________________________________________________________________________________________________________________________________________________
 
 # Temas - Themes
