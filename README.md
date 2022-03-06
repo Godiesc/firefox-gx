@@ -7,6 +7,7 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 <li> OneLine - <a href ="https://i.imgur.com/aSYLqvZ.png">Preview</a></li>
 <li>Play/Pause icon button extension. </li>
 ____________________________________________________________________________________________________________________________________________________
+
 # Compatibilidad - Compatibility 
 <li>Windows 7 (Not tested - No probado)</li>
 <li>Windows 10 (Tested - Probado) ✔</li>
@@ -19,6 +20,7 @@ ________________________________________________________________________________
 
 -> Otros Colores - Other Color Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/"> 💜Purple</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/"> 💚Aquamarine</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/"> 🦧Orange</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/"> 💠Cyan</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/"> 🍏GreenLight</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/"> 💛Yellow</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a>
 _____________________________________________________________________________________________________________________________________________________
+
 # ¿Cómo instalar? - How to install?
 
 <ol>(ES) Pasos para configurar el tema:
