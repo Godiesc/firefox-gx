@@ -12,9 +12,6 @@ ________________________________________________________________________________
 <li>Windows 10 (Tested - Probado)</li>
 <li>Windows 11 (Not tested - No Probado)</li>
 <li>Linux - Manjaro (tested)</li><a href="https://i.imgur.com/bDKNoBn.png">Preview</a>
-<b> -> Compatible with linux (Tested in Manjaro - KDE).
-   
-![imagen](https://user-images.githubusercontent.com/22057609/151068244-4e61dec3-4965-487f-b8ab-10ba0d66a39f.png)
 _____________________________________________________________________________________________________________________________________________________
 # Temas - Themes
 -> Temas Principales - Main Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/">🟢Geen</a> | <a href= "https://addons.mozilla.org/es/firefox/addon/hexadorsip_operagx-2020/">🌈Custom</a> 
