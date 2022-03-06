@@ -32,6 +32,11 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 <ul><b>Fondo Nueva Pestaña - NewTab Wallpaper</b>
 <li><p>Into the directory: chrome >> images >> newtab there is a set of wallpapers , the image that the theme will select by default is the one with the name: "wallpaper.png", you could rename the image you want with that name and the theme will select that one, you could add your own images.</p></li>
 <li><p>You could edit the file ogx_userContent-personal.css into the "components" folder, the line 302 has the code to change the name of the image, put the name of the image your like. <p></li></ul></br>
+<ul><b>Color Principal - Accent Color</b>
+<li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
+   --> <b>A restart of the browser is necessary!!!.</p></li> </b>
+
+![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
 
 # Compatibilidad - Compatibility 
 <li>Windows 10 (Tested - Probado) ✔</li>
@@ -39,12 +44,6 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 <li>Windows 7 (Not tested - No probado)</li>
 <li>Windows 11 (Not tested - No Probado)</li>
 
-<ul><b>Color Principal - Accent Color</b>
-<li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
-   --> <b>A restart of the browser is necessary!!!.</p></li> </b>
-
-![OperaGXvariable](https://user-images.githubusercontent.com/22057609/146468198-1df0a627-0241-477f-bfe0-9b48cd7977e4.png)
-   
 # Example of about:support
 
 ![120349392-b372f980-c2c3-11eb-904d-b088168fd849](https://user-images.githubusercontent.com/22057609/156908375-824f8679-56a5-4d09-a86f-353a7f61135e.png)
