@@ -4,8 +4,7 @@ Theme to Opera GX Skin Lovers. v98+ Versions of the Browser.
 ![finalanimated](https://user-images.githubusercontent.com/22057609/156902551-7bb9ee28-2505-44f1-8c26-72bb994c9610.png)
 
 # Extras 
--> OneLine</b></br>
-<a href ="https://i.imgur.com/83Jp3VM.png">Preview</a>
+-> OneLine - <a href ="https://i.imgur.com/83Jp3VM.png">Preview</a>
 ____________________________________________________________________________________________________________________________________________________
 # Compatibilidad - Compatibility 
 <li>Windows 7 (Not tested - No probado)</li>
