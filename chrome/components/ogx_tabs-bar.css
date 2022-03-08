@@ -22,19 +22,10 @@
     background: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
 }
 /*favicon de pagina newtab*/
-.tab-icon-stack .tab-icon-image[src="chrome://branding/content/icon32.png"] {
-    background: url("../images/foxlogofavicon.svg") no-repeat center;
-    background-size: 16px 16px !important;
-    padding-left: 16px !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    fill: var(--identity-icon-color, var(--general-color)) !important;
-}
-/*For Firefox 98+ versions
 .tab-icon-image[src="chrome://branding/content/icon32.png"] {
   content: url("../images/foxlogofavicon.svg");
   fill: var(--identity-icon-color, var(--general-color)) !important;
-}/*
+}
 /*"tab_line": "#126e82"*/
 #tabbrowser-tabs {--tab-line-color: transparent !important}
 #tabbrowser-tabs { --lwt-tab-line-color: var(--gradient, transparent) !important; }
