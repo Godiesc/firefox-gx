@@ -9,8 +9,6 @@
     box-shadow: 0 1px 0px var(--identity-icon-color, #00000000) !important;
     border-radius: 0px !important;
     padding-block: 1px 1px !important;
-    width: 16px !important;
-    height: 18px !important;
 }
 /* Linea bajo la label de la pestaña contenedora*/
 tab:not([selected]) .tab-content .tab-label{
