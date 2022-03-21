@@ -6,7 +6,7 @@
     --padding-left-tab: 74px !important;
 }
 /*Posición*/
-#PanelUI-button{
+:root:not([chromehidden~="toolbar"]) #PanelUI-button{
   position: fixed;  display: flex;  top: 0;
 }
 #toolbar-menubar,
@@ -29,10 +29,10 @@
   min-height:  calc(var(--tab-min-height) + 1px) !important;}
 }
 /* margen izquierda pestañas*/
-#PanelUI-menu-button{ 
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
     padding: 0px 0 0 0 !important;}
 /* Logo */
-#PanelUI-menu-button > stack{
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
   list-style-image: url("../images/foxmenu.svg") !important;
   display: -moz-box;
   max-height: var(--tab-min-height) !important;
@@ -43,12 +43,12 @@
   fill: var(--general-color) !important;
   border: 1px solid transparent !important;
 }
-#PanelUI-menu-button image{
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     height: 18px !important;
     width:  18px !important;
 }
 /* Label Menú */
-#PanelUI-menu-button > stack::after{
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after{
   display: -moz-box;
   content: "Menú";
   color: var(--lwt-tab-text) !important;
@@ -56,10 +56,10 @@
   padding-top: 2px !important;
 }
 /* menu Hover y active*/
-#PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
   background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important;
 }
-#PanelUI-menu-button[open] > stack{
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > stack{
     background-color: #251f33 !important;
     border-color: var(--lwt-frame) !important;
 }
@@ -91,7 +91,7 @@ slot{  margin: 0px !important; }
 }
 }
 /* Separadores*/
-#appMenu-popup.cui-widget-panel toolbarseparator{
+:root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator{
     margin-inline-start: 30px !important;
     border-image: none !important;
     --panel-separator-margin-vertical: 2px !important;
