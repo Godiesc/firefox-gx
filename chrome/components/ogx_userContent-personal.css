@@ -299,7 +299,7 @@ search-addons > search-textbox:hover {  border-color: var(--general-color) !impo
 }
 /*Personalizacion de la página newtab*/    
 @-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
- body {background: url("../images/newtab/wallpape.png") no-repeat fixed !important; background-size: cover !important;} 
+ body {background: url("../images/newtab/wallpaper.png") no-repeat fixed !important; background-size: cover !important;} 
 .logo-and-wordmark .logo {
   background: url("../images/foxlogo.svg") no-repeat !important; 
   background-size: cover !important; display: inline-block !important;
