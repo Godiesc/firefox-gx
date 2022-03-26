@@ -71,7 +71,7 @@ slot{  margin: 0px !important; }
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
-    padding-top: calc(24px + var(--tab-block-margin)) !important;
+    padding-top: calc(var(--tab-min-height) - 6px + var(--tab-block-margin)) !important;
     width: 27.5em !important;
 }
 }
