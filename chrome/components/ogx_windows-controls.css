@@ -2,22 +2,22 @@
    https://github.com/Godiesc/opera-gx */
 
 /*WindowsControls*/
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){ .titlebar-button{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-button{
     color: var(--general-color) !important;
     padding-left: 13px !important;
     padding-right: 13px !important;
     }}
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10) {.titlebar-button:hover:not(.titlebar-close){
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){.titlebar-button:hover:not(.titlebar-close){
     background-color: #2e273f !important;
     }}
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){ .titlebar-min{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-min{
     padding-top: 12px !important;
     padding-bottom: 0px !important;
     }}
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10) {.titlebar-min image, .titlebar-max image, .titlebar-close image{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){.titlebar-min image, .titlebar-max image, .titlebar-close image{
     border-radius: 0 !important;  
     height: 14px !important; width: 14px !important;
     }}
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10) {.titlebar-restore image{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){.titlebar-restore image{
     height: 14px !important; width: 13px !important;
     }}
