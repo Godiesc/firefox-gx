@@ -32,7 +32,7 @@ menuseparator {
     border: 1px solid color-mix(in srgb, var(--arrowpanel-border-color, #50505090) 35%, black) !important;
     border-radius: 4px !important;
     /*ColorFondoAlPasarElMouseSobreItems*/
-    --menuitem-hover-background-color: color-mix(in srgb, var(--button-hover-bgcolor, #0060bf) 99%, var(--organizer-color, var(--arrowpanel-color))) !important;
+    --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
 }
 /*ColoresMenú*/
 .menupopup {
@@ -58,16 +58,16 @@ menu[disabled="true"], menuitem[disabled="true"] {
 #urlTooltip,tooltip,.places-tooltip {
 	appearance: none !important;
 	color: var(--lwt-tab-text) !important;
-	width: auto !important;
-	height: auto !important;
 	background: color-mix(in srgb, var(--arrowpanel-background) 96%, white) !important;    
 	border-color: color-mix(in srgb, var(--arrowpanel-background)80%, white) !important;
 	margin-inline-start: 4x !important;
-    	margin-inline-end: 4x !important;
+    margin-inline-end: 4x !important;
 	font-family: Fira Sans !important;
 	font-size: 14px !important;
 	opacity: 1 !important;
-	padding-top: 3px !important;
-    	padding-bottom: 0px !important;
-	border-radius: 0px !important;
+}
+/*Colores y márgenes iconos superiores del menú contextual*/
+#main-menubar>menupopup, #context-navigation {
+    background-color: #251f33 !important;
+    color: var(--arrowpanel-color) !important;
 }
