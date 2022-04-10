@@ -32,7 +32,7 @@ menuseparator {
     border: 1px solid color-mix(in srgb, var(--arrowpanel-border-color, #50505090) 35%, black) !important;
     border-radius: 4px !important;
     /*ColorFondoAlPasarElMouseSobreItems*/
-    --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
+    --menuitem-hover-background-color: color-mix(in srgb, var(--button-hover-bgcolor, #0060bf) 99%, var(--organizer-color, var(--arrowpanel-color))) !important;
 }
 /*ColoresMenú*/
 .menupopup {
