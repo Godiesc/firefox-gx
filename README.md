@@ -31,10 +31,10 @@
 
 # Personalizar - Customize
 <ul><b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
-<li><p>(Option 1) Into the directory: chrome >> images >> newtab there is a set of wallpapers , the image that the theme will select by default is the one with the name: "wallpaper.png", you could rename the image you want with that name and the theme will select that one, you could add your own images.</p></li>
+   <li><p>(Option 1) Into the directory: <code>chrome</code> >> <code>images</code> >> <code>newtab</code> there is a set of wallpapers , the image that the theme will select by default is the one with the name: "wallpaper.png", you could rename the image you want with that name and the theme will select that one, you could add your own images. <b>A restart of the browser is necessary!!!. </b></p></li>
 <li><p>(Option 2) You could edit the file ogx_userContent-personal.css into the "components" folder, the line 302 has the code to change the name of the image, put the name of the image your like. <p></li></ul></br>
 <ul><b><i>Color Principal - Accent Color</i></b>
-<li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> chrome --> components --> ogx_root-personal.css has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
+<li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
    --> <b>A restart of the browser is necessary!!!. </b></p></li></ul>
 
 ![Captura de pantalla 2022-03-06 142414](https://user-images.githubusercontent.com/22057609/156938940-c71bf201-a758-451e-b9b2-b30ea09ae53b.png)
