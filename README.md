@@ -16,7 +16,7 @@
 <ol><b>(EN) Steps to config the theme:</b>
    <li>Download the theme with the big green button: <code>Code</code> >> <code>Download.zip</code></li> 
    <li>Copy the chrome folder and the user.js file into your Firefox profile directory. </li>
-   <li>Install and use a <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a> compatible.</li>
+   <li>Install and use a compatible <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a>.</li>
    <li>Restart the browser. </li></ol>
    <ul>
 <li>(ES) Para encontrar el directorio de tu perfil ve a <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles. </li>
