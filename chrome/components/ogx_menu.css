@@ -9,28 +9,24 @@
 :root:not([chromehidden~="toolbar"]) #PanelUI-button{
   position: fixed;  display: flex;  top: 0;
 }
-#toolbar-menubar,
-#toolbar-menubar[autohide="true"] + #TabsToolbar{
+/* margen izquierda pestañas*/
+#toolbar-menubar, #toolbar-menubar[autohide="true"] + #TabsToolbar{
   padding-left: var(--padding-left-tab) !important;
 }
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
-  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top: 8px !important; } }
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
-  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: 1px 0 1px 0 !important; 
-  max-height: calc(var(--tab-min-height) + 1px) !important;
-  min-height:  calc(var(--tab-min-height) + 1px) !important;}
-}
-/*For Nightly versión - Delete the code above when arrive to stable*/
+/* tamaño botón Menú */
+/* Delete the lines 18-21 to nightly version*/
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
-  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top: 8px !important; } }
+  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top: 8px !important; } 
+}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
   :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: 1px 0 1px 0 !important; 
   max-height: calc(var(--tab-min-height) + 1px) !important;
   min-height:  calc(var(--tab-min-height) + 1px) !important;}
 }
-/* margen izquierda pestañas*/
+/* margen izquierda botón menú*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
-    padding: 0px 0 0 0 !important;}
+    padding: 0px 0 0 0 !important;
+}
 /* Logo */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
   list-style-image: url("../images/foxmenu.svg") !important;
