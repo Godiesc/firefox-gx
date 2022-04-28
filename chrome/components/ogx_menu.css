@@ -14,7 +14,7 @@
   padding-left: var(--padding-left-tab) !important;
 }
 /* tamaño botón Menú */
-/* Delete the lines 18-21 to nightly version*/
+/* Delete the lines 17-20 to nightly version*/
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
   :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top: 8px !important; } 
 }
