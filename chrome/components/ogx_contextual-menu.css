@@ -15,24 +15,33 @@ menugroup>menuitem:last-child {
 }
 /* context menu top buttons radius */
 menugroup>menuitem>hbox>image {
-    border-radius: 2px !important;
+    border-radius: 3px !important;
 }
 /*separador de items*/
 menuseparator {
     border-color: var(--panel-separator-color, #50505090) !important;
-    margin-left: 0px !important;
-    margin-right: 0px !important;  
+    margin-left: 6px !important;
+    margin-right: 6px !important;  
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
+@media (-moz-windows-non-native-menus) { menupopup:not(.menupopup-arrowscrollbox){
+    border: 1px solid #231d30 !important;
+    }}
 /*Colores generales*/
+menupopup{border-radius: 0px !important; border-radius: 0px !important;}
+#PlacesToolbar menupopup { padding: 0px !important; }
+#PlacesToolbar menupopup menupopup{ margin-inline-start: -7px !important; }
 .menupopup-arrowscrollbox {
-    background: var(--arrowpanel-background, #50505090) !important;
-    background-color: #251f33 !important;
+    box-shadow: 0px 0px 0 1px #00000070, 1px 1px 6px 0px black !important;
+    background-color: var(--arrowpanel-background, #50505090) !important;
     color: var(--arrowpanel-color, #50505090) !important;
-    border: 1px solid color-mix(in srgb, var(--arrowpanel-border-color, #50505090) 35%, black) !important;
-    border-radius: 4px !important;
+    border: 1px solid transparent !important;
+    border-color:  color-mix(in srgb, var(--arrowpanel-border-color, #50505090) 35%, black) !important;
+    border-image: var(--panel-separator-zap-gradient4) 1 !important;
+    border-radius: 0px !important;
+    margin: 0px !important;
     /*ColorFondoAlPasarElMouseSobreItems*/
-    --menuitem-hover-background-color: color-mix(in srgb, var(--button-hover-bgcolor, #0060bf) 99%, var(--organizer-color, var(--arrowpanel-color))) !important;
+    --menuitem-hover-background-color: var(--button-hover-bgcolor, transparent) !important;
 }
 /*ColoresMenú*/
 .menupopup {
@@ -46,6 +55,13 @@ menuseparator {
     /*ColorLetrasAlPasarElMouseSobreItems*/
     --menu-border-color: var(--panel-separator-color, Field) !important;
     /*LineaSeparadoraItems*/
+}
+/*Gradient color to :hover items*/
+menupopup>menuitem:not([disabled="true"]):hover, menupopup>menu:hover {
+    background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;
+}
+/* Necesario para quitar glitch indeseado */
+menupopup>menuitem:not([disabled="true"]), menupopup>menu { background: transparent !important;
 }
 /*íconos deshabilitados*/
 menu[disabled="true"], menuitem[disabled="true"] {
@@ -68,6 +84,9 @@ menu[disabled="true"], menuitem[disabled="true"] {
 }
 /*Colores y márgenes iconos superiores del menú contextual*/
 #main-menubar>menupopup, #context-navigation {
-    background-color: #251f33 !important;
+    background-color: var(--arrowpanel-background, #50505090) !important;
     color: var(--arrowpanel-color) !important;
+}
+#main-menubar {
+    border-radius: 0px !important;
 }
