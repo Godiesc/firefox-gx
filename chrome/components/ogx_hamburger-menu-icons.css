@@ -1,0 +1,66 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+#appMenu-fxa-label2::before , #fxa-manage-account-button:before {
+    background: var(--avatar-image-url) no-repeat center/16px;
+}
+#appMenu-new-tab-button2 {
+    list-style-image: url("chrome://browser/skin/new-tab.svg");
+}
+#appMenuRecentlyClosedTabs, #sidebar-switcher-tabs {
+    list-style-image: url("chrome://browser/skin/window.svg");
+}
+#appMenu-new-window-button2, #appMenuRecentlyClosedWindows {
+    list-style-image: url("chrome://browser/skin/tab.svg");
+}
+#appMenu-new-private-window-button2 {
+    list-style-image: url("chrome://browser/skin/privateBrowsing.svg");
+}
+#appMenu-bookmarks-button, #panelMenuBookmarkThisPage[starred], #appMenu-library-bookmarks-button, #sidebar-switcher-bookmarks {
+    list-style-image: url("chrome://browser/skin/bookmark.svg");
+}
+#appMenu-history-button, #appMenu-library-history-button, #sidebar-switcher-history {
+    list-style-image: url("chrome://browser/skin/history.svg");
+}
+#appMenu-downloads-button, #appMenu-library-downloads-button {
+    list-style-image: url("chrome://browser/skin/downloads/downloads.svg");
+}
+#appMenu-passwords-button {
+    list-style-image: url("chrome://browser/skin/login.svg");
+}
+#appMenu-extensions-themes-button {
+    list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
+}
+#appMenu-print-button2 {
+    list-style-image: url("chrome://global/skin/icons/print.svg");
+}
+#appMenu-find-button2, #panelMenu_searchBookmarks {
+    list-style-image: url("chrome://global/skin/icons/search-glass.svg");
+}
+#appMenu-settings-button {
+    list-style-image: url("chrome://global/skin/icons/settings.svg");
+}
+#appMenu-help-button2 {
+    list-style-image: url("chrome://global/skin/icons/help.svg");
+}
+#appMenu-quit-button2 {
+    list-style-image: url("../images/quit.png");
+}
+#panelMenuBookmarkThisPage {
+    list-style-image: url("chrome://browser/skin/bookmark-hollow.svg");
+}
+#panelMenu_viewBookmarksToolbar {
+    list-style-image: url("chrome://browser/skin/bookmarks-toolbar.svg");
+}
+#appMenuClearRecentHistory {
+    list-style-image: url("chrome://browser/skin/forget.svg");
+}
+#appmenu-moreTools-button, #overflowMenu-customize-button {
+    list-style-image: url("chrome://browser/skin/customize.svg");
+}
+.syncNowBtn {
+    visibility: visible !important; -moz-box-ordinal-group: 0 !important;
+}
+[oncommand="switchToTabHavingURI('about:performance', true)"] {
+    background-image: url("chrome://global/skin/icons/performance.svg");
+}
