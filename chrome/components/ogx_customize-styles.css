@@ -26,7 +26,7 @@
     background-color: var(--button-bgcolor) !important;
     border-color: var(--general-color) !important;
 }
-/*Borde Redondeado - menú de debordamiento*/
+/*Borde Redondeado - menú de desbordamiento*/
 .panel-arrowcontent {
     border-radius: 0px !important;
 }
