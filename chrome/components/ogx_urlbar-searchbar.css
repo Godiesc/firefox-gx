@@ -127,12 +127,6 @@
 #identity-popup-security-button {
     margin-bottom: 0px !important;
 }
-/* Barrra de marcadores :hover */
-toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
-    background-color: #251f33 !important; }
-toolbarbutton.bookmark-item:not(.subviewbutton) {
-    border-radius: 2px !important;
-}
 /* Íconos de la urlbar más pequeños */
 /* Tamaño */
 #tracking-protection-icon, #identity-icon, .sharing-icon, #blocked-permissions-container>.blocked-permission-icon{
