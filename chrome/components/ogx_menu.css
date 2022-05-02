@@ -19,13 +19,13 @@
   :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top: 8px !important; } 
 }
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
-  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: 1px 0 1px 0 !important; 
+  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: 2px 0 1px 0 !important; 
   max-height: calc(var(--tab-min-height) + 1px) !important;
   min-height:  calc(var(--tab-min-height) + 1px) !important;}
 }
 /* margen izquierda botón menú*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
-    padding: 0px 0 0 0 !important;
+    padding: 2px 0 0 0 !important;
 }
 /* Logo */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
@@ -54,22 +54,25 @@
 /* menu Hover y active*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
   background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important;
+   max-height: calc(var(--tab-min-height) - 2px) !important;
+  min-height:  calc(var(--tab-min-height) - 2px) !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > stack{
-    background-color: #251f33 !important;
+    background-color: var(--arrowpanel-background) !important;
     border-color: var(--lwt-frame) !important;
+    border-image: var(--panel-separator-zap-gradient5) 1 !important;
+    margin-left: 1px !important; padding-left: 7px !important;
 }
 /* Margenes del menú Open*/
-slot{  margin: 0px !important; }
+slot{ margin: 0px !important; }
 #downloadsPanel, #widget-overflow, #customizationui-widget-panel, #identity-popup, 
 #permission-popup, #protections-popup, #appMenu-notification-popup{
-    margin-top: 0px !important;
+    margin-top: 0px !important; margin-left: -12px !important; margin-right: -12px !important;
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
-    padding-top: calc(var(--tab-min-height) - 6px + var(--tab-block-margin)) !important;
-    width: 27.5em !important;
-}
+    padding-top: calc(var(--tab-min-height) - 7px + var(--tab-block-margin)) !important;
+    width: 27.5em !important; }
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
@@ -80,16 +83,15 @@ slot{  margin: 0px !important; }
         200% 0%, 0% 200%,
         0% calc(var(--tab-min-height) - 2px), 
         calc(var(--padding-left-tab) - 1px) calc(var(--tab-min-height) - 2px));
-    --arrowpanel-border-color: var(--lwt-frame) !important;
+    --arrowpanel-border-color: var(--general-color) !important;
     --arrowpanel-border-radius: 0px !important;
-    --arrowpanel-background: #251f33 !important;
-    --arrowpanel-menuitem-padding: 5px !important;     
+    --arrowpanel-menuitem-padding: 5px !important;
+      border-left: none !important;
 }
 }
 /* Separadores*/
 :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator{
     margin-inline-start: 30px !important;
-    border-image: none !important;
     --panel-separator-margin-vertical: 2px !important;
     --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
 }
@@ -119,19 +121,19 @@ slot{  margin: 0px !important; }
     margin-inline-start: 23px !important;
 }
 /*ícono account*/
-#appMenu-fxa-label2{
-    margin-inline-start: -8px !important;
-}
+#appMenu-fxa-label2{ margin-inline-start: -8px !important; }
+#appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
 @media{
     :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
     margin-left: -8px !important;
     border-top: 1px solid var(--button-active-bgcolor) !important;
-    border-image: var(--panel-separator-zap-gradient3) 1 !important;
+    border-image: var(--panel-separator-zap-gradient4) 1 !important;
     font-variant: small-caps;
     font-size: 9.4pt !important;
     font-variant-numeric: oldstyle-nums !important;
     padding-bottom: 6px !important;
     margin-bottom: -3px !important;
+        margin-right: 6px !important;
 }
 /*ícono account*/
 #appMenu-fxa-label2::before , #fxa-manage-account-button:before {
