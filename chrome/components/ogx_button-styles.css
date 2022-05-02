@@ -76,7 +76,18 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     border: 1px solid var(--input-border-color) !important;
 }
 /*--------------------------Marcadores----------------------------------*/
-
+/* Barra de marcadores - color :hover y [open] */
+toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
+    color: var(--general-color) !important;  fill:  var(--general-color) !important; 
+}
+/* Barra de marcadores - color :hover y [open] */
+#PersonalToolbar .toolbarbutton-1:hover , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
+    color: var(--general-color) !important;  fill:  var(--general-color) !important; background-color: #251f33 !important; border-radius: 2px !important;
+}
+/* Borde */
+#editBookmarkPanel { border: 1px solid var(--general-color) !important; 
+    --arrowpanel-border-color: transparent !important; border-image: var(--panel-separator-zap-gradient4) 1 !important;
+}
 /*Color de "highlight" inputtext*/
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
     background-color: var(--button-active-bgcolor) !important;
