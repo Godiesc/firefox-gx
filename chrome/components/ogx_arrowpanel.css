@@ -70,7 +70,7 @@ padding-left: 16px !important; padding-right: 16px !important;}
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 /*Botón flecha atrás*/
-.panel-header > .subviewbutton-back{ padding-inline-start: 4px !important; border-radius: 3px !important; }
+.panel-header > .subviewbutton-back{ padding-inline-start: 6px !important; border-radius: 3px !important; }
 .panel-header > .subviewbutton-back:hover { background: var(--button-hover-bgcolor) !important; }
 .panel-header > .subviewbutton-back:active { background: var(--button-active-bgcolor) !important; }
 
