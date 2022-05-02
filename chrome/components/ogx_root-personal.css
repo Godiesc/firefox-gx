@@ -20,7 +20,10 @@
   --panel-separator-zap-gradient1: linear-gradient(to left, var(--general-color) , #ff000000) !important;
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 96%) !important;
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
+  --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) ,transparent) !important;
+  --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 20%, transparent) !important;
   
+  --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 18%, transparent) !important;             /*Color de buttons*/
   --button-bgcolor: color-mix(in srgb, var(--general-color) 20%, transparent) !important;             /*Color de buttons*/
   --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color de fondo de menuitems :hover*/
   --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /*color clic en menuitems*/
