@@ -23,9 +23,9 @@
   max-height: calc(var(--tab-min-height) + 1px) !important;
   min-height:  calc(var(--tab-min-height) + 1px) !important;}
 }
-/* margen izquierda botón menú*/
+/* Alinear botón menú en ventana no maximizada*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
-    padding: 2px 0 0 0 !important;
+    padding: 1px 0 0 0 !important;
 }
 /* Logo */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
@@ -40,8 +40,8 @@
   border: 1px solid transparent !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
-    height: 18px !important;
-    width:  18px !important;
+    min-height: 18px !important; margin-top: -2px !important;
+    min-width:  18px !important;
 }
 /* Label Menú */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after{
@@ -49,7 +49,7 @@
   content: "Menú";
   color: var(--lwt-tab-text) !important;
   margin-inline-start: 5px !important;
-  padding-top: 2px !important;
+  padding-top: 1px !important;
 }
 /* menu Hover y active*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
