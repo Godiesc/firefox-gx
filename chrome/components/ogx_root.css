@@ -15,7 +15,7 @@
   
   --arrowpanel-background: #1c1726 !important;                                 /*"popup": "#1c1b22Fa"*/
   --arrowpanel-color: var(--lwt-tab-text) !important;                          /*"popup_text": "#dfdfdf"*/  
-  --arrowpanel-border-color: var(--lwt-frame) !important;                      /*"popup_border": "#304f60"*/    
+  --arrowpanel-border-color: transparent !important;                  /*"popup_border": "#304f60"*/    
 /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);      /*"popup_highlight": "#006f80"*/
   
   --lwt-brighttext-url-color: #ff3a4acc !important;                            /*"color de label: El sitio no funciona?"*/
@@ -57,7 +57,7 @@
   --tab-border-radius: 6px 2px 0 0 !important;                                        /*forma de la pestaña*/
   
   --arrowpanel-menuitem-padding: 7px !important;                                      /*menu mas pequeño*/
-  --arrowpanel-border-radius: 4px !important;                                         /*forma de los menús*/
+  --arrowpanel-border-radius: 0px !important;                                         /*forma de los menús*/
   --panel-subview-body-padding: 4px 0px !important;                                   /*Padding menús*/
   --arrowpanel-padding: 1.3em !important;                                             /*Otro padding de menús*/
   --arrowpanel-menuitem-margin: 0 0px !important;                                     /*margenes de menús*/
@@ -66,7 +66,7 @@
   
   --arrowpanel-menuitem-border-radius: 0px !important;                                /*forma de menuitems :hover*/
   --panel-separator-margin-vertical: 3px !important;                                  /*margen vertical entre los separadores*/
-  --panel-separator-margin-horizontal: 0px !important;                                /*Margen horizontal de los separadores*/
+  --panel-separator-margin-horizontal: 8px !important;                                /*Margen horizontal de los separadores*/
   --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
   
   --urlbar-icon-padding: 4px !important;                                                              /*padding de los iconos de la urlbar*/
@@ -75,6 +75,8 @@
   --urlbar-popup-url-color: var(--general-color) !important;                                          /*Color urls de sujerencias de búsqueda*/
   --autocomplete-popup-hover-background: var(--button-hover-bgcolor) !important;                      /*Color hover de sujerencias de búsqueda*/
   --autocomplete-popup-separator-color: transparent !important;                                       /*color separador urlbar y sugerencias de búsqueda*/
+  
+  scrollbar-color: #38375580 #18173530 !important;                                                    /* Colores - Barra de deplazamiento */
   
   /*ColorBotónGuardar*/
     --button-primary-bgcolor: var(--button-active-bgcolor) !important;
@@ -102,5 +104,5 @@
     --checkbox-checked-bgcolor: var(--button-primary-bgcolor) !important;
     --checkbox-checked-color: #eaeaea !important;
     --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
-    --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;  
+    --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
 }
