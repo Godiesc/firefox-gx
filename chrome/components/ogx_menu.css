@@ -54,8 +54,8 @@
 /* menu Hover y active*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
   background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important;
-   max-height: calc(var(--tab-min-height) - 2px) !important;
-  min-height:  calc(var(--tab-min-height) - 2px) !important;
+   max-height: calc(var(--tab-min-height) - 1px) !important;
+  min-height:  calc(var(--tab-min-height) - 1px) !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > stack{
     background-color: var(--arrowpanel-background) !important;
