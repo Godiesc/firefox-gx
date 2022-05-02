@@ -1,6 +1,31 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
+/* Borde gradiente menús desplegables */
+slot{
+  border-color: #0c0a10 !important;
+}
+panelview {
+    border: 1px solid #0c0a10 !important;
+    border-image: var(--panel-separator-zap-gradient4) 1 !important;
+    box-shadow: 0px 0px 0 1px #00000070, 1px 1px 6px 0px black !important;
+}
+/*Color fondo gradiente :hover por los diferentes items de menús principales*/
+.protections-popup-category:hover, .protections-popup-footer-button:hover, #protections-popup-show-report-stack:hover > .protections-popup-footer-button,
+ panelview .toolbarbutton-1:not([disabled], [open]):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open],.subviewbutton-back):is(:hover), 
+.navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover], 
+ menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover),
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover) {
+ background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;
+}
+/*Color fondo clic por los diferentes items de menús principales*/
+.protections-popup-category:active, .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button,
+ panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled],.subviewbutton-back):is(:active, [open]), 
+.navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], 
+ menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]),
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]) {
+ background: linear-gradient(to right, var(--button-active-bgcolor) 80%, transparent) !important;
+}
 /*Linea gradiente en los menús principales*/
 .PanelUI-subView > toolbarseparator {border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 .PanelUI-subView menuseparator, #PlacesToolbar menupopup[placespopup="true"] toolbarseparator, #widget-overflow-mainView > toolbarseparator,
@@ -8,6 +33,8 @@
 #protections-popup-multiView toolbarseparator, #identity-popup-mainView toolbarseparator, #identity-popup-securityView > toolbarseparator, 
 #editBookmarkPanel toolbarseparator, #downloadsFooterButtons > toolbarseparator {    
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    margin-left: 6px !important;
+    margin-right: 6px !important;
 }
 /*Color label deshabilitado y elementos de: "protección contra rastreo"*/
 .protections-popup-category.notFound {color: #777 !important;}
@@ -37,13 +64,15 @@ padding-left: 16px !important; padding-right: 16px !important;}
     padding-inline-start: 8px !important;
 }
 #PlacesToolbar menupopup[placespopup="true"] menuseparator{
-   margin-left: 4px !important;  margin-right: 0px !important;
+   margin-left: 6px !important;  margin-right: 8px !important;
 }
 #PlacesToolbar menupopup[placespopup="true"] menuseparator::before {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 /*Botón flecha atrás*/
-.subviewbutton-back{ 
-    padding-inline-start: 6px !important;
-    border-radius: 2px !important;
-}
+.panel-header > .subviewbutton-back{ padding-inline-start: 4px !important; border-radius: 3px !important; }
+.panel-header > .subviewbutton-back:hover { background: var(--button-hover-bgcolor) !important; }
+.panel-header > .subviewbutton-back:active { background: var(--button-active-bgcolor) !important; }
+
+/* Fondo :hover botones de zoom */
+#appMenu-zoom-controls2 > .subviewbutton:not([disabled]):is(:hover, :hover:active) { background: transparent !important }
