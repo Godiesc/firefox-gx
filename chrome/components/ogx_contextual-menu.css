@@ -41,7 +41,7 @@ menupopup{border-radius: 0px !important; border-radius: 0px !important;}
     border-radius: 0px !important;
     margin: 0px !important;
     /*ColorFondoAlPasarElMouseSobreItems*/
-    --menuitem-hover-background-color: var(--button-hover-bgcolor, transparent) !important;
+    --menuitem-hover-background-color: transparent !important;
 }
 /*ColoresMenú*/
 .menupopup {
