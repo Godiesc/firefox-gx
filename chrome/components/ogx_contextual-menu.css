@@ -61,8 +61,9 @@ menupopup>menuitem:not([disabled="true"]):hover, menupopup>menu:hover {
     background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;
 }
 /* Necesario para quitar glitch indeseado */
-menupopup>menuitem:not([disabled="true"]), menupopup>menu { background: transparent !important;
-}
+menupopup>menuitem:not([disabled="true"]) { background: transparent !important; }
+menupopup>menu[open="true"]{ background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;}
+
 /*íconos deshabilitados*/
 menu[disabled="true"], menuitem[disabled="true"] {
     color: color-mix(in srgb, var(--arrowpanel-background)80%, var(--arrowpanel-color)) !important;
