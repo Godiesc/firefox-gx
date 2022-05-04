@@ -1,5 +1,5 @@
 # How to apply.
-1.- Delete: "ogx_menu.css" from: "chrome/components". 
+1.- Delete: "ogx_menu.css" and "ogx_hamburger-menu-icons.css" from: "chrome/components". 
 
 2.- Replace the two css files (ogx_tabs-bar.css, ogx_urlbar-searchbar.css) of the main theme with this two (from OneLine folder). Thats all. 💙
 
