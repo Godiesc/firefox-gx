@@ -83,11 +83,12 @@ menu[disabled="true"], menuitem[disabled="true"] {
 	font-size: 14px !important;
 	opacity: 1 !important;
 }
-/*Colores y márgenes iconos superiores del menú contextual*/
-#main-menubar>menupopup, #context-navigation {
-    background-color: var(--arrowpanel-background, #50505090) !important;
+#context-navigation {
+    background-color: var(--arrowpanel-background) !important;
     color: var(--arrowpanel-color) !important;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
 }
-#main-menubar {
-    border-radius: 0px !important;
+#context-navigation:hover{
+    --menuitem-hover-background-color: var(--button-hover-bgcolor) !important;
 }
