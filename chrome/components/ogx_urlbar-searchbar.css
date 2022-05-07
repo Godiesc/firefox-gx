@@ -129,7 +129,7 @@
 }
 /* Íconos de la urlbar más pequeños */
 /* Tamaño */
-#tracking-protection-icon, #identity-icon, .sharing-icon, #blocked-permissions-container>.blocked-permission-icon{
+#tracking-protection-icon, #identity-icon, .sharing-icon{
     height: 14px !important;
     width: 14px !important;
     margin-left: -2px !important;
@@ -144,9 +144,13 @@
     color: var(--toolbarbutton-icon-fill) !important;
 }
 #permissions-granted-icon, #identity-permission-box[hasPermissions]{
-     height: 14px !important;
-     width: 14px !important;
+     height: 16px !important;
+     width: 16px !important;
      margin-right: 2px !important;
+}
+#blocked-permissions-container > .blocked-permission-icon {
+    padding: 1px !important;
+    margin-left: 0px !important;
 }
 /* ícono Portección contra rastreo */
 #tracking-protection-icon {
