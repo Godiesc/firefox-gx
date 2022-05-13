@@ -5,6 +5,10 @@
     --lwt-selected-tab-background-color: #101019 !important;
     /*--toolbarbutton-active-background: #2e273f !important;*/
 }
+/* Eliminar label del contenedor manteniendo el ícono */
+#userContext-label{
+    display: none !important;
+}
 /*"toolbar_top_separator": "#17161c"*/
 #navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
 
