@@ -25,7 +25,7 @@
 }
 /* Alinear botón menú en ventana no maximizada*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
-    padding: 1px 0 0 0 !important;
+    padding: 0px 0 0 0 !important;
 }
 /* Logo */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
@@ -54,8 +54,8 @@
 /* menu Hover y active*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
   background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important;
-   max-height: calc(var(--tab-min-height) - 1px) !important;
-  min-height:  calc(var(--tab-min-height) - 1px) !important;
+  max-height: calc(var(--tab-min-height) - 0px) !important;
+  min-height:  calc(var(--tab-min-height) - 0px) !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > stack{
     background-color: var(--arrowpanel-background) !important;
@@ -77,7 +77,7 @@ slot{ margin: 0px !important; }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
-    margin-top: -29px !important;
+    margin-top: -30px !important;
     clip-path: polygon(
         calc(var(--padding-left-tab) - 1px) 0%, 
         200% 0%, 0% 200%,
