@@ -80,6 +80,9 @@
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
     border-radius: 6px 2px 0 0 !important;
 }
+/* Sombra-shadow > label de pestañas */
+.tab-label{ text-shadow: none !important; 
+}
 /* S E T T I N G S */
 :root {
   --navbarWidth:36vw; /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/ 
