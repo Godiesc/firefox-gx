@@ -55,7 +55,7 @@
     margin-inline-start: 0px !important;
 }
 /*Pestaña activa*/
-.tab-content { padding-bottom:  4px !important;    
+.tab-content { padding-bottom:  6px !important;    
 }
 .tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 1px !important}
 .tabbrowser-tab .tab-background{height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important}
@@ -79,6 +79,8 @@
     background-color: var(--lwt-selected-tab-background-color) !important;
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
     border-radius: 6px 2px 0 0 !important;
+    height: calc(var(--tab-min-height) - 1px) !important;
+    padding-bottom:  2px !important;
 }
 /* Sombra-shadow > label de pestañas */
 .tab-label{ text-shadow: none !important; 
