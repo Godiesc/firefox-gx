@@ -13,7 +13,7 @@
                                                                    |      
     Accent color obtenido del tema que uses. |                     |
                                              v                     v     */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--green));
    
   /*-----------------------------------Gradientes------------------------------------*/
   --gradient: var(--general-color) !important;                                     
@@ -24,7 +24,7 @@
   --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 20%, transparent) !important;
   
   --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 18%, transparent) !important;             /*Color de buttons*/
-  --button-bgcolor: color-mix(in srgb, var(--general-color) 20%, transparent) !important;             /*Color de buttons*/
+  --button-bgcolor: color-mix(in srgb, var(--general-color) 30%, transparent) !important;             /*Color de buttons*/
   --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color de fondo de menuitems :hover*/
   --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /*color clic en menuitems*/
 }
