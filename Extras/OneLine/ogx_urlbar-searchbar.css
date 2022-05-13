@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 :root{
-     --toolbar-bgcolor: var(--lwt-frame) !important;                                       /*"toolbar":"#131118", "Color de la toolbar"*/
+    --toolbar-bgcolor: transparent !important;                                       /*"toolbar":"#131118", "Color de la toolbar"*/
     --lwt-selected-tab-background-color: #101019 !important;
     /*--toolbarbutton-active-background: #2e273f !important;*/
 }
