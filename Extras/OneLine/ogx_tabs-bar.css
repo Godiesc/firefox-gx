@@ -83,6 +83,11 @@
 /* Sombra-shadow > label de pestañas */
 .tab-label{ text-shadow: none !important; 
 }
+/* Color y posición "dot" de pestaña que necesita atención */
+.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+  background-image: radial-gradient(circle, var(--general-color), var(--general-color) 2px, transparent 2px) !important;
+  background-position: center top calc(0px + var(--tabs-navbar-shadow-size)) !important;
+}
 /* S E T T I N G S */
 :root {
   --navbarWidth:36vw; /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/ 
