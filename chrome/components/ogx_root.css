@@ -52,7 +52,7 @@
   --tab-block-margin: 1px !important;                                                 /*margenes pestañas*/
   --margin-top: var(--tab-block-margin) !important;                                   /*margen top pestañas - variable personal*/
   
-  --tab-min-height:  calc(30px + var(--tab-block-margin)) !important;                 /*tamaño pestañas*/
+  --tab-min-height:  calc(31px + var(--tab-block-margin)) !important;                 /*tamaño pestañas*/
   --tabs-shadow-size: 0px !important;                                                 /*sombras de pestaña*/
   --tab-border-radius: 6px 2px 0 0 !important;                                        /*forma de la pestaña*/
   
