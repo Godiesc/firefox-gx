@@ -6,7 +6,8 @@
     width: 15px !important;
     height: 15px !important;
 }
-.tab-close-button {  
+.tab-close-button {
+    margin-top: 2px !important;
     list-style-image: url('../images/close.svg') !important;
     padding: 3px !important;
     border-radius: 0px !important;
