@@ -5,7 +5,7 @@
 /*#navigator-toolbox { background-image:  none !important;}*/
 
 /*Pestaña activa*/
-.tab-content { padding-bottom:  4px !important;    
+.tab-content { padding-bottom:  6px !important;    
 }
 .tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 1px !important}
 .tabbrowser-tab .tab-background{height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important}
@@ -96,4 +96,10 @@
     display: none !important
 }
 /* Sombra-shadow > label de pestañas */
-.tab-label{ text-shadow: none !important; }
+.tab-label{ text-shadow: none !important; 
+}
+/* Color y posición "dot" de pestaña que necesita atención */
+.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+  background-image: radial-gradient(circle, var(--general-color), var(--general-color) 2px, transparent 2px) !important;
+  background-position: center top calc(0px + var(--tabs-navbar-shadow-size)) !important;
+}
