@@ -95,3 +95,5 @@
 .titlebar-spacer[type="pre-tabs"]{
     display: none !important
 }
+/* Sombra-shadow > label de pestañas */
+.tab-label{ text-shadow: none !important; }
