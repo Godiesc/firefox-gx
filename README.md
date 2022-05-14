@@ -44,7 +44,7 @@
 # Compatibilidad - Compatibility
 
 <ul><li>Windows 10 (Tested - Probado) ✔ - <a href="https://i.imgur.com/ckLxcZe.png">Preview</a></li>
-<li>Windows 11 (Tested - Probado) ✔ </li>
+<li>Windows 11 (Tested - Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png>Preview"</a></li>
 <li>Linux - Manjaro (tested - Probado) ✔ - <a href="https://i.imgur.com/bDKNoBn.png">Preview</a></li>
 <li>Windows 7 (Not tested - No probado)</li>
 <li>MacOS (Not tested - No probado)</li>
