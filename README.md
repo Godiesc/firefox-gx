@@ -44,9 +44,11 @@
 # Compatibilidad - Compatibility
 
 <ul><li>Windows 10 (Tested - Probado) ✔ - <a href="https://i.imgur.com/ckLxcZe.png">Preview</a></li>
+<li>Windows 11 (Tested - Probado) ✔ </li>
 <li>Linux - Manjaro (tested - Probado) ✔ - <a href="https://i.imgur.com/bDKNoBn.png">Preview</a></li>
 <li>Windows 7 (Not tested - No probado)</li>
-<li>Windows 11 (Not tested - No Probado)</li></ul>
+<li>MacOS (Not tested - No probado)</li>
+</ul>
 
 # Example of about:support
 
