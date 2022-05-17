@@ -3,14 +3,6 @@
 
 /*-----------------íconos en el menú de hamburguesa----------------------*/
 
-/* Logo */
-/*
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
-  list-style-image: url("../images/foxFill.svg") !important;
-  height: inherit !important;
-  width: inherit !important;
-} 
-*/
 /*Posicion y margen de los íconos*/
 .subviewbutton[shortcut]::after, .widget-overflow-list .subviewbutton-nav::after, .PanelUI-subView .subviewbutton-nav::after {
 /*    margin-inline-end: 20px !important; */

@@ -22,7 +22,7 @@
     height: 14px !important; width: 13px !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
-    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
     background-color: var(--toolbar-bgcolor) !important; color: var(--general-color) !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
