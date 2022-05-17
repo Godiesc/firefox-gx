@@ -1,7 +1,7 @@
 # How to apply.
-1.- Delete: "ogx_menu.css" from: "chrome/components". 
+1.- Delete: <code>ogx_menu.css</code> from: <code>chrome/components</code>. 
 
-2.- Add the file <code>ogx_oneline.css</code> into the <code>components</code> folder. Thats all. 💙
+2.- Add the file <code>ogx_oneline.css</code> into the <code>chrome/components</code> folder. Thats all. 💙
 
 -> PD: Don't forget to make a backup of the <code>ogx_menu.css</code> if you want to comeback to the original theme.
 
