@@ -36,7 +36,7 @@
          offset="0"
          id="stop3" />
       <stop
-         style="stop-color:#0060bfcc;stop-opacity:1"
+         class="main-stop"
          offset="1"
          id="stop853" />
     </linearGradient>
