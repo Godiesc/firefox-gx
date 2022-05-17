@@ -4,31 +4,51 @@
 /*Eliminar Imagenes Superiores*/
 /*#navigator-toolbox { background-image:  none !important;}*/
 
-/*Pestaña activa*/
-.tab-content { padding-bottom:  6px !important;    
+/*"tab_line": "#126e82"*/
+#tabbrowser-tabs { --lwt-tab-line-color: transparent !important; }
+
+/*--------------Pestaña activa---------------*/
+.tabbrowser-tab {padding-inline: 0px 1px !important; }
+.tab-background {clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); }
+
+.tab-stack{ clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); border-radius: 0px 2px 0 0 !important;}
+:root[style*="--lwt-additional-images"] .tab-stack{ clip-path: none !important; border-radius: 0px 2px 0 0 !important;}
+
+.tabbrowser-tab[selected="true"] .tab-stack { background: var(--gradient) !important; }
+.tab-stack { margin-top: var(--tab-block-margin) !important; }
+
+.tab-background{ height: var(--tab-min-height) !important; margin-left: 1px !important; margin-right: 1px !important; margin-top: 1px !important;}
+
+:root[style*="--lwt-additional-images"] .tab-background:is([selected]){ --lwt-tab-line-color: var(--general-color) !important; clip-path: none !important; }
+:root[style*="--lwt-additional-images"] .tabbrowser-tab[selected="true"] .tab-stack { background: transparent !important; clip-path: none !important;}
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 0px) !important;
+    margin-left: 0px !important; margin-right: 0px !important; margin-top: 0px !important; border-radius: 5px 2px 0 0 !important;
+    background: var(--toolbar-bgcolor) !important; clip-path: none !important; border-bottom: 1px solid var(--toolbar-bgcolor) !important;
 }
-.tabbrowser-tab .tab-stack {margin-left: -1px !important; padding-right: 1px !important}
-.tabbrowser-tab .tab-background{height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important}
-.tabbrowser-tab:not([pinned])[selected="true"] .tab-background {
-    background: var(--gradient) !important;
-    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
+/* Indispenable para mantener alineado pestañas hover y pestaña activa*/
+.tab-content { height: var(--tab-min-height) !important;}
+.tab-content {padding-bottom:  2px !important; }
+
+/*Color :hover de las pestañas no seleccionadas*/
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
+  background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; border-radius: 0px !important;
+  clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); margin-block: 0px !important;
 }
-.tabbrowser-tab .tab-content {margin-top: calc(var(--margin-top) + 1px) !important; height: calc(var(--tab-min-height) + 2px) !important;}
-.tabbrowser-tab:not([pinned], [multiselected])[selected="true"] .tab-content:not([multiselected]) {
-    background-color: var(--lwt-selected-tab-background-color) !important;
-    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
-    border-radius: 6px 2px 0 0 !important;
+:root[lwtheme-image] .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
+  background-color:color-mix(in srgb, var(--general-color) 35%, transparent) !important;
 }
-.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-background {height: var(--tab-min-height) !important; margin-left: -1px !important; margin-right: -1px !important;}
-.tabbrowser-tab:is([pinned])[selected="true"] .tab-background {
-    background: var(--gradient) !important;
-    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
+:root[style*="--lwt-additional-images"] .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
+    border-radius: 4px 0px 0 0 !important; clip-path: none !important;
 }
-.tabbrowser-tab:is([pinned]):not([selected="true"]) .tab-content { margin-top: calc(var(--margin-top) + 1px) !important; height: calc(var(--tab-min-height) + 2px)}
-.tabbrowser-tab:is([pinned])[selected="true"]:not([multiselected]) .tab-content {
-    background-color: var(--lwt-selected-tab-background-color) !important;
-    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
-    border-radius: 6px 2px 0 0 !important;
+/*Regla para visualizar mejor el seleccionar varias pestañas*/
+.tabbrowser-tab[multiselected]{    
+    --lwt-tab-line-color: transparent !important; color: var(--lwt-tab-text) !important;
+}
+.tab-background[multiselected]:not([selected="true"]), tab-content:is([multiselected]):not([selected="true"]) .tab-stack {
+    background: var(--button-hover-bgcolor) !important;    --lwt-tab-line-color: transparent !important; outline: none !important;  margin-block: 0px !important;
+}
+.tab-background[multiselected]:is([selected="true"]) {
+    background: transparent !important; outline: none !important;
 }
 /*"toolbar_top_separator": "#17161c"*/
 #navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
@@ -40,13 +60,13 @@
     padding-bottom:1px !important;
 }
 /*Color bolita de cargando página*/
-#tabbrowser-tabs{
+#tabbrowser-tabs{ 
     --tab-loading-fill: var(--general-color) !important;
 }
 /*Centrar botón "Open Newtab"*/
 #TabsToolbar .toolbarbutton-1 {       
     fill: var(--general-color) !important;
-    padding-left: 2px !important;
+    padding-left: 3px !important;
     max-height: var(--tab-min-height) !important;
     min-height: var(--tab-min-height) !important;    
 }
@@ -61,31 +81,15 @@
   content: url("../images/foxlogofavicon.svg");
   fill: var(--identity-icon-color, var(--general-color)) !important;
 }
-/*"tab_line": "#126e82"*/
-#tabbrowser-tabs {--tab-line-color: transparent !important}
-#tabbrowser-tabs { --lwt-tab-line-color: transparent !important; }
-
 /*"Medidas menores para scroll de pestañas"*/
 #tabbrowser-tabs{ --uc-tabs-scrollbutton-border: 0px !important; }
-#scrollbutton-up, #scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; }
-#alltabs-button {
-    display: none !important;
+#scrollbutton-up, #scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; 
 }
+/* Eliminar botón >> ALL tabs */
+/* #alltabs-button { display: none !important; } */
+
 /* Tamaño horizontal pestañas */
 .tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 200px !important 
-}
-/*Regla para visualizar mejor el seleccionar varias pestañas*/
-.tabbrowser-tab[multiselected]:-moz-lwtheme {
-    color: var(--lwt-tab-text) !important;
-    --tab-line-color: transparent !important;
-}
-.tabbrowser-tab[multiselected]>.tab-stack>.tab-background:is([multiselected]), .tabbrowser-tab>.tab-stack>.tab-content:is([multiselected]) {
-    background: var(--general-color) !important;
-}
-/*Color de las pestañas no seleccionadas*/
-.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
-  background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; border-radius: 0px !important;
-  clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
 }
 /* Reduce spacing between pinned and regular tabs */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {
