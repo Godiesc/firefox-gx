@@ -4,9 +4,13 @@
 /*-----------------íconos en el menú de hamburguesa----------------------*/
 
 /* Logo */
+/*
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
-  list-style-image: url("../images/foxmenu.svg") !important;
-}
+  list-style-image: url("../images/foxFill.svg") !important;
+  height: inherit !important;
+  width: inherit !important;
+} 
+*/
 /*Posicion y margen de los íconos*/
 .subviewbutton[shortcut]::after, .widget-overflow-list .subviewbutton-nav::after, .PanelUI-subView .subviewbutton-nav::after {
 /*    margin-inline-end: 20px !important; */
@@ -25,7 +29,7 @@
 .subviewbutton:hover { -moz-context-properties: fill; fill: currentColor;}
 
 /* -------Margen de los íconos---------- 
-/*Mergen item -tamaño-*/
+/*Margen item -tamaño-*/
 #appMenu-zoom-controls2>.toolbarbutton-text {
     margin-inline-start: 23px !important;
 }
@@ -72,8 +76,11 @@
     padding-inline-end: 25px !important;
 }
 /*Ícono Marcadores*/
-#appMenu-bookmarks-button, #panelMenuBookmarkThisPage[starred], #appMenu-library-bookmarks-button, #sidebar-switcher-bookmarks {
-    list-style-image: url("chrome://browser/skin/bookmark.svg");
+#panelMenuBookmarkThisPage[starred]{
+    list-style-image: url("../images/bookmark.svg");
+}
+#appMenu-bookmarks-button, #appMenu-library-bookmarks-button, #sidebar-switcher-bookmarks {
+    list-style-image: url("../images/bookmark-empty.svg");
     /*margin-inline-end: -25px !important;*/
 }
 /*ícono Historial*/
