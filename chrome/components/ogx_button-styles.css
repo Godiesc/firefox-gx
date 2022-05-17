@@ -66,23 +66,29 @@ treechildren::-moz-tree-row(selected) {
 treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected), treechildren::-moz-tree-cell-text(selected) {
     color: white !important;
 }
-
 #editBMPanel_folderTree treechildren{
     background-color: var(--arrowpanel-background) !important;
-    border-color: red !important;
+    color: white !important;
 }
 #editBMPanel_tagsSelector{
     background-color: #2e273f !important;
     border: 1px solid var(--input-border-color) !important;
 }
 /*--------------------------Marcadores----------------------------------*/
-/* Barra de marcadores - color :hover y [open] */
+/* Barra de marcadores - color [open] */
 toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
     color: var(--general-color) !important;  fill:  var(--general-color) !important; 
 }
-/* Barra de marcadores - color :hover y [open] */
+/* Barra de marcadores - color :hover */
+#PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]) {text-shadow: none !important; }
+
 #PersonalToolbar .toolbarbutton-1:hover , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
-    color: var(--general-color) !important;  fill:  var(--general-color) !important; background-color: #251f33 !important; border-radius: 2px !important;
+    color: var(--general-color) !important;  fill:  var(--general-color) !important; background-color: #251f33 !important; border-radius: 2px !important; }
+
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
+    color: var(--general-color) !important;  fill:  var(--general-color) !important;
+    background-color: var(--toolbarbutton-hover-background) !important; border-radius: 2px !important;
 }
 /* Borde */
 #editBookmarkPanel { border: 1px solid var(--general-color) !important; 
@@ -91,6 +97,9 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
 /*Color de "highlight" inputtext*/
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
     background-color: var(--button-active-bgcolor) !important;
+    color: white !important;
+}
+richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     color: white !important;
 }
 /*Imagen grande Marcador*/
@@ -115,4 +124,9 @@ richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel
 #nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-text,
 #nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
     fill: var(--general-color)
+}
+/*Borde redondeado - barra de menú*/
+#main-menubar>menu {
+    text-shadow: none !important;
+    border-radius: 2px !important
 }
