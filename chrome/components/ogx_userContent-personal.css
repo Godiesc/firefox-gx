@@ -292,9 +292,9 @@ search-addons > search-textbox:hover {  border-color: var(--general-color) !impo
     }
 }
 /*------------------------Logo y Wordmaark------------------------/*
+
 /*Colores fill para logo y wordmark*/
-.main-stop { stop-color: var(--general-color) !important; }
-.middle-stop { stop-color: color-mix(in srgb, var(--general-color) 65%, transparent) !important;}
+.main-stop { stop-color: #0060bfdd !important; }
 .alt-stop { stop-color: var(--general-color) !important;
 }
 /*Personalizacion de la página newtab*/    
