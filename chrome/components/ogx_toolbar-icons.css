@@ -3,8 +3,8 @@
 
 /* --------------- Íconos -------------------*/
 /* back button */
+#back-button { padding-inline-start: 5px !important; }
 #back-button image {
-    padding-inline-start: 0 !important;
     margin-left: 0px !important;
     list-style-image: url("../images/back.svg") !important;
 }
@@ -79,8 +79,4 @@ animation-duration: 0ms !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
     opacity: 0.3 !important;
-}
-/* ícono de Permitir Notificaciones*/
-.popup-notification-icon[popupid="web-notifications"], .desktop-notification-icon {
-padding: 3px !important; padding-right: 5px !important;
 }
