@@ -5,7 +5,7 @@
 #navigator-toolbox { border-bottom: 1px solid var(--toolbar-bgcolor) !important;  }
 
 /*"bookmark_text": "#b3d9ff"*/
-.browser-toolbar:not(.titlebar-color) {color: var(--tab-text) !important;}              
+.browser-toolbar:not(.titlebar-color) {color: var(--lwt-text-color) !important;}              
 
 /*"personalizar barra de busqueda"*/
 .browserContainer > findbar:-moz-lwtheme {color: #d3d3d3 !important;}     
@@ -72,10 +72,6 @@
 #urlbar-input, #urlbar-scheme{
     padding-left: 6px !important;
 }
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){ #urlbar-input, #urlbar-scheme{
-    padding-bottom: 1px !important;
-    }}
-/*For nightly version, delete the code above when arrive to stable.*/
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #urlbar-input, #urlbar-scheme{
     padding-bottom: 1px !important;
     }}
@@ -108,7 +104,7 @@
 /*Páginas seguras de firefox"*/
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
   list-style-image: url("../images/foxFill.svg") !important; fill: var(--general-color) !important; -moz-context-properties: fill !important;
-    width: 15px !important; height: 15px !important; margin-left: -6px !important; margin-right: -6px !important; padding-right: 0px !important;}
+  width: 15px !important; height: 15px !important; margin-left: -6px !important; margin-right: -6px !important; padding-right: 0px !important;}
 #identity-box[pageproxystate="valid"].notSecureText, #identity-box[pageproxystate="valid"].chromeUI, #identity-box[pageproxystate="valid"].extensionPage, #urlbar-label-box {
   margin-inline-end: 4px !important; }
 #identity-icon-label { display: none !important; }
@@ -151,6 +147,14 @@
 #blocked-permissions-container > .blocked-permission-icon {
     padding: 1px !important;
     margin-left: 0px !important;
+}
+/* ícono de Permitir Notificaciones*/
+.popup-notification-icon[popupid="web-notifications"], .desktop-notification-icon {
+padding: 1px !important; padding-right: 2px !important;
+}
+.protections-popup-category-icon, .permission-popup-permission-icon {
+  width: initial !important; height: initial !important;
+  padding-inline: 0 0 !important;
 }
 /* ícono Portección contra rastreo */
 #tracking-protection-icon {
