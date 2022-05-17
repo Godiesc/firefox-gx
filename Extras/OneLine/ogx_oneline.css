@@ -1,0 +1,137 @@
+/* S E T T I N G S */
+
+:root{
+  --toolbar-bgcolor: transparent !important;                             /* "toolbar":"#131118", "Color de la toolbar"*/
+  --lwt-selected-tab-background-color: #101019 !important;               /* Color defaul de la petaña activa */
+  --tab-min-height:  calc(32px + var(--tab-block-margin)) !important;    /* Minimum Height 32px for the right function of the theme*/
+  --navbarWidth:36vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/ 
+}
+:root[lwtheme-image]{
+  --toolbar-bgcolor: transparent !important;                                     
+  --lwt-selected-tab-background-color: #101019bf !important;                     
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;        
+}
+:root[style*="--lwt-additional-images"]{
+  --toolbar-bgcolor: transparent !important;                                                                
+  --lwt-selected-tab-background-color: color-mix(in srgb, var(--lwt-frame) 82%, transparent) !important;
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;                        
+}
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 0px) !important;
+    margin-left: 0px !important; margin-right: 0px !important; margin-top: 0px !important; border-radius: 5px 2px 0 0 !important;
+    background: var(--lwt-selected-tab-background-color) !important; clip-path: none !important; border-bottom: 1px solid var(--lwt-selected-tab-background-color) !important;
+}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
+    background-color: var(--lwt-selected-tab-background-color) !important; color: var(--general-color) !important;
+    }
+}
+/* Oneline tweak */
+#TabsToolbar {
+  margin-left : var(--navbarWidth) !important;
+}
+#nav-bar {
+  margin-right: calc(100vw - var(--navbarWidth)) !important;
+  margin-top  :calc(var(--tab-min-height) - var(--tab-min-height) - var(--tab-min-height) - 2px) !important;
+  height: calc(var(--tab-min-height) + 1px) !important;
+}
+#tabbrowser-tabs{padding-left: 2px !important;
+}
+/* Espacio de arrastre */
+.titlebar-spacer {
+    display: -moz-box !important;
+    width: 10px !important;
+}
+/* urlbar open */
+#urlbar-container:not([open=true],:focus, :focus-within ){ min-width: 22vw !important;}
+#urlbar:focus-within  { min-width: 52vw !important; }
+
+/* H I D I N G   E L E M E N T S */
+/* Comment or uncomment depending of what elements you want to hide */
+
+/* Back button */
+/* #back-button { display: none !important } */
+
+/* Hide back button only when disabled */
+#back-button[disabled="true"] { display: none !important }
+
+/* Forward button */
+/* #forward-button { display: none !important } */
+
+/* Hide forward button only when disabled */
+#forward-button[disabled="true"] { display: none !important }
+
+/* "Shield" icon */
+#tracking-protection-icon-container { display: none !important }
+
+/* Site information button */
+#identity-box[disabled="true"] { display: none !important }
+
+/* This is the "Search with" indicator on the urlbar */
+/* #urlbar-search-mode-indicator { display: none !important } */
+
+/* Zoom button */
+/* #urlbar-zoom-button { display: none !important } */
+
+/* Page action (right three dash button) */
+/* #pageActionButton { display: none !important } */
+
+/* These are the buttons on the right of the urlbar */
+/* #page-action-buttons { display: none !important } */
+
+/* #urlbar-label-box { display: none !important } */
+
+/* This one is the hamburger menu! */
+/* CAUTION: if you hide this some popups may be bugged */
+/* #PanelUI-button { display: none !important } */
+
+/* Tab close button */
+/* .tab-close-button { display: none !important } */
+
+/* Enable this to show the tab close button when hovering the tab */
+/* .tabbrowser-tab:hover .tab-close-button { display: -moz-inline-box !important } */
+
+/*============================================================================*/
+
+/* Toolbar Settings */
+
+/* Eliminar label del contenedor manteniendo el ícono */
+#userContext-label{
+    display: none !important;
+}
+/*"toolbar_top_separator": "#17161c"*/
+#navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
+
+/*"toolbar_bottom_separator"*/
+#navigator-toolbox {    
+    border-image: var(--panel-separator-zap-gradient2) 1 !important;
+}
+/*"Linea bajo las pestañas y navbar"*/
+#PersonalToolbar {
+    border-top: 1px solid red !important;
+    margin-top: 0px !important;
+    border-image: var(--panel-separator-zap-gradient2) 1 !important;
+    
+    margin-bottom: -1px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    
+    background-color: var(--lwt-selected-tab-background-color) !important;
+    background: var(--lwt-selected-tab-background-color) !important;
+}
+/*Alinear elementos e íconos de la toolbar-urlbar */
+.toolbarbutton-1:not(#TabsToolbar .toolbarbutton-1)>.toolbarbutton-icon {-moz-box-pack: center !important; margin-top: -3px !important;}
+#PanelUI-button{-moz-box-pack: center !important;  margin-top: -3px !important;}
+#urlbar-container { -moz-box-pack: center !important; height: calc(var(--tab-min-height) - 6px )!important; margin-top: -1px !important;}
+
+/* separador izquierda y derecha urlbar */
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{padding-top: 28px !important; ) !important;}
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -22px !important;}
+
+/* Logo Hamburguer menu */
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+  list-style-image: url("../images/foxFill.svg") !important;
+  height: inherit !important;
+  width: inherit !important;
+}
+/* Reload button */
+#reload-button image, #stop-button image{ padding-bottom: 4px !important; }
