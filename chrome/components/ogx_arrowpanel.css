@@ -44,8 +44,14 @@ panelview {
 }
 /*Margenes protección antirastreo*/
 #protections-popup-blocking-section-header, #protections-popup-not-blocking-section-header, #protections-popup-not-found-section-header, #protections-popup-tp-switch-section, .protections-popup-category, .protections-popup-footer-button {
-padding-left: 16px !important; padding-right: 16px !important;}
-
+padding-left: 16px !important; padding-right: 16px !important;
+}
+/* Panel de descargas */
+#downloadsListBox > richlistitem { border-radius: 0px !important; background: transparent !important; padding-inline: 4px 4px !important;}
+#downloadsListBox > richlistitem:is(:hover) {background: linear-gradient(to right, var(--button-hover-bgcolor) 70%, transparent) !important;}
+#downloadsPanel-blockedSubview, #downloadsPanel-mainView {
+  padding: 0.62em 0.0em 0.62em 0em !important;
+}
 /*Color Sidebar*/
 #sidebar-box{
  --sidebar-background-color: var(--toolbar-bgcolor) !important;
