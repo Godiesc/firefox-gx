@@ -58,11 +58,11 @@ menupopup{border-radius: 0px !important; border-radius: 0px !important;}
 }
 /*Gradient color to :hover items*/
 menupopup>menuitem:not([disabled="true"]):hover, menupopup>menu:hover {
-    background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;
+    background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; color: var(--arrowpanel-color, #50505090) !important;
 }
 /* Necesario para quitar glitch indeseado */
 menupopup>menuitem:not([disabled="true"]) { background: transparent !important; }
-menupopup>menu[open="true"]{ background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;}
+menupopup>menu[open="true"]{ background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; color: var(--arrowpanel-color) !important;}
 
 /*íconos deshabilitados*/
 menu[disabled="true"], menuitem[disabled="true"] {
