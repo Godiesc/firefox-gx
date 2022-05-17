@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-:root{   
+:root{
   --lwt-accent-color: #09080d !important;                                      /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                      /*"frame": "#17161c" */
   --lwt-text-color: #cecece !important;                                        /*"tab_background_text": "#c3c3c3"*/
@@ -15,7 +15,7 @@
   
   --arrowpanel-background: #1c1726 !important;                                 /*"popup": "#1c1b22Fa"*/
   --arrowpanel-color: var(--lwt-tab-text) !important;                          /*"popup_text": "#dfdfdf"*/  
-  --arrowpanel-border-color: transparent !important;                  /*"popup_border": "#304f60"*/    
+  --arrowpanel-border-color: transparent !important;                           /*"popup_border": "#304f60"*/    
 /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);      /*"popup_highlight": "#006f80"*/
   
   --lwt-brighttext-url-color: #ff3a4acc !important;                            /*"color de label: El sitio no funciona?"*/
@@ -25,8 +25,8 @@
   --toolbar-field-color: var(--lwt-tab-text) !important;                       /*"toolbar_field_text":"#e2e9e9"*/
   --toolbar-field-border-color: var(--toolbar-bgcolor) !important;             /*"toolbar_field_border": "#363540"*/
   
-  /*--toolbar-field-focus-background-color: color-mix(in srgb, 
-  var(--general-color) 25%, transparent) !important;                                    /*"toolbar_field_focus": "#1a1b25FB"*/
+  --toolbar-field-focus-background-color: color-mix(in srgb, 
+  var(--general-color) 5%, #231f30fd) !important;                                       /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbar-field-focus-color: var(--lwt-tab-text) !important;                          /*"toolbar_field_text_focus": "#e5e5e6"*/
   --toolbar-field-focus-border-color: transparent !important;                           /*"toolbar_field_border_focus": "#005F66"*/
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /*"toolbar_field_highlight": "#006f80"*/
@@ -47,7 +47,7 @@
   
   --toolbarbutton-inner-padding: 4px !important;                                      /*Toolbar buttons más pequeños*/
   --toolbarbutton-outer-padding: 4px !important;                                      /*Toolbar buttons más espaciados*/
-  --toolbarbutton-border-radius: 0px !important;                                      /*forma de los buttons*/
+  --toolbarbutton-border-radius: 2px !important;                                      /*forma de los buttons*/
   
   --tab-block-margin: 1px !important;                                                 /*margenes pestañas*/
   --margin-top: var(--tab-block-margin) !important;                                   /*margen top pestañas - variable personal*/
@@ -62,7 +62,7 @@
   --arrowpanel-padding: 1.3em !important;                                             /*Otro padding de menús*/
   --arrowpanel-menuitem-margin: 0 0px !important;                                     /*margenes de menús*/
    
-  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, black) !important;   /*Color input backgrond en Marcadores*/
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, black) !important;   /*Color input background en Marcadores*/
   
   --arrowpanel-menuitem-border-radius: 0px !important;                                /*forma de menuitems :hover*/
   --panel-separator-margin-vertical: 3px !important;                                  /*margen vertical entre los separadores*/
@@ -78,31 +78,42 @@
   
   scrollbar-color: #38375580 #18173530 !important;                                                    /* Colores - Barra de deplazamiento */
   
-  /*ColorBotónGuardar*/
-    --button-primary-bgcolor: var(--button-active-bgcolor) !important;
+  
+  --button-primary-bgcolor: var(--button-active-bgcolor) !important;                                  /*ColorBotónGuardar*/   
+  --button-primary-color: #eaeaea !important;                                                         /*ColorLetrasBotónGuardar*/
+   
+  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;                             /*ColorBotónGuardar:Hover*/
+  --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;                          /*ColorBotónGuardar:clic*/
 
-    /*ColorLetrasBotónGuardar*/
-    --button-primary-color: #eaeaea !important;
-
-    /*ColorBotónGuardar:Hover*/
-    --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;
-
-    /*ColorBotónGuardar:clic*/
-    --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;
-
-    /*Color borde en InputText Focus*/
-    --focus-outline-color: var(--general-color) !important;
-
-    /*Color borde en InputText*/
-    --input-border-color: #4a3e65 !important;
+  --focus-outline-color: var(--general-color) !important;                                             /*Color borde en InputText Focus*/
+  --input-border-color: #4a3e65 !important;                                                           /*Color borde en InputText*/
 
     /*Colores checkbox —v*/
-    --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;
-    --checkbox-unchecked-hover-bgcolor: var(--button-primary-bgcolor) !important;      
-    --checkbox-unchecked-active-bgcolor: var(--button-primary-bgcolor) !important;
-    --checkbox-checked-border-color: transparent !important;
-    --checkbox-checked-bgcolor: var(--button-primary-bgcolor) !important;
-    --checkbox-checked-color: #eaeaea !important;
-    --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
-    --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
+  --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;
+  --checkbox-unchecked-hover-bgcolor: var(--button-primary-bgcolor) !important;      
+  --checkbox-unchecked-active-bgcolor: var(--button-primary-bgcolor) !important;
+  --checkbox-checked-border-color: transparent !important;
+  --checkbox-checked-bgcolor: var(--button-primary-bgcolor) !important;
+  --checkbox-checked-color: #eaeaea !important;
+  --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
+  --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
+}
+/* Compatibilidad para temas que usan theme_frame para la imagen en su tema */
+:root[lwtheme-image]{
+  --toolbar-bgcolor: #1010199f !important;                                       /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-field-background-color: transparent !important;                      /*"toolbar_field":"#1a1b25"*/
+  --toolbar-field-border-color: transparent !important;                          /*"toolbar_field_border": "#363540"*/
+  --toolbarbutton-icon-fill: #cacae6 !important;
+  --lwt-selected-tab-background-color: #10101901 !important;                     /*"tab_selected":"#363540"*/
+  --toolbar-field-focus-background-color: color-mix(in srgb,                     /*"toolbar_field_focus": "#1a1b25FB"*/
+  var(--general-color) 5%, #231f30fc) !important;                                
+}
+/* Compatibilidad Parcial para temas que usan "Imagenes adicionales" para las imágene en su tema */
+:root[style*="--lwt-additional-images"]{
+  --toolbar-bgcolor: #101019cf !important;                                                                
+  --toolbar-field-background-color: transparent !important;                                              
+  --toolbar-field-border-color: transparent !important;
+  --toolbarbutton-icon-fill: #cacae6 !important;
+  --lwt-selected-tab-background-color: color-mix(in srgb, var(--lwt-frame) 92%, transparent) !important;
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;                                    
 }
