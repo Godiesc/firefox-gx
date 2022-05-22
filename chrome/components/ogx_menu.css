@@ -74,7 +74,10 @@ slot{ margin: 0px !important; }
 #permission-popup, #protections-popup, #appMenu-notification-popup{
     margin-top: 0px !important; margin-left: -12px !important; margin-right: -12px !important; }
 panel[type="arrow"]{ margin-top: 0px !important; }
-
+/* For nightly users
+panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"] {
+  margin-inline: 0px !important;
+}*/
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
     padding-top: calc(var(--tab-min-height) - 8px + var(--tab-block-margin)) !important;
