@@ -46,6 +46,9 @@ panelview {
 #protections-popup-blocking-section-header, #protections-popup-not-blocking-section-header, #protections-popup-not-found-section-header, #protections-popup-tp-switch-section, .protections-popup-category, .protections-popup-footer-button {
 padding-left: 16px !important; padding-right: 16px !important;
 }
+/* Color Label "No funciona el sitio "*/
+toolbar .text-link:-moz-lwtheme, panel .text-link:-moz-lwtheme{ color: var(--red) !important;
+}
 /* Panel de descargas */
 #downloadsListBox > richlistitem { border-radius: 0px !important; background: transparent !important; padding-inline: 4px 4px !important;}
 #downloadsListBox > richlistitem:is(:hover) {background: linear-gradient(to right, var(--button-hover-bgcolor) 70%, transparent) !important;}
