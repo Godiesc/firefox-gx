@@ -18,8 +18,6 @@
   --arrowpanel-border-color: transparent !important;                           /*"popup_border": "#304f60"*/    
 /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);      /*"popup_highlight": "#006f80"*/
   
-  --lwt-brighttext-url-color: #ff3a4acc !important;                            /*"color de label: El sitio no funciona?"*/
-  
   --panel-description-color: var(--general-color) !important;                  /*"Color de letras de: correo de la cuenta, y dispositivos conectados"*/
   --toolbar-field-background-color: var(--toolbar-bgcolor) !important;         /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-color: var(--lwt-tab-text) !important;                       /*"toolbar_field_text":"#e2e9e9"*/
