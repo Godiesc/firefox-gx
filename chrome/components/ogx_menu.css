@@ -71,7 +71,7 @@
 /* Margenes del menú Open*/
 slot{ margin: 0px !important; }
 #downloadsPanel, #widget-overflow, #customizationui-widget-panel, #identity-popup, 
-#permission-popup, #protections-popup, #appMenu-notification-popup{
+#permission-popup, #protections-popup, #appMenu-notification-popup, #editBookmarkPanel{
     margin-top: 0px !important; margin-left: -12px !important; margin-right: -12px !important; }
 panel[type="arrow"]{ margin-top: 0px !important; }
 /* For nightly users
