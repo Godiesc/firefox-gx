@@ -121,10 +121,10 @@
 /*Alinear elementos e íconos de la toolbar-urlbar */
 .toolbarbutton-1:not(#TabsToolbar .toolbarbutton-1)>.toolbarbutton-icon {-moz-box-pack: center !important; margin-top: -3px !important;}
 #PanelUI-button{-moz-box-pack: center !important;  margin-top: -3px !important;}
-#urlbar-container { -moz-box-pack: center !important; height: calc(var(--tab-min-height) - 6px )!important; margin-top: -1px !important;}
+#urlbar-container { -moz-box-pack: center !important; height: calc(var(--tab-min-height) - 6px )!important; margin-top: 0px !important;}
 
 /* separador izquierda y derecha urlbar */
-#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{padding-top: 28px !important; ) !important;}
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{padding-top: 29px !important; ) !important;}
 #urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -22px !important;}
 
 /* Logo Hamburguer menu */
