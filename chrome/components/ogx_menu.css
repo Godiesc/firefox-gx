@@ -79,7 +79,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"] {
 }
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
-    padding-top: calc(var(--tab-min-height) - 8px + var(--tab-block-margin)) !important;
+    padding-top: calc(var(--tab-min-height) - 7px + var(--tab-block-margin)) !important;
     width: 27.5em !important; }
 }
 @media {
