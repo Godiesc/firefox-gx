@@ -18,8 +18,8 @@
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
   :root[tabsintitlebar][sizemode="maximized"] #PanelUI-button{ top: 8px !important; } 
 }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: calc(var(--tab-block-margin) + 1px) 0 1px 0 !important; 
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
+  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: calc(var(--tab-block-margin) + 2px) 0 1px 0 !important; 
   max-height: calc(var(--tab-min-height) + 1px) !important;
   min-height:  calc(var(--tab-min-height) + 1px) !important;}
 }
@@ -74,10 +74,9 @@ slot{ margin: 0px !important; }
 #permission-popup, #protections-popup, #appMenu-notification-popup, #editBookmarkPanel{
     margin-top: 0px !important; margin-left: -12px !important; margin-right: -12px !important; }
 panel[type="arrow"]{ margin-top: 0px !important; }
-/* For nightly users
 panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"] {
   margin-inline: 0px !important;
-}*/
+}
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
     padding-top: calc(var(--tab-min-height) - 8px + var(--tab-block-margin)) !important;
@@ -86,7 +85,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"] {
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
-    margin-top: calc(var(--tab-min-height) - var(--tab-min-height) - var(--tab-min-height) + var(--tab-block-margin)) !important;
+    margin-top: calc(var(--tab-min-height) - var(--tab-min-height) * 2 + var(--tab-block-margin) + 1px) !important;
     clip-path: polygon(
         calc(var(--padding-left-tab) - 1px) 0%, 
         200% 0%, 0% 200%,
