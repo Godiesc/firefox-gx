@@ -1,9 +1,6 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-/*Eliminar Imagenes Superiores*/
-/*#navigator-toolbox { background-image:  none !important;}*/
-
 /*"tab_line": "#126e82"*/
 #tabbrowser-tabs { --lwt-tab-line-color: transparent !important; }
 
@@ -17,17 +14,17 @@
 .tabbrowser-tab[selected="true"] .tab-stack { background: var(--gradient) !important; }
 .tab-stack { margin-top: var(--tab-block-margin) !important; }
 
-.tab-background{ height: var(--tab-min-height) !important; margin-left: 1px !important; margin-right: 1px !important; margin-top: 1px !important;}
+.tab-background{ height: var(--tab-min-height) !important; margin-left: 1px !important; margin-right: 1px !important; margin-top: 1px !important; }
 
 :root[style*="--lwt-additional-images"] .tab-background:is([selected]){ --lwt-tab-line-color: var(--general-color) !important; clip-path: none !important; }
 :root[style*="--lwt-additional-images"] .tabbrowser-tab[selected="true"] .tab-stack { background: transparent !important; clip-path: none !important;}
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 0px) !important;
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 1px) !important;
     margin-left: 0px !important; margin-right: 0px !important; margin-top: 0px !important; border-radius: 5px 2px 0 0 !important;
     background: var(--toolbar-bgcolor) !important; clip-path: none !important; border-bottom: 1px solid var(--toolbar-bgcolor) !important;
 }
 /* Indispenable para mantener alineado pestañas hover y pestaña activa*/
 .tab-content { height: var(--tab-min-height) !important;}
-.tab-content {padding-bottom:  2px !important; }
+:root[tabsintitlebar][sizemode="normal"] .tab-content {padding-bottom:  var(--tab-block-margin) !important; }
 
 /*Color :hover de las pestañas no seleccionadas*/
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
