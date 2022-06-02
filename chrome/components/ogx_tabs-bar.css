@@ -22,6 +22,9 @@
     margin-left: 0px !important; margin-right: 0px !important; margin-top: 0px !important; border-radius: 5px 2px 0 0 !important;
     background: var(--toolbar-bgcolor) !important; clip-path: none !important; border-bottom: 1px solid var(--toolbar-bgcolor) !important;
 }
+:root[style*="--lwt-additional-images"][tabsintitlebar][sizemode="normal"] #tabbrowser-tabs .tab-background[selected="true"]{ 
+    height: calc(var(--tab-min-height) + 0px) !important;
+}
 /* Indispenable para mantener alineado pestañas hover y pestaña activa*/
 .tab-content { height: var(--tab-min-height) !important;}
 :root[tabsintitlebar][sizemode="normal"] .tab-content {padding-bottom:  var(--tab-block-margin) !important; }
