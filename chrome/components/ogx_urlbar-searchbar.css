@@ -8,8 +8,8 @@
 .browser-toolbar:not(.titlebar-color) {color: var(--lwt-text-color) !important;}              
 
 /*"personalizar barra de busqueda"*/
-.browserContainer > findbar:-moz-lwtheme {color: #d3d3d3 !important;}     
-.findbar-find-status[status="notfound"] {color: #ff6951 !important;}
+findbar:-moz-lwtheme {color: #d3d3d3 !important; background-color: var(--toolbar-bgcolor) !important; border-color: var(--input-border-color) !important;}     
+.findbar-find-status[status="notfound"] {color: var(--general-color) !important; font-weight: 600 !important; }
 
 /*Vizualización correcta del porcentaje de zoom mostrado en la urlbar*/
 #urlbar-zoom-button {padding: 0px 2px !important;}
