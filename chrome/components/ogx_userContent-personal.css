@@ -1,23 +1,23 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
    
-:root{ scrollbar-color: #38375580 #18173530 !important; }                       /*Color de la barra de desplazamiento*/
-/**{ scrollbar-width: thin !important}*/                                        /*Barra de desplazamiento delgada*/ 
+:root{ scrollbar-color: #38375580 #18173530 !important; }                            /*Color de la barra de desplazamiento*/
+/**{ scrollbar-width: thin !important}*/                                             /*Barra de desplazamiento delgada*/ 
 
-window, dialog {                                                                /*Colores varios de paginas de about:addons y about:settings*/
+window, dialog {                                                                     /*Colores varios de paginas de about:addons y about:settings*/
     background-color: #101019 !important;
     --in-content-primary-button-background: var(--general-color) !important;
     --in-content-primary-button-text-color: white !important;
     --in-content-primary-button-background-hover: var(--general-color) !important;   /*color de los radiobutton (fondo) :hover*/  
     --in-content-primary-button-background-active: var(--general-color) !important;  /*color de los radiobutton (clic) con check*/    
     
-    --checkbox-unchecked-bgcolor: #101019 !important;                               /*color de los checkbox vacíos*/
-    --checkbox-unchecked-hover-bgcolor: var(--general-color) !important;            /*color de los checkbox hover*/
-    --checkbox-unchecked-active-bgcolor: var(--general-color) !important;           /*color de los checkbox al darle clic*/  
-    --checkbox-checked-bgcolor: var(--general-color) !important;                    /*color de los checkbox con check*/
-    --checkbox-checked-color: #fff !important;                                      /*color de la palomita check*/
+    --checkbox-unchecked-bgcolor: #101019 !important;                                /*color de los checkbox vacíos*/
+    --checkbox-unchecked-hover-bgcolor: var(--general-color) !important;             /*color de los checkbox hover*/
+    --checkbox-unchecked-active-bgcolor: var(--general-color) !important;            /*color de los checkbox al darle clic*/  
+    --checkbox-checked-bgcolor: var(--general-color) !important;                     /*color de los checkbox con check*/
+    --checkbox-checked-color: #fff !important;                                       /*color de la palomita check*/
     --checkbox-checked-hover-bgcolor: color-mix(in srgb,
-        var(--general-color), transparent) !important;                              /*color de los checkbox con check hover*/
+        var(--general-color), transparent) !important;                               /*color de los checkbox con check hover*/
     
     --in-content-box-background: #1d1d38  !important;
     --in-content-box-border-color: #3d3d88  !important;
@@ -81,96 +81,77 @@ window, dialog {                                                                
     --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;
     
 }
-@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {  
-    body {
-/* Sidebar fondo */    
-        --lwt-sidebar-background-color: #181735 !important;
-        
-/* Color fondo general */
-        --newtab-background-color: #101019 !important;    
-        
-/*fondo de la barra de busqueda--------F-------*/
-        --newtab-textbox-background-color: red !important;           
+@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home),url(about:privatebrowsing) {  
+body {
+    --lwt-sidebar-background-color: #181735 !important;                                       /* Sidebar fondo */
+    --newtab-background-color: #101019 !important;                                            /* Color fondo general */
 
-/*fondo de fondo de sitios fijados y barra de búsqueda*/
-        --newtab-background-color-secondary: color-mix(in srgb, white 6%, transparent) !important;
+    --newtab-background-color-secondary: var(--newtab-pinnedsites-background) !important;     /* color - fondo de sitios fijados, barra de búsqueda*/ 
+    --newtab-element-hover-color: var(--newtab-background-color-secondary) !important;        /* color de fondo al hacer clic al ícono menú 3 puntos*/
     
-/*contextual menu de tres puntos pinned-----------f----------*/
-        --newtab-contextmenu-background-color: red !important;   
+    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
+      var(--button-hover-bgcolor) 49%, transparent) !important; 
         
-/*color de fondo al hacer clic al item del menú 3 puntos*/
-        --newtab-element-hover-color: var(--newtab-background-color-secondary) !important;                                          
-
-/*color al pasar el mouse sobre los items del menú tres puntos*/
-        --newtab-element-secondary-hover-color: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; 
-        
-/*Color al hacer clic en items del menú de 3 puntos*/
-        --newtab-element-secondary-active-color: linear-gradient(to right, var(--button-active-bgcolor) 69%, transparent) !important;
-    
-/*tres puntos hover----------------f---------------*/ 
-        --newtab-icon-primary-color: red !important; 
-
-/*Linea separadora*/
-        --newtab-border-color: color-mix( in srgb, var(--newtab-background-color) 90%, var(--newtab-wordmark-color)) !important;   
-
-/*label principal al editar un sitio--------f------------*/        
-        --newtab-section-header-text-color:  red !important;
-    
-/*fondo de actividad reciente ------------------f-------------*/
-        --newtab-card-background-color: color-mix( in srgb, var(--newtab-background-color) 97%,  var(--newtab-wordmark-color))!important;  
-        
-        --newtab-text-primary-color: #dadada !important;                     /*label general*/
-        --newtab-text-secondary-color: var(--general-color) !important;      /*Label secundaria*/
+    --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
+      var(--button-active-bgcolor) 69%, transparent) !important;
        
-/*fondo de editar, transparente*/
-        --newtab-overlay-color: color-mix(in srgb, var(--newtab-background-color)94%,transparent) !important;
-        
-/*contorno de txt al editar un sitio-------------f-----------*/
-        --newtab-textbox-border: var(--general-color) !important;                                                                           
+    --newtab-text-primary-color: #dadada !important;                                          /* label general */
+    --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
+       
+    --newtab-overlay-color: color-mix(in srgb, #090909 84% /*54%*/,transparent) !important;   /* fondo al editar sitio, transparente */
     
-/*color de fondo de Boton "Guardar" y fondo de radiobuttons */
-        --newtab-primary-action-background: var(--button-active-bgcolor) !important;                
-
-    /*--newtab-button-secondary-color: #f02020c0 !important;                            color del botón "cancelar"*/
-    /*--newtab-element-border-primary-color: #f85149 !important;                        borde del botón "Cancelar"*/
+    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
         
-/*color radiobutton no activo*/
-        --newtab-element-secondary-color: color-mix( in srgb, var(--newtab-background-color) 90%, var(--newtab-wordmark-color) ) !important;
+    --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
+      var(--newtab-background-color) 90%, var(--newtab-wordmark-color) ) !important;
 
-/*color bola de radiobutton*/
-        --newtab-primary-element-text-color: #dadadabb !important;                          
+    --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* color bola de radiobutton */
 }
-/*Color checkbox accesos patrocinados*/
+/* Eliminar scrollbar */
+*{scrollbar-width: none !important }
+    
+/* Color checkbox accesos patrocinados */
 .sponsored-checkbox:is(:checked):hover, .sponsored-checkbox:not(:checked):hover{ background-color: var(--button-hover-bgcolor) !important;}
     
-/*color de borde del radio-button en "Personalizar"*/
+/* Color de borde del radio-button en "Personalizar" */
 .home-section .section .slider {border-color: transparent !important;}
 .home-section .section .slider:hover {background-color: var(--button-hover-bgcolor) !important;}
     
- /*Color de fondo al "editar" un sitio anclado*/  
-.modal {background-color: var(--newtab-background-color) !important;  border-image: var(--panel-separator-zap-gradient1) 1 !important;}
-.modalOverlayOuter{
-    }
-/* Fondo y borde del menú de 3 puntos */
-.context-menu {background-color: #1c1726 !important; border-radius: 0px !important;
- box-shadow: 0px 0px 0 1px #00000070, 1px 1px 6px 0px black !important; 
- border: 1px solid var(--newtab-border-color); border-image: var(--panel-separator-zap-gradient1) 1 !important;}
-/* linea separadora */
-.context-menu .separator{margin-left: 6px !important; margin-right: 6px !important; width: -moz-available !important;
+/* Colores al "editar" un sitio anclado */
+.modal{ background: var(--newtab-background-color) /*var(--newtab-overlay-color)*/ !important;  
+        border-image: var(--panel-separator-zap-gradient1) 1 !important; 
+        border-radius: 0 !important; }
+.modalOverlayOuter{ 
+    backdrop-filter: blur(26px); }
+.topsite-form .actions{ 
     border-image: var(--panel-separator-zap-gradient1) 1 !important;}
-    
-/*--------Color al pasar por los items del menú de 3 puntos----------*/
-.context-menu > ul > li > a:is(:focus, :hover), .context-menu > ul > li > button:is(:focus, :hover) {
-    /*Your custom code here...*/
-}  
-/*Boton de 3 puntos al hacerle hover y clic*/
-.context-menu-button:hover, .context-menu-button:active, .context-menu-button:focus{fill: var(--general-color) !important; }   
+input[type="text"], input[type="search"] { 
+    border-radius: 0px !important; }
+input:focus-visible, input:focus-visible{ 
+    outline: 1px solid var(--general-color) !important; 
+    border-color: var(--general-color) !important;
+}    
+/* Fondo y borde del menú de 3 puntos */
+.context-menu {
+    background-color: #1c1726 !important; border-radius: 0px !important;
+    box-shadow: 0px 0px 0 1px #101010 !important; 
+    border: 1px solid var(--newtab-border-color); 
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+}
+/* linea separadora */
+.context-menu .separator{
+    margin-left: 6px !important; margin-right: 6px !important; 
+    width: -moz-available !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+}    
+/* ícono de 3 puntos al hacerle hover y clic*/
+.context-menu-button:hover, .context-menu-button:active, .context-menu-button:focus{ fill: var(--general-color) !important; }   
   
 /* Color de borde del boton "Guardar" */
 .actions button:not(.cancel), .actions button:focus:not(.cancel) {
     color: white !important;  border: transparent !important;}
 .actions button:hover:not(.dismiss) {
-    box-shadow:none !important; background-color: var(--button-hover-bgcolor) !important;}  
+    background-color: var(--button-hover-bgcolor) !important; color: white !important; box-shadow:none !important; }  
     
 /* Color de borde del boton "Cancelar"*/
 .actions button:is(.cancel){ 
@@ -178,109 +159,186 @@ window, dialog {                                                                
 .actions button:is(.cancel):hover {
     box-shadow:none !important; background-color: #da3633 !important; color: #f0f6fc !important; border-color: #f85149 !important;}
      
-/* Colores del botón "Personalizar" */
-.personalize-button{color: color-mix( in srgb, var(--newtab-background-color) 60%, var(--newtab-wordmark-color) ) !important;}
-.personalize-button:hover {background-color: var(--newtab-background-color-secondary)!important; color:var(--newtab-wordmark-color)  !important;}
+/* Botón "Personalizar" */
+.icon.icon-settings { 
+    background-image: url("../images/edit.svg") !important; }
+.personalize-button { 
+    color: color-mix( in srgb, var(--newtab-background-color) 60%, var(--newtab-wordmark-color) ) !important;}
+.personalize-button:hover {
+    background-color: var(--newtab-background-color-secondary)!important; fill:var(--newtab-wordmark-color)  !important;}
  
 /* Colores del botón "Cerrar" */
-.close-button {background-color: var(--newtab-element-secondary-color) !important; color: var(--newtab-wordmark-color)  !important;
-    border-radius: 4px !important; border-color: transparent !important;}
-.close-button:hover{color: var(--newtab-wordmark-color)  !important; background-color: var(--button-active-bgcolor) !important; 
-    border-radius: 4px !important;}
-  
+.close-button {
+    background-color: var(--newtab-element-secondary-color) !important; 
+    color: var(--newtab-wordmark-color)  !important;
+    border-radius: 4px !important; 
+    border-color: transparent !important; }
+.close-button:hover{
+    background-color: var(--button-active-bgcolor) !important; 
+    color: var(--newtab-wordmark-color)  !important; 
+    border-radius: 4px !important;
+}  
 /*Colores de la sidebar deslizante para Personalizar la NewTab*/
     /* Fondo */
-        .customize-menu {color: var(--newtab-wordmark-color) !important; background-color: #101019 !important;}
+.customize-menu {
+    background-color: #101019 /*#101014ac*/ !important;
+    color: var(--newtab-wordmark-color) !important; 
+    backdrop-filter: blur(26px); }
     /* Combobox */
-        .home-section .section .selector { background-color: var(--newtab-element-secondary-color) !important; 
-        border-color: transparent !important; border-radius: 4px !important;}
-        .home-section .section .selector:hover { background-color: var(--button-hover-bgcolor) !important; 
-        border-color: var(--button-hover-bgcolor) !important;}
-    /* Sombra izquierda de la sidebar*/
-        .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
-        box-shadow: 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
+.home-section .section .selector { 
+    background-color: var(--newtab-element-secondary-color) !important; 
+    border-color: transparent !important; 
+    border-radius: 4px !important; }
+.home-section .section .selector:hover { 
+    background-color: var(--button-hover-bgcolor) !important; 
+    border-color: var(--button-hover-bgcolor) !important;}
+    /* Sombra izquierda de la sidebar */
+.customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
+    box-shadow: 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
     /* Separador*/
-        .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}    
-  
-*{scrollbar-width: none !important }
+    .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}    
     
- /*Eliminar cuadro de búsqueda*/
-/*.search-inner-wrapper{ display: none !important;}*/
-  
-.search-inner-wrapper{margin-top: 50px !important;  box-shadow: 0px 0px 0px 1px #ffffff10 !important;
-    backdrop-filter: blur(8px); border-radius: 8px !important;}
-    
+/* Cuadro de búsqueda*/
+.search-inner-wrapper{ 
+    display: var(--searchbar-on-off, flex) !important;}
+.search-wrapper .search-handoff-button{ 
+    box-shadow: 0 0 0 1px #40404040 !important; }
+.search-inner-wrapper{
+    margin-top: 50px !important;  
+    box-shadow: none !important;
+    backdrop-filter: blur(8px); 
+}    
 /* Actividad reciente */
-.compact-cards .card-outer .card-details{
+.card-outer .card { backdrop-filter: blur(8px); 
 }
 /*fondo pequeño de los favICON de los sitios anclados*/
 .top-site-icon{background-color: transparent !important;}
     
-/*colores de los sitios anclados*/
-.top-site-outer .tile{ box-shadow:  0px 0px 0px 1px #ffffff10, 1px 1px 2px #00000090 !important; backdrop-filter: blur(8px)}  
+/* Sitios anclados */
+.top-site-outer .tile{ box-shadow: 0 0 0 1px #40404040 !important; backdrop-filter: blur(8px)}  
     
-/*colores al pasar el mouse sobre los sitios anclados en :hover*/
-.top-site-outer:is(.active, :focus, :hover) .tile{background-color: color-mix(in srgb, var(--newtab-background-color)68%, transparent) !important;
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--general-color)35%, transparent) !important; backdrop-filter: none !important;}
-    
-/*colores al pasar el mouse sobre los sitios anclados (fondo más grande)*/
-.top-site-outer:is(.active, :focus, :hover) {
-  background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)50%, transparent) , rgba(0,255,0,0) 64.71%),
-  linear-gradient(190deg, #5b5fa16a, rgba(0,0,255,0) 99.71%) !important;}
-  
+/* colores al pasar el mouse sobre los sitios anclados en :hover */
+.top-site-outer:is(.active, :focus, :hover) .tile{
+    background-color: color-mix(in srgb, black 28%, transparent) !important;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--general-color)35%, transparent) !important; 
+    backdrop-filter: blur(20px) !important; 
+}    
+/* colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
+.top-site-outer:is(.active, :focus, :hover){
+    background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)50%, transparent) , rgba(0,255,0,0) 64.71%),
+                linear-gradient(190deg, #5b5fa16a, rgba(0,0,255,0) 99.71%) !important; 
+}  
 /* ntp - Fondo general de la paginas newtab y home */
-.activity-stream {background-color: var(--newtab-background-color, #ff0000) !important;}
+.activity-stream {
+    background-color: var(--newtab-background-color, #ff0000) !important;}
 }
-
-/*Colores varios de la interfaz de complementos y configuración*/
-@-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support) {    
-button:not(.category) {background-color: var(--in-content-button-background) !important; border-color: var(--in-content-box-border-color) !important;}
-button:hover {background-color: var(--button-hover-bgcolor) !important; color: #fafafa !important; border-color: var(--button-hover-bgcolor) !important;}
-#categories{ margin: 70px 15px 0 -18px !important; }
-.sidebar-footer-list { margin-inline: 4px 4px !important; color:  #bfb6d2 !important;}
+/*-------------------------------> Colores varios de la interfaz de complementos y configuración <---------------------------------------*/
+@-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support) {
     
-#categories > .category{background-color: var(--in-content-box-background) !important; color: #bfb6d2 !important;}
-#categories > .category:hover, #categories > .category:hover .category-name {background-color: transparent !important; color: White !important; text-decoration: 1px underline white !important; text-underline-offset: 4px !important; }
-.category .category-name { font-weight: bold !important; font-size: 0.9em !important;}
-#categories > .category[selected] , #categories > .category[selected] > .category-name {background-color: transparent !important; 
-    color: color-mix(in srgb, var(--general-color) 90%, white) !important;}
-#categories > .category[selected]:hover{ color: var(--general-color) !important; }
-#categories > .category[selected]:hover > .category-name{ background-color: transparent; color: var(--general-color) !important;  text-decoration: 1px underline var(--general-color)!important;
+button:not(.category) {
+    background-color: var(--in-content-button-background) !important; 
+    border-color: var(--in-content-box-border-color) !important; }
+button:hover {
+    background-color: var(--button-hover-bgcolor) !important; 
+    color: #fafafa !important; 
+    border-color: var(--button-hover-bgcolor) !important; }
+    
+#categories{ 
+    margin: 70px 15px 0 -18px !important; }
+.sidebar-footer-list { 
+    margin-inline: 4px 4px !important; color:  #bfb6d2 !important;}
+#categories > .category{
+    background-color: var(--in-content-box-background) !important; 
+    color: #bfb6d2 !important;}
+#categories > .category:hover, #categories > .category:hover .category-name {
+    background-color: transparent !important; 
+    color: White !important; 
+    text-decoration: 1px underline white !important; 
     text-underline-offset: 4px !important; }
-button.primary {background-color: var(--button-active-bgcolor) !important;  color: white !important; border-color: transparent !important;}   
-button.primary:hover {background-color: var(--button-hover-bgcolor) !important;  color: #eaeaea !important;}
-th.column{color: #eaeaea !important; background-color: var(--in-content-button-background)  !important;}
-td { border: 1px solid var(--in-content-table-border-color) !important;}
-panel-list {background: var(--in-content-button-background) !important;}
-.dialogBox {--in-content-page-background: #101019 !important;} /*Color de ventana de ventanas emergentes en "configuración"*/
-.subcategory:not([hidden]) ~ .subcategory { border-image: var(--panel-separator-zap-gradient1) 1 !important;} /*Linea separadora en "configuración"*/
-.card[active="true"]{ background-color: color-mix(in srgb, var(--in-content-box-background)96%, white) !important; 
-    outline: 1px solid var(--in-content-box-border-color) !important; outline-width: 2px !important; }
-.card[active="false"]{ outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)30%, transparent) !important;}
-.addon.card:hover{ outline-color: var(--general-color) !important; border-radius: 4px !important;}
-#categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { background: var(--in-content-box-background) !important;}    
+.category .category-name { 
+    font-weight: bold !important; 
+    font-size: 0.9em !important;}
+#categories > .category[selected] , #categories > .category[selected] > .category-name {
+    background-color: transparent !important; 
+    color: color-mix(in srgb, var(--general-color) 90%, white) !important;}
+#categories > .category[selected]:hover{ 
+    color: var(--general-color) !important; }
+#categories > .category[selected]:hover > .category-name{ 
+    background-color: transparent; 
+    color: var(--general-color) !important;  
+    text-decoration: 1px underline var(--general-color)!important;
+    text-underline-offset: 4px !important; }
+button.primary {
+    background-color: var(--button-active-bgcolor) !important;  
+    color: white !important; 
+    border-color: transparent !important;}   
+button.primary:hover {
+    background-color: var(--button-hover-bgcolor) !important;  
+    color: #eaeaea !important;}
+th.column{
+    background-color: var(--in-content-button-background)  !important;
+    color: #eaeaea !important; }
+td { 
+    border: 1px solid var(--in-content-table-border-color) !important;}
+panel-list {
+    background: var(--in-content-button-background) !important;}
+    
+/*Color de ventana de ventanas emergentes en "configuración"*/
+.dialogBox {--in-content-page-background: #101019 !important;}
+    
+/*Linea separadora en "configuración"*/
+.subcategory:not([hidden]) ~ .subcategory { 
+    border-image: var(--panel-separator-zap-gradient1) 1 !important; }
+    
+.card[active="true"]{ 
+    background-color: color-mix(in srgb, var(--in-content-box-background)96%, white) !important; 
+    outline: 1px solid var(--in-content-box-border-color) !important; 
+    outline-width: 2px !important; }
+.card[active="false"]{ 
+    outline: 1px solid color-mix(in srgb, var(--in-content-box-border-color)30%, transparent) !important; }
+.addon.card:hover{ 
+    outline-color: var(--general-color) !important; 
+    border-radius: 4px !important;}
+#categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  { 
+    background: var(--in-content-box-background) !important;}    
 .navigation, #sidebar{ border-right: 1px solid var(--in-content-box-border-color) !important;}
-.sticky-container{ border-bottom: 1px solid var(--in-content-box-border-color) !important; box-shadow: 3px 3px 7px #00000050 !important;}
-
-#main{ margin-inline-start: 7% !important;}
-.main-search {  padding-inline-end: 28px; max-width: 100% !important; padding: 20px 20px !important; }
-.main-search .search-label { display: none !important;}
-.main-heading { margin-top: -52px !important;  margin-bottom: 4px !important; min-width: 50% !important; }
-.main-heading .spacer { max-width: 20px !important;}
+.sticky-container{ 
+    border-bottom: 1px solid var(--in-content-box-border-color) !important; 
+    box-shadow: 3px 3px 7px #00000050 !important;}
+#main{ 
+    margin-inline-start: 7% !important;}
+.main-search { 
+    padding-inline-end: 28px; 
+    max-width: 100% !important; 
+    padding: 20px 20px !important; }
+.main-search .search-label { 
+    display: none !important;}
+.main-heading { 
+    margin-top: -52px !important;  
+    margin-bottom: 4px !important; 
+    min-width: 50% !important; }
+.main-heading .spacer { 
+    max-width: 20px !important;}
 #policies-container, #searchInput {
     min-height: 32px; border-radius: 16px !important;
-    margin: 20px 70px 20px !important;}
+    margin: 20px 70px 20px !important; }
 #policies-container:hover, #searchInput:hover {
     border-color: var(--general-color) !important;}
 .content-blocking-category.selected {
     background-color: var(--in-content-box-background) !important;}
-.content-blocking-category.selected {  border-color: color-mix(in srgb, var(--in-content-box-background)90%, white) !important; }
-search-addons > search-textbox {  border-radius: 16px !important;}
-search-addons > search-textbox:hover {  border-color: var(--general-color) !important;}
+.content-blocking-category.selected { 
+    border-color: color-mix(in srgb, var(--in-content-box-background)90%, white) !important; }
+search-addons > search-textbox { 
+    border-radius: 16px !important;}
+search-addons > search-textbox:hover { 
+    border-color: var(--general-color) !important;}
 }
+
 @-moz-document url-prefix(about:preferences){    
- #mainPrefPane{ padding-top: 20px !important; width: 100% !important; }
-.pane-container { margin-inline-start: 50px !important; margin-inline-end: 50px !important;}
+ #mainPrefPane{ 
+     padding-top: 20px !important; width: 100% !important; }
+.pane-container { 
+    margin-inline-start: 50px !important; margin-inline-end: 50px !important;}
 .sticky-container {
     background: var(--in-content-box-background) !important;
     background: linear-gradient(to right, var(--in-content-box-background) 94%, var(--in-content-page-background)) !important;
@@ -291,31 +349,48 @@ search-addons > search-textbox:hover {  border-color: var(--general-color) !impo
     box-shadow: -7px 3px 7px #00000050 !important;
     }
 }
-/*------------------------Logo y Wordmaark------------------------/*
+/*------------------------fondo (imagen), Logo y Wordmark------------------------*/
+    .main-stop { stop-color: var(--left-color) !important; }                                                    /* right color */
+    .alt-stop  { stop-color: var(--right-color) !important; }                                                   /* right color */
 
-/*Colores fill para logo y wordmark*/
-.main-stop { stop-color: #0060bfdd !important; }
-.alt-stop { stop-color: var(--general-color) !important;
-}
 /*Personalizacion de la página newtab*/    
 @-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
- body {background: url("../images/newtab/wallpaper.png") no-repeat fixed !important; background-size: cover !important;} 
-.logo-and-wordmark .logo {
-  background: url("../images/foxlogo.svg") no-repeat !important; 
-  background-size: cover !important; display: inline-block !important;
-  height: 80px !important; width: 75px !important; -moz-context-properties: fill !important; }    
+body{
+    background: var(--lwt-main-image) no-repeat right top fixed !important; 
+    background-size:  var(--wallpaper-size) !important;
+    background-position-y: var(--background-align-y) !important;
+    backdrop-filter: brightness(38%) ;
+    } 
+.logo{
+    background: url("../images/foxlogo.svg") no-repeat !important; 
+    background-size: cover !important;
+    height: 80px !important; 
+    width: 75px !important;
+    Opacity: var(--logo-wordmark-visibility) !important;
+    }    
 .wordmark {
-  background: url("../images/firefox-wordmark.svg") no-repeat center center !important; background-size: 134px !important; 
-  -moz-context-properties: fill !important; display: inline-block !important; height: 82px !important; 
-  margin-inline-start: 16px !important; width: 134px !important;}
-.search-wrapper .logo-and-wordmark {margin-bottom: 0px !important;}
-.promo-cta .button { color: #cacaca !important;}}
-
-@-moz-document url('about:config'), regexp("^about:(neterror|certerror).*") {
+    background: url("../images/firefox-wordmark.svg") no-repeat center center !important; 
+    background-size: 134px !important; 
+    height: 82px !important;
+    width: 134px !important;
+    margin-inline-start: 16px !important;
+    Opacity: var(--logo-wordmark-visibility) !important;
+    }
+.search-wrapper .logo-and-wordmark { 
+    margin-bottom: 0px !important; }
+.promo-cta .button { 
+    color: #cacaca !important; }
+}
+/*---------------------------------- Pagina de Error al Cargar Página ---------------------------------------------*/
+    @-moz-document url('about:config'), regexp("^about:(neterror|certerror).*") {
+        
 .button[autofocus], .button[type="submit"], .button[default], button.primary:not(:hover) {
- background-color: var(--button-active-bgcolor) !important;  color: white !important; border-color: transparent !important; }
-    button.primary{color: white !important;}}
-
+    background-color: var(--button-active-bgcolor) !important;  
+    color: white !important; 
+    border-color: transparent !important;
+    }
+button.primary{ color: white !important; }
+}
 /* Página previa a cargar una página. */
 @-moz-document url-prefix(about:blank) { html > body:empty { background-color: #101019 !important;  } }
 @-moz-document url(about:blank) {  html > body:empty { background-color: #101019 !important;  } }
@@ -323,5 +398,5 @@ search-addons > search-textbox:hover {  border-color: var(--general-color) !impo
 /*Color fondo y letra al seleccionar texto*/
 ::selection {
     color: black !important;
-    background: var(--general-color) !important;
+    background: var(--selected-text-background) !important;
 }
