@@ -47,7 +47,8 @@ panelview {
 padding-left: 16px !important; padding-right: 16px !important;
 }
 /* Color Label "No funciona el sitio "*/
-toolbar .text-link:-moz-lwtheme, panel .text-link:-moz-lwtheme{ color: var(--blue) !important;
+toolbar .text-link:-moz-lwtheme, panel .text-link:-moz-lwtheme{ color: var(--blue) !important; }
+toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover{ color: var(--general-color) !important; 
 }
 /* Panel de descargas */
 #downloadsListBox > richlistitem { border-radius: 0px !important; background: transparent !important; padding-inline: 4px 4px !important;}
