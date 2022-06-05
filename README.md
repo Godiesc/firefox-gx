@@ -34,7 +34,8 @@
 
 # Personalizar - Customize
 <ul><b><i>Personalizaciones Varias - Various customizations</i></b>
-</br>
+   
+   
 <li>The file --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> contain a very useful config rules to a better an easy custom of the wallpaper, height tabs, Menu button width, etc. There are descriptions on the right of each rule to you know what you can custom.</li></ul>
 <ul><b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
    <li><p>(Option 1) Into the directory: <code>chrome</code> >> <code>images</code> >> <code>newtab</code> there is a set of wallpapers , the image that the theme will select by default is the one with the name: "wallpaper.png", you could rename the image you want with that name and the theme will select that one, you could add your own images. <b>A restart of the browser is necessary!!!. </b></p></li>
