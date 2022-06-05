@@ -10,6 +10,7 @@
     list-style-image: url('../images/close.svg') !important;
     padding: 3px !important;
     border-radius: 0px !important;
+    margin-inline-end: -2px !important;
 }
 .tab-close-button:hover {
     background-color: var(--lwt-frame, var(--lwt-accent-color)) !important;
