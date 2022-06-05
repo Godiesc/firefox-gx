@@ -18,15 +18,15 @@
 
 :root[style*="--lwt-additional-images"] .tab-background:is([selected]){ --lwt-tab-line-color: var(--general-color) !important; clip-path: none !important; }
 :root[style*="--lwt-additional-images"] .tabbrowser-tab[selected="true"] .tab-stack { background: transparent !important; clip-path: none !important;}
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 1px) !important;
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 2px) !important;
     margin-left: 0px !important; margin-right: 0px !important; margin-top: 0px !important; border-radius: 5px 2px 0 0 !important;
     background: var(--toolbar-bgcolor) !important; clip-path: none !important; border-bottom: 1px solid var(--toolbar-bgcolor) !important;
 }
 :root[style*="--lwt-additional-images"][tabsintitlebar][sizemode="normal"] #tabbrowser-tabs .tab-background[selected="true"]{ 
-    height: calc(var(--tab-min-height) + 0px) !important;
+    height: calc(var(--tab-min-height) + 1px) !important;
 }
 /* Indispenable para mantener alineado pestañas hover y pestaña activa*/
-.tab-content { height: var(--tab-min-height) !important;}
+.tab-content { height: var(--tab-min-height) !important; margin-left: -1px !important;}
 :root[tabsintitlebar][sizemode="normal"] .tab-content {padding-bottom:  var(--tab-block-margin) !important; }
 
 /*Color :hover de las pestañas no seleccionadas*/
@@ -88,8 +88,8 @@
 /* Eliminar botón >> ALL tabs */
 /* #alltabs-button { display: none !important; } */
 
-/* Tamaño horizontal pestañas */
-.tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 200px !important 
+/* Tamaño horizontal pestañas*/
+.tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 15.3vw !important; 
 }
 /* Reduce spacing between pinned and regular tabs */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {
@@ -111,7 +111,7 @@
 :root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
    linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
-   background-position: right top !important;
+    background-position: right top !important;
    background-repeat:  no-repeat !important;
    background-size:  inherit !important;  
 }
