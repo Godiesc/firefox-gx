@@ -29,7 +29,7 @@
 
 # Extras 
 <ul><li> OneLine - <a href ="https://user-images.githubusercontent.com/22057609/168898232-8bd41289-a470-4fa0-9888-4f78b0da3d21.png">Preview</a></li>
-<li> Main-Image - <a href ="https://user-images.githubusercontent.com/22057609/168898232-8bd41289-a470-4fa0-9888-4f78b0da3d21.png">Preview</a></li>
+<li> Main-Image - <a href ="https://user-images.githubusercontent.com/22057609/172068954-cc6b56a5-3f60-4152-a978-66cb4d61d5f2.png">Preview</a></li>
 <li>Play/Pause icon button extension. </li></ul>
 
 # Personalizar - Customize
