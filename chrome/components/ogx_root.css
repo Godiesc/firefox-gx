@@ -50,9 +50,9 @@
   --tab-block-margin: 0px !important;                                                 /*margenes pestañas*/
   --margin-top: var(--tab-block-margin) !important;                                   /*margen top pestañas - variable personal*/
   
-  --tab-min-height:  calc(30px + var(--tab-block-margin)) !important;                 /*tamaño pestañas*/
-  --tabs-shadow-size: 0px !important;                                                 /*sombras de pestaña*/
-  --tab-border-radius: 6px 2px 0 0 !important;                                        /*forma de la pestaña*/
+  --tab-min-height:calc(var(--tab-height-personal) + var(--tab-block-margin)) !important; /*tamaño pestañas*/
+  --tabs-shadow-size: 0px !important;                                                     /*sombras de pestaña*/
+  --tab-border-radius: 6px 2px 0 0 !important;                                            /*forma de la pestaña*/
   
   --arrowpanel-menuitem-padding: 7px !important;                                      /*menu mas pequeño*/
   --arrowpanel-border-radius: 0px !important;                                         /*forma de los menús*/
@@ -84,7 +84,7 @@
   --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;                          /*ColorBotónGuardar:clic*/
 
   --focus-outline-color: var(--general-color) !important;                                             /*Color borde en InputText Focus*/
-  --input-border-color: #4a3e65 !important;                                                           /*Color borde en InputText*/
+  --input-border-color: #2a2e45aa !important;                                                           /*Color borde en InputText*/
 
     /*Colores checkbox —v*/
   --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;
@@ -98,17 +98,16 @@
 }
 /* Margen top en ventana no maximizada */
 :root[tabsintitlebar][sizemode="normal"]{
-  --tab-block-margin: 1px !important;                                                 /* márgen top pestañas, ventana no maximizada */
+  --tab-block-margin: 1px !important;                                                                          /* márgen top pestañas, ventana no maximizada */
 }
 /* Compatibilidad para temas que usan theme_frame para la imagen en su tema */
 :root[lwtheme-image]{
-  --toolbar-bgcolor: #1010199f !important;                                       /*"toolbar":"#131118", "Color de la toolbar"*/
-  --toolbar-field-background-color: transparent !important;                      /*"toolbar_field":"#1a1b25"*/
-  --toolbar-field-border-color: transparent !important;                          /*"toolbar_field_border": "#363540"*/
+  --toolbar-bgcolor: #1010199f !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
+  --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --toolbarbutton-icon-fill: #cacae6 !important;
-  --lwt-selected-tab-background-color: #10101901 !important;                     /*"tab_selected":"#363540"*/
-  --toolbar-field-focus-background-color: color-mix(in srgb,                     /*"toolbar_field_focus": "#1a1b25FB"*/
-  var(--general-color) 5%, #231f30fc) !important;                                
+  --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
 }
 /* Compatibilidad Parcial para temas que usan "Imagenes adicionales" para las imágene en su tema */
 :root[style*="--lwt-additional-images"]{
