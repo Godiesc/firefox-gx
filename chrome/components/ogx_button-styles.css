@@ -39,7 +39,7 @@ background: url("../images/delete.svg") no-repeat center/16px !important;
 /*Color del botón menú deplegable*/
 panel menulist, panel menulist:not([open]) {
     background-color: #2e273f !important;
-    box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
+    box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 3px !important;
 }
 panel menulist:hover, panel menulist[open] {
@@ -50,7 +50,7 @@ panel menulist:hover, panel menulist[open] {
 /*Color -fondo y borde-(flecha hacia abajo)*/
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
     background-color: #2e273f !important;
-    border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
+    border-color: var(--input-border-color) !important;
     border-radius: 3px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
@@ -105,10 +105,11 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 /*Imagen grande Marcador*/
 #editBookmarkPanelImage{
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
+    border-radius: 0px !important;
 }
 /*Favicon Marcador*/
 #editBookmarkPanelFavicon[src] {
-  background-color: color-mix(in srgb, var(--arrowpanel-background) 90%, transparent) !important;
+  background-color: var(--arrowpanel-background) !important;
   box-shadow: inset 0px 0px 0 1px var(--button-bgcolor) !important;
   width: 16px !important;
   height: 16px !important;
