@@ -1,13 +1,12 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
+:root{ --top-personal-hbutton: 0px ; }
+
 /* ------------Menú hamburguesa-> top-left ------------- */
-:root{
-    --padding-left-tab: 74px !important;
-}
 /*Posición*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-button{
-  position: fixed;  display: flex;  top: 0;
+  position: fixed;  display: flex;  top: var(--top-personal-hbutton);
 }
 /* margen izquierda pestañas*/
 #toolbar-menubar, #toolbar-menubar[autohide="true"] + #TabsToolbar{
@@ -18,6 +17,21 @@
   :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: calc(var(--tab-block-margin) + 2px) 0 1px 0 !important; 
   max-height: calc(var(--tab-min-height) + 1px) !important;
   min-height:  calc(var(--tab-min-height) + 1px) !important;}
+}
+/* menu :hover y active*/
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important; border-radius: 0px !important;
+  max-height: calc(var(--tab-min-height) - 0px) !important; 
+  min-height:  calc(var(--tab-min-height) - 0px) !important;
+}
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > .toolbarbutton-badge-stack{
+    background-color: var(--arrowpanel-background) !important; border-radius: 0px !important;
+    border-color: var(--lwt-frame) !important;
+    border-image: var(--panel-separator-zap-gradient5) 1 !important;
+    -moz-box-pack: center !important;
+}
+:root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack{
+    outline: 1px solid black !important;
 }
 /* Alinear botón menú en ventana no maximizada*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
@@ -42,63 +56,59 @@
 /* Label Menú */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after{
   display: -moz-box;
-  content: "Menú";
+  content: var(--menu-label);
   color: var(--lwt-tab-text) !important;
   margin-inline-start: 5px !important;
   text-shadow: none !important; 
   -moz-box-pack: center !important;
   -moz-box-orient: vertical !important;
 }
-/* menu :hover y active*/
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
-  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important; border-radius: 0px !important;
-  max-height: calc(var(--tab-min-height) - 0px) !important; 
-  min-height:  calc(var(--tab-min-height) - 0px) !important;
-}
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > .toolbarbutton-badge-stack{
-    background-color: var(--arrowpanel-background) !important; border-radius: 0px !important;
-    border-color: var(--lwt-frame) !important;
-    border-image: var(--panel-separator-zap-gradient5) 1 !important;
-    -moz-box-pack: center !important;
-}
-:root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack{
-    outline: 1px solid black !important;
-}
-/* Margenes del menú Open*/
+/* Margen de varios menús [Open] */
 slot{ margin: 0px !important; }
-#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #identity-popup, 
-#permission-popup, #protections-popup, #appMenu-notification-popup, #editBookmarkPanel{
-    margin-top: 0px !important; margin-left: -12px !important; margin-right: -12px !important; }
-panel[type="arrow"]{ margin-top: 0px !important; }
-panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"] {
-  margin-inline: 0px !important;
+
+#downloadsPanel, #widget-overflow, #customizationui-widget-panel,
+#identity-popup, #permission-popup, #protections-popup, #editBookmarkPanel{
+    margin-top: 0px !important; 
+    margin-inline: -16px !important; }
+panel[type="arrow"]{ 
+    margin-top: 0px !important; }
+panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-install-confirmation-notification{
+    margin-inline: 0px !important;}
+:is(#identity-popup, #notification-popup)[type="arrow"]:is([side="top"], [side="bottom"]) {
+  margin-inline: -16px !important;
 }
+/* Padding top para hacer espacio para la fila del menú */
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
-    padding-top: calc(var(--tab-min-height) - 7px + var(--tab-block-margin)) !important;
+    padding-top: calc(var(--tab-min-height) - 7px + var(--tab-block-margin) + var(--top-personal-hbutton)) !important;
     width: 27.5em !important; }
 }
+/* Margin top para subir el menú [open] */
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
-    margin-top: calc(var(--tab-min-height) - var(--tab-min-height) * 2 + var(--tab-block-margin) + 1px) !important;
+    margin-top: calc(var(--tab-min-height) - var(--tab-min-height) * 2 + var(--tab-block-margin) + 1px - var(--top-personal-hbutton)) !important;
     clip-path: polygon(
         calc(var(--padding-left-tab) - 1px) 0%, 
         200% 0%, 0% 200%,
-        0% calc(var(--tab-min-height) - 2px - var(--tab-block-margin)), 
-        calc(var(--padding-left-tab) - 1px - var(--tab-block-margin)) calc(var(--tab-min-height) - 2px - var(--tab-block-margin)));
+        0% calc(var(--tab-min-height) - 2px - var(--tab-block-margin) + var(--top-personal-hbutton)), 
+        calc(var(--padding-left-tab) - 1px - var(--tab-block-margin)) calc(var(--tab-min-height) - 2px - var(--tab-block-margin) + var(--top-personal-hbutton)));
     --arrowpanel-border-color: var(--general-color) !important;
     --arrowpanel-border-radius: 0px !important;
     --arrowpanel-menuitem-padding: 5px !important;
 }
 }
-/* Separadores*/
+/* Separadores */
 :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator{
     margin-inline-start: 30px !important;
     --panel-separator-margin-vertical: 2px !important;
     --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
 }
-/*-----------------íconos en el menú de hamburguesa----------------------*/
+/* Alinear lista de pestañas sincronizadas */
+.PanelUI-remotetabs-clientcontainer label {
+    padding-inline-start: 0px !important;
+}
+/*-----------------Config para alinear íconos en el menú de hamburguesa----------------------*/
 
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
     background-position: left 10px center;
@@ -110,16 +120,25 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"] {
     margin-inline-end: 7px !important;
 }
 /* Color los íconos */
-.subviewbutton {  -moz-context-properties: fill; fill: currentColor;}
-.subviewbutton:hover { -moz-context-properties: fill; fill: currentColor;}
+.subviewbutton {  -moz-context-properties: fill; fill: var(--toolbarbutton-icon-fill) !important; }
+.subviewbutton:hover { -moz-context-properties: fill; fill: white !important; }
 
 /* -------Margen de los íconos---------- 
 
-/*Mergen item -tamaño-*/
+/*Margen item -tamaño-*/
 #appMenu-zoom-controls2>.toolbarbutton-text {
     margin-inline-start: 23px !important;
 }
+/* baner de -actualización disponible- */
+.panel-banner-item {
+  margin: 0 0px 2px !important;
+  padding-inline-start: 8px !important;
+  border-radius: 0px !important;
+}
 /*ícono account*/
+#appMenu-fxa-status2:not([fxastatus]) > #appMenu-fxa-label2{
+    margin-inline-end: 1px !important;
+}
 #appMenu-fxa-label2{ margin-inline-start: -8px !important; }
 #appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
 @media{
@@ -132,7 +151,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"] {
     font-variant-numeric: oldstyle-nums !important;
     padding-bottom: 6px !important;
     margin-bottom: -3px !important;
-        margin-right: 6px !important;
+    margin-right: 6px !important;
 }
 /*ícono account*/
 #appMenu-fxa-label2::before , #fxa-manage-account-button:before {
