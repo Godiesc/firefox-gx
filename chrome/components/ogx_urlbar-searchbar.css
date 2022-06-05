@@ -12,7 +12,7 @@ findbar:-moz-lwtheme {color: #d3d3d3 !important; background-color: var(--toolbar
 .findbar-find-status[status="notfound"] {color: var(--general-color) !important; font-weight: 600 !important; }
 
 /*Vizualización correcta del porcentaje de zoom mostrado en la urlbar*/
-#urlbar-zoom-button {padding: 0px 2px !important;}
+#urlbar-zoom-button {padding: 0px 4px !important; border-radius: 2px !important;}
 
 /* "popup_highlight" -> 1.- keyboard highlight 2.-mouse highlight*/
 .urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
@@ -24,21 +24,16 @@ findbar:-moz-lwtheme {color: #d3d3d3 !important; background-color: var(--toolbar
 .urlbarView-row:hover .urlbarView-url { color: var(--toolbar-field-focus-color) !important;
 }
 /* tamaño letras urlbar */
-#urlbar-input {
-    opacity: 0.9 !important;
-    font-weight: 501 !important;    
+#urlbar-input { opacity: 0.9 !important; font-weight: 501 !important;
 }
 /* Sugerencias de búsqueda */
-.urlbarView {
-    margin-inline-start: -11px !important;
-    margin-inline-end: -11px !important;
-    width: -moz-available !important; }
+.urlbarView { margin-inline-start: -11px !important; margin-inline-end: -11px !important; width: -moz-available !important; }
 .urlbarView-row{ margin-top:-7px !important;  margin-bottom: 5px !important; }
+.urlbarView-results{ margin-bottom: -14px !important; }
 .urlbarView-row-inner{ padding-left: 14px !important; }
 #urlbar .search-panel-header{ padding-left: 14px !important; }
 #urlbar .search-one-offs{padding-right: 14px !important;  }
-.urlbarView-results{ margin-bottom: -14px !important; }
-#urlbar .searchbar-engine-one-off-item{ border-radius: 3px !important; }
+#urlbar .searchbar-engine-one-off-item{ border-radius: 2px !important; }
 
 .urlbarView-row:hover .urlbarView-favicon { 
     background: var(--toolbar-field-focus-background-color) !important;
@@ -55,6 +50,7 @@ findbar:-moz-lwtheme {color: #d3d3d3 !important; background-color: var(--toolbar
     font-weight: bold !important;
     letter-spacing: 0.04em !important;
 }
+#nav-bar{ min-height: var(--toolbar-height-personal) !important;}
 /* Urlbar */
 #urlbar{min-height: 29px !important; padding-left: 10px !important; padding-right: 10px !important; border-radius: 4px !important;}
 #urlbar:not([open=true],[focused=true]) #urlbar-background{border-radius: 4px !important; transition: ease-in 150ms !important; transition-delay: 200ms !important;}
@@ -65,7 +61,7 @@ findbar:-moz-lwtheme {color: #d3d3d3 !important; background-color: var(--toolbar
 #urlbar[focused=true] #urlbar-background{border-radius: 4px !important;}
 #urlbar[open=true] #urlbar-background {
     border-radius: 10px !important;
-    border-color: transparent !important;    
+    border-color: transparent !important;
 }
 #urlbar[breakout][breakout-extend]>#urlbar-input-container {
     margin-top: -1px !important;
