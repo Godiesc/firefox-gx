@@ -2,19 +2,45 @@
    https://github.com/Godiesc/opera-gx */
 
 :root{
-  /*Variables de colores, puedes poner tu color personalizado y utilizarlo*/  
-  --fuchsia: #fa1e4e;     --blue: #4c4cff;     --aqua: #00bfff;         --cyan: #00ffff;           --lightblue: #45a1ff;
+/*Variables de colores, puedes poner tu color personalizado y utilizarlo*/  
+  --fuchsia: #fa1e4e;     --blue: #4c4cff;     --aqua: #00bfff;         --cyan: #00ffff;          --lightblue: #45a1ff;
   --purple: #8d35e2;      --green: #05b694;    --aquamarine: #00ffa2;   --lightgreen: #36ff4e;    --yellowbrown: #febd60;
-  --gray: #bfb6d2;        --orage: #ff6c22;    --yellow: #ffe20f;       --red: #ff3230;
+  --gray: #bfb6d2;        --orage: #ff6c22;    --yellow: #ffe20f;       --red: #ff3230;           --navyblue: #0050cE;
   
-  /*                                                               |--- Esta variable usará el tema para personalizar el userContent
-                                                                   |    (Add-ons, preferences and newtab page.)
-                                                                   |    Este color se usará en la UI del navegador cuando el tema (add-ons page)
-  Accent color obtenido del tema que uses.  ----|                  |    no haya definido este color.
-  Usado en la interfaz principal del navegador  |                  |
-                                                v                  v                                                                 */
+/*                                                                                                                                 
+Accent color --------> UI del navegador.  ------|                  |---- userContent <------------ Accent color
+                                                |                  |     (Add-ons, preferences and newtab page.)
+                                                v                  v                                                                          */
   --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--red));
-   
+  
+  /*--------------------------<-Personalizaciones Varias->----------------------------*/
+  
+  --lwt-main-image:  url("../images/newtab/wallpaper.png");                                  /* new-tab page image */
+  --wallpaper-size: cover;                                                                   /* cover-> default ; auto auto -> to <<main-image>> config*/
+  
+  --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas*/
+  --toolbar-height-personal: 38px ;                                                          /* Toolbar height */
+  
+  --menu-label: "Menú" ;                                                                     /* Label botón -Menú- */
+  --padding-left-tab: 74px !important;                                                       /* Tamaño horizontal botón -Menú- */
+  
+  --left-color: #0060bfdd ;                                                                  /* Color left logo y wordmark */
+  --right-color: var(--general-color) ;                                                      /* Color right logo y wordmark */
+  
+  --logo-wordmark-visibility: 1 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/
+  --searchbar-on-off: flex ;                                                                 /* :none ->eliminar Searchbar , :flex ->Mostrar searchbar*/
+  
+  --newtab-pinnedsites-background: color-mix(in srgb, white 5%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
+  
+  --selected-text-background: var(--general-color);                                          /* Selected text background */
+  
+  /*--background-align-y: -70px ;                                                            /* Alinear new-tab wallpaper to <<main-image>> config 
+                                                                                                -70px  ventana normal; 
+                                                                                                -98px  con Barra de Marcadores;
+                                                                                                -128px con B.Marcadores y B.Menu  */
+}
+
+:root{
   /*-----------------------------------Gradientes------------------------------------*/
   --gradient: var(--general-color) !important;                                     
   --panel-separator-zap-gradient1: linear-gradient(to left, var(--general-color) , #ff000000) !important;
@@ -23,8 +49,9 @@
   --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) ,transparent) !important;
   --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 96%, #0c0a10 100%) !important;
   
+  /*------------------------------Botones hover, clic--------------------------------*/
   --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 22%, transparent) !important;    /*Color usado en el botón menú*/
   --button-bgcolor: color-mix(in srgb, var(--general-color) 30%, transparent) !important;             /*Color de buttons*/
-  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color de fondo de menuitems :hover*/
+  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color fondo de menuitems :hover*/
   --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /*color clic en menuitems*/
 }
