@@ -13,7 +13,7 @@ panelview {
 /*Color fondo gradiente :hover por los diferentes items de menús principales*/
 .protections-popup-category:hover, .protections-popup-footer-button:hover, #protections-popup-show-report-stack:hover > .protections-popup-footer-button,
  panelview .toolbarbutton-1:not([disabled], [open]):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open],.subviewbutton-back):is(:hover), 
-.navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover], 
+.navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover],
  menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover),
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover) {
  background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;
@@ -21,7 +21,7 @@ panelview {
 /*Color fondo clic por los diferentes items de menús principales*/
 .protections-popup-category:active, .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button,
  panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled],.subviewbutton-back):is(:active, [open]), 
-.navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], 
+.navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover,
  menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]),
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]) {
  background: linear-gradient(to right, var(--button-active-bgcolor) 80%, transparent) !important;
