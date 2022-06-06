@@ -2,7 +2,7 @@
    https://github.com/Godiesc/opera-gx */
 
 :root{
-  --toolbar-bgcolor: #0000009d !important;
+  --toolbar-bgcolor: #0000005d !important;
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
