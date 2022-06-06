@@ -1,31 +1,36 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-:root{ --top-personal-hbutton: 0px ; }
+:root{ --top-personal-hbutton: 0px ; --label-color: #e0dffb; }
 
 /* ------------Menú hamburguesa-> top-left ------------- */
 /*Posición*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-button{
-  position: fixed;  display: flex;  top: var(--top-personal-hbutton);
+    position: fixed;  display: flex;  top: var(--top-personal-hbutton); 
+}
+/* Tamaño */
+#appMenu-popup panelview{ width: 25.5em !important; 
 }
 /* margen izquierda pestañas*/
 #toolbar-menubar, #toolbar-menubar[autohide="true"] + #TabsToolbar{
-  padding-left: var(--padding-left-tab) !important;
+    padding-left: var(--padding-left-tab) !important;
 }
 /* tamaño botón Menú */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
-  :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ padding: calc(var(--tab-block-margin) + 2px) 0 1px 0 !important; 
-  max-height: calc(var(--tab-min-height) + 1px) !important;
-  min-height:  calc(var(--tab-min-height) + 1px) !important;}
+    :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ 
+    padding: calc(var(--tab-block-margin) + 2px) 0 1px 0 !important; 
+    max-height: calc(var(--tab-min-height) + 1px) !important;
+    min-height:  calc(var(--tab-min-height) + 1px) !important;}
 }
 /* menu :hover y active*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
-  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important; border-radius: 0px !important;
-  max-height: calc(var(--tab-min-height) - 0px) !important; 
-  min-height:  calc(var(--tab-min-height) - 0px) !important;
+    background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important; 
+    border-radius: 0px !important;
+    max-height: calc(var(--tab-min-height) - 0px) !important; 
+    min-height:  calc(var(--tab-min-height) - 0px) !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > .toolbarbutton-badge-stack{
-    background-color: var(--arrowpanel-background) !important; border-radius: 0px !important;
+    background-color: var(--arrowpanel-background) !important;
     border-color: var(--lwt-frame) !important;
     border-image: var(--panel-separator-zap-gradient5) 1 !important;
     -moz-box-pack: center !important;
@@ -39,35 +44,36 @@
 }
 /* Logo */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
-  list-style-image: url("../images/foxmenu.svg") !important;
-  display: -moz-box;
-  max-height: var(--tab-min-height) !important;
-  min-height: var(--tab-min-height) !important;
-  max-width: var(--padding-left-tab) !important;
-  min-width: var(--padding-left-tab) !important;
-  -moz-box-pack: center !important;
-  fill: var(--general-color) !important;
-  border: 1px solid transparent !important;
+    list-style-image: url("../images/foxmenu.svg") !important;
+    display: -moz-box;
+    max-height: var(--tab-min-height) !important;
+    min-height: var(--tab-min-height) !important;
+    max-width: var(--padding-left-tab) !important;
+    min-width: var(--padding-left-tab) !important;
+    -moz-box-pack: center !important;
+    fill: var(--general-color) !important;
+    border: 1px solid transparent !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
-    min-height: 18px !important; margin-top: -2px !important;
+    margin-top: -1px !important;
+    min-height: 18px !important;
     min-width:  18px !important;
 }
 /* Label Menú */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after{
-  display: -moz-box;
-  content: var(--menu-label);
-  color: var(--lwt-tab-text) !important;
-  margin-inline-start: 5px !important;
-  text-shadow: none !important; 
-  -moz-box-pack: center !important;
-  -moz-box-orient: vertical !important;
+    display: -moz-box;
+    content: var(--menu-label);
+    color: var(--label-color) !important;
+    margin-inline-start: 4px !important;
+    text-shadow: none !important; 
+    -moz-box-pack: center !important;
+    -moz-box-orient: vertical !important;
 }
 /* Margen de varios menús [Open] */
 slot{ margin: 0px !important; }
 
-#downloadsPanel, #widget-overflow, #customizationui-widget-panel,
-#identity-popup, #permission-popup, #protections-popup, #editBookmarkPanel{
+#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #identity-popup,
+#permission-popup, #protections-popup, #editBookmarkPanel{
     margin-top: 0px !important; 
     margin-inline: -16px !important; }
 panel[type="arrow"]{ 
@@ -75,7 +81,7 @@ panel[type="arrow"]{
 panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-install-confirmation-notification{
     margin-inline: 0px !important;}
 :is(#identity-popup, #notification-popup)[type="arrow"]:is([side="top"], [side="bottom"]) {
-  margin-inline: -16px !important;
+    margin-inline: -16px !important;
 }
 /* Padding top para hacer espacio para la fila del menú */
 @media {
@@ -85,7 +91,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 }
 /* Margin top para subir el menú [open] */
 @media {
-  :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
+    :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
     margin-top: calc(var(--tab-min-height) - var(--tab-min-height) * 2 + var(--tab-block-margin) + 1px - var(--top-personal-hbutton)) !important;
     clip-path: polygon(
@@ -108,6 +114,23 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 .PanelUI-remotetabs-clientcontainer label {
     padding-inline-start: 0px !important;
 }
+/* Color de íconos y label */
+.subviewbutton, #appMenu-popup label {  
+    -moz-context-properties: fill; 
+    fill: var(--label-color) !important; 
+    color: var(--label-color) !important; }
+.subviewbutton:hover, #appMenu-popup toolbarbutton:hover label { 
+    -moz-context-properties: fill; 
+    fill: white !important; 
+    color: white !important; 
+}
+/* baner de -actualización disponible- */
+.panel-banner-item {
+    margin: 0 0px 2px !important;
+    padding-inline-start: 8px !important;
+    border-radius: 0px !important;
+}
+
 /*-----------------Config para alinear íconos en el menú de hamburguesa----------------------*/
 
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
@@ -119,23 +142,13 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
     width: 16px; height: 16px;   
     margin-inline-end: 7px !important;
 }
-/* Color los íconos */
-.subviewbutton {  -moz-context-properties: fill; fill: var(--toolbarbutton-icon-fill) !important; }
-.subviewbutton:hover { -moz-context-properties: fill; fill: white !important; }
+/* ->Margen de los íconos<- */
 
-/* -------Margen de los íconos---------- 
-
-/*Margen item -tamaño-*/
+/* Margen items -tamaño- */
 #appMenu-zoom-controls2>.toolbarbutton-text {
     margin-inline-start: 23px !important;
 }
-/* baner de -actualización disponible- */
-.panel-banner-item {
-  margin: 0 0px 2px !important;
-  padding-inline-start: 8px !important;
-  border-radius: 0px !important;
-}
-/*ícono account*/
+/* ícono account */
 #appMenu-fxa-status2:not([fxastatus]) > #appMenu-fxa-label2{
     margin-inline-end: 1px !important;
 }
@@ -152,8 +165,8 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
     padding-bottom: 6px !important;
     margin-bottom: -3px !important;
     margin-right: 6px !important;
-}
-/*ícono account*/
+}}
+/* ícono account */
 #appMenu-fxa-label2::before , #fxa-manage-account-button:before {
     content: ""; display: block; width: 16px; height: 16px;
     margin-inline-end: 7px;
@@ -162,41 +175,41 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 :root[fxastatus="signedin"] #fxa-menu-avatar {
     display: unset; -moz-box-ordinal-group: 2;
 }
-/*Ícono Nueva Pestaña*/
+/* Ícono Nueva Pestaña */
 #appMenu-new-tab-button2 {
     padding-inline-end: 25px !important;
 }
-/*Ícono Nueva Ventana - PestañasCerradasRecientes*/
+/* Ícono Nueva Ventana - PestañasCerradasRecientes */
 #appMenuRecentlyClosedTabs, #sidebar-switcher-tabs {
     padding-inline-end: 25px !important;
 }
 #appMenu-new-window-button2, #appMenuRecentlyClosedWindows {
     padding-inline-end: 25px !important;
 }
-/*Ícono Ventana Privada*/
+/* Ícono Ventana Privada */
 #appMenu-new-private-window-button2 {
     padding-inline-end: 25px !important;
 }
-/*Ícono Marcadores*/
+/* Ícono Marcadores */
 #appMenu-bookmarks-button, #panelMenuBookmarkThisPage[starred], #appMenu-library-bookmarks-button, #sidebar-switcher-bookmarks {
     /*margin-inline-end: -25px !important;*/
 }
-/*ícono Historial*/
+/* ícono Historial */
 #appMenu-history-button, #appMenu-library-history-button, #sidebar-switcher-history {
     /*margin-inline-end: -25px !important;*/
 }
-/*ícono decargas*/
+/* ícono decargas */
 #appMenu-downloads-button, #appMenu-library-downloads-button {
     padding-inline-end: 25px !important;
 }
-/*Ícono Contraseñas*/
+/* Ícono Contraseñas */
 #appMenu-passwords-button {
 }
-/*Ícono Complementos*/
+/* Ícono Complementos */
 #appMenu-extensions-themes-button {
     padding-inline-end: 25px !important;
 }
-/*Ícono Imprimir*/
+/* Ícono Imprimir */
 #appMenu-print-button2 {
     padding-inline-end: 25px !important;
 }
@@ -208,49 +221,49 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 #appMenu-find-button2, #panelMenu_searchBookmarks {
     padding-inline-end: 25px !important;
 }
-/*Ícono Ajustes*/
+/* Ícono Ajustes */
 #appMenu-settings-button {
 }
-/*Ícono Ayuda*/
+/* Ícono Ayuda */
 #appMenu-help-button2 {
     /*margin-inline-end: -25px !important;*/
 }
 #appMenu-more-button2 {
     /*margin-inline-end: -25px !important;*/
 }
-/*Ícono salir*/
+/* Ícono salir */
 #appMenu-quit-button2 {
     background-size: 16px;
     padding-inline-end: 25px !important;
 }
-/*Íconos de marcadores*/
+/* Íconos de marcadores */
 #panelMenuBookmarkThisPage {
     list-style-image: url("chrome://browser/skin/bookmark-hollow.svg");
 }
 #panelMenu_viewBookmarksToolbar {
     list-style-image: url("chrome://browser/skin/bookmarks-toolbar.svg");
 }
-/*Ícono Borrar Historial*/
+/* Ícono Borrar Historial */
 #appMenuClearRecentHistory {
     list-style-image: url("chrome://browser/skin/forget.svg");
 }
-/*ícono Personalizar BarraHerramientas*/
+/* ícono Personalizar BarraHerramientas */
 #appmenu-moreTools-button, #overflowMenu-customize-button {
     list-style-image: url("chrome://browser/skin/customize.svg");
 }
-/*Ícono SincronizarAhora*/
+/* Ícono SincronizarAhora */
 .syncNowBtn {
     visibility: visible !important; -moz-box-ordinal-group: 0 !important;
 }
-/*Enviar pestaña a dispositivo*/
+/* Enviar pestaña a dispositivo */
 #PanelUI-fxa-menu-sendtab-button {
     margin-inline-start: 0px !important;
 }
-/*Ícono ConectarOtroDispositivo*/
+/* Ícono ConectarOtroDispositivo */
 #PanelUI-fxa-menu-connect-device-button {
     margin-left: 0px !important;
 }
-/*ícono en MásHerramientas*/
+/* ícono en MásHerramientas */
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
     background-image: url("chrome://global/skin/icons/performance.svg");
 }
