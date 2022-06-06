@@ -1,17 +1,25 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-:root[lwtheme-image]{
-   --toolbar-bgcolor: #0000009d !important;   
+:root{
+  --toolbar-bgcolor: #0000009d !important;
+  --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
+  --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
+  --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
 }
-:root[lwtheme-image] #navigator-toolbox {
+:root[style*="--lwt-additional-images"], :root[lwtheme-image]{
+  --toolbar-bgcolor: #0000009d !important;
+}
+
+#navigator-toolbox {
    --lwt-header-image: var(--lwt-main-image) !important;
    background-image: var(--lwt-main-image) !important; 
    /*background-size:  cover !important;  */
 }
-:root[lwtheme-image] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"]:-moz-lwtheme,
-:root[lwtheme-image]  #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme,
-:root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"]:-moz-lwtheme,
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme,
+#tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
    linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
    background-position: right top !important;
