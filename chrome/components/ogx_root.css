@@ -39,6 +39,8 @@
   
   --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 80%, black) !important;          /*"button_background_hover": "#26242e"*/
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, black) !important;         /*"button_background_active": "#131217"*/
+  
+  --toolbarbutton-hover-personal: #251f33 !important;                                                          /* Button :hover color personal*/
 
   
   --lwt-sidebar-background-color: var(--toolbar-bgcolor) !important;                  /*Sidebar-background*/
