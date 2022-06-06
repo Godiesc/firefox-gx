@@ -8,7 +8,7 @@
 :root:not([chromehidden~="toolbar"]) #PanelUI-button{
     position: fixed;  display: flex;  top: var(--top-personal-hbutton); 
 }
-/* Tamaño */
+/* Tamaño menu Open */
 #appMenu-popup panelview{ width: 25.5em !important; 
 }
 /* margen izquierda pestañas*/
@@ -31,6 +31,7 @@
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > .toolbarbutton-badge-stack{
     background-color: var(--arrowpanel-background) !important;
+    border-radius: 0px !important;
     border-color: var(--lwt-frame) !important;
     border-image: var(--panel-separator-zap-gradient5) 1 !important;
     -moz-box-pack: center !important;
@@ -48,8 +49,8 @@
     display: -moz-box;
     max-height: var(--tab-min-height) !important;
     min-height: var(--tab-min-height) !important;
-    max-width: var(--padding-left-tab) !important;
-    min-width: var(--padding-left-tab) !important;
+    max-width: calc(var(--padding-left-tab) + 1px)!important;
+    min-width: calc(var(--padding-left-tab) + 1px)!important;
     -moz-box-pack: center !important;
     fill: var(--general-color) !important;
     border: 1px solid transparent !important;
