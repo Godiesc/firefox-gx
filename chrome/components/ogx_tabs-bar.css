@@ -5,8 +5,8 @@
 #tabbrowser-tabs { --lwt-tab-line-color: transparent !important; }
 
 /*--------------Pestaña activa---------------*/
-.tabbrowser-tab {padding-inline: 0px 1px !important; }
-.tab-background {clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); }
+.tabbrowser-tab { padding-left: 1px !important; padding-right: 1px !important;}
+.tab-background { clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); }
 
 .tab-stack{ clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); border-radius: 0px 2px 0 0 !important;}
 :root[style*="--lwt-additional-images"] .tab-stack{ clip-path: none !important; border-radius: 0px 2px 0 0 !important;}
@@ -18,19 +18,21 @@
 
 :root[style*="--lwt-additional-images"] .tab-background:is([selected]){ --lwt-tab-line-color: var(--general-color) !important; clip-path: none !important; }
 :root[style*="--lwt-additional-images"] .tabbrowser-tab[selected="true"] .tab-stack { background: transparent !important; clip-path: none !important;}
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 2px) !important;
-    margin-left: 0px !important; margin-right: 0px !important; margin-top: 0px !important; border-radius: 5px 2px 0 0 !important;
-    background: var(--toolbar-bgcolor) !important; clip-path: none !important; border-bottom: 1px solid var(--toolbar-bgcolor) !important;
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ 
+    background: var(--toolbar-bgcolor) !important; clip-path: none !important;
+    height: calc(var(--tab-min-height) + 1px) !important; margin-top: 0px !important; margin-left: 0px !important; margin-right: 0px !important; 
+    border-radius: 5px 2px 0 0 !important; border-bottom: 1px solid var(--toolbar-bgcolor) !important;
 }
 :root[style*="--lwt-additional-images"][tabsintitlebar][sizemode="normal"] #tabbrowser-tabs .tab-background[selected="true"]{ 
-    height: calc(var(--tab-min-height) + 1px) !important;
+    height: calc(var(--tab-min-height) + 0px) !important;
 }
 /* Indispenable para mantener alineado pestañas hover y pestaña activa*/
 .tab-content { height: var(--tab-min-height) !important; margin-left: -1px !important;}
 :root[tabsintitlebar][sizemode="normal"] .tab-content {padding-bottom:  var(--tab-block-margin) !important; }
 
 /*Color :hover de las pestañas no seleccionadas*/
-.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]){
+  margin-inline: 0px 0px !important;
   background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; border-radius: 0px !important;
   clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); margin-block: 0px !important;
 }
@@ -41,11 +43,8 @@
     border-radius: 4px 0px 0 0 !important; clip-path: none !important;
 }
 /*Regla para visualizar mejor el seleccionar varias pestañas*/
-.tabbrowser-tab[multiselected]{    
-    --lwt-tab-line-color: transparent !important; color: var(--lwt-tab-text) !important;
-}
-.tab-background[multiselected]:not([selected="true"]), tab-content:is([multiselected]):not([selected="true"]) .tab-stack {
-    background: var(--button-hover-bgcolor) !important;    --lwt-tab-line-color: transparent !important; outline: none !important;  margin-block: 0px !important;
+.tab-background[multiselected]:not([selected="true"]), tab-background:is([multiselected]):not([selected="true"]) .tab-stack {
+    margin-inline: 0px 0px !important; background: var(--button-hover-bgcolor) !important; outline: none !important;  margin-block: 0px !important;
 }
 .tab-background[multiselected]:is([selected="true"]) {
     background: transparent !important; outline: none !important;
@@ -53,10 +52,10 @@
 /*"toolbar_top_separator": "#17161c"*/
 #navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
 #nav-bar{    
-    border-top: 1px solid var(--toolbar-bgcolor) !important;    
     border-image: var(--panel-separator-zap-gradient2) 1 !important; 
     margin-top: -1px !important;
     padding-top:1px !important;
+    border-top: 1px solid var(--toolbar-bgcolor) !important;    
     padding-bottom:1px !important;
 }
 /*Color bolita de cargando página*/
