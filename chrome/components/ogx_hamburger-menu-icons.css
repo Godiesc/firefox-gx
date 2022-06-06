@@ -135,7 +135,12 @@
 }
 /*Ícono salir*/
 #appMenu-quit-button2 {
-    list-style-image: url("../images/quit.png");
+    list-style-image: url("../images/quit1.svg");
+    background-size: 16px;
+    padding-inline-end: 25px !important;
+}
+#appMenu-quit-button2:hover {
+    list-style-image: url("../images/quit2.svg");
     background-size: 16px;
     padding-inline-end: 25px !important;
 }
