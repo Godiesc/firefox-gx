@@ -83,7 +83,8 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]) {text-shadow: none !important; }
 
 #PersonalToolbar .toolbarbutton-1:hover , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
-    color: var(--general-color) !important;  fill:  var(--general-color) !important; background-color: #251f33 !important; border-radius: 2px !important; }
+    color: var(--general-color) !important;  fill:  var(--general-color) !important; 
+    background-color: var(--toolbarbutton-hover-personal) !important; border-radius: 2px !important; }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
