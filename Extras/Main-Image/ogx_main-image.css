@@ -8,6 +8,7 @@
   --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbarbutton-hover-personal:  var(--toolbar-bgcolor) !important;
+  --lwt-sidebar-background-color: #101019 !important;                                                          /*Sidebar-background*/
 }
 :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
   --toolbar-bgcolor: #0000007d !important;
