@@ -2,125 +2,162 @@
    https://github.com/Godiesc/opera-gx */
 
 /*"toolbar_bottom_separator"*/
-#navigator-toolbox { border-bottom: 1px solid var(--toolbar-bgcolor) !important;  }
-
+#navigator-toolbox { 
+    border-bottom: 1px solid var(--toolbar-bgcolor) !important;
+}
 /*"bookmark_text": "#b3d9ff"*/
-.browser-toolbar:not(.titlebar-color) {color: var(--lwt-text-color) !important;}              
-
+.browser-toolbar:not(.titlebar-color) {
+    color: var(--lwt-text-color) !important;
+}              
 /*"personalizar barra de busqueda"*/
-findbar:-moz-lwtheme {color: #d3d3d3 !important; background-color: var(--toolbar-bgcolor) !important; border-color: var(--input-border-color) !important;}     
-.findbar-find-status[status="notfound"] {color: var(--general-color) !important; font-weight: 600 !important; }
-
+findbar:-moz-lwtheme {
+    background-color: var(--toolbar-bgcolor) !important;
+    color: #d3d3d3 !important;  
+    border-color: var(--input-border-color) !important; }     
+.findbar-find-status[status="notfound"] { 
+    color: var(--general-color) !important; 
+    font-weight: 600 !important; 
+}
 /*Vizualización correcta del porcentaje de zoom mostrado en la urlbar*/
-#urlbar-zoom-button {padding: 0px 4px !important; border-radius: 2px !important;}
-
+#urlbar-zoom-button { 
+    padding: 0px 4px !important; 
+    border-radius: 2px !important; 
+}
 /* "popup_highlight" -> 1.- keyboard highlight 2.-mouse highlight*/
 .urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
-    background-color: var(--button-hover-bgcolor) !important; color: #ffffff !important; border-radius: 0px !important;}
-.urlbarView-row .urlbarView-row-inner {border-radius: 0px !important;}
-.urlbarView-row .urlbarView-url {font-weight: 501 !important}
-.urlbarView-title{font-size: 1.06em !important; }
-.urlbarView-tags, .urlbarView-url, .urlbarView-title:not(:empty) ~ .urlbarView-action { font-size: 1.0em !important; }
-.urlbarView-row:hover .urlbarView-url { color: var(--toolbar-field-focus-color) !important;
+    background-color: var(--button-hover-bgcolor) !important; 
+    color: #ffffff !important; 
+    border-radius: 0px !important; }
+.urlbarView-row .urlbarView-row-inner {
+    border-radius: 0px !important;}
+.urlbarView-row .urlbarView-url {
+    font-weight: 501 !important}
+.urlbarView-title{
+    font-size: 1.06em !important; }
+.urlbarView-tags, .urlbarView-url, .urlbarView-title:not(:empty) ~ .urlbarView-action { 
+    font-size: 1.0em !important; }
+.urlbarView-row:hover .urlbarView-url { 
+    color: var(--toolbar-field-focus-color) !important;
 }
 /* tamaño letras urlbar */
 #urlbar-input { opacity: 0.9 !important; font-weight: 501 !important;
 }
 /* Sugerencias de búsqueda */
-.urlbarView { margin-inline-start: -11px !important; margin-inline-end: -11px !important; width: -moz-available !important; }
-.urlbarView-row{ margin-top:-7px !important;  margin-bottom: 5px !important; }
-.urlbarView-results{ margin-bottom: -14px !important; }
-.urlbarView-row-inner{ padding-left: 14px !important; }
-#urlbar .search-panel-header{ padding-left: 14px !important; }
-#urlbar .search-one-offs{padding-right: 14px !important;  }
-#urlbar .searchbar-engine-one-off-item{ border-radius: 2px !important; }
-
+.urlbarView { 
+    margin-inline: -11px !important; width: -moz-available !important; }
+.urlbarView-row{ 
+    margin-top:-7px !important;  margin-bottom: 5px !important; }
+.urlbarView-results{ 
+    margin-bottom: -14px !important; }
+.urlbarView-row-inner{ 
+    padding-left: 14px !important; }
+#urlbar .search-panel-header{ 
+    padding-left: 14px !important; }
+#urlbar .search-one-offs{
+    padding-right: 14px !important;  }
+#urlbar .searchbar-engine-one-off-item{ 
+    border-radius: 2px !important; }
 .urlbarView-row:hover .urlbarView-favicon { 
-    background: var(--toolbar-field-focus-background-color) !important;
-}
+    background: var(--toolbar-field-focus-background-color) !important; }
 .urlbarView-favicon{
     padding: 6px !important; border-radius: 8px !important;
     margin-top: -2px !important; margin-bottom:  -2px !important;
     clip-path: circle(50%);
 }
 /* Label "Sugerencias de firefox - Sugerencias de google" */
-.urlbarView-row[label] {margin-top: 16px !important;}
+.urlbarView-row[label] {
+    margin-top: 16px !important; }
 .urlbarView-row[label]::before {    
     margin-inline-start: 12px !important;
     font-weight: bold !important;
     letter-spacing: 0.04em !important;
 }
-#nav-bar{ min-height: var(--toolbar-height-personal) !important;}
+#nav-bar{ min-height: var(--toolbar-height-personal) !important; }
+
 /* Urlbar */
-#urlbar{min-height: 29px !important; padding-left: 10px !important; padding-right: 10px !important; border-radius: 4px !important;}
-#urlbar:not([open=true],[focused=true]) #urlbar-background{border-radius: 4px !important; transition: ease-in 150ms !important; transition-delay: 200ms !important;}
-#urlbar:not([open=true],[focused=true]):hover #urlbar-background { background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
-    border-radius: 4px !important; border-color: transparent !important; transition: ease-in 150ms !important; transition-delay: 200ms !important;}
-#urlbar:not([open=true]){margin-top: -1px !important;}
-#urlbar:not([open=true]):is([focused=true]) #urlbar-background{background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; }
-#urlbar[focused=true] #urlbar-background{border-radius: 4px !important;}
+#urlbar{
+    min-height: 29px !important; 
+    padding-left: 10px !important; 
+    padding-right: 10px !important; 
+    border-radius: 4px !important; }
+#urlbar:not([open=true],[focused=true]) #urlbar-background{
+    border-radius: 4px !important; 
+    transition: ease-in 150ms !important; 
+    transition-delay: 200ms !important; }
+#urlbar:not([open=true],[focused=true]):hover #urlbar-background { 
+    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+    border-radius: 4px !important; 
+    border-color: transparent !important; 
+    transition: ease-in 150ms !important; 
+    transition-delay: 200ms !important; }
+#urlbar:not([open=true]):is([focused=true]) #urlbar-background{
+    background-color: var(--button-bgcolor)  !important; }
+#urlbar:not([open=true]){
+    margin-top: -1px !important; }
+#urlbar[focused=true] #urlbar-background{
+    border-radius: 4px !important;}
 #urlbar[open=true] #urlbar-background {
     border-radius: 10px !important;
-    border-color: transparent !important;
-}
+    border-color: transparent !important; }
 #urlbar[breakout][breakout-extend]>#urlbar-input-container {
-    margin-top: -1px !important;
-}
+    margin-top: -1px !important; }
 #urlbar-input, #urlbar-scheme{
-    padding-left: 6px !important;
-}
+    padding-left: 6px !important; }
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #urlbar-input, #urlbar-scheme{
     padding-bottom: 1px !important;
-    }}
-/*Search-bar*/
+}}
+/* Search-bar */
 #searchbar {
-    min-height: 27px !important;
-    max-height: 27px !important;  
-}
-#searchbar:focus-within {
-    border-color: var(--general-color) !important;
-    box-shadow: none !important;
-    background-color: var(--toolbar-field-focus-background-color) !important;
-}
+    min-height: 29px !important;
+    max-height: 29px !important; }
+#search-container {
+  padding-block: 4px 3px !important; }
 #searchbar:hover{
-    background-color: var(--toolbar-field-focus-background-color) !important;
+    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important; }
+#searchbar:focus-within { border-color: var(--toolbar-field-focus-background-color) !important;
+    box-shadow: none !important;
+    background-color: var(--toolbar-field-focus-background-color) !important; }
+#PopupSearchAutoComplete { 
+    margin-top: -1px !important; 
+    border-right: none !important;
+    --arrowpanel-border-color: none !important; 
 }
-#PopupSearchAutoComplete {  
-    margin-top: -1px !important;    
-    border-radius: 0 0 4px 4px !important;
-    --arrowpanel-border-color: var(--general-color) !important;
-}
-/*Páginas de extensiones*/
+/* Páginas de extensiones */
 #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
     background: transparent !important;
     padding-left:4px !important;
-    padding-right:5px !important;}
+    padding-right:5px !important; }
 #identity-box.extensionPage label{
     display: none !important;
 }
-/*Páginas seguras de firefox"*/
+/* Páginas seguras de firefox */
+    /* Label e ícono */
+#identity-icon-label { 
+    display: none !important; }
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
-  list-style-image: url("../images/foxFill.svg") !important; fill: var(--general-color) !important; -moz-context-properties: fill !important;
-  width: 15px !important; height: 15px !important; margin-left: -6px !important; margin-right: -6px !important; padding-right: 0px !important;}
+    list-style-image: url("../images/foxFill.svg") !important; 
+    -moz-context-properties: fill !important;
+    fill: var(--general-color) !important;
+    width: 15px !important; 
+    height: 15px !important; 
+    margin-inline: -6px !important; }
+#identity-box[pageproxystate="valid"].chromeUI .identity-box-button[open] #identity-icon{
+    fill: var(--toolbarbutton-icon-fill) !important;
+}
 #identity-box[pageproxystate="valid"].notSecureText, #identity-box[pageproxystate="valid"].chromeUI, #identity-box[pageproxystate="valid"].extensionPage, #urlbar-label-box {
-  margin-inline-end: 4px !important; }
-#identity-icon-label { display: none !important; }
+    margin-inline-end: 4px !important; }
 #identity-box[pageproxystate="valid"].notSecureText > .identity-box-button, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button, #urlbar-label-box {
-    background-color: transparent !important;
-}
+    background-color: transparent !important; }
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button:hover:not([open]), #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button:hover:not([open]) {
-    background-color: color-mix(in srgb, var(--button-bgcolor) 86%, white) !important;
-    color: white !important;  
-}
+    background-color: color-mix(in srgb, var(--button-bgcolor) 86%, white) !important; }
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button[open="true"], #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button[open="true"] {
     background-color: color-mix(in srgb, var(--button-bgcolor) 72%, white) !important;
-    color: white !important;
 }
 /* alinear: "Conexión segura" en candado*/
 #identity-popup-security-button {
     margin-bottom: 0px !important;
 }
-/* Íconos de la urlbar más pequeños */
+/* -----------------> Íconos de la urlbar más pequeños <--------------------- */
 /* Tamaño */
 #tracking-protection-icon, #identity-icon, .sharing-icon{
     height: 14px !important;
@@ -137,9 +174,9 @@ findbar:-moz-lwtheme {color: #d3d3d3 !important; background-color: var(--toolbar
     color: var(--toolbarbutton-icon-fill) !important;
 }
 #permissions-granted-icon, #identity-permission-box[hasPermissions]{
-     height: 16px !important;
-     width: 16px !important;
-     margin-right: 2px !important;
+    height: 16px !important;
+    width: 16px !important;
+    margin-right: 2px !important;
 }
 #blocked-permissions-container > .blocked-permission-icon {
     padding: 1px !important;
@@ -150,11 +187,11 @@ findbar:-moz-lwtheme {color: #d3d3d3 !important; background-color: var(--toolbar
 }
 /* ícono de Permitir Notificaciones*/
 .popup-notification-icon[popupid="web-notifications"], .desktop-notification-icon {
-padding: 1px !important; padding-right: 2px !important;
+    padding: 1px !important; padding-right: 2px !important;
 }
 .protections-popup-category-icon, .permission-popup-permission-icon {
-  width: initial !important; height: initial !important;
-  padding-inline: 0 0 !important;
+    width: initial !important; height: initial !important;
+    padding-inline: 0 0 !important;
 }
 /* ícono Portección contra rastreo */
 #tracking-protection-icon {
@@ -168,7 +205,7 @@ padding: 1px !important; padding-right: 2px !important;
     background-color: transparent !important; 
 }
 .urlbar-page-action {
-    width: 18px !important;    
+    width: 18px !important;
     margin: 3px !important;
     padding: 2px !important;
     color: var(--toolbarbutton-icon-fill) !important;
@@ -180,7 +217,8 @@ padding: 1px !important; padding-right: 2px !important;
     border-radius: 2px !important;
 }
 /*"Color verde de la descripción de web segura"*/
-description#identity-popup-content-owner-label, description#identity-popup-content-owner, description#identity-popup-content-verifier, #identity-popup-securityView-body>button {
+description#identity-popup-content-owner-label, description#identity-popup-content-owner, 
+description#identity-popup-content-verifier, #identity-popup-securityView-body>button {
     color: #2cf62c !important
 }
 /*fondo active de íconos de la urlbar"*/
