@@ -57,16 +57,16 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover{ colo
   padding: 0.62em 0.0em 0.62em 0em !important;
 }
 /*Color Sidebar*/
-#sidebar-box{
- --sidebar-background-color: var(--toolbar-bgcolor) !important;
+#sidebar-header{
+    background-color: var(--lwt-sidebar-background-color) !important;
 }
 #sidebar-switcher-target:is(:hover, [open]) {    
     color: var(--general-color) !important;
-    outline: 1px solid var(--button-hover-bgcolor) !important;
 }
-#PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
-.subviewbutton, .widget-overflow-list .toolbarbutton-1{
-   padding-inline-start:  8px !important;  
+/* Linea Separadora */
+treechildren::-moz-tree-separator {
+  border-bottom: none !important;
+  border-image: var(--panel-separator-zap-gradient4) 1 !important;
 }
 /*Separador de items menú desplegable marcadores*/
 #BMB_bookmarksPopup .subviewbutton, #appMenu_historyMenu .subviewbutton, 
