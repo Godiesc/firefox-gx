@@ -91,7 +91,7 @@ findbar:-moz-lwtheme {
     transition: ease-in 150ms !important; 
     transition-delay: 200ms !important; }
 #urlbar:not([open=true]):is([focused=true]) #urlbar-background{
-    background-color: var(--button-bgcolor)  !important; }
+    background-color: var(--button-bgcolor-personal)  !important; }
 #urlbar:not([open=true]){
     margin-top: -1px !important; }
 #urlbar[focused=true] #urlbar-background{
