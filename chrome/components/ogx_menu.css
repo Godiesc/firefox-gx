@@ -134,6 +134,10 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 
 /*-----------------Config para alinear íconos en el menú de hamburguesa----------------------*/
 
+#PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
+.subviewbutton, .widget-overflow-list .toolbarbutton-1{
+   padding-inline-start:  8px !important;  
+}
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
     background-position: left 10px center;
     background-repeat: no-repeat;
