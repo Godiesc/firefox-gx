@@ -391,10 +391,6 @@ body{
     }
 button.primary{ color: white !important; }
 }
-/* Página previa a cargar una página. */
-@-moz-document url-prefix(about:blank) { html > body:empty { background-color: #101019 !important;  } }
-@-moz-document url(about:blank) {  html > body:empty { background-color: #101019 !important;  } }
-
 /*Color fondo y letra al seleccionar texto*/
 ::selection {
     color: black !important;
