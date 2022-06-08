@@ -6,6 +6,6 @@
   there is a description on the right side of the rule, That's all. 💙</li>
 </ol>
 
-PD: Make sure you have active a compatible theme, with some image themes the selected tab will display a black background ussando esta configuración.
+PD: Make sure you have active a compatible theme, with some image themes the selected tab will display a black background using this configuration. 
 
 ![imagen](https://user-images.githubusercontent.com/22057609/172068954-cc6b56a5-3f60-4152-a978-66cb4d61d5f2.png)
