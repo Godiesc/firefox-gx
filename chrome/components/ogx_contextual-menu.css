@@ -19,9 +19,9 @@ menuseparator {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 /* Borde Exterior  menús */
-@media (-moz-windows-non-native-menus) { menupopup:not(.menupopup-arrowscrollbox){
+menupopup:not(.menupopup-arrowscrollbox){
     border: 1px solid #231d30 !important;
-    }}
+}
 /*Colores generales*/
 #PlacesToolbar menupopup { padding: 0px !important; margin-right: 0px !important;}
 #PlacesToolbar menupopup menupopup{ margin-inline-start: -7px !important; }
