@@ -182,8 +182,11 @@ findbar:-moz-lwtheme {
     padding: 1px !important;
     margin-left: 0px !important;
 }
+/* ícono contenido DRM */
 .notification-anchor-icon {
-    padding: 3px !important;
+    padding: 3px 3px !important;
+    height: 20px !important;
+    width: 20px !important;
 }
 /* ícono de Permitir Notificaciones*/
 .popup-notification-icon[popupid="web-notifications"], .desktop-notification-icon {
