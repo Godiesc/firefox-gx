@@ -184,13 +184,13 @@ findbar:-moz-lwtheme {
 }
 /* ícono contenido DRM */
 .notification-anchor-icon {
-    padding: 3px 3px !important;
+    padding: 3px !important;
     height: 20px !important;
     width: 20px !important;
 }
 /* ícono de Permitir Notificaciones*/
 .popup-notification-icon[popupid="web-notifications"], .desktop-notification-icon {
-    padding: 1px !important; padding-right: 2px !important;
+    padding: 2px !important;
 }
 .protections-popup-category-icon, .permission-popup-permission-icon {
     width: initial !important; height: initial !important;
