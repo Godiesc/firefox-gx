@@ -42,7 +42,7 @@ animation-duration: 0ms !important;
 #urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box > #tracking-protection-icon {
     list-style-image: url("../images/shield.svg") !important;
     fill: var(--general-color) !important;
-    opacity: 0.9 !important;
+    opacity: 1 !important;
 }
 #urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box[hasException] > #tracking-protection-icon {
     list-style-image: url(chrome://browser/skin/tracking-protection-disabled.svg) !important;
@@ -55,6 +55,9 @@ animation-duration: 0ms !important;
 /* Ícono permisos adicionales */
 #permissions-granted-icon {
     list-style-image: url("../images/permissions.svg") !important;
+}
+.desktop-notification-icon{
+    list-style-image: url("../images/notification.svg") !important;
 }
 /* reader mode */
 #reader-mode-button > .urlbar-icon {
