@@ -5,7 +5,7 @@
 
 @-moz-document url(chrome://browser/content/places/places.xhtml) {
     :root {
-        --organizer-pane-background: var(--toolbar-bgcolor) !important;
+        --organizer-pane-background: var(--lwt-sidebar-background-color) !important;
         --organizer-border-color:color-mix(in srgb, var(--organizer-separator-color), transparent) !important;
         --organizer-pane-background2:color-mix(in srgb, var(--organizer-pane-background) 30%, transparent) !important;
     }
