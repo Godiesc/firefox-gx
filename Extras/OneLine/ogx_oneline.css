@@ -121,7 +121,7 @@
     background: var(--lwt-selected-tab-background-color) !important;
 }
 /*Alinear elementos e íconos de la toolbar-urlbar */
-.toolbarbutton-1:not(#TabsToolbar> .toolbarbutton-1, #import-button)>.toolbarbutton-icon {-moz-box-pack: center !important; margin-top: -4px !important;}
+.toolbarbutton-1:not([#TabsToolbar> .toolbarbutton-1], #import-button)>.toolbarbutton-icon {-moz-box-pack: center !important; margin-top: -4px !important;}
 #PanelUI-button{-moz-box-pack: center !important;  margin-top: -4px !important;}
 #urlbar-container { -moz-box-pack: center !important; height: calc(var(--tab-min-height) - 6px )!important; margin-top: -1px !important;}
 
