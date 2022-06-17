@@ -71,12 +71,15 @@ menu[disabled="true"], menuitem[disabled="true"] {
 }
 /*Gradient color to :hover items*/
 menupopup>menuitem:not([disabled="true"]):hover, menupopup>menu:hover {
+    appearance: none !important;
     background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; color: var(--arrowpanel-color, #50505090) !important;
 }
 /* Necesario para quitar glitch indeseado al mover el mouse rapidamente sobre items de menús */
 menupopup>menuitem:not([disabled="true"], [selected="true"]), menupopup>menu:not([disabled="true"]) {
+    appearance: none !important;
     background-color: transparent !important; }
-menupopup>menu[open="true"]{ 
+menupopup>menu[open="true"]{
+    appearance: none !important;
     background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; 
     color: var(--arrowpanel-color) !important;
 }
