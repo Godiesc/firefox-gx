@@ -203,7 +203,7 @@ input:focus-visible, input:focus-visible{
 .search-inner-wrapper{ 
     display: var(--searchbar-on-off, flex) !important;}
 .search-wrapper .search-handoff-button{ 
-    box-shadow: 0 0 0 1px #40404040 !important; }
+    box-shadow: none !important; }
 .search-inner-wrapper{
     margin-top: 50px !important;  
     box-shadow: none !important;
@@ -216,7 +216,7 @@ input:focus-visible, input:focus-visible{
 .top-site-icon{background-color: transparent !important;}
     
 /* Sitios anclados */
-.top-site-outer .tile{ box-shadow: 0 0 0 1px #40404040 !important; backdrop-filter: blur(8px)}  
+.top-site-outer .tile{ backdrop-filter: blur(8px)}  
     
 /* colores al pasar el mouse sobre los sitios anclados en :hover */
 .top-site-outer:is(.active, :focus, :hover) .tile{
