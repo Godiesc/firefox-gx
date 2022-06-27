@@ -360,7 +360,7 @@ body{
     background: var(--lwt-main-image) no-repeat right top fixed !important; 
     background-size:  var(--wallpaper-size) !important;
     background-position-y: var(--background-align-y) !important;
-    backdrop-filter: brightness(50%) ;
+    backdrop-filter: brightness(51%) ;
     } 
 .logo{
     background: url("../images/foxlogo.svg") no-repeat !important; 
