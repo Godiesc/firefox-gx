@@ -98,7 +98,7 @@ body {
     --newtab-text-primary-color: #dadada !important;                                          /* label general */
     --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
        
-    --newtab-overlay-color: color-mix(in srgb, #090909 84% /*54%*/,transparent) !important;   /* fondo al editar sitio, transparente */
+    --newtab-overlay-color: color-mix(in srgb, #090909 54%, transparent) !important;          /* fondo al editar sitio, transparente */
     
     --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
         
@@ -118,15 +118,16 @@ body {
 .home-section .section .slider:hover {background-color: var(--button-hover-bgcolor) !important;}
     
 /* Colores al "editar" un sitio anclado */
-.modal{ background: var(--newtab-background-color) /*var(--newtab-overlay-color)*/ !important;  
-        border-image: var(--panel-separator-zap-gradient1) 1 !important; 
-        border-radius: 0 !important; }
+.modal{ 
+    background: var(--newtab-overlay-color) !important;  
+    border-image: var(--panel-separator-zap-gradient1) 1 !important; 
+    border-radius: 0 !important; }
 .modalOverlayOuter{ 
     backdrop-filter: blur(26px); }
 .topsite-form .actions{ 
     border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 input[type="text"], input[type="search"] { 
-    border-radius: 0px !important; }
+    border-radius: 4px !important; }
 input:focus-visible, input:focus-visible{ 
     outline: 1px solid var(--general-color) !important; 
     border-color: var(--general-color) !important;
@@ -181,7 +182,7 @@ input:focus-visible, input:focus-visible{
 /*Colores de la sidebar deslizante para Personalizar la NewTab*/
     /* Fondo */
 .customize-menu {
-    background-color: #101019 /*#101014ac*/ !important;
+    background-color: #101014ac !important;
     color: var(--newtab-wordmark-color) !important; 
     backdrop-filter: blur(26px); }
     /* Combobox */
