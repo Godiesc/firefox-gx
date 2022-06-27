@@ -220,9 +220,9 @@ input:focus-visible, input:focus-visible{
     
 /* colores al pasar el mouse sobre los sitios anclados en :hover */
 .top-site-outer:is(.active, :focus, :hover) .tile{
-    background-color: color-mix(in srgb, black 0%, transparent) !important;
+    background-color: color-mix(in srgb, black 6%, transparent) !important;
     box-shadow: 0 0 0 1px color-mix(in srgb, var(--general-color)35%, transparent) !important; 
-    backdrop-filter: blur(4px) !important; 
+    backdrop-filter: blur(6px) !important; 
 }    
 /* colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
 .top-site-outer:is(.active, :focus, :hover){
