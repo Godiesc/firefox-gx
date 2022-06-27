@@ -30,7 +30,7 @@ Accent color --------> UI del navegador.  ------|                  |---- userCon
   --logo-wordmark-visibility: 1 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/
   --searchbar-on-off: flex ;                                                                 /* :none ->eliminar Searchbar , :flex ->Mostrar searchbar*/
   
-  --newtab-pinnedsites-background: color-mix(in srgb, white 5%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
+  --newtab-pinnedsites-background: color-mix(in srgb, white 3%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
   
   --selected-text-background: var(--general-color);                                          /* Selected text background */
   
