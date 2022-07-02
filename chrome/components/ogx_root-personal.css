@@ -16,7 +16,8 @@ Accent color --------> UI del navegador.  ------|                  |---- userCon
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
   
   --lwt-main-image:  url("../images/newtab/wallpaper.png");                                  /* new-tab page image */
-  --wallpaper-size: cover;                                                                   /* cover-> default ; auto auto -> to <<main-image>> config*/
+  --wallpaper-size: cover;                                                                   /* cover-> default ; auto auto -> to <<main-image>> config */
+  --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */
   
   --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas*/
   --toolbar-height-personal: 38px ;                                                          /* Toolbar height */
