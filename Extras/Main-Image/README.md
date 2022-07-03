@@ -1,6 +1,5 @@
 # How to apply.
-<p>Fast config to apply the theme.</p>
-<ul>
+<ul><p>Fast config to apply the theme.</p>
 <li>Add the file <code>ogx_main-image.css</code> and <code>ogx_root-personal.css</code> into the <code>chrome/components</code> folder.</li>
 </ul>
 <p>PD: The file <code>ogx_root-personal.css</code> will set the default values of the theme, if you change some rule in this file you will need to change again in this new file.</p>
