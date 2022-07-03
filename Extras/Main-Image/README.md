@@ -12,6 +12,6 @@
   there is a description on the right side of the rule, That's all. 💙</li>
 </ol>
 
-PD: Make sure you have active a compatible theme, with some image themes the selected tab will display a black background using this configuration. 
+<p><i>PD: Make sure you have active a compatible theme, with some image themes the selected tab will display a black background using this configuration.</i></p>
 
 ![imagen](https://user-images.githubusercontent.com/22057609/176717191-37bcc3ab-1234-40e7-83c9-c7dd2a4188ba.png)
