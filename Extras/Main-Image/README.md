@@ -1,4 +1,5 @@
 # How to apply.
+<p>Fast config to apply the theme.</p>
 <ul>
 <li>Add the file <code>ogx_main-image.css</code> and <code>ogx_root-personal.css</code> into the <code>chrome/components</code> folder.</li>
 </ul>
