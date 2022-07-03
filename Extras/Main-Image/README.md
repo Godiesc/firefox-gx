@@ -3,6 +3,7 @@
 <li>Add the file <code>ogx_main-image.css</code> and <code>ogx_root-personal.css</code> into the <code>chrome/components</code> folder.</li>
 </ul>
 PD: The file <code>ogx_root-personal.css</code> will set the default values of the theme, if you change some rule in this file you will need to change again in this new file.
+
 <ol> <b>Manual steps to apply the config.</b>
   
   <li>Edit the line <code>19</code> into the <code>ogx_root-personal.css</code> file with the code: <code>--wallpaper-size: auto auto ;</code>.</li>
