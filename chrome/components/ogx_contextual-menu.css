@@ -18,6 +18,13 @@ menuseparator {
     margin-right: 6px !important;  
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
+@media (-moz-platform: linux) { menuseparator {
+    appearance: none !important;
+    border-top: 1px solid transparent !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    padding-top: 2px !important;
+    margin-top: 2px !important;
+    }}
 /* Borde Exterior  menús */
 menupopup:not(.menupopup-arrowscrollbox){
     border: 1px solid #231d30 !important;
@@ -85,8 +92,10 @@ menupopup>menu[open="true"]{
 }
 /* Mostrar background-color en el item seleccionado */
 menupopup>menuitem:is([disabled="false"], [selected="true"]){
+    appearance: none !important;
     background-color: var(--button-active-bgcolor) !important; }
 menupopup>menuitem:is([disabled="false"], [selected="true"]):hover{
+    appearance: none !important;
     background-color: var(--general-color) !important;
 }
 /*Aspecto tooltip: mouse hover on elements*/
