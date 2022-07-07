@@ -75,6 +75,7 @@ menupopup menupopup {
     /* Color íconos deshabilitados */
 menu[disabled="true"], menuitem[disabled="true"] {
     color: color-mix(in srgb, var(--arrowpanel-background)70%, var(--arrowpanel-color)) !important;
+    background-color: transparent !important;
 }
 /*Gradient color to :hover items*/
 menupopup>menuitem:not([disabled="true"]):hover, menupopup>menu:hover {
@@ -91,13 +92,12 @@ menupopup>menu[open="true"]{
     color: var(--arrowpanel-color) !important;
 }
 /* Mostrar background-color en el item seleccionado */
-menupopup>menuitem:is([disabled="false"], [selected="true"]){
+menupopup>menuitem:is([selected="true"]):not([disabled="false"]){
     appearance: none !important;
     background-color: var(--button-active-bgcolor) !important; }
-menupopup>menuitem:is([disabled="false"], [selected="true"]):hover{
+menupopup>menuitem:is([selected="true"]):hover:not([disabled="false"]){
     appearance: none !important;
-    background-color: var(--general-color) !important;
-}
+    background-color: var(--general-color) !important; }
 /*Aspecto tooltip: mouse hover on elements*/
 tooltip {
 	appearance: none !important;
