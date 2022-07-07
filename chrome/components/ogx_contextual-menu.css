@@ -93,10 +93,11 @@ menupopup>menu[open="true"]{
 /* Mostrar background-color en el item seleccionado */
 menupopup>menuitem:is([disabled="false"], [selected="true"]){
     appearance: none !important;
-    background-color: var(--button-active-bgcolor) !important; }
+    /*background-color: var(--button-active-bgcolor) !important;*/ }
 menupopup>menuitem:is([disabled="false"], [selected="true"]):hover{
     appearance: none !important;
-    background-color: var(--general-color) !important;
+    /*background-color: var(--general-color) !important;*/
+    background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; color: var(--arrowpanel-color, #50505090) !important;
 }
 /*Aspecto tooltip: mouse hover on elements*/
 tooltip {
@@ -111,7 +112,7 @@ tooltip {
     border-radius: 0px !important;
 }
 /* Flecha menú contextual desplegable*/
-@media (-moz-platform: linux) {.menu-right {
+/*@media (-moz-platform: linux) {#context-savelink {
     -moz-appearance: none !important;
     list-style-image: url(chrome://global/skin/icons/arrow-right.svg )!important;    
  	height: initial !important;
@@ -119,3 +120,4 @@ tooltip {
     fill: currentColor !important;
     opacity: 0.7 !important;
     }}
+*/
