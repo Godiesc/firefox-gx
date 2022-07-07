@@ -110,3 +110,12 @@ tooltip {
 	opacity: 1 !important;
     border-radius: 0px !important;
 }
+/* Flecha menú contextual desplegable*/
+@media (-moz-platform: linux) {.menu-right {
+    -moz-appearance: none !important;
+    list-style-image: url(chrome://global/skin/icons/arrow-right.svg )!important;    
+ 	height: initial !important;
+    -moz-context-properties: fill !important;
+    fill: currentColor !important;
+    opacity: 0.7 !important;
+    }}
