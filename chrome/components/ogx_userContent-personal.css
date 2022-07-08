@@ -119,7 +119,7 @@ body {
     
 /* Colores al "editar" un sitio anclado */
 .modal{ 
-    background: var(--newtab-overlay-color) !important;  
+    background: #101014ac !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important; 
     border-radius: 0 !important; }
 .modalOverlayOuter{ 
