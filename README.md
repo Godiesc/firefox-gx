@@ -23,7 +23,7 @@
 <li>(EN) To find out your profile directory go to <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</li></ul>
 
 # Temas - Themes
-<ul><li>Temas Principales - Main Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/">🟢Geen</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-fantasy/">🌈Custom</a> </li>
+<ul><li>Temas Principales - Main Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/">🟢Geen</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Custom</a> </li>
 
 <li> Otros Colores - Other Colors: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li></ul>
 
