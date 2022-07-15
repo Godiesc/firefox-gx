@@ -29,7 +29,7 @@
 
 # <a href= "https://github.com/Godiesc/opera-gx/tree/main/Extras">Extras</a>
 <ul><li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/OneLine"><b>OneLine</b></a> - <a href ="https://user-images.githubusercontent.com/22057609/168898232-8bd41289-a470-4fa0-9888-4f78b0da3d21.png"><i>Preview</i></a></li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a> - <a href ="https://user-images.githubusercontent.com/22057609/172068954-cc6b56a5-3f60-4152-a978-66cb4d61d5f2.png" target="_blank"><i><small>Preview</small></i></a></li>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a> - <a href ="https://user-images.githubusercontent.com/22057609/176717191-37bcc3ab-1234-40e7-83c9-c7dd2a4188ba.png" target="_blank"><i><small>Preview</small></i></a></li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension.</b></a> </li></ul>
 
 # Personalizar - Customize
