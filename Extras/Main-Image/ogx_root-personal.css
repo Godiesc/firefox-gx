@@ -2,16 +2,16 @@
    https://github.com/Godiesc/opera-gx */
 
 :root{
-/*Variables de colores, puedes poner tu color personalizado y utilizarlo*/  
+/* --------------------- Variables de colores, puedes poner tu color personalizado y utilizarlo -----------------------------*/  
   --fuchsia: #fa1e4e;     --blue: #4c4cff;     --aqua: #00bfff;         --cyan: #00ffff;          --lightblue: #45a1ff;
   --purple: #8d35e2;      --green: #05b694;    --aquamarine: #00ffa2;   --lightgreen: #36ff4e;    --yellowbrown: #febd60;
   --gray: #bfb6d2;        --orage: #ff6c22;    --yellow: #ffe20f;       --red: #ff3230;           --navyblue: #0050cE;
   
 /*                                                                                                                                 
-Accent color --------> UI del navegador.  ------|                  |---- userContent <------------ Accent color
+    Accent color -----> UI del navegador.  -----|                  |---- userContent <------------ Accent color
                                                 |                  |     (Add-ons, preferences and newtab page.)
-                                                v                  v                                                                          */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
+                                                v                  v                                                          */
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--red));
   
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
   

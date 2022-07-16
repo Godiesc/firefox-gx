@@ -2,20 +2,24 @@
    https://github.com/Godiesc/opera-gx */
 
 :root{
-  --toolbar-bgcolor: #0000007d !important;
-  --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
-  --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
-  --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
-  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
-  --toolbarbutton-hover-personal:  var(--toolbar-bgcolor) !important;
-  --lwt-sidebar-background-color: #101019 !important;                                                          /*Sidebar-background*/
+   --toolbar-bgcolor: #0000007d !important;
+   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
+   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
+   --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
+   --toolbarbutton-hover-personal:  var(--toolbar-bgcolor) !important;
+   --lwt-sidebar-background-color: #101019 !important;                                                          /*Sidebar-background*/
 }
-:root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-  --toolbar-bgcolor: #0000007d !important;
+:root[lwtheme-image] {
+   --toolbar-bgcolor: #0000007d !important;
+   --lwt-selected-tab-background-color: transparent !important;
+}
+:root[style*="--lwt-additional-images"]  {
+   --toolbar-bgcolor: #0000007d !important;
+   --lwt-selected-tab-background-color: none !important;
 }
 #navigator-toolbox {
    --lwt-header-image: var(--lwt-main-image) !important;
-   background-image: var(--lwt-main-image) !important; 
+     background-image: var(--lwt-main-image) !important; 
    /*background-size:  cover !important;  */
 }
 #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
@@ -26,4 +30,9 @@
    background-position: right top !important;
    background-repeat:  no-repeat !important;
    background-size:  auto auto !important;  
+}
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+   background-image: transparent !important;
 }
