@@ -132,7 +132,6 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
 /*.tabbrowser-tab:not([selected]):is([muted]):hover .tab-icon-image:is([pinned]){
     display: none !important;
 }*/
-
 /* muteado pinned*/
 .tab-icon-overlay:is([pinned][muted]) {
     border-radius: 2px !important;

@@ -25,15 +25,16 @@
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
     background-color: var(--toolbar-bgcolor) !important; color: var(--general-color) !important;
     }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
-:root[lwtheme-image] .titlebar-min:hover { list-style-image: url('../images/minimize.svg') !important;
-    -moz-context-properties: fill !important; fill: var(--general-color) !important; }
+/* Keep the same windows control icons in all the themes, includint the themes with images */
+.titlebar-button{
+    background-color: transparent !important;
+    -moz-context-properties: stroke !important;
+    stroke: currentColor !important;
 }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
-:root[lwtheme-image] .titlebar-restore:hover { list-style-image: url('../images/restore.svg') !important;
-    -moz-context-properties: fill !important; fill: var(--general-color) !important; }
+.titlebar-button:hover{ background-color: hsla(0,0%,100%,.32) !important }
+.titlebar-close:hover{ background-color: hsl(355,86%,49%) !important; color: white !important; 
 }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
-:root[lwtheme-image] .titlebar-max:hover { list-style-image: url('../images/maximize.svg') !important;
-    -moz-context-properties: fill !important; fill: var(--general-color) !important; }
-}
+.titlebar-close   { list-style-image: url(chrome://browser/skin/window-controls/close.svg) !important }
+.titlebar-min     { list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important }
+.titlebar-max     { list-style-image: url(chrome://browser/skin/window-controls/maximize.svg) !important }
+.titlebar-restore { list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important }

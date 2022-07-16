@@ -48,8 +48,8 @@
     font-size: 9.4pt !important;
     font-variant-numeric: oldstyle-nums !important;
     padding-bottom: 6px !important;
-    margin-bottom: -3px !important;
-        margin-right: 6px !important;
+    margin-bottom: -4px !important;
+    margin-right: 6px !important;
 }
 /*ícono account*/
 #appMenu-fxa-label2::before , #fxa-manage-account-button::before {
@@ -155,7 +155,7 @@
 #appMenuClearRecentHistory {
     list-style-image: url("chrome://browser/skin/forget.svg");
 }
-/*ícono Personalizar BarraHerramientas*/
+/*ícono Personalizar Barra Herramientas*/
 #appmenu-moreTools-button, #overflowMenu-customize-button {
     list-style-image: url("chrome://browser/skin/customize.svg");
 }
@@ -170,8 +170,4 @@
 /*Ícono ConectarOtroDispositivo*/
 #PanelUI-fxa-menu-connect-device-button {
     margin-left: 0px !important;
-}
-/*ícono en MásHerramientas*/
-[oncommand="switchToTabHavingURI('about:performance', true)"] {
-    background-image: url("chrome://global/skin/icons/performance.svg");
 }

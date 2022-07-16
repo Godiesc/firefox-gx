@@ -3,7 +3,9 @@
 
 /* --------------- Íconos -------------------*/
 /* back button */
-#back-button { padding-inline-start: 5px !important; }
+#back-button { 
+    padding-inline-start: 5px !important; 
+}
 #back-button image {
     margin-left: 0px !important;
     list-style-image: url("../images/back.svg") !important;

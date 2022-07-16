@@ -2,26 +2,26 @@
    https://github.com/Godiesc/opera-gx */
 
 :root{
-  --lwt-accent-color: #09080d !important;                                      /*"frame": "#17161c" */
-  --lwt-frame: var(--lwt-accent-color, Field) !important;                      /*"frame": "#17161c" */
-  --lwt-text-color: #cecece !important;                                        /*"tab_background_text": "#c3c3c3"*/
-  --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;      /*"frame_inactive": "#17161c" */
+  --lwt-accent-color: #09080d !important;                                               /*"frame": "#17161c" */
+  --lwt-frame: var(--lwt-accent-color, Field) !important;                               /*"frame": "#17161c" */
+  --lwt-text-color: #cecece !important;                                                 /*"tab_background_text": "#c3c3c3"*/
+  --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /*"frame_inactive": "#17161c" */
   
-  --lwt-tab-text: #fff !important;                                             /*"tab_text": "#ffffff"*/
+  --lwt-tab-text: #fff !important;                                                      /*"tab_text": "#ffffff"*/
   
-  --toolbar-bgcolor: #101019 !important;                                       /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-bgcolor: #101019 !important;                                                /*"toolbar":"#131118", "Color de la toolbar"*/
   
-  /*--toolbar-color: #8e8085 !important;                                       /*"ColorLabelMarcadores":"#1a1b25"*/
+  /*--toolbar-color: #8e8085 !important;                                                /*"ColorLabelMarcadores":"#1a1b25"*/
   
-  --arrowpanel-background: #1c1726 !important;                                 /*"popup": "#1c1b22Fa"*/
-  --arrowpanel-color: var(--lwt-tab-text) !important;                          /*"popup_text": "#dfdfdf"*/  
-  --arrowpanel-border-color: transparent !important;                           /*"popup_border": "#304f60"*/    
-/*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);      /*"popup_highlight": "#006f80"*/
+  --arrowpanel-background: #1c1726 !important;                                          /*"popup": "#1c1b22Fa"*/
+  --arrowpanel-color: var(--lwt-tab-text) !important;                                   /*"popup_text": "#dfdfdf"*/  
+  --arrowpanel-border-color: transparent !important;                                    /*"popup_border": "#304f60"*/    
+/*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);               /*"popup_highlight": "#006f80"*/
   
-  --panel-description-color: var(--general-color) !important;                  /*"Color de letras de: correo de la cuenta, y dispositivos conectados"*/
-  --toolbar-field-background-color: var(--toolbar-bgcolor) !important;         /*"toolbar_field":"#1a1b25"*/
-  --toolbar-field-color: var(--lwt-tab-text) !important;                       /*"toolbar_field_text":"#e2e9e9"*/
-  --toolbar-field-border-color: var(--toolbar-bgcolor) !important;             /*"toolbar_field_border": "#363540"*/
+  --panel-description-color: var(--general-color) !important;                           /*"Color de letras de: correo de la cuenta, y dispositivos conectados"*/
+  --toolbar-field-background-color: var(--toolbar-bgcolor) !important;                  /*"toolbar_field":"#1a1b25"*/
+  --toolbar-field-color: var(--lwt-tab-text) !important;                                /*"toolbar_field_text":"#e2e9e9"*/
+  --toolbar-field-border-color: var(--toolbar-bgcolor) !important;                      /*"toolbar_field_border": "#363540"*/
   
   --toolbar-field-focus-background-color: color-mix(in srgb, 
   var(--general-color) 5%, #231f30fd) !important;                                       /*"toolbar_field_focus": "#1a1b25FB"*/
@@ -39,54 +39,53 @@
   
   --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 80%, black) !important;          /*"button_background_hover": "#26242e"*/
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, black) !important;         /*"button_background_active": "#131217"*/
-  
   --toolbarbutton-hover-personal: #251f33 !important;                                                          /* Button :hover color personal*/
 
   
-  --lwt-sidebar-background-color: var(--toolbar-bgcolor) !important;                  /*Sidebar-background*/
+  --lwt-sidebar-background-color: var(--toolbar-bgcolor) !important;                    /*Sidebar-background*/
   
-  --toolbarbutton-inner-padding: 4px !important;                                      /*Toolbar buttons más pequeños*/
-  --toolbarbutton-outer-padding: 4px !important;                                      /*Toolbar buttons más espaciados*/
-  --toolbarbutton-border-radius: 2px !important;                                      /*forma de los buttons*/
+  --toolbarbutton-inner-padding: 6px !important;                                        /*Toolbar buttons más pequeños*/
+  --toolbarbutton-outer-padding: 2px !important;                                        /*Toolbar buttons más espaciados*/
+  --toolbarbutton-border-radius: 2px !important;                                        /*forma de los buttons*/
   
-  --tab-block-margin: 0px !important;                                                 /*margenes pestañas*/
-  --margin-top: var(--tab-block-margin) !important;                                   /*margen top pestañas - variable personal*/
+  --tab-block-margin: 0px !important;                                                   /*margenes pestañas*/
+  --margin-top: var(--tab-block-margin) !important;                                     /*margen top pestañas - variable personal*/
   
   --tab-min-height:calc(var(--tab-height-personal) + var(--tab-block-margin)) !important; /*tamaño pestañas*/
   --tabs-shadow-size: 0px !important;                                                     /*sombras de pestaña*/
   --tab-border-radius: 6px 2px 0 0 !important;                                            /*forma de la pestaña*/
   
-  --arrowpanel-menuitem-padding: 7px !important;                                      /*menu mas pequeño*/
-  --arrowpanel-border-radius: 0px !important;                                         /*forma de los menús*/
-  --panel-subview-body-padding: 4px 0px !important;                                   /*Padding menús*/
-  --arrowpanel-padding: 1.3em !important;                                             /*Otro padding de menús*/
-  --arrowpanel-menuitem-margin: 0 0px !important;                                     /*margenes de menús*/
-   
-  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, black) !important;   /*Color input background en Marcadores*/
+  --arrowpanel-menuitem-padding: 7px !important;                                        /*menu mas pequeño*/
+  --arrowpanel-border-radius: 0px !important;                                           /*forma de los menús*/
+  --panel-subview-body-padding: 4px 0px !important;                                     /*Padding menús*/
+  --arrowpanel-padding: 1.3em !important;                                               /*Otro padding de menús*/
+  --arrowpanel-menuitem-margin: 0 0px !important;                                       /*margenes de menús*/
   
-  --arrowpanel-menuitem-border-radius: 0px !important;                                /*forma de menuitems :hover*/
-  --panel-separator-margin-vertical: 3px !important;                                  /*margen vertical entre los separadores*/
-  --panel-separator-margin-horizontal: 8px !important;                                /*Margen horizontal de los separadores*/
+  --arrowpanel-menuitem-border-radius: 0px !important;                                  /*forma de menuitems :hover*/
+  --panel-separator-margin-vertical: 4px !important;                                    /*margen vertical entre los separadores*/
+  --panel-separator-margin-horizontal: 8px !important;                                  /*Margen horizontal de los separadores*/
+  
   --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
   
-  --urlbar-icon-padding: 4px !important;                                                              /*padding de los iconos de la urlbar*/
-  --panel-separator-color: var(--general-color) !important;                                           /*separadores de menu desplegable de marcadores*/
+  --urlbar-icon-padding: 4px !important;                                                /*padding de los iconos de la urlbar*/
+  --panel-separator-color: var(--general-color) !important;                             /*separadores de menu desplegable de marcadores*/
   
-  --urlbar-popup-url-color: var(--general-color) !important;                                          /*Color urls de sujerencias de búsqueda*/
-  --autocomplete-popup-hover-background: var(--button-hover-bgcolor) !important;                      /*Color hover de sujerencias de búsqueda*/
-  --autocomplete-popup-separator-color: transparent !important;                                       /*color separador urlbar y sugerencias de búsqueda*/
+  --urlbar-popup-url-color: var(--general-color) !important;                            /*Color urls de sujerencias de búsqueda*/
+  --autocomplete-popup-hover-background: var(--button-hover-bgcolor) !important;        /*Color hover de sujerencias de búsqueda*/
+  --autocomplete-popup-separator-color: transparent !important;                         /*color separador urlbar y sugerencias de búsqueda*/
   
-  scrollbar-color: #38375580 #18173530 !important;                                                    /* Colores - Barra de deplazamiento */
+  scrollbar-color: #38375580 #18173530 !important;                                      /* Colores - Barra de deplazamiento */
   
   
-  --button-primary-bgcolor: var(--button-active-bgcolor) !important;                                  /*ColorBotónGuardar*/   
-  --button-primary-color: #eaeaea !important;                                                         /*ColorLetrasBotónGuardar*/
+  --button-primary-bgcolor: var(--button-active-bgcolor) !important;                    /*ColorBotónGuardar*/   
+  --button-primary-color: #eaeaea !important;                                           /*ColorLetrasBotónGuardar*/
    
-  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;                             /*ColorBotónGuardar:Hover*/
-  --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;                          /*ColorBotónGuardar:clic*/
+  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;               /*ColorBotónGuardar :Hover*/
+  --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;            /*ColorBotónGuardar :clic*/
 
-  --focus-outline-color: var(--general-color) !important;                                             /*Color borde en InputText Focus*/
-  --input-border-color: #2a2e45aa !important;                                                           /*Color borde en InputText*/
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, black) !important;   /*Color input background en Marcadores*/
+  --focus-outline-color: var(--general-color) !important;                                   /*Color borde en InputText Focus*/
+  --input-border-color: #2a2e45aa !important;                                               /*Color borde en InputText*/
 
     /*Colores checkbox —v*/
   --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;
@@ -107,16 +106,16 @@
   --toolbar-bgcolor: #1010199f !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
-  --toolbarbutton-icon-fill: #cacae6 !important;
+  --toolbarbutton-icon-fill: #cacae6 !important;                                                               /*"icons" color */
   --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
 }
-/* Compatibilidad Parcial para temas que usan "Imagenes adicionales" para las imágene en su tema */
+/* Compatibilidad Parcial para temas que usan "Imagenes adicionales" en su tema */
 :root[style*="--lwt-additional-images"]{
-  --toolbar-bgcolor: #101019cf !important;                                                                
-  --toolbar-field-background-color: transparent !important;                                              
-  --toolbar-field-border-color: transparent !important;
-  --toolbarbutton-icon-fill: #cacae6 !important;
-  --lwt-selected-tab-background-color: color-mix(in srgb, var(--lwt-frame) 92%, transparent) !important;
-  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;                                    
+  --toolbar-bgcolor: #101019cf !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
+  --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
+  --toolbarbutton-icon-fill: #cacae6 !important;                                                               /*"icons" color */
+  --lwt-selected-tab-background-color: none !important;                                                        /*"tab_selected":"#363540"*/
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
 }

@@ -85,13 +85,13 @@ findbar:-moz-lwtheme {
 #urlbar:not([open=true],[focused=true]) #urlbar-background{
     border-radius: 4px !important; 
     transition: ease-in 150ms !important; 
-    transition-delay: 200ms !important; }
+    transition-delay: 80ms !important; }
 #urlbar:not([open=true],[focused=true]):hover #urlbar-background { 
     background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     border-radius: 4px !important; 
     border-color: transparent !important; 
-    transition: ease-in 150ms !important; 
-    transition-delay: 200ms !important; }
+    transition: linear 150ms !important; 
+    transition-delay: 80ms !important; }
 #urlbar:not([open=true]):is([focused=true]) #urlbar-background{
     background-color: var(--button-bgcolor-personal)  !important; }
 #urlbar:not([open=true]){
@@ -106,7 +106,7 @@ findbar:-moz-lwtheme {
 #urlbar-input, #urlbar-scheme{
     padding-left: 6px !important; }
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #urlbar-input, #urlbar-scheme{
-    padding-bottom: 1px !important;
+    padding-bottom: 2px !important;
 }}
 /* Search-bar */
 #searchbar {

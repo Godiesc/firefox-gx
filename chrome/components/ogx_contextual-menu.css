@@ -3,7 +3,7 @@
 
 /*Menú contextual*/
 menupopup>menuitem, menupopup>menu {
-    padding-block: 0.3em !important; 
+    padding-block: 0.4em !important; 
 }
 /*borde izquierda y derecha del menú contextual*/
 menugroup>menuitem:first-child { padding-left:  4px !important; }
@@ -14,8 +14,7 @@ menugroup>menuitem>hbox>image { border-radius: 2px !important; }
 
 /*separador de items*/
 menuseparator {
-    margin-left: 6px !important;
-    margin-right: 6px !important;  
+    margin-inline: 6px !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 @media (-moz-platform: linux) { menuseparator {
@@ -27,7 +26,7 @@ menuseparator {
     }}
 /* Borde Exterior  menús */
 menupopup:not(.menupopup-arrowscrollbox){
-    border: 1px solid #231d30 !important;
+    border: 1px solid #1d172a !important;
 }
 /*Colores generales*/
 #PlacesToolbar menupopup { padding: 0px !important; margin-right: 0px !important;}
@@ -46,7 +45,8 @@ menupopup:not(.menupopup-arrowscrollbox){
 }
 /*ColoresMenú*/
 menupopup{ 
-    margin-top: 0px !important; 
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
     margin-left: 0px !important; 
     border-radius: 0px !important; }
 menupopup menupopup { 
@@ -97,7 +97,8 @@ menupopup>menuitem:is([selected="true"]):not([disabled="false"]){
     background-color: var(--button-active-bgcolor) !important; }
 menupopup>menuitem:is([selected="true"]):hover:not([disabled="false"]){
     appearance: none !important;
-    background-color: var(--general-color) !important; }
+    background-color: var(--general-color) !important; 
+}
 /*Aspecto tooltip: mouse hover on elements*/
 tooltip {
 	appearance: none !important;

@@ -6,10 +6,10 @@
 /* ------------Menú hamburguesa-> top-left ------------- */
 /*Posición*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-button{
-    position: fixed;  display: flex;  top: var(--top-personal-hbutton); 
+    position: fixed;  display: flex;  top: var(--top-personal-hbutton);
 }
-/* Tamaño menu Open */
-#appMenu-popup panelview{ width: 25.5em !important; 
+/* Tamaño menu Open ventana no maximizada*/
+#appMenu-popup panelview{ width: 25.5em !important;
 }
 /* margen izquierda pestañas*/
 #toolbar-menubar, #toolbar-menubar[autohide="true"] + #TabsToolbar{
@@ -46,7 +46,7 @@
 /* Logo */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
     list-style-image: url("../images/foxmenu.svg") !important;
-    display: -moz-box;
+    display: -moz-box !important;
     max-height: var(--tab-min-height) !important;
     min-height: var(--tab-min-height) !important;
     max-width: calc(var(--padding-left-tab) + 1px)!important;
@@ -54,6 +54,7 @@
     -moz-box-pack: center !important;
     fill: var(--general-color) !important;
     border: 1px solid transparent !important;
+    padding-top: 4px !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     margin-top: -1px !important;
@@ -108,7 +109,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 /* Separadores */
 :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator{
     margin-inline-start: 30px !important;
-    --panel-separator-margin-vertical: 2px !important;
+    --panel-separator-margin-vertical: 4px !important;
     --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
 }
 /* Alinear lista de pestañas sincronizadas */
@@ -168,7 +169,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
     font-size: 9.4pt !important;
     font-variant-numeric: oldstyle-nums !important;
     padding-bottom: 6px !important;
-    margin-bottom: -3px !important;
+    margin-bottom: -4px !important;
     margin-right: 6px !important;
 }}
 /* ícono account */
@@ -226,35 +227,10 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 #appMenu-find-button2, #panelMenu_searchBookmarks {
     padding-inline-end: 25px !important;
 }
-/* Ícono Ajustes */
-#appMenu-settings-button {
-}
-/* Ícono Ayuda */
-#appMenu-help-button2 {
-    /*margin-inline-end: -25px !important;*/
-}
-#appMenu-more-button2 {
-    /*margin-inline-end: -25px !important;*/
-}
 /* Ícono salir */
 #appMenu-quit-button2 {
     background-size: 16px;
     padding-inline-end: 25px !important;
-}
-/* Íconos de marcadores */
-#panelMenuBookmarkThisPage {
-    list-style-image: url("chrome://browser/skin/bookmark-hollow.svg");
-}
-#panelMenu_viewBookmarksToolbar {
-    list-style-image: url("chrome://browser/skin/bookmarks-toolbar.svg");
-}
-/* Ícono Borrar Historial */
-#appMenuClearRecentHistory {
-    list-style-image: url("chrome://browser/skin/forget.svg");
-}
-/* ícono Personalizar BarraHerramientas */
-#appmenu-moreTools-button, #overflowMenu-customize-button {
-    list-style-image: url("chrome://browser/skin/customize.svg");
 }
 /* Ícono SincronizarAhora */
 .syncNowBtn {
@@ -267,8 +243,4 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 /* Ícono ConectarOtroDispositivo */
 #PanelUI-fxa-menu-connect-device-button {
     margin-left: 0px !important;
-}
-/* ícono en MásHerramientas */
-[oncommand="switchToTabHavingURI('about:performance', true)"] {
-    background-image: url("chrome://global/skin/icons/performance.svg");
 }
