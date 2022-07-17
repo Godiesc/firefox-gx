@@ -43,7 +43,7 @@
 #appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
 @media{
     :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
-    margin-left: -8px !important;
+    margin-left: 0px !important;
     font-variant: small-caps;
     font-size: 9.4pt !important;
     font-variant-numeric: oldstyle-nums !important;
