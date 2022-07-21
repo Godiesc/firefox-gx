@@ -15,7 +15,7 @@
   
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
   
-  --lwt-main-image:  url("../images/newtab/wallpaper2.png");                                 /* new-tab page image */
+  --lwt-main-image:  url("../images/newtab/wallpaper1.png");                                 /* new-tab page image */
   --wallpaper-size: auto auto;                                                               /* cover-> default ; auto auto -> to <<main-image>> config */
   --brightness-wallpaper: brightness(51%);                                                   /* 100% -> default ; 51% -> to <<main-image>> config */
   
