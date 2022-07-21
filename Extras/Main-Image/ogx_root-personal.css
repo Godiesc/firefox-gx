@@ -36,6 +36,8 @@
   --newtab-pinnedsites-background: color-mix(in srgb, white 0%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
   
   --selected-text-background: var(--general-color);                                          /* Selected text background */
+   
+  --personal-blur: blur(26px) ;                                                              /* Utilizado para personalizar userContent.css */
   
   --background-align-y: -70px ;                                                              /* Alinear new-tab wallpaper to <<main-image>> config 
                                                                                                 -70px  ventana normal; 
