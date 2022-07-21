@@ -221,7 +221,7 @@ input:focus-visible, input:focus-visible{
     border-radius: 8px !important;
 }
 /* Actividad reciente */
-.card-outer .card { backdrop-filter: var(--personal-blur); 
+.card-outer .card { backdrop-filter: var(--personal-blur); box-shadow: 0px 0px 1px #50505050 !important;
 }
 /*fondo pequeño de los favICON de los sitios anclados*/
 .top-site-icon{ background-color: transparent !important; }
