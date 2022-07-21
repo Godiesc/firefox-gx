@@ -30,7 +30,7 @@
   
   --logo-wordmark-visibility: 0 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/
   --logo-wordmark-display: flex ;                                                            /* :none ->eliminar , :flex ->Mostrar;  Logo-wordmark*/
-  --searchbar-on-off: 0 ;                                                                    /* :1 visible, :0 invisible ; searchbar*/
+  --searchbar-on-off: 1 ;                                                                    /* :1 visible, :0 invisible ; searchbar*/
   --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
   
   --newtab-pinnedsites-background: color-mix(in srgb, white 0%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
