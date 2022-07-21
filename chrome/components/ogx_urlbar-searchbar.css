@@ -99,6 +99,11 @@ findbar:-moz-lwtheme {
 #urlbar[focused=true] #urlbar-background{
     border-radius: 4px !important;}
 #urlbar[open=true] #urlbar-background {
+    background-image: url(../images/urlbar-noise.png) !important;
+    /*background-color: #211d2af9 !important;*/
+    -webkit-backdrop-filter: blur(32px) !important;
+    backdrop-filter: blur(32px) !important;
+    backdrop-filter: brightness(51%) !important;
     border-radius: 10px !important;
     border-color: transparent !important; }
 #urlbar[breakout][breakout-extend]>#urlbar-input-container {

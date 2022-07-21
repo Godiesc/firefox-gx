@@ -24,7 +24,7 @@
   --toolbar-field-border-color: var(--toolbar-bgcolor) !important;                      /*"toolbar_field_border": "#363540"*/
   
   --toolbar-field-focus-background-color: color-mix(in srgb, 
-  var(--general-color) 5%, #231f30fd) !important;                                       /*"toolbar_field_focus": "#1a1b25FB"*/
+  var(--general-color) 4%, #2e273ffb) !important;                                       /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbar-field-focus-color: var(--lwt-tab-text) !important;                          /*"toolbar_field_text_focus": "#e5e5e6"*/
   --toolbar-field-focus-border-color: transparent !important;                           /*"toolbar_field_border_focus": "#005F66"*/
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /*"toolbar_field_highlight": "#006f80"*/
@@ -108,7 +108,7 @@
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --toolbarbutton-icon-fill: #cacae6 !important;                                                               /*"icons" color */
   --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
-  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #2e273ffb) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
 }
 /* Compatibilidad Parcial para temas que usan "Imagenes adicionales" en su tema */
 :root[style*="--lwt-additional-images"]{
@@ -117,5 +117,5 @@
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --toolbarbutton-icon-fill: #cacae6 !important;                                                               /*"icons" color */
   --lwt-selected-tab-background-color: none !important;                                                        /*"tab_selected":"#363540"*/
-  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #2e273ffb) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
 }

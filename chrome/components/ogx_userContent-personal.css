@@ -86,7 +86,7 @@ body {
     --lwt-sidebar-background-color: #181735 !important;                                       /* Sidebar fondo */
     --newtab-background-color: #101019 !important;                                            /* Color fondo general */
 
-    --newtab-background-color-secondary: var(--newtab-pinnedsites-background) !important;     /* color - fondo de sitios fijados, barra de búsqueda*/ 
+    --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/ 
     --newtab-element-hover-color: var(--newtab-background-color-secondary) !important;        /* color de fondo al hacer clic al ícono menú 3 puntos*/
     
     --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
@@ -106,6 +106,10 @@ body {
       var(--newtab-background-color) 90%, var(--newtab-wordmark-color) ) !important;
 
     --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* color bola de radiobutton */
+}
+/* ntp - Fondo general de la paginas newtab y home */
+.activity-stream {
+    background-color: var(--newtab-background-color, #ff0000) !important;
 }
 /* Eliminar scrollbar */
 *{scrollbar-width: none !important }
@@ -144,10 +148,7 @@ input:focus-visible, input:focus-visible{
     margin-left: 6px !important; margin-right: 6px !important; 
     width: -moz-available !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
-}    
-/* ícono de 3 puntos al hacerle hover y clic*/
-.context-menu-button:hover, .context-menu-button:active, .context-menu-button:focus{ fill: var(--general-color) !important; }   
-  
+} 
 /* Color de borde del boton "Guardar" */
 .actions button:not(.cancel), .actions button:focus:not(.cancel) {
     color: white !important;  border: transparent !important;}
@@ -184,7 +185,7 @@ input:focus-visible, input:focus-visible{
 .customize-menu {
     background-color: #101014ac !important;
     color: var(--newtab-wordmark-color) !important; 
-    backdrop-filter: blur(26px); }
+    backdrop-filter: var(--personal-blur); }
     /* Combobox */
 .home-section .section .selector { 
     background-color: var(--newtab-element-secondary-color) !important; 
@@ -194,44 +195,108 @@ input:focus-visible, input:focus-visible{
     background-color: var(--button-hover-bgcolor) !important; 
     border-color: var(--button-hover-bgcolor) !important;}
     /* Sombra izquierda de la sidebar */
-.customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
-    box-shadow: 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
+.customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active { 
+    box-shadow: -1px 0 #30303050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
     /* Separador*/
     .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}    
     
 /* Cuadro de búsqueda*/
-.search-inner-wrapper{ 
-    display: var(--searchbar-on-off, flex) !important;}
+.search-inner-wrapper{
+    background: var(--newtab-pinnedsites-background) !important;
+    opacity: var(--searchbar-on-off, 1) !important;
+    display: var(--searchbar-display, flex) !important; }
 .search-wrapper .search-handoff-button{ 
     box-shadow: none !important; }
 .search-inner-wrapper{
-    margin-top: 50px !important;  
+    margin-top: 50px !important;
     box-shadow: none !important;
-    backdrop-filter: blur(8px); 
+    backdrop-filter: var(--personal-blur); 
 }    
+.search-inner-wrapper:not(:focus){
+    outline: 1px solid #50505030 !important;
+    border-radius: 8px !important;
+}
+.search-inner-wrapper:is(:hover){
+    outline: 1px solid var(--button-hover-bgcolor) !important;
+    border-radius: 8px !important;
+}
 /* Actividad reciente */
-.card-outer .card { backdrop-filter: blur(8px); 
+.card-outer .card { backdrop-filter: var(--personal-blur); 
 }
 /*fondo pequeño de los favICON de los sitios anclados*/
-.top-site-icon{background-color: transparent !important;}
+.top-site-icon{ background-color: transparent !important; }
     
 /* Sitios anclados */
-.top-site-outer .tile{ backdrop-filter: blur(8px)}  
-    
+.top-site-outer .tile{ 
+    box-shadow: none !important;  
+    outline: 0px solid #50505030 !important;
+}  
+/* Fondo de sitios anclados */
+.top-sites-list{
+    background: var(--newtab-pinnedsites-background) !important;
+    backdrop-filter: blur(26px) !important;
+    outline: 1px solid #50505030 !important;
+    border-radius: 10px !important;
+}
 /* colores al pasar el mouse sobre los sitios anclados en :hover */
 .top-site-outer:is(.active, :focus, :hover) .tile{
-    background-color: color-mix(in srgb, black 20%, transparent) !important;
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--general-color)35%, transparent) !important; 
-    backdrop-filter: blur(6px) !important; 
+    background: #09090920 !important; 
+    box-shadow: 0 0 0 1px var(--button-hover-bgcolor) !important;
 }    
 /* colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
 .top-site-outer:is(.active, :focus, :hover){
-    background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)50%, transparent) , rgba(0,255,0,0) 64.71%),
-                linear-gradient(190deg, #5b5fa16a, rgba(0,0,255,0) 99.71%) !important; 
-}  
-/* ntp - Fondo general de la paginas newtab y home */
-.activity-stream {
-    background-color: var(--newtab-background-color, #ff0000) !important;}
+    background:transparent !important; 
+}
+/* ícono de 3 puntos al hacerle hover y clic */
+.context-menu-button:active, .context-menu-button:focus{ fill: var(--general-color) !important; 
+}   
+/* Botón de editar sitio anclado */
+.top-site-outer .context-menu-button {
+    background-image: url("../images/more.svg") !important;
+    inset-inline-end: 2px !important;
+    top: -2px !important;
+    transition: opacity 200ms;
+    fill: var(--button-hover-bgcolor) !important;
+}
+/* Fondo de <popup> al intentar eliminar un sitio anclado*/
+.modal{
+    backdrop-filter: var(--personal-blur) !important;
+    outline: 1px solid black !important;
+    }
+}
+/*------------------------fondo (imagen), Logo y Wordmark------------------------*/
+    .alt-stop { stop-color: var(--left-color) !important; }                                                    /* left color */
+    .main-stop  { stop-color: var(--right-color) !important; }                                                 /* right color */
+
+/*Personalizacion de la página newtab*/    
+@-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
+body{
+    background: var(--lwt-main-image) no-repeat right top fixed !important; 
+    background-size:  var(--wallpaper-size) !important;
+    background-position-y: var(--background-align-y) !important;
+    backdrop-filter: var(--brightness-wallpaper) ;
+    } 
+.logo{
+    background: url("../images/foxlogo.svg") no-repeat !important; 
+    background-size: cover !important;
+    height: 80px !important; 
+    width: 75px !important;
+    Opacity: var(--logo-wordmark-visibility) !important;
+    display: var(--logo-wordmark-display) !important;
+    }    
+.wordmark {
+    background: url("../images/firefox-wordmark.svg") no-repeat center center !important; 
+    background-size: 134px !important; 
+    height: 82px !important;
+    width: 134px !important;
+    margin-inline-start: 16px !important;
+    Opacity: var(--logo-wordmark-visibility) !important;
+    display: var(--logo-wordmark-display) !important;
+    }
+.search-wrapper .logo-and-wordmark { 
+    margin-bottom: 0px !important; }
+.promo-cta .button { 
+    color: #cacaca !important; }
 }
 /*-------------------------------> Colores varios de la interfaz de complementos y configuración <---------------------------------------*/
 @-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support) {
@@ -349,38 +414,6 @@ search-addons > search-textbox:hover {
     border-image: var(--gradiente-casual) 1 !important;
     box-shadow: -7px 3px 7px #00000050 !important;
     }
-}
-/*------------------------fondo (imagen), Logo y Wordmark------------------------*/
-    .main-stop { stop-color: var(--left-color) !important; }                                                    /* right color */
-    .alt-stop  { stop-color: var(--right-color) !important; }                                                   /* right color */
-
-/*Personalizacion de la página newtab*/    
-@-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
-body{
-    background: var(--lwt-main-image) no-repeat right top fixed !important; 
-    background-size:  var(--wallpaper-size) !important;
-    background-position-y: var(--background-align-y) !important;
-    backdrop-filter: var(--brightness-wallpaper) ;
-    } 
-.logo{
-    background: url("../images/foxlogo.svg") no-repeat !important; 
-    background-size: cover !important;
-    height: 80px !important; 
-    width: 75px !important;
-    Opacity: var(--logo-wordmark-visibility) !important;
-    }    
-.wordmark {
-    background: url("../images/firefox-wordmark.svg") no-repeat center center !important; 
-    background-size: 134px !important; 
-    height: 82px !important;
-    width: 134px !important;
-    margin-inline-start: 16px !important;
-    Opacity: var(--logo-wordmark-visibility) !important;
-    }
-.search-wrapper .logo-and-wordmark { 
-    margin-bottom: 0px !important; }
-.promo-cta .button { 
-    color: #cacaca !important; }
 }
 /*---------------------------------- Pagina de Error al Cargar Página ---------------------------------------------*/
     @-moz-document url('about:config'), regexp("^about:(neterror|certerror).*") {

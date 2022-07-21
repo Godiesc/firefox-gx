@@ -11,7 +11,7 @@
     Accent color -----> UI del navegador.  -----|                  |---- userContent <------------ Accent color
                                                 |                  |     (Add-ons, preferences and newtab page.)
                                                 v                  v                                                          */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--red));
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
   
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
   
@@ -25,15 +25,19 @@
   --menu-label: "Menú" ;                                                                     /* Label botón -Menú- */
   --padding-left-tab: 74px !important;                                                       /* Tamaño horizontal botón -Menú- */
   
-  --left-color: #0060bfdd ;                                                                  /* Color left logo y wordmark */
-  --right-color: var(--general-color) ;                                                      /* Color right logo y wordmark */
+  --left-color:  var(--general-color) ;                                                      /* Color left logo y wordmark */
+  --right-color: #0060bfdd ;                                                                 /* Color right logo y wordmark */
   
   --logo-wordmark-visibility: 1 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/
-  --searchbar-on-off: flex ;                                                                 /* :none ->eliminar Searchbar , :flex ->Mostrar searchbar*/
+  --logo-wordmark-display: flex ;                                                            /* :none ->eliminar , :flex ->Mostrar;  Logo-wordmark*/
+  --searchbar-on-off: 1 ;                                                                    /* :1 visible, :0 invisible ; searchbar*/
+  --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
   
-  --newtab-pinnedsites-background: color-mix(in srgb, white 3%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
+  --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
   
   --selected-text-background: var(--general-color);                                          /* Selected text background */
+  
+  --personal-blur: blur(26px) ;                                                              /* Utilizado para personalizar userContent.css */
   
   /*--background-align-y: -70px ;                                                              /* Alinear new-tab wallpaper to <<main-image>> config 
                                                                                                 -70px  ventana normal; 
