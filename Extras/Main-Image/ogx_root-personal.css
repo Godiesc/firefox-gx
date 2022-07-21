@@ -15,7 +15,7 @@
   
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
   
-  --lwt-main-image:  url("../images/newtab/wallpaper1.png");                                /* new-tab page image */
+  --lwt-main-image:  url("../images/newtab/wallpaper2.png");                                 /* new-tab page image */
   --wallpaper-size: auto auto;                                                               /* cover-> default ; auto auto -> to <<main-image>> config */
   --brightness-wallpaper: brightness(51%);                                                   /* 100% -> default ; 51% -> to <<main-image>> config */
   
@@ -28,10 +28,12 @@
   --left-color: #0060bfdd ;                                                                  /* Color left logo y wordmark */
   --right-color: var(--general-color) ;                                                      /* Color right logo y wordmark */
   
-  --logo-wordmark-visibility: 1 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/
-  --searchbar-on-off: flex ;                                                                 /* :none ->eliminar Searchbar , :flex ->Mostrar searchbar*/
+  --logo-wordmark-visibility: 0 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/
+  --logo-wordmark-display: flex ;                                                            /* :none ->eliminar , :flex ->Mostrar;  Logo-wordmark*/
+  --searchbar-on-off: 0 ;                                                                    /* :1 visible, :0 invisible ; searchbar*/
+  --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
   
-  --newtab-pinnedsites-background: color-mix(in srgb, white 3%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
+  --newtab-pinnedsites-background: color-mix(in srgb, white 0%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
   
   --selected-text-background: var(--general-color);                                          /* Selected text background */
   
