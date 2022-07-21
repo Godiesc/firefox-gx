@@ -1,10 +1,10 @@
 # How to apply.
-<ul><b>Fast step to apply the config.</b>
+<ul><p><b>Fast step to apply the config.</b></p>
 <li>Add the files <code>ogx_main-image.css</code> and <code>ogx_root-personal.css</code> into the <code>chrome/components</code> folder.</li>
 </ul>
 <p><i>PD: The file <code>ogx_root-personal.css</code> will set the default values of the theme, if you changed some rule in the file you will need to change again in this new file. The wallpaper will be the named wallpaper1.png, if you want to change it yyou need to replace your new image with that name.</i></p>
 
-<ol> <b>Manual steps to apply the config.</b>
+<ol><p><b>Manual steps to apply the config.</b></p>
   
   <li>Edit the line <code>19</code> into the <code>ogx_root-personal.css</code> file with the code: <code>--wallpaper-size: auto auto ;</code>.</li>
   <li>Edit the line <code>20</code> into the <code>ogx_root-personal.css</code> file with the code: <code>--brightness-wallpaper: brightness(51%);</code>.</li>
