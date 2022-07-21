@@ -196,7 +196,7 @@ input:focus-visible, input:focus-visible{
     border-color: var(--button-hover-bgcolor) !important;}
     /* Sombra izquierda de la sidebar */
 .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active { 
-    box-shadow: -1px 0 #30303050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
+    box-shadow: -1px 0 #00000030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
     /* Separador*/
     .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}    
     
