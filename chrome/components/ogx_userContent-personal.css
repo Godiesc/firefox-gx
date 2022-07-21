@@ -123,7 +123,7 @@ body {
     
 /* Colores al "editar" un sitio anclado */
 .modal{ 
-    background: #101014ac !important;
+    background: #00000020 !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important; 
     border-radius: 0 !important; }
 .modalOverlayOuter{ 
