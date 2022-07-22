@@ -124,9 +124,10 @@ findbar:-moz-lwtheme {
 #searchbar:focus-within { border-color: var(--toolbar-field-focus-background-color) !important;
     box-shadow: none !important;
     background-color: var(--toolbar-field-focus-background-color) !important; }
-#PopupSearchAutoComplete { 
-    margin-top: -1px !important; 
-    border-right: none !important;
+#PopupSearchAutoComplete {
+    appearance: none !important;
+    margin-top: -1px !important;
+    margin-left: 0px !important;
     --arrowpanel-border-color: none !important; 
 }
 /* Páginas de extensiones */
