@@ -33,7 +33,7 @@
   --searchbar-on-off: 1 ;                                                                    /* :1 visible, :0 invisible ; searchbar*/
   --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
   
-  --newtab-pinnedsites-background: color-mix(in srgb, white 0%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
+  --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
   
   --selected-text-background: var(--general-color);                                          /* Selected text background */
    
