@@ -25,8 +25,8 @@
   --menu-label: "Menú" ;                                                                     /* Label botón -Menú- */
   --padding-left-tab: 74px !important;                                                       /* Tamaño horizontal botón -Menú- */
   
-  --left-color: #0060bfdd ;                                                                  /* Color left logo y wordmark */
-  --right-color: var(--general-color) ;                                                      /* Color right logo y wordmark */
+  --left-color: var(--general-color) ;                                                       /* Color left logo y wordmark */
+  --right-color: #0060bfdd ;                                                                 /* Color right logo y wordmark */
   
   --logo-wordmark-visibility: 0 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/
   --logo-wordmark-display: flex ;                                                            /* :none ->eliminar , :flex ->Mostrar;  Logo-wordmark*/
