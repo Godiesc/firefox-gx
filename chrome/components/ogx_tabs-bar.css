@@ -134,7 +134,7 @@
     margin-top: 0px !important; 
     margin-left: 0px !important; 
     margin-right: 0px !important; 
-    border-radius: 8px 0px 0 0 !important;
+    border-radius: 8px 3px 0 0 !important;
 }
 :root[style*="--lwt-additional-images"][tabsintitlebar][sizemode="normal"] #tabbrowser-tabs .tab-background[selected="true"]{ 
     height: calc(var(--tab-min-height) + 1px) !important;
