@@ -55,11 +55,12 @@
   --tabs-shadow-size: 0px !important;                                                     /*sombras de pestaña*/
   --tab-border-radius: 6px 2px 0 0 !important;                                            /*forma de la pestaña*/
   
-  --arrowpanel-menuitem-padding: 7px !important;                                        /*menu mas pequeño*/
+  --arrowpanel-menuitem-padding: 8px !important;                                        /*menu mas pequeño*/
   --arrowpanel-border-radius: 0px !important;                                           /*forma de los menús*/
   --panel-subview-body-padding: 4px 0px !important;                                     /*Padding menús*/
   --arrowpanel-padding: 1.3em !important;                                               /*Otro padding de menús*/
   --arrowpanel-menuitem-margin: 0 0px !important;                                       /*margenes de menús*/
+  --menu-panel-width-wide: 31em !important;
   
   --arrowpanel-menuitem-border-radius: 0px !important;                                  /*forma de menuitems :hover*/
   --panel-separator-margin-vertical: 4px !important;                                    /*margen vertical entre los separadores*/
