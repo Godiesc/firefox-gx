@@ -150,3 +150,7 @@
     margin: 2px !important;
     padding: 2px !important;
 }
+/* Quitar linea gradiente al mostrar la barra de menú */
+#nav-bar {
+    border-image: none !important;
+}
