@@ -100,11 +100,8 @@
 #userContext-label{
     display: none !important;
 }
-/*"toolbar_top_separator": "#17161c"*/
-#navigator-toolbox{--tabs-border-color: transparent !important; --lwt-tabs-border-color: transparent !important;}
-
 /*"toolbar_bottom_separator"*/
-#navigator-toolbox {    
+#navigator-toolbox  {
     border-image: var(--panel-separator-zap-gradient2) 1 !important;
 }
 /*"Linea bajo las pestañas y navbar"*/
@@ -113,12 +110,13 @@
     margin-top: 0px !important;
     border-image: var(--panel-separator-zap-gradient2) 1 !important;
     
-    margin-bottom: -1px !important;
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
+    margin-bottom: 0px !important;
+    padding-block:3px 1px !important;
     
     background-color: var(--lwt-selected-tab-background-color) !important;
     background: var(--lwt-selected-tab-background-color) !important;
+    
+    box-shadow: 0 1px 0 1px var(--lwt-frame) !important;
 }
 /*Alinear elementos e íconos de la toolbar-urlbar */
 .toolbarbutton-1:not(#TabsToolbar .toolbarbutton-1, #import-button, #PlacesChevron)> .toolbarbutton-icon {-moz-box-pack: center !important; margin-top: -2px !important;}
