@@ -111,7 +111,7 @@
     border-image: var(--panel-separator-zap-gradient2) 1 !important;
     
     margin-bottom: 0px !important;
-    padding-block:3px 1px !important;
+    padding-block: 3px 3px !important;
     
     background-color: var(--lwt-selected-tab-background-color) !important;
     background: var(--lwt-selected-tab-background-color) !important;
