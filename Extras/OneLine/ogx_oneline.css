@@ -6,7 +6,7 @@
   --lwt-selected-tab-background-color: #101019 !important;               /* Color defaul de la petaña activa */
   --tab-height-personal:  32px !important;                               /* Minimum Height 32px for the right function of the theme*/
   --toolbar-height-personal: 32px ;                                      /* Toolbar height */
-  --navbarWidth:36vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/ 
+  --navbarWidth:36vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
 }
 :root[lwtheme-image]{
   --toolbar-bgcolor: transparent !important;                                     
@@ -121,20 +121,32 @@
     background: var(--lwt-selected-tab-background-color) !important;
 }
 /*Alinear elementos e íconos de la toolbar-urlbar */
-.toolbarbutton-1:not(#TabsToolbar .toolbarbutton-1, #import-button, #PlacesChevron)> .toolbarbutton-icon {-moz-box-pack: center !important; margin-top: -4px !important;}
-#PanelUI-button{-moz-box-pack: center !important;  margin-top: -4px !important;}
-#urlbar-container { -moz-box-pack: center !important; height: calc(var(--tab-min-height) - 6px )!important; margin-top: -1px !important;}
+.toolbarbutton-1:not(#TabsToolbar .toolbarbutton-1, #import-button, #PlacesChevron)> .toolbarbutton-icon {-moz-box-pack: center !important; margin-top: -2px !important;}
+#PanelUI-button{-moz-box-pack: center !important;  margin-top: -2px !important;}
 
 /* separador izquierda y derecha urlbar */
-#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{padding-top: 29px !important; ) !important;}
-#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -22px !important;}
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{padding-top: 27px !important; ) !important;}
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -23px !important;}
+#urlbar-container { margin-top: -1px !important;}
 
 /* Logo Hamburguer menu */
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{
   list-style-image: url("../images/foxFill.svg") !important;
   height: inherit !important;
   width: inherit !important; }
 #appMenu-popup panelview{ width: 25.5em !important;
 }
-/* Reload button */
-#reload-button image, #stop-button image{ padding-bottom: 4px !important; }
+/* Urlbar más pequeña */
+#urlbar:not([open]){
+    min-height: 26px !important;
+    max-height: 26px !important;
+    -moz-box-pack: center !important;
+    -moz-box-orient: vertical !important;
+}
+/* box, caja de íconos urlbar*/
+#identity-icon-box, #tracking-protection-icon-container, #identity-permission-box, #notification-popup-box {   
+    margin-block: 2px !important; }
+.urlbar-page-action {
+    margin: 2px !important;
+    padding: 2px !important;
+}
