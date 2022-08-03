@@ -47,6 +47,11 @@
 #urlbar-container:not([open=true],:focus, :focus-within ){ min-width: 22vw !important;}
 #urlbar:focus-within  { min-width: 52vw !important; }
 
+/* Color fondo de pestaña al moverla */
+#tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
+    background: var(--lwt-selected-tab-background-color) !important;
+}
+
 /* H I D I N G   E L E M E N T S */
 /* Comment or uncomment depending of what elements you want to hide */
 
@@ -111,7 +116,7 @@
     border-image: var(--panel-separator-zap-gradient2) 1 !important;
     
     margin-bottom: 0px !important;
-    padding-block: 3px 3px !important;
+    padding-block:3px 3px !important;
     
     background-color: var(--lwt-selected-tab-background-color) !important;
     background: var(--lwt-selected-tab-background-color) !important;
