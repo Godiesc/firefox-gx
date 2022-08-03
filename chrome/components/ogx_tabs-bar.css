@@ -109,6 +109,10 @@
   background-image: radial-gradient(circle, var(--general-color), var(--general-color) 2px, transparent 2px) !important;
   background-position: center top calc(0px + var(--tabs-navbar-shadow-size)) !important;
 }
+/* COlor fondo de pestaña al moverla */
+#tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
+    background: var(--toolbar-bgcolor) !important;
+}
 /* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
 :root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
