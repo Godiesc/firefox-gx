@@ -430,3 +430,11 @@ button.primary{ color: white !important; }
     color: black !important;
     background: var(--selected-text-background) !important;
 }
+/*@-moz-document url(about:privatebrowsing) {
+.promo.below-search, .info{
+    backdrop-filter: blur(20px) !important;
+    }
+.fake-editable,.search-inner-wrapper{
+    background: none !important;
+    }
+}*/
