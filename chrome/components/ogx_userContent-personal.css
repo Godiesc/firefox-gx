@@ -434,7 +434,9 @@ button.primary{ color: white !important; }
 @-moz-document url(about:privatebrowsing) {
     
 .promo.below-search, .info{
+    background-color: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;
+    outline: 1px solid #50505030 !important;
     }
 .search-handoff-button{
     background-color: transparent !important;
