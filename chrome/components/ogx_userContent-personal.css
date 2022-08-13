@@ -430,11 +430,17 @@ button.primary{ color: white !important; }
     color: black !important;
     background: var(--selected-text-background) !important;
 }
-/*@-moz-document url(about:privatebrowsing) {
+/* search input and ads background in private mode */
+@-moz-document url(about:privatebrowsing) {
+    
 .promo.below-search, .info{
-    backdrop-filter: blur(20px) !important;
+    backdrop-filter: var(--personal-blur) !important;
     }
-.fake-editable,.search-inner-wrapper{
-    background: none !important;
+.search-handoff-button{
+    background-color: transparent !important;
+    border: transparent !important;
+    box-shadow: none !important;
     }
-}*/
+.fake-textbox{
+    color: var(--newtab-wordmark-color) !important; }
+}
