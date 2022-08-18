@@ -27,7 +27,7 @@
 
 <li> Otros Colores - Other Colors: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li></ul>
 
-# <a href= "https://github.com/Godiesc/opera-gx/tree/main/Extras">Extras</a>
+# Extras
 <ul><li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/OneLine"><b>OneLine</b></a></li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a></a></li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension.</b></a> </li></ul>
