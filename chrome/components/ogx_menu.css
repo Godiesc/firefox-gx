@@ -89,7 +89,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
     padding-top: calc(var(--tab-min-height) - 7px + var(--tab-block-margin) + var(--top-personal-hbutton)) !important;
-    width: 27.5em !important; }
+    width: 28.5em !important; }
 }
 /* Margin top para subir el menú [open] */
 @media {
@@ -103,13 +103,13 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
         calc(var(--padding-left-tab) - 1px - var(--tab-block-margin)) calc(var(--tab-min-height) - 2px - var(--tab-block-margin) + var(--top-personal-hbutton)));
     --arrowpanel-border-color: var(--general-color) !important;
     --arrowpanel-border-radius: 0px !important;
-    --arrowpanel-menuitem-padding: 5px !important;
+    --arrowpanel-menuitem-padding: 7px !important;
 }
 }
 /* Separadores */
 :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator{
     margin-inline-start: 30px !important;
-    --panel-separator-margin-vertical: 4px !important;
+    --panel-separator-margin-vertical: 2px !important;
     --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
 }
 /* Alinear lista de pestañas sincronizadas */
@@ -151,7 +151,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 /* ->Margen de los íconos<- */
 
 /* Margen items -tamaño- */
-#appMenu-zoom-controls2>.toolbarbutton-text {
+panelmultiview .toolbaritem-combined-buttons > label {
     margin-inline-start: 23px !important;
 }
 /* ícono account */
@@ -169,7 +169,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
     font-size: 9.4pt !important;
     font-variant-numeric: oldstyle-nums !important;
     padding-bottom: 6px !important;
-    margin-bottom: -4px !important;
+    margin-bottom: -3px !important;
     margin-right: 6px !important;
 }}
 /* ícono account */

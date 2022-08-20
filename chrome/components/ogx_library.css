@@ -7,7 +7,7 @@
     :root {
         --organizer-pane-background: var(--lwt-sidebar-background-color) !important;
         --organizer-border-color:color-mix(in srgb, var(--organizer-separator-color), transparent) !important;
-        --organizer-pane-background2:color-mix(in srgb, var(--organizer-pane-background) 30%, transparent) !important;
+        --organizer-pane-background2:color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
     }
     /*-----------------------Menú principal-------------------------*/
     #placesToolbar>toolbarbutton {
@@ -62,8 +62,13 @@
     }
     /*Fondo inputText al Editar*/
     #editBookmarkPanelRows>vbox>input, #editBookmarkPanelRows>vbox>hbox>input {
-        background: color-mix(in srgb, var(--organizer-pane-background) 90%, var(--organizer-color)) !important;
-        border-color: var(--button-active-bgcolor, #0060bf) !important;
+        background: color-mix(in srgb, var(--organizer-pane-background2) 60%, black) !important;
+        border-color: color-mix(in srgb, var(--organizer-pane-background2) 30%, black) !important;
+    }
+    #editBookmarkPanelRows>vbox>input:focus, #editBookmarkPanelRows>vbox>hbox>input:focus{
+        outline-color: var(--general-color) !important;
+        outline-offset: 0px !important;
+        border-radius: 3px !important;
     }
     /*Color "selected" de items*/
     #places treechildren:not(.autocomplete-treebody)::-moz-tree-row(selected), #placesList>treechildren::-moz-tree-row(selected) {

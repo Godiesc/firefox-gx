@@ -60,10 +60,10 @@
   --panel-subview-body-padding: 4px 0px !important;                                     /*Padding menús*/
   --arrowpanel-padding: 1.3em !important;                                               /*Otro padding de menús*/
   --arrowpanel-menuitem-margin: 0 0px !important;                                       /*margenes de menús*/
-  --menu-panel-width-wide: 31em !important;
+  --menu-panel-width-wide: 32em !important;
   
   --arrowpanel-menuitem-border-radius: 0px !important;                                  /*forma de menuitems :hover*/
-  --panel-separator-margin-vertical: 4px !important;                                    /*margen vertical entre los separadores*/
+  --panel-separator-margin-vertical: 3px !important;                                    /*margen vertical entre los separadores*/
   --panel-separator-margin-horizontal: 8px !important;                                  /*Margen horizontal de los separadores*/
   
   --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;

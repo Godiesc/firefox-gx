@@ -85,4 +85,4 @@ treechildren::-moz-tree-separator {
 .panel-header > .subviewbutton-back:active { background: var(--button-active-bgcolor) !important; }
 
 /* Fondo :hover botones de zoom */
-#appMenu-zoom-controls2 > .subviewbutton:not([disabled]):is(:hover, :hover:active) { background: transparent !important }
+.PanelUI-subView .toolbaritem-combined-buttons > .subviewbutton:is(:hover, :hover:active) { background: transparent !important }

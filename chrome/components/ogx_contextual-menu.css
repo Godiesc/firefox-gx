@@ -3,7 +3,7 @@
 
 /*Menú contextual*/
 menupopup>menuitem, menupopup>menu {
-    padding-block: 0.4em !important; 
+    padding-block: 0.44em !important; 
 }
 /*borde izquierda y derecha del menú contextual*/
 menugroup>menuitem:first-child { padding-left:  4px !important; }

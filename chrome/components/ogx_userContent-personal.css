@@ -94,6 +94,9 @@ body {
         
     --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
       var(--button-active-bgcolor) 69%, transparent) !important;
+    
+    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
+        var(--newtab-wordmark-color)) !important;
        
     --newtab-text-primary-color: #dadada !important;                                          /* label general */
     --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
@@ -139,12 +142,13 @@ input:focus-visible, input:focus-visible{
 /* Fondo y borde del menú de 3 puntos */
 .context-menu {
     background-color: #1c1726 !important; border-radius: 0px !important;
-    box-shadow: 0px 0px 0 1px #101010 !important; 
+    box-shadow: 0px 0px 0 1px #00000070 !important; 
     border: 1px solid var(--newtab-border-color); 
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 /* linea separadora */
 .context-menu .separator{
+    margin-block: 2px !important;
     margin-left: 6px !important; margin-right: 6px !important; 
     width: -moz-available !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
@@ -416,23 +420,24 @@ search-addons > search-textbox:hover {
     }
 }
 /*---------------------------------- Pagina de Error al Cargar Página ---------------------------------------------*/
-    @-moz-document url('about:config'), regexp("^about:(neterror|certerror).*") {
+    @-moz-document url('about:config'),  url(about:privatebrowsing), regexp("^about:(neterror|certerror).*") {
         
 .button[autofocus], .button[type="submit"], .button[default], button.primary:not(:hover) {
     background-color: var(--button-active-bgcolor) !important;  
     color: white !important; 
     border-color: transparent !important;
     }
-button.primary{ color: white !important; }
+button.primary:hover{ 
+    background-color: var(--button-hover-bgcolor) !important;
+    color: white !important; }
 }
 /*Color fondo y letra al seleccionar texto*/
 ::selection {
     color: black !important;
     background: var(--selected-text-background) !important;
 }
-/* search input and ads background in private mode */
+/* search input and ads style in private mode */
 @-moz-document url(about:privatebrowsing) {
-    
 .promo.below-search, .info{
     background-color: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;
@@ -444,5 +449,6 @@ button.primary{ color: white !important; }
     box-shadow: none !important;
     }
 .fake-textbox{
-    color: var(--newtab-wordmark-color) !important; }
+    color: var(--newtab-wordmark-color) !important; 
+    }
 }

@@ -25,7 +25,7 @@
   --menu-label: "Menú" ;                                                                     /* Label botón -Menú- */
   --padding-left-tab: 74px !important;                                                       /* Tamaño horizontal botón -Menú- */
   
-  --left-color:  var(--general-color) ;                                                      /* Color left logo y wordmark */
+  --left-color: var(--general-color) ;                                                       /* Color left logo y wordmark */
   --right-color: #0060bfdd ;                                                                 /* Color right logo y wordmark */
   
   --logo-wordmark-visibility: 1 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/

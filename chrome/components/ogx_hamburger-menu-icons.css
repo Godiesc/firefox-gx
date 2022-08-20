@@ -22,7 +22,7 @@
 
 /* -------Margen de los íconos---------- 
 /*Margen item -tamaño-*/
-#appMenu-zoom-controls2>.toolbarbutton-text {
+panelmultiview .toolbaritem-combined-buttons > label {
     margin-inline-start: 23px !important;
 }
 /* Ícono de Actualización disponible */
