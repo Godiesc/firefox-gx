@@ -20,10 +20,10 @@
 
 ![imagen](https://user-images.githubusercontent.com/22057609/186518856-2a474e30-40fa-4af0-a8df-02d27d00403b.png)
 
-### One-line Config
+### Oneline Config
 
 ![imagen](https://user-images.githubusercontent.com/22057609/186524274-c5f1354b-0bb3-4323-8f69-e9e1d7b9fea0.png)
 
-### Main_image Config
+### Main-image Config
 
 ![imagen](https://user-images.githubusercontent.com/22057609/186523759-c198d8b2-c918-45e8-9190-ffedd7d3a24b.png)
