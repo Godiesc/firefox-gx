@@ -1,4 +1,4 @@
-# Main UI
+# Main User Interface
 
 ### New Tab Page
 
@@ -18,4 +18,4 @@
 
 ### Hamburguer Menu
 
-![imagen](https://user-images.githubusercontent.com/22057609/186516909-a61baa5b-d9a7-4384-bd8a-fbc5ab421b88.png)
+![imagen](https://user-images.githubusercontent.com/22057609/186517522-5ee5d810-3eb3-4e52-ac4e-61d21f88ac79.png)
