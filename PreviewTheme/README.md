@@ -1,5 +1,6 @@
 # Main UI
 
-## New Tab Page
+### New Tab Page
 
-![imagen](https://user-images.githubusercontent.com/22057609/186514754-5e811ba0-2bf2-46af-8013-9fe920c5cf13.png)
+![imagen](https://user-images.githubusercontent.com/22057609/186515174-6da0c06a-721e-43e6-bafa-e864026a94ae.png)
+
