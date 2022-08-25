@@ -26,4 +26,4 @@
 
 ### Main-image Config
 
-![imagen](https://user-images.githubusercontent.com/22057609/186523759-c198d8b2-c918-45e8-9190-ffedd7d3a24b.png)
+![imagen](https://user-images.githubusercontent.com/22057609/186757301-ac031f8c-999d-4835-a321-bd1cd93b2980.png)
