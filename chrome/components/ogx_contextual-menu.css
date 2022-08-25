@@ -1,18 +1,18 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-/*Menú contextual*/
+/* Menú contextual */
 menupopup>menuitem, menupopup>menu {
     padding-block: 0.44em !important; 
 }
-/*borde izquierda y derecha del menú contextual*/
+/* Borde izquierda y derecha del menú contextual */
 menugroup>menuitem:first-child { padding-left:  4px !important; }
 menugroup>menuitem:last-child  { padding-right: 4px !important; }
 
 /* context menu top buttons radius */
 menugroup>menuitem>hbox>image { border-radius: 2px !important; }
 
-/*separador de items*/
+/* separador de items */
 menuseparator {
     margin-inline: 6px !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
@@ -28,13 +28,13 @@ menuseparator {
 menupopup:not(.menupopup-arrowscrollbox){
     border: 1px solid #1d172a !important;
 }
-/*Colores generales*/
+/* Colores generales */
 #PlacesToolbar menupopup { padding: 0px !important; margin-right: 0px !important;}
 #PlacesToolbar menupopup menupopup{ margin-inline-start: -7px !important; }
 .menupopup-arrowscrollbox {
     box-shadow: 0px 0px 0 1px #00000070, 1px 1px 6px 0px black !important;
     background: var(--arrowpanel-background, #50505090) !important;
-    color: var(--arrowpanel-color, #50505090) !important;
+    color: var(--arrowpanel-color, #ffffff) !important;
     border: 1px solid transparent !important;
     border-color:  color-mix(in srgb, var(--arrowpanel-border-color, #50505090) 35%, black) !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
@@ -43,7 +43,7 @@ menupopup:not(.menupopup-arrowscrollbox){
     /*ColorFondoAlPasarElMouseSobreItems*/
     --menuitem-hover-background-color: initial !important;
 }
-/*ColoresMenú*/
+/* ColoresMenú */
 menupopup{ 
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -77,10 +77,15 @@ menu[disabled="true"], menuitem[disabled="true"] {
     color: color-mix(in srgb, var(--arrowpanel-background)70%, var(--arrowpanel-color)) !important;
     background-color: transparent !important;
 }
-/*Gradient color to :hover items*/
+/* Font color in Contextual menus */
+menupopup>menuitem:not([disabled="true"]), menupopup>menu {
+    appearance: none !important;
+    color: #ffffff !important;
+}
+/* Gradient color to :hover items */
 menupopup>menuitem:not([disabled="true"]):hover, menupopup>menu:hover {
     appearance: none !important;
-    background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; color: var(--arrowpanel-color, #50505090) !important;
+    background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; color: var(--arrowpanel-color, #ffffff) !important;
 }
 /* Necesario para quitar glitch indeseado al mover el mouse rapidamente sobre items de menús */
 menupopup>menuitem:not([disabled="true"], [selected="true"]), menupopup>menu:not([disabled="true"]) {
@@ -99,7 +104,7 @@ menupopup>menuitem:is([selected="true"]):hover:not([disabled="false"]){
     appearance: none !important;
     background-color: var(--general-color) !important; 
 }
-/*Aspecto tooltip: mouse hover on elements*/
+/* Aspecto tooltip: mouse hover on elements */
 tooltip {
 	appearance: none !important;
     background: color-mix(in srgb, var(--arrowpanel-background) 96%, white) !important;
@@ -111,7 +116,7 @@ tooltip {
 	opacity: 1 !important;
     border-radius: 0px !important;
 }
-/* Flecha menú contextual desplegable*/
+/* Flecha menú contextual desplegable */
 @media (-moz-platform: linux) {.menu-right {
     -moz-appearance: none !important;
     list-style-image: url(chrome://global/skin/icons/arrow-right.svg )!important;    
