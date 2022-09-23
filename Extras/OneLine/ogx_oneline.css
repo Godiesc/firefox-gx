@@ -41,7 +41,7 @@
 /* Espacio de arrastre */
 .titlebar-spacer {
     display: -moz-box !important;
-    width: 10px !important;
+    width: 26px !important;
 }
 /* urlbar open */
 #urlbar-container:not([open=true],:focus, :focus-within ){ min-width: 22vw !important;}
@@ -132,13 +132,6 @@
 #urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -23px !important;}
 #urlbar-container { margin-top: -1px !important;}
 
-/* Logo Hamburguer menu */
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{
-  list-style-image: url("../images/foxFill.svg") !important;
-  height: inherit !important;
-  width: inherit !important; }
-#appMenu-popup panelview{ width: 25.5em !important;
-}
 /* Urlbar más pequeña */
 #urlbar:not([open]){
     min-height: 26px !important;
@@ -157,3 +150,16 @@
 #nav-bar {
     border-image: none !important;
 }
+/* Hamburguer menu */
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{
+  list-style-image: url("../images/foxFill.svg") !important;
+  height: inherit !important;
+  width: inherit !important; }
+#appMenu-popup panelview{ width: 25.5em !important;
+}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #PanelUI-button {
+    display: block !important;
+    position: fixed !important;
+    right: 110px !important;
+    padding-top: 2px !important;
+}}
