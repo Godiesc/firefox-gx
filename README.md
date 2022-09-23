@@ -50,7 +50,7 @@
 <li>Windows 11 (Tested - Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png" >Preview</a></li>
 <li>Linux - Manjaro (tested - Probado) ✔ - <a href="https://i.imgur.com/bDKNoBn.png">Preview</a></li>
 <li>Windows 7 (Not tested - No probado)</li>
-<li>MacOS (tested - Probado)  (Just if you delete the <code>ogx_menu.css</code> file)</li>
+<li>MacOS (tested - Probado) 🟡 (Just if you delete the <code>ogx_menu.css</code> file)</li>
 </ul>
 
 # Example of about:support
