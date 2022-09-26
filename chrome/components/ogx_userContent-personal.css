@@ -273,12 +273,12 @@ input:focus-visible, input:focus-visible{
     .main-stop  { stop-color: var(--right-color) !important; }                                                 /* right color */
 
 /*Personalizacion de la página newtab*/    
-@-moz-document url('about:home'), url('about:newtab'),url(about:privatebrowsing) {
+@-moz-document url('about:home'), url('about:newtab'), url('about:privatebrowsing') {
 body{
     background: var(--lwt-main-image) no-repeat right top fixed !important; 
     background-size:  var(--wallpaper-size) !important;
     background-position-y: var(--background-align-y) !important;
-    backdrop-filter: var(--brightness-wallpaper) ;
+    backdrop-filter: var(--brightness-wallpaper) !important;
     } 
 .logo{
     background: url("../images/foxlogo.svg") no-repeat !important; 
@@ -301,6 +301,9 @@ body{
     margin-bottom: 0px !important; }
 .promo-cta .button { 
     color: #cacaca !important; }
+}
+main {
+    margin-top: var(--newtab-pinnedsites-position-top, auto) !important;
 }
 /*-------------------------------> Colores varios de la interfaz de complementos y configuración <---------------------------------------*/
 @-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support) {
@@ -451,4 +454,7 @@ button.primary:hover{
 .fake-textbox{
     color: var(--newtab-wordmark-color) !important; 
     }
+}
+@-moz-document url-prefix(https://www.facebook.com/watch){
+  .ecyo15nh {width: 1108px !important;}  .mm98tyaj {width:221px !important;} .o36gj0jk {width:221px !important;}  .p8zq7ayg {margin-left: 0px !important;}
 }

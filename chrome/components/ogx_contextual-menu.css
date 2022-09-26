@@ -23,47 +23,28 @@ menuseparator {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     padding-top: 2px !important;
     margin-top: 2px !important;
-    }}
-/* Borde Exterior  menús */
-menupopup:not(.menupopup-arrowscrollbox){
-    border: 1px solid #1d172a !important;
+    }
 }
+/* Márgenes menú y menú desplegable del menú */
+menupopup{ margin: 0px !important;  border-radius: 0px !important; }
+menupopup:not(#PlacesToolbar) menupopup { 
+    margin-top: -6px !important; 
+    margin-left: -10px !important; 
+}
+#PlacesToolbar menupopup { margin-block: 0px !important; margin-inline-end: -6px !important; }
+#PlacesToolbar menupopup menupopup{ margin-top: -6px !important; margin-left: -10px !important; }
+
 /* Colores generales */
-#PlacesToolbar menupopup { padding: 0px !important; margin-right: 0px !important;}
-#PlacesToolbar menupopup menupopup{ margin-inline-start: -7px !important; }
-.menupopup-arrowscrollbox {
-    box-shadow: 0px 0px 0 1px #00000070, 1px 1px 6px 0px black !important;
+.menupopup-arrowscrollbox{
+    box-shadow: 0px 0px 0 1px black !important;
     background: var(--arrowpanel-background, #50505090) !important;
     color: var(--arrowpanel-color, #ffffff) !important;
     border: 1px solid transparent !important;
     border-color:  color-mix(in srgb, var(--arrowpanel-border-color, #50505090) 35%, black) !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
     border-radius: 0px !important;
-    margin: 0px !important;
-    /*ColorFondoAlPasarElMouseSobreItems*/
-    --menuitem-hover-background-color: initial !important;
-}
-/* ColoresMenú */
-menupopup{ 
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-    margin-left: 0px !important; 
-    margin-right: 0px !important; 
-    border-radius: 0px !important; }
-menupopup menupopup { 
-    margin-top: -6px !important; 
-    margin-left: -10px !important; }
-.menupopup {
-    --panel-color: var(--arrowpanel-color, FieldText) !important;
-    /*ColorLetrasDelMenú*/
-    --panel-border-color: var(--arrowpanel-border-color, Field)!important;
-    /*bordeMenú*/
-    --panel-background: var(--arrowpanel-background, Field) !important;
-    /*FondoMenú*/
-    --menu-color: var(--arrowpanel-color, FieldText) !important;
-    /*ColorLetrasAlPasarElMouseSobreItems*/
-    --menu-border-color: var(--panel-separator-color, Field) !important;
-    /*LineaSeparadoraItems*/
+    margin: 1px !important;
+    margin-inline-end: 8px !important;
 }
 /* Íconos superiores del menú contextual */
 #context-navigation {
@@ -71,12 +52,14 @@ menupopup menupopup {
     color: var(--arrowpanel-color) !important;
     margin-left: 2px !important;
     margin-right: 2px !important; }
-#context-navigation:hover{
-    --menuitem-hover-background-color: var(--button-hover-bgcolor) !important; }
+#context-navigation > .menuitem-iconic:hover:not([disabled="true"]) > .menu-iconic-left > .menu-iconic-icon{
+    appearance: none !important;
+    background-color: var(--button-hover-bgcolor) !important; }
     /* Color íconos deshabilitados */
-menu[disabled="true"], menuitem[disabled="true"] {
-    color: color-mix(in srgb, var(--arrowpanel-background)70%, var(--arrowpanel-color)) !important;
-    background-color: transparent !important;
+#context-navigation > .menuitem-iconic:hover:is([disabled="true"]) > .menu-iconic-left > .menu-iconic-icon {
+    appearance: none !important;
+    color: inherit !important;
+    background: transparent !important;
 }
 /* Font color in Contextual menus */
 menupopup>menuitem:not([disabled="true"]), menupopup>menu {
@@ -88,8 +71,12 @@ menupopup>menuitem:not([disabled="true"]):hover, menupopup>menu:hover {
     appearance: none !important;
     background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; color: var(--arrowpanel-color, #ffffff) !important;
 }
+menupopup>menuitem:is([disabled="true"]):hover {
+    appearance: none !important;
+    background: transparent !important;
+}
 /* Necesario para quitar glitch indeseado al mover el mouse rapidamente sobre items de menús */
-menupopup>menuitem:not([disabled="true"], [selected="true"]), menupopup>menu:not([disabled="true"]) {
+menupopup>menuitem:not([selected="true"]), menupopup>menu {
     appearance: none !important;
     background-color: transparent !important; }
 menupopup>menu[open="true"]{

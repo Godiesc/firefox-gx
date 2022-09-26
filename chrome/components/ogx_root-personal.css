@@ -34,9 +34,10 @@
   --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
   
   --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
+  --newtab-pinnedsites-position-top: auto ;                                                  /* Posición pinnedsites - top-> : 0px ; default-> : auto*/
   
   --selected-text-background: var(--general-color);                                          /* Selected text background */
-  
+   
   --personal-blur: blur(26px) ;                                                              /* Utilizado para personalizar userContent.css */
   
   /*--background-align-y: -70px ;                                                              /* Alinear new-tab wallpaper to <<main-image>> config 

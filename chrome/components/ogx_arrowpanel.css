@@ -3,12 +3,26 @@
 
 /* Borde gradiente menús desplegables */
 slot{
-  border-color: #0c0a10 !important;
+    margin: 0px !important;
+    border-color: #0c0a10 !important;
 }
 panelview {
     border: 1px solid #0c0a10 !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
     box-shadow: 0px 0px 0 1px #00000070, 1px 1px 6px 0px black !important;
+}
+/* Margen de varios menús [Open] */
+#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #identity-popup,
+#permission-popup, #protections-popup, #editBookmarkPanel{
+    margin-top: 0px !important; 
+    margin-inline: -16px !important; 
+}
+panel[type="arrow"]{ 
+    margin-top: 0px !important; 
+}
+/* Alinear lista de pestañas sincronizadas */
+.PanelUI-remotetabs-clientcontainer label {
+    padding-inline-start: 0px !important;
 }
 /*Color fondo gradiente :hover por los diferentes items de menús principales*/
 .protections-popup-category:hover, .protections-popup-footer-button:hover, #protections-popup-show-report-stack:hover > .protections-popup-footer-button,

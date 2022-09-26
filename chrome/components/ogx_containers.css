@@ -4,6 +4,10 @@
 /*rework en la Linea de Contenedores*/
 .tab-context-line {display: none !important; 
 }
+/* Eliminar label del contenedor manteniendo el ícono */
+#userContext-label{
+    display: none !important;
+}
 /*rework en la Linea de Contenedores-BordeFavicon - pinnedtabs*/
 .tab-icon-pending[pinned], .tab-sharing-icon-overlay, .tab-throbber[busy][pinned], .tab-throbber:is([busy][pinned]), .tab-icon-image[pinned] {
     box-shadow: 0 1px 0px var(--identity-icon-color, #00000000) !important;
