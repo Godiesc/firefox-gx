@@ -10,7 +10,7 @@
 <ul><li>PD: Don't forget to make a backup of the <code>ogx_menu.css</code>file if you want to comeback to the original theme.</li></ul>
 
 ## First config
-![imagen](https://user-images.githubusercontent.com/22057609/182465046-173cdc9f-d34d-4726-ab46-5b31315edfd0.png)
+![imagen](https://user-images.githubusercontent.com/22057609/192365984-299a844b-fea7-4b1b-b05e-3078f1c3226f.png)
 
 ## Second Config
 ![imagen](https://user-images.githubusercontent.com/22057609/192365808-c7ec4c63-0230-483e-8138-d02d778bf421.png)
