@@ -1,5 +1,5 @@
 # How to apply.
-<p>There are 2 versions of this config, rename the file you want with <code>ogx_oneline.css</code>, the version ogx_oneline1.css has a improvement to have the toolbar icons next to windows controlls when the windows controls are on the right like windows defalut position. </p>
+<p>There are 2 versions of this config, You should rename the file you want with <code>ogx_oneline.css</code>, the version ogx_oneline1.css has a improvement to have the toolbar icons next to windows controlls when the windows controls are on the right like windows defalut position. </p>
 
 # Steps: 
 <ol><li>Delete: <code>ogx_menu.css</code> from: <code>chrome/components</code>. </li>
