@@ -13,4 +13,4 @@
 ![imagen](https://user-images.githubusercontent.com/22057609/182465046-173cdc9f-d34d-4726-ab46-5b31315edfd0.png)
 
 ## Second Config
-![imagen](https://user-images.githubusercontent.com/22057609/192365579-f7f20bec-6edf-4565-9fcf-b4d18a486835.png)
+![imagen](https://user-images.githubusercontent.com/22057609/192365808-c7ec4c63-0230-483e-8138-d02d778bf421.png)
