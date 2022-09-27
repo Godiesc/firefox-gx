@@ -235,6 +235,14 @@ toolbar:is(.browser-toolbar){
   transform: rotate(90deg) ;
   padding: 2px !important;
 }
+/* Mantener color al mover pestaña - still needs fix */
+#tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
+   background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
+   linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
+   background-position: right top !important;
+   background-repeat:  no-repeat !important;
+   background-size:  inherit !important;  
+}
 /* H I D I N G   E L E M E N T S */
 /* Comment or uncomment depending of what elements you want to hide */
 
