@@ -22,7 +22,7 @@
   --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas*/
   --toolbar-height-personal: 38px ;                                                          /* Toolbar height */
   
-  --menu-label: "Menú" ;                                                                     /* Label botón -Menú- */
+  --menu-label: "Menu" ;                                                                     /* Label botón -Menú- */
   --padding-left-tab: 74px !important;                                                       /* Tamaño horizontal botón -Menú- */
   
   --left-color: var(--general-color) ;                                                       /* Color left logo y wordmark */
