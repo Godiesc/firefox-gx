@@ -238,7 +238,7 @@ input:focus-visible, input:focus-visible{
 /* Fondo de sitios anclados */
 .top-sites-list{
     background: var(--newtab-pinnedsites-background) !important;
-    backdrop-filter: blur(26px) !important;
+    backdrop-filter: var(--personal-blur) !important;
     outline: 1px solid #50505030 !important;
     border-radius: 10px !important;
 }
