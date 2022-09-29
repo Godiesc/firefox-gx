@@ -231,7 +231,7 @@ toolbar:is(.browser-toolbar){
     background: var(--lwt-selected-tab-background-color) !important;
 }
 /* Ícono de "show more bookmarks" modificado */
-#PlacesChevron image {
+#PlacesChevron>image {
   transform: rotate(90deg) ;
   padding: 2px !important;
 }
