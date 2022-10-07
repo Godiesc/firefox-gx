@@ -455,3 +455,6 @@ button.primary:hover{
     color: var(--newtab-wordmark-color) !important; 
     }
 }
+@-moz-document url-prefix(https://www.facebook.com/watch){
+  .ecyo15nh {width: 1108px !important;}  .x1cvmir6 {width:221px !important;} .o36gj0jk {width:221px !important;}  .x1gryazu {margin-left: 0px !important;}
+}
