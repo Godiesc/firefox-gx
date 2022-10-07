@@ -27,3 +27,7 @@
 ### Main-image Config
 
 ![imagen](https://user-images.githubusercontent.com/22057609/186757301-ac031f8c-999d-4835-a321-bd1cd93b2980.png)
+
+### Left Side-Bar Config
+
+![imagen](https://user-images.githubusercontent.com/22057609/194635215-c80ec742-f03b-4daa-a07c-7fe04445d56a.png)
