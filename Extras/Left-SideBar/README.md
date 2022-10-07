@@ -17,7 +17,7 @@
 [Panorama tab groups](https://addons.mozilla.org/es/firefox/addon/panorama-tab-groups/) - 
 [Ublock](https://addons.mozilla.org/es/firefox/addon/ublock-origin/) </br>
 
-<p>PD: The extensions I used was for test porpuse, I don't recommend them and I don't recommend them either.</p>
+<p>PD: The extensions I used was for test porpose, I don't recommend them and I don't recommend them either.</p>
 
 ## Preview
 
