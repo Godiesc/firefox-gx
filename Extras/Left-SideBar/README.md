@@ -12,7 +12,7 @@
 
 [Twitch](https://addons.mozilla.org/es/firefox/addon/twitch-live-channels/) - 
 [Facebook-messenger](https://addons.mozilla.org/es/firefox/addon/sideapp-for-messenger/) - 
-[Whatapp](https://addons.mozilla.org/es/firefox/addon/whatsapp-messenger/) - 
+[Whatsapp](https://addons.mozilla.org/es/firefox/addon/whatsapp-messenger/) - 
 [Telegram](https://addons.mozilla.org/es/firefox/addon/messenger-for-telegram/) - 
 [Panorama tab groups](https://addons.mozilla.org/es/firefox/addon/panorama-tab-groups/) - 
 [Ublock](https://addons.mozilla.org/es/firefox/addon/ublock-origin/) </br>
