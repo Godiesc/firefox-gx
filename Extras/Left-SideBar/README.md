@@ -13,7 +13,12 @@
 [Twitch](https://addons.mozilla.org/es/firefox/addon/twitch-live-channels/) - 
 [Facebook-messenger](https://addons.mozilla.org/es/firefox/addon/sideapp-for-messenger/) - 
 [Whatapp](https://addons.mozilla.org/es/firefox/addon/whatsapp-messenger/) - 
-[Telegram](https://addons.mozilla.org/es/firefox/addon/messenger-for-telegram/)
+[Telegram](https://addons.mozilla.org/es/firefox/addon/messenger-for-telegram/) - 
+[Panorama tab groups](https://addons.mozilla.org/es/firefox/addon/panorama-tab-groups/) - 
+[Ublock](https://addons.mozilla.org/es/firefox/addon/ublock-origin/) </br>
 
+<p>PD: The extensions I used was for test porpuse, I don't recommend them and I don't recommend them either.</p>
+
+## Preview
 
 ![imagen](https://user-images.githubusercontent.com/22057609/194623967-be508e7c-9950-49a1-9bed-74bf9f5312fb.png)
