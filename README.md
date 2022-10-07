@@ -30,7 +30,8 @@
 # Extras
 <ul><li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/OneLine"><b>OneLine</b></a></li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a></a></li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension.</b></a> </li></ul>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension.</b></a> </li>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar"><b>Play/Left Side-Bar.</b></a> </li></ul>
 
 # Personalizar - Customize
 <ul><b><i>Personalizaciones Varias - Various customizations</i></b>
