@@ -90,8 +90,8 @@
 /* Eliminar botón >> ALL tabs */
 /* #alltabs-button { display: none !important; } */
 
-/* Tamaño horizontal pestañas
-.tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 15.3vw !important; 
+/* Tamaño horizontal pestañas*/
+.tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 200px !important; 
 }
 /* Reduce spacing between pinned and regular tabs */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {
