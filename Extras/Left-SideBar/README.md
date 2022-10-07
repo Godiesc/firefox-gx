@@ -3,7 +3,7 @@
 <ul>
   <li>Add the file <code>ogx_left-sidebar.css</code> into the <code>chrome/components</code> folder.</li>
   <li>We'll use the bookmark bar to make the left bar so be carefull to move first all the elements of this bar to a new folder into one other 
-    subdirectoru of the bookmarks. </li>
+    subdirectory of the bookmarks. </li>
   <li>You should use "customize the toolbar" to move the extensions you want to have in this toolbar or other button from the firefox interface. I used 
     some extensions (Links below) to test to change the icons to looks exactly like GX.</li>
 </ul>
