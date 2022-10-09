@@ -1,4 +1,4 @@
-## This style is for work whith this extension: [Tree style tabs](https://addons.mozilla.org/es/firefox/addon/tree-style-tab/) and the [Left-sidebar Config](https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar).
+## This style is for work with this extension: [Tree style tabs](https://addons.mozilla.org/es/firefox/addon/tree-style-tab/) and the [Left-sidebar Config](https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar).
 
 ### Steps to apply this config
 <p><ul><li>Install the extención (link above).</li>
