@@ -455,3 +455,25 @@ button.primary:hover{
     color: var(--newtab-wordmark-color) !important; 
     }
 }
+
+/* ## ##-> To customize the "tree style tabs sidebar" extension wallpaper <-## ## */
+@-moz-document url-prefix("moz-extension://77a70613-4782-4921-9dc6-c2dbb5c601d1") {
+    
+:root, body, #background {
+    --browser-bg-images: var(--lwt-main-image) !important;
+    --theme-images-additional_backgrounds-0: var(--browser-bg-images) !important;
+    --browser-bg-position: left bottom !important;
+    --browser-bg-size: cover !important;
+    
+    /* If you want to use other image from "newtab" folder for the sidebar: 
+    --browser-bg-images: url("../images/newtab/wallpaper5.png") !important; */
+    
+    background-color: var(--browser-background, var(--tabbar-bg));
+    background-image: var(--browser-bg-images, none) !important;
+    background-position: var(--browser-bg-position, left) !important;
+    background-size: var(--browser-bg-size, auto) !important;
+    background-repeat: var(--browser-bg-repeat, none); 
+}
+#background{ margin-left: -33px !important;}
+#tabbar-container{ backdrop-filter: brightness(51%) !important; }
+}
