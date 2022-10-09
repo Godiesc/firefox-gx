@@ -1,7 +1,7 @@
 ## This style is for work whith this extension: [Tree style tabs](https://addons.mozilla.org/es/firefox/addon/tree-style-tab/).
 
 ### Steps to apply this config
-<p><ul><li>Install the extención (link above).</li></ul>
+<p><ul><li>Install the extención (link above).</li>
 <li>Add the file <code>ogx_tree-tabs.css</code> into <code>chrome/components</code> folder.</li>
 <li>Add the file <code>ogx_left-sidebar.css</code> from <code>Extra/Left-SideBar</code> into <code>chrome/components</code> folder
   </li></ul></p>
