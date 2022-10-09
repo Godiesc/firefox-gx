@@ -6,7 +6,7 @@
 <li>Add the file <code>ogx_left-sidebar.css</code> from <code>Extra/Left-SideBar</code> into <code>chrome/components</code> folder
   </li></ul></p>
   
-<p> PD: The lines [459-479](https://github.com/Godiesc/opera-gx/blob/3cf2d0ac011050c0484817b664b740938ddeb1ac/chrome/components/ogx_userContent-personal.css#L459-L479) from <code>chrome/components/ogx_userContent-personal.css</code> file has the lines to add the background image to the tree style sidebar, if you turn on the line 469 you can choose other image to this sidebar independ from the Main image from theme. </p>
+<p> PD: The lines [459-479]https://github.com/Godiesc/opera-gx/blob/3cf2d0ac011050c0484817b664b740938ddeb1ac/chrome/components/ogx_userContent-personal.css#L459-L479 from <code>chrome/components/ogx_userContent-personal.css</code> file has the lines to add the background image to the tree style sidebar, if you turn on the line 469 you can choose other image to this sidebar independ from the Main image from theme. </p>
 
 ### Preview
 ![FuchsiaSS](https://user-images.githubusercontent.com/22057609/194778829-1e5f3dda-485b-4b8e-bb31-3f189d482df3.png)
