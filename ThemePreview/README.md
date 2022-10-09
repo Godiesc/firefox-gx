@@ -31,3 +31,7 @@
 ### Left Side-Bar Config
 
 ![imagen](https://user-images.githubusercontent.com/22057609/194635215-c80ec742-f03b-4daa-a07c-7fe04445d56a.png)
+
+### Tree style tabs Config
+
+![imagen](https://user-images.githubusercontent.com/22057609/194778844-2e13dd30-edd3-4be4-9ad4-6f365c027653.png)
