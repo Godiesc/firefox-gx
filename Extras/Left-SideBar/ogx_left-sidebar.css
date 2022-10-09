@@ -10,7 +10,6 @@
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
   }
-
 #PersonalToolbar{
     position: fixed;
     display: flex;
@@ -68,9 +67,17 @@
     min-height: 20px !important;
     min-width:  20px !important;
 }
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
+    background-color: var(--lwt-frame) !important;
+}
 /* Color items barra de marcadores */
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]) {
     color: var(--button-active-bgcolor) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important; border-radius: 0 !important; }
+
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
+    color: var(--general-color) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important;
+    background-color: transparent !important; }
 
 #PersonalToolbar .toolbarbutton-1:hover , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
     transform: scale(1.1) !important; background-color: transparent !important; border-radius: 0 !important; }
