@@ -1,0 +1,171 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+:root{
+  --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
+  --tab-min-height: var(--toolbar-height-personal) !important;
+}
+#PersonalToolbar{
+    margin-top: -1px !important;
+}
+:root[tabsintitlebar] .titlebar-buttonbox {
+  background: var(--toolbar-bgcolor) !important;
+}
+#sidebar-header {
+  display: none;
+}
+#nav-bar{
+  border-top: none !important;
+}
+/* Borde Bottom toolbar */
+#navigator-toolbox { 
+    border-bottom: 1px solid var(--lwt-frame) !important;
+  /* with main-image config
+  border-bottom: 1px solid color-mix(in srgb, var(--lwt-tab-text)10%, transparent) !important; */
+}
+/* WindowsControls */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-min{
+    padding-top: 2px !important;
+    }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
+    background-color: var(--toolbarbutton-hover-background) !important; color: var(--lwt-tab-text) !important;
+    }
+}
+/* nuevo botón Menú */
+    :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{
+    background: var(--lwt-frame) !important; 
+    border-right: 1px solid var(--general-color) !important;
+  }
+#PanelUI-menu-button{
+    background: var(--lwt-frame) !important; 
+    border-right: 1px solid var(--general-color) !important;
+  }
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+    max-width: var(--padding-left-tab) !important;
+    min-width: var(--padding-left-tab) !important;
+}
+/* menu :hover */
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+    background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
+}
+:root:not([chromehidden~="toolbar"])[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack{
+  --padding-left-tab: 74px !important;
+    max-width: var(--padding-left-tab) !important;
+    min-width: var(--padding-left-tab) !important;
+}
+/* Mostrar label Menú al abrir el Menú */
+:root:not([chromehidden~="toolbar"])[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack::after {
+  content: var(--menu-label) !important;
+}
+:root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
+      --padding-left-tab: 74px !important;
+}
+/* Hides tabs toolbar */
+/* For OSX use hide_tabs_toolbar_osx.css instead */
+
+:root[tabsintitlebar]{ --uc-toolbar-height: var(--toolbar-height-personal) !important; }
+
+#TabsToolbar{ visibility: collapse !important }
+
+:root[sizemode="fullscreen"] #TabsToolbar > :is(#window-controls,.titlebar-buttonbox-container){
+  visibility: visible !important;
+  z-index: 2;
+}
+:root:not([inFullscreen]) #nav-bar{
+  margin-top: calc(0px - var(--uc-toolbar-height,0px)) !important;
+}
+
+:root[tabsintitlebar] #toolbar-menubar[autohide="true"]{
+  min-height: unset !important;
+  height: var(--uc-toolbar-height,0px) !important;
+  position: relative;
+}
+
+#toolbar-menubar[autohide="false"]{
+  margin-bottom: var(--uc-toolbar-height,0px)
+}
+
+:root[tabsintitlebar] #toolbar-menubar[autohide="true"] #main-menubar{
+  -moz-box-flex: 1;
+  -moz-box-align: stretch;
+  background-color: var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor);
+  background-clip: padding-box;
+  border-right: 30px solid transparent;
+  border-image: linear-gradient(to left, transparent, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor) 30px) 20 / 30px
+}
+
+#toolbar-menubar:not([inactive]){ z-index: 2 }
+#toolbar-menubar[autohide="true"][inactive] > #menubar-items {
+  opacity: 0;
+  pointer-events: none;
+  margin-left: var(--uc-window-drag-space-pre,0px)
+}
+
+/* #### The code below is From https://github.com/MrOtherGuy/firefox-csshacks/ to put windows controls on the right side ##### */
+
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* Defaults for window controls on RIGHT side of the window */
+/* Modify these values to match your preferences */
+:root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+  --uc-window-control-width: 89px; /* Space reserved for window controls (Win10) */
+  /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
+  --uc-window-drag-space-pre: 0px; /* left side*/
+  --uc-window-drag-space-post: 30px; /* right side*/
+}
+
+:root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
+  --uc-window-drag-space-pre: 0px; /* Remove pre space */
+}
+@media  (-moz-platform: windows-win7),
+        (-moz-platform: windows-win8),
+        (-moz-os-version: windows-win7),
+        (-moz-os-version: windows-win8){
+  :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+    --uc-window-control-width: 105px;
+  }
+}
+
+@media (-moz-gtk-csd-available) {
+  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
+    --uc-window-control-width: 84px;
+  }
+}
+
+/* macOS settings are further below */
+.titlebar-buttonbox, #window-controls{ color: var(--toolbar-color) }
+:root[sizemode="fullscreen"] .titlebar-buttonbox-container{ display: none }
+:root[sizemode="fullscreen"] #navigator-toolbox { position: relative; }
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+:root[sizemode="fullscreen"] #window-controls{
+  position: absolute;
+  display: flex;
+  top: 0;
+  right:0;
+  height: 40px;
+}
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+:root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: 33px }
+
+#nav-bar{
+  border-inline: var(--uc-window-drag-space-pre,0px) solid var(--toolbar-bgcolor);
+  border-inline-style: solid !important;
+  border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));
+}
+
+/* Use this pref to check Mac OS where window controls are on left */
+/* This pref defaults to true on Mac and doesn't actually do anything on other platforms. So if your system has window controls on LEFT side you can set the pref to true */
+@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
+  :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+    --uc-window-control-width: 72px;
+  }
+  :root[tabsintitlebar="true"]:not([inFullscreen]) #nav-bar{
+    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
+  }
+  :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+  :root[sizemode="fullscreen"] #window-controls{ right: unset }
+}
