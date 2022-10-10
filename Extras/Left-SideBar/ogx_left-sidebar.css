@@ -6,7 +6,7 @@
 @-moz-document url(chrome://browser/content/browser.xhtml){
 
   :root:not([inDOMFullscreen]){
-    --uc-vertical-toolbar-width: 41px;
+    --uc-vertical-toolbar-width: 42px;
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
   }
@@ -41,8 +41,8 @@
     margin-block: 3px !important;
     color: var(--button-active-bgcolor) !important;
   }
-#PersonalToolbar .toolbarbutton-1{ padding-block: 12px !important; }
-#PersonalToolbar #PlacesToolbarItems > .bookmark-item{ padding-block: 12px !important; }
+#PersonalToolbar .toolbarbutton-1, #OtherBookmarks{ padding-block: 12px !important; }
+#PersonalToolbar #PlacesToolbarItems > .bookmark-item,#OtherBookmarks{ padding-block: 12px !important; }
     
 :root:not([chromehidden~="toolbar"]) body > #browser,
 :root:not([chromehidden~="toolbar"]) body > #browser-bottombox,
@@ -54,7 +54,7 @@
   border-right: 1px solid transparent !important;
   border-image: linear-gradient(to bottom, var(--general-color) 0%, var(--button-active-bgcolor) 32% , var(--lwt-frame) 94%) 1 !important;
     }
-} 
+}
 /* Nuevos margenes Botón menú */
 #back-button{
     margin-left: var(--uc-vertical-toolbar-width,0) !important;
@@ -70,31 +70,48 @@
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
     background-color: var(--lwt-frame) !important;
 }
-/* Color items barra de marcadores 
+/* Alinear Items */
+#personal-bookmarks .bookmark-item > .toolbarbutton-text {
+    display: none !important;
+}
+#PlacesToolbarItems > .bookmark-item > .toolbarbutton-icon[label]:not([label=""]) {
+    margin-inline: 0 0  !important;
+}
+toolbarbutton.bookmark-item:is(#OtherBookmarks) image{
+    margin-right: -1px !important;
+}
+toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
+#PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], :active){ 
+}
+/* Color items barra de marcadores */
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]) {
-    color: var(--button-active-bgcolor) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important; border-radius: 0 !important; }
+    color: var(--button-active-bgcolor) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important; 
+    border-radius: 0 !important; }
+
+toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):hover,
+#PersonalToolbar .toolbarbutton-1:hover, toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
+  background-color: transparent !important; }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
     color: var(--general-color) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important;
     background-color: transparent !important; }
 
-#PersonalToolbar .toolbarbutton-1:hover , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
+#PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active):hover, 
+#PlacesToolbarItems > .bookmark-item:hover > .toolbarbutton-icon[label]:not([label=""]),
+toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover image{
     transform: scale(1.1) !important; background-color: transparent !important; border-radius: 0 !important; }
-
-#PersonalToolbar .toolbarbutton-1[open] , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
-    transform: none !important; }
 
 /* Contador de la extension */
 #PersonalToolbar .toolbarbutton-1 > .toolbarbutton-badge-stack .toolbarbutton-badge{
     background-color: var(--button-active-bgcolor) !important;
     color: white !important;
-    margin-top: 10px !important;
-    margin-left: 22px !important;
     min-width: auto !important;
     max-width: auto !important;
     min-height: auto !important;
     max-height: auto !important;
+    margin-inline-end: -10px !important;
+    margin-block-start: 10px !important;
 }
 /* Twitch Extension */
 #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-browser-action image{ display: none !important; }
@@ -111,7 +128,7 @@
 #sbfofm_ff_scripty_via_the_unity_empire-browser-action {
     background-image: url("../images/logo_messenger.svg") !important;
     background-repeat: no-repeat;
-    background-size: 20px !important;
+    background-size: 18px !important;
     background-position: center !important;
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
@@ -121,7 +138,7 @@
 #rt42fsdty645jiidd_jetpack-browser-action {
     background-image: url("../images/logo_whatsapp.svg") !important;
     background-repeat: no-repeat;
-    background-size: 21px !important;
+    background-size: 19px !important;
     background-position: center !important;
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
@@ -131,7 +148,7 @@
 #_7b657ab8-4869-4244-8cb7-e15524a933dd_-browser-action {
     background-image: url("../images/logo_telegram.svg") !important;
     background-repeat: no-repeat;
-    background-size: 21px !important;
+    background-size: 18px !important;
     background-position: center !important;
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
@@ -167,6 +184,6 @@
 }
 #_7b657ab8-4869-4244-8cb7-e15524a933dd_-browser-action:hover .toolbarbutton-badge-stack::after{
     padding-top: 29px !important;
-    margin-inline: 1px !important;
+    margin-inline-start: 1px !important;
     color: var(--button-active-bgcolor) !important;
 }
