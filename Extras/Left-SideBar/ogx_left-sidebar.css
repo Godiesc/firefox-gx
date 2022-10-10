@@ -70,7 +70,7 @@
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
     background-color: var(--lwt-frame) !important;
 }
-/* Color items barra de marcadores */
+/* Color items barra de marcadores 
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]) {
     color: var(--button-active-bgcolor) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important; border-radius: 0 !important; }
 
