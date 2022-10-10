@@ -81,7 +81,8 @@ toolbarbutton.bookmark-item:is(#OtherBookmarks) image{
     margin-right: -1px !important;
 }
 toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
-#PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], :active){ 
+#PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], :active),
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack image{
 }
 /* Color items barra de marcadores */
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]) {
