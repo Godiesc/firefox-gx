@@ -6,7 +6,7 @@
   --tab-min-height: var(--toolbar-height-personal) !important;
 }
 #PersonalToolbar{
-    margin-top: -1px !important;
+    margin-top: 0px !important;
 }
 :root[tabsintitlebar] .titlebar-buttonbox {
   background: var(--toolbar-bgcolor) !important;
@@ -15,7 +15,7 @@
   display: none;
 }
 #nav-bar{
-  border-top: none !important;
+  border-top: 0px !important;
 }
 /* Borde Bottom toolbar */
 #navigator-toolbox { 
@@ -29,16 +29,12 @@
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
-    background-color: var(--toolbarbutton-hover-background) !important; color: var(--lwt-tab-text) !important;
+    background-color: var(--toolbarbutton-hover-background) !important; color: var(--toolbarbutton-icon-fill) !important;
     }
 }
 /* nuevo botón Menú */
-    :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{
-    background: var(--lwt-frame) !important; 
-    border-right: 1px solid var(--general-color) !important;
-  }
-#PanelUI-menu-button{
-    background: var(--lwt-frame) !important; 
+:root:not([chromehidden~="toolbar"])[tabsintitlebar] #PanelUI-menu-button{
+    background-color: var(--lwt-frame) !important; 
     border-right: 1px solid var(--general-color) !important;
   }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
