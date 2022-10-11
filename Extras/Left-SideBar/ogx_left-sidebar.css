@@ -6,7 +6,7 @@
 @-moz-document url(chrome://browser/content/browser.xhtml){
 
   :root:not([inDOMFullscreen]){
-    --uc-vertical-toolbar-width: 42px;
+    --uc-vertical-toolbar-width: 41px;
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
   }
