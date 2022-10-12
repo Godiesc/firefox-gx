@@ -70,6 +70,10 @@
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
     background-color: var(--lwt-frame) !important;
 }
+/* menu :hover */
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+    background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
+}
 /* Alinear Items */
 #personal-bookmarks .bookmark-item > .toolbarbutton-text {
     display: none !important;
