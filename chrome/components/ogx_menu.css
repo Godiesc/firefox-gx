@@ -16,7 +16,7 @@
     padding-left: var(--padding-left-tab) !important;
 }
 /* tamaño botón Menú */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
     :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button{ 
     padding: calc(var(--tab-block-margin) + 2px) 0 1px 0 !important; 
     max-height: calc(var(--tab-min-height) + 1px) !important;
