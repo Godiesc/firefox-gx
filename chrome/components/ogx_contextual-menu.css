@@ -92,18 +92,6 @@ menupopup>menuitem:is([selected="true"]):hover:not([disabled="false"]){
     appearance: none !important;
     background-color: var(--general-color) !important; 
 }
-/* Aspecto tooltip: mouse hover on elements */
-tooltip {
-	appearance: none !important;
-    background: color-mix(in srgb, var(--arrowpanel-background) 96%, white) !important;
-	color: var(--lwt-tab-text) !important;
-	border-color: color-mix(in srgb, var(--arrowpanel-background)80%, white) !important;
-	padding-inline: 4px 4px !important;
-	font-family: Fira Sans !important;
-	font-size: 14px !important;
-	opacity: 1 !important;
-    border-radius: 0px !important;
-}
 /* Flecha menú contextual desplegable */
 @media (-moz-platform: linux) {.menu-right {
     -moz-appearance: none !important;
