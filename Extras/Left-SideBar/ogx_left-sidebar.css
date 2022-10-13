@@ -59,21 +59,21 @@
 #back-button{
     margin-left: var(--uc-vertical-toolbar-width,0) !important;
   }
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
     content: none !important ;
-}
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) {:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     margin-top: -1px !important;
     min-height: 20px !important;
     min-width:  20px !important;
-}
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
     background-color: var(--lwt-frame) !important;
-}
+        } }
 /* menu :hover */
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) {:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
-}
+        } }
 /* Alinear Items */
 #personal-bookmarks .bookmark-item > .toolbarbutton-text {
     display: none !important;
