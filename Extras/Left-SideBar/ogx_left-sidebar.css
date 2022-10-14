@@ -15,13 +15,13 @@
     display: flex;
     flex-direction: column;
     left: 0;
+    top: var(--tab-height-personal) !important;
     width: var(--uc-vertical-toolbar-width,0);
     
     /* These create a empty area to the bottom of the toolbar, which is to mask a fact that we don't know exactly how high the toolbar should be */
     height: 100vh;
     max-height: 100vh !important; 
     padding-bottom: 120px !important;
-    margin-top: calc( -1px - var(--toolbar-height-personal) ) !important;
     padding-top: calc(var(--toolbar-height-personal) + 14px) !important;
   }
 @media (-moz-platform: linux ){:root:not([chromehidden~="toolbar"])[tabsintitlebar] #PersonalToolbar{
