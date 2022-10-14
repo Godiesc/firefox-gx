@@ -25,7 +25,7 @@
     padding-top: calc(var(--toolbar-height-personal) + 14px) !important;
   }
 @media (-moz-platform: linux ){:root:not([chromehidden~="toolbar"])[tabsintitlebar] #PersonalToolbar{
-     padding-top: calc(var(--toolbar-height-personal) + 64px) !important;
+     padding-top: calc(var(--toolbar-height-personal) + 54px) !important;
         }}
 #personal-bookmarks{ overflow-y: auto; scrollbar-width: none;}
 
@@ -61,19 +61,27 @@
 #back-button{
     margin-left: var(--uc-vertical-toolbar-width,0) !important;
   }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+    max-width: var(--padding-left-tab) !important;
+    min-width: var(--padding-left-tab) !important;
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
     content: none !important ;
         } }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) {:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
-    margin-top: -1px !important;
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     min-height: 20px !important;
     min-width:  20px !important;
         } }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
     background-color: var(--lwt-frame) !important;
         } }
 /* menu :hover */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
 /* Alinear Items */
@@ -194,3 +202,52 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover
     margin-inline-start: 1px !important;
     color: var(--button-active-bgcolor) !important;
 }
+/* Linux default window controls icons - new position */
+@media (-moz-platform: linux) { .titlebar-buttonbox {
+    appearance: none !important;
+    position: fixed !important;
+    display: flex !important;
+    top: calc(var(--tab-height-personal) + 12px) !important;
+    left: 0px !important;
+    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    flex-direction: column-reverse !important;
+    background: transparent !important;
+}
+}
+@media (-moz-platform: linux){ .titlebar-button image { height: 24px !important; }}
+@media (-moz-platform: linux){ .titlebar-restore { margin-left: 3px !important;}}
+@media (-moz-platform: linux){ .titlebar-max { margin-left: 3px !important;}}
+@media (-moz-platform: linux){ .titlebar-min { margin-left: 6px !important;}}
+
+/* Linux Personalized window control icons ^--- Delete the previous block (205-221) and active this one. */
+/*
+@media (-moz-platform: linux){.titlebar-button{
+  list-style-image: none !important;
+  appearance: none !important;
+  }}
+@media (-moz-platform: linux) { .titlebar-buttonbox {
+    appearance: none !important;
+    position: fixed !important;
+    display: flex !important;
+    top: calc(var(--tab-height-personal) + 4px) !important;
+    left: 0px !important;
+    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    flex-direction: column-reverse !important;
+    background: transparent !important;
+}
+}
+@media (-moz-platform: linux){ .titlebar-button{ background: transparent !important; }
+@media (-moz-platform: linux){ .titlebar-button image{ height: 26px !important; width: 26px !important; margin-block: -2px !important;}}
+    
+@media (-moz-platform: linux){ .titlebar-close image { list-style-image: url("../images/closebuttonlinux.svg") !important; } }
+@media (-moz-platform: linux){ .titlebar-close:hover image{ list-style-image: url("../images/closebuttonhoverlinux.svg") !important; } }
+    
+@media (-moz-platform: linux){ .titlebar-min image { list-style-image: url("../images/minbuttonlinux.svg") !important; } }
+@media (-moz-platform: linux){ .titlebar-min:hover image{ list-style-image: url("../images/minbuttonhoverlinux.svg") !important; } }
+    
+@media (-moz-platform: linux){ .titlebar-max image { list-style-image: url("../images/maxbuttonlinux.svg") !important; } }
+@media (-moz-platform: linux){ .titlebar-max:hover image{ list-style-image: url("../images/maxbuttonhoverlinux.svg") !important; } }
+    
+@media (-moz-platform: linux){ .titlebar-restore image { list-style-image: url("../images/maxbuttonlinux.svg") !important; } }
+@media (-moz-platform: linux){ .titlebar-restore:hover image{ list-style-image: url("../images/maxbuttonhoverlinux.svg") !important; } }
+*/
