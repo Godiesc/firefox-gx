@@ -10,7 +10,7 @@
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
   }
-#PersonalToolbar{
+:root:not([chromehidden~="toolbar"]) #PersonalToolbar{
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,9 @@
     margin-top: calc( -1px - var(--toolbar-height-personal) ) !important;
     padding-top: calc(var(--toolbar-height-personal) + 14px) !important;
   }
-
+@media (-moz-platform: linux ){:root:not([chromehidden~="toolbar"])[tabsintitlebar] #PersonalToolbar{
+     padding-top: calc(var(--toolbar-height-personal) + 64px) !important;
+        }}
 #personal-bookmarks{ overflow-y: auto; scrollbar-width: none;}
 
 #PersonalToolbar >  #personal-bookmarks > #PlacesToolbar > hbox{ -moz-box-orient: vertical !important; }
@@ -49,7 +51,7 @@
 :root:not([chromehidden~="toolbar"]) #customization-container{
   margin-left: var(--uc-vertical-toolbar-width,0);
   }
-#PersonalToolbar{
+:root:not([chromehidden~="toolbar"]) #PersonalToolbar{
   background-color: var(--lwt-frame) !important;
   border-right: 1px solid transparent !important;
   border-image: linear-gradient(to bottom, var(--general-color) 0%, var(--button-active-bgcolor) 32% , var(--lwt-frame) 94%) 1 !important;
@@ -59,7 +61,7 @@
 #back-button{
     margin-left: var(--uc-vertical-toolbar-width,0) !important;
   }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
     content: none !important ;
         } }
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) {:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
@@ -71,7 +73,7 @@
     background-color: var(--lwt-frame) !important;
         } }
 /* menu :hover */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) {:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
 /* Alinear Items */
