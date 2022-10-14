@@ -39,6 +39,9 @@
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-restore { list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important }}
 
 /* Linux default window control icons*/
+@media (-moz-platform: linux){ :root[tabsintitlebar][sizemode="normal"] #TabsToolbar{
+  padding-block-start: 4px !important;
+    }}
 @media (-moz-platform: linux){.titlebar-button{
   list-style-image: none !important;
   appearance: auto !important;
@@ -55,57 +58,3 @@
 @media (-moz-platform: linux){.titlebar-close {
   -moz-default-appearance: -moz-window-button-close !important;
   }}
-
-@media (-moz-platform: linux) { .titlebar-buttonbox {
-    position: fixed !important;
-    display: flex !important;
-    top: calc(var(--tab-height-personal) + 10px) !important;
-    left: 0px !important;
-    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
-    flex-direction: column-reverse !important;
-}
-}
-@media (-moz-platform: linux){ .titlebar-button image { height: 26px !important; }
-@media (-moz-platform: linux){ .titlebar-restore { margin-left: -3px !important;}}
-@media (-moz-platform: linux){ .titlebar-max { margin-left: -3px !important;}}
-@media (-moz-platform: linux){ .titlebar-min { margin-left: -6px !important;}}
-
-
-/* Linux Personalized window control icons */
-   /*
-@media (-moz-platform: linux){ :root[tabsintitlebar][sizemode="normal"] #TabsToolbar{
-  padding-block-start: 4px !important;
-    }}
-@media (-moz-platform: linux){ #tabbrowser-tabs{
-  padding-inline-end: 20px !important;
-    }}
-@media (-moz-platform: linux){ .titlebar-button:hover {
-    appearance: none !important;
-    background-color: transparent !important;
-    }
-}
-@media (-moz-platform: linux) { .titlebar-buttonbox {
-    appearance: none !important;
-    position: fixed !important;
-    display: flex !important;
-    top: calc(var(--tab-height-personal) + 4px) !important;
-    left: 0px !important;
-    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
-    flex-direction: column !important;
-    background: transparent !important;
-}
-}
-@media (-moz-platform: linux){ .titlebar-button image{ height: 26px !important; width: 26px !important; }
-    
-@media (-moz-platform: linux){ .titlebar-close image { list-style-image: url("../images/closebuttonlinux.svg") !important; } }
-@media (-moz-platform: linux){ .titlebar-close:hover image{ list-style-image: url("../images/closebuttonhoverlinux.svg") !important; } }
-    
-@media (-moz-platform: linux){ .titlebar-min image { list-style-image: url("../images/minbuttonlinux.svg") !important; } }
-@media (-moz-platform: linux){ .titlebar-min:hover image{ list-style-image: url("../images/minbuttonhoverlinux.svg") !important; } }
-    
-@media (-moz-platform: linux){ .titlebar-max image { list-style-image: url("../images/maxbuttonlinux.svg") !important; } }
-@media (-moz-platform: linux){ .titlebar-max:hover image{ list-style-image: url("../images/maxbuttonhoverlinux.svg") !important; } }
-    
-@media (-moz-platform: linux){ .titlebar-restore image { list-style-image: url("../images/maxbuttonlinux.svg") !important; } }
-@media (-moz-platform: linux){ .titlebar-restore:hover image{ list-style-image: url("../images/maxbuttonhoverlinux.svg") !important; } }
-*/
