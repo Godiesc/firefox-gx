@@ -26,7 +26,7 @@
     background-color: var(--toolbar-bgcolor) !important; color: var(--general-color) !important;
     }}
 /* Keep the same windows control icons in all the themes, includint the themes with images */
-.titlebar-button{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) .titlebar-button{
     background-color: transparent !important;
     -moz-context-properties: stroke !important;
     stroke: currentColor !important;
