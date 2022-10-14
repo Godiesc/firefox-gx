@@ -1,21 +1,52 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/opera-gx */
 
-/*"Botón de cerrar pestaña"*/
-.close-icon {
+/*"Botón de cerrar pestaña" en windows y linux */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.close-icon {
     width: 15px !important;
     height: 15px !important;
-}
-.tab-close-button {
+    }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tab-close-button {
     list-style-image: url('../images/close.svg') !important;
     padding: 3px !important;
     border-radius: 0px !important;
     margin-inline-end: -2px !important;
-}
-.tab-close-button:hover {
+    }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tab-close-button:hover {
     background-color: var(--lwt-frame, var(--lwt-accent-color)) !important;
     fill: var(--identity-tab-color, var(--general-color)) !important;
-}
-.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+    }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tabbrowser-tab:not([pinned]):hover .tab-close-button {
     display: -moz-box !important
-}
+    }}
+
+/*----------------- Botón de cerrar pestaña" en MacOS --------------------*/
+@media (-moz-platform: macos) {.tab-content{
+    pointer-events: none
+    }}
+@media (-moz-platform: macos) {.tab-icon-image:not([busy]){ display: block !important; }
+:where(.tab-content:hover) .tab-icon-image,
+:where(.tab-content:hover) > .tab-icon-stack{
+    visibility: hidden;
+    }}
+@media (-moz-platform: macos) {.tab-close-button {
+    -moz-box-ordinal-group: 0;
+    display: -moz-box !important;
+    position: relative;
+    margin-inline: 4px -20px !important;
+    padding-inline-start: 0px !important;
+    opacity: 0;
+    width: 20px !important;
+    height: 20px !important;
+    padding: 3px !important;
+    pointer-events: auto;
+    border-radius: 50% !important;
+    background-color: color-mix(in srgb, var(--lwt-tab-text) 80%,transparent) !important;
+    color: var(--lwt-frame) !important;
+    }}
+@media (-moz-platform: macos) {.close-icon{
+    width: 16px !important;
+    height: 16px !important;
+    }}
+@media (-moz-platform: macos) {.tab-close-button:hover{ opacity: 1; margin-inline: 0px -16px !important; }}
+@media (-moz-platform: macos) {.tabbrowser-tab[pinned] .tab-close-button{ display: none !important; }}
