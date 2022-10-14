@@ -31,10 +31,54 @@
     -moz-context-properties: stroke !important;
     stroke: currentColor !important;
 }
-.titlebar-button:hover{ background-color: hsla(0,0%,100%,.32) !important }
-.titlebar-close:hover{ background-color: hsl(355,86%,49%) !important; color: white !important; 
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) .titlebar-button:hover{ background-color: hsla(0,0%,100%,.32) !important }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) .titlebar-close:hover{ background-color: hsl(355,86%,49%) !important; color: white !important; 
 }
-.titlebar-close   { list-style-image: url(chrome://browser/skin/window-controls/close.svg) !important }
-.titlebar-min     { list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important }
-.titlebar-max     { list-style-image: url(chrome://browser/skin/window-controls/maximize.svg) !important }
-.titlebar-restore { list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) .titlebar-close   { list-style-image: url(chrome://browser/skin/window-controls/close.svg) !important }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) .titlebar-min     { list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) .titlebar-max     { list-style-image: url(chrome://browser/skin/window-controls/maximize.svg) !important }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) .titlebar-restore { list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important }
+
+/* Linux Controls */
+/*
+@media (-moz-platform: linux){ #tabbrowser-tabs{
+  padding-inline-start: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    }
+}
+*/
+@media (-moz-platform: linux){ :root[tabsintitlebar][sizemode="normal"] #TabsToolbar{
+  padding-block-start: 4px !important;
+    }}
+@media (-moz-platform: linux){ #tabbrowser-tabs{
+  padding-inline-end: 20px !important;
+    
+    }}
+@media (-moz-platform: linux){ .titlebar-button:hover {
+    appearance: none !important;
+    background-color: transparent !important;
+    }
+}
+@media (-moz-platform: linux) { .titlebar-buttonbox {
+    appearance: none !important;
+    position: fixed !important;
+    display: flex !important;
+    top: calc(var(--tab-height-personal) + 4px) !important;
+    left: 0px !important;
+    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    flex-direction: column !important;
+    background: transparent !important;
+}
+}
+@media (-moz-platform: linux){ .titlebar-button image{ height: 26px !important; width: 26px !important; }
+    
+@media (-moz-platform: linux){ .titlebar-close image { list-style-image: url("../images/closebuttonlinux.svg") !important; } }
+@media (-moz-platform: linux){ .titlebar-close:hover image{ list-style-image: url("../images/closebuttonhoverlinux.svg") !important; } }
+    
+@media (-moz-platform: linux){ .titlebar-min image { list-style-image: url("../images/minbuttonlinux.svg") !important; } }
+@media (-moz-platform: linux){ .titlebar-min:hover image{ list-style-image: url("../images/minbuttonhoverlinux.svg") !important; } }
+    
+@media (-moz-platform: linux){ .titlebar-max image { list-style-image: url("../images/maxbuttonlinux.svg") !important; } }
+@media (-moz-platform: linux){ .titlebar-max:hover image{ list-style-image: url("../images/maxbuttonhoverlinux.svg") !important; } }
+    
+@media (-moz-platform: linux){ .titlebar-restore image { list-style-image: url("../images/maxbuttonlinux.svg") !important; } }
+@media (-moz-platform: linux){ .titlebar-restore:hover image{ list-style-image: url("../images/maxbuttonhoverlinux.svg") !important; } }
