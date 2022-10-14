@@ -21,15 +21,20 @@
     }}
 
 /*----------------- Botón de cerrar pestaña" en MacOS --------------------*/
-@media (-moz-platform: macos) {.tab-content{
+@media (-moz-platform: linux) {.tab-content{
     pointer-events: none
     }}
-@media (-moz-platform: macos) {.tab-icon-image:not([busy]){ display: block !important; }
-:where(.tab-content:hover) .tab-icon-image,
-:where(.tab-content:hover) > .tab-icon-stack{
+@media (-moz-platform: linux) {.tab-icon-image:not([busy]){ display: block !important; }}
+@media (-moz-platform: linux) {.tabbrowser-tab:hover .tab-icon-image,
+.tabbrowser-tab:hover > .tab-icon-stack{
     visibility: hidden;
+    opacity: 0 !important;
     }}
-@media (-moz-platform: macos) {.tab-close-button {
+@media (-moz-platform: linux) { .tabbrowser-tab:hover .tab-throbber[busy],.tabbrowser-tab:hover .tab-icon-pending[busy]{
+    --tab-loading-fill: transparent !important;
+    opacity: 0 !important;
+    }}
+@media (-moz-platform: linux) { .tab-close-button {
     -moz-box-ordinal-group: 0;
     display: -moz-box !important;
     position: relative;
@@ -44,9 +49,13 @@
     background-color: color-mix(in srgb, var(--lwt-tab-text) 80%,transparent) !important;
     color: var(--lwt-frame) !important;
     }}
-@media (-moz-platform: macos) {.close-icon{
+@media (-moz-platform: linux) {.tabbrowser-tab:hover .tab-close-button:not(:hover){background-color: transparent !important;
+    color: var(--lwt-tab-text) !important;
+    }}
+@media (-moz-platform: linux) {.close-icon{
     width: 16px !important;
     height: 16px !important;
     }}
-@media (-moz-platform: macos) {.tab-close-button:hover{ opacity: 1; margin-inline: 0px -16px !important; }}
-@media (-moz-platform: macos) {.tabbrowser-tab[pinned] .tab-close-button{ display: none !important; }}
+@media (-moz-platform: linux) { .tabbrowser-tab:hover .tab-close-button{ opacity: 1; margin-inline: 0px -16px !important; }}
+@media (-moz-platform: linux) {.tabbrowser-tab[pinned] .tab-close-button{ display: none !important; }}
+
