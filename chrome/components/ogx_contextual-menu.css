@@ -6,7 +6,7 @@ menupopup>menuitem, menupopup>menu {
     padding-block: 0.44em !important; 
 }
 @media (-moz-platform: linux) { menupopup>menuitem, menupopup>menu {
-    padding-block: 0.18em !important; 
+    padding-block: 0.26em !important; 
     }}
 /* Borde izquierda y derecha del menú contextual */
 menugroup>menuitem:first-child { padding-left:  4px !important; }
