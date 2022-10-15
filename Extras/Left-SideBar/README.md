@@ -21,3 +21,5 @@
 ## Preview
 
 ![imagen](https://user-images.githubusercontent.com/22057609/194623967-be508e7c-9950-49a1-9bed-74bf9f5312fb.png)
+
+![imagen](https://user-images.githubusercontent.com/22057609/195985244-3da8b779-7a3c-4cd2-9777-52e938cc30cd.png)
