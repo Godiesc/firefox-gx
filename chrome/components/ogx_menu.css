@@ -6,7 +6,7 @@
 /* ------------Menú hamburguesa-> top-left ------------- */
 /*Posición*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-button{
-    position: fixed;  display: flex;  top: var(--top-personal-hbutton);
+    position: fixed;  display: flex;  top: calc(var(--top-personal-hbutton) + var(--windowed-top-padding, 0px));
 }
 /* Tamaño menu Open ventana no maximizada*/
 #appMenu-popup panelview{ width: 25.5em !important;
