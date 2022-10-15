@@ -52,7 +52,7 @@
 <li>Linux - Manjaro KDE (Tested - Probado) ✔ - <a href="https://i.imgur.com/xv1NKYQ.png">Preview</a></li>
 <li>Windows 10 (Tested - Probado) ✔ - <a href="https://i.imgur.com/ckLxcZe.png">Preview</a></li>
 <li>Windows 11 (Tested - Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png" >Preview</a></li>
-<li>MacOS (Tested - Probado)  - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a> </br> ( ⚠ - Please delete the <code>ogx_menu.css</code> file) </br> Thanks to <a href= "https://github.com/FormalSnake"> FormalSnake</a> for helping to test the theme.</li>
+<li>MacOS (Tested - Probado) ✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a> </br> ( ⚠ - Please delete the <code>ogx_menu.css</code> file) </br> Thanks to <a href= "https://github.com/FormalSnake"> FormalSnake</a> for helping to test the theme.</li>
 </ul>
 
 # Example of about:support
