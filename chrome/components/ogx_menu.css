@@ -11,6 +11,8 @@
 /* Tamaño menu Open ventana no maximizada*/
 #appMenu-popup panelview{ width: 25.5em !important;
 }
+@media (-moz-platform: linux) { #appMenu-popup panelview{ width: 25.5em !important;
+    }}
 /* margen izquierda pestañas*/
 #toolbar-menubar, #toolbar-menubar[autohide="true"] + #TabsToolbar{
     padding-left: var(--padding-left-tab) !important;
@@ -106,6 +108,9 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
     --arrowpanel-menuitem-padding: 7px !important;
 }
 }
+@media (-moz-platform: linux) {:root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
+    --arrowpanel-menuitem-padding: 5px !important;
+    }}
 /* Separadores */
 :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator{
     margin-inline-start: 30px !important;
