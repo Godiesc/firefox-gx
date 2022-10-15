@@ -215,9 +215,9 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover
 }
 }
 @media (-moz-platform: linux){ .titlebar-button image { height: 24px !important; }}
-@media (-moz-platform: linux){ .titlebar-restore { margin-left: 3px !important;}}
-@media (-moz-platform: linux){ .titlebar-max { margin-left: 3px !important;}}
-@media (-moz-platform: linux){ .titlebar-min { margin-left: 6px !important;}}
+@media (-moz-platform: linux){ .titlebar-restore { margin-left: -3px !important;}}
+@media (-moz-platform: linux){ .titlebar-max { margin-left: -3px !important;}}
+@media (-moz-platform: linux){ .titlebar-min { margin-left: -6px !important;}}
 
 /* Linux Personalized window control icons ^--- Delete the previous block (205-221) and active this one. */
 /*
