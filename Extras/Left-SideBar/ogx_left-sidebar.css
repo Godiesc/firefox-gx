@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     left: 0;
-    top: var(--tab-height-personal) !important;
+    margin-top: calc( -1px - var(--toolbar-height-personal) ) !important;
     width: var(--uc-vertical-toolbar-width,0);
     
     /* These create a empty area to the bottom of the toolbar, which is to mask a fact that we don't know exactly how high the toolbar should be */
