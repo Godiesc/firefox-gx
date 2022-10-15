@@ -39,8 +39,11 @@
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-restore { list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important }}
 
 /* Linux default window control icons*/
+@media (-moz-platform: linux){ :root[tabsintitlebar][sizemode="normal"]{
+    --windowed-top-padding: 4px;
+    }}
 @media (-moz-platform: linux){ :root[tabsintitlebar][sizemode="normal"] #TabsToolbar{
-  padding-block-start: 4px !important;
+  padding-block-start: var(--windowed-top-padding, 0px) !important;
     }}
 @media (-moz-platform: linux){.titlebar-button{
   list-style-image: none !important;
