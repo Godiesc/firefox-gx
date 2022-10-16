@@ -90,7 +90,9 @@
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"] #main-menubar{
   -moz-box-flex: 1;
   -moz-box-align: stretch;
-  background-color: red;
+  margin-left: 1px !important;
+  padding-left: 4px !important;
+  background-color: var(--lwt-frame) !important;
   background-clip: padding-box;
   border-right: 30px solid transparent;
   border-image: linear-gradient(to left, transparent, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor) 30px) 20 / 30px
