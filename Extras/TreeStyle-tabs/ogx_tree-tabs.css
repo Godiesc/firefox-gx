@@ -5,7 +5,7 @@
   --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
   --tab-min-height: var(--toolbar-height-personal) !important;
 }
-#PersonalToolbar{
+:root:not([chromehidden~="toolbar"]) #PersonalToolbar{
     margin-top: 0px !important;
 }
 :root[tabsintitlebar] .titlebar-buttonbox {
