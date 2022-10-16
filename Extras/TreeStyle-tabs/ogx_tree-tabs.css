@@ -4,6 +4,10 @@
 :root{
   --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
   --tab-min-height: var(--toolbar-height-personal) !important;
+  --windowed-top-padding: 0px !important;
+}
+:root:not([chromehidden~="toolbar"]) #PersonalToolbar{
+    margin-top:calc(-1px - var(--tab-min-height)) !important;
 }
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
     margin-top: 0px !important;
@@ -11,6 +15,9 @@
 :root[tabsintitlebar] .titlebar-buttonbox {
   background: var(--toolbar-bgcolor) !important;
 }
+@media (-moz-platform: linux){:root[tabsintitlebar] .titlebar-buttonbox {
+  background: var(--lwt-frame) !important;
+    }}
 #sidebar-header {
   display: none;
 }
@@ -60,7 +67,8 @@
 /* Hides tabs toolbar */
 /* For OSX use hide_tabs_toolbar_osx.css instead */
 
-:root[tabsintitlebar]{ --uc-toolbar-height: var(--toolbar-height-personal) !important; }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
+    :root[tabsintitlebar]{ --uc-toolbar-height: var(--toolbar-height-personal) !important; }}
 
 #TabsToolbar{ visibility: collapse !important }
 
@@ -85,7 +93,7 @@
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"] #main-menubar{
   -moz-box-flex: 1;
   -moz-box-align: stretch;
-  background-color: var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor);
+  background-color: red;
   background-clip: padding-box;
   border-right: 30px solid transparent;
   border-image: linear-gradient(to left, transparent, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor) 30px) 20 / 30px
@@ -105,12 +113,12 @@ See the above repository for updates as well as full license text. */
 
 /* Defaults for window controls on RIGHT side of the window */
 /* Modify these values to match your preferences */
-:root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
   --uc-window-control-width: 89px; /* Space reserved for window controls (Win10) */
   /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
   --uc-window-drag-space-pre: 0px; /* left side*/
   --uc-window-drag-space-post: 30px; /* right side*/
-}
+    }}
 
 :root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
   --uc-window-drag-space-pre: 0px; /* Remove pre space */
@@ -124,7 +132,7 @@ See the above repository for updates as well as full license text. */
   }
 }
 
-@media (-moz-gtk-csd-available) {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){@media (-moz-gtk-csd-available) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 84px;
   }
