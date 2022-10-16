@@ -2,4 +2,5 @@
    https://github.com/Godiesc/opera-gx */  
 
 @import url(components/ogx_root-personal.css);
-@import url(components/ogx_userContent-personal.css);
+@import url(components/ogx_UC-newtabpage.css);
+@import url(components/ogx_UC-settings-addons-pages.css);
