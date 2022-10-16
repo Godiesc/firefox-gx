@@ -1,0 +1,290 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
+   https://github.com/Godiesc/opera-gx */
+
+:root{ scrollbar-color: #38375580 #18173530 !important; }                            /*Color de la barra de desplazamiento*/
+/**{ scrollbar-width: thin !important}*/                                             /*Barra de desplazamiento delgada*/
+
+.alt-stop { stop-color: var(--left-color) !important; }                                       /* left color logo-and-wordmark */
+.main-stop  { stop-color: var(--right-color) !important; }                                    /* right color logo-and wordmark*/
+
+@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home),url(about:privatebrowsing) {
+body {
+    --lwt-sidebar-background-color: #181735 !important;                                       /* Sidebar fondo */
+    --newtab-background-color: #101019 !important;                                            /* Color fondo general */
+
+    --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/
+    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                     /* color de fondo al hacer clic al ícono menú 3 puntos*/
+
+    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
+      var(--button-hover-bgcolor) 49%, transparent) !important;
+
+    --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
+      var(--button-active-bgcolor) 69%, transparent) !important;
+
+    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
+        var(--newtab-wordmark-color)) !important;
+
+    --newtab-text-primary-color: #dadada !important;                                          /* label general */
+    --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
+
+    --newtab-overlay-color: color-mix(in srgb, #090909 54%, transparent) !important;          /* fondo al editar sitio, transparente */
+
+    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
+
+    --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
+      var(--newtab-background-color) 90%, var(--newtab-wordmark-color) ) !important;
+
+    --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* color bola de radiobutton */
+}
+/* ntp - Fondo general de la paginas newtab y home */
+.activity-stream {
+    background-color: var(--newtab-background-color, #ff0000) !important;
+}
+/* Eliminar scrollbar */
+*{scrollbar-width: none !important }
+
+/* Color checkbox accesos patrocinados */
+.sponsored-checkbox:is(:checked):hover, .sponsored-checkbox:not(:checked):hover{ background-color: var(--button-hover-bgcolor) !important;}
+
+/* Color de borde del radio-button en "Personalizar" */
+.home-section .section .slider {border-color: transparent !important;}
+.home-section .section .slider:hover {background-color: var(--button-hover-bgcolor) !important;}
+
+/* Colores al "editar" un sitio anclado */
+.modal{
+    background: #00000020 !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    border-radius: 0 !important; }
+.modalOverlayOuter{
+    backdrop-filter: blur(26px); }
+.topsite-form .actions{
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;}
+input[type="text"], input[type="search"] {
+    border-radius: 4px !important; }
+input:focus-visible, input:focus-visible{
+    outline: 1px solid var(--general-color) !important;
+    border-color: var(--general-color) !important;
+}
+/* Fondo y borde del menú de 3 puntos */
+.context-menu {
+    background-color: #1c1726 !important; border-radius: 0px !important;
+    box-shadow: 0px 0px 0 1px #00000070 !important;
+    border: 1px solid var(--newtab-border-color);
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+}
+/* linea separadora */
+.context-menu .separator{
+    margin-block: 2px !important;
+    margin-left: 6px !important; margin-right: 6px !important;
+    width: -moz-available !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+}
+/* Color de borde del boton "Guardar" */
+.actions button:not(.cancel), .actions button:focus:not(.cancel) {
+    color: white !important;  border: transparent !important;}
+.actions button:hover:not(.dismiss) {
+    background-color: var(--button-hover-bgcolor) !important; color: white !important; box-shadow:none !important; }
+
+/* Color de borde del boton "Cancelar"*/
+.actions button:is(.cancel){
+    background-color: var(--newtab-element-secondary-color) !important; border-color: transparent !important; }
+.actions button:is(.cancel):hover {
+    box-shadow:none !important; background-color: #da3633 !important; color: #f0f6fc !important; border-color: #f85149 !important;}
+
+/* Botón "Personalizar" */
+.icon.icon-settings {
+    background-image: url("../images/edit.svg") !important; }
+.personalize-button {
+    color: color-mix( in srgb, var(--newtab-background-color) 60%, var(--newtab-wordmark-color) ) !important;}
+.personalize-button:hover {
+    background-color: var(--newtab-background-color-secondary)!important; fill:var(--newtab-wordmark-color)  !important;}
+
+/* Colores del botón "Cerrar" */
+.close-button {
+    background-color: var(--newtab-element-secondary-color) !important;
+    color: var(--newtab-wordmark-color)  !important;
+    border-radius: 4px !important;
+    border-color: transparent !important; }
+.close-button:hover{
+    background-color: var(--button-active-bgcolor) !important;
+    color: var(--newtab-wordmark-color)  !important;
+    border-radius: 4px !important;
+}
+/*Colores de la sidebar deslizante para Personalizar la NewTab*/
+    /* Fondo */
+.customize-menu {
+    background-color: #101014ac !important;
+    color: var(--newtab-wordmark-color) !important;
+    backdrop-filter: var(--personal-blur); }
+    /* Combobox */
+.home-section .section .selector {
+    background-color: var(--newtab-element-secondary-color) !important;
+    border-color: transparent !important;
+    border-radius: 4px !important; }
+.home-section .section .selector:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+    border-color: var(--button-hover-bgcolor) !important;}
+    /* Sombra izquierda de la sidebar */
+.customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
+    box-shadow: -1px 0 #00000030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
+    /* Separador*/
+    .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}
+
+/* Cuadro de búsqueda*/
+.search-inner-wrapper{
+    background: var(--newtab-pinnedsites-background) !important;
+    opacity: var(--searchbar-on-off, 1) !important;
+    display: var(--searchbar-display, flex) !important;
+    margin-top: 50px !important;
+    box-shadow: 0 2px 0 0px var(--button-hover-bgcolor) !important;
+    }
+.search-wrapper .search-handoff-button{
+    box-shadow: none !important; 
+    }
+.search-inner-wrapper:not(:focus){
+    outline: 0px solid #50505030 !important;
+    border-radius: 0px !important;
+    backdrop-filter: none !important;
+}
+.search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
+    outline: 0px solid #50505030 !important;
+    border-radius: 0px !important;
+    backdrop-filter: var(--personal-blur) !important;
+}
+.search-inner-wrapper:is(:hover){
+    outline: 0px solid var(--button-hover-bgcolor) !important;
+    box-shadow: 0 2px 0 0px var(--general-color) !important;
+    border-radius: 0px !important;
+}
+.search-handoff-button{
+    border-color: transparent !important;
+}
+.search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
+    outline: 0px solid var(--button-hover-bgcolor) !important;
+    box-shadow: 0 0px 0 0px var(--general-color) !important;
+    border: transparent !important;
+    margin-left: 1px !important;
+    z-index: 1000 !important;
+}
+/* Actividad reciente */
+.card-outer .card { 
+    backdrop-filter: var(--personal-blur);
+    border-radius: 0px !important;
+    box-shadow: 0px 2px 0px var(--button-hover-bgcolor) !important;
+    border: 1px solid !important;
+    border-bottom: 0px !important;
+    border-color: #50505030 !important;
+}
+.compact-cards .card-outer .card-preview-image-outer { border-radius: 0 !important; }
+    
+/*fondo pequeño de los favICON de los sitios anclados*/
+.top-site-icon{ background-color: transparent !important; }
+
+/* Sitios anclados */
+.top-site-outer .tile{
+    box-shadow: none !important;
+    outline: 0px solid #50505030 !important;
+}
+/* Fondo de sitios anclados */
+.top-sites-list{
+    background: var(--newtab-pinnedsites-background) !important;
+    backdrop-filter: var(--personal-blur) !important;
+    outline: 1px solid #50505030 !important;
+    border-radius: 0px !important;
+    box-shadow: 0 -2px 0 0px var(--button-hover-bgcolor) !important;
+    z-index: -100 !important;
+}
+.top-sites-list:hover{
+    box-shadow: 0 -2px 0 0px var(--button-active-bgcolor) !important;
+    }
+/* colores al pasar el mouse sobre los sitios anclados en :hover */
+.top-site-outer:is(.active, :focus, :hover) .tile{
+    background: #09090920 !important;
+    box-shadow: 0 0 0 1px var(--button-active-bgcolor) !important;
+}
+/* colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
+.top-site-outer:is(.active, :focus, :hover){
+    background:transparent !important;
+}
+/* ícono de 3 puntos al hacerle hover y clic */
+.context-menu-button:active, .context-menu-button:focus{ fill: var(--general-color) !important;
+}
+/* Botón de editar sitio anclado */
+.top-site-outer .context-menu-button {
+    background-image: url("../images/more.svg") !important;
+    background-color: transparent !important;
+    inset-inline-end: 2px !important;
+    top: -2px !important;
+    transition: opacity 200ms;
+    fill: var(--button-hover-bgcolor) !important;
+}
+/* Fondo de <popup> al intentar eliminar un sitio anclado*/
+.modal{
+    backdrop-filter: var(--personal-blur) !important;
+    outline: 1px solid black !important;
+    }
+/*------------------------fondo (imagen), Logo y Wordmark------------------------*/
+body{
+    background: var(--lwt-main-image) no-repeat right top fixed !important;
+    background-size:  var(--wallpaper-size) !important;
+    background-position-y: var(--background-align-y) !important;
+    backdrop-filter: var(--brightness-wallpaper) !important;
+    }
+.logo{
+    background: url("../images/foxlogo.svg") no-repeat !important;
+    background-size: cover !important;
+    height: 80px !important;
+    width: 75px !important;
+    Opacity: var(--logo-wordmark-visibility) !important;
+    display: var(--logo-wordmark-display) !important;
+    }
+.wordmark {
+    background: url("../images/firefox-wordmark.svg") no-repeat center center !important;
+    background-size: 134px !important;
+    height: 82px !important;
+    width: 134px !important;
+    margin-inline-start: 16px !important;
+    Opacity: var(--logo-wordmark-visibility) !important;
+    display: var(--logo-wordmark-display) !important;
+    }
+.search-wrapper .logo-and-wordmark {
+    margin-bottom: 0px !important; }
+.promo-cta .button {
+    color: #cacaca !important; }
+main {
+    margin-top: var(--newtab-pinnedsites-position-top, auto) !important;
+}
+}
+/*---------------------------------- Pagina de Error al Cargar Página ---------------------------------------------*/
+@-moz-document url('about:config'),  url(about:privatebrowsing), regexp("^about:(neterror|certerror).*") {
+
+.button[autofocus], .button[type="submit"], .button[default], button.primary:not(:hover) {
+    background-color: var(--button-active-bgcolor) !important;
+    color: white !important;
+    border-color: transparent !important;
+    }
+button.primary:hover{
+    background-color: var(--button-hover-bgcolor) !important;
+    color: white !important; }
+}
+/*Color fondo y letra al seleccionar texto*/
+::selection {
+    color: black !important;
+    background: var(--selected-text-background) !important;
+}
+/* ----------------------- search input and ads style in private mode ------------------------*/
+@-moz-document url(about:privatebrowsing) {
+.promo.below-search, .info{
+    background-color: var(--newtab-pinnedsites-background) !important;
+    backdrop-filter: var(--personal-blur) !important;
+    outline: 1px solid #50505030 !important;
+    }
+.search-handoff-button{
+    background-color: transparent !important;
+    border: transparent !important;
+    box-shadow: none !important;
+    }
+.fake-textbox{
+    color: var(--newtab-wordmark-color) !important;
+    }
+}
