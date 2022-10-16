@@ -128,13 +128,6 @@ See the above repository for updates as well as full license text. */
     --uc-window-control-width: 105px;
   }
 }
-
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) {
-  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 84px;
-  }
-}
-
 /* macOS settings are further below */
 .titlebar-buttonbox, #window-controls{ color: var(--toolbar-color) }
 :root[sizemode="fullscreen"] .titlebar-buttonbox-container{ display: none }
