@@ -98,6 +98,10 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
 #PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], :active),
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack image{
 }
+/* Personal toolbar width in customization mode */
+:root[customizing] .customization-target:not(#widget-overflow-fixed-list) {
+  min-width: initial !important;
+}
 /* Color items barra de marcadores */
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]) {
     color: var(--button-active-bgcolor) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important; 
