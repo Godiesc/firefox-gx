@@ -7,9 +7,6 @@
   --windowed-top-padding: 0px !important;
 }
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
-    margin-top:calc(-1px - var(--tab-min-height)) !important;
-}
-:root:not([chromehidden~="toolbar"]) #PersonalToolbar{
     margin-top: 0px !important;
 }
 :root[tabsintitlebar] .titlebar-buttonbox {
@@ -132,7 +129,7 @@ See the above repository for updates as well as full license text. */
   }
 }
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){@media (-moz-gtk-csd-available) {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10), (-moz-gtk-csd-available) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 84px;
   }
