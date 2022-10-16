@@ -129,7 +129,7 @@ See the above repository for updates as well as full license text. */
   }
 }
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10), (-moz-gtk-csd-available) {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 84px;
   }
