@@ -88,7 +88,7 @@
 #scrollbutton-up, #scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; 
 }
 /* botón >> ALL tabs */
-#alltabs-button:hover {
+#alltabs-button:is(:hover, [open]) {
      fill: var(--general-color) !important; 
 }
 /* Color hover the íconos en la tab-bar */
