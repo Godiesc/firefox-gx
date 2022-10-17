@@ -12,6 +12,6 @@
   there is a description on the right side of the rule, That's all. 💙</li>
 </ol>
 
-<p><i>PD: Make sure you have active a compatible theme, with some image themes the selected tab will display a black line using this configuration.</i></p>
+<p><i>PD: Make sure you have active a compatible theme, with some image themes the selected tab will display a black line.</i></p>
 
 ![imagen](https://user-images.githubusercontent.com/22057609/196301513-ead772e6-26e1-49dc-9c99-85558273a1a3.png)
