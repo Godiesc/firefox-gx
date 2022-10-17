@@ -1,0 +1,325 @@
+:root{
+  --toolbar-bgcolor: transparent !important;                             /* "toolbar":"#131118", "Color de la toolbar"*/
+  --lwt-sidebar-background-color:  #101019 !important;                   /* Necesario para corregir bug en ogx_library.css */
+  --lwt-selected-tab-background-color: #101019 !important;               /* Color defaul de la petaña activa */
+  --tab-height-personal: 32px !important;                                /* Minimum Height 32px for the right function of the theme*/
+  --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
+  --navbarWidth:32vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
+  --toolbarbutton-hover-personal: #251f33 !important; 
+}
+:root[lwtheme-image]{
+  --toolbar-bgcolor: transparent !important;                                     
+  --lwt-selected-tab-background-color: #101019bf !important;                     
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;
+  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
+}
+:root[style*="--lwt-additional-images"]{
+  --toolbar-bgcolor: transparent !important;                                                                
+  --lwt-selected-tab-background-color: color-mix(in srgb, var(--lwt-frame) 82%, transparent) !important;
+  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;
+  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
+}
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 2px) !important;
+    margin-left: 0px !important; margin-right: 0px !important; margin-top: 0px !important; border-radius: 8px 2px 0 0 !important;
+    background: var(--lwt-selected-tab-background-color) !important; clip-path: none !important; border-bottom: 2px solid var(--lwt-frame) !important;
+}
+/* Colores windows controls */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+.titlebar-button{
+    background-color: transparent !important; color: var(--toolbarbutton-icon-fill) !important;
+    }
+}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+.titlebar-button:hover:not(.titlebar-close){
+    background-color: var(--toolbarbutton-hover-personal) !important; color: var(--general-color) !important;
+    }
+} 
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button{
+    background-color: transparent !important; color: var(--toolbarbutton-icon-fill) !important;
+    }
+} 
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
+    background-color: var(--toolbarbutton-hover-personal) !important; color: var(--general-color) !important;
+    }
+}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:is(.titlebar-close){
+    background-color: red !important; color: white !important;
+    }
+}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-min{
+    padding-top: initial !important;
+    padding-bottom: 0px !important;
+    }}
+/* Espacio de arrasste antes y despues de las pestañas en ventanas no maximizadas */
+:root[tabsintitlebar][sizemode="normal"] #tabbrowser-tabs{padding-inline: 30px !important;
+}
+/* Modify these values to match your preferences */
+:root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+  --uc-window-control-width: 118px; /* Space reserved for window controls (Win10) */
+  /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
+  --uc-window-drag-space-pre: 0px; /* left side*/
+  --uc-window-drag-space-post: 0px; /* right side*/
+}
+
+:root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
+  --uc-window-drag-space-pre: 0px; /* Remove pre space */
+}
+@media (-moz-gtk-csd-available) {
+  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
+    --uc-window-control-width: 84px;
+  }
+}
+/* macOS settings are further below */
+.titlebar-buttonbox, #window-controls{ color: var(--toolbar-color) }
+:root[sizemode="fullscreen"] .titlebar-buttonbox-container{ display: none }
+:root[sizemode="fullscreen"] #navigator-toolbox { position: relative; }
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+:root[sizemode="fullscreen"] #window-controls{
+  position: absolute;
+  display: flex;
+  top: 0;
+  right:0;
+  height: 40px;
+}
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+:root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: var(--tab-height-personal) !important; }
+
+#nav-bar{
+  border-inline: var(--uc-window-drag-space-pre,0px) solid var(--toolbar-bgcolor);
+  border-inline-style: solid !important;
+  border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));
+}
+
+/* Use this pref to check Mac OS where window controls are on left */
+/* This pref defaults to true on Mac and doesn't actually do anything on other platforms. So if your system has window controls on LEFT side you can set the pref to true */
+@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
+  :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+    --uc-window-control-width: 72px;
+  }
+  :root[tabsintitlebar="true"]:not([inFullscreen]) #nav-bar{
+    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
+  }
+  :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+  :root[sizemode="fullscreen"] #window-controls{ right: unset }
+}
+
+/* Modify these to change relative widths or default height */
+#navigator-toolbox{
+  --uc-navigationbar-width: var(--navbarWidth);
+  --uc-toolbar-height: 37px;
+}
+#scrollbutton-up,
+#scrollbutton-down{ border-block-width: 0px !important; }
+
+/* reserved space for overflow + menu buttons */
+#navigator-toolbox{
+  --uc-buttons-width: calc(16px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px));
+}
+#nav-bar:not([overflowing]) > #nav-bar-customization-target{ 
+  --uc-buttons-width: calc(56px + 2 * var(--toolbarbutton-outer-padding) + 6px);
+}
+/* prevent urlbar overflow on narrow windows */
+/* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
+@media screen and (max-width: 50000px){
+  #urlbar-container{ min-width:unset !important }
+}
+#TabsToolbar{
+  margin-left: var(--uc-navigationbar-width);
+}
+
+/* This isn't useful when tabs start in the middle of the window */
+.titlebar-spacer[type="pre-tabs"]{ width:0px !important}
+#nav-bar{ margin-top: calc(0px - var(--uc-toolbar-height)); }
+
+#nav-bar-customization-target{ margin-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-post)); }
+
+@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
+  .titlebar-buttonbox-container{ position: fixed; display: blocK; left: 0px; z-index: 3; }
+  #nav-bar-customization-target{ margin-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-buttons-width) - var(--uc-window-drag-space-pre)) }
+}
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container,
+#TabsToolbar > .toolbar-items {
+  position: relative !important;
+  z-index: 3 !important;
+}
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-spacer[type="post-tabs"]{
+  display: -moz-box !important;
+}
+.titlebar-spacer[type="post-tabs"]{
+  width: calc(var(--uc-buttons-width) + var(--uc-window-drag-space-post)) !important;
+}
+:root[privatebrowsingmode="temporary"] .titlebar-spacer[type="post-tabs"]{
+  width: var(--uc-buttons-width) !important
+}
+#PanelUI-button,#nav-bar-overflow-button{
+  margin: 0px !important;
+  border: 0px !important;
+  position: relative;
+  z-index: 3;
+}
+/* Hide dropdown placeholder */
+#urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
+
+
+
+
+
+/* ######----------------------------- My config ----------------------------###### */
+
+:root:not([inDOMFullscreen]){
+    --uc-vertical-toolbar-width: 41px;
+    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
+  }
+/* Nuevos margenes Botón menú */
+#back-button{
+    margin-left: var(--uc-vertical-toolbar-width,0) !important;
+  }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+    max-width: var(--padding-left-tab) !important;
+    min-width: var(--padding-left-tab) !important;
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
+    content: none !important ;
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
+    min-height: 20px !important;
+    min-width:  20px !important;
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
+    background-color: transparent !important;
+        } }
+/* menu :hover */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+    background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
+        } }
+#appMenu-popup panelview{ width: 25.5em !important;
+}
+/* urlbar focus - open */
+#urlbar-container:not([open=true],:focus, :focus-within ){ min-width: 22vw !important; }
+#urlbar:focus-within  { min-width: 52vw !important; clip-path: polygon(0px 0%, 26vw 0%, 0% 9000vw, 0% 0px) !important;}
+#urlbar[open=true]  { min-width: 52vw !important; clip-path: none !important;}
+
+toolbar:is(.browser-toolbar){    
+    border-image: var(--panel-separator-zap-gradient2) 1 !important; 
+    margin-bottom: -1px !important;
+    padding-bottom: 0px !important;
+    border-bottom: 1px solid var(--toolbar-bgcolor) !important;    
+    padding-top: 1px !important;
+}
+#nav-bar{    
+    padding-top: none !important;
+    border-top: none !important;    
+    padding-bottom: none !important;
+    margin-top  :calc(var(--tab-min-height) - var(--tab-min-height) - var(--tab-min-height) - 2px) !important;
+    height: calc(var(--tab-min-height) + 3px) !important;
+}
+#TabsToolbar{
+    border-bottom: none !important;
+}
+/* separador izquierda y derecha urlbar */
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{padding-top: 27px !important; ) !important;}
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -23px !important;}
+
+/* Urlbar más pequeña */
+#urlbar:not([open]){
+    min-height: 26px !important;
+    max-height: 26px !important;
+    -moz-box-pack: center !important;
+    -moz-box-orient: vertical !important;
+}
+/* box, caja de íconos urlbar*/
+#identity-icon-box, #tracking-protection-icon-container, #identity-permission-box, #notification-popup-box {   
+    margin-block: 2px !important; }
+.urlbar-page-action {
+    margin: 2px !important;
+    padding: 2px !important;
+}
+/* Quitar linea gradiente al mostrar la barra de menú */
+#toolbar-menubar {
+    border-image: none !important;
+}
+/* Mantener linea gradiente al mostrar la barra de marcadores */
+#PersonalToolbar {
+    border-top: 1px solid transparent !important;
+    margin-top: 0px !important;
+    border-image: none !important;
+    border-bottom: 1px solid var(--lwt-frame) !important;
+    
+    padding-block: 4px 3px !important;
+    
+    background-color: var(--lwt-selected-tab-background-color) !important;
+    background: var(--lwt-selected-tab-background-color) !important;
+}
+/* Ícono de "show more bookmarks" modificado */
+#PlacesChevron>image {
+  transform: rotate(90deg) ;
+  padding: 2px !important;
+}
+/* Mantener color al mover pestaña - still needs fix */
+#tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
+   background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
+   linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
+   background-position: right top !important;
+   background-repeat:  no-repeat !important;
+   background-size:  inherit !important;  
+}
+/* Compatibilidad con left-sidebar config */
+:root:not([chromehidden~="toolbar"]) #PersonalToolbar{
+    margin-top: 0px !important;
+    border-top: 0px !important;
+}
+/* H I D I N G   E L E M E N T S */
+/* Comment or uncomment depending of what elements you want to hide */
+
+/* Back button */
+/* #back-button { display: none !important } */
+
+/* Forward button */
+/* #forward-button { display: none !important } */
+
+/* Hide forward button only when disabled */
+#forward-button[disabled="true"] { display: none !important }
+
+/* "Shield" icon */
+#tracking-protection-icon-container { display: none !important }
+
+/* Site information button */
+#identity-box[disabled="true"] { display: none !important }
+
+/* This is the "Search with" indicator on the urlbar */
+/* #urlbar-search-mode-indicator { display: none !important } */
+
+/* Zoom button */
+/* #urlbar-zoom-button { display: none !important } */
+
+/* Page action (right three dash button) */
+/* #pageActionButton { display: none !important } */
+
+/* These are the buttons on the right of the urlbar */
+/* #page-action-buttons { display: none !important } */
+
+/* #urlbar-label-box { display: none !important } */
+
+/* This one is the hamburger menu! */
+/* CAUTION: if you hide this some popups may be bugged */
+/* #PanelUI-button { display: none !important } */
+
+/* Tab close button */
+/* .tab-close-button { display: none !important } */
+
+/* Enable this to show the tab close button when hovering the tab */
+/* .tabbrowser-tab:hover .tab-close-button { display: -moz-inline-box !important } */
+
+/*============================================================================*/
