@@ -8,13 +8,13 @@
 
 <ol><b>(ES) Pasos para configurar el tema:</b>
 
-   <li>Descarga el tema con el gran botón verde: <code>Code</code> >> <code>Download.zip</code></li>
+   <li>Descarga el tema con el gran botón: <code>Code</code> >> <code>Download.zip</code></li>
    <li>Copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>Instala y usa un <a href="https://github.com/Godiesc/opera-gx#temas---themes" >tema</a> compatible.</li>
    <li>Reinicia el navegador.</li></ol>
 
 <ol><b>(EN) Steps to configure the theme:</b>
-   <li>Download the theme with the big green button: <code>Code</code> >> <code>Download.zip</code></li> 
+   <li>Download the theme with the big button: <code>Code</code> >> <code>Download.zip</code></li> 
    <li>Copy the chrome folder and the user.js file into your Firefox profile directory. </li>
    <li>Install and use a compatible <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a>.</li>
    <li>Restart the browser. </li></ol>
@@ -30,15 +30,15 @@
 # Extras
 <ul><li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/OneLine"><b>OneLine</b></a></li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a></a></li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension.</b></a> </li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar"><b>Left Side-Bar.</b></a> </li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/TreeStyle-tabs"><b>Tree Style Tabs.</b></a></li></ul>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/TreeStyle-tabs"><b>Tree Style Tabs.</b></a></li>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension.</b></a> </li></ul>
 
 # Personalizar - Customize
 <ul><b><i>Personalizaciones Varias - Various customizations</i></b>
 <li><p>The file --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> contains very useful and easy to use variables, so it is easier to change the wallpaper, the height of the tabs, the width of the menu button, etc. Every variable has a description on the right, so you know what to customize without breaking the file.</p></li></ul>
 <ul><b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
-   <li><p>(Option 1) In the directory: <code>chrome</code> >> <code>images</code> >> <code>newtab</code> there is a set of wallpapers, the image that the theme will select by default is the one with the name: "wallpaper.png", you could rename the image you want with that name and the theme will select that one, you could add your own images. If you don't want a wallpaper just delete the file with the specified name. You can find more images here: <a href="https://imgur.com/a/q8SYEUJ"><b> >>This Gallery<< </b></a>. <b>Restarting the browser after changing the wallpaper is required. </b></p></li>
+   <li><p>(Option 1) In the directory: <code>chrome</code> >> <code>images</code> >> <code>newtab</code> there is a set of wallpapers, the image that the theme will select by default is the one with the name: "wallpaper.png", you could rename the image you want with that name and the theme will select it, you can add your own images. If you don't want a wallpaper just delete the file with the specified name. You can find more images here: <a href="https://imgur.com/a/q8SYEUJ"><b> >>This Gallery<< </b></a>. <b>Restarting the browser after changing the wallpaper is required. </b></p></li>
 <li><p>(Option 2) Editing the code --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> line <code>18</code><p></li></ul></br>
 <ul><b><i>Color Principal - Accent Color</i></b>
 <li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
