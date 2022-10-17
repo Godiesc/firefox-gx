@@ -58,7 +58,7 @@
 }
 /* Modify these values to match your preferences */
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-  --uc-window-control-width: 114px; /* Space reserved for window controls (Win10) */
+  --uc-window-control-width: 118px; /* Space reserved for window controls (Win10) */
   /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
   --uc-window-drag-space-pre: 0px; /* left side*/
   --uc-window-drag-space-post: 0px; /* right side*/
@@ -118,10 +118,10 @@
 
 /* reserved space for overflow + menu buttons */
 #navigator-toolbox{
-  --uc-buttons-width: calc(56px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
+  --uc-buttons-width: calc(16px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px));
 }
 #nav-bar:not([overflowing]) > #nav-bar-customization-target{ 
-  --uc-buttons-width: calc(56px + 2 * var(--toolbarbutton-outer-padding) + 6px)
+  --uc-buttons-width: calc(56px + 2 * var(--toolbarbutton-outer-padding) + 6px);
 }
 /* prevent urlbar overflow on narrow windows */
 /* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
@@ -136,7 +136,7 @@
 .titlebar-spacer[type="pre-tabs"]{ width:0px !important}
 #nav-bar{ margin-top: calc(0px - var(--uc-toolbar-height)); }
 
-#nav-bar-customization-target{ margin-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-post)) }
+#nav-bar-customization-target{ margin-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-post)); }
 
 @supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
   .titlebar-buttonbox-container{ position: fixed; display: blocK; left: 0px; z-index: 3; }
@@ -166,17 +166,49 @@
 /* Hide dropdown placeholder */
 #urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
 
-/* Hamburguer menu */
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{
-  list-style-image: url("../images/foxFill.svg") !important;
-  height: inherit !important;
-  width: inherit !important; 
-}
+
+
+
+
+/* ######----------------------------- My config ----------------------------###### */
+
+:root:not([inDOMFullscreen]){
+    --uc-vertical-toolbar-width: 41px;
+    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
+  }
+/* Nuevos margenes Botón menú */
+#back-button{
+    margin-left: var(--uc-vertical-toolbar-width,0) !important;
+  }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+    max-width: var(--padding-left-tab) !important;
+    min-width: var(--padding-left-tab) !important;
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
+    content: none !important ;
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
+    min-height: 20px !important;
+    min-width:  20px !important;
+        } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
+    background-color: transparent !important;
+        } }
+/* menu :hover */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+    background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
+        } }
 #appMenu-popup panelview{ width: 25.5em !important;
 }
 /* urlbar focus - open */
 #urlbar-container:not([open=true],:focus, :focus-within ){ min-width: 22vw !important; }
-#urlbar:focus-within  { min-width: 52vw !important; clip-path: polygon(0px 0%, 28vw 0%, 0% 9000vw, 0% 0px) !important;}
+#urlbar:focus-within  { min-width: 52vw !important; clip-path: polygon(0px 0%, 26vw 0%, 0% 9000vw, 0% 0px) !important;}
 #urlbar[open=true]  { min-width: 52vw !important; clip-path: none !important;}
 
 toolbar:is(.browser-toolbar){    
@@ -225,7 +257,7 @@ toolbar:is(.browser-toolbar){
     border-image: none !important;
     border-bottom: 1px solid var(--lwt-frame) !important;
     
-    padding-block: 3px !important;
+    padding-block: 4px 3px !important;
     
     background-color: var(--lwt-selected-tab-background-color) !important;
     background: var(--lwt-selected-tab-background-color) !important;
@@ -243,14 +275,16 @@ toolbar:is(.browser-toolbar){
    background-repeat:  no-repeat !important;
    background-size:  inherit !important;  
 }
+/* Compatibilidad con left-sidebar config */
+:root:not([chromehidden~="toolbar"]) #PersonalToolbar{
+    margin-top: 0px !important;
+    border-top: 0px !important;
+}
 /* H I D I N G   E L E M E N T S */
 /* Comment or uncomment depending of what elements you want to hide */
 
 /* Back button */
 /* #back-button { display: none !important } */
-
-/* Hide back button only when disabled */
-#back-button[disabled="true"] { display: none !important }
 
 /* Forward button */
 /* #forward-button { display: none !important } */
