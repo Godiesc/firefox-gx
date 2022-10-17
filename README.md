@@ -2,7 +2,7 @@
 <ul><li>(ES) Tema para los amantes de la skin GX de Opera. Compatibilidad - Versión estable del navegador.</li>
 <li>(EN) A theme for Opera GX Skin Lovers. Complete compatibility with the stable version of the browser.</li></ul>
 
-![GXsplash](https://user-images.githubusercontent.com/22057609/196263535-e6fd83a0-1e93-48b2-a3f0-531a929c53af.png)
+![SplashGX](https://user-images.githubusercontent.com/22057609/196264199-1351e4a8-0c7d-4388-a0e9-1a80fbe4fe3b.png)
 
 # ¿Cómo instalar? - How to install?
 
