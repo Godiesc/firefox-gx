@@ -137,35 +137,37 @@ input:focus-visible, input:focus-visible{
     display: var(--searchbar-display, flex) !important;
     margin-top: 50px !important;
     box-shadow: 0 2px 0 0px var(--button-hover-bgcolor) !important;
-    }
-.search-wrapper .search-handoff-button{
-    box-shadow: none !important; 
+    border-radius: 0 !important;
+    outline: 1px solid #50505030 !important;
     }
 .search-inner-wrapper:not(:focus){
-    outline: 0px solid #50505030 !important;
-    border-radius: 0px !important;
+    border-radius: 0 !important;
     backdrop-filter: none !important;
 }
+.search-inner-wrapper:is(:hover){
+    box-shadow: 0 2px 0 0px var(--general-color) !important;
+    border-radius: 0 !important;
+}
 .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
-    outline: 0px solid #50505030 !important;
     border-radius: 0px !important;
     backdrop-filter: var(--personal-blur) !important;
-}
-.search-inner-wrapper:is(:hover){
-    outline: 0px solid var(--button-hover-bgcolor) !important;
-    box-shadow: 0 2px 0 0px var(--general-color) !important;
-    border-radius: 0px !important;
+    border-radius: 0 !important; 
 }
 .search-handoff-button{
     border-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important; 
 }
 .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
-    outline: 0px solid var(--button-hover-bgcolor) !important;
+    outline: 0px solid transparent !important;
     box-shadow: 0 0px 0 0px var(--general-color) !important;
     border: transparent !important;
     margin-left: 1px !important;
     z-index: 1000 !important;
+    clip-path: none !important;
 }
+.search-wrapper .search-button{ border-radius: 0px !important; }
+    
 /* Actividad reciente */
 .card-outer .card { 
     backdrop-filter: var(--personal-blur);
@@ -190,12 +192,13 @@ input:focus-visible, input:focus-visible{
     background: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;
     outline: 1px solid #50505030 !important;
-    border-radius: 0px !important;
-    box-shadow: 0 -2px 0 0px var(--button-hover-bgcolor) !important;
+    border-radius: 0px 0 0px 0px!important;
+    box-shadow: 0 2px 0 0px var(--button-hover-bgcolor) !important;
     z-index: -100 !important;
+    margin: -14px !important;
 }
 .top-sites-list:hover{
-    box-shadow: 0 -2px 0 0px var(--button-active-bgcolor) !important;
+    box-shadow: 0 2px 0 0px var(--general-color) !important;
     }
 /* colores al pasar el mouse sobre los sitios anclados en :hover */
 .top-site-outer:is(.active, :focus, :hover) .tile{
