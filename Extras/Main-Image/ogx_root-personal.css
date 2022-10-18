@@ -11,7 +11,7 @@
     Accent color -----> UI del navegador.  -----|                  |---- userContent <------------ Accent color
                                                 |                  |     (Add-ons, preferences and newtab page.)
                                                 v                  v                                                          */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--red));
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--green));
   
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
   
