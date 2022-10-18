@@ -15,4 +15,4 @@
 
 <p><i>PD: Make sure you have active a compatible theme, with some image themes the selected tab will display a black line.</i></p>
 
-![imagen](https://user-images.githubusercontent.com/22057609/196325041-848f2341-e137-41b2-bd89-8e59bca588f9.png)
+![imagen](https://user-images.githubusercontent.com/22057609/196325185-8762466b-97c9-4eeb-9e0b-42a2f475046c.png)
