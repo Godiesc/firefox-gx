@@ -74,12 +74,12 @@
     -moz-box-orient: vertical !important;
 }
 /* Margen de varios menús [Open] */
-slot{ margin: 0px !important; }
+#BMB_bookmarksPopup{ margin-top: -4px !important; margin-inline: -6px !important; }
 
 #downloadsPanel, #widget-overflow, #customizationui-widget-panel, #identity-popup,
-#permission-popup, #protections-popup, #editBookmarkPanel{
+#permission-popup, #protections-popup, #editBookmarkPanel {
     margin-top: 0px !important; 
-    margin-inline: -16px !important; }
+    margin-inline: -2px !important; }
 panel[type="arrow"]{ 
     margin-top: 0px !important; }
 panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-install-confirmation-notification{
