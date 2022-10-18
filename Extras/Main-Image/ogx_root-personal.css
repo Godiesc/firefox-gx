@@ -34,7 +34,7 @@
   --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
   
   --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
-  --newtab-pinnedsites-position-top: auto ;                                                  /* Posición pinnedsites - top-> : 0px ; default-> : auto*/
+  --newtab-pinnedsites-position-top: 0px ;                                                   /* Posición pinnedsites - top-> : 0px ; default-> : auto*/
    
   --selected-text-background: var(--general-color);                                          /* Selected text background */
    
