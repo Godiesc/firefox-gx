@@ -1,4 +1,5 @@
 # How to apply.
+<p>This configuration will simulate a image behind all the browser.</p>
 <ul></li><p><b><< Fast step to apply the config. >></b></p></li></ul>
 <p>Add the files <code>ogx_main-image.css</code> and <code>ogx_root-personal.css</code> into the <code>chrome/components</code> folder.</p></br>
 
@@ -14,4 +15,5 @@
 
 <p><i>PD: Make sure you have active a compatible theme, with some image themes the selected tab will display a black line.</i></p>
 
-![imagen](https://user-images.githubusercontent.com/22057609/196301513-ead772e6-26e1-49dc-9c99-85558273a1a3.png)
+![imagen](https://user-images.githubusercontent.com/22057609/196307077-05a6afc7-cc27-47ea-b99d-ab545997df8f.png)
+
