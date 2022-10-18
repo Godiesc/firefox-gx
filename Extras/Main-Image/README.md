@@ -1,5 +1,5 @@
 # How to apply.
-<p>This configuration will simulate a image behind all the browser.</p>
+<p>This configuration will simulate an image behind all the browser.</p>
 <ul></li><p><b><< Fast step to apply the config. >></b></p></li></ul>
 <p>Add the files <code>ogx_main-image.css</code> and <code>ogx_root-personal.css</code> into the <code>chrome/components</code> folder.</p></br>
 
