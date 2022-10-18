@@ -28,11 +28,11 @@
 <li> Otros Colores - Other Colors: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li></ul>
 
 # Extras
-<ul><li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/OneLine"><b>OneLine</b></a></li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a></a></li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar"><b>Left Side-Bar.</b></a> </li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/TreeStyle-tabs"><b>Tree Style Tabs.</b></a></li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension.</b></a> </li></ul>
+<ul><li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/OneLine"><b>OneLine</b></a> - The tabs-bar will be next to the navbar.</li>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a></a> - This configuration will simulate a image behind all the browser.</li>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar"><b>Left Side-Bar.</b></a> - the bookmark-bar will display on the left of the window.</li>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/TreeStyle-tabs"><b>Tree Style Tabs.</b></a> - Compatibility to the extension that put the tabs vertically.</li>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension.</b></a> - Extension that enable the possibility to play or pause tabs with a click on the sound icon..</li></ul>
 
 # Personalizar - Customize
 <ul><b><i>Personalizaciones Varias - Various customizations</i></b>
