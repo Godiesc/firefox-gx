@@ -5,7 +5,8 @@
   --tab-height-personal: 32px !important;                                /* Minimum Height 32px for the right function of the theme*/
   --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
   --navbarWidth:32vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
-  --toolbarbutton-hover-personal: #251f33 !important; 
+  --toolbarbutton-hover-personal: #251f33 !important;
+  --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
 }
 :root[lwtheme-image]{
   --toolbar-bgcolor: transparent !important;                                     
