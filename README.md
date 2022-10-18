@@ -37,11 +37,13 @@
 # Personalizar - Customize
 <ul><b><i>Personalizaciones Varias - Various customizations</i></b>
 <li><p>The file --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> contains very useful and easy to use variables, so it is easier to change:</p>
-<ul><li>Wallpaper and its brightness.</li>
-<li>Height of the tabs and toolbar</li>
-<li>the width and label of the menu button</li>
-<li<Logo and wordmark color from the new-tab page</li>
-<li>hide or show the firefox logo or the search bar</li></ul>. 
+<ul>
+<li>Wallpaper and its brightness.</li>
+<li>Height of the tabs and toolbar.</li>
+<li>the width and label of the menu button.</li>
+<li<Logo and wordmark color from the new-tab page.</li>
+<li>hide or show the firefox logo or the search bar.</li>
+</ul>
 <p>Every variable has a description on the right, so you know what to customize without breaking the file.</p></li></ul>
 <ul><b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
    <li><p>(Option 1) In the directory: <code>chrome</code> >> <code>images</code> >> <code>newtab</code> there is a set of wallpapers, the image that the theme will select by default is the one with the name: "wallpaper.png", you could rename the image you want with that name and the theme will select it, you can add your own images. If you don't want a wallpaper just delete the file with the specified name. You can find more images here: <a href="https://imgur.com/a/q8SYEUJ"><b> >>This Gallery<< </b></a>. <b>Restarting the browser after changing the wallpaper is required. </b></p></li>
