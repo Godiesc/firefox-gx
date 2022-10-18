@@ -46,9 +46,9 @@
 #PersonalToolbar .toolbarbutton-1, #OtherBookmarks{ padding-block: 12px !important; }
 #PersonalToolbar #PlacesToolbarItems > .bookmark-item,#OtherBookmarks{ padding-block: 12px !important; }
     
-:root:not([chromehidden~="toolbar"]) body > #browser,
-:root:not([chromehidden~="toolbar"]) body > #browser-bottombox,
-:root:not([chromehidden~="toolbar"]) #customization-container{
+:root:not([chromehidden~="toolbar"],[sizemode=fullscreen]) body > #browser,
+:root:not([chromehidden~="toolbar"],[sizemode=fullscreen]) body > #browser-bottombox,
+:root:not([chromehidden~="toolbar"],[sizemode=fullscreen]) #customization-container{
   margin-left: var(--uc-vertical-toolbar-width,0);
   }
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
