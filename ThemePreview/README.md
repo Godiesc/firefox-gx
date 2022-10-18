@@ -22,15 +22,15 @@
 
 ### Oneline Config
 
-![imagen](https://user-images.githubusercontent.com/22057609/186524274-c5f1354b-0bb3-4323-8f69-e9e1d7b9fea0.png)
+![imagen](https://user-images.githubusercontent.com/22057609/196294613-0d40bef9-e1e2-4ec3-a44e-b6ff3cce5433.png)
 
 ### Main-image Config
 
-![imagen](https://user-images.githubusercontent.com/22057609/186757301-ac031f8c-999d-4835-a321-bd1cd93b2980.png)
+![imagen](https://user-images.githubusercontent.com/22057609/196325185-8762466b-97c9-4eeb-9e0b-42a2f475046c.png)
 
 ### Left Side-Bar Config
 
-![imagen](https://user-images.githubusercontent.com/22057609/194635215-c80ec742-f03b-4daa-a07c-7fe04445d56a.png)
+![imagen](https://user-images.githubusercontent.com/22057609/196332981-707d0b09-4e69-418d-a521-024c57f14745.png)
 
 ### Tree style tabs Config
 
