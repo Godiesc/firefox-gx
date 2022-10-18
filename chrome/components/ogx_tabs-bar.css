@@ -166,8 +166,7 @@ tab-background:is([multiselected]):not([selected="true"]) .tab-stack {
    ------------- partial compatibility to window Controls ----------*/
 @media (-moz-platform: macos) { #TabsToolbar{
   padding-block-start: 6px !important;
-}
+   }}
 @media (-moz-platform: macos) { #tabbrowser-tabs{
   padding-inline-start: 10px !important;
-}
-}
+   }}
