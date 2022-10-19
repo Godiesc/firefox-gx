@@ -38,20 +38,32 @@ panelmultiview .toolbaritem-combined-buttons > label {
     margin-inline-end: 0px; -moz-context-properties: fill;
     fill: #3ad3a2 !important;
 }
-/*ícono account*/
+/*ícono account Margenes */
 #appMenu-fxa-label2{ margin-inline-start: -8px !important; }
 #appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
 @media{
     :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
     margin-left: 0px !important;
-    font-variant: small-caps;
-    font-size: 9.4pt !important;
-    font-variant-numeric: oldstyle-nums !important;
     padding-bottom: 6px !important;
     margin-right: 6px !important;
 }
-/*ícono account*/
-#appMenu-fxa-label2::before , #fxa-manage-account-button::before {
+/*ícono account - first */
+#appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
+    display: none !important;
+}
+#appMenu-fxa-label2::before  {
+    background: var(--avatar-image-url) no-repeat left/16px;
+    margin-inline-end: 7px;
+    
+    content: var(--account-label) !important;
+    display: inline-block;
+    border-radius: 0%;
+    padding-inline-start: 22px !important;
+    pointer-events: none !important;
+    clip-path: circle !important;
+}
+/* Ícono account - second */
+#fxa-manage-account-button::before {
     background: var(--avatar-image-url) no-repeat center/16px;
     content: ""; display: block; width: 16px; height: 16px;
     margin-inline-end: 7px;
