@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-:root{ --top-personal-hbutton: 0px ; --label-color: #e0dffb; }
+:root{ --top-personal-hbutton: 0px; --label-color: #e0dffb; }
 
 /* ------------Menú hamburguesa-> top-left ------------- */
 /*Posición*/
@@ -68,7 +68,7 @@
     display: -moz-box;
     content: var(--menu-label);
     color: var(--label-color) !important;
-    margin-inline-start: 4px !important;
+    margin-inline-start: 5px !important;
     text-shadow: none !important; 
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
@@ -142,7 +142,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 
 #PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
 .subviewbutton, .widget-overflow-list .toolbarbutton-1{
-   padding-inline-start:  8px !important;  
+   padding-inline-start:  14px !important;  
 }
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
     background-position: left 10px center;
@@ -157,7 +157,7 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
 
 /* Margen items -tamaño- */
 panelmultiview .toolbaritem-combined-buttons > label {
-    margin-inline-start: 23px !important;
+    margin-inline-start: 22px !important;
 }
 /* ícono account */
 #appMenu-fxa-status2:not([fxastatus]) > #appMenu-fxa-label2{
@@ -167,15 +167,28 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
 @media{
     :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
-    margin-left: -8px !important;
+    margin-left: -14px !important;
     border-top: 1px solid var(--button-active-bgcolor) !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
     padding-bottom: 6px !important;
     margin-bottom: -3px !important;
     margin-right: 6px !important;
 }}
-/* ícono account */
-#appMenu-fxa-label2::before , #fxa-manage-account-button:before {
+/*ícono account - first */
+#appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
+    display: none !important;
+}
+#appMenu-fxa-label2::before  {
+    margin-inline-end: 7px;
+    content: var(--account-label) !important;
+    display: inline-block;
+    border-radius: 0%;
+    padding-inline-start: 22px !important;
+    pointer-events: none !important;
+    clip-path: circle !important;
+}
+/* Ícono account - second */
+#fxa-manage-account-button:before {
     content: ""; display: inline-block; 
     margin-inline-end: 7px;
     border-radius: 0%;
