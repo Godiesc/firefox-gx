@@ -40,9 +40,10 @@
 <ul>
 <li>Wallpaper and its brightness.</li>
 <li>Height of the tabs and toolbar.</li>
-<li>the width and label of the menu button.</li>
+<li>The width and label of the menu button.</li>
+<li>The label of your account replacing the email in the hamburger-menu.</li>
 <li<Logo and wordmark color from the new-tab page.</li>
-<li>hide or show the firefox logo or the search bar.</li>
+<li>Hide or show the firefox logo or the search bar.</li>
 </ul>
 <p>Every variable has a description on the right, so you know what to customize without breaking the file.</p></li></ul>
 <ul><b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
