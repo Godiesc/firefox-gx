@@ -23,9 +23,10 @@
   --toolbar-height-personal: 38px ;                                                          /* Toolbar height */
   
   --menu-label: "Menu" ;                                                                     /* Label botón -Menú- */
-  --padding-left-tab: 74px !important;                                                       /* Tamaño horizontal botón -Menú- */
+  --padding-left-tab: 74px ;                                                                 /* Tamaño horizontal botón -Menú- */
+  --account-label: "𝕐𝕠𝕦𝕣 𝕒𝕔𝕔𝕠𝕦𝕟𝕥 𝕝𝕒𝕓𝕖𝕝";                                                     /* Label to replace email in hamburger-menu*/
   
-  --left-color: var(--general-color) ;                                                       /* Color left logo y wordmark */
+  --left-color: var(--general-color);                                                        /* Color left logo y wordmark */
   --right-color: #0060bfdd ;                                                                 /* Color right logo y wordmark */
   
   --logo-wordmark-visibility: 1 ;                                                            /* :1 visible, :0 invisible ; Logo-wordmark*/
@@ -34,7 +35,7 @@
   --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
   
   --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
-  --newtab-pinnedsites-position-top: 0px ;                                                  /* Posición pinnedsites - top-> : 0px ; default-> : auto*/
+  --newtab-pinnedsites-position-top: 0px ;                                                   /* Posición pinnedsites - top-> : 0px ; default-> : auto*/
   
   --selected-text-background: var(--general-color);                                          /* Selected text background */
    
