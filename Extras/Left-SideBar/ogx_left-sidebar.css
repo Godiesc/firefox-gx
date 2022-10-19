@@ -75,6 +75,10 @@
     min-height: 20px !important;
     min-width:  20px !important;
         } }
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] image{
+    margin-left: 2px !important;
+        } }
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
     background-color: var(--lwt-frame) !important;
@@ -84,6 +88,21 @@
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
+/* Mostrar label Menú al abrir el Menú */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+:root:not([chromehidden~="toolbar"])[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack{
+  --padding-left-tab: 74px !important;
+    max-width: var(--padding-left-tab) !important;
+    min-width: var(--padding-left-tab) !important;
+    }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+:root:not([chromehidden~="toolbar"])[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack::after {
+  content: var(--menu-label) !important;
+    }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+:root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
+      --padding-left-tab: 74px !important;
+    }}
 /* Alinear Items */
 #personal-bookmarks .bookmark-item > .toolbarbutton-text {
     display: none !important;
