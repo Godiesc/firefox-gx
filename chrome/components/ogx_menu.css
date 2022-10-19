@@ -170,18 +170,15 @@ panelmultiview .toolbaritem-combined-buttons > label {
     margin-left: -8px !important;
     border-top: 1px solid var(--button-active-bgcolor) !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
-    font-variant: small-caps;
-    font-size: 9.4pt !important;
-    font-variant-numeric: oldstyle-nums !important;
     padding-bottom: 6px !important;
     margin-bottom: -3px !important;
     margin-right: 6px !important;
 }}
 /* ícono account */
 #appMenu-fxa-label2::before , #fxa-manage-account-button:before {
-    content: ""; display: block; width: 16px; height: 16px;
+    content: ""; display: inline-block; 
     margin-inline-end: 7px;
-    border-radius: 50%;
+    border-radius: 0%;
 }
 :root[fxastatus="signedin"] #fxa-menu-avatar {
     display: unset; -moz-box-ordinal-group: 2;
