@@ -1,6 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/opera-gx */
 
+@media (prefers-color-scheme: dark){
  window, dialog {                                                                     /*Colores varios de paginas de about:addons y about:settings*/
     background-color: #101019 !important;
     --in-content-primary-button-background: var(--general-color) !important;
@@ -22,7 +23,7 @@
     --in-content-button-background: #2B2A4f !important;                             /*color de botones*/
     --in-content-button-background-hover: var(--button-hover-bgcolor) !important;   /*color de botones :hover*/
     --in-content-button-background-active: #101019 !important;                      /*color de botones al darle clic*/
-}
+    }}
 @media (prefers-color-scheme: dark){
 :host, :root {                                                                      /*Colores varios de paginas de about:addons y about:settings*/
     --in-content-page-background: #121018 !important;                               /*Fondo general*/
@@ -186,8 +187,12 @@ td {
 panel-list {
     background: var(--in-content-button-background) !important;}
 
+    @media (prefers-color-scheme: dark){
 /*Color de ventana de ventanas emergentes en "configuración"*/
-.dialogBox {--in-content-page-background: #101019 !important;}
+        .dialogBox {--in-content-page-background: #101019 !important;}}
+    @media (prefers-color-scheme: light){
+/*Color de ventana de ventanas emergentes en "configuración"*/
+        .dialogBox {--in-content-page-background: #f9f9f9 !important;}}
 
 /*Linea separadora en "configuración"*/
 .subcategory:not([hidden]) ~ .subcategory {
