@@ -4,7 +4,7 @@
 /* Borde gradiente menús desplegables */
 slot{
     margin: 0px !important;
-    border-color: #0c0a10 !important;
+    border-color: var(--lwt-frame) !important;
 }
 panelview {
     border: 1px solid #0c0a10 !important;
@@ -30,7 +30,8 @@ panel[type="arrow"]{
 .navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover],
  menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover),
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover) {
- background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;
+    background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important;
+    color: var(--lwt-tab-text) !important;
 }
 /*Color fondo clic por los diferentes items de menús principales*/
 .protections-popup-category:active, .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button,

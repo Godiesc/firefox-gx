@@ -120,8 +120,8 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
 .tab-icon-overlay:not([pinned])[muted]:hover {
     border-radius: 2px !important;
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg")!important;
-    color: color-mix(in srgb, var(--toolbarbutton-icon-fill), white) !important;
-    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
+    color: color-mix(in srgb, var(--toolbarbutton-icon-fill), var(--lwt-tab-text)) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, var(--lwt-tab-text)) !important; 
     fill-opacity: 1 !important;
     }}
 /*-----------ícono "reproduciendo" Pinned-----------*/
@@ -186,8 +186,8 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     /*list-style-image: url("../images/muted.svg") !important;*/
     padding: 0px !important;
     fill-opacity: 1 !important;
-    color: color-mix(in srgb, var(--toolbarbutton-icon-fill), white) !important;
-    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
+    color: color-mix(in srgb, var(--toolbarbutton-icon-fill),  var(--lwt-tab-text)) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 85%,  var(--lwt-tab-text)) !important; 
     stroke: transparent !important;
     fill-opacity: 1 !important;
     }}

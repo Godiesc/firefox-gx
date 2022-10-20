@@ -1,10 +1,6 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-/*"toolbar_bottom_separator"*/
-#navigator-toolbox { 
-    border-bottom: 1px solid var(--toolbar-bgcolor) !important;
-}
 /*"bookmark_text": "#b3d9ff"*/
 .browser-toolbar:not(.titlebar-color) {
     color: var(--lwt-text-color) !important;
@@ -97,13 +93,10 @@ findbar:-moz-lwtheme {
 #urlbar:not([open=true]){
     margin-top: -1px !important; }
 #urlbar[focused=true] #urlbar-background{
-    border-radius: 4px !important;}
+    border-radius: 4px !important;
+    box-shadow: none !important;}
 #urlbar[open=true] #urlbar-background {
-    background-image: url(../images/urlbar-noise.png) !important;
-    /*background-color: #211d2af9 !important;*/
-    -webkit-backdrop-filter: blur(32px) !important;
-    backdrop-filter: blur(32px) !important;
-    backdrop-filter: brightness(51%) !important;
+    background-image: var(--noise-urlbar-personal) !important;
     border-radius: 10px !important;
     border-color: transparent !important; }
 #urlbar[breakout][breakout-extend]>#urlbar-input-container {

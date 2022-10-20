@@ -106,8 +106,11 @@
 .titlebar-spacer[type="pre-tabs"]{
     display: none !important
 }
-/* Sombra-shadow > label de pestañas */
+/* Sombra label de pestañas - sombra de pestaña*/
 .tab-label{ text-shadow: none !important;
+}
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon, #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+  box-shadow: none !important;
 }
 /* Color y posición "dot" de pestaña que necesita atención */
 .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {

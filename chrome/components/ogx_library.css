@@ -4,11 +4,20 @@
 /*---------------------------------library ----------------------------------*/
 
 @-moz-document url(chrome://browser/content/places/places.xhtml) {
-    :root {
-        --organizer-pane-background: var(--lwt-sidebar-background-color) !important;
-        --organizer-border-color:color-mix(in srgb, var(--organizer-separator-color), transparent) !important;
+    @media (prefers-color-scheme: dark){
+        :root{
+        --arrowpanel-background: #1c1726 !important;
+        --organizer-pane-background: #101019 !important;
+        --organizer-border-color: #18181f !important;
         --organizer-pane-background2:color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
-    }
+    }}
+    @media (prefers-color-scheme: light){
+        :root{
+        --arrowpanel-background: #f9f9f9 !important;
+        --organizer-pane-background: #f9f9f9 !important;
+        --organizer-border-color:#cdcdcd !important;
+        --organizer-pane-background2:color-mix(in srgb, var(--organizer-pane-background) 94%, black) !important;
+    }}
     /*-----------------------Menú principal-------------------------*/
     #placesToolbar>toolbarbutton {
         appearance: none !important;
@@ -86,7 +95,7 @@
     #editBookmarkPanelRows>vbox>input:focus, #editBookmarkPanelRows>vbox>hbox>input:focus{
         appearance: none !important;
         outline-color: var(--general-color) !important;
-        outline-offset: 0px !important;
+        outline-offset: -1px !important;
         border-radius: 3px !important;
     }
     /*Color "selected" de items*/

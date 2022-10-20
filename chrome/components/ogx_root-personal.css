@@ -15,7 +15,7 @@
   
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
   
-  --lwt-main-image:  url("../images/newtab/wallpaper.png");                                  /* new-tab page image */
+  /*--lwt-main-image:  url("../images/newtab/wallpaper.png");                                /* new-tab page image */
   --wallpaper-size: cover;                                                                   /* cover-> default ; auto auto -> to <<main-image>> config */
   --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */
   
@@ -54,7 +54,7 @@
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 96%) !important;
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
   --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) ,transparent) !important;
-  --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 96%, #0c0a10 100%) !important;
+  --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 96%, var(--arrowpanel-background) 100%) !important;
   
   /*------------------------------Botones hover, clic--------------------------------*/
   --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 22%, transparent) !important;    /*Color usado en el botón menú*/

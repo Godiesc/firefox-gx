@@ -39,6 +39,7 @@ tab[selected]  .tab-content .tab-label{
 .identity-color-yellow {--identity-tab-color: #e6b803 !important; --identity-icon-color: #e6b803 !important;}
 .identity-color-turquoise {--identity-tab-color: #03b48d !important; --identity-icon-color: #03b48d !important;}
 
+@media (prefers-color-scheme: dark){
 .identity-color-blue >.tab-stack > .tab-content .tab-label{color: #1bbfff !important;}
 .identity-color-green >.tab-stack > .tab-content .tab-label{color: #6be19c !important; } 
 .identity-color-orange >.tab-stack > .tab-content .tab-label{color: #eb9b37 !important; } 
@@ -47,3 +48,7 @@ tab[selected]  .tab-content .tab-label{
 .identity-color-purple >.tab-stack > .tab-content .tab-label{color: #caa4da !important;}
 .identity-color-yellow >.tab-stack > .tab-content .tab-label{color: #e6b803 !important;}
 .identity-color-turquoise >.tab-stack > .tab-content .tab-label{color: #00c79a !important;}
+}
+@media (prefers-color-scheme: light){
+.tab-content .tab-label{color: var(--identity-icon-color) !important;}
+}

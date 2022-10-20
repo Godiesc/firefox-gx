@@ -8,8 +8,27 @@
 .main-stop  { stop-color: var(--right-color) !important; }                                    /* right color logo-and wordmark*/
 
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home),url(about:privatebrowsing) {
-body {
-    --lwt-sidebar-background-color: #181735 !important;                                       /* Sidebar fondo */
+    body{
+    --arrowpanel-background-personal: #f9f9f9 !important;
+    --lwt-sidebar-background-color: #efeff5 !important;                                       /* Sidebar fondo */
+    --newtab-background-color: #efeff5 !important;                                            /* Color fondo general */
+    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
+        
+    --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/
+    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                     /* color de fondo al hacer clic al ícono menú 3 puntos*/
+        
+    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
+        var(--newtab-wordmark-color)) !important;
+    
+    --newtab-overlay-color: color-mix(in srgb, var(--arrowpanel-background-personal) 34%, transparent) !important;          /* fondo al editar sitio, transparente */
+    --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
+      var(--newtab-background-color) 86%, var(--newtab-wordmark-color) ) !important;
+        
+    --lwt-main-image: url("../images/newtab/wallpaper-light.png") ;
+    }
+    body[lwt-newtab-brighttext] {
+    --arrowpanel-background-personal: #1c1726 !important;
+    --lwt-sidebar-background-color: #14141d !important;                                       /* Sidebar fondo */
     --newtab-background-color: #101019 !important;                                            /* Color fondo general */
 
     --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/
@@ -24,7 +43,7 @@ body {
     --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
         var(--newtab-wordmark-color)) !important;
 
-    --newtab-text-primary-color: #dadada !important;                                          /* label general */
+    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                                          /* label general */
     --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
 
     --newtab-overlay-color: color-mix(in srgb, #090909 54%, transparent) !important;          /* fondo al editar sitio, transparente */
@@ -35,7 +54,9 @@ body {
       var(--newtab-background-color) 90%, var(--newtab-wordmark-color) ) !important;
 
     --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* color bola de radiobutton */
-}
+    
+    --lwt-main-image: url("../images/newtab/wallpaper-dark.png") ;
+        }
 /* ntp - Fondo general de la paginas newtab y home */
 .activity-stream {
     background-color: var(--newtab-background-color, #ff0000) !important;
@@ -52,7 +73,7 @@ body {
 
 /* Colores al "editar" un sitio anclado */
 .modal{
-    background: #00000020 !important;
+    background: var(--newtab-overlay-color) !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     border-radius: 0 !important; }
 .modalOverlayOuter{
@@ -67,9 +88,9 @@ input:focus-visible, input:focus-visible{
 }
 /* Fondo y borde del menú de 3 puntos */
 .context-menu {
-    background-color: #1c1726 !important; border-radius: 0px !important;
-    box-shadow: 0px 0px 0 1px #00000070 !important;
-    border: 1px solid var(--newtab-border-color);
+    background-color: var(--arrowpanel-background-personal) !important; border-radius: 0px !important;
+    box-shadow: 0px 0px 0 1px var(--newtab-background-color) !important;
+    border: 1px solid var(--arrowpanel-background-personal) !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 /* linea separadora */
@@ -113,7 +134,7 @@ input:focus-visible, input:focus-visible{
 /*Colores de la sidebar deslizante para Personalizar la NewTab*/
     /* Fondo */
 .customize-menu {
-    background-color: #101014ac !important;
+    background-color: color-mix(in srgb, var(--newtab-background-color) ,var(--newtab-overlay-color)) !important;
     color: var(--newtab-wordmark-color) !important;
     backdrop-filter: var(--personal-blur); }
     /* Combobox */
@@ -202,7 +223,7 @@ input:focus-visible, input:focus-visible{
     }
 /* colores al pasar el mouse sobre los sitios anclados en :hover */
 .top-site-outer:is(.active, :focus, :hover) .tile{
-    background: #09090920 !important;
+    background: var(--newtab-pinnedsites-background) !important;
     box-shadow: 0 0 0 1px var(--button-active-bgcolor) !important;
 }
 /* colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
@@ -224,7 +245,7 @@ input:focus-visible, input:focus-visible{
 /* Fondo de <popup> al intentar eliminar un sitio anclado*/
 .modal{
     backdrop-filter: var(--personal-blur) !important;
-    outline: 1px solid black !important;
+    outline: 1px solid var(--arrowpanel-background-personal) !important;
     }
 /*------------------------fondo (imagen), Logo y Wordmark------------------------*/
 body{

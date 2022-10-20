@@ -4,6 +4,7 @@
 /* HTML5 dark mode web notifs */
 
 @-moz-document url("chrome://global/content/alerts/alert.xhtml") {
+    @media (prefers-color-scheme: dark){
     #alertBox {
         border-color: rgb(48, 48, 48, .4) !important;
         border-radius: 4px !important;
@@ -37,5 +38,6 @@
     }
     #alertImage {
         border-radius: 4px !important;
+    }
     }
 }

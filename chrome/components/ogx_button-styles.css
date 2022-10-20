@@ -21,8 +21,8 @@ background: url("../images/delete.svg") no-repeat center/16px !important;
     -moz-context-properties: fill !important;
 }
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton {
-    background-color: #2e273f !important;
-    box-shadow: inset 0px 0px 0 1px color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;
+    background-color: var(--Button-background-personal) !important;
+    box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 3px !important;
 }
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton:hover {
@@ -33,30 +33,30 @@ background: url("../images/delete.svg") no-repeat center/16px !important;
 }
 /*color letras de boton "Guardar" marcador en :hover*/
 #editBookmarkPanelBottomButtons>#editBookmarkPanelDoneButton {   
-    color: #eaeaea !important;
+    color: var(--lwt-tab-text) !important;
     border-radius: 4px !important;
 }
 /*Color del botón menú deplegable*/
 panel menulist, panel menulist:not([open]) {
-    background-color: #2e273f !important;
+    background-color: var(--Button-background-personal) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 3px !important;
 }
 panel menulist:hover, panel menulist[open] {
     background-color: var(--button-active-bgcolor) !important;
-    color: #eaeaea !important;
+    color: var(--ltw-tab-text) !important;
     box-shadow: none !important;
 }
 /*Color -fondo y borde-(flecha hacia abajo)*/
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
-    background-color: #2e273f !important;
+    background-color: var(--Button-background-personal) !important;
     border-color: var(--input-border-color) !important;
     border-radius: 3px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
     border-color: transparent !important;
     background-color: var(--button-active-bgcolor) !important;
-    color: #eaeaea !important;
+    color: var(--lwt-tab-text) !important;
 }
 /*Color -fondo y "letras" - menu desplegable*/
 treechildren::-moz-tree-row(selected) {
@@ -64,14 +64,14 @@ treechildren::-moz-tree-row(selected) {
     outline: none !important;
 }
 treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected), treechildren::-moz-tree-cell-text(selected) {
-    color: white !important;
+    color: var(--lwt-tab-text) !important;
 }
 #editBMPanel_folderTree treechildren{
     background-color: var(--arrowpanel-background) !important;
-    color: white !important;
+    color: var(--lwt-tab-text) !important;
 }
 #editBMPanel_tagsSelector{
-    background-color: #2e273f !important;
+    background-color: var(--Button-background-personal) !important;
     border: 1px solid var(--input-border-color) !important;
 }
 /*--------------------------Marcadores----------------------------------*/
@@ -98,10 +98,10 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
 /*Color de "highlight" inputtext*/
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
     background-color: var(--button-active-bgcolor) !important;
-    color: white !important;
+    color: var(--lwt-tab-text) !important;
 }
 richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
-    color: white !important;
+    color: var(--lwt-tab-text) !important;
 }
 /*Imagen grande Marcador*/
 #editBookmarkPanelImage{

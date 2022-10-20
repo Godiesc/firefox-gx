@@ -6,7 +6,7 @@ menupopup>menuitem, menupopup>menu {
     padding-block: 5px !important; 
 }
 @media (-moz-platform: linux) { menupopup>menuitem, menupopup>menu {
-    padding-block: 5px !important; 
+    padding-block: 0.26em !important; 
     }}
 /* Borde izquierda y derecha del menú contextual */
 menugroup>menuitem:first-child { padding-left:  4px !important; }
@@ -39,7 +39,7 @@ menupopup:not(#PlacesToolbar) menupopup {
 
 /* Colores generales */
 .menupopup-arrowscrollbox{
-    box-shadow: 0px 0px 0 1px black !important;
+    box-shadow: 0px 0px 0 1px var(--lwt-frame) !important;
     background: var(--arrowpanel-background, #50505090) !important;
     color: var(--arrowpanel-color, #ffffff) !important;
     border: 1px solid transparent !important;
@@ -67,7 +67,7 @@ menupopup:not(#PlacesToolbar) menupopup {
 /* Font color in Contextual menus */
 menupopup>menuitem:not([disabled="true"]), menupopup>menu {
     appearance: none !important;
-    color: #ffffff !important;
+    color: var(--lwt-tab-text) !important;
 }
 /* Gradient color to :hover items */
 menupopup>menuitem:not([disabled="true"]):hover, menupopup>menu:hover {

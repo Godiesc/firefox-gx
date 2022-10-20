@@ -17,8 +17,8 @@
     margin-inline-end: 7px !important;
 }
 /* Color los íconos */
-.subviewbutton {  -moz-context-properties: fill; fill: currentColor;}
-.subviewbutton:hover { -moz-context-properties: fill; fill: currentColor;}
+.subviewbutton {  -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
+.subviewbutton:hover { -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
 
 /* -------Margen de los íconos---------- 
 /*Margen item -tamaño-*/

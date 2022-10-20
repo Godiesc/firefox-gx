@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-:root{ --top-personal-hbutton: 0px; --label-color: #e0dffb; }
+:root{ --top-personal-hbutton: 0px; --label-color: color-mix(in srgb, var(--lwt-tab-text)80%, var(--Button-background-personal)) }
 
 /* ------------Menú hamburguesa-> top-left ------------- */
 /*Posición*/
@@ -39,7 +39,7 @@
     -moz-box-pack: center !important;
 }
 :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack{
-    outline: 1px solid black !important;
+    outline: 1px solid var(--lwt-frame) !important;
 }
 /* Alinear botón menú en ventana no maximizada*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
@@ -85,7 +85,7 @@ panel[type="arrow"]{
 panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-install-confirmation-notification{
     margin-inline: 0px !important;}
 :is(#identity-popup, #notification-popup)[type="arrow"]:is([side="top"], [side="bottom"]) {
-    margin-inline: -16px !important;
+    margin-inline: -2px !important;
 }
 /* Padding top para hacer espacio para la fila del menú */
 @media {
@@ -128,8 +128,8 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
     color: var(--label-color) !important; }
 .subviewbutton:hover, #appMenu-popup toolbarbutton:hover label { 
     -moz-context-properties: fill; 
-    fill: white !important; 
-    color: white !important; 
+    fill: var(--lwt-tab-text) !important; 
+    color: var(--lwt-tab-text) !important; 
 }
 /* baner de -actualización disponible- */
 .panel-banner-item {
