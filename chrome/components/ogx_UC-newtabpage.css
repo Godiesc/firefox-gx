@@ -7,7 +7,7 @@
 .alt-stop { stop-color: var(--left-color) !important; }                                       /* left color logo-and-wordmark */
 .main-stop  { stop-color: var(--right-color) !important; }                                    /* right color logo-and wordmark*/
 
-@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home),url(about:privatebrowsing) {
+@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
     body{
     --arrowpanel-background-personal: #f9f9f9 !important;
     --lwt-sidebar-background-color: #efeff5 !important;                                       /* Sidebar fondo */
@@ -310,6 +310,7 @@ button.primary:hover{
 }
 /* ----------------------- search input and ads style in private mode ------------------------*/
 @-moz-document url(about:privatebrowsing) {
+    body{background: none !important;}
 .promo.below-search, .info{
     background-color: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;
