@@ -3,8 +3,6 @@
 
 /* Makes bookmarks toolbar appear vertically at the left side of the window */
 
-@-moz-document url(chrome://browser/content/browser.xhtml){
-
   :root:not([inDOMFullscreen]){
     --uc-vertical-toolbar-width: 41px;
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
@@ -56,7 +54,6 @@
   border-right: 1px solid transparent !important;
   border-image: linear-gradient(to bottom, var(--general-color) 0%, var(--button-active-bgcolor) 32% , var(--lwt-frame) 94%) 1 !important;
     }
-}
 /* Nuevos margenes Botón menú */
 #back-button{
     margin-left: var(--uc-vertical-toolbar-width,0) !important;
@@ -104,7 +101,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
 }
 /* Color items barra de marcadores */
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]) {
-    color: var(--button-active-bgcolor) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important; 
+    color: var(--button-active-bgcolor) !important;  fill: var(--general-color) !important; 
     border-radius: 0 !important; }
 
 toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):hover,
@@ -113,7 +110,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):hover,
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
-    color: var(--general-color) !important;  fill:  color-mix(in srgb, var(--general-color) 90%, transparent) !important;
+    color: var(--general-color) !important;  fill: var(--general-color) !important;
     background-color: transparent !important; }
 
 #PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active):hover, 
