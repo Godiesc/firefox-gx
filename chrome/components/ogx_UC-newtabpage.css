@@ -12,17 +12,29 @@
     --arrowpanel-background-personal: #f9f9f9 !important;
     --lwt-sidebar-background-color: #efeff5 !important;                                       /* Sidebar fondo */
     --newtab-background-color: #efeff5 !important;                                            /* Color fondo general */
-    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
         
     --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/
-    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                     /* color de fondo al hacer clic al ícono menú 3 puntos*/
+    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* color de fondo al hacer clic al ícono menú 3 puntos*/
+        
+    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
+      var(--button-hover-bgcolor) 49%, transparent) !important;
+
+    --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
+      var(--button-active-bgcolor) 69%, transparent) !important;
         
     --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
         var(--newtab-wordmark-color)) !important;
-    
-    --newtab-overlay-color: color-mix(in srgb, var(--arrowpanel-background-personal) 34%, transparent) !important;          /* fondo al editar sitio, transparente */
+        
+    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
+    --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
+        
+    --newtab-overlay-color: color-mix(in srgb, var(--arrowpanel-background-personal) 34%, transparent) !important;     /* fondo al editar sitio, transparente */
+        
+    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
     --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
       var(--newtab-background-color) 86%, var(--newtab-wordmark-color) ) !important;
+        
+    --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* color bola de radiobutton */
         
     --lwt-main-image: url("../images/newtab/wallpaper-light.png") ;
     }
@@ -32,7 +44,7 @@
     --newtab-background-color: #101019 !important;                                            /* Color fondo general */
 
     --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/
-    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                     /* color de fondo al hacer clic al ícono menú 3 puntos*/
+    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* color de fondo al hacer clic al ícono menú 3 puntos*/
 
     --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
       var(--button-hover-bgcolor) 49%, transparent) !important;
@@ -43,7 +55,7 @@
     --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
         var(--newtab-wordmark-color)) !important;
 
-    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                                          /* label general */
+    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
     --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
 
     --newtab-overlay-color: color-mix(in srgb, #090909 54%, transparent) !important;          /* fondo al editar sitio, transparente */
