@@ -7,12 +7,12 @@
 #back-button { 
     padding-inline-start: 5px !important; 
 }
-#back-button image {
+#back-button[#PersonalToolbar] image {
     margin-left: 0px !important;
     list-style-image: url("../images/back.svg") !important;
 }
 /* forward - go button */
-#forward-button image {
+#forward-button[#PersonalToolbar] image {
     list-style-image: url("../images/forward.svg") !important;
 }
 /* Reload button */
