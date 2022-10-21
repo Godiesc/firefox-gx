@@ -1,8 +1,9 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/opera-gx */
 
-:root{ scrollbar-color: #38375580 #18173530 !important; }                            /*Color de la barra de desplazamiento*/
-/**{ scrollbar-width: thin !important}*/                                             /*Barra de desplazamiento delgada*/
+@media (prefers-color-scheme: dark){:root{ scrollbar-color: #38375580 #18173530 !important; }}      /*Color de la barra de desplazamiento*/
+@media(prefers-color-scheme: light){:root{ scrollbar-color: #d8d9da #f4f2f7!important; }}           /*Color de la barra de desplazamiento*/
+/**{ scrollbar-width: thin !important}*/                                                            /*Barra de desplazamiento delgada*/
 
 .alt-stop { stop-color: var(--left-color) !important; }                                       /* left color logo-and-wordmark */
 .main-stop  { stop-color: var(--right-color) !important; }                                    /* right color logo-and wordmark*/
@@ -35,10 +36,9 @@
       var(--newtab-background-color) 86%, var(--newtab-wordmark-color) ) !important;
         
     --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* color bola de radiobutton */
-    
-    --brightness-wallpaper: brightness(100%);
         
     /*--lwt-main-image: url("../images/newtab/wallpaper-light.png") ;*/
+        
     }
     body[lwt-newtab-brighttext] {
     --arrowpanel-background-personal: #1c1726 !important;
@@ -71,7 +71,6 @@
     
     /*--lwt-main-image: url("../images/newtab/wallpaper-dark.png") ;*/
         
-    --brightness-wallpaper: brightness(51%);
         }
 /* ntp - Fondo general de la paginas newtab y home */
 .activity-stream {
