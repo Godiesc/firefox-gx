@@ -16,16 +16,15 @@
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
 
 @media (prefers-color-scheme: dark){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - white team */ }}
+  --lwt-main-image:  url("../images/newtab/main-image-dark.png") !important;                 /* new-tab page image - white team */ 
+  --brightness-wallpaper: brightness(51%);                                                   /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-light.png") !important;                 /* new-tab page image - dark theme*/  }}
+  --lwt-main-image:  url("../images/newtab/main-image-light.png") !important;                /* new-tab page image - dark theme*/  
+  --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default and Main-image config */ }}
   
-:root{
-  /*--lwt-main-image:  url("../images/newtab/wallpaper1.png") !important;                    /* new-tab page Main-Image config */
-  
+:root{  
   --wallpaper-size: auto auto;                                                               /* cover-> default ; auto auto -> to <<main-image>> config */
-  /*--brightness-wallpaper: brightness(51%);                                                 /* 100% -> default ; 51% -> to <<main-image>> config */
   
   --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas*/
   --toolbar-height-personal: 38px ;                                                          /* Toolbar height */
@@ -62,13 +61,21 @@
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
   --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) ,transparent) !important;
   --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 96%, var(--lwt-frame) 100%) !important;
-  
+}
+@media (prefers-color-scheme: dark){ :root{ 
   /*------------------------------Botones hover, clic--------------------------------*/
   --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 22%, transparent) !important;    /*Color usado en el botón menú*/
   --button-bgcolor: color-mix(in srgb, var(--general-color) 30%, transparent) !important;             /*Color de buttons*/
   --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color fondo de menuitems :hover*/
   --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /*color clic en menuitems*/
-}
+  }}
+@media (prefers-color-scheme: light){ :root{ 
+  /*------------------------------Botones hover, clic--------------------------------*/
+  --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 22%, transparent) !important;    /*Color usado en el botón menú*/
+  --button-bgcolor: color-mix(in srgb, var(--general-color) 30%, transparent) !important;             /*Color de buttons*/
+  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color fondo de menuitems :hover*/
+  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 85%, transparent) !important;      /*color clic en menuitems*/
+  }}
 @media (-moz-platform: linux ){:root{
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 92% , transparent 100%) !important;
   }}
