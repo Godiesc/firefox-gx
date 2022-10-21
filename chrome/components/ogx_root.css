@@ -187,10 +187,10 @@
   --noise-urlbar-personal: url("../images/urlbar-noise-light.png") !important;          /*imagen de desenfoque urlbar open*/
   
   
-  --button-primary-bgcolor: var(--button-active-bgcolor) !important;                    /*ColorBotónGuardar*/   
+  --button-primary-bgcolor: var(--general-color) !important;                            /*ColorBotónGuardar*/   
   --button-primary-color: #eaeaea !important;                                           /*ColorLetrasBotónGuardar*/
    
-  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;               /*ColorBotónGuardar :Hover*/
+  --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;              /*ColorBotónGuardar :Hover*/
   --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;            /*ColorBotónGuardar :clic*/
 
   --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, var(--lwt-frame)) !important;   /*Color input background en Marcadores*/
