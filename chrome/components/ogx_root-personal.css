@@ -11,13 +11,21 @@
     Accent color -----> UI del navegador.  -----|                  |---- userContent <------------ Accent color
                                                 |                  |     (Add-ons, preferences and newtab page.)
                                                 v                  v                                                          */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
-  
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--green));
+}
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
+
+@media (prefers-color-scheme: dark){ :root{
+  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - white team */ }}
   
-  /*--lwt-main-image:  url("../images/newtab/wallpaper.png");                                /* new-tab page image */
-  --wallpaper-size: cover;                                                                   /* cover-> default ; auto auto -> to <<main-image>> config */
-  --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */
+@media (prefers-color-scheme: light){ :root{
+  --lwt-main-image:  url("../images/newtab/wallpaper-light.png") !important;                 /* new-tab page image - dark theme*/  }}
+  
+:root{
+  /*--lwt-main-image:  url("../images/newtab/wallpaper1.png") !important;                    /* new-tab page Main-Image config */
+  
+  --wallpaper-size: auto auto;                                                               /* cover-> default ; auto auto -> to <<main-image>> config */
+  /*--brightness-wallpaper: brightness(51%);                                                 /* 100% -> default ; 51% -> to <<main-image>> config */
   
   --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas*/
   --toolbar-height-personal: 38px ;                                                          /* Toolbar height */
@@ -41,12 +49,11 @@
    
   --personal-blur: blur(26px) ;                                                              /* Utilizado para personalizar userContent.css */
   
-  /*--background-align-y: -70px ;                                                              /* Alinear new-tab wallpaper to <<main-image>> config 
+  --background-align-y: -70px ;                                                              /* Alinear new-tab wallpaper to <<main-image>> config 
                                                                                                 -70px  ventana normal; 
                                                                                                 -98px  con Barra de Marcadores;
                                                                                                 -128px con B.Marcadores y B.Menu  */
 }
-
 :root{
   /*-----------------------------------Gradientes------------------------------------*/
   --gradient: var(--general-color) !important;                                     
@@ -54,7 +61,7 @@
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 96%) !important;
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
   --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) ,transparent) !important;
-  --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 96%, var(--arrowpanel-background) 100%) !important;
+  --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 96%, var(--lwt-frame) 100%) !important;
   
   /*------------------------------Botones hover, clic--------------------------------*/
   --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 22%, transparent) !important;    /*Color usado en el botón menú*/
