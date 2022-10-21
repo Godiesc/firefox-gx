@@ -8,7 +8,7 @@
 /*"personalizar barra de busqueda"*/
 findbar:-moz-lwtheme {
     background-color: var(--toolbar-bgcolor) !important;
-    color: #d3d3d3 !important;  
+    color: var(--lwt-tab-text) !important;  
     border-color: var(--input-border-color) !important; }     
 .findbar-find-status[status="notfound"] { 
     color: var(--general-color) !important; 
@@ -22,7 +22,7 @@ findbar:-moz-lwtheme {
 /* "popup_highlight" -> 1.- keyboard highlight 2.-mouse highlight*/
 .urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
     background-color: var(--button-hover-bgcolor) !important; 
-    color: #ffffff !important; 
+    color: var(--lwt-tab-text) !important; 
     border-radius: 0px !important; }
 .urlbarView-row .urlbarView-row-inner {
     border-radius: 0px !important;}
