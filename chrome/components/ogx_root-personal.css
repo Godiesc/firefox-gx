@@ -24,7 +24,7 @@
 :root{
   /*--lwt-main-image:  url("../images/newtab/wallpaper1.png") !important;                    /* new-tab page Main-Image config */
   
-  --wallpaper-size: auto auto;                                                               /* cover-> default ; auto auto -> to <<main-image>> config */
+  --wallpaper-size: cover;                                                               /* cover-> default ; auto auto -> to <<main-image>> config */
   /*--brightness-wallpaper: brightness(51%);                                                 /* 100% -> default ; 51% -> to <<main-image>> config */
   
   --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas*/
@@ -49,7 +49,7 @@
    
   --personal-blur: blur(26px) ;                                                              /* Utilizado para personalizar userContent.css */
   
-  --background-align-y: -70px ;                                                              /* Alinear new-tab wallpaper to <<main-image>> config 
+  /*--background-align-y: -70px ;                                                              /* Alinear new-tab wallpaper to <<main-image>> config 
                                                                                                 -70px  ventana normal; 
                                                                                                 -98px  con Barra de Marcadores;
                                                                                                 -128px con B.Marcadores y B.Menu  */
