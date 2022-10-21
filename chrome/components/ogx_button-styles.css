@@ -33,7 +33,7 @@ background: url("../images/delete.svg") no-repeat center/16px !important;
 }
 /*color letras de boton "Guardar" marcador en :hover*/
 #editBookmarkPanelBottomButtons>#editBookmarkPanelDoneButton {   
-    color: var(--lwt-tab-text) !important;
+    color: white !important;
     border-radius: 4px !important;
 }
 /*Color del botón menú deplegable*/
@@ -44,7 +44,7 @@ panel menulist, panel menulist:not([open]) {
 }
 panel menulist:hover, panel menulist[open] {
     background-color: var(--button-active-bgcolor) !important;
-    color: var(--ltw-tab-text) !important;
+    color: white !important;
     box-shadow: none !important;
 }
 /*Color -fondo y borde-(flecha hacia abajo)*/
@@ -56,7 +56,7 @@ panel menulist:hover, panel menulist[open] {
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
     border-color: transparent !important;
     background-color: var(--button-active-bgcolor) !important;
-    color: var(--lwt-tab-text) !important;
+    color: white !important;
 }
 /*Color -fondo y "letras" - menu desplegable*/
 treechildren::-moz-tree-row(selected) {
@@ -98,7 +98,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
 /*Color de "highlight" inputtext*/
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
     background-color: var(--button-active-bgcolor) !important;
-    color: var(--lwt-tab-text) !important;
+    color: var(--lwt-frame) !important;
 }
 richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     color: var(--lwt-tab-text) !important;
