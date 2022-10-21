@@ -157,14 +157,14 @@ button:hover {
 #categories > .category:hover, #categories > .category:hover .category-name {
     background-color: transparent !important;
     color: var(--in-content-text-color) !important;
-    text-decoration: 1px underline white !important;
+    text-decoration: 1px underline var(--in-content-text-color) !important;
     text-underline-offset: 4px !important; }
 .category .category-name {
     font-weight: bold !important;
     font-size: 0.9em !important;}
 #categories > .category[selected] , #categories > .category[selected] > .category-name {
     background-color: transparent !important;
-    color: color-mix(in srgb, var(--general-color) 90%, white) !important;}
+    color: color-mix(in srgb, var(--general-color) 90%, var(--in-content-text-color)) !important;}
 #categories > .category[selected]:hover{
     color: var(--general-color) !important; }
 #categories > .category[selected]:hover > .category-name{
@@ -181,7 +181,7 @@ button.primary:hover {
     color: #eaeaea !important;}
 th.column{
     background-color: var(--in-content-button-background)  !important;
-    color: #eaeaea !important; }
+    color: var(--in-content-text-color) !important; }
 td {
     border: 1px solid var(--in-content-table-border-color) !important;}
 panel-list {
