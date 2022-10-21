@@ -2,7 +2,7 @@
 
 ### New Tab Page
 
-![imagen](https://user-images.githubusercontent.com/22057609/196266800-b7794ce9-52e0-43cf-8cfa-af2779a2182f.png)
+![GXLightDark](https://user-images.githubusercontent.com/22057609/197293874-b09b9d54-048a-4867-a32e-c6989754ad10.png)
 
 ### Preferences Page
 
