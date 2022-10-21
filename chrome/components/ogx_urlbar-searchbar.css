@@ -70,7 +70,7 @@ findbar:-moz-lwtheme {
     font-weight: bold !important;
     letter-spacing: 0.04em !important;
 }
-#nav-bar{ min-height: var(--toolbar-height-personal) !important; max-height: calc(var(--toolbar-height-personal) + 1px) !important; }
+#nav-bar{ min-height: var(--toolbar-height-personal) !important; }
 
 /* Urlbar */
 #urlbar{
