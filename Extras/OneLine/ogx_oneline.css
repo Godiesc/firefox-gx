@@ -1,4 +1,9 @@
-:root{
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+@media (prefers-color-scheme: dark){
+:root:is([brighttext]):-moz-lwtheme,
+:root[lwt-toolbar-field-focus-brighttext],
+  :root:-moz-lwtheme{
   --toolbar-bgcolor: transparent !important;                             /* "toolbar":"#131118", "Color de la toolbar"*/
   --lwt-sidebar-background-color:  #101019 !important;                   /* Necesario para corregir bug en ogx_library.css */
   --lwt-selected-tab-background-color: #101019 !important;               /* Color defaul de la petaña activa */
@@ -7,17 +12,35 @@
   --navbarWidth:32vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
   --toolbarbutton-hover-personal: #251f33 !important;
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
-}
+  }}
+@media (prefers-color-scheme: light){
+:root:is([darktext]):-moz-lwtheme,
+:root[lwt-toolbar-field-focus-darktext],
+  :root:-moz-lwtheme{
+  --toolbar-bgcolor: transparent !important;                             /* "toolbar":"#131118", "Color de la toolbar"*/
+  --lwt-sidebar-background-color:  #f9f9f9 !important;                   /* Necesario para corregir bug en ogx_library.css */
+  --lwt-selected-tab-background-color: #f9f9f9 !important;               /* Color defaul de la petaña activa */
+  --tab-height-personal: 32px !important;                                /* Minimum Height 32px for the right function of the theme*/
+  --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
+  --navbarWidth:32vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
+  --toolbarbutton-hover-personal: #cfcfcf !important;
+  --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
+  }}
+@media (prefers-color-scheme: dark){
 :root[lwtheme-image]{
   --toolbar-bgcolor: transparent !important;                                     
   --lwt-selected-tab-background-color: #101019bf !important;                     
-  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;
   --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
-}
+  }}
+@media (prefers-color-scheme: light){
+:root[lwtheme-image]{
+  --toolbar-bgcolor: transparent !important;                                     
+  --lwt-selected-tab-background-color: #f9f9f9bf !important;                     
+  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
+  }}
 :root[style*="--lwt-additional-images"]{
   --toolbar-bgcolor: transparent !important;                                                                
   --lwt-selected-tab-background-color: color-mix(in srgb, var(--lwt-frame) 82%, transparent) !important;
-  --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 5%, #231f30fc) !important;
   --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
 }
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 2px) !important;
