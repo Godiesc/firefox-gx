@@ -90,7 +90,7 @@
     --checkbox-unchecked-active-bgcolor: #c9c9bb !important;                        /*color de los checkbox al darle clic*/
 
     --checkbox-checked-bgcolor: var(--button-active-bgcolor) !important;                   /*color de los checkbox con check*/
-    --checkbox-checked-color: var(--in-content-text-color) !important;                     /*color de la palomita check*/
+    --checkbox-checked-color: white !important;                     /*color de la palomita check*/
     --checkbox-checked-hover-bgcolor: var(--button-hover-bgcolor) !important;              /*color de los checkbox con check :hover*/
 
     --in-content-primary-button-text-color: var(--in-content-button-background) !important;     /*color de los radiobutton (circulo) con check*/
@@ -98,7 +98,7 @@
     --in-content-primary-button-background-active: var(--general-color) !important;             /*color de los radiobutton (clic) con check*/
 
     --in-content-box-background: #f9f9fb !important;                                        /*color de los textbox y fondo de menús desplegables*/
-    --in-content-box-border-color: #e0e0eb !important;                                      /*color del borde de los textbox*/
+    --in-content-box-border-color: #c7c0d8 !important;                                      /*color del borde de los textbox*/
     --in-content-box-background-odd: var(--button-bgcolor) !important;                      /*color destinción entre filas de una tabla-atajos de busqueda*/
     --in-content-box-info-background: var(--in-content-box-background-odd) !important;      /*color de la caja de elementos que se sincronizan*/
     --section-highlight-background-color: var(--in-content-box-info-background) !important;
@@ -110,8 +110,9 @@
     --in-content-table-border-color: var(--in-content-box-border-color) !important;     /*Borde de tablas*/
 
     --in-content-button-background: #d3d3df !important;                                 /*color de botones*/
-    --in-content-button-background-hover: var(--button-hover-bgcolor) !important;       /*color de botones :hover*/
+    --in-content-button-background-hover: var(--button-active-bgcolor) !important;      /*color de botones :hover*/
     --in-content-button-background-active: var(--button-active-bgcolor) !important;     /*color de botones al darle clic*/
+    --in-content-button-text-color-hover: white !important;                             /*Color de letras en botones hover */
 
     --in-content-link-color: var(--general-color) !important;                           /*color de links*/
     --in-content-link-color-hover: #00ccff !important;                                  /*color de links*/
