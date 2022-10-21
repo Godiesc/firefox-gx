@@ -3,7 +3,7 @@
 
 :root{
   --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
-  --tab-min-height: var(--toolbar-height-personal) !important;
+  --tab-height-personal: var(--toolbar-height-personal) !important;
   --windowed-top-padding: 0px !important;
 }
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
@@ -39,11 +39,13 @@
 /* nuevo botón Menú */
 :root:not([chromehidden~="toolbar"])[tabsintitlebar] #PanelUI-menu-button{
     background-color: var(--lwt-frame) !important; 
-    border-right: 1px solid var(--general-color) !important;
+    border-right: 1px solid var(--general-color) !important;  
   }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
     max-width: var(--padding-left-tab) !important;
     min-width: var(--padding-left-tab) !important;
+    max-height: var(--toolbar-height-personal) !important;
+    min-height: var(--toolbar-height-personal) !important;
 }
 /* menu :hover */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
@@ -53,6 +55,7 @@
   --padding-left-tab: 74px !important;
     max-width: var(--padding-left-tab) !important;
     min-width: var(--padding-left-tab) !important;
+    margin-left: 1px !important;
 }
 /* Mostrar label Menú al abrir el Menú */
 :root:not([chromehidden~="toolbar"])[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack::after {
