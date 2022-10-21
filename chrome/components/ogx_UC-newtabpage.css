@@ -35,8 +35,10 @@
       var(--newtab-background-color) 86%, var(--newtab-wordmark-color) ) !important;
         
     --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* color bola de radiobutton */
+    
+    --brightness-wallpaper: brightness(100%);
         
-    --lwt-main-image: url("../images/newtab/wallpaper-light.png") ;
+    /*--lwt-main-image: url("../images/newtab/wallpaper-light.png") ;*/
     }
     body[lwt-newtab-brighttext] {
     --arrowpanel-background-personal: #1c1726 !important;
@@ -67,7 +69,9 @@
 
     --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* color bola de radiobutton */
     
-    --lwt-main-image: url("../images/newtab/wallpaper-dark.png") ;
+    /*--lwt-main-image: url("../images/newtab/wallpaper-dark.png") ;*/
+        
+    --brightness-wallpaper: brightness(51%);
         }
 /* ntp - Fondo general de la paginas newtab y home */
 .activity-stream {
