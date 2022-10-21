@@ -143,7 +143,7 @@ button:not(.category) {
     background-color: var(--in-content-button-background) !important;
     border-color: var(--in-content-box-border-color) !important; }
 button:hover {
-    background-color: var(--button-hover-bgcolor) !important;
+    background-color: var(--button-active-bgcolor) !important;
     color: #fafafa !important;
     border-color: var(--button-hover-bgcolor) !important; }
 
@@ -173,11 +173,11 @@ button:hover {
     text-decoration: 1px underline var(--general-color)!important;
     text-underline-offset: 4px !important; }
 button.primary {
-    background-color: var(--button-active-bgcolor) !important;
+    background-color: var(--general-color) !important;
     color: white !important;
     border-color: transparent !important;}
 button.primary:hover {
-    background-color: var(--button-hover-bgcolor) !important;
+    background-color: var(--button-active-bgcolor) !important;
     color: #eaeaea !important;}
 th.column{
     background-color: var(--in-content-button-background)  !important;
