@@ -16,16 +16,15 @@
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
 
 @media (prefers-color-scheme: dark){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - white team */ }}
+  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - white team */ 
+  --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-light.png") !important;                 /* new-tab page image - dark theme*/  }}
+  --lwt-main-image:  url("../images/newtab/wallpaper-light.png") !important;                 /* new-tab page image - dark theme*/  
+  --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default and Main-image config */ }}
   
-:root{
-  /*--lwt-main-image:  url("../images/newtab/wallpaper1.png") !important;                    /* new-tab page Main-Image config */
-  
-  --wallpaper-size: cover;                                                               /* cover-> default ; auto auto -> to <<main-image>> config */
-  /*--brightness-wallpaper: brightness(51%);                                                 /* 100% -> default ; 51% -> to <<main-image>> config */
+:root{  
+  --wallpaper-size: cover;                                                                   /* cover-> default ; auto auto -> to <<main-image>> config */
   
   --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas*/
   --toolbar-height-personal: 38px ;                                                          /* Toolbar height */
