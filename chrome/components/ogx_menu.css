@@ -163,8 +163,8 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-status2:not([fxastatus]) > #appMenu-fxa-label2{
     margin-inline-end: 1px !important;
 }
-#appMenu-fxa-label2{ margin-inline-start: -8px !important; }
-#appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
+#appMenu-fxa-label2{ margin-inline-start: -14px !important; }
+#appMenu-fxa-label2::after{ margin-inline-end: -4px !important; }
 @media{
     :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
     margin-left: -14px !important;
