@@ -2,19 +2,20 @@
    https://github.com/Godiesc/opera-gx */
 
 /* --------------- Íconos -------------------*/
-
-/* back button */
+@-moz-document url(chrome://browser/content/browser.xhtml){
+    
+/* back button aplicado solo a la UI principal del navegador */
 #back-button { 
     padding-inline-start: 5px !important; 
 }
-#back-button[#PersonalToolbar] image {
+#back-button image {
     margin-left: 0px !important;
     list-style-image: url("../images/back.svg") !important;
-}
+    }
 /* forward - go button */
-#forward-button[#PersonalToolbar] image {
+#forward-button image {
     list-style-image: url("../images/forward.svg") !important;
-}
+}}
 /* Reload button */
 #reload-button{
     list-style-image: url("../images/reload.svg") !important;
