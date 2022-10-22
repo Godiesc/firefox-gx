@@ -143,7 +143,7 @@ input:focus-visible, input:focus-visible{
     border-color: transparent !important; }
 .close-button:hover{
     background-color: var(--button-active-bgcolor) !important;
-    color: var(--newtab-wordmark-color)  !important;
+    color: white  !important;
     border-radius: 4px !important;
 }
 /*Colores de la sidebar deslizante para Personalizar la NewTab*/
@@ -158,8 +158,9 @@ input:focus-visible, input:focus-visible{
     border-color: transparent !important;
     border-radius: 4px !important; }
 .home-section .section .selector:hover {
-    background-color: var(--button-hover-bgcolor) !important;
-    border-color: var(--button-hover-bgcolor) !important;}
+    background-color: var(--button-active-bgcolor) !important;
+    border-color: var(--button-hover-bgcolor) !important;
+    color: white !important;}
     /* Sombra izquierda de la sidebar */
 .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
     box-shadow: -1px 0 #00000030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
