@@ -90,7 +90,8 @@ menupopup>menu[open="true"]{
 /* Mostrar background-color en el item seleccionado */
 menupopup>menuitem:is([selected="true"]):not([disabled="false"]){
     appearance: none !important;
-    background-color: var(--button-active-bgcolor) !important; }
+    background-color: var(--button-active-bgcolor) !important;
+    color: white !important;}
 menupopup>menuitem:is([selected="true"]):hover:not([disabled="false"]){
     appearance: none !important;
     background-color: var(--general-color) !important; 
