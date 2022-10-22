@@ -1,10 +1,6 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-:root:is([style*="--lwt-additional-images"],[lwtheme-image]):-moz-lwtheme{
-    --lwt-frame: transparent !important;
-  }
-
 /* Makes bookmarks toolbar appear vertically at the left side of the window */
 
   :root:not([inDOMFullscreen]){
@@ -88,7 +84,7 @@
         } }
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
-    background-color: var(--lwt-frame) !important;
+    background-color: transparent !important;
         } }
 /* menu :hover */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
