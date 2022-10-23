@@ -66,8 +66,14 @@ toolbar .text-link:-moz-lwtheme, panel .text-link:-moz-lwtheme{ color: var(--gen
 toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover{ color: var(--blue) !important; 
 }
 /* Panel de descargas */
-#downloadsListBox > richlistitem { border-radius: 0px !important; background: transparent !important; padding-inline: 4px 4px !important;}
-#downloadsListBox > richlistitem:is(:hover) {background: linear-gradient(to right, var(--button-hover-bgcolor) 70%, transparent) !important;}
+#downloadsListBox > richlistitem { 
+    border-radius: 0px !important; 
+    background: var(--arrowpanel-background) !important; 
+    padding-inline: 4px 4px !important;
+    color: var(--lwt-tab-text) !important;}
+#downloadsListBox > richlistitem:is(:hover) {
+    background: linear-gradient(to right, var(--button-hover-bgcolor) 70%, transparent) !important;
+    color: white !important;}
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
   padding: 0.62em 0.0em 0.62em 0em !important;
 }
