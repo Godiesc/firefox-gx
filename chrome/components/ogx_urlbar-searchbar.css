@@ -38,8 +38,6 @@ findbar:-moz-lwtheme {
 /* tamaño letras urlbar */
 #urlbar-input { opacity: 0.9 !important; font-weight: 501 !important;
 }
-@media (-moz-platform: linux){ #urlbar-input { opacity: 0.9 !important; font-weight: 500 !important; }
-}
 /* Sugerencias de búsqueda */
 .urlbarView { 
     margin-inline: -11px !important; width: -moz-available !important; }
