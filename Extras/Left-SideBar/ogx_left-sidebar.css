@@ -214,7 +214,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover
     color: var(--button-active-bgcolor) !important;
 }
 /* Linux default window controls icons - new position */
-@media (-moz-platform: linux) { .titlebar-buttonbox {
+@media (-moz-platform: linux) { :root:not([sizemode=fullscreen]) .titlebar-buttonbox {
     appearance: none !important;
     position: fixed !important;
     display: flex !important;
