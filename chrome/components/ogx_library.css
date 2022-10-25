@@ -56,7 +56,7 @@
     }
     #placesView>splitter {
         appearance: none !important;
-        border: 1px solid !important;
+        border-right: 1px solid !important;
         border-width: initial !important;
         border-color: var(--organizer-border-color, #414149) !important;
     }
