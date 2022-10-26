@@ -112,7 +112,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
 /* Color items barra de marcadores */
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]) {
     color: var(--button-active-bgcolor) !important;  fill: var(--general-color) !important; 
-    border-radius: 0 !important; }
+    border-radius: 0 !important; background-color: transparent !important; }
 
 toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):hover,
 #PersonalToolbar .toolbarbutton-1:hover, toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
