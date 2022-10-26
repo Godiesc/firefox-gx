@@ -104,7 +104,6 @@ toolbarbutton.bookmark-item:is(#OtherBookmarks) image{
 toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
 #PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], :active),
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack image{
-    margin-left: -1px !important;
 }
 /* Personal toolbar width in customization mode */
 :root[customizing] .customization-target:not(#widget-overflow-fixed-list) {
