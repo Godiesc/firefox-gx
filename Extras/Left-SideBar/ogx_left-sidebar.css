@@ -57,7 +57,7 @@
     }
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar,
 :root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar  {
-    --toolbar-bgcolor: #00000012 !important;
+    --toolbar-bgcolor: transparent !important;
     background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
     linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     background-position: left top !important;
@@ -104,6 +104,7 @@ toolbarbutton.bookmark-item:is(#OtherBookmarks) image{
 toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
 #PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], :active),
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack image{
+    margin-left: -1px !important;
 }
 /* Personal toolbar width in customization mode */
 :root[customizing] .customization-target:not(#widget-overflow-fixed-list) {
@@ -223,7 +224,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover
     width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
     flex-direction: column-reverse !important;
     background: transparent !important;
-    margin-left: 2px !important;
+    padding-left: 2px !important;
 }
 }
 @media (-moz-platform: linux){ .titlebar-button image { height: 24px !important; }}
