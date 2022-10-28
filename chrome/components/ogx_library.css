@@ -7,29 +7,42 @@
     @media (prefers-color-scheme: dark){
         :root{
         --arrowpanel-background: #1c1726 !important;
+        --contrast-color: black !important;
         --organizer-pane-background: #101019 !important;
-        --organizer-border-color: #18181f !important;
-        --organizer-pane-background2:color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
+        --organizer-border-color: #373748 !important;
+        --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
     }}
     @media (prefers-color-scheme: light){
         :root{
         --arrowpanel-background: #f9f9f9 !important;
         --organizer-pane-background: #f9f9f9 !important;
         --organizer-border-color:#cdcdcd !important;
-        --organizer-pane-background2:color-mix(in srgb, var(--organizer-pane-background) 94%, black) !important;
+        --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, black) !important;
+        --contrast-color: white !important;
     }}
+    /* Border color to "nombre"-"Etiquetas"-"Dirección" */
+    treecol, treecolpicker {
+        appearance: none;
+        border-color: var(--organizer-border-color) !important;
+}
     /*-----------------------Menú principal-------------------------*/
     #placesToolbar>toolbarbutton {
         appearance: none !important;
         margin: 2px 2px 2px 2px !important;
     }
-    #main-menubar> :hover, menubar>menu[_moz-menuactive="true"][open="true"] {
+    #placesMenu > menu:hover {
+        appearance: none !important;
+        background: var(--button-hover-bgcolor, #0060bf) !important;
+    }
+    #placesMenu > menu:hover[_moz-menuactive="true"][open="true"] {
         appearance: none !important;
         background: var(--button-active-bgcolor, #0060bf) !important;
     }
     toolbar {
         appearance: none !important;
         background-color: var(--organizer-pane-background) !important;
+        border-bottom: 1px solid transparent !important;
+        border-bottom-color: var(--organizer-border-color) !important;
     }
     #placesToolbar>toolbarbutton#back-button, #placesToolbar>toolbarbutton#forward-button {
         appearance: none !important;
@@ -54,12 +67,13 @@
         appearance: none !important;
         color: var(--organizer-color, #eaeaea) !important;
     }
+    @media (-moz-platform: linux){
     #placesView>splitter {
         appearance: none !important;
         border-right: 1px solid !important;
         border-width: initial !important;
         border-color: var(--organizer-border-color, #414149) !important;
-    }
+        }}
     /*--------------- sidebar derecha----------------*/
     #contentView treecol {
         appearance: none !important;
@@ -89,8 +103,8 @@
     /*Fondo inputText al Editar*/
     #editBookmarkPanelRows>vbox>input, #editBookmarkPanelRows>vbox>hbox>input {
         appearance: none !important;
-        background: color-mix(in srgb, var(--organizer-pane-background2) 60%, black) !important;
-        border-color: color-mix(in srgb, var(--organizer-pane-background2) 30%, black) !important;
+        background: color-mix(in srgb, var(--organizer-pane-background2) 60%, var(--contrast-color)) !important;
+        border-color: color-mix(in srgb, var(--organizer-pane-background2) 30%, var(--contrast-color)) !important;
     }
     #editBookmarkPanelRows>vbox>input:focus, #editBookmarkPanelRows>vbox>hbox>input:focus{
         appearance: none !important;
