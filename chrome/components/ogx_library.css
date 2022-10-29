@@ -11,6 +11,7 @@
         --organizer-pane-background: #101019 !important;
         --organizer-border-color: #373748 !important;
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
+        --organizer-color: white !important;
     }}
     @media (prefers-color-scheme: light){
         :root{
@@ -19,6 +20,7 @@
         --organizer-border-color:#cdcdcd !important;
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, black) !important;
         --contrast-color: white !important;
+        --organizer-color: black !important;
     }}
     /* Border color to "nombre"-"Etiquetas"-"Dirección" */
     treecol, treecolpicker {
@@ -68,11 +70,31 @@
         color: var(--organizer-color, #eaeaea) !important;
     }
     @media (-moz-platform: linux){
+    #editBMPanel_namePicker , #editBMPanel_locationField,
+    #editBMPanel_tagsField, #editBMPanel_keywordField{
+        border-radius: 4px !important;
+        }
+    #editBMPanel_namePicker:focus-visible , #editBMPanel_locationField:focus-visible,
+    #editBMPanel_tagsField:focus-visible, #editBMPanel_keywordField:focus-visible{
+        outline: 2px solid var(--general-color) !important;
+        outline-offset: -1px !important;
+        border-color: transparent !important;
+}
+    #editBMPanel_tagsSelectorExpander{
+        appearance: none !important;
+        padding-inline: 14px !important;
+        border-radius: 4px !important;
+        outline: 1px solid  color-mix(in srgb, var(--contrast-color) 30%, transparent) !important;
+        outline-offset: -1px !important;
+        background: var(--organizer-pane-background) !important;
+        }
+    #editBMPanel_tagsSelectorExpander:hover{
+        background: var(--button-active-bgcolor) !important;
+        outline: none !important;
+        }
     #placesView>splitter {
         appearance: none !important;
-        border-right: 1px solid !important;
-        border-width: initial !important;
-        border-color: var(--organizer-border-color, #414149) !important;
+        border-right: 1px solid var(--organizer-border-color, #414149) !important;
         }}
     /*--------------- sidebar derecha----------------*/
     #contentView treecol {
