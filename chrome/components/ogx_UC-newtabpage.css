@@ -10,6 +10,7 @@
 
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
     body{
+    --contrast-color: white !important;
     --arrowpanel-background-personal: #f9f9f9 !important;
     --lwt-sidebar-background-color: #efeff5 !important;                                       /* Sidebar fondo */
     --newtab-background-color: #efeff5 !important;                                            /* Color fondo general */
@@ -41,6 +42,7 @@
         
     }
     body[lwt-newtab-brighttext] {
+    --contrast-color: black !important;
     --arrowpanel-background-personal: #1c1726 !important;
     --lwt-sidebar-background-color: #14141d !important;                                       /* Sidebar fondo */
     --newtab-background-color: #101019 !important;                                            /* Color fondo general */
@@ -182,6 +184,7 @@ input:focus-visible, input:focus-visible{
     backdrop-filter: none !important;
 }
 .search-inner-wrapper:is(:hover){
+    background: color-mix(in srgb, var(--contrast-color) 5%, transparent) !important;
     box-shadow: 0 2px 0 0px var(--general-color) !important;
     border-radius: 0 !important;
 }
@@ -239,7 +242,7 @@ input:focus-visible, input:focus-visible{
     }
 /* colores al pasar el mouse sobre los sitios anclados en :hover */
 .top-site-outer:is(.active, :focus, :hover) .tile{
-    background: var(--newtab-pinnedsites-background) !important;
+    background: color-mix(in srgb, var(--contrast-color) 20%, transparent) !important;
     box-shadow: 0 0 0 1px var(--button-active-bgcolor) !important;
 }
 /* colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
