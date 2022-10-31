@@ -184,7 +184,6 @@ input:focus-visible, input:focus-visible{
     backdrop-filter: none !important;
 }
 .search-inner-wrapper:is(:hover){
-    background: color-mix(in srgb, var(--contrast-color) 5%, transparent) !important;
     box-shadow: 0 2px 0 0px var(--general-color) !important;
     border-radius: 0 !important;
 }
@@ -242,7 +241,7 @@ input:focus-visible, input:focus-visible{
     }
 /* colores al pasar el mouse sobre los sitios anclados en :hover */
 .top-site-outer:is(.active, :focus, :hover) .tile{
-    background: color-mix(in srgb, var(--contrast-color) 20%, transparent) !important;
+    background: color-mix(in srgb, var(--contrast-color) 10%, transparent) !important;
     box-shadow: 0 0 0 1px var(--button-active-bgcolor) !important;
 }
 /* colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
