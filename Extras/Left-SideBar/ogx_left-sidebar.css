@@ -21,6 +21,7 @@
     max-height: 100vh !important; 
     padding-bottom: 120px !important;
     padding-top: calc(var(--toolbar-height-personal) + 14px) !important;
+    padding-inline: 5px 7px !important;
   }
 @media (-moz-platform: linux ){:root:not([chromehidden~="toolbar"])[tabsintitlebar] #PersonalToolbar{
      padding-top: calc(var(--toolbar-height-personal) + 54px) !important;
