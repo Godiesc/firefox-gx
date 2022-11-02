@@ -22,7 +22,11 @@
         --contrast-color: white !important;
         --organizer-color: black !important;
     }}
-    /* Border color to "nombre"-"Etiquetas"-"Dirección" */
+    /* ---------------- Borde contextual - menu ------------------ */
+    .menupopup-arrowscrollbox{
+    box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
+    }
+    /* -------------- Border color to "nombre"-"Etiquetas"-"Dirección" -------------- */
     treecol, treecolpicker {
         appearance: none;
         border-color: var(--organizer-border-color) !important;
