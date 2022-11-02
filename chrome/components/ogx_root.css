@@ -6,7 +6,8 @@
 :root:is([brighttext]):-moz-lwtheme,
 :root[lwt-toolbar-field-focus-brighttext],
 :root:-moz-lwtheme{
-  --lwt-accent-color: #09080d !important;                                               /*"frame": "#17161c" */
+  --contrast-color: #09080d !important;
+  --lwt-accent-color: #161925 /*#1a1d2a*/ !important;                                               /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                               /*"frame": "#17161c" */
   --lwt-text-color: #cecece !important;                                                 /*"tab_background_text": "#c3c3c3"*/
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /*"frame_inactive": "#17161c" */
@@ -109,6 +110,7 @@
 /* White Theme*/
 @media (prefers-color-scheme: light){
 :root:-moz-lwtheme{
+  --contrast-color: #f9f9f9 !important;
   --lwt-accent-color: #e9e6ef !important;                                               /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                               /*"frame": "#17161c" */
   --lwt-text-color: #000 !important;                                                 /*"tab_background_text": "#c3c3c3"*/
@@ -210,7 +212,7 @@
 }}
 /* Margen top en ventana no maximizada */
 :root[tabsintitlebar][sizemode="normal"]{
-  --tab-block-margin: 1px !important;                                                                          /* márgen top pestañas, ventana no maximizada */
+  --tab-block-margin: 6px !important;                                                                          /* márgen top pestañas, ventana no maximizada */
 }
 /* Compatibilidad para temas que usan theme_frame para la imagen en su tema */
 @media (prefers-color-scheme: dark){
