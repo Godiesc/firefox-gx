@@ -34,12 +34,12 @@
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > .toolbarbutton-badge-stack{
     background-color: var(--arrowpanel-background) !important;
     border-radius: 0px !important;
-    border-color: var(--lwt-frame) !important;
+    border-color: var(--contrast-color) !important;
     border-image: var(--panel-separator-zap-gradient5) 1 !important;
     -moz-box-pack: center !important;
 }
 :root[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack{
-    outline: 1px solid var(--lwt-frame) !important;
+    outline: 1px solid var(--contrast-color) !important;
 }
 /* Alinear botón menú en ventana no maximizada*/
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
