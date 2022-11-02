@@ -7,7 +7,7 @@
 :root[lwt-toolbar-field-focus-brighttext],
 :root:-moz-lwtheme{
   --contrast-color: #09080d !important;
-  --lwt-accent-color: #161925 /*#1a1d2a*/ !important;                                               /*"frame": "#17161c" */
+  --lwt-accent-color: #09080d !important;                                               /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                               /*"frame": "#17161c" */
   --lwt-text-color: #cecece !important;                                                 /*"tab_background_text": "#c3c3c3"*/
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /*"frame_inactive": "#17161c" */
