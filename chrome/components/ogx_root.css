@@ -212,7 +212,7 @@
 }}
 /* Margen top en ventana no maximizada */
 :root[tabsintitlebar][sizemode="normal"]{
-  --tab-block-margin: 6px !important;                                                                          /* márgen top pestañas, ventana no maximizada */
+  --tab-block-margin: 1px !important;                                                                          /* márgen top pestañas, ventana no maximizada */
 }
 /* Compatibilidad para temas que usan theme_frame para la imagen en su tema */
 @media (prefers-color-scheme: dark){
