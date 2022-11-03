@@ -1,7 +1,7 @@
 /* ## ##-> To customize the "tree style tabs sidebar" extension wallpaper <-## ## */
 
 :root, body, #background {
-    --browser-bg-images: url("https://i.imgur.com/FphaXuc.png") !important;
+    --browser-bg-images: url("https://i.imgur.com/iOl6TWI.png") !important;
     --theme-images-additional_backgrounds-0: var(--browser-bg-images) !important;
     --browser-bg-position: left bottom !important;
     --browser-bg-size: cover !important;
