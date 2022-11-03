@@ -1,0 +1,15 @@
+/* ## ##-> To customize the "Sidebery" extension wallpaper <-## ## */
+
+.Tab:hover {
+  background-color: var(--button-bgcolor);
+}
+.Tab[data-active] {
+  background-color: var(--button-hover-bgcolor);
+  box-shadow: 0 1px 0 1px var(--general-color);
+}
+.root{
+--bg-img: url("https://i.imgur.com/iOl6TWI.png") !important;
+--bg-size: cover !important;
+background-image: var(--bg-img) !important;
+background-repet: no-repeat !important;
+}
