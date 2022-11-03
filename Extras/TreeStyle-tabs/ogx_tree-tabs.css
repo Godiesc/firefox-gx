@@ -9,6 +9,10 @@
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
     margin-top: 0px !important;
 }
+:root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar,
+:root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar  {
+    --toolbar-bgcolor: var(--lwt-frame) !important;
+}
 :root[tabsintitlebar] .titlebar-buttonbox {
   background: var(--toolbar-bgcolor) !important;
 }
@@ -46,23 +50,6 @@
     min-width: var(--padding-left-tab) !important;
     max-height: var(--toolbar-height-personal) !important;
     min-height: var(--toolbar-height-personal) !important;
-}
-/* menu :hover */
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
-    background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
-}
-:root:not([chromehidden~="toolbar"])[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack{
-  --padding-left-tab: 74px !important;
-    max-width: var(--padding-left-tab) !important;
-    min-width: var(--padding-left-tab) !important;
-    margin-left: 1px !important;
-}
-/* Mostrar label Menú al abrir el Menú */
-:root:not([chromehidden~="toolbar"])[tabsintitlebar][sizemode="maximized"] #PanelUI-menu-button[open] > stack::after {
-  content: var(--menu-label) !important;
-}
-:root[tabsintitlebar][sizemode="maximized"] #appMenu-popup{
-      --padding-left-tab: 74px !important;
 }
 /* Hides tabs toolbar */
 /* For OSX use hide_tabs_toolbar_osx.css instead */
