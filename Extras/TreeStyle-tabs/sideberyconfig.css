@@ -4,7 +4,7 @@
   background-color: var(--button-bgcolor);
 }
 .Tab[data-active] {
-  background-color: var(--button-hover-bgcolor);
+  background-color: var(--button-bgcolor);
   box-shadow: 0 1px 0 1px var(--general-color);
 }
 .root{
