@@ -190,16 +190,6 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
 }
-/* Group-tabs Extension */
-#panorama-tab-groups_example_com-browser-action image{ display: none !important; }
-#panorama-tab-groups_example_com-browser-action {
-    background-image: url("../images/logo_grouptabs.svg") !important;
-    background-repeat: no-repeat;
-    background-size: 14px !important;
-    background-position: center !important;
-    -moz-box-pack: center !important;
-    -moz-box-orient: vertical !important;
-}
 /* Añadir Separador despues de la extensión seleccionada */
 #_7b657ab8-4869-4244-8cb7-e15524a933dd_-browser-action .toolbarbutton-badge-stack::after {
     content: "" !important;
