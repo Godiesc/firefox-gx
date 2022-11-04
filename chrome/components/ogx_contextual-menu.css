@@ -49,10 +49,12 @@ menupopup:not(#PlacesToolbar) menupopup {
 /* Íconos superiores del menú contextual */
 #context-navigation {
     appearance: none !important;
-    background-color: var(--arrowpanel-background) !important;
     color: var(--arrowpanel-color) !important;
     margin-left: 2px !important;
     margin-right: 2px !important; }
+#context-navigation > .menuitem-iconic > .menu-iconic-left > .menu-iconic-icon{
+    appearance: none !important;
+    background-color: transparent !important; }
 #context-navigation > .menuitem-iconic:hover:not([disabled="true"]) > .menu-iconic-left > .menu-iconic-icon{
     appearance: none !important;
     background-color: var(--button-hover-bgcolor) !important; }
