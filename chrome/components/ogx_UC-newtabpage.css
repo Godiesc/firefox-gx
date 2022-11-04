@@ -298,7 +298,8 @@ main {
 }
 }
 /*---------------------------------- Pagina de Error al Cargar Página ---------------------------------------------*/
-@-moz-document url('about:config'),  url(about:privatebrowsing), regexp("^about:(neterror|certerror).*") {
+@-moz-document url('about:config'),  url(about:privatebrowsing),
+    regexp("^about:(neterror|certerror).*") , url('about:firefoxview') {
 
 .button[autofocus], .button[type="submit"], .button[default], button.primary:not(:hover) {
     background-color: var(--button-active-bgcolor) !important;
