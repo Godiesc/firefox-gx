@@ -81,7 +81,7 @@
   --autocomplete-popup-separator-color: transparent !important;                         /*color separador urlbar y sugerencias de búsqueda*/
   
   scrollbar-color: #38375580 #18173530 !important;                                      /*Colores - Barra de deplazamiento*/
-  --shiel-icon-personal: url("../images/shield-dark.svg") !important;                   /*Ícono protección contra rastreo*/
+  --shield-icon-personal: url("../images/shield-dark.svg") !important;                  /*Ícono protección contra rastreo*/
   --noise-urlbar-personal: url("../images/urlbar-noise-dark.png") !important;           /*imagen de desenfoque urlbar open*/
   
   
@@ -185,7 +185,7 @@
   --autocomplete-popup-separator-color: transparent !important;                         /*color separador urlbar y sugerencias de búsqueda*/
   
   scrollbar-color: #d8d9da var(--toolbar-bgcolor) !important;                                      /* Colores - Barra de deplazamiento */
-  --shiel-icon-personal: url("../images/shield-light.svg") !important;                  /*Ícono protección contra rastreo*/
+  --shield-icon-personal: url("../images/shield-light.svg") !important;                 /*Ícono protección contra rastreo*/
   --noise-urlbar-personal: url("../images/urlbar-noise-light.png") !important;          /*imagen de desenfoque urlbar open*/
   
   
