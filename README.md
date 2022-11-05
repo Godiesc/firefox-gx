@@ -29,7 +29,7 @@
    <li><a href="https://addons.mozilla.org/es/firefox/addon/opera-light/">White Theme ⚪</a></li></ul>
    
 <ul><p>You can also use the <b><a href="https://addons.mozilla.org/es/firefox/addon/firefox-color/">"Firefox Color"</a> </b>extension to change the accent color to your preference. To change the color go into the extension page: </p>
-<li>In "Custom colors" tab change the color in "Toolbar Color", select a black color to dark theme or select white to a light theme.</li>
+<li>In "Custom colors" tab change the color in "Toolbar Color", select a black color for a dark theme or select white for a light theme.</li>
 <li> Go to "Advanced colors" tab and change the color in "icons attention", this color will set the accent color to the theme.</li></ul>
 
 # Extras
