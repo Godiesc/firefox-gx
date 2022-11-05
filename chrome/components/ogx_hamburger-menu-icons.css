@@ -29,13 +29,10 @@ panelmultiview .toolbaritem-combined-buttons > label {
 .panel-banner-item{
     background: linear-gradient(to right, transparent 0%, var(--button-hover-bgcolor) 20%, var(--button-hover-bgcolor) 80%, transparent 100%) !important;
 }
-.panel-banner-item:hover{
-    background: linear-gradient(to right, transparent 0%, var(--button-active-bgcolor) 20%, var(--button-active-bgcolor) 80%, transparent 100%) !important;
-}
 .panel-banner-item::before {
     background: url("../images/foxFill.svg") no-repeat center/16px;
     content: ""; display: block; width: 16px; height: 16px;
-    margin-inline-end: 0px; -moz-context-properties: fill;
+    margin-inline-end: 7px; -moz-context-properties: fill;
     fill: #3ad3a2 !important;
 }
 /*ícono account Margenes */
