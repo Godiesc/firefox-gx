@@ -44,7 +44,7 @@ animation-duration: 0ms !important;
   -moz-box-ordinal-group: 2 !important;
 }
 #urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box > #tracking-protection-icon {
-    list-style-image: var(--shiel-icon-personal) !important;
+    list-style-image: var(--shield-icon-personal) !important;
     fill: var(--general-color) !important;
     opacity: 1 !important;
 }
