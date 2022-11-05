@@ -73,20 +73,6 @@
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
 }
-/* Margen de varios menús [Open] */
-#BMB_bookmarksPopup{ margin-top: -4px !important; margin-inline: -6px !important; }
-
-#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #identity-popup,
-#permission-popup, #protections-popup, #editBookmarkPanel {
-    margin-top: 0px !important; 
-    margin-inline: -2px !important; }
-panel[type="arrow"]{ 
-    margin-top: 0px !important; }
-panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-install-confirmation-notification{
-    margin-inline: 0px !important;}
-:is(#identity-popup, #notification-popup)[type="arrow"]:is([side="top"], [side="bottom"]) {
-    margin-inline: -2px !important;
-}
 /* Padding top para hacer espacio para la fila del menú */
 @media {
   :root[tabsintitlebar][sizemode="maximized"] #appMenu-popup panelview{
