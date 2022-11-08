@@ -51,6 +51,7 @@ panel menulist:hover, panel menulist[open] {
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
     background-color: var(--Button-background-personal) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
+    border: none !important;
     border-radius: 3px !important
 }
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
