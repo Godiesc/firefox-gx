@@ -98,7 +98,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
 /*Color de "highlight" inputtext*/
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
     background-color: var(--button-active-bgcolor) !important;
-    color: var(--lwt-frame) !important;
+    color: var(--lwt-accent-color) !important;
 }
 richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     color: var(--lwt-tab-text) !important;
