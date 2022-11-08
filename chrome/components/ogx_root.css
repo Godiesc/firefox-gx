@@ -113,7 +113,7 @@
   --contrast-color: #f9f9f9 !important;
   --lwt-accent-color: #e9e6ef !important;                                               /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                               /*"frame": "#17161c" */
-  --lwt-text-color: #000 !important;                                                 /*"tab_background_text": "#c3c3c3"*/
+  --lwt-text-color: #000 !important;                                                    /*"tab_background_text": "#c3c3c3"*/
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /*"frame_inactive": "#17161c" */
   
   --lwt-tab-text: #000 !important;                                                      /*"tab_text": "#ffffff"*/
@@ -146,9 +146,9 @@
   --toolbarbutton-icon-fill: #372f4c !important;                                        /*"icons": "#00dbfd"*/
   /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /*"icons_attention": "#00dbfd"*/    
   
-  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 80%, var(--lwt-frame)) !important;          /*"button_background_hover": "#26242e"*/
-  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, var(--lwt-frame)) !important;         /*"button_background_active": "#131217"*/
-  --toolbarbutton-hover-personal: var(--Button-background-personal) !important;                                           /* Button :hover color personal*/
+  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 80%, var(--contrast-color)) !important;    /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, var(--contrast-color)) !important;   /*"button_background_active": "#131217"*/
+  --toolbarbutton-hover-personal: var(--Button-background-personal) !important;                                          /* Button :hover color personal*/
 
   
   --lwt-sidebar-background-color: var(--toolbar-bgcolor) !important;                    /*Sidebar-background*/
