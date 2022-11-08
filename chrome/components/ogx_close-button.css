@@ -13,7 +13,7 @@
     margin-inline-end: -2px !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tab-close-button:hover {
-    background-color: var(--lwt-accent-color, var(--lwt-accent-color)) !important;
+    background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
     fill: var(--identity-tab-color, var(--general-color)) !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tabbrowser-tab:not([pinned]):hover .tab-close-button {
@@ -47,7 +47,7 @@
     pointer-events: auto;
     border-radius: 50% !important;
     background-color: color-mix(in srgb, var(--lwt-tab-text) 80%,transparent) !important;
-    color: var(--lwt-frame) !important;
+    color: var(--contrast-color) !important;
     }}
 @media (-moz-platform: macos) {.tabbrowser-tab:hover .tab-close-button:not(:hover){background-color: transparent !important;
     color: var(--lwt-tab-text) !important;
