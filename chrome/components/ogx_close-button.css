@@ -13,7 +13,7 @@
     margin-inline-end: -2px !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tab-close-button:hover {
-    background-color: var(--lwt-frame, var(--lwt-accent-color)) !important;
+    background-color: var(--lwt-accent-color, var(--lwt-accent-color)) !important;
     fill: var(--identity-tab-color, var(--general-color)) !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tabbrowser-tab:not([pinned]):hover .tab-close-button {
