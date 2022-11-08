@@ -195,10 +195,10 @@
   --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;              /*ColorBotónGuardar :Hover*/
   --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;            /*ColorBotónGuardar :clic*/
 
-  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, var(--lwt-frame)) !important;   /*Color input background en Marcadores*/
-  --focus-outline-color: var(--general-color) !important;                                              /*Color borde en InputText Focus*/
-  --input-border-color: #c7c0d8 !important;                                                            /*Color borde en InputText*/
-  --Button-background-personal: #e3dfec !important;                                                    /*Background of buttons - variable personal */
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, var(--contrast-color)) !important;   /*Color input background en Marcadores*/
+  --focus-outline-color: var(--general-color) !important;                                                   /*Color borde en InputText Focus*/
+  --input-border-color: #c7c0d8 !important;                                                                 /*Color borde en InputText*/
+  --Button-background-personal: #e3dfec !important;                                                         /*Background of buttons - variable personal */
 
     /*Colores checkbox —v*/
   --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;
