@@ -74,7 +74,7 @@ tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;
     top: 0px !important; left: 0px !important; border-radius: 50% !important;
     width: 16px !important; height: 16px !important;
-    color: var(--lwt-frame) !important; 
+    color: var(--contrast-color) !important; 
     background: var(--identity-icon-color,var(--general-color))  !important; 
     stroke: transparent  !important;
     fill-opacity: 1 !important; animation: none !important;
@@ -225,7 +225,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
 /* Colores Hover*/
 @media (-moz-platform: macos) {.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([soundplaying]):hover{
     background-color: var(--general-color) !important;
-    fill: var(--lwt-frame) !important;
+    fill: var(--contrast-color) !important;
     }}
 /* Colores muted*/
 @media (-moz-platform: macos) {.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted]){
