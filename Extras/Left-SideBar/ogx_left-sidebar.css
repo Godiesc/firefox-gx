@@ -108,7 +108,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
 }
 /* Alinear items menú open */
 #PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
-.subviewbutton, .widget-overflow-list .toolbarbutton-1{
+.subviewbutton, .widget-overflow-list .toolbarbutton-1, #appMenu_historyMenu>toolbarbutton.bookmark-item{
    padding-inline-start:  14px !important;  
 }
 @media{
