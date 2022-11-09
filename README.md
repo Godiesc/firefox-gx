@@ -28,6 +28,8 @@
 <li> Otros Colores - Other Colors: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
    <li><a href="https://addons.mozilla.org/es/firefox/addon/opera-light/">White Theme ⚪</a></li></ul>
    
+<p><b>Here a <a href="Here a video explanation to how switch into light and dark mode">"Video Explanation"</a> to how switch into light and dark mode.</b></p>
+   
 <ol><p>You can also use the <b><a href="https://addons.mozilla.org/es/firefox/addon/firefox-color/">"Firefox Color"</a> </b>extension to change the accent color to your preference. To change the color go into the extension page: </p>
 <li>In "Custom colors" tab change the color in "Toolbar Color", select a black color for a dark theme or select white for a light theme.</li>
 <li> Go to "Advanced colors" tab and change the color in "icons attention", this color will set the accent color to the theme.</li></ol>
