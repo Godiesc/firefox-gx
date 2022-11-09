@@ -3,6 +3,10 @@
 
 /*-----------------íconos en el menú de hamburguesa----------------------*/
 
+/* Tamaño menu Open ventana no maximizada*/
+#appMenu-popup panelview{ width: 25.5em !important;
+}
+
 /*Posicion y margen de los íconos*/
 .subviewbutton[shortcut]::after, .widget-overflow-list .subviewbutton-nav::after, .PanelUI-subView .subviewbutton-nav::after {
 /*    margin-inline-end: 20px !important; */
