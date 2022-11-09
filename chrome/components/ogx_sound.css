@@ -121,7 +121,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     border-radius: 2px !important;
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg")!important;
     color: color-mix(in srgb, var(--toolbarbutton-icon-fill), var(--lwt-tab-text)) !important;
-    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, var(--lwt-tab-text)) !important; 
+    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
     fill-opacity: 1 !important;
     }}
 /*-----------ícono "reproduciendo" Pinned-----------*/
