@@ -48,7 +48,13 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
     display: none !important;
 }
-#appMenu-fxa-label2::before  {
+#appMenu-fxa-status2:not([fxastatus="signedin"]) {
+    margin-right: -2px !important;
+}
+#appMenu-fxa-status2:not([fxastatus="signedin"]):hover  toolbarbutton {
+    background-color: var(--button-active-bgcolor) !important;
+}
+#appMenu-fxa-label2[fxastatus="signedin"]::before  {
     background: var(--avatar-image-url) no-repeat left/16px;
     margin-inline-end: 7px;
     
