@@ -28,7 +28,7 @@
 <li> Otros Colores - Other Colors: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
    <li><a href="https://addons.mozilla.org/es/firefox/addon/opera-light/">White Theme ⚪</a></li></ul>
    
-<p><b>Here a <a href="Here a video explanation to how switch into light and dark mode">"Video Explanation"</a> to how switch into light and dark mode.</b></p>
+<p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode.</b></p>
 
 <hr size="1px" color="#50505050" />
  
