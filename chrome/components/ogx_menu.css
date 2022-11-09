@@ -68,7 +68,7 @@
     display: -moz-box;
     content: var(--menu-label);
     color: var(--label-color) !important;
-    margin-inline-start: 5px !important;
+    margin-inline: 5px 3px !important;
     text-shadow: none !important; 
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
@@ -128,7 +128,7 @@
 
 #PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
 .subviewbutton, .widget-overflow-list .toolbarbutton-1{
-   padding-inline-start:  14px !important;  
+   padding-inline-start:  12px !important;  
 }
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
     background-position: left 10px center;
@@ -153,13 +153,17 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-label2::after{ margin-inline-end: -4px !important; }
 @media{
     :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
-    margin-left: -14px !important;
+    margin-left: -12px !important;
     border-top: 1px solid var(--button-active-bgcolor) !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
     padding-bottom: 6px !important;
     margin-bottom: -3px !important;
     margin-right: 6px !important;
 }}
+@media{
+    :root[tabsintitlebar][sizemode="normal"] #appMenu-fxa-label2{
+    margin-left: -12px !important;
+    }}
 /*ícono account - first */
 #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
     display: none !important;
