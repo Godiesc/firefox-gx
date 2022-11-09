@@ -159,7 +159,8 @@ button:hover {
     background-color: transparent !important;
     color: var(--in-content-text-color) !important;
     text-decoration: 1px underline var(--in-content-text-color) !important;
-    text-underline-offset: 4px !important; }
+    text-underline-offset: 4px !important; 
+    border-color: transparent !important;}
 .category .category-name {
     font-weight: bold !important;
     font-size: 0.9em !important;}
