@@ -107,10 +107,6 @@
 .PanelUI-remotetabs-clientcontainer label {
     padding-inline-start: 0px !important;
 }
-/* Alinear Lista de pestañas en Historial */
-#appMenu_historyMenu>toolbarbutton.bookmark-item{
-    padding-inline-start: 12px !important;
-}
 /* Color de íconos y label */
 .subviewbutton, #appMenu-popup label {  
     -moz-context-properties: fill; 
@@ -131,7 +127,7 @@
 /*-----------------Config para alinear íconos en el menú de hamburguesa----------------------*/
 
 #PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
-.subviewbutton, .widget-overflow-list .toolbarbutton-1{
+.subviewbutton, .widget-overflow-list .toolbarbutton-1, #appMenu_historyMenu>toolbarbutton.bookmark-item{
    padding-inline-start:  12px !important;  
 }
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
