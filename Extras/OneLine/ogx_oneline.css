@@ -305,6 +305,19 @@ toolbar:is(.browser-toolbar){
     margin-top: 0px !important;
     border-top: 0px !important;
 }
+/* Alinear items menú open */
+#PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
+.subviewbutton, .widget-overflow-list .toolbarbutton-1{
+   padding-inline-start:  14px !important;  
+}
+@media{
+    :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
+    margin-left: -14px !important;
+}
+@media{
+    :root[tabsintitlebar][sizemode="normal"] #appMenu-fxa-label2{
+    margin-left: -14px !important;
+    }}
 /* H I D I N G   E L E M E N T S */
 /* Comment or uncomment depending of what elements you want to hide */
 
