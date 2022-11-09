@@ -170,7 +170,7 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-status2:not([fxastatus="signedin"]):hover  toolbarbutton {
     background-color: var(--button-active-bgcolor) !important;
 }
-#appMenu-fxa-label2[fxastatus="signedin"]::before  {
+#appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2::before  {
     margin-inline-end: 7px;
     content: var(--account-label) !important;
     display: inline-block;
