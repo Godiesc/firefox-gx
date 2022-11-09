@@ -203,9 +203,9 @@
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
   }
 /* Nuevos margenes Botón menú */
-#back-button{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #back-button{
     margin-left: var(--uc-vertical-toolbar-width,0) !important;
-  }
+    }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
     max-width: var(--padding-left-tab) !important;
