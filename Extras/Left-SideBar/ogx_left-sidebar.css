@@ -92,7 +92,7 @@
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
-/* Alinear Items */
+/* Alinear Items Left sidebar*/
 #personal-bookmarks .bookmark-item > .toolbarbutton-text {
     display: none !important;
 }
@@ -106,6 +106,19 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]),
 #PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked], :active),
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack image{
 }
+/* Alinear items menú open */
+#PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
+.subviewbutton, .widget-overflow-list .toolbarbutton-1{
+   padding-inline-start:  14px !important;  
+}
+@media{
+    :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
+    margin-left: -14px !important;
+}
+@media{
+    :root[tabsintitlebar][sizemode="normal"] #appMenu-fxa-label2{
+    margin-left: -14px !important;
+    }}
 /* Personal toolbar width in customization mode */
 :root[customizing] .customization-target:not(#widget-overflow-fixed-list) {
   min-width: initial !important;
