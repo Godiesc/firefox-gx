@@ -43,7 +43,9 @@
 
     --in-content-box-background: #17141c !important;                                        /*color de los textbox y fondo de menús desplegables*/
     --in-content-box-border-color: #2c303c !important;                                      /*color del borde de los textbox*/
-    --in-content-box-background-odd: var(--button-bgcolor) !important;                      /*color destinción entre filas de una tabla-atajos de busqueda*/
+    
+    --in-content-box-background-odd: color-mix(in srgb,                                     /*color destinción entre filas de una tabla-atajos de busqueda*/
+        var(--in-content-box-border-color), transparent) !important;     
     --in-content-box-info-background: var(--in-content-box-background-odd) !important;      /*color de la caja de elementos que se sincronizan*/
     --section-highlight-background-color: var(--in-content-box-info-background) !important;
 
@@ -99,7 +101,8 @@
 
     --in-content-box-background: #f9f9fb !important;                                        /*color de los textbox y fondo de menús desplegables*/
     --in-content-box-border-color: #c7c0d8 !important;                                      /*color del borde de los textbox*/
-    --in-content-box-background-odd: var(--button-bgcolor) !important;                      /*color destinción entre filas de una tabla-atajos de busqueda*/
+    --in-content-box-background-odd: color-mix(in srgb,                                     /*color destinción entre filas de una tabla-atajos de busqueda*/
+        var(--in-content-box-border-color), transparent) !important;     
     --in-content-box-info-background: var(--in-content-box-background-odd) !important;      /*color de la caja de elementos que se sincronizan*/
     --section-highlight-background-color: var(--in-content-box-info-background) !important;
 
