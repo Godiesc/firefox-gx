@@ -16,7 +16,7 @@
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
 
 @media (prefers-color-scheme: dark){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - dark team */ 
+  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - dark theme */ 
   --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
