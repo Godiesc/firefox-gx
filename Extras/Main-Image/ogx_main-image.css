@@ -62,3 +62,10 @@
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
    background-image: transparent !important;
 }
+/* Compatibilidad con Left-sidebar */
+/*
+#PersonalToolbar{
+   background: var(--lwt-main-image) !important;
+   background-size:  var(--wallpaper-size) !important;
+}
+*/
