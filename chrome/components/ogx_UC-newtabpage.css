@@ -263,7 +263,7 @@ input:focus-visible, input:focus-visible{
 /* Fondo de <popup> al intentar eliminar un sitio anclado*/
 .modal{
     backdrop-filter: var(--personal-blur) !important;
-    outline: 1px solid var(--arrowpanel-background-personal) !important;
+    outline: 1px solid var(--contrast-color) !important;
     }
 /*------------------------fondo (imagen), Logo y Wordmark------------------------*/
 body{
