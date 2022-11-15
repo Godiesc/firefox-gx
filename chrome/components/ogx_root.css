@@ -109,7 +109,7 @@
 }
 /* White Theme*/
 @media (prefers-color-scheme: light){
-:root:-moz-lwtheme{
+:root:not([lwtheme-brighttext="true"]){
   --contrast-color: #f9f9f9 !important;
   --lwt-accent-color: #e9e6ef !important;                                               /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                               /*"frame": "#17161c" */
@@ -141,7 +141,7 @@
     
   --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;               /*"tab_selected":"#363540"*/
 
-  --chrome-content-separator-color: #ddd9e8 !important;               /*"toolbar_bottom_separator": "#181818"*/
+  --chrome-content-separator-color: #ddd9e8 !important;                                 /*"toolbar_bottom_separator": "#181818"*/
   
   --toolbarbutton-icon-fill: #372f4c !important;                                        /*"icons": "#00dbfd"*/
   /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /*"icons_attention": "#00dbfd"*/    
