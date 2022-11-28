@@ -36,7 +36,7 @@ findbar:-moz-lwtheme {
     color: var(--toolbar-field-focus-color) !important;
 }
 /* tamaño letras urlbar */
-#urlbar-input { opacity: 0.9 !important; font-weight: 501 !important;
+#urlbar-input { font-weight: 501 !important; opacity: 0.9 !important;
 }
 /* Sugerencias de búsqueda */
 .urlbarView { 
@@ -52,13 +52,20 @@ findbar:-moz-lwtheme {
 #urlbar .search-one-offs{
     padding-right: 14px !important;  }
 #urlbar .searchbar-engine-one-off-item{ 
-    border-radius: 2px !important; }
+    border-radius: 3px !important; }
 .urlbarView-row:hover .urlbarView-favicon { 
     background: var(--toolbar-field-focus-background-color) !important; }
 .urlbarView-favicon{
     padding: 6px !important; border-radius: 8px !important;
     margin-top: -2px !important; margin-bottom:  -2px !important;
     clip-path: circle(50%);
+}
+/* Botones de acciones rápidas urlbar open */
+.urlbarView-row[dynamicType="quickactions"] .urlbarView-quickaction-row {
+    box-shadow: 0px 0px 1px rgba(128, 128, 142, 0.9) !important;
+}
+.urlbarView-row[dynamicType="quickactions"] .urlbarView-quickaction-row:hover {
+    box-shadow: 0px 0px 0px 1px var(--autocomplete-popup-hover-background) !important;
 }
 /* Label "Sugerencias de firefox - Sugerencias de google" */
 .urlbarView-row[label] {
@@ -112,13 +119,14 @@ findbar:-moz-lwtheme {
   padding-block: 4px 3px !important; }
 #searchbar:hover{
     background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important; }
-#searchbar:focus-within { border-color: var(--toolbar-field-focus-background-color) !important;
+#searchbar:focus-within { 
+    border-color: var(--toolbar-field-focus-background-color) !important;
     box-shadow: none !important;
     background-color: var(--toolbar-field-focus-background-color) !important; }
 #PopupSearchAutoComplete {
     appearance: none !important;
     margin-top: -1px !important;
-    margin-left: 0px !important;
+    margin-left: -3px !important;
     --arrowpanel-border-color: none !important; 
 }
 /* Páginas de extensiones */
@@ -138,13 +146,14 @@ findbar:-moz-lwtheme {
     -moz-context-properties: fill !important;
     fill: var(--general-color) !important;
     width: 15px !important; 
-    height: 15px !important; 
-    margin-inline: -6px !important; }
-#identity-box[pageproxystate="valid"].chromeUI .identity-box-button[open] #identity-icon{
+    height: 15px !important;
+    margin-inline: 2px 2px !important;
+    }
+#identity-box[pageproxystate="valid"].chromeUI .identity-box-button:is(:hover,[open]) #identity-icon{
     fill: var(--toolbarbutton-icon-fill) !important;
 }
 #identity-box[pageproxystate="valid"].notSecureText, #identity-box[pageproxystate="valid"].chromeUI, #identity-box[pageproxystate="valid"].extensionPage, #urlbar-label-box {
-    margin-inline-end: 4px !important; }
+    margin-inline-end: 3px !important; }
 #identity-box[pageproxystate="valid"].notSecureText > .identity-box-button, #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button, #urlbar-label-box {
     background-color: transparent !important; }
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button:hover:not([open]), #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button:hover:not([open]) {
@@ -158,23 +167,23 @@ findbar:-moz-lwtheme {
 }
 /* -----------------> Íconos de la urlbar más pequeños <--------------------- */
 /* Tamaño */
-#tracking-protection-icon, #identity-icon, .sharing-icon{
+#tracking-protection-icon, #identity-icon, .sharing-icon, .desktop-notification-icon{
     height: 14px !important;
     width: 14px !important;
-    margin-left: -2px !important;
-    margin-right: -2px !important;
+    margin-inline: 2px !important;
     color: var(--toolbarbutton-icon-fill) !important;
+}
+.identity-box-button {
+  padding-inline: 0px !important;
 }
 /* box, caja de íconos*/
-#identity-icon-box, #tracking-protection-icon-container, #identity-permission-box, #notification-popup-box {   
+#identity-icon-box, #identity-permission-box, #notification-popup-box{   
     margin-block: 3px !important;
-    margin-left: 2px !important;
-    margin-right: 2px !important;
+    margin-inline: 2px !important;
     color: var(--toolbarbutton-icon-fill) !important;
 }
-#permissions-granted-icon, #identity-permission-box[hasPermissions]{
-    height: 16px !important;
-    width: 16px !important;
+#permissions-granted-icon, #identity-permission-box[hasPermissions], #blocked-permissions-container > .blocked-permission-icon{
+    margin-inline: 2px !important;
     margin-right: 2px !important;
 }
 #blocked-permissions-container > .blocked-permission-icon {
@@ -182,36 +191,51 @@ findbar:-moz-lwtheme {
     margin-left: 0px !important;
 }
 /* ícono contenido DRM */
-.notification-anchor-icon {
+.drm-icon {
     padding: 3px !important;
     height: 20px !important;
     width: 20px !important;
 }
 /* ícono de Permitir Notificaciones*/
 .popup-notification-icon[popupid="web-notifications"], .desktop-notification-icon {
-    padding: 2px !important;
+    width: 16px !important;
+    height: 16px !important;
+    padding: 1px !important;
 }
-.protections-popup-category-icon, .permission-popup-permission-icon {
-    width: initial !important; height: initial !important;
-    padding-inline: 0 0 !important;
+#notification-popup-box {
+    width: 20px !important;
+    height: 19px !important;
+}
+/* ícono instalar extensión */
+#addons-notification-icon {
+    margin-bottom: -1px !important;
+    margin-top: -4px !important;
+    padding-bottom: 0px !important;    
 }
 /* ícono Portección contra rastreo */
+#tracking-protection-icon-container{
+    margin-block: 3px 2px !important;
+    margin-inline: 3px 0px!important;
+}
 #tracking-protection-icon {
-    margin-inline-start: 1px !important; }
+    margin-inline-start: 1px !important;
+    margin-block-start: 1px !important;}
 #tracking-protection-icon-container {
-    padding: 0px !important;
-    padding-left: 2px !important;
-    padding-right: 2px !important;
-}
-.identity-box-button:hover:not([open="true"]) { 
-    background-color: transparent !important; 
-}
-.urlbar-page-action {
-    width: 18px !important;
-    margin: 3px !important;
     padding: 2px !important;
+}
+/* ícono bookmark, vista de lectura, etc */
+.urlbar-page-action {
+    width: 20px !important;
+    height: 20px !important;
+    margin-inline: 3px 3px!important;
+    padding: 3px !important;
     color: var(--toolbarbutton-icon-fill) !important;
 }
+.urlbar-page-action .urlbar-icon{
+    width: 15px !important;
+    height: 15px !important;
+    margin-left: -1px !important;
+    }
 /*fondo :hover de íconos de la urlbar"*/
 #notification-popup-box:hover:not([open="true"]), #identity-icon-box:hover:not([open="true"]),#identity-permission-box:hover:not([open="true"]), #tracking-protection-icon-container:hover:not([open="true"]), 
 .urlbar-page-action:not([disabled],[open="true"]):hover, #urlbar-go-button:hover, .search-go-button:hover, #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:hover  {

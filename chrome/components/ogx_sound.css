@@ -1,196 +1,168 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-/*Label de medios "Reproduciendo" eliminado*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){ 
-    .tab-secondary-label{display: none !important;
-    }}
-@keyframes slide1 {
-    from { transform: scale(1.0, 1.0); }
-      to { transform: scale(0.6, 1.0); }
-}
-/*--------ícono de sonido simpre visible en pestañas con sonido, sin dejar de mostrar el favicon-------*/
-
+/* Label de medios "Reproduciendo" eliminado */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay, .tab-icon-overlay:is([pinned]) {
-    height:16px !important;
+
+.tabbrowser-tab:not([pinned]) .tab-icon-stack:is([muted],[soundplaying],[activemedia-blocked]){
+  grid-template-areas: "a s";
+    }
+
+.tab-icon-image,
+.tab-throbber{ opacity: 1 !important; }
+    
+/* secondary audio label ain't much use with this style, but feel free to remove the next line if you want to show it. */
+.tab-secondary-label{ display: none !important; }
+
+/* Reproduciendo */
+.tab-icon-overlay[soundplaying]:not([pinned]){
+    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
+    opacity: 1 !important;
+    fill: var(--identity-tab-color,var(--general-color))  !important;
+    background: color-mix(in srgb, var(--contrast-color), transparent) !important;
+    border-radius: 50% !important;
+    padding: 0px !important;
+    left: 20px !important;
+    fill-opacity: 1 !important;
+    z-index: 1 !important;
+    }
+/* RHYTHM IMAGES IN LIGHT AND DARK MODE 
+@media (prefers-color-scheme: dark){
+tab[soundplaying]:not([pinned]) .tab-background::after{
+    background: url("../images/Beats.webp") no-repeat !important;
+    content: "" !important; display: block !important; 
+    background-size: 22px 16px !important;
+    width: 22px !important;
+    height: 15px !important;    
+    margin-left: 3px !important;
+    opacity: 1 !important;
+        }}
+@media (prefers-color-scheme: light){
+tab[soundplaying]:not([pinned]) .tab-background::after{
+    background: url("../images/Beats.gif") no-repeat !important;
+    content: "" !important; display: block !important; 
+    background-size: 16px 9px !important;
+    height: 10px !important;
     width: 16px !important;
-    padding: 0 !important;
+    margin-left: 6px !important;
+    opacity: 1 !important;
+    fill-opacity: 1 !important;
+        }}
+/* reproduciendo hover */
+tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
+    /*list-style-image: url("../images/paused.svg") !important;*/
+    /*clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%) !important;*/
+    fill: var(--toolbarbutton-icon-fill) !important;
+    background-color: var(--toolbar-bgcolor) !important;
+    fill-opacity: 1 !important;
+    opacity: 1 !important;
+    }
+/*Compartiendo microfono y cámara*/
+.tab-icon-overlay[soundplaying]:not([crashed]):is([sharing]) {
+      top: 0px !important; stroke: transparent !important; background-color: transparent !important;  }
+tab:hover .tab-icon-overlay:not([crashed],[muted]):is([sharing]) {
+      top: 0px !important; 
+      stroke: transparent !important; 
+      width: 16px !important; 
+      height: 16px !important;
+    }
+tab:hover .tab-icon-image:is([sharing]) {opacity: 1 !important; }
+    
+/* ------------------------------------ muteado -----------------------------------*/
+.tab-icon-overlay:not([pinned]):is([muted]){
+    list-style-image: url("../images/paused.svg") !important;
+    top: -5px;  left: 9px !important; border-radius: 50% !important;
+    height: 14px !important;
+    width: 14px !important;
+    color: var(--toolbarbutton-icon-fill) !important;
     background-color: transparent !important;
     stroke: transparent !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
-    opacity: 0 !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay[activemedia-blocked]:is([pinned]) {
-    opacity: 0.8 !important;
-    margin-right: 0px !important;
-    left: 8px !important;       
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay[activemedia-blocked]:is([pinned]):hover {   
+    padding: 0 !important;    
+    }
+/*muteado hover*/
+.tab-icon-overlay:not([pinned])[muted]:hover {
+    border-radius: 50% !important;
+    list-style-image: url("../images/paused.svg") !important;
+    fill: var(--lwt-tab-text) !important;
+    background-color: color-mix(in srgb, var(--toolbar-bgcolor), transparent) !important;
+    fill-opacity: 1 !important;
+    opacity: 1 !important;
+    }
+}
+/* Audio bloqueado */
+.tab-icon-overlay:not([pinned]):is([activemedia-blocked]), .tab-icon-overlay:is([pinned]):is([activemedia-blocked]){
+    list-style-image: url("../images/blocked.svg") !important;
+    top: -6px;  left: 9px !important; border-radius: 2px !important;
+    height: 14px !important;
+    width: 14px !important;
+    color: var(--toolbarbutton-icon-fill) !important;
     background-color: transparent !important;
-    opacity: 1 !important;    
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay[activemedia-blocked] {
-    background: transparent !important;
-    stroke: #d10000cc !important;
-    fill: #ffffffee !important;
-    border-radius: 0px !important;    
-    animation: none !important;
-    height: 16px !important;
-    width: 16px !important;   
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay[activemedia-blocked]:hover {
-    stroke: #d10000 !important;
-    fill: #ffffff !important;
-    border-radius: 0px !important;    
-    animation: none !important;
-    height: 16px !important;
-    width: 16px !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay:is([pinned][activemedia-blocked]) {
-    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important
-    }}
-/*------ícono  reproduciendose-------*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay:is([soundplaying]):not([pinned]) {
-  list-style-image: url("../images/Beats.webp") !important;
-  border-radius: 2px !important;
-  width: 100% !important;
-  top: 9px !important; left: -3px !important; 
-  opacity: 1 !important;
-  color: transparent !important;   
-  stroke: transparent !important;
-  box-shadow: none !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{
-    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;
-    top: 0px !important; left: 0px !important; border-radius: 50% !important;
-    width: 16px !important; height: 16px !important;
-    color: var(--contrast-color) !important; 
-    background: var(--identity-icon-color,var(--general-color))  !important; 
-    stroke: transparent  !important;
-    fill-opacity: 1 !important; animation: none !important;
-    }}
+    stroke: transparent !important;
+    padding: 0 !important;
+    }
+.tab-icon-overlay:not([pinned]):is([activemedia-blocked]):hover, .tab-icon-overlay:is([pinned]):is([activemedia-blocked]):hover{
+    fill: var(--lwt-tab-text) !important;
+}
 
-  /*Compartiendo microfono y cámara*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-  .tab-icon-overlay:not([crashed]):is([sharing]) {
-      top: 9px !important; stroke: transparent !important; background-color: transparent !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-  tab:hover .tab-icon-overlay:not([crashed]):is([sharing]) {top: 0px !important; stroke: transparent !important; 
-    background: var(--identity-icon-color,var(--general-color))  !important; width: 16px !important; height: 16px !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-  tab:hover .tab-icon-image:is([sharing]) {opacity: 0 !important; 
-    }}
+/* --------------------- Pinned Tabs ----------------------*/
 
-/*----ícono "reproduciendo" hover----*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
-    /*list-style-image: url("../images/muted.svg") !important;        */
-    /*color: var(--lwt-tab-text) !important;*/
-    background: var(--identity-icon-color,var(--general-color))  !important;
-    transform: scale(1.1) !important;
-    padding: 1px !important;
-    }}
-/*------muteado-------*/
-/* muteado */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay:not([pinned])[muted]{
-    list-style-image: url("../images/muted.svg") !important;
-    top: 0px;  left: 0px !important;
-    height: 16px !important;
-    width: 16px !important;
-    color: var(--lwt-tab-text) !important;
+.tabbrowser-tab:is([pinned]) .tab-icon-stack:is([soundplaying],[activemedia-blocked]){
+  grid-template-areas: "a s"; }
+.tabbrowser-tab:is([pinned]) .tab-icon-overlay:is([soundplaying]){ grid-area: s; }
+
+.tab-icon-overlay[pinned] { opacity: 0 !important; }
+tab:hover .tab-icon-overlay { opacity: 1 !important; }
+    
+/* Reproduciendo pinned */    
+.tab-icon-overlay:is([pinned])[soundplaying]{
+    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
+    fill: var(--identity-tab-color, var(--general-color)) !important;
+    stroke: transparent !important;
+    padding: 0px !important;
+    top: 0px !important;
+    margin-inline: -3px 3px !important;
+    fill-opacity: 1 !important;
+    opacity: 1 !important;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%) !important;
+    }
+/* reproduciendo hover pinned */
+tab:is([pinned]) .tab-icon-overlay[soundplaying]:hover {
+    /*list-style-image: url("../images/muted.svg") !important;*/
+    /*clip-path: polygon(20% 0%, 100% 0%, 100% 14%, 100% 100%, 100% 100%, 14% 100%, 0% 100%, 0% 20%);*/
+    background: color-mix(in srgb, var(--toolbar-bgcolor)transparent)  !important;
+    fill: var(--toolbarbutton-icon-fill) !important;
+    border-radius: 2px !important;
+    }
+/* muteado pinned */
+tab:hover .tab-icon-overlay:is([pinned])[muted] { 
+    opacity: 1 !important;
+    height: 14px !important;
+    width: 14px !important;
+    top: -5px !important;
+    left: 9px !important;
+    color: var(--toolbarbutton-icon-fill) !important;
     background-color: transparent !important;
+    stroke: transparent !important;
+    padding: 0px !important;
+}
+.tab-icon-overlay:is([pinned])[muted]{
+    list-style-image: url("../images/paused.svg") !important;
+    height: 14px !important;
+    width: 14px !important;
+    top: -5px !important;
+    left: 13px !important;
+    color: var(--toolbarbutton-icon-fill) !important;
+    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
     stroke: transparent !important;
     fill-opacity: 0.8 !important;
-    }}
-/*muteado hover*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay:not([pinned])[muted]:hover {
-    border-radius: 2px !important;
-    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg")!important;
-    color: color-mix(in srgb, var(--toolbarbutton-icon-fill), var(--lwt-tab-text)) !important;
-    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
-    fill-opacity: 1 !important;
-    }}
-/*-----------ícono "reproduciendo" Pinned-----------*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay:is([soundplaying][pinned]) {
-  border-radius: 10px !important; 
-  top: 20px !important; left: 2px !important;
-  width: 12px !important; height: 3px !important; opacity: 1 !important; 
-  color: transparent !important; 
-  background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important;
-  stroke: none !important;
-  box-shadow: none !important;
-  animation: 500ms infinite ease-in-out; animation-name: slide1;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tabbrowser-tab:is([pinned]):hover .tab-icon-overlay:is([pinned])[soundplaying]{
-    border-radius: 2px !important; 
-    top: 1px !important; left: 0px !important; 
-    width: 16px !important; height: 16px !important;
-    color: var(--toolbarbutton-icon-fill) !important; 
-    background: transparent  !important; 
-    stroke: transparent  !important;
-    transform: scale(1.1) !important;
-    padding: 1px !important;
-    box-shadow: 0 1px 0px var(--identity-icon-color, #00000000) !important;
-    fill-opacity: 1 !important; animation: none !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tabbrowser-tab:is([soundplaying],[muted]):hover .tab-icon-image:is([pinned]){
-    opacity: 0 !important;
-    }}
-/*.tabbrowser-tab:not([selected]):is([muted]):hover .tab-icon-image:is([pinned]){
-    display: none !important;
-}*/
-/* muteado pinned*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tab-icon-overlay:is([pinned][muted]) {
-    border-radius: 2px !important;
-    list-style-image: url("../images/muted.svg") !important;
-    width: 16px !important; height: 16px !important;
+    }
+/*muteado pinned :hover*/
+tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
+    border-radius: 50% !important;
     color: var(--lwt-tab-text) !important;
-    background-color: transparent !important;
-    stroke: transparent !important;
-    transform: scale(1.1) !important;
-    padding: 1px !important;
-    box-shadow: 0 1px 0px var(--identity-icon-color, #00000000) !important;
-    top: 1px !important;
-    left: 0px !important;
-    fill-opacity: 0.7 !important;
-    }}
-/*ícono "muteado" y "reproduciendo" Pinned :hover*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tabbrowser-tab:is([pinned]):hover  .tab-icon-overlay:is([pinned][muted]):hover {
-    /*list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;*/
-    width: 16px !important; height: 16px !important;
-    color: color-mix(in srgb, var(--toolbarbutton-icon-fill), white) !important;
-    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
+    background-color: color-mix(in srgb, var(--toolbar-bgcolor), transparent) !important;
     fill-opacity: 1 !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tabbrowser-tab:is([pinned]):hover .tab-icon-overlay:is([pinned][soundplaying]):hover {
-    /*list-style-image: url("../images/muted.svg") !important;*/
-    padding: 0px !important;
-    fill-opacity: 1 !important;
-    color: color-mix(in srgb, var(--toolbarbutton-icon-fill),  var(--lwt-tab-text)) !important;
-    background-color: color-mix(in srgb, var(--button-bgcolor) 85%,  var(--lwt-tab-text)) !important; 
-    stroke: transparent !important;
-    fill-opacity: 1 !important;
-    }}
+    }
 /* Eliminar ícono de sonido cuando la página está cargandose */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 .tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-throbber{ visibility: visible !important; opacity: 1 !important;
@@ -198,44 +170,48 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 .tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-icon-overlay{ opacity: 0 !important; 
     }}
+/*------------------------------------ Sound icon to ### MacOS ### --------------------------------------------*/
 
-/*------------------------------------ Sound icon to MacOS --------------------------------------------*/
-@media (-moz-platform: macos) {.tabbrowser-tab:not([pinned]) .tab-icon-stack:is([muted],[soundplaying],[activemedia-blocked]){
+@media (-moz-platform: macos) {
+.tabbrowser-tab:not([pinned]) .tab-icon-stack:is([muted],[soundplaying],[activemedia-blocked]){
   grid-template-areas: "a s";
-    }}
-@media (-moz-platform: macos) {.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted],[soundplaying],[activemedia-blocked]){ grid-area: s; }}
-@media (-moz-platform: macos) {.tab-icon-overlay,
+    }
+.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted],[soundplaying],[activemedia-blocked]){ grid-area: s; }
+.tab-icon-overlay,
 .tab-icon-image,
-.tab-throbber{ opacity: 1 !important; }}
+.tab-throbber{ opacity: 1 !important; }
 
-@media (-moz-platform: macos) {.tab-icon-overlay:not([pinned]){
+.tab-icon-overlay:not([pinned]){
     fill: var(--identity-tab-color, var(--general-color)) !important;
     padding: 0px !important;
     margin-inline: -3px 3px !important;
     fill-opacity: 1 !important;
-    }}
+    }
 /* secondary audio label ain't much use with this style, but feel free to remove the next line if you want to show it. */
-@media (-moz-platform: macos) {.tab-secondary-label{ display: none }}
+.tab-secondary-label{ display: none }
 
 /* These exist for compatibility with combined_favicon_and_tab_close_button.css */
-@media (-moz-platform: macos) {.tab-icon-overlay{ pointer-events: auto }}
-@media (-moz-platform: macos) {.tab-content > .tab-icon-stack,
-    .tab-icon-stack:hover > .tab-icon-image{ visibility: visible }}
+.tab-icon-overlay{ pointer-events: auto }
+
+.tab-content > .tab-icon-stack,
+.tab-icon-stack:hover > 
+.tab-icon-image{ visibility: visible }
 
 /* Colores Hover*/
-@media (-moz-platform: macos) {.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([soundplaying]):hover{
+.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([soundplaying]):hover{
     background-color: var(--general-color) !important;
     fill: var(--contrast-color) !important;
-    }}
+    }
 /* Colores muted*/
-@media (-moz-platform: macos) {.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted]){
+.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted]){
     list-style-image: url("../images/muted.svg") !important;
     fill: var(--lwt-tab-text) !important;
     fill-opacity: 0.8 !important;
-    }}
-@media (-moz-platform: macos) {.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted]):hover{
+    }
+.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted]):hover{
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg")!important;
     fill: var(--lwt-tab-text) !important;
     fill-opacity: 1 !important;
     border-radius: 4px !important;
-    }}
+    }
+}

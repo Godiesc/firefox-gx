@@ -3,7 +3,10 @@
 
 /*Botones generales*/
 /* Botón info*/
-.panel-info-button{ border-radius: 2px !important;}
+.panel-info-button{ border-radius: 3px !important; color: var(--toolbarbutton-icon-fill) !important; }
+.panel-info-button:is(:hover){ background-color: var(--button-hover-bgcolor) !important; border-radius: 2px !important; color: white !important;}
+.panel-info-button:not(:hover)[checked]{ background-color: var(--general-color) !important; border-radius: 2px !important; color: white !important;}
+
 /*-"Radiobutton"-ProtecciónAntirastreo*/
 .protections-popup-tp-switch:not([enabled]):not(:hover){background-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;}
 .protections-popup-tp-switch::before {outline: none !important; }
@@ -85,16 +88,12 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
 
 #PersonalToolbar .toolbarbutton-1:hover , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
     color: var(--general-color) !important;  fill:  var(--general-color) !important; 
-    background-color: var(--toolbarbutton-hover-personal) !important; border-radius: 2px !important; }
+    --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important; border-radius: 2px !important; }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
     color: var(--general-color) !important;  fill:  var(--general-color) !important;
     background-color: var(--toolbarbutton-hover-background) !important; border-radius: 2px !important;
-}
-/* Borde */
-#editBookmarkPanel { border: 1px solid var(--general-color) !important; 
-    --arrowpanel-border-color: transparent !important; border-image: var(--panel-separator-zap-gradient4) 1 !important;
 }
 /*Color de "highlight" inputtext*/
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
@@ -128,8 +127,21 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 #nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
     fill: var(--general-color)
 }
-/*Borde redondeado - barra de menú*/
+/* Barra de menú */
 #main-menubar>menu {
     text-shadow: none !important;
-    border-radius: 2px !important
+    border-radius: 2px !important;
+    background-color: transparent !important;
+}
+#main-menubar>menu:hover{
+    background-color: var(--button-active-bgcolor) !important;
+}
+/* :hover en botones de: all-tabs and unified extensions */
+toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, .all-tabs-secondary-button{
+    margin-right: 6px !important;
+    border-radius: 3px !important;
+}
+toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton:hover,
+#allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover{
+    background: var(--button-hover-bgcolor) !important;
 }

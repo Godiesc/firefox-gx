@@ -2,12 +2,13 @@
    https://github.com/Godiesc/opera-gx */
 
 :root{
-  --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
   --tab-height-personal: var(--toolbar-height-personal) !important;
   --windowed-top-padding: 0px !important;
 }
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
-    margin-top: 0px !important;
+  --padding-top-left-sidebar: 78px !important;
+  --padding-bottom-left-sidebar: 90px !important;
+  --tab-height-personal: calc(-30px - var(--windowed-top-padding, 0px)) !important;
 }
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar,
 :root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar  {
@@ -23,7 +24,18 @@
   display: none;
 }
 #nav-bar{
-  border-top: 0px !important;
+  border-top: none !important;
+}
+#sidebar-splitter{
+  border: none !important;
+  width: 1px !important;
+  background-color: var(--lwt-frame) !important;  
+}
+/* Mover botón "atrás" más a la derecha */
+:root:not([chromehidden~="toolbar"])[sizemode="fullscreen"] #back-button{
+    display: block !important;
+    padding-inline-start: 0px !important;
+    margin-left: var(--uc-vertical-toolbar-width,0) !important;
 }
 /* Borde Bottom toolbar */
 #navigator-toolbox { 
@@ -41,7 +53,7 @@
     }
 }
 /* nuevo botón Menú */
-:root:not([chromehidden~="toolbar"])[tabsintitlebar] #PanelUI-menu-button{
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"])[tabsintitlebar] #PanelUI-menu-button{
     background-color: var(--lwt-frame) !important; 
     border-right: 1px solid var(--general-color) !important;  
   }
@@ -94,24 +106,56 @@
   pointer-events: none;
   margin-left: var(--uc-window-drag-space-pre,0px)
 }
+/* Move the window controls to left sidebar - tested with sweet theme on manjaro-kde. */
+
+@media (-moz-platform: linux ){:root:not([chromehidden~="toolbar"])[tabsintitlebar] #PersonalToolbar{   
+     --padding-top-left-sidebar: 130px !important;
+        }}
+    
+@media (-moz-platform: linux) { :root:not([sizemode=fullscreen]) .titlebar-buttonbox {
+    appearance: none !important;
+    position: fixed !important;
+    display: flex !important;
+    top: calc(var(--tab-height-personal) + 12px) !important;
+    left: 0px !important;
+    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    flex-direction: column-reverse !important;
+    background: transparent !important;
+    padding-left: 2px !important;
+    z-index: 2 !important;
+}
+}
+@media (-moz-platform: linux){ .titlebar-button image { height: 24px !important; }}
+@media (-moz-platform: linux){ .titlebar-close { margin-left: -6px !important;}}
+@media (-moz-platform: linux){ .titlebar-restore { margin-left: -3px !important;}}
+@media (-moz-platform: linux){ .titlebar-max { margin-left: -3px !important;}}
+@media (-moz-platform: linux){ .titlebar-min { margin-left: 0px !important;}}
 
 /* #### The code below is From https://github.com/MrOtherGuy/firefox-csshacks/ to put windows controls on the right side ##### */
 
 /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css made available under Mozilla Public License v. 2.0
 See the above repository for updates as well as full license text. */
 
+/* Creates placeholders for window controls */
+/* This is a supporting file used by other stylesheets */
+
+/* This stylesheet is pretty much unnecessary if window titlebar is enabled */
+
+/* This file should preferably be imported before other stylesheets */
+
 /* Defaults for window controls on RIGHT side of the window */
 /* Modify these values to match your preferences */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-  --uc-window-control-width: 89px; /* Space reserved for window controls (Win10) */
+:root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+  --uc-window-control-width: 119px; /* Space reserved for window controls (Win10) */
   /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
   --uc-window-drag-space-pre: 0px; /* left side*/
-  --uc-window-drag-space-post: 30px; /* right side*/
-    }}
+  --uc-window-drag-space-post: 0px; /* right side*/
+}
 
 :root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
   --uc-window-drag-space-pre: 0px; /* Remove pre space */
 }
+
 @media  (-moz-platform: windows-win7),
         (-moz-platform: windows-win8),
         (-moz-os-version: windows-win7),
@@ -120,6 +164,13 @@ See the above repository for updates as well as full license text. */
     --uc-window-control-width: 105px;
   }
 }
+
+@media (-moz-gtk-csd-available) {
+  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
+    --uc-window-control-width: 0px;
+  }
+}
+
 /* macOS settings are further below */
 .titlebar-buttonbox, #window-controls{ color: var(--toolbar-color) }
 :root[sizemode="fullscreen"] .titlebar-buttonbox-container{ display: none }
@@ -131,11 +182,11 @@ See the above repository for updates as well as full license text. */
   display: flex;
   top: 0;
   right:0;
-  height: 40px;
+  height: calc(var(--toolbar-height-personal) - 1px) !important;
 }
 
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-:root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: 33px }
+:root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: 32px }
 
 #nav-bar{
   border-inline: var(--uc-window-drag-space-pre,0px) solid var(--toolbar-bgcolor);

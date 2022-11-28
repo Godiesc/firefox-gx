@@ -3,10 +3,9 @@
 
 /*-----------------íconos en el menú de hamburguesa----------------------*/
 
-/* Tamaño menu Open ventana no maximizada*/
+/* Tamaño menu Open ventana no maximizada */
 #appMenu-popup panelview{ width: 25.5em !important;
 }
-
 /*Posicion y margen de los íconos*/
 .subviewbutton[shortcut]::after, .widget-overflow-list .subviewbutton-nav::after, .PanelUI-subView .subviewbutton-nav::after {
 /*    margin-inline-end: 20px !important; */
@@ -25,9 +24,10 @@
 .subviewbutton:hover { -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
 
 /* -------Margen de los íconos---------- 
-/*Margen item -tamaño-*/
+
+/*Margen item "tamaño" */
 panelmultiview .toolbaritem-combined-buttons > label {
-    margin-inline-start: 23px !important;
+    margin-inline-start: 25px !important;
 }
 /* Ícono de Actualización disponible */
 .panel-banner-item{
@@ -43,10 +43,14 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-label2{ margin-inline-start: -8px !important; }
 #appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
 @media{
-    :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
+    :root[sizemode="maximized"] #appMenu-fxa-label2{
     margin-left: 0px !important;
     padding-bottom: 6px !important;
     margin-right: 6px !important;
+}
+/* Alinear item account */
+:root[sizemode="normal"] #appMenu-fxa-label2{
+    margin-left: 0px !important;
 }
 /*ícono account - first */
 #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
@@ -65,7 +69,7 @@ panelmultiview .toolbaritem-combined-buttons > label {
     content: var(--account-label) !important;
     display: inline-block;
     border-radius: 0%;
-    padding-inline-start: 22px !important;
+    padding-inline-start: 23px !important;
     pointer-events: none !important;
     clip-path: circle !important;
 }
@@ -78,6 +82,10 @@ panelmultiview .toolbaritem-combined-buttons > label {
 }
 :root[fxastatus="signedin"] #fxa-menu-avatar {
     display: unset; -moz-box-ordinal-group: 2;
+}
+/* Alinear lista de pestañas sincronizadas */
+.PanelUI-remotetabs-clientcontainer label {
+    padding-inline-start: 0px !important;
 }
 /*Ícono Nueva Pestaña*/
 #appMenu-new-tab-button2 {
@@ -101,8 +109,9 @@ panelmultiview .toolbaritem-combined-buttons > label {
 /*Ícono Marcadores*/
 #panelMenuBookmarkThisPage[starred]{
     list-style-image: url("../images/bookmark.svg");
+    fill: var(--general-color) !important;
 }
-#appMenu-bookmarks-button, #appMenu-library-bookmarks-button, #sidebar-switcher-bookmarks {
+#appMenu-bookmarks-button, #appMenu-library-bookmarks-button, #sidebar-switcher-bookmarks,#panelMenuBookmarkThisPage:not([starred]) {
     list-style-image: url("../images/bookmark-empty.svg");
     /*margin-inline-end: -25px !important;*/
 }
@@ -154,17 +163,13 @@ panelmultiview .toolbaritem-combined-buttons > label {
 /*Ícono salir*/
 #appMenu-quit-button2 {
     list-style-image: url("../images/quit1.svg");
-    background-size: 16px;
+
     padding-inline-end: 25px !important;
 }
 #appMenu-quit-button2:hover {
     list-style-image: url("../images/quit2.svg");
     background-size: 16px;
     padding-inline-end: 25px !important;
-}
-/*Íconos de marcadores*/
-#panelMenuBookmarkThisPage {
-    list-style-image: url("chrome://browser/skin/bookmark-hollow.svg");
 }
 #panelMenu_viewBookmarksToolbar {
     list-style-image: url("chrome://browser/skin/bookmarks-toolbar.svg");
@@ -180,10 +185,6 @@ panelmultiview .toolbaritem-combined-buttons > label {
 /*Ícono SincronizarAhora*/
 .syncNowBtn {
     visibility: visible !important; -moz-box-ordinal-group: 0 !important;
-}
-/*Enviar pestaña a dispositivo*/
-#PanelUI-fxa-menu-sendtab-button {
-    margin-inline-start: 0px !important;
 }
 /*Ícono ConectarOtroDispositivo*/
 #PanelUI-fxa-menu-connect-device-button {

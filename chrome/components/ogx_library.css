@@ -7,7 +7,8 @@
     @media (prefers-color-scheme: dark){
         :root{
         --arrowpanel-background: #1c1726 !important;
-        --contrast-color: black !important;
+        --contrast-color: #09080d !important;
+        --border-contrast-color: #09080d !important;
         --organizer-pane-background: #101019 !important;
         --organizer-border-color: #373748 !important;
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
@@ -16,6 +17,8 @@
     @media (prefers-color-scheme: light){
         :root{
         --arrowpanel-background: #f9f9f9 !important;
+        --contrast-color: #f9f9f9 !important;
+        --border-contrast-color: #acacac50 !important;
         --organizer-pane-background: #f9f9f9 !important;
         --organizer-border-color:#cdcdcd !important;
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, black) !important;
@@ -24,12 +27,12 @@
     }}
     /* ---------------- Borde contextual - menu ------------------ */
     .menupopup-arrowscrollbox{
-    box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
+    box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
     }
     /* -------------- Border color to "nombre"-"Etiquetas"-"Dirección" -------------- */
     treecol, treecolpicker {
         appearance: none;
-        border-color: var(--organizer-border-color) !important;
+        border-color: var(--organizer-border-color) !important; 
 }
     /*-----------------------Menú principal-------------------------*/
     #placesToolbar>toolbarbutton {

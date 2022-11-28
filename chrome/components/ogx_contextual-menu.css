@@ -36,11 +36,11 @@ menupopup:not(#PlacesToolbar) menupopup {
 
 /* Colores generales */
 .menupopup-arrowscrollbox{
-    box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
+    box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
     background: var(--arrowpanel-background, #50505090) !important;
     color: var(--arrowpanel-color, #ffffff) !important;
     border: 1px solid transparent !important;
-    border-color:  color-mix(in srgb, var(--arrowpanel-border-color, #50505090) 35%, black) !important;
+    border-color:  transparent !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
     border-radius: 0px !important;
     margin: 1px !important;
@@ -101,7 +101,9 @@ menupopup>menuitem:is([selected="true"]):hover:not([disabled="false"]){
     .menu-right {
     -moz-appearance: none !important;
     list-style-image: url(chrome://global/skin/icons/arrow-right.svg )!important;    
- 	height: initial !important;
+ 	height: 16px !important;
+    width: 16px !important;
+    margin-right: 4px !important;
     -moz-context-properties: fill !important;
     fill: currentColor !important;
     opacity: 0.7 !important;

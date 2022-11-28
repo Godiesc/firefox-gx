@@ -7,6 +7,8 @@
 :root[lwt-toolbar-field-focus-brighttext],
 :root:-moz-lwtheme{
   --contrast-color: #09080d !important;
+  --border-contrast-color: #09080d !important;
+  
   --lwt-accent-color: #09080d !important;                                               /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                               /*"frame": "#17161c" */
   --lwt-text-color: #cecece !important;                                                 /*"tab_background_text": "#c3c3c3"*/
@@ -88,8 +90,8 @@
   --button-primary-bgcolor: var(--button-active-bgcolor) !important;                    /*ColorBotónGuardar*/   
   --button-primary-color: #eaeaea !important;                                           /*ColorLetrasBotónGuardar*/
    
-  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;               /*ColorBotónGuardar :Hover*/
-  --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;            /*ColorBotónGuardar :clic*/
+  --button-primary-hover-bgcolor: var(--general-color) !important;               /*ColorBotónGuardar :Hover*/
+  --button-primary-active-bgcolor: var(--general-color) !important;            /*ColorBotónGuardar :clic*/
 
   --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, black) !important;   /*Color input background en Marcadores*/
   --focus-outline-color: var(--general-color) !important;                                   /*Color borde en InputText Focus*/
@@ -97,10 +99,11 @@
   --Button-background-personal: #2e273f !important;                                         /*Background of buttons - variable personal */
 
     /*Colores checkbox —v*/
-  --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;
+  --checkbox-unchecked-bgcolor: var(--toolbarbutton-hover-personal) !important;
   --checkbox-unchecked-hover-bgcolor: var(--button-primary-bgcolor) !important;      
-  --checkbox-unchecked-active-bgcolor: var(--button-primary-bgcolor) !important;
-  --checkbox-checked-border-color: transparent !important;
+  --checkbox-unchecked-active-bgcolor: var(--general-color) !important;
+  --checkbox-unchecked-border-color: blue !important;
+  --checkbox-checked-border-color: var(--button-hover-bgcolor) !important;
   --checkbox-checked-bgcolor: var(--button-primary-bgcolor) !important;
   --checkbox-checked-color: #eaeaea !important;
   --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
@@ -109,8 +112,12 @@
 }
 /* White Theme*/
 @media (prefers-color-scheme: light){
-:root:not([lwtheme-brighttext="true"]){
+:root:not([lwtheme-brighttext="true"]):-moz-lwtheme,
+:root:not([lwt-toolbar-field-focus-brighttext]),
+:root:-moz-lwtheme{
   --contrast-color: #f9f9f9 !important;
+  --border-contrast-color: #acacac50 !important; 
+  
   --lwt-accent-color: #e9e6ef !important;                                               /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, Field) !important;                               /*"frame": "#17161c" */
   --lwt-text-color: #000 !important;                                                    /*"tab_background_text": "#c3c3c3"*/
@@ -122,7 +129,7 @@
   
   /*--toolbar-color: #8e8085 !important;                                                /*"ColorLabelMarcadores":"#1a1b25"*/
   
-  --arrowpanel-background: #f9f9f9 !important;                                          /*"popup": "#1c1b22Fa"*/
+  --arrowpanel-background: #ffffff !important;                                          /*"popup": "#1c1b22Fa"*/
   --arrowpanel-color: var(--lwt-tab-text) !important;                                   /*"popup_text": "#dfdfdf"*/  
   --arrowpanel-border-color: transparent !important;                                    /*"popup_border": "#304f60"*/    
 /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);               /*"popup_highlight": "#006f80"*/
@@ -201,7 +208,7 @@
   --Button-background-personal: #e3dfec !important;                                                         /*Background of buttons - variable personal */
 
     /*Colores checkbox —v*/
-  --checkbox-unchecked-bgcolor: var(--button-bgcolor) !important;
+  --checkbox-unchecked-bgcolor: var(--toolbarbutton-hover-personal) !important;
   --checkbox-unchecked-hover-bgcolor: var(--button-primary-bgcolor) !important;      
   --checkbox-unchecked-active-bgcolor: var(--button-primary-bgcolor) !important;
   --checkbox-checked-border-color: transparent !important;
@@ -210,14 +217,10 @@
   --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
   --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
 }}
-/* Margen top en ventana no maximizada */
-:root[tabsintitlebar][sizemode="normal"]{
-  --tab-block-margin: 1px !important;                                                                          /* márgen top pestañas, ventana no maximizada */
-}
 /* Compatibilidad para temas que usan theme_frame para la imagen en su tema */
 @media (prefers-color-scheme: dark){
 :root[lwtheme-image]{
-  --toolbar-bgcolor: #1010199f !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-bgcolor: #101019cf !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --toolbarbutton-icon-fill: #cacae6 !important;                                                               /*"icons" color */
@@ -226,7 +229,7 @@
   }}
 @media (prefers-color-scheme: light){
 :root[lwtheme-image]{
-  --toolbar-bgcolor: #f9f9f99f !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-bgcolor: #f9f9f9cf !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
@@ -234,19 +237,19 @@
 /* Compatibilidad Parcial para temas que usan "Imagenes adicionales" en su tema */
 @media (prefers-color-scheme: dark){
 :root[style*="--lwt-additional-images"]{
-  --toolbar-bgcolor: #101019cf !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-bgcolor: #101019b9 !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --toolbarbutton-icon-fill: #cacae6 !important;                                                               /*"icons" color */
-  --lwt-selected-tab-background-color: none !important;                                                        /*"tab_selected":"#363540"*/
+  --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;                                      /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #2e273ffb) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
   }}
 @media (prefers-color-scheme: light){
   :root[style*="--lwt-additional-images"]{
-  --toolbar-bgcolor: #f9f9f9cf !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-bgcolor: #f9f9f9b9 !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --toolbarbutton-icon-fill: #202020 !important;                                                               /*"icons" color */
-  --lwt-selected-tab-background-color: none !important;                                                        /*"tab_selected":"#363540"*/
+  --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;                                      /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #f9f9f9fb) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
   }}

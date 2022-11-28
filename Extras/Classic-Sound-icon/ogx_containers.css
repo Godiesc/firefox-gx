@@ -1,0 +1,56 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/opera-gx */
+
+/*rework en la Linea de Contenedores*/
+.tab-context-line {display: none !important; 
+}
+/* Eliminar label del contenedor manteniendo el ícono */
+#userContext-label{
+    display: none !important;
+}
+/*rework en la Linea de Contenedores-BordeFavicon - pinnedtabs*/
+.tab-icon-pending[pinned], .tab-sharing-icon-overlay, .tab-throbber[busy][pinned], .tab-throbber:is([busy][pinned]), .tab-icon-image[pinned] {
+    box-shadow: 0 1px 0px var(--identity-icon-color, #00000000) !important;
+    border-radius: 0px !important;
+    padding-block: 1px 1px !important;
+}
+/* Linea bajo la label de la pestaña contenedora*/
+tab:not([selected]) .tab-content .tab-label{
+    box-shadow: 0 2px 0 var(--identity-tab-color) !important;
+    clip-path: polygon(0px 0%, 200% 0%, 200% 200%, 100% 20px, 12px 96%, 0px 11900%, 0px 0px);
+    transition-duration: 0ms !important;
+}
+tab[selected]  .tab-content .tab-label{
+    box-shadow: 0 2px 0 var(--identity-tab-color) !important;
+    clip-path: polygon(0px 0%, 200% 0%, 200% 200%, 100% 20px, 136px 96%, 0px 11900%, 0px 0px);
+    opacity: 1 !important;
+    transition-duration: 200ms !important;
+}
+/* Color contenedor default */
+.identity-color-toolbar {
+    --identity-tab-color: #0c86ee !important;
+    --identity-icon-color: #0c86ee !important;
+}
+/*Personalización de colores y presentación de pestañas en contenedores*//*Personalización de colores y presentación de pestañas en contenedores*/
+.identity-color-blue {--identity-tab-color: #2574A7 !important; --identity-icon-color: #2574A7 !important;}
+.identity-color-green {--identity-tab-color: #1E934F !important; --identity-icon-color: #1Eb34F !important;}
+.identity-color-orange {--identity-tab-color: #e67e22 !important; --identity-icon-color: #e67e22 !important;}
+.identity-color-red {--identity-tab-color: #ff2940 !important; --identity-icon-color: #ff2940 !important; }
+.identity-color-pink {--identity-tab-color: #ff33bb !important; --identity-icon-color: #ff33bb !important;}
+.identity-color-purple {--identity-tab-color: #813E9D !important; --identity-icon-color: #813E9D !important;}
+.identity-color-yellow {--identity-tab-color: #e6b803 !important; --identity-icon-color: #e6b803 !important;}
+.identity-color-turquoise {--identity-tab-color: #03b48d !important; --identity-icon-color: #03b48d !important;}
+
+@media (prefers-color-scheme: dark){
+.identity-color-blue >.tab-stack > .tab-content .tab-label{color: #1bbfff !important;}
+.identity-color-green >.tab-stack > .tab-content .tab-label{color: #6be19c !important; } 
+.identity-color-orange >.tab-stack > .tab-content .tab-label{color: #eb9b37 !important; } 
+.identity-color-red >.tab-stack > .tab-content .tab-label{color: #ff6960 !important;}
+.identity-color-pink >.tab-stack > .tab-content .tab-label{color: #ff99eb !important;} 
+.identity-color-purple >.tab-stack > .tab-content .tab-label{color: #caa4da !important;}
+.identity-color-yellow >.tab-stack > .tab-content .tab-label{color: #e6b803 !important;}
+.identity-color-turquoise >.tab-stack > .tab-content .tab-label{color: #00c79a !important;}
+}
+@media (prefers-color-scheme: light){
+.tab-content .tab-label{color: var(--identity-icon-color) !important;}
+}

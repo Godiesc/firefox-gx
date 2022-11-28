@@ -39,41 +39,46 @@
   --lwt-selected-tab-background-color: #f9f9f9bf !important;                     
   --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
   }}
+@media (prefers-color-scheme: dark){
 :root[style*="--lwt-additional-images"]{
   --toolbar-bgcolor: transparent !important;                                                                
-  --lwt-selected-tab-background-color: color-mix(in srgb, var(--lwt-frame) 82%, transparent) !important;
+  --lwt-selected-tab-background-color: #101019cf !important;
   --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
-}
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{ height: calc(var(--tab-min-height) + 2px) !important;
-    margin-left: 0px !important; margin-right: 0px !important; margin-top: 0px !important; border-radius: 8px 2px 0 0 !important;
-    background: var(--lwt-selected-tab-background-color) !important; clip-path: none !important; border-bottom: 2px solid var(--lwt-frame) !important;
+  }}
+@media (prefers-color-scheme: light){
+:root[style*="--lwt-additional-images"]{
+  --toolbar-bgcolor: transparent !important;                                                                
+  --lwt-selected-tab-background-color: #f9f9f9cf !important;
+  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
+  }}
+/* Sobre-escrribir la regla usada en ogx_tabs-bar, lineas 175-183 */
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+   background-image: linear-gradient(var(--t--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
+    linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
 }
 /* Colores windows controls */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
 .titlebar-button{
     background-color: transparent !important; color: var(--toolbarbutton-icon-fill) !important;
-    }
-}
+    }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
 .titlebar-button:hover:not(.titlebar-close){
     background-color: var(--toolbarbutton-hover-personal) !important; color: var(--general-color) !important;
-    }
-} 
+    }} 
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button{
     background-color: transparent !important; color: var(--toolbarbutton-icon-fill) !important;
-    }
-} 
+    }} 
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
     background-color: var(--toolbarbutton-hover-personal) !important; color: var(--general-color) !important;
-    }
-}
+    }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:is(.titlebar-close){
     background-color: red !important; color: white !important;
-    }
-}
+    }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-min{
     padding-top: initial !important;
     padding-bottom: 0px !important;
@@ -94,7 +99,7 @@
 }
 @media (-moz-gtk-csd-available) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 84px;
+    --uc-window-control-width: 78px;
   }
 }
 /* macOS settings are further below */
@@ -201,54 +206,78 @@
     --uc-vertical-toolbar-width: 41px;
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
+    --min-width-url: 22vw !important;
   }
-/* Nuevos margenes Botón menú */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #back-button{
-    margin-left: var(--uc-vertical-toolbar-width,0) !important;
+/* Mover botón "atrás" más a la derecha */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10), ,(-moz-platform: linux) { 
+  :root:not([chromehidden~="toolbar"]) #back-button{
+    display: block !important;
+    margin-left: calc(var(--uc-vertical-toolbar-width,0) - 2px) !important;
+    padding-inline-start: 0px !important;
+    }}
+/*----------------Nuevos margenes Botón menú-------------------*/
+
+/* Quitar label -Menu- del menú not [open] */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]) > stack::after {
+    content: none !important ;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+    :root:not([chromehidden~="toolbar"]):is([sizemode="normal"],[sizemode="fullscreen"]) #PanelUI-menu-button:is([open]) > stack::after {
+    content: none !important ;
+    }}
+/* Hacer el botón más ancho en el menú [open] */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
+  --padding-left-tab: 78px !important;
     max-width: var(--padding-left-tab) !important;
     min-width: var(--padding-left-tab) !important;
-        } }
+    }}
+@media (-moz-platform: linux){
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
+  --padding-left-tab: 80px !important;
+    }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack::after {
-    content: none !important ;
-        } }
+:root:is([sizemode="maximized"]) #appMenu-popup{
+      --padding-left-tab: 78px !important;
+    }}
+@media (-moz-platform: linux){
+:root:is([sizemode="maximized"]) #appMenu-popup{
+      --padding-left-tab: 80px !important;
+    }}
+/* Logo más grande */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     min-height: 20px !important;
     min-width:  20px !important;
-        } }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
-    background-color: transparent !important;
         } }
 /* menu :hover */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
-#appMenu-popup panelview{ width: 25.5em !important;
+/* Alinear items menú open */
+.subviewbutton:is(#appMenu-popup toolbarbutton):not(.subviewbutton-back){
+   padding-inline-start:  11px !important;  
 }
 /* urlbar focus - open */
-#urlbar-container:not([open=true],:focus, :focus-within ){ min-width: 22vw !important; }
-#urlbar:focus-within  { min-width: 52vw !important; clip-path: polygon(0px 0%, 26vw 0%, 0% 9000vw, 0% 0px) !important;}
-#urlbar[open=true]  { min-width: 52vw !important; clip-path: none !important;}
+#urlbar-container:not([open=true],:focus, :focus-within ){ min-width: var(--min-width-url) !important; }
+#urlbar:focus-within  { min-width: calc(var(--min-width-url) + 30vw) !important; clip-path: polygon(0px 0%, calc(var(--min-width-url) + 4.6vw) 0%, 0% 999999vw, 0% 0px) !important;}
+#urlbar[open=true]  { min-width: calc(var(--min-width-url) + 30vw) !important; clip-path: none !important;}
 
+/* Borde Gradiente */
 toolbar:is(.browser-toolbar){    
     border-image: var(--panel-separator-zap-gradient2) 1 !important; 
     margin-bottom: -1px !important;
     padding-bottom: 0px !important;
     border-bottom: 1px solid var(--toolbar-bgcolor) !important;    
-    padding-top: 1px !important;
 }
 #nav-bar{    
     padding-top: none !important;
     border-top: none !important;    
     padding-bottom: none !important;
-    margin-top  :calc(var(--tab-min-height) - var(--tab-min-height) - var(--tab-min-height) - 2px) !important;
-    height: calc(var(--tab-min-height) + 3px) !important;
+    margin-top: calc(0px - var(--tab-height-personal) - 2px) !important;
+    height: calc(var(--tab-height-personal) + 3px) !important;
 }
 #TabsToolbar{
     border-bottom: none !important;
@@ -266,10 +295,10 @@ toolbar:is(.browser-toolbar){
 }
 /* box, caja de íconos urlbar*/
 #identity-icon-box, #tracking-protection-icon-container, #identity-permission-box, #notification-popup-box {   
-    margin-block: 2px !important; }
+    margin-block: 2px !important; 
+}
 .urlbar-page-action {
     margin: 2px !important;
-    padding: 2px !important;
 }
 /* Quitar linea gradiente al mostrar la barra de menú */
 #toolbar-menubar {
@@ -280,49 +309,39 @@ toolbar:is(.browser-toolbar){
     border-top: 1px solid transparent !important;
     margin-top: 0px !important;
     border-image: none !important;
-    border-bottom: 1px solid var(--lwt-frame) !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--contrast-color), transparent) !important;
     
-    padding-block: 4px 3px !important;
+    padding-block: 4px 2px !important;
     
     background-color: var(--lwt-selected-tab-background-color) !important;
     background: var(--lwt-selected-tab-background-color) !important;
 }
 /* Ícono de "show more bookmarks" modificado */
 #PlacesChevron>image {
-  transform: rotate(90deg) ;
-  padding: 2px !important;
+    transform: rotate(90deg);
+    padding: 2px !important;
 }
-/* Mantener color al mover pestaña - still needs fix */
+/* Fondo correcto al mover una pestaña en temas sólidos */
 #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
-   background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
-   linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
-   background-position: right top !important;
-   background-repeat:  no-repeat !important;
-   background-size:  inherit !important;  
+    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
+    linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
 }
-/* Compatibilidad con left-sidebar config */
+/* ---------------------------------------Compatibilidad con left-sidebar config------------------------------- */
+
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
-    margin-top: 0px !important;
+    --padding-top-left-sidebar: 100px !important;
+    --padding-bottom-left-sidebar: 50px !important;
+    --tab-height-personal: calc(30px - var(--toolbar-height-personal) + var(--windowed-top-padding, 0px)) !important;
+  
+  border-image: linear-gradient(to bottom, transparent 
+        calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 64px),
+        var(--general-color) calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 64px),
+        var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;
+    
     border-top: 0px !important;
 }
-/* Alinear items menú open */
-#PlacesToolbar menuitem, #PlacesToolbar menu, .subview-subheader, panelview .toolbarbutton-1,
-.subviewbutton, .widget-overflow-list .toolbarbutton-1{
-   padding-inline-start:  14px !important;  
-}
-@media{
-    :root[tabsintitlebar][sizemode="maximized"] #appMenu-fxa-label2{
-    margin-left: -14px !important;
-}
-@media{
-    :root[tabsintitlebar][sizemode="normal"] #appMenu-fxa-label2{
-    margin-left: -14px !important;
-    }}
 /* H I D I N G   E L E M E N T S */
 /* Comment or uncomment depending of what elements you want to hide */
-
-/* Back button */
-/* #back-button { display: none !important } */
 
 /* Forward button */
 /* #forward-button { display: none !important } */

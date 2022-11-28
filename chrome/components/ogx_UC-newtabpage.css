@@ -11,6 +11,8 @@
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
     body{
     --contrast-color: white !important;
+    --border-contrast-color: #acacac50 !important;
+        
     --arrowpanel-background-personal: #f9f9f9 !important;
     --lwt-sidebar-background-color: #efeff5 !important;                                       /* Sidebar fondo */
     --newtab-background-color: #efeff5 !important;                                            /* Color fondo general */
@@ -43,6 +45,8 @@
     }
     body[lwt-newtab-brighttext] {
     --contrast-color: black !important;
+    --border-contrast-color: #09080d !important;
+        
     --arrowpanel-background-personal: #1c1726 !important;
     --lwt-sidebar-background-color: #14141d !important;                                       /* Sidebar fondo */
     --newtab-background-color: #101019 !important;                                            /* Color fondo general */
@@ -106,7 +110,7 @@ input:focus-visible, input:focus-visible{
 /* Fondo y borde del menú de 3 puntos */
 .context-menu {
     background-color: var(--arrowpanel-background-personal) !important; border-radius: 0px !important;
-    box-shadow: 0px 0px 0 1px var(--newtab-background-color) !important;
+    box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
     border: 1px solid var(--arrowpanel-background-personal) !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
@@ -171,42 +175,45 @@ input:focus-visible, input:focus-visible{
 
 /* Cuadro de búsqueda*/
 .search-inner-wrapper{
+    position: relative;
     background: var(--newtab-pinnedsites-background) !important;
     opacity: var(--searchbar-on-off, 1) !important;
     display: var(--searchbar-display, flex) !important;
     margin-top: 50px !important;
-    box-shadow: 0 2px 0 0px var(--button-hover-bgcolor) !important;
-    border-radius: 0 !important;
     outline: 1px solid #50505030 !important;
     }
+.search-inner-wrapper::after {width: unset !important; 
+    background: linear-gradient(to right, var(--button-bgcolor), var(--button-hover-bgcolor), var(--button-bgcolor)) !important;
+    border-radius:0 0 4px 4px ;  content: '';  height: 3px;  left: 0px;
+    position: absolute; right: 0; bottom: -1px; transform: scale(0, 1);}
+.search-inner-wrapper::after { transform: scale(1, 1);}
+
+.search-inner-wrapper:is(:hover)::after{
+    background: var(--button-active-bgcolor) !important;
+}
 .search-inner-wrapper:not(:focus){
-    border-radius: 0 !important;
+    border-radius: 4px !important;
     backdrop-filter: none !important;
 }
 .search-inner-wrapper:is(:hover){
-    box-shadow: 0 2px 0 0px var(--general-color) !important;
-    border-radius: 0 !important;
+    border-radius: 4px !important;
 }
 .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
-    border-radius: 0px !important;
+    border-radius: 4px !important;
     backdrop-filter: var(--personal-blur) !important;
-    border-radius: 0 !important; 
 }
 .search-handoff-button{
     border-color: transparent !important;
-    border-radius: 0 !important;
+    border-radius: 4px !important;
     box-shadow: none !important; 
 }
 .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
-    outline: 0px solid transparent !important;
-    box-shadow: 0 0px 0 0px var(--general-color) !important;
+    outline: 1px solid var(--button-active-bgcolor) !important;
     border: transparent !important;
     margin-left: 1px !important;
     z-index: 1000 !important;
     clip-path: none !important;
-}
-.search-wrapper .search-button{ border-radius: 0px !important; }
-    
+}    
 /* Actividad reciente */
 .card-outer .card { 
     backdrop-filter: var(--personal-blur);
@@ -226,19 +233,30 @@ input:focus-visible, input:focus-visible{
     box-shadow: none !important;
     outline: 0px solid #50505030 !important;
 }
-/* Fondo de sitios anclados */
+/* Pinned icon */
+.title.has-icon.pinned { margin-left: -14px !important;  }
+.top-site-outer .title span:not(:hover) .icon.icon-pin-small{
+    opacity: 0 !important;
+    transition-duration: 250ms !important;
+    }
+/* Fondo de sitios anclados*/
 .top-sites-list{
     background: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;
     outline: 1px solid #50505030 !important;
-    border-radius: 0px 0 0px 0px!important;
-    box-shadow: 0 2px 0 0px var(--button-hover-bgcolor) !important;
-    z-index: -100 !important;
-    margin: -14px !important;
+    outline-offset: -1px !important;
+    border-radius: 4px !important;
 }
-.top-sites-list:hover{
-    box-shadow: 0 2px 0 0px var(--general-color) !important;
-    }
+.top-sites-list { position: relative;}
+.top-sites-list::after {width: unset !important; 
+    background: linear-gradient(to right, var(--button-bgcolor), var(--button-hover-bgcolor), var(--button-bgcolor)) !important;
+    border-radius:0 0 4px 4px;  content: '';  height: 3px;  left: 1px;
+    position: absolute; right: 0; bottom: 0px; transform: scale(0, 1);}
+.top-sites-list::after { transform: scale(1, 1);}
+
+.top-sites-list:is(:hover)::after{
+    background: linear-gradient(to right, var(--button-active-bgcolor), var(--button-active-bgcolor), var(--button-active-bgcolor)) !important;
+}
 /* colores al pasar el mouse sobre los sitios anclados en :hover */
 .top-site-outer:is(.active, :focus, :hover) .tile{
     background: color-mix(in srgb, var(--contrast-color) 10%, transparent) !important;
@@ -263,7 +281,7 @@ input:focus-visible, input:focus-visible{
 /* Fondo de <popup> al intentar eliminar un sitio anclado*/
 .modal{
     backdrop-filter: var(--personal-blur) !important;
-    outline: 1px solid var(--contrast-color) !important;
+    outline: 1px solid var(--border-contrast-color) !important;
     }
 /*------------------------fondo (imagen), Logo y Wordmark------------------------*/
 body{
@@ -307,7 +325,7 @@ main {
     border-color: transparent !important;
     }
 button.primary:hover{
-    background-color: var(--button-hover-bgcolor) !important;
+    background-color: var(--general-color) !important;
     color: white !important; }
 }
 /*Color fondo y letra al seleccionar texto*/
@@ -317,7 +335,6 @@ button.primary:hover{
 }
 /* ----------------------- search input and ads style in private mode ------------------------*/
 @-moz-document url(about:privatebrowsing) {
-    body{background: none !important;}
 .promo.below-search, .info{
     background-color: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;
@@ -331,4 +348,26 @@ button.primary:hover{
 .fake-textbox{
     color: var(--newtab-wordmark-color) !important;
     }
+}
+/*..........................................Firefox--------------------------------------------
+---------------------------------------------view-----------------------------------------------*/
+@-moz-document url(about:firefoxview), regexp("^about:.*") {
+    @media (prefers-color-scheme: dark){
+    body{ 
+        --in-content-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+        background-color: #101019 !important;
+        }
+    }
+    @media (prefers-color-scheme: light){
+    body{
+        --in-content-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+        background-color: #efeff5 !important; }
+    }
+    .synced-tab-a{
+        border-color: var(--in-content-box-border-color) !important;
+    }
+    .synced-tab-a:hover {
+    border-color: var(--general-color) !important;
+    box-shadow: 0px 2px 14px var(--button-bgcolor) !important;
+}
 }

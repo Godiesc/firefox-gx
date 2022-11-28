@@ -6,7 +6,44 @@
 }
 /*Color bolita de cargando página*/
 #tabbrowser-tabs{ 
-    --tab-loading-fill: var(--general-color) !important;
+    --tab-loading-fill: var(--identity-tab-color, var(--general-color)) !important;
+}
+/* Espacio top en ventana no maximizada */
+:root[tabsintitlebar][sizemode="normal"]{
+    --windowed-top-padding: 8px;
+}
+:root[tabsintitlebar][sizemode="normal"] #TabsToolbar{
+  padding-block-start: var(--windowed-top-padding, 0px) !important;
+}
+/* Firefox view icon */
+#firefox-view-button{ list-style-image: url("../images/firefoxview-close.svg") !important; }
+#firefox-view-button[aria-pressed="true"] { list-style-image: url("../images/firefoxview-open.svg") !important; }
+
+toolbar:is(#TabsToolbar) #firefox-view-button{ margin-left: 2px !important; }
+toolbar:is(#TabsToolbar) #firefox-view-button:hover .toolbarbutton-icon{
+    background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
+    fill: var(--general-color) !important;
+}
+:root:not([privatebrowsingmode="temporary"]) :is(toolbarbutton, toolbarpaletteitem) + #tabbrowser-tabs, :root[privatebrowsingmode="temporary"] :is(toolbarbutton:not(#firefox-view-button), toolbarpaletteitem:not(#wrapper-firefox-view-button)) + #tabbrowser-tabs {
+  border-inline-start: 0px solid transparent !important;
+}
+toolbar:is(#TabsToolbar) #firefox-view-button .toolbarbutton-icon{
+    border-radius: 4px !important;
+    margin: -2px !important;
+    height: calc(var(--tab-height-personal) - 6px) !important;
+    width: calc(var(--tab-height-personal) - 6px) !important;
+    padding: 4px !important;
+}
+toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon{
+    outline: none !important;
+    border-radius: 3px !important;
+    margin: -2px !important;
+    background: var(--button-hover-bgcolor) !important;
+    fill: var(--lwt-tab-text) !important;
+}
+ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon{
+    background: var(--button-hover-bgcolor) !important;
+    fill: var(--lwt-tab-text) !important;
 }
 /*--------------Pestaña activa---------------*/
 .tab-stack, .tab-background { 
@@ -31,17 +68,22 @@
 }
 /* Indispensable para mantener alineado el contenido de las pestañas */
 .tab-content { height: var(--tab-min-height) !important; margin-left: -1px !important;}
+.tab-content:is([pinned]){margin-left: 0px !important; }
 :root[tabsintitlebar][sizemode="normal"] .tab-content {padding-bottom:  var(--tab-block-margin) !important; }
 
 /*Color :hover de las pestañas no seleccionadas*/
-.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]){
-    margin-inline: 0px 0px !important;
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important; 
-    border-radius: 0px !important;
-    margin-block: 0px !important;
+.tabbrowser-tab:not([selected="true"], [multiselected]):hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]){
+    background-color: transparent  !important; 
 }
-:root[lwtheme-image] .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
-  background-color:color-mix(in srgb, var(--general-color) 35%, transparent) !important;
+.tabbrowser-tab:not([selected="true"], [multiselected]):hover .tab-stack{
+    background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
+    z-index: 2 !important;
+}
+:root[lwtheme-image] .tabbrowser-tab:not([selected="true"], [multiselected]):hover .tab-stack{
+    background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
+}
+:root[style*="--lwt-additional-images"] .tabbrowser-tab:not([selected="true"], [multiselected]):hover .tab-stack{
+    background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
 }
 /*Regla para visualizar mejor el seleccionar varias pestañas*/
 .tab-background[multiselected]:not([selected="true"]), tab-background:is([multiselected]):not([selected="true"]) .tab-stack {
@@ -89,7 +131,9 @@
 }
 /* botón >> ALL tabs */
 #alltabs-button:is(:hover, [open]) {
-     fill: var(--general-color) !important; 
+    fill: var(--general-color) !important;}
+.all-tabs-item { margin-inline: 0px !important; }
+.all-tabs-item:hover { background-color: transparent !important;
 }
 /* Color hover the íconos en la tab-bar */
 #TabsToolbar .toolbarbutton-1:hover {
@@ -121,55 +165,41 @@
 :root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
    linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
-   background-position: right top !important;
+   background-position: left bottom !important;
    background-repeat:  no-repeat !important;
    background-size:  inherit !important;  
 }
+
 /* --------------------- config to themes that have :root[style*="--lwt-additional-images"] ---------------------------
    ------------------------------------------ Compatibilidad parcial -------------------------------------------------- */
-:root[style*="--lwt-additional-images"] .tab-stack{ clip-path: none !important; border-radius: 0px 2px 0 0 !important;}
-
-:root[style*="--lwt-additional-images"] .tabbrowser-tab[selected="true"] .tab-stack { 
-    background: transparent !important;
-    clip-path: none !important;
-    border-bottom: 1px solid color-mix(in srgb, var(--toolbar-bgcolor), black) !important;
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+   background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
+    linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+   background-position: right top !important;
+   background-repeat:  repeat !important;
+   background-size:  auto auto !important;  
 }
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs .tab-background[selected="true"]{
-    --lwt-tab-line-color: var(--general-color) !important; 
-    background: var(--toolbar-bgcolor) !important; 
-    clip-path: none !important;
-    height: calc(var(--tab-min-height) + 2px) !important; 
-    margin-top: 0px !important; 
-    margin-left: 0px !important; 
-    margin-right: 0px !important; 
-    border-radius: 8px 2px 0 0 !important;
-}
-:root[style*="--lwt-additional-images"][tabsintitlebar][sizemode="normal"] #tabbrowser-tabs .tab-background[selected="true"]{ 
-    height: calc(var(--tab-min-height) + 1px) !important;
-}
-:root[style*="--lwt-additional-images"] .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]) {
-    clip-path: none !important;
-    border-radius: 8px 0px 0 0 !important;
-}
-/*Regla para visualizar mejor el seleccionar varias pestañas*/
-:root[style*="--lwt-additional-images"] .tab-background[multiselected]:not([selected="true"]), 
-tab-background:is([multiselected]):not([selected="true"]) .tab-stack {
-    margin-inline: 0px 0px !important; 
-    background: var(--button-hover-bgcolor) !important; 
-    outline: none !important;  
-    border-radius: 8px 0px 0 0 !important;
-    clip-path: none !important;
-}
-:root[style*="--lwt-additional-images"] .tab-background[multiselected][selected="true"]{
-    outline: none !important;
-    border: 0px solid var(--general-color) !important;
+/* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
+   background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
+   linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+   background-position: left center !important;
+   background-repeat:  no-repeat !important;
+   background-size:  inherit !important;  
 }
 
-/* --------------------- config to MacOS ---------------------------
+/* ------------------------ config to MacOS ---------------------------
    ------------- partial compatibility to window Controls ----------*/
-@media (-moz-platform: macos) { #TabsToolbar{
+
+@media (-moz-platform: macos) { 
+    
+#TabsToolbar{
   padding-block-start: 6px !important;
-   }}
-@media (-moz-platform: macos) { #tabbrowser-tabs{
+   }
+#tabbrowser-tabs{
   padding-inline-start: 10px !important;
-   }}
+   }
+    
+}
