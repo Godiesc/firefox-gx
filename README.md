@@ -8,19 +8,21 @@
 
 <ol><b>(ES) Pasos para configurar el tema:</b>
 
-   <li>Descarga el tema con el gran botón: <code>Code</code> >> <code>Download.zip</code></li>
-   <li>Copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox.</li>
+   <li>Descarga el tema desde la sección <code>Releases</code> en el lado derecho de esta página.</code></li>
+   <li>Descomprime el archivo y copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>Instala y usa un <a href="https://github.com/Godiesc/opera-gx#temas---themes" >tema</a> compatible.</li>
    <li>Reinicia el navegador.</li></ol>
 
 <ol><b>(EN) Steps to configure the theme:</b>
-   <li>Download the theme with the big button: <code>Code</code> >> <code>Download.zip</code></li> 
-   <li>Copy the chrome folder and the user.js file into your Firefox profile directory. </li>
+   <li>Download the theme from the <code>Releases</code> section, in the right side of this page</code></li> 
+   <li>Unzip the file and copy the chrome folder and the user.js file into your Firefox profile directory. </li>
    <li>Install and use a compatible <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a>.</li>
    <li>Restart the browser. </li></ol>
    <ul>
 <li>(ES) Para encontrar el directorio de tu perfil ve a <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles. </li>
 <li>(EN) To find out the location of your profile directory go to <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</li></ul>
+
+⚠ The last code updated in the repository would work well only on beta o nightly versions.
 
 # Temas - Themes
 <ul><li>Temas Principales - Main Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Custom</a> </li>
@@ -70,7 +72,7 @@
 <li>Linux - Manjaro KDE (Tested - Probado) ✔ - <a href="https://i.imgur.com/xv1NKYQ.png">Preview</a></li>
 <li>Windows 10 (Tested - Probado) ✔ - <a href="https://i.imgur.com/ckLxcZe.png">Preview</a></li>
 <li>Windows 11 (Tested - Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png" >Preview</a></li>
-<li>MacOS (Tested - Probado) ✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a> </br> ( ⚠ - Please delete the <code>ogx_menu.css</code> file) </br> Thanks to <a href= "https://github.com/FormalSnake"> FormalSnake</a> for helping to test the theme.</li>
+<li>MacOS (Tested - Probado) ✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a> </br> Thanks to <a href= "https://github.com/FormalSnake"> FormalSnake</a> for helping to test the theme in this OS.</li>
 </ul>
 
 # Example of about:support
