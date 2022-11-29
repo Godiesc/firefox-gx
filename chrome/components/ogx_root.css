@@ -112,8 +112,7 @@
 }
 /* White Theme*/
 @media (prefers-color-scheme: light){
-:root:not([lwtheme-brighttext="true"]):-moz-lwtheme,
-:root:not([lwt-toolbar-field-focus-brighttext]),
+:root:not([lwtheme-brighttext="true"]),
 :root:-moz-lwtheme{
   --contrast-color: #f9f9f9 !important;
   --border-contrast-color: #acacac50 !important; 
