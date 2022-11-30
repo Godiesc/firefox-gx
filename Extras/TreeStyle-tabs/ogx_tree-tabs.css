@@ -26,11 +26,11 @@
 #nav-bar{
   border-top: none !important;
 }
-#sidebar-splitter{
-  border: none !important;
+@media (-moz-platform: linux) {
+  #sidebar-splitter{
   width: 1px !important;
   background-color: var(--lwt-frame) !important;  
-}
+}}
 /* Mover botón "atrás" más a la derecha */
 :root:not([chromehidden~="toolbar"])[sizemode="fullscreen"] #back-button{
     display: block !important;
