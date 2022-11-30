@@ -209,7 +209,7 @@
     --min-width-url: 22vw !important;
   }
 /* Mover botón "atrás" más a la derecha */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10), ,(-moz-platform: linux) { 
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10), (-moz-platform: linux) { 
   :root:not([chromehidden~="toolbar"]) #back-button{
     display: block !important;
     margin-left: calc(var(--uc-vertical-toolbar-width,0) - 2px) !important;
