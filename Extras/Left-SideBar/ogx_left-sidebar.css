@@ -71,6 +71,7 @@
 :root{
     --uc-vertical-toolbar-width: 41px !important;                                                               /* Nuevo tamaño sidebar */
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
+    --margin-left-icons-personal: 11px !important;                                                              /* Nuevo margen left de íconos del menú */
 }
 /* margen izquierda pestañas */
 #toolbar-menubar, #toolbar-menubar[autohide="false"] + #TabsToolbar{
@@ -134,7 +135,7 @@
 #PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked]):active,
 #PersonalToolbar #PlacesToolbarItems > .bookmark-item:is(:active):not([open="false"])>.toolbarbutton-icon,
 #PersonalToolbar #OtherBookmarks:not(.subviewbutton, [disabled="true"], [open], .bookmark-item):is(:active) image {
-    transform: scale(0.9) !important;
+    transform: scale(1.0) !important;
     transition: none !important;
     transition-duration: 180ms !important;
 }
@@ -208,7 +209,7 @@
 #PersonalToolbar > toolbaritem > toolbarbutton {
     width: -moz-available !important;
 }
-.toolbarbutton-badge{
+#PersonalToolbar .toolbarbutton-badge{
   background-color: var(--button-active-bgcolor) !important;
   color: white !important;
   margin-top: 13px !important;
@@ -319,6 +320,23 @@ margin-right: -1px !important;
 :root:is([sizemode="maximized"]) #appMenu-popup{
       --padding-left-tab: 80px !important;
     }}
+/* tamaño nuevo botón Menú */
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button,
+:root[sizemode="maximized"] #appMenu-popup{
+    --tab-height-personal: 40px !important;
+    }
+/* botón Menú [open] no muy grande */
+:root[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+    padding-top: calc(-10px + var(--tab-height-personal)) !important; 
+    z-index: 2 !important;
+}
+:root[sizemode="maximized"] #appMenu-popup{
+    clip-path: polygon(
+        calc(var(--padding-left-tab) - 1px) 0%, 
+        200% 0%, 0% 200%,
+        0% calc(var(--tab-height-personal) - 9px ), 
+        calc(var(--padding-left-tab) - var(--margin-top-personal)) calc(var(--tab-height-personal) - 9px)); 
+    }
 /* Logo más grande */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
@@ -330,10 +348,6 @@ margin-right: -1px !important;
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
- /* Alinear items menú open */
-.subviewbutton:is(#appMenu-popup toolbarbutton):not(.subviewbutton-back){
-   padding-inline-start:  11px !important;  
-}
     
 /* ------------------------ with Linux default window controls on left position ----------------------------- 
     
