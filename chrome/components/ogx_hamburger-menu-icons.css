@@ -25,9 +25,12 @@
 
 /* -------Margen de los íconos---------- 
 
-/*Margen item "tamaño" */
+/* Margen item "tamaño" */
+:root[sizemode="maximized"] panelmultiview .toolbaritem-combined-buttons > label {
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
+}
 panelmultiview .toolbaritem-combined-buttons > label {
-    margin-inline-start: 25px !important;
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
 }
 /* Ícono de Actualización disponible */
 .panel-banner-item{

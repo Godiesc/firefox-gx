@@ -55,10 +55,10 @@
   --toolbarbutton-outer-padding: 2px !important;                                        /*Toolbar buttons más espaciados*/
   --toolbarbutton-border-radius: 2px !important;                                        /*forma de los buttons*/
   
-  --tab-block-margin: 0px !important;                                                   /*margenes pestañas*/
-  --margin-top: var(--tab-block-margin) !important;                                     /*margen top pestañas - variable personal*/
+  --tab-block-margin: 0px !important;                                                   /*margenes pestañas - change this will break the theme*/
+  --margin-top-personal: 0px !important;                                                /*margen top pestañas - variable personal*/
   
-  --tab-min-height:calc(var(--tab-height-personal) + var(--tab-block-margin)) !important; /*tamaño pestañas*/
+  --tab-min-height: var(--tab-height-personal) !important;                                /*tamaño pestañas*/
   --tabs-shadow-size: 0px !important;                                                     /*sombras de pestaña*/
   --tab-border-radius: 6px 2px 0 0 !important;                                            /*forma de la pestaña*/
   
@@ -91,7 +91,7 @@
   --button-primary-color: #eaeaea !important;                                           /*ColorLetrasBotónGuardar*/
    
   --button-primary-hover-bgcolor: var(--general-color) !important;               /*ColorBotónGuardar :Hover*/
-  --button-primary-active-bgcolor: var(--general-color) !important;            /*ColorBotónGuardar :clic*/
+  --button-primary-active-bgcolor: var(--general-color) !important;              /*ColorBotónGuardar :clic*/
 
   --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)70%, black) !important;   /*Color input background en Marcadores*/
   --focus-outline-color: var(--general-color) !important;                                   /*Color borde en InputText Focus*/
@@ -163,10 +163,10 @@
   --toolbarbutton-outer-padding: 2px !important;                                        /*Toolbar buttons más espaciados*/
   --toolbarbutton-border-radius: 2px !important;                                        /*forma de los buttons*/
   
-  --tab-block-margin: 0px !important;                                                   /*margenes pestañas*/
-  --margin-top: var(--tab-block-margin) !important;                                     /*margen top pestañas - variable personal*/
+  --tab-block-margin: 0px !important;                                                   /*margenes pestañas - change this will break the theme*/
+  --margin-top-personal: 0px !important;                                                /*margen top pestañas - variable personal*/
   
-  --tab-min-height:calc(var(--tab-height-personal) + var(--tab-block-margin)) !important; /*tamaño pestañas*/
+  --tab-min-height: var(--tab-height-personal) !important;                                /*tamaño pestañas*/
   --tabs-shadow-size: 0px !important;                                                     /*sombras de pestaña*/
   --tab-border-radius: 6px 2px 0 0 !important;                                            /*forma de la pestaña*/
   
@@ -215,7 +215,8 @@
   --checkbox-checked-color: #eaeaea !important;
   --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
   --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
-}}
+}
+}
 /* Compatibilidad para temas que usan theme_frame para la imagen en su tema */
 @media (prefers-color-scheme: dark){
 :root[lwtheme-image]{

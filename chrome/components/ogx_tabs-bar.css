@@ -50,13 +50,13 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
     clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
     border-radius: var(--tab-border-radius) !important;
 }
-.tab-stack { margin-top: var(--tab-block-margin) !important; }
+.tab-stack { margin-top: var(--margin-top-personal) !important; }
 
 .tabbrowser-tab[selected="true"] .tab-stack { 
     background: var(--gradient) !important; 
 }
 .tab-background{ 
-    height: var(--tab-min-height) !important; 
+    height: var(--tab-height-personal) !important; 
     margin-left: 1px !important; 
     margin-right: 1px !important; 
     margin-top: 1px !important; 
@@ -67,9 +67,8 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
     padding-right: 2px !important;
 }
 /* Indispensable para mantener alineado el contenido de las pestañas */
-.tab-content { height: var(--tab-min-height) !important; margin-left: -1px !important;}
+.tab-content { height: var(--tab-height-personal) !important; margin-left: -1px !important;}
 .tab-content:is([pinned]){margin-left: 0px !important; }
-:root[tabsintitlebar][sizemode="normal"] .tab-content {padding-bottom:  var(--tab-block-margin) !important; }
 
 /*Color :hover de las pestañas no seleccionadas*/
 .tabbrowser-tab:not([selected="true"], [multiselected]):hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]){
@@ -107,17 +106,24 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
     border-top: 1px solid var(--toolbar-bgcolor) !important;    
     padding-bottom: 1px !important;
 }
+toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, .titlebar-button) {
+    padding-block-start: calc(var(--margin-top-personal) ) !important;
+}
 /*Centrar botón "Open Newtab"*/
 #tabs-newtab-button, #TabsToolbar #new-tab-button {       
+    padding-block-start: calc(var(--margin-top-personal) ) !important;
     fill: var(--general-color) !important;
-    padding-left: 2px !important;
-    max-height: var(--tab-min-height) !important;
-    min-height: var(--tab-min-height) !important;    
 }
-#tabs-newtab-button image{
-    padding: 3px !important; height: 22px !important; width: 22px !important; border-radius: 2px !important;
+#tabs-newtab-button image, #TabsToolbar #new-tab-button image{
+    padding-block-start: calc(var(--margin-top-personal) ) !important;
+    padding: 3px !important;
+    max-height: 22px !important; 
+    max-width: 22px !important; 
+    min-height: 22px !important; 
+    min-width: 22px !important;
+    border-radius: 2px !important;
 }
-#tabs-newtab-button:hover .toolbarbutton-icon {
+#tabs-newtab-button:hover .toolbarbutton-icon{
     background: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
 }
 /*favicon de pagina newtab*/

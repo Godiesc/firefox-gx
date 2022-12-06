@@ -3,7 +3,8 @@
 
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
     
-:root{ --label-color: color-mix(in srgb, var(--lwt-tab-text)80%, var(--Button-background-personal)) }
+:root{ --label-color: color-mix(in srgb, var(--lwt-tab-text)80%, var(--Button-background-personal));
+       --margin-left-icons-personal: 9px !important; }
 
 /* ------------Menú hamburguesa-> top-left ------------- */
 /*Posición*/
@@ -27,44 +28,41 @@
     padding-left: var(--padding-left-tab) !important;
 }
 /* tamaño botón Menú */
-    :root[sizemode="maximized"] #PanelUI-menu-button{ 
-    padding: calc(var(--tab-block-margin) + 2px) 0 1px 0 !important; 
-    max-height: calc(var(--tab-min-height) - 1px) !important;
-    min-height:  calc(var(--tab-min-height) - 1px) !important;z-index: 2 !important;
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{
+    padding: var(--margin-top-personal) 0 0 0 !important;
+    max-height: calc(var(--tab-height-personal) ) !important;
+    min-height: calc(var(--tab-height-personal) ) !important;
+    -moz-box-align: start !important;
+    z-index: 2 !important;
 }
-/* menu :hover y active*/
+/* menu :hover y open */
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > .toolbarbutton-badge-stack{
+    max-height: calc(var(--tab-height-personal) ) !important;
+    min-height: calc(var(--tab-height-personal) ) !important;
+    }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important; 
     border-radius: 0px !important;
-    max-height: var(--tab-min-height) !important; 
-    min-height: var(--tab-min-height) !important;z-index: 2 !important;
+    z-index: 2 !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > .toolbarbutton-badge-stack{
     background-color: var(--arrowpanel-background) !important;
     border-radius: 0px !important;
-    border-color: var(--contrast-color) !important;
+    border-left: none !important; border-right: none !important;
     border-image: var(--panel-separator-zap-gradient5) 1 !important;
-    -moz-box-pack: center !important;z-index: 2 !important;
-}
-:root[sizemode="maximized"] #PanelUI-menu-button[open] > stack{
-    outline: 1px solid var(--contrast-color) !important;z-index: 2 !important;
-}
-/* Alinear botón menú en ventana no maximizada*/
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button{ 
-    padding: 0px 0 0 0 !important;z-index: 2 !important;
+    z-index: 2 !important;
 }
 /* Logo */
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button .toolbarbutton-badge-stack{
     list-style-image: url("../images/foxmenu.svg") !important;
     display: -moz-box !important;
-    max-height: var(--tab-min-height) !important;
-    min-height: var(--tab-min-height) !important;
-    max-width: var(--padding-left-tab) !important;
+    max-height: var(--tab-height-personal) !important;
     min-width: var(--padding-left-tab) !important;
+    max-width: var(--padding-left-tab) !important;
     -moz-box-pack: center !important;
     fill: var(--general-color) !important;
     border: 1px solid transparent !important;
-    padding-top: 5px !important;z-index: 2 !important;
+    z-index: 2 !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     margin-top: -1px !important;
@@ -82,24 +80,25 @@
     -moz-box-orient: vertical !important;z-index: 2 !important;
 }
 /* Padding top para hacer espacio para la fila del Label menú */
-  :root[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
-    padding-top: calc(var(--tab-min-height) - 5px + var(--tab-block-margin)) !important; z-index: 2 !important;
+:root[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+    padding-top: calc(-5px + var(--tab-height-personal)) !important; 
+    z-index: 2 !important;
 }
 /* Margin top para subir el menú [open] */
-    :root[sizemode="maximized"] #appMenu-popup{       
+:root[sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
-    margin-top: calc(0px - var(--tab-min-height) + var(--tab-block-margin) ) !important;
+    margin-top: calc(-1px - var(--tab-height-personal) ) !important;
     clip-path: polygon(
         calc(var(--padding-left-tab) - 1px) 0%, 
         200% 0%, 0% 200%,
-        0% calc(var(--tab-min-height) - var(--tab-block-margin)), 
-        calc(var(--padding-left-tab) - var(--tab-block-margin)) calc(var(--tab-min-height) - var(--tab-block-margin))); 
+        0% calc(var(--tab-height-personal) ), 
+        calc(var(--padding-left-tab) - var(--margin-top-personal)) calc(var(--tab-height-personal))); 
         z-index: 2 !important;
         --arrowpanel-menuitem-padding: 6px !important;
 }
-    :root:is([sizemode="maximized"]):not([tabsintitlebar]) #appMenu-popup{
-    margin-top: calc(-1px - var(--tab-min-height) + var(--tab-block-margin) ) !important;
-    }
+:root:is([sizemode="maximized"]):not([tabsintitlebar]) #appMenu-popup{
+    margin-top: calc(-1px - var(--tab-height-personal) + var(--tab-block-margin) ) !important;
+}
 /* Separadores */
 :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator{
     margin-inline-start: 30px !important;
@@ -125,7 +124,7 @@
 
 /*-----------------Config para alinear íconos en el menú de hamburguesa----------------------*/
 .subviewbutton:is(#appMenu-popup toolbarbutton):not(.subviewbutton-back){
-   padding-inline-start:  9px !important;  
+   padding-inline-start: var(--margin-left-icons-personal) !important;  
 }
 .subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon, .syncNowBtn{
     width: 16px; height: 16px;   
@@ -139,8 +138,11 @@
 /* ->Margen de los íconos<- */
 
 /* Margen item -tamaño- */
+:root[sizemode="maximized"] panelmultiview .toolbaritem-combined-buttons > label {
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 16px) !important;
+}
 panelmultiview .toolbaritem-combined-buttons > label {
-    margin-inline-start: 25px !important;
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 14px) !important;
 }
 /* ------------------------ícono account----------------------- */
 #appMenu-fxa-status2:not([fxastatus]) > #appMenu-fxa-label2{
