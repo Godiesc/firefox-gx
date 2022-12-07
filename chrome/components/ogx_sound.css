@@ -2,7 +2,6 @@
    https://github.com/Godiesc/opera-gx */
 
 /* Label de medios "Reproduciendo" eliminado */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 
 .tabbrowser-tab:not([pinned]) .tab-icon-stack:is([muted],[soundplaying],[activemedia-blocked]){
   grid-template-areas: "a s";
@@ -71,7 +70,7 @@ tab:hover .tab-icon-image:is([sharing]) {opacity: 1 !important; }
 /* ------------------------------------ muteado -----------------------------------*/
 .tab-icon-overlay:not([pinned]):is([muted]){
     list-style-image: url("../images/paused.svg") !important;
-    top: -5px;  left: 9px !important; border-radius: 50% !important;
+    top: -5px;  left: 8px !important; border-radius: 50% !important;
     height: 14px !important;
     width: 14px !important;
     color: var(--toolbarbutton-icon-fill) !important;
@@ -82,17 +81,20 @@ tab:hover .tab-icon-image:is([sharing]) {opacity: 1 !important; }
 /*muteado hover*/
 .tab-icon-overlay:not([pinned])[muted]:hover {
     border-radius: 50% !important;
-    list-style-image: url("../images/paused.svg") !important;
+    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
     fill: var(--lwt-tab-text) !important;
-    background-color: color-mix(in srgb, var(--toolbar-bgcolor), transparent) !important;
     fill-opacity: 1 !important;
     opacity: 1 !important;
     }
-}
+/* favicon de pestañas recortado para mostrar mejor el ícono de silenciado */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
+    mask-image: url("../images/tab_icon_masks.svg#SoundMask") !important;
+    }}
 /* Audio bloqueado */
 .tab-icon-overlay:not([pinned]):is([activemedia-blocked]), .tab-icon-overlay:is([pinned]):is([activemedia-blocked]){
     list-style-image: url("../images/blocked.svg") !important;
-    top: -6px;  left: 9px !important; border-radius: 2px !important;
+    top: -6px;  left: 8px !important; border-radius: 2px !important;
     height: 14px !important;
     width: 14px !important;
     color: var(--toolbarbutton-icon-fill) !important;
@@ -139,7 +141,7 @@ tab:hover .tab-icon-overlay:is([pinned])[muted] {
     height: 14px !important;
     width: 14px !important;
     top: -5px !important;
-    left: 9px !important;
+    left: 8px !important;
     color: var(--toolbarbutton-icon-fill) !important;
     background-color: transparent !important;
     stroke: transparent !important;
@@ -152,15 +154,14 @@ tab:hover .tab-icon-overlay:is([pinned])[muted] {
     top: -5px !important;
     left: 13px !important;
     color: var(--toolbarbutton-icon-fill) !important;
-    background-color: color-mix(in srgb, var(--button-bgcolor) 85%, white) !important; 
     stroke: transparent !important;
     fill-opacity: 0.8 !important;
     }
 /*muteado pinned :hover*/
 tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
+    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
     border-radius: 50% !important;
     color: var(--lwt-tab-text) !important;
-    background-color: color-mix(in srgb, var(--toolbar-bgcolor), transparent) !important;
     fill-opacity: 1 !important;
     }
 /* Eliminar ícono de sonido cuando la página está cargandose */
@@ -170,48 +171,25 @@ tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 .tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-icon-overlay{ opacity: 0 !important; 
     }}
-/*------------------------------------ Sound icon to ### MacOS ### --------------------------------------------*/
 
-@media (-moz-platform: macos) {
-.tabbrowser-tab:not([pinned]) .tab-icon-stack:is([muted],[soundplaying],[activemedia-blocked]){
+/*_________________________________________MacOS________________________________________*/
+
+@media (-moz-platform: macos){
+.tabbrowser-tab:not([pinned]) .tab-icon-stack:is([muted],[activemedia-blocked]){
   grid-template-areas: "a s";
     }
-.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted],[soundplaying],[activemedia-blocked]){ grid-area: s; }
-.tab-icon-overlay,
-.tab-icon-image,
-.tab-throbber{ opacity: 1 !important; }
-
-.tab-icon-overlay:not([pinned]){
+.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted],[activemedia-blocked]){ 
+    opacity: 1 !important;
+    top: initial !important;
+    left: initial !important;
+    height: 16px !important;
+    width: 16px !important;
     fill: var(--identity-tab-color, var(--general-color)) !important;
     padding: 0px !important;
-    margin-inline: -3px 3px !important;
+    margin-inline: -2px 3px !important;
+    grid-area: s; 
+    }
+.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted],[activemedia-blocked]):hover{ 
+    fill: currentColor !important;
     fill-opacity: 1 !important;
-    }
-/* secondary audio label ain't much use with this style, but feel free to remove the next line if you want to show it. */
-.tab-secondary-label{ display: none }
-
-/* These exist for compatibility with combined_favicon_and_tab_close_button.css */
-.tab-icon-overlay{ pointer-events: auto }
-
-.tab-content > .tab-icon-stack,
-.tab-icon-stack:hover > 
-.tab-icon-image{ visibility: visible }
-
-/* Colores Hover*/
-.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([soundplaying]):hover{
-    background-color: var(--general-color) !important;
-    fill: var(--contrast-color) !important;
-    }
-/* Colores muted*/
-.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted]){
-    list-style-image: url("../images/muted.svg") !important;
-    fill: var(--lwt-tab-text) !important;
-    fill-opacity: 0.8 !important;
-    }
-.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted]):hover{
-    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg")!important;
-    fill: var(--lwt-tab-text) !important;
-    fill-opacity: 1 !important;
-    border-radius: 4px !important;
-    }
-}
+}}
