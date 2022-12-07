@@ -2,16 +2,16 @@
    https://github.com/Godiesc/opera-gx */
 
 /*"Botón de cerrar pestaña" en windows y linux */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.close-icon {
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){ .close-icon {
     width: 15px !important;
     height: 15px !important;
     }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tab-close-button {
+.tab-close-button {
     list-style-image: url('../images/close.svg') !important;
     padding: 3px !important;
     border-radius: 0px !important;
     margin-inline-end: -2px !important;
-    }}
+    }
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tab-close-button:hover {
     background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
     fill: var(--identity-tab-color, var(--general-color)) !important;
@@ -60,4 +60,10 @@
 .tabbrowser-tab:hover .tab-close-button{ opacity: 1; margin-inline: 0px -16px !important; }
 .tabbrowser-tab[pinned] .tab-close-button{ display: none !important; }
 
+/* These exist for compatibility with combined_favicon_and_tab_close_button.css */
+.tab-icon-overlay{ pointer-events: auto }
+
+.tab-content > .tab-icon-stack,
+.tab-icon-stack:hover > 
+.tab-icon-image{ visibility: visible }
 }
