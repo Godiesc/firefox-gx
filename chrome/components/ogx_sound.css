@@ -1,16 +1,11 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-/* Label de medios "Reproduciendo" eliminado */
-
-.tabbrowser-tab:not([pinned]) .tab-icon-stack:is([muted],[soundplaying],[activemedia-blocked]){
-  grid-template-areas: "a s";
-    }
-
+/* favicon siempre visible */
 .tab-icon-image,
 .tab-throbber{ opacity: 1 !important; }
     
-/* secondary audio label ain't much use with this style, but feel free to remove the next line if you want to show it. */
+/* secondary audio label ain't much use with this style. */
 .tab-secondary-label{ display: none !important; }
 
 /* Reproduciendo */
