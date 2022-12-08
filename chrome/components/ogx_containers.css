@@ -11,19 +11,20 @@
     background-repeat: no-repeat, no-repeat !important;
 }
 .tabbrowser-tab:not([pinned],[selected]) .tab-context-line {
-    background-image: linear-gradient(to right, var(--identity-icon-color, transparent) 16px, transparent 16px) !important;
+    background-image: linear-gradient(to right, var(--identity-icon-color, transparent), var(--identity-icon-color, transparent)) !important;
+    clip-path: polygon(0px 0px, 22px 0%, 22px 100%, 0% 100%);
     border-left: 6px solid transparent !important;
-    border-right: 22px solid transparent !important;
+    border-right: 7px solid transparent !important;
     transition-duration: 0ms !important;
 } 
 .tabbrowser-tab[selected]:not([pinned]) .tab-context-line {
-    background-image: linear-gradient(to right, var(--identity-icon-color, transparent) 0%,var(--identity-icon-color, transparent) 70%) !important;
+    background-image: linear-gradient(to right, var(--identity-icon-color, transparent), var(--identity-icon-color, transparent)) !important;
+    clip-path: polygon(0px 0px, 100% 0%, 100% 100%, 0% 100%);
     border-left: 6px solid transparent !important;
     border-right: 7px solid transparent !important;
-    background-clip: border-box !important;
-    transition-duration: 250ms !important;
+    transition-duration: 150ms !important;
 }
-/* Mover la label para hacer espacio para el ícono de sonido y alinearlo con la linea de contenedor */
+/* Mover la label para hacer espacio para el ícono de sonido darle una ligera animación de posición */
 tab[soundplaying] .tab-content .tab-label{
     padding-left: 18px !important;
     z-index: 0 !important;
