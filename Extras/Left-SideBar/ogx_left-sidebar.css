@@ -108,6 +108,9 @@
         var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;
     z-index: 1 !important;
 }
+:root[sizemode="normal"] #PersonalToolbar {
+    --height-left-sidebar: 106vh !important;
+    }
 /* imagen en la barra lateral en tema con imágenes */
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar,
 :root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar  {
