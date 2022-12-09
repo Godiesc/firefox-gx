@@ -211,7 +211,11 @@ panelmultiview .toolbaritem-combined-buttons > label {
     visibility: visible !important; -moz-box-ordinal-group: 0 !important; }
 }
 /* Menú más pequeño en linux*/
-@media (-moz-platform: linux) {:root[sizemode="maximized"] #appMenu-popup{
+@media (-moz-platform: linux) {
+:root{
+        --margin-left-icons-personal: 6px !important;
+    }
+:root[sizemode="maximized"] #appMenu-popup{
     --arrowpanel-menuitem-padding: 5px !important;
     z-index: 2 !important;
     }}
