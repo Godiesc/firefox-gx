@@ -53,7 +53,7 @@
   
   --toolbarbutton-inner-padding: 6px !important;                                        /*Toolbar buttons más pequeños*/
   --toolbarbutton-outer-padding: 2px !important;                                        /*Toolbar buttons más espaciados*/
-  --toolbarbutton-border-radius: 0px !important;                                        /*forma de los buttons*/
+  --toolbarbutton-border-radius: 2px !important;                                        /*forma de los buttons*/
   
   --tab-block-margin: 0px !important;                                                   /*margenes pestañas - change this will break the theme*/
   --margin-top-personal: 0px !important;                                                /*margen top pestañas - variable personal*/
@@ -161,7 +161,7 @@
   
   --toolbarbutton-inner-padding: 6px !important;                                        /*Toolbar buttons más pequeños*/
   --toolbarbutton-outer-padding: 2px !important;                                        /*Toolbar buttons más espaciados*/
-  --toolbarbutton-border-radius: 0px !important;                                        /*forma de los buttons*/
+  --toolbarbutton-border-radius: 2px !important;                                        /*forma de los buttons*/
   
   --tab-block-margin: 0px !important;                                                   /*margenes pestañas - change this will break the theme*/
   --margin-top-personal: 0px !important;                                                /*margen top pestañas - variable personal*/
@@ -237,7 +237,7 @@
 /* Compatibilidad Parcial para temas que usan "Imagenes adicionales" en su tema */
 @media (prefers-color-scheme: dark){
 :root[style*="--lwt-additional-images"]{
-  --toolbar-bgcolor: #101019b9 !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-bgcolor: #101019cf !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --toolbarbutton-icon-fill: #cacae6 !important;                                                               /*"icons" color */
@@ -246,7 +246,7 @@
   }}
 @media (prefers-color-scheme: light){
   :root[style*="--lwt-additional-images"]{
-  --toolbar-bgcolor: #f9f9f9b9 !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
+  --toolbar-bgcolor: #f9f9f9cf !important;                                                                     /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --toolbarbutton-icon-fill: #202020 !important;                                                               /*"icons" color */
