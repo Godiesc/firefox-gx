@@ -313,7 +313,7 @@ margin-right: -1px !important;
     }}
 @media (-moz-platform: linux){
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
-  --padding-left-tab: 80px !important;
+  --padding-left-tab: 84px !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
@@ -321,7 +321,7 @@ margin-right: -1px !important;
     }}
 @media (-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
-      --padding-left-tab: 80px !important;
+      --padding-left-tab: 84px !important;
     }}
 /* tamaño nuevo botón Menú */
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button,
