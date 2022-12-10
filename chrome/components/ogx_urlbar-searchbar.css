@@ -131,9 +131,7 @@ findbar:-moz-lwtheme {
 }
 /* Páginas de extensiones */
 #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
-    background: transparent !important;
-    padding-left:4px !important;
-    padding-right:5px !important; }
+    background: transparent !important;}
 #identity-box.extensionPage label{
     display: none !important;
 }
