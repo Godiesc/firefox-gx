@@ -164,7 +164,7 @@ tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
 .tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-throbber{ visibility: visible !important; opacity: 1 !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-icon-overlay{ opacity: 0 !important; 
+.tabbrowser-tab:is([muted],[pictureinpicture])[busy] .tab-icon-overlay{ opacity: 0 !important; 
     }}
 
 /*_________________________________________MacOS________________________________________*/
