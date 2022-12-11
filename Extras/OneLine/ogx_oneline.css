@@ -257,8 +257,8 @@
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
 /* Alinear items menú open */
-.subviewbutton:is(#appMenu-popup toolbarbutton):not(.subviewbutton-back){
-   padding-inline-start:  11px !important;  
+:root{
+  --margin-left-icons-personal: 11px !important;
 }
 /* urlbar focus - open */
 #urlbar-container:not([open=true],:focus, :focus-within ){ min-width: var(--min-width-url) !important; }
