@@ -109,7 +109,7 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
 toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, .titlebar-button) {
     padding-block-start: calc(var(--margin-top-personal) ) !important;
 }
-/*Centrar botón "Open Newtab"*/
+/* botón "Open Newtab" */
 #tabs-newtab-button, #TabsToolbar #new-tab-button {       
     padding-block-start: calc(var(--margin-top-personal) ) !important;
     fill: var(--general-color) !important;
@@ -123,7 +123,11 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
     min-width: 22px !important;
     border-radius: 2px !important;
 }
-#tabs-newtab-button:hover .toolbarbutton-icon{
+:root[privatebrowsingmode="temporary"] #tabs-newtab-button>image, :root[privatebrowsingmode="temporary"] #TabsToolbar #new-tab-button>image{
+    max-width: 28px !important; 
+    min-width: 28px !important;
+}
+#tabs-newtab-button:hover .toolbarbutton-icon, #TabsToolbar #new-tab-button:hover .toolbarbutton-icon{
     background: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
 }
 /*favicon de pagina newtab*/
@@ -140,6 +144,10 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
     fill: var(--general-color) !important;}
 .all-tabs-item { margin-inline: 0px !important; }
 .all-tabs-item:hover { background-color: transparent !important;
+}
+/* Quitar label "Navegación Privada" */
+#private-browsing-indicator-with-label > label {
+	display: none !important;
 }
 /* Color hover the íconos en la tab-bar */
 #TabsToolbar .toolbarbutton-1:hover {
