@@ -243,6 +243,7 @@
   --toolbarbutton-icon-fill: #cacae6 !important;                                                               /*"icons" color */
   --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;                                      /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #2e273ffb) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
+  --lwt-background-alignment: right top, left top, right top !important;
   }}
 @media (prefers-color-scheme: light){
   :root[style*="--lwt-additional-images"]{
@@ -252,4 +253,5 @@
   --toolbarbutton-icon-fill: #202020 !important;                                                               /*"icons" color */
   --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;                                      /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #f9f9f9fb) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
+  --lwt-background-alignment: right top, left top, right top !important;
   }}
