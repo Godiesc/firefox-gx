@@ -142,7 +142,7 @@
     margin-inline-start: calc(var(--margin-left-icons-personal) + 17px) !important;
 }
 panelmultiview .toolbaritem-combined-buttons > label {
-    margin-inline-start: calc(var(--margin-left-icons-personal) + 14px) !important;
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 15px) !important;
 }
 /* ------------------------ícono account----------------------- */
 #appMenu-fxa-status2:not([fxastatus]) > #appMenu-fxa-label2{
