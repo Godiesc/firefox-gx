@@ -167,7 +167,7 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
   background-image: radial-gradient(circle, var(--general-color), var(--general-color) 2px, transparent 2px) !important;
   background-position: center top calc(0px + var(--tabs-navbar-shadow-size)) !important;
 }
-/* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
+/* Mantener una imagen al mover pestaña en temas con imagenes [lwtheme-image] - still needs fix */
 :root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
    linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
@@ -179,21 +179,21 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
 /* --------------------- config to themes that have :root[style*="--lwt-additional-images"] ---------------------------
    ------------------------------------------ Compatibilidad parcial -------------------------------------------------- */
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+    --lwt-background-alignment: right top, right top, right top !important;
    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
    background-position: right top !important;
-   background-repeat:  repeat !important;
+   background-repeat:  repeat-x !important;
    background-size:  auto auto !important;  
 }
 /* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
    linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
    background-position: left center !important;
    background-repeat:  no-repeat !important;
-   background-size:  inherit !important;  
+   background-size:  auto auto !important;  
 }
 
 /* ------------------------ config to MacOS ---------------------------
