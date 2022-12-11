@@ -39,11 +39,11 @@
         appearance: none !important;
         margin: 2px 2px 2px 2px !important;
     }
-    #placesMenu > menu:hover {
+    #placesMenu > menu:is(:hover, [open]) {
         appearance: none !important;
         background: var(--button-hover-bgcolor, #0060bf) !important;
     }
-    #placesMenu > menu:hover[_moz-menuactive="true"][open="true"] {
+    #placesMenu > menu:is(:hover, [open])[_moz-menuactive="true"][open="true"] {
         appearance: none !important;
         background: var(--button-active-bgcolor, #0060bf) !important;
     }
