@@ -139,7 +139,7 @@
 
 /* Margen item -tamaño- */
 :root[sizemode="maximized"] panelmultiview .toolbaritem-combined-buttons > label {
-    margin-inline-start: calc(var(--margin-left-icons-personal) + 16px) !important;
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 17px) !important;
 }
 panelmultiview .toolbaritem-combined-buttons > label {
     margin-inline-start: calc(var(--margin-left-icons-personal) + 14px) !important;
