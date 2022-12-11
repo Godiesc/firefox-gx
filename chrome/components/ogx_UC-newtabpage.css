@@ -334,6 +334,13 @@ button.primary:hover{
 }
 /* ----------------------- search input and ads style in private mode ------------------------*/
 @-moz-document url(about:privatebrowsing) {
+    :root{ --general-color: var(--purple) !important; }
+body{
+    background: var(--lwt-private-image) no-repeat right top fixed !important;
+    background-size:  var(--wallpaper-size) !important;
+    background-position-y: var(--background-align-y) !important;
+    backdrop-filter: var(--brightness-wallpaper) !important;
+    }
 .promo.below-search, .info{
     background-color: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;

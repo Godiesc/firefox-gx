@@ -137,7 +137,7 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     border-radius: 2px !important;
     background-color: transparent !important;
 }
-#main-menubar>menu:hover{
+#main-menubar>menu:is(:hover, [open]){
     background-color: var(--button-active-bgcolor) !important;
 }
 /* :hover en botones de: all-tabs and unified extensions */
