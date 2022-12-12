@@ -152,7 +152,7 @@
   --toolbarbutton-icon-fill: #372f4c !important;                                        /*"icons": "#00dbfd"*/
   /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /*"icons_attention": "#00dbfd"*/    
   
-  --toolbarbutton-hover-background: color-mix(in srgb, #d9d9d9 50%, transparent) !important;                             /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-hover-background: color-mix(in srgb, #c9c9c9 70%, transparent) !important;                             /*"button_background_hover": "#26242e"*/
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, var(--contrast-color)) !important;   /*"button_background_active": "#131217"*/
   --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;                                      /* Button :hover color personal*/
 
@@ -228,6 +228,7 @@
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, black) !important;         /*"button_background_active": "#131217"*/
   --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #2e273ffb) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
+  --lwt-background-alignment: right top, left top, right top !important;
   }}
 @media (prefers-color-scheme: light){
 :root[lwtheme-image]{
@@ -235,6 +236,10 @@
   --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
   --lwt-selected-tab-background-color: #10101900 !important;                                                   /*"tab_selected":"#363540"*/
+  --toolbarbutton-hover-background: color-mix(in srgb, #d9d9d9 50%, transparent) !important;                             /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, var(--contrast-color)) !important;   /*"button_background_active": "#131217"*/
+  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;                                      /* Button :hover color personal*/
+  --lwt-background-alignment: right top, left top, right top !important;
   }}
 /* Compatibilidad Parcial para temas que usan "Imagenes adicionales" en su tema */
 @media (prefers-color-scheme: dark){
@@ -258,4 +263,7 @@
   --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;                                      /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #f9f9f9fb) !important;   /*"toolbar_field_focus": "#1a1b25FB"*/
   --lwt-background-alignment: right top, left top, right top !important;
+    --toolbarbutton-hover-background: color-mix(in srgb, #d9d9d9 50%, transparent) !important;                             /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, var(--contrast-color)) !important;   /*"button_background_active": "#131217"*/
+  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;                                      /* Button :hover color personal*/
   }}
