@@ -223,7 +223,7 @@
   :root:not([chromehidden~="toolbar"]) #back-button{
     display: block !important;
     margin-left: calc(var(--uc-vertical-toolbar-width,0) - 2px) !important;
-    padding-inline-start: 0px !important;
+    padding-inline-start: 2px !important;
     }}
 /* Botones de recorrer pestañas */
 #scrollbutton-down ,#scrollbutton-up{
@@ -299,7 +299,7 @@ toolbar:is(.browser-toolbar){
 }
 /* separador izquierda y derecha urlbar */
 #urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{padding-top: 27px !important; ) !important;}
-#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -23px !important;}
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -22px !important;}
 
 /* Urlbar más pequeña */
 #urlbar:not([open]){
@@ -341,8 +341,8 @@ toolbar:is(.browser-toolbar){
     background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
 }
-/* Alinear overflow menu */
-#nav-bar-overflow-button{
+/* Alinear botones de items */
+toolbar:not(#PersonalToolbar,#TabsToolbar) .toolbarbutton-1{
   margin-bottom: -2px !important;
 }
 /* ---------------------------------------Compatibilidad con left-sidebar config------------------------------- */
