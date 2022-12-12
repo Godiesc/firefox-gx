@@ -326,6 +326,10 @@ toolbar:is(.browser-toolbar){
     background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
 }
+/* Alinear overflow menu */
+#nav-bar-overflow-button{
+  margin-bottom: -4px !important;
+}
 /* ---------------------------------------Compatibilidad con left-sidebar config------------------------------- */
 
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
