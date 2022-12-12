@@ -79,7 +79,7 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     border: 1px solid var(--input-border-color) !important;
 }
 /* Quitar linea gradiente en botones de extensiones puestas en la Barra de herramientas y de pestañas */
-:is(#nav-bar,#TabsToolbar) toolbaritem .toolbarbutton-1 { background-image: none !important; }
+:is(#nav-bar,#TabsToolbar, #PersonalToolbar) toolbaritem .toolbarbutton-1 { background-image: none !important; }
 
 /*--------------------------Marcadores----------------------------------*/
 /* Barra de marcadores - color [open] */
