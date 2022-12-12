@@ -1,12 +1,10 @@
 # How to apply. 
 <ol>
   <li>Add the file <code>ogx_oneline.css</code> into the <code>chrome/components</code> folder.</li>
-  <li>Delete "flex spaces" and put the icons from the toolbar into the tabs-bar to make enough space to the oneline theme. In the left side only should have the buttons: back, forward and reload; and in the right side should be only the "overflow" button. </li>
-  <li>After you restart the browser you will see the buttons in the right side, next to the "overflow menu". that's all.</li>
+  <li>Delete "flex spaces" and put the icons just like the image below. </li>
 </ol>
 
 ## Position of buttons before apply the One-line config
-
 ![PositionOfButtonsOneLine](https://user-images.githubusercontent.com/22057609/206939542-d7e0d137-7cf8-4181-b28a-9834ac53cf1b.png)
 
 ## Preview
