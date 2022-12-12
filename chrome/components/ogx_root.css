@@ -152,9 +152,9 @@
   --toolbarbutton-icon-fill: #372f4c !important;                                        /*"icons": "#00dbfd"*/
   /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /*"icons_attention": "#00dbfd"*/    
   
-  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 80%, var(--contrast-color)) !important;    /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-hover-background: color-mix(in srgb, #d9d9d9 50%, transparent) !important;                             /*"button_background_hover": "#26242e"*/
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, var(--contrast-color)) !important;   /*"button_background_active": "#131217"*/
-  --toolbarbutton-hover-personal: var(--Button-background-personal) !important;                                          /* Button :hover color personal*/
+  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;                                      /* Button :hover color personal*/
 
   
   --lwt-sidebar-background-color: var(--toolbar-bgcolor) !important;                    /*Sidebar-background*/
