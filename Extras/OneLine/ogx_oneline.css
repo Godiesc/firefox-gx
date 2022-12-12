@@ -11,7 +11,8 @@
   --tab-height-personal: 32px !important;                                /* Minimum Height 32px for the right function of the theme*/
   --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
   --navbarWidth:32vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
-  --toolbarbutton-hover-personal: #251f33 !important;
+  --toolbarbutton-hover-personal: #1d172b !important;
+  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
   }}
 @media (prefers-color-scheme: light){
@@ -25,31 +26,40 @@
   --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
   --navbarWidth:32vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
   --toolbarbutton-hover-personal: #cfcfcf !important;
+  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
   }}
 @media (prefers-color-scheme: dark){
 :root[lwtheme-image]{
   --toolbar-bgcolor: transparent !important;                                     
   --lwt-selected-tab-background-color: #101019bf !important;                     
-  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
+  --toolbarbutton-hover-personal: color-mix(in srgb, #1010195f 70%, black) !important;
+  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: black !important;                                       /*"button_background_active": "#26242e"*/
   }}
 @media (prefers-color-scheme: light){
 :root[lwtheme-image]{
   --toolbar-bgcolor: transparent !important;                                     
   --lwt-selected-tab-background-color: #f9f9f9bf !important;                     
-  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
+  --toolbarbutton-hover-personal: color-mix(in srgb, #f9f9f95f 70%, white) !important;
+  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: white !important;                                       /*"button_background_active": "#26242e"*/
   }}
 @media (prefers-color-scheme: dark){
 :root[style*="--lwt-additional-images"]{
   --toolbar-bgcolor: transparent !important;                                                                
   --lwt-selected-tab-background-color: #101019cf !important;
-  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
+  --toolbarbutton-hover-personal: color-mix(in srgb, #1010195f 70%, black) !important;
+  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: black !important;                                       /*"button_background_active": "#26242e"*/
   }}
 @media (prefers-color-scheme: light){
 :root[style*="--lwt-additional-images"]{
   --toolbar-bgcolor: transparent !important;                                                                
   --lwt-selected-tab-background-color: #f9f9f9cf !important;
-  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;
+  --toolbarbutton-hover-personal: color-mix(in srgb, #f9f9f95f 70%, white) !important;
+  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: white !important;                                       /*"button_background_active": "#26242e"*/
   }}
 /* Sobre-escrribir la regla usada en ogx_tabs-bar, lineas 175-183 */
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
@@ -215,6 +225,11 @@
     margin-left: calc(var(--uc-vertical-toolbar-width,0) - 2px) !important;
     padding-inline-start: 0px !important;
     }}
+/* Botones de recorrer pestañas */
+#scrollbutton-down ,#scrollbutton-up{
+  min-height: var(--tab-height-personal) !important;
+  max-height: var(--tab-height-personal) !important;
+}
 /*----------------Nuevos margenes Botón menú-------------------*/
 
 /* Quitar label -Menu- del menú not [open] */
@@ -328,7 +343,7 @@ toolbar:is(.browser-toolbar){
 }
 /* Alinear overflow menu */
 #nav-bar-overflow-button{
-  margin-bottom: -4px !important;
+  margin-bottom: -2px !important;
 }
 /* ---------------------------------------Compatibilidad con left-sidebar config------------------------------- */
 
