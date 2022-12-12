@@ -76,6 +76,12 @@
 <li>MacOS (Tested - Probado) ✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a> </br> Thanks to <a href= "https://github.com/FormalSnake"> FormalSnake</a> for helping to test the theme in this OS.</li>
 </ul>
 
+# Known Issues - Problemas Conocidos
+<ul>
+<li>When using a theme that use more that one image, the theme will display a bad background in the selected tab, for example the alpenglow theme from firefox.</li>
+<li>In themes with images, when moving a tab it will display a bad background.</li>
+</ul>
+
 # Example of about:support
 
 ![120349392-b372f980-c2c3-11eb-904d-b088168fd849](https://user-images.githubusercontent.com/22057609/156908375-824f8679-56a5-4d09-a86f-353a7f61135e.png)
