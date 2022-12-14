@@ -9,7 +9,7 @@
 <ol><b>(ES) Pasos para configurar el tema:</b>
 
    <li>Descarga el tema desde la sección <code>Releases</code> en el lado derecho de esta página.</code></li>
-   <li>Descomprime el archivo y copia la carpeta chrome y el archivo user.js dentro de la carpeta de perfil de tu usuario de firefox.</li>
+   <li>Descomprime el archivo y copia la carpeta <code>chrome</code> y el archivo <code>user.js</code> dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>Instala y usa un <a href="https://github.com/Godiesc/opera-gx#temas---themes" >tema</a> compatible.</li>
    <li>Reinicia el navegador.</li></ol>
 
