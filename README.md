@@ -15,7 +15,7 @@
 
 <ol><b>(EN) Steps to configure the theme:</b>
    <li>Download the theme from the <code>Releases</code> section, in the right side of this page</code></li> 
-   <li>Unzip the file and copy the chrome folder and the user.js file into your Firefox profile directory. </li>
+   <li>Unzip the file and copy the <code>chrome</code> folder and the <code>user.js</code> file into your Firefox profile directory. </li>
    <li>Install and use a compatible <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a>.</li>
    <li>Restart the browser. </li></ol>
    <ul>
