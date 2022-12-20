@@ -336,9 +336,9 @@ margin-right: -1px !important;
 :root[sizemode="maximized"] #appMenu-popup{
     clip-path: polygon(
         calc(var(--padding-left-tab) - 1px) 0%, 
-        200% 0%, 0% 200%,
+        200% 0%, 0% 900%,
         0% calc(var(--tab-height-personal) - 9px ), 
-        calc(var(--padding-left-tab) - var(--margin-top-personal)) calc(var(--tab-height-personal) - 9px)); 
+        calc(var(--padding-left-tab)) calc(var(--tab-height-personal) - 9px )); 
     }
 /* Logo más grande */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
