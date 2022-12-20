@@ -123,7 +123,7 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
     min-width: 22px !important;
     border-radius: 2px !important;
 }
-:root[privatebrowsingmode="temporary"] #tabs-newtab-button>image, :root[privatebrowsingmode="temporary"] #TabsToolbar #new-tab-button>image{
+:root[privatebrowsingmode="temporary"] #TabsToolbar #tabs-newtab-button>image, :root[privatebrowsingmode="temporary"] #TabsToolbar #new-tab-button>image{
     max-width: 28px !important; 
     min-width: 28px !important;
 }
