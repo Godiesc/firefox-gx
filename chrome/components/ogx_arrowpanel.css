@@ -15,27 +15,29 @@ panelview {
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
 }
 /* Margen de varios arrowpanels [Open] */
-#downloadsPanel, #widget-overflow, #customizationui-widget-panel {
+#downloadsPanel, #widget-overflow, #customizationui-widget-panel, 
+#unified-extensions-panel, #notification-popup {
     margin-top: -1px !important; 
     margin-inline: -6px !important; }
 
 #identity-popup, #permission-popup, #appMenu-popup{
     margin-top: 0px !important; 
-    margin-inline: -4px !important; 
-}
-#protections-popup, #editBookmarkPanel{ margin-top: 0px !important;  margin-inline: -6px !important;
-}
-#BMB_bookmarksPopup{ margin-top: -4px !important;  margin-inline: -8px !important; 
-}
-#notification-popup{margin-top: 1px !important;
-}
+    margin-inline: -4px !important; }
+
+#protections-popup, #editBookmarkPanel{ 
+    margin-top: 0px !important;  
+    margin-inline: -6px !important; }
+
+#BMB_bookmarksPopup{ 
+    margin-top: -4px !important;  
+    margin-inline: -8px !important; }
+
 panel[type="arrow"]{ 
     margin-top: 0px !important;
-    margin-left: initial !important;}
-panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-install-confirmation-notification{
-    margin-inline: 1px !important;}
-:is(#notification-popup, #notification-popup)[type="arrow"]:is([side="top"], [side="bottom"]) {
-    margin-inline: -6px !important;
+    margin-left: initial !important; }
+
+addon-install-confirmation-notification{
+    margin-inline: 1px !important; 
 }
 /*Color fondo gradiente :hover por los diferentes items de menús principales*/
 .protections-popup-category:not(#appMenu-popup toolbarbutton):hover, .protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, 
@@ -56,14 +58,14 @@ panel[type="arrow"][side="top"], panel[type="arrow"][side="bottom"], addon-insta
  background: linear-gradient(to right, var(--button-active-bgcolor) 80%, transparent) !important;
 }
 /*Linea gradiente en los menús principales*/
-.PanelUI-subView > toolbarseparator {border-image: var(--panel-separator-zap-gradient1) 1 !important;}
-.PanelUI-subView menuseparator, #PlacesToolbar menupopup[placespopup="true"] toolbarseparator, #widget-overflow-mainView > toolbarseparator,
-#widget-overflow-mainView > .panel-subview-body > toolbarseparator, .PanelUI-subView toolbarseparator, #permission-popup-mainView > toolbarseparator,
-#protections-popup-multiView toolbarseparator, #identity-popup-mainView toolbarseparator, #identity-popup-securityView > toolbarseparator, 
-#editBookmarkPanel toolbarseparator, #downloadsFooterButtons > toolbarseparator {    
+toolbarseparator{    
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     margin-left: 6px !important;
     margin-right: 6px !important;
+}
+menuseparator::before{    
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    --panel-separator-margin-horizontal:8px !important;
 }
 /*Color label deshabilitado y elementos de: "protección contra rastreo"*/
 .protections-popup-category.notFound {color: #777 !important;}

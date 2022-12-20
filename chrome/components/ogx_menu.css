@@ -92,7 +92,7 @@
         calc(var(--padding-left-tab) - 1px) 0%, 
         200% 0%, 0% 200%,
         0% calc(var(--tab-height-personal) ), 
-        calc(var(--padding-left-tab) - var(--margin-top-personal)) calc(var(--tab-height-personal))); 
+        calc(var(--padding-left-tab)) calc(var(--tab-height-personal))); 
         z-index: 2 !important;
         --arrowpanel-menuitem-padding: 6px !important;
 }

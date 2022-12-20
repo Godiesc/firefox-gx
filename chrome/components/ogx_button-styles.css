@@ -140,11 +140,17 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     background-color: var(--button-active-bgcolor) !important;
 }
 /* :hover en botones de: all-tabs and unified extensions */
-toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, .all-tabs-secondary-button{
+toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, .unified-extensions-item-menu-button.subviewbutton,
+.all-tabs-secondary-button{
     margin-right: 6px !important;
     border-radius: 3px !important;
 }
-toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton:hover,
+toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton:hover, 
+#unified-extensions-area .unified-extensions-item-menu-button.subviewbutton:hover,
 #allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover{
     background: var(--button-hover-bgcolor) !important;
+}
+/* Second label del botón de extenciones */
+#unified-extensions-area toolbaritem:hover .unified-extensions-item-message-deck label{
+    color: var(--lwt-tab-text) !important;
 }

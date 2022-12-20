@@ -114,7 +114,7 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
     padding-block-start: calc(var(--margin-top-personal) ) !important;
     fill: var(--general-color) !important;
 }
-#tabs-newtab-button image, #TabsToolbar #new-tab-button image{
+#TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
     padding-block-start: calc(var(--margin-top-personal) ) !important;
     padding: 3px !important;
     max-height: 22px !important; 

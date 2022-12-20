@@ -204,12 +204,6 @@ findbar:-moz-lwtheme {
     width: 20px !important;
     height: 19px !important;
 }
-/* ícono instalar extensión */
-#addons-notification-icon {
-    margin-bottom: -1px !important;
-    margin-top: -4px !important;
-    padding-bottom: 0px !important;    
-}
 /* ícono Portección contra rastreo */
 #tracking-protection-icon-container{
     margin-block: 3px 2px !important;
