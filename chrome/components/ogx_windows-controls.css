@@ -2,56 +2,66 @@
    https://github.com/Godiesc/opera-gx */
 
 /*WindowsOS - window control icons*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-button{
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
+    .titlebar-button{
     color: var(--general-color) !important;
     padding-left: 13px !important;
     padding-right: 13px !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){.titlebar-button:hover:not(.titlebar-close){
+    }
+    .titlebar-button:hover:not(.titlebar-close){
     background-color: var(--toolbarbutton-hover-personal) !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-min{
+    }
+    .titlebar-min{
     padding-top: 12px !important;
     padding-bottom: 0px !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){.titlebar-min image, .titlebar-max image, .titlebar-close image{
+    }
+    .titlebar-min image, .titlebar-max image, .titlebar-close image{
     border-radius: 0 !important;  
     height: 14px !important; width: 14px !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){.titlebar-restore image{
+    }
+    .titlebar-restore image{
     height: 14px !important; width: 13px !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+    }
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
     background-color: var(--toolbar-bgcolor) !important; color: var(--general-color) !important;
-    }}
+    }
 /* Keep the same windows control icons in all the themes, includint the themes with images */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-button{
+    .titlebar-button{
     background-color: transparent !important;
     -moz-context-properties: stroke !important;
     stroke: currentColor !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-button:hover{ background-color: hsla(0,0%,100%,.32) !important }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-close:hover{ background-color: hsl(355,86%,49%) !important; color: white !important;}}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-close   { list-style-image: url(chrome://browser/skin/window-controls/close.svg) !important }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-min     { list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-max     { list-style-image: url(chrome://browser/skin/window-controls/maximize.svg) !important }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-restore { list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important }}
+    }
+.titlebar-button:hover{ background-color: hsla(0,0%,100%,.32) !important }
+.titlebar-close:hover{ background-color: hsl(355,86%,49%) !important; color: white !important;}
+.titlebar-close   { list-style-image: url(chrome://browser/skin/window-controls/close.svg) !important }
+.titlebar-min     { list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important }
+.titlebar-max     { list-style-image: url(chrome://browser/skin/window-controls/maximize.svg) !important }
+.titlebar-restore { list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important }
+}
 
 /* Linux default window control icons*/
-@media (-moz-platform: linux){.titlebar-button{
+@media (-moz-platform: linux){
+    
+.titlebar-button{
   list-style-image: none !important;
   appearance: auto !important;
-  }}
-@media (-moz-platform: linux){.titlebar-min {
+  }
+.titlebar-min {
   -moz-default-appearance: -moz-window-button-minimize !important;
-  }}
-@media (-moz-platform: linux){.titlebar-max {
+  }
+.titlebar-max {
   -moz-default-appearance: -moz-window-button-maximize !important;
-  }}
-@media (-moz-platform: linux){.titlebar-restore {
+  }
+.titlebar-restore {
   -moz-default-appearance: -moz-window-button-restore !important;
-  }}
-@media (-moz-platform: linux){.titlebar-close {
+  }
+.titlebar-close {
   -moz-default-appearance: -moz-window-button-close !important;
-  }}
+  }
+}
+
+@media (-moz-gtk-csd-reversed-placement) {
+.titlebar-buttonbox-container {
+    margin-inline: 2px 8px !important;
+    }
+}
