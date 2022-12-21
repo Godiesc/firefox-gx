@@ -17,12 +17,17 @@ menuseparator {
     margin-inline: 6px !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
-@media (-moz-platform: linux) { menuseparator {
+@media (-moz-platform: linux) { 
+    menuseparator:not(#PlacesToolbar){
     appearance: none !important;
     border-top: 1px solid transparent !important;
+    border-bottom: none !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     padding-top: 2px !important;
     margin-top: 2px !important;
+    }
+    #PlacesToolbar menuseparator{
+        border: none !important;
     }
 }
 /* Márgenes menú y menú desplegable del menú */
@@ -95,17 +100,18 @@ menupopup>menuitem:is([selected="true"]):hover:not([disabled="false"]){
     list-style-image: url(chrome://global/skin/icons/arrow-right.svg )!important;    
  	height: 16px !important;
     width: 16px !important;
-    margin-right: 4px !important;
+    margin-right: 2px !important;
     -moz-context-properties: fill !important;
     fill: currentColor !important;
     opacity: 0.7 !important;
     }
+menupopup:not(#PlacesToolbar) menupopup { margin-left: -12px !important; }
 /* Necesario para quitar glitch indeseado al mover el mouse rapidamente sobre items del menú */
 menugroup>menuitem:not([selected="true"]), menugroup>menu {
     appearance: none !important;
     background-color: transparent !important; 
     }
-/* COnfiguración para los íconos del menú contextual: back, forward, reload, bookmark */
+/* Configuración para los íconos del menú contextual: back, forward, reload, bookmark */
 menugroup>menuitem{ background: transparent !important; background-color: transparent !important;}
 menugroup>menuitem:first-child{ margin-left: 4px !important;}
 menugroup>menuitem:last-child{ margin-right: 4px !important;}
