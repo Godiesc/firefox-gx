@@ -281,3 +281,7 @@ Window controls will be all wrong without it
     border-image: linear-gradient(to left, 
     transparent, color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) 30px) 20 / 30px !important;
 }
+/* Alinear ícono bookmark, vista de lectura, etc */
+.urlbar-page-action {
+  margin-block: 4px 3px !important;
+}
