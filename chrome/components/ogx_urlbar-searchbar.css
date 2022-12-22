@@ -108,6 +108,7 @@ findbar:-moz-lwtheme {
     margin-top: -1px !important; }
 #urlbar-input, #urlbar-scheme{
     padding-left: 6px !important; }
+    #urlbar[open]{ z-index: 4 !important;}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #urlbar-input, #urlbar-scheme{
     padding-bottom: 2px !important;
 }}
