@@ -207,6 +207,9 @@ Window controls will be all wrong without it
     border-top: none !important;
 }
 /* border-right de la sidebar de pestañas */
+#sidebar-splitter{
+  border-color: #50505030 !important;
+}
 @media (-moz-platform: linux) {
   #sidebar-splitter{
     width: 1px !important;
