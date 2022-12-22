@@ -7,7 +7,7 @@
 <li>Open the options of the addon "Tree Style tab", go to advanced, at the end choose "Load from file" and select the <code>treestyletabconfig.css</code> file. You will see in this code the url to the image to use, the link could be whatever image link in the internet. I used an image from <a href="https://imgur.com/a/j78IhJN"><b> >>The Galery<< </b></a> of this theme.</li></ol>
 
 ### Preview
-![FuchsiaSS](https://user-images.githubusercontent.com/22057609/194778829-1e5f3dda-485b-4b8e-bb31-3f189d482df3.png)
+![imagen](https://user-images.githubusercontent.com/22057609/209134996-6556c81f-934e-4589-ac85-aeca286da0a7.png)
 
 ![purpleSS](https://user-images.githubusercontent.com/22057609/194778844-2e13dd30-edd3-4be4-9ad4-6f365c027653.png)
 
