@@ -144,7 +144,13 @@ Window controls will be all wrong without it
   --tab-height-personal: var(--toolbar-height-personal) !important;
   --uc-toolbar-height: var(--tab-height-personal) !important;
 }
-
+/* Separador <window controls> y demás botones */
+#unified-extensions-button {
+    border-inline-end: 1px solid var(--button-bgcolor) !important;
+    border-radius: 0px !important;
+    margin-inline-end: 2px !important;
+    margin-block: 4px !important;
+}
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
   --uc-window-control-width: 119px; /* Space reserved for window controls (Win10) */
   /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
@@ -161,9 +167,16 @@ Window controls will be all wrong without it
     --uc-window-control-width: 0px !important;
     --uc-window-control-width-left: 84px !important;
   }
+#unified-extensions-button {
+    border-inline-end: none !important;
+  }
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
     left: var(--uc-vertical-toolbar-width,0) !important;
+    }
+#back-button{
+    border-inline-start: 1px solid var(--button-bgcolor) !important;
+    margin-block: 4px !important;
     }
   }
 }
@@ -267,11 +280,4 @@ Window controls will be all wrong without it
     border-left: 2px solid transparent;
     border-image: linear-gradient(to left, 
     transparent, color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) 30px) 20 / 30px !important;
-}
-#unified-extensions-button {
-    border-inline-end: 1px solid var(--button-bgcolor) !important;
-    border-radius: 0px !important;
-    z-index: 10 !important;
-    margin-inline-end: 2px !important;
-    margin-block: 4px !important;
 }
