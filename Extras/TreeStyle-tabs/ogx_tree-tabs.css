@@ -163,13 +163,13 @@ Window controls will be all wrong without it
   }
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
-  left: var(--uc-vertical-toolbar-width,0) !important;
+    left: var(--uc-vertical-toolbar-width,0) !important;
     }
   }
 }
 /* Sobreescribir variable de tamaño */
 :root:not([inFullscreen]) #nav-bar{
-  margin-top: calc(0px - var(--uc-toolbar-height,0px)) !important;
+    margin-top: calc(0px - var(--uc-toolbar-height,0px)) !important;
 }
 /* Mis Variables Personales */
 :root{
@@ -196,22 +196,22 @@ Window controls will be all wrong without it
 }
 /* Background color de botones <Window Controls> */
 :root[tabsintitlebar] .titlebar-buttonbox {
-  background: var(--toolbar-bgcolor) !important;
+    background: var(--toolbar-bgcolor) !important;
 }
 /* Ocultar encabezado de la sidebar de pestañas */
 #sidebar-header {
-  display: none;
+    display: none;
 }
 /* Quitar Linea gradiente sobre la nav-bar */
 #nav-bar{
-  border-top: none !important;
+    border-top: none !important;
 }
 /* border-right de la sidebar de pestañas */
 @media (-moz-platform: linux) {
   #sidebar-splitter{
-  width: 1px !important;
-  border-right: none !important;
-  background-color: var(--lwt-frame) !important;  
+    width: 1px !important;
+    border-right: none !important;
+    background-color: var(--lwt-frame) !important;  
 }}
 /* Mover botón "atrás" más a la derecha */
 :root:not([chromehidden~="toolbar"]) #back-button{
@@ -251,14 +251,24 @@ Window controls will be all wrong without it
 /* Tabaño vertical de los <window controls> */
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
-  height: var(--uc-toolbar-height) !important;
+    height: var(--uc-toolbar-height) !important;
 }
 /* z-index Devuelto a default por no permitir dar clic a ningun elemento de la interfaz en pantalla completa */
 :root[sizemode="fullscreen"] 
 #TabsToolbar > :is(#window-controls,.titlebar-buttonbox-container){
-  z-index: initial !important; 
+    z-index: initial !important; 
 }
 /* Margen Izquierda de la barra de menú al precionr <alt> */
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"] #main-menubar{
-  border-left: 2px solid transparent;
+    background-color: color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) !important;
+    border-left: 2px solid transparent;
+    border-image: linear-gradient(to left, 
+    transparent, color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) 30px) 20 / 30px !important;
+}
+#unified-extensions-button {
+    border-inline-end: 1px solid var(--button-bgcolor) !important;
+    border-radius: 0px !important;
+    z-index: 10 !important;
+    margin-inline-end: 2px !important;
+    margin-block: 4px !important;
 }
