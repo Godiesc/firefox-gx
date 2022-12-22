@@ -174,9 +174,10 @@ Window controls will be all wrong without it
 :root[sizemode="fullscreen"] #window-controls{
     left: var(--uc-vertical-toolbar-width,0) !important;
     }
-#back-button{
+#back-button .toolbarbutton-icon {
     border-inline-start: 1px solid var(--button-bgcolor) !important;
-    margin-block: 4px !important;
+    margin-block: 4px solid transparent !important;
+    border-radius: 0px !important;
     }
   }
 }
@@ -283,5 +284,5 @@ Window controls will be all wrong without it
 }
 /* Alinear ícono bookmark, vista de lectura, etc */
 .urlbar-page-action {
-  margin-block: 4px 3px !important;
+  margin-block: 4px 2px !important;
 }
