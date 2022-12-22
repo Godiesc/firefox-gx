@@ -9,5 +9,4 @@
 ### Preview
 ![imagen](https://user-images.githubusercontent.com/22057609/209134996-6556c81f-934e-4589-ac85-aeca286da0a7.png)
 
-![purpleSS](https://user-images.githubusercontent.com/22057609/194778844-2e13dd30-edd3-4be4-9ad4-6f365c027653.png)
-
+![imagen](https://user-images.githubusercontent.com/22057609/209135663-428875eb-e0ab-40fc-8c4d-cbdd5fc567d7.png)
