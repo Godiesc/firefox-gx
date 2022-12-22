@@ -67,6 +67,9 @@ menuseparator::before{
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     --panel-separator-margin-horizontal:8px !important;
 }
+#PlacesToolbarItems toolbarseparator{
+    border-image: none !important;
+}
 /*Color label deshabilitado y elementos de: "protección contra rastreo"*/
 .protections-popup-category.notFound {color: #777 !important;}
 .panel-info-button:not([disabled]):is([checked],:hover, :active) {background-color: var(--button-hover-bgcolor) !important;}
