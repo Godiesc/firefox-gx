@@ -33,14 +33,20 @@ panelmultiview .toolbaritem-combined-buttons > label {
     margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
 }
 /* Ícono de Actualización disponible */
-.panel-banner-item{
-    background: linear-gradient(to right, transparent 0%, var(--button-hover-bgcolor) 20%, var(--button-hover-bgcolor) 80%, transparent 100%) !important;
+#appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]){
+    background: var(--button-bgcolor) !important;
+}
+#appMenu-popup .panel-banner-item:not([disabled]):hover, #appMenu-popup .addon-banner-item:not([disabled]):hover {
+    background: var(--button-active-bgcolor) !important;
 }
 .panel-banner-item::before {
     background: url("../images/foxFill.svg") no-repeat center/16px;
     content: ""; display: block; width: 16px; height: 16px;
     margin-inline-end: 7px; -moz-context-properties: fill;
     fill: #3ad3a2 !important;
+}
+#appMenu-popup .panel-banner-item label {
+    padding-inline-start: calc(var(--margin-left-icons-personal) - 12px) !important;;
 }
 /*ícono account Margenes */
 #appMenu-fxa-label2{ margin-inline-start: -8px !important; }
@@ -59,9 +65,10 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
     display: none !important;
 }
-#appMenu-fxa-status2:not([fxastatus="signedin"]) {
-    margin-right: -2px !important;
-}
+/* Ícono sign-in, cuenta no iniciada  */
+#appMenu-fxa-status2:not([fxastatus="signedin"]) { 
+    margin-right: -1px !important;
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;}
 #appMenu-fxa-status2:not([fxastatus="signedin"]):hover  toolbarbutton {
     background-color: var(--button-active-bgcolor) !important;
 }
