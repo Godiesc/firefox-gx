@@ -78,6 +78,7 @@
     text-shadow: none !important; 
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;z-index: 2 !important;
+    animation: none !important;
 }
 /* Padding top para hacer espacio para la fila del Label menú */
 :root[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
@@ -116,7 +117,30 @@
     color: var(--lwt-tab-text) !important; z-index: 2 !important;
 }
 /* baner de -actualización disponible- */
-.panel-banner-item {
+#appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]){
+    background: var(--button-bgcolor) !important;
+}
+#appMenu-popup .panel-banner-item:not([disabled]):hover, #appMenu-popup .addon-banner-item:not([disabled]):hover {
+    background: var(--button-active-bgcolor) !important;
+}
+        /* circulo de notificación de actualización */
+#PanelUI-menu-button[badge-status="update-available"] > .toolbarbutton-badge-stack > .toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-downloading"] > .toolbarbutton-badge-stack > .toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-manual"] > .toolbarbutton-badge-stack > .toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-other-instance"] > .toolbarbutton-badge-stack > .toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-restart"] > .toolbarbutton-badge-stack > .toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-unsupported"] > .toolbarbutton-badge-stack > .toolbarbutton-badge {
+  box-shadow: none;
+  margin: -7px -3px  0px !important;
+  margin-inline-end: -7px !important;
+}
+.panel-banner-item::before {
+    background: url("../images/foxFill.svg") no-repeat center/16px;
+    content: ""; display: block; width: 16px; height: 16px;
+    margin-inline-end: 7px; -moz-context-properties: fill;
+    fill: #3ad3a2 !important;
+}
+#appMenu-popup .panel-banner-item {
     margin: 0 0px 2px !important;
     padding-inline-start: 8px !important;
     border-radius: 0px !important;
@@ -170,7 +194,9 @@ panelmultiview .toolbaritem-combined-buttons > label {
     display: none !important;
 }
 /* Ícono sign-in, cuenta no iniciada  */
-#appMenu-fxa-status2:not([fxastatus="signedin"]) { margin-right: -2px !important; }
+#appMenu-fxa-status2:not([fxastatus="signedin"]) { 
+    margin-right: -1px !important;
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 17px) !important;}
 #appMenu-fxa-status2:not([fxastatus="signedin"]):hover  toolbarbutton {
     background-color: var(--button-active-bgcolor) !important;
 }
