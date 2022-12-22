@@ -140,6 +140,11 @@ Window controls will be all wrong without it
 /* ##################################################### My Code ######################################################
 ###################################### Adicional <sobre-escribir> Codigo de Arriba ####################################*/
 
+:root{
+  --tab-height-personal: var(--toolbar-height-personal) !important;
+  --uc-toolbar-height: var(--tab-height-personal) !important;
+}
+
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
   --uc-window-control-width: 119px; /* Space reserved for window controls (Win10) */
   /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
@@ -163,17 +168,22 @@ Window controls will be all wrong without it
   }
 }
 /* Sobreescribir variable de tamaño */
-:root[tabsintitlebar]{
-  --uc-toolbar-height: var(--tab-height-personal) !important;
-}
 :root:not([inFullscreen]) #nav-bar{
   margin-top: calc(0px - var(--uc-toolbar-height,0px)) !important;
 }
 /* Mis Variables Personales */
 :root{
-  --tab-height-personal: var(--toolbar-height-personal) !important;
   --windowed-top-padding: 0px !important;
 }
+@media (prefers-color-scheme: light){
+:root:not([lwtheme-brighttext="true"]),
+:root:-moz-lwtheme{
+    --toolbar-bgcolor: #f9f9f99f !important;
+  }}
+@media (prefers-color-scheme: dark){
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]){
+  --toolbar-bgcolor: #1010199f !important;
+  }}
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
   --padding-top-left-sidebar: 78px !important;
   --padding-bottom-left-sidebar: 90px !important;
@@ -236,12 +246,12 @@ Window controls will be all wrong without it
   --uc-window-drag-space-pre: 0px !important; /* Remove pre space */
 }
 :root:is([tabsintitlebar][sizemode="normal"]) {
-  --uc-window-drag-space-post: 30px !important; /* Add post space */
+  --uc-window-drag-space-post: 1px !important; /* Add post space */
 }
 /* Tabaño vertical de los <window controls> */
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
-  height: calc(var(--tab-height-personal) - 1px) !important;
+  height: var(--uc-toolbar-height) !important;
 }
 /* z-index Devuelto a default por no permitir dar clic a ningun elemento de la interfaz en pantalla completa */
 :root[sizemode="fullscreen"] 
