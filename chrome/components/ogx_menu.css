@@ -12,9 +12,9 @@
     position: fixed;  display: flex;  top: var(--windowed-top-padding, 0px); z-index: 2 !important;
 }
 /* Tamaño menu Open ventana maximizada y no maximizada*/
-:root[sizemode="maximized"] #appMenu-popup panelview { width: 28.5em !important; }
+:root[sizemode="maximized"]:not([chromehidden~="toolbar"]) #appMenu-popup panelview { width: 28.5em !important; }
 
-#appMenu-popup panelview { width: 25.5em !important; }
+#appMenu-popup panelview{ width: 25.5em !important; }
 
 /* Ocultar botón menú en modo "pantalla completa" */
 :root:is([chromehidden~="toolbar"],[sizemode="fullscreen"]) > body > #browser,
@@ -81,12 +81,12 @@
     animation: none !important;
 }
 /* Padding top para hacer espacio para la fila del Label menú */
-:root[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
     padding-top: calc(-5px + var(--tab-height-personal)) !important; 
     z-index: 2 !important;
 }
 /* Margin top para subir el menú [open] */
-:root[sizemode="maximized"] #appMenu-popup{
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup{
     appearance: none !important;
     margin-top: calc(-1px - var(--tab-height-personal) ) !important;
     clip-path: polygon(
@@ -97,7 +97,7 @@
         z-index: 2 !important;
         --arrowpanel-menuitem-padding: 6px !important;
 }
-:root:is([sizemode="maximized"]):not([tabsintitlebar]) #appMenu-popup{
+:root:is([sizemode="maximized"]):not([tabsintitlebar],[chromehidden~="toolbar"]) #appMenu-popup{
     margin-top: calc(-1px - var(--tab-height-personal) + var(--tab-block-margin) ) !important;
 }
 /* Separadores */
@@ -177,7 +177,7 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-label2::after{ margin-inline-end: -4px !important; }
 
 /* Linea gradiente bajo label Menú solo en ventana maximizada*/
-:root[sizemode="maximized"] #appMenu-fxa-label2{
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-label2{
     margin-left: 0px !important;
     border-top: 1px solid var(--button-active-bgcolor) !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
