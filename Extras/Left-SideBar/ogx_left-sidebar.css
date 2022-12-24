@@ -329,11 +329,11 @@ margin-right: -1px !important;
     --tab-height-personal: 40px !important;
     }
 /* botón Menú [open] no muy grande */
-:root[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
     padding-top: calc(-10px + var(--tab-height-personal)) !important; 
     z-index: 2 !important;
 }
-:root[sizemode="maximized"] #appMenu-popup{
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup{
     clip-path: polygon(
         calc(var(--padding-left-tab) - 1px) 0%, 
         200% 0%, 0% 900%,
