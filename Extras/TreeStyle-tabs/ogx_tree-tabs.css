@@ -141,16 +141,25 @@ Window controls will be all wrong without it
 ###################################### Adicional <sobre-escribir> Codigo de Arriba ####################################*/
 
 :root{
-  --tab-height-personal: var(--toolbar-height-personal) !important;
-  --uc-toolbar-height: var(--tab-height-personal) !important;
+    --tab-height-personal: var(--toolbar-height-personal) !important;
+    --uc-toolbar-height: var(--tab-height-personal) !important;
 }
 /* Separador <window controls> y demás botones */
-#unified-extensions-button {
-    border-inline-end: 1px solid var(--button-bgcolor) !important;
-    border-radius: 0px !important;
-    margin-inline-end: 2px !important;
-    margin-block: 4px !important;
+#unified-extensions-button::after {
+    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
+    content: ""; display: block !important;
+    background-size: 6px 16px !important;
+    height: 16px;
+    fill: var(--button-hover-bgcolor) !important;
+    -moz-context-properties: fill !important;
+    padding-inline: 8px 4px !important;
+    margin-left: 2px !important;
+    opacity: 0.8;
 }
+:root:not([chromehidden~="toolbar"])[sizemode="normal"] #unified-extensions-button {
+    margin-right: 40px !important;
+}
+
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
   --uc-window-control-width: 119px; /* Space reserved for window controls (Win10) */
   /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
@@ -167,8 +176,8 @@ Window controls will be all wrong without it
     --uc-window-control-width: 0px !important;
     --uc-window-control-width-left: 84px !important;
   }
-#unified-extensions-button {
-    border-inline-end: none !important;
+#unified-extensions-button::after {
+    background: none !important;
   }
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
@@ -234,7 +243,12 @@ Window controls will be all wrong without it
 :root:not([chromehidden~="toolbar"]) #back-button{
     display: block !important;
     padding-inline-start: 0px !important;
-    margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px)) !important;
+    margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 6px) !important;
+}
+:root:not([chromehidden~="toolbar"])[sizemode="normal"] #back-button{
+    display: block !important;
+    padding-inline-start: 0px !important;
+    margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 40px) !important;
 }
 /* Borde Bottom toolbar */
 #navigator-toolbox { 
@@ -256,7 +270,6 @@ Window controls will be all wrong without it
     background-color: var(--lwt-frame) !important; 
     border-right: 1px solid var(--general-color) !important;  
   }
-
 /*###################################################*/
 
 :root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
