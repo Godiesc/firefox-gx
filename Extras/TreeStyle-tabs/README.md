@@ -35,7 +35,7 @@ This style is for work with this: [Left-sidebar Config](https://github.com/Godie
 
 
 <p>This style could work fine with: <a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar">Left-sidebar Config</a> if you want.</p>
-<ul><li>Add the file <code>ogx_left-sidebar.css</code> into <code>chrome/components</code> folder and delete the file<code>ogx_autohide_bookmark-bar.css</code> if exist.</li></ul>
+<ul><li>Add the file <code>ogx_left-sidebar.css</code> into <code>chrome/components</code> folder and delete the file <code>ogx_autohide_bookmark-bar.css</code> if exist.</li></ul>
 
 ### Preview
 ![imagen](https://user-images.githubusercontent.com/22057609/209563130-1b901142-18bc-4fe2-a5d2-651c2165fb87.png)
