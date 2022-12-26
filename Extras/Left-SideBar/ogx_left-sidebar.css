@@ -407,3 +407,18 @@ margin-right: -1px !important;
     
 */
 }
+
+/* Compatibilidad para <sidebar reborn> */
+#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
+    display: block;
+    position: var(--positionX2);
+    min-width: 48px;
+    max-width: 48px;
+    overflow: hidden;
+    border-right: 1px solid var(--border-contrast-color);
+    box-shadow: none !important;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    border-image: none !important;
+}
