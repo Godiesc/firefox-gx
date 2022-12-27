@@ -301,10 +301,18 @@ Window controls will be all wrong without it
     padding-bottom: 0px !important;
     }}
 
-/* Espacio de arraste antes y despues de las pestañas en ventanas no maximizadas */
-:root[tabsintitlebar][sizemode="normal"] #tabbrowser-tabs{padding-inline: 30px !important;
-}
+/* ############# My code: añadir más espacio para usarlo como espacio de arrastre en ventana no maximizada ########### */
 
+/* Espacio de arraste <antes> de las pestañas en ventanas no maximizadas */
+:root[tabsintitlebar][sizemode="normal"] #tabbrowser-tabs{padding-inline-start: 30px !important;
+}
+/* Espacio de arraste <despues> de las pestañas en ventanas no maximizadas */
+:root[sizemode="normal"] #navigator-toolbox{
+  --uc-buttons-width: calc(88px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
+}
+:root:is([tabsintitlebar][sizemode="normal"]) {
+    --uc-window-control-width: 158px;
+}
 /* Sobre-escribir: Modify these values to match your preferences */
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
   --uc-window-control-width: 118px; /* Space reserved for window controls (Win10) */
@@ -342,7 +350,7 @@ Window controls will be all wrong without it
 /* Nuevas variables para nuevo tamaño del botón <menú>  y tamaño de la url */
 :root:not([inDOMFullscreen]){
     --uc-vertical-toolbar-width: 41px;
-    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
     --min-width-url: 26vw !important;
   }
@@ -372,21 +380,21 @@ Window controls will be all wrong without it
 /* Hacer el botón más ancho en el menú [open] */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
-  --padding-left-tab: 78px !important;
+  --padding-left-tab: 80px !important;
     max-width: var(--padding-left-tab) !important;
     min-width: var(--padding-left-tab) !important;
     }}
 @media (-moz-platform: linux){
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
-  --padding-left-tab: 80px !important;
+  --padding-left-tab: 82px !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
-      --padding-left-tab: 78px !important;
+      --padding-left-tab: 80px !important;
     }}
 @media (-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
-      --padding-left-tab: 80px !important;
+      --padding-left-tab: 82px !important;
     }}
 /* Logo más grande */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
@@ -401,7 +409,7 @@ Window controls will be all wrong without it
         } }
 /* Alinear items menú open */
 :root{
-  --margin-left-icons-personal: 11px !important;
+  --margin-left-icons-personal: 12px !important;
 }
 /* ------------------------- url --------------------------*/
 /* Urlbar más pequeña */
