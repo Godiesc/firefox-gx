@@ -17,7 +17,7 @@ This style is for work with this: [Left-sidebar Config](https://github.com/Godie
 
 ### Steps to apply this config
 <ol><li>Install the addon (link above).</li>
-<li>Add the files <code>ogx_tree-tabs.css</code> and <code>ogx_autohide_bookmark-bar.css</code> into <code>chrome/components</code> folder.</li>
+<li>Add the files <code>ogx_tree-tabs.css</code>, <code>ogx_autohide_bookmark-bar.css</code> and <code>ogx_tab_center_reborn.css</code>into <code>chrome/components</code> folder.</li>
 
 <ul>
 <li>Go to about:addons in your URL bar, select Tab Center Reborn, go to Preferences and set:</li>
