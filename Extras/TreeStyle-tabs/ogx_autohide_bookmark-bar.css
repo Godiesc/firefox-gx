@@ -82,7 +82,7 @@ See the above repository for updates as well as full license text. */
 #PersonalToolbar:not([customizing]){
   position: relative;
   margin-bottom: calc(-1px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
-  transform: rotateX(0deg);  /* (90deg) to show on hover -- (0deg) to show with ctl+shif+B */
+  transform: rotateX(90deg);  /* (90deg) to show on hover -- (0deg) to show with ctl+shif+B */
   transform-origin: top;
   transition: transform 135ms linear var(--uc-autohide-toolbar-delay) !important;
   z-index: 1;
@@ -135,7 +135,7 @@ See the above repository for updates as well as full license text. */
     background-position: right top !important;
     background-repeat:  repeat !important;
     background-size:  auto !important;
-    background-position-y: calc(0px - 40px ) !important;
+    background-position-y: calc(0px - var(--toolbar-height-personal)) !important;
 }
 
 /* Uncomment to enable compatibility for multi-row_bookmarks.css */
