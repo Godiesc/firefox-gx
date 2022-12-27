@@ -1,6 +1,213 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
+/* ################################ Window controls from MrOtherGuy ############################################*/
+
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* Creates placeholders for window controls */
+/* This is a supporting file used by other stylesheets */
+
+/* This stylesheet is pretty much unnecessary if window titlebar is enabled */
+
+/* This file should preferably be imported before other stylesheets */
+
+/* Defaults for window controls on RIGHT side of the window */
+/* Modify these values to match your preferences */
+:root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+  --uc-window-control-width: 138px; /* Space reserved for window controls (Win10) */
+  /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
+  --uc-window-drag-space-pre: 30px; /* left side*/
+  --uc-window-drag-space-post: 30px; /* right side*/
+}
+
+:root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
+  --uc-window-drag-space-pre: 0px; /* Remove pre space */
+}
+
+@media  (-moz-platform: windows-win7),
+        (-moz-platform: windows-win8),
+        (-moz-os-version: windows-win7),
+        (-moz-os-version: windows-win8){
+  :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+    --uc-window-control-width: 105px;
+  }
+}
+
+@media (-moz-gtk-csd-available) {
+  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
+    --uc-window-control-width: 84px;
+  }
+}
+@media (-moz-platform: macos){
+  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
+    --uc-window-control-width: 72px;
+  }
+}
+
+.titlebar-buttonbox, #window-controls{ color: var(--toolbar-color) }
+:root[sizemode="fullscreen"] .titlebar-buttonbox-container{ display: none }
+:root[sizemode="fullscreen"] #navigator-toolbox { position: relative; }
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+:root[sizemode="fullscreen"] #window-controls{
+  position: absolute;
+  display: flex;
+  top: 0;
+  right:0;
+  height: 40px;
+}
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+:root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: 32px }
+
+#nav-bar{
+  border-inline: var(--uc-window-drag-space-pre,0px) solid var(--toolbar-bgcolor);
+  border-inline-style: solid !important;
+  border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));
+}
+
+/* Rules for window controls on left layout */
+@media (-moz-gtk-csd-reversed-placement),
+       (-moz-platform: macos){
+  :root[tabsintitlebar="true"] #nav-bar{
+    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
+  }
+  :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+  :root[sizemode="fullscreen"] #window-controls{ right: unset }
+}
+
+/* This pref can be used to force window controls on left even if that is not normal behavior on your OS */
+@supports -moz-bool-pref("userchrome.force-window-controls-on-left.enabled"){
+  :root[tabsintitlebar="true"] #nav-bar{
+    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
+  }
+  :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
+  :root[sizemode="fullscreen"] #window-controls{ right: unset; }
+  .titlebar-buttonbox-container{ -moz-box-ordinal-group: 0 !important; }
+  .titlebar-buttonbox{ -moz-box-direction: reverse }
+}
+
+/* ################################################ One-Line from MrOtherGuy ##########################################*/
+
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/navbar_tabs_oneliner_menu_buttons_on_right.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* Variation of oneliner where menubutton and overflow button are next to window controls (if window controls are on right side) */
+
+/* IMPORTANT */
+/*
+Get window_control_placeholder_support.css
+Window controls will be all wrong without it
+*/
+
+:root[uidensity="compact"]{
+  --tab-block-margin: 2px !important;
+}
+
+/* Modify these to change relative widths or default height */
+#navigator-toolbox{
+  --uc-navigationbar-width: 50vw;
+  --uc-toolbar-height: 40px;
+}
+
+#scrollbutton-up,
+#scrollbutton-down{ border-block-width: 2px !important; }
+
+/* reserved space for overflow + menu buttons */
+#navigator-toolbox{
+  --uc-buttons-width: calc(56px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
+}
+#nav-bar:not([overflowing]) > #nav-bar-customization-target{ 
+  --uc-buttons-width: calc(28px + 2 * var(--toolbarbutton-outer-padding) + 6px)
+}
+/* Override for other densities */
+:root[uidensity="compact"] #navigator-toolbox{
+  --uc-toolbar-height: 34px;
+  --uc-menubutton-padding: 0px;
+}
+:root[uidensity="touch"] #navigator-toolbox{
+  --uc-toolbar-height: 44px;
+}
+
+:root[uidensity="compact"] #urlbar-container{
+  --urlbar-container-height: var(--uc-toolbar-height) !important;
+  padding-block: 0 !important;
+}
+:root[uidensity="compact"] #urlbar{
+  --urlbar-toolbar-height: var(--uc-toolbar-height) !important;
+}
+
+/* prevent urlbar overflow on narrow windows */
+/* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
+@media screen and (max-width: 1000px){
+  #urlbar-container{ min-width:unset !important }
+}
+
+#TabsToolbar{
+  margin-left: var(--uc-navigationbar-width);
+  --tabs-navbar-shadow-size: 0px;
+}
+
+#tabbrowser-tabs{
+  --tab-min-height: calc(var(--uc-toolbar-height) - 2 * var(--tab-block-margin,0px)) !important;
+}
+/* Need to set background color for selected tab so it can be distinguished from background 
+#TabsToolbar .tab-background[selected]{
+  background: var(--lwt-selected-tab-background-color,rgba(0,0,0,0.2)) !important;
+}
+
+#TabsToolbar[brighttext] .tab-background[selected]{
+  background: var(--lwt-selected-tab-background-color,rgba(255,255,255,0.2)) !important;
+}
+*/
+/* This isn't useful when tabs start in the middle of the window */
+.titlebar-spacer[type="pre-tabs"]{ width:8px !important}
+#nav-bar{ margin-top: calc(0px - var(--uc-toolbar-height)); }
+
+#nav-bar-customization-target{ padding-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-post)) }
+
+@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
+  .titlebar-buttonbox-container{ position: fixed; display: blocK; left: 0px; z-index: 3; }
+  #nav-bar-customization-target{ padding-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-buttons-width) - var(--uc-window-drag-space-pre)) }
+}
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container,
+#TabsToolbar > .toolbar-items{
+  position: relative !important;
+  z-index: 2
+}
+
+:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-spacer[type="post-tabs"]{
+  display: -moz-box !important;
+}
+
+.titlebar-spacer[type="post-tabs"]{
+  width: calc(var(--uc-buttons-width) + var(--uc-window-drag-space-post)) !important;
+}
+:root[privatebrowsingmode="temporary"] .titlebar-spacer[type="post-tabs"]{
+  width: var(--uc-buttons-width) !important
+}
+
+#PanelUI-button,#nav-bar-overflow-button{
+  margin: 0px !important;
+  border: 0px !important;
+  position: relative;
+  z-index: 3;
+}
+/* 1px margin on touch density causes tabs to be too high */
+.tab-close-button{ margin-top: 0 !important }
+
+/* Hide dropdown placeholder */
+#urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
+
+
+/* #################################################### My Code ################################################## 
+################################## Además de sobre-escribir el código de arriba #####################################*/
+
+/* !!! NOTA IMPORTANTE ¡¡¡  Se comentó las lineas 156-164 por incompatibilidad con temas con imágenes */
+
 @media (prefers-color-scheme: dark){
 :root:is([brighttext]):-moz-lwtheme,
 :root[lwt-toolbar-field-focus-brighttext],
@@ -61,11 +268,11 @@
   --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
   --toolbarbutton-active-background: white !important;                                       /*"button_background_active": "#26242e"*/
   }}
-/* Sobre-escrribir la regla usada en ogx_tabs-bar, lineas 175-183 */
+/* Sobre-escribir la regla usada en ogx_tabs-bar, lineas 175-183 */
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
-   background-image: linear-gradient(var(--t--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
+   background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
 }
 /* Colores windows controls */
@@ -93,10 +300,12 @@
     padding-top: initial !important;
     padding-bottom: 0px !important;
     }}
-/* Espacio de arrasste antes y despues de las pestañas en ventanas no maximizadas */
+
+/* Espacio de arraste antes y despues de las pestañas en ventanas no maximizadas */
 :root[tabsintitlebar][sizemode="normal"] #tabbrowser-tabs{padding-inline: 30px !important;
 }
-/* Modify these values to match your preferences */
+
+/* Sobre-escribir: Modify these values to match your preferences */
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
   --uc-window-control-width: 118px; /* Space reserved for window controls (Win10) */
   /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
@@ -104,119 +313,38 @@
   --uc-window-drag-space-post: 0px; /* right side*/
 }
 
-:root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
-  --uc-window-drag-space-pre: 0px; /* Remove pre space */
-}
+/* Sobre-escribir ancho <window controls> linux */
 @media (-moz-gtk-csd-available) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 78px;
   }
 }
-/* macOS settings are further below */
-.titlebar-buttonbox, #window-controls{ color: var(--toolbar-color) }
-:root[sizemode="fullscreen"] .titlebar-buttonbox-container{ display: none }
-:root[sizemode="fullscreen"] #navigator-toolbox { position: relative; }
-
-:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-:root[sizemode="fullscreen"] #window-controls{
-  position: absolute;
-  display: flex;
-  top: 0;
-  right:0;
-  height: 40px;
-}
-
+/* Sobreescribir height de <window controls> */
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: var(--tab-height-personal) !important; }
 
-#nav-bar{
-  border-inline: var(--uc-window-drag-space-pre,0px) solid var(--toolbar-bgcolor);
-  border-inline-style: solid !important;
-  border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));
+/* Sobre-escribir variable a su valor inherit */
+#TabsToolbar{
+  --tabs-navbar-shadow-size: inherit !important;
 }
-
-/* Use this pref to check Mac OS where window controls are on left */
-/* This pref defaults to true on Mac and doesn't actually do anything on other platforms. So if your system has window controls on LEFT side you can set the pref to true */
-@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
-  :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-    --uc-window-control-width: 72px;
-  }
-  :root[tabsintitlebar="true"]:not([inFullscreen]) #nav-bar{
-    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
-  }
-  :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-  :root[sizemode="fullscreen"] #window-controls{ right: unset }
+/* Sobre-escribir: reserved space for overflow + menu buttons */
+#navigator-toolbox{
+  --uc-buttons-width: calc(48px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
 }
+/* Importante!! añadimos !important a la regla para subir la nav-bar a la tabs-bar */
+#nav-bar{ margin-top: calc(0px - var(--tab-height-personal)) !important;}
 
 /* Modify these to change relative widths or default height */
 #navigator-toolbox{
   --uc-navigationbar-width: var(--navbarWidth);
-  --uc-toolbar-height: 37px;
+  --uc-toolbar-height: var(--tab-height-personal) !important;
 }
-#scrollbutton-up,
-#scrollbutton-down{ border-block-width: 0px !important; }
-
-/* reserved space for overflow + menu buttons */
-#navigator-toolbox{
-  --uc-buttons-width: calc(16px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px));
-}
-#nav-bar:not([overflowing]) > #nav-bar-customization-target{ 
-  --uc-buttons-width: calc(56px + 2 * var(--toolbarbutton-outer-padding) + 6px);
-}
-/* prevent urlbar overflow on narrow windows */
-/* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
-@media screen and (max-width: 50000px){
-  #urlbar-container{ min-width:unset !important }
-}
-#TabsToolbar{
-  margin-left: var(--uc-navigationbar-width);
-}
-
-/* This isn't useful when tabs start in the middle of the window */
-.titlebar-spacer[type="pre-tabs"]{ width:0px !important}
-#nav-bar{ margin-top: calc(0px - var(--uc-toolbar-height)); }
-
-#nav-bar-customization-target{ margin-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-post)); }
-
-@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
-  .titlebar-buttonbox-container{ position: fixed; display: blocK; left: 0px; z-index: 3; }
-  #nav-bar-customization-target{ margin-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-buttons-width) - var(--uc-window-drag-space-pre)) }
-}
-
-:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container,
-#TabsToolbar > .toolbar-items {
-  position: relative !important;
-  z-index: 3 !important;
-}
-:root[sizemode="fullscreen"] #TabsToolbar > .titlebar-spacer[type="post-tabs"]{
-  display: -moz-box !important;
-}
-.titlebar-spacer[type="post-tabs"]{
-  width: calc(var(--uc-buttons-width) + var(--uc-window-drag-space-post)) !important;
-}
-:root[privatebrowsingmode="temporary"] .titlebar-spacer[type="post-tabs"]{
-  width: var(--uc-buttons-width) !important
-}
-#PanelUI-button,#nav-bar-overflow-button{
-  margin: 0px !important;
-  border: 0px !important;
-  position: relative;
-  z-index: 3;
-}
-/* Hide dropdown placeholder */
-#urlbar-container:not(:hover) .urlbar-history-dropmarker{ margin-inline-start: -28px; }
-
-
-
-
-
-/* ######----------------------------- My config ----------------------------###### */
-
+/* Nuevas variables para nuevo tamaño del botón <menú>  y tamaño de la url */
 :root:not([inDOMFullscreen]){
     --uc-vertical-toolbar-width: 41px;
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
-    --min-width-url: 22vw !important;
+    --min-width-url: 26vw !important;
   }
 /* Mover botón "atrás" más a la derecha */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10), (-moz-platform: linux) { 
@@ -275,11 +403,37 @@
 :root{
   --margin-left-icons-personal: 11px !important;
 }
+/* ------------------------- url --------------------------*/
+/* Urlbar más pequeña */
+#urlbar:not([open]){
+    min-height: 26px !important;
+    max-height: 26px !important;
+    -moz-box-pack: center !important;
+    -moz-box-orient: vertical !important;
+}
+/* box, caja de íconos urlbar*/
+#identity-icon-box, #tracking-protection-icon-container, #identity-permission-box, #notification-popup-box {   
+    margin-block: 2px !important;
+}
+.urlbar-page-action {
+    width: 18px !important;
+    height: 18px !important;
+    margin-inline: 2px 2px !important;
+}
+.urlbar-page-action .urlbar-icon{
+  margin-left: -2px !important;
+  margin-top: -1px !important;
+}
 /* urlbar focus - open */
-#urlbar-container:not([open=true],:focus, :focus-within ){ min-width: var(--min-width-url) !important; }
-#urlbar:focus-within  { min-width: calc(var(--min-width-url) + 30vw) !important; clip-path: polygon(0px 0%, calc(var(--min-width-url) + 4.6vw) 0%, 0% 999999vw, 0% 0px) !important;}
-#urlbar[open=true]  { min-width: calc(var(--min-width-url) + 30vw) !important; clip-path: none !important;}
-
+#urlbar-container:not([open=true],:focus, :focus-within ){
+    min-width: var(--min-width-url) !important; }
+#urlbar:focus-within  { 
+    min-width: calc(var(--min-width-url) + 30vw) !important; 
+    clip-path: polygon(0px 0%, calc(var(--min-width-url) + 0.4vw) 0%, 0% 999999vw, 0% 0px) !important;}
+#urlbar[open=true]  { 
+    min-width: calc(var(--min-width-url) + 30vw) !important; 
+    clip-path: none !important;
+}
 /* Borde Gradiente */
 toolbar:is(.browser-toolbar){    
     border-image: var(--panel-separator-zap-gradient2) 1 !important; 
@@ -287,6 +441,8 @@ toolbar:is(.browser-toolbar){
     padding-bottom: 0px !important;
     border-bottom: 1px solid var(--toolbar-bgcolor) !important;    
 }
+/* Alinear la linea gradiente de la nav-bar con pestaña seleccionada 
+   y truco para centrar verticalmente la url */ 
 #nav-bar{    
     padding-top: none !important;
     border-top: none !important;    
@@ -297,29 +453,10 @@ toolbar:is(.browser-toolbar){
 #TabsToolbar{
     border-bottom: none !important;
 }
-/* separador izquierda y derecha urlbar */
-#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{padding-top: 27px !important; ) !important;}
-#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{ margin-top: -22px !important;}
-
-/* Urlbar más pequeña */
-#urlbar:not([open]){
-    min-height: 26px !important;
-    max-height: 26px !important;
-    -moz-box-pack: center !important;
-    -moz-box-orient: vertical !important;
-}
-/* box, caja de íconos urlbar*/
-#identity-icon-box, #tracking-protection-icon-container, #identity-permission-box, #notification-popup-box {   
-    margin-block: 2px !important; 
-}
-.urlbar-page-action {
-    margin: 2px !important;
-}
 /* Quitar linea gradiente al mostrar la barra de menú */
 #toolbar-menubar {
     border-image: none !important;
 }
-/* Mantener linea gradiente al mostrar la barra de marcadores */
 #PersonalToolbar {
     border-top: 1px solid transparent !important;
     margin-top: 0px !important;
@@ -341,10 +478,11 @@ toolbar:is(.browser-toolbar){
     background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
 }
-/* Alinear botones de items */
+/* Alinear botones de la toolbar (back - forward - home ... ) */
 toolbar:not(#PersonalToolbar,#TabsToolbar) .toolbarbutton-1{
   margin-bottom: -2px !important;
 }
+
 /* ---------------------------------------Compatibilidad con left-sidebar config------------------------------- */
 
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
