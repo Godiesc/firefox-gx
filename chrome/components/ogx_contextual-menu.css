@@ -127,7 +127,7 @@ menugroup>menuitem:not([selected="true"]), menugroup>menu {
     appearance: none !important;
     background-color: transparent !important; 
     }
-/* Configuración para los íconos del menú contextual: back, forward, reload, bookmark */
+/* Configuración para los íconos del menú contextual: back, forward, reload, bookmark 
 menugroup>menuitem{ background: transparent !important; background-color: transparent !important;}
 menugroup>menuitem:first-child{ margin-left: 4px !important;}
 menugroup>menuitem:last-child{ margin-right: 4px !important;}
@@ -138,5 +138,18 @@ menugroup menuitem:not([disabled="true"]):hover{
     border-radius: 3px !important; }
 #context-navigation > .menuitem-iconic:hover:not([disabled="true"]) > .menu-iconic-left > .menu-iconic-icon{
     appearance: none !important;
-    background-color: transparent !important; }
+    background-color: transparent !important; }*/
+    /* Makes context navigation buttons appears as normal textual menuitems */
+#context-navigation{ appearance: none !important; -moz-box-orient: vertical; flex-direction: column !important; }
+#context-navigation > menuitem > .menu-iconic-left{ appearance: none !important; display: none }
+#context-navigation > menuitem{
+    appearance: none !important;
+    padding-block: 0.5em;
+    padding-inline-start: 2em !important;
+    -moz-box-pack: start !important;
+    width: auto !important;
+}
+#context-navigation > menuitem[_moz-menuactive="true"]:not([disabled]){ 
+    background: linear-gradient(to right, var(--button-hover-bgcolor) 49%, transparent) !important; }
+#context-navigation > menuitem::before{ content: attr(aria-label) }
 }
