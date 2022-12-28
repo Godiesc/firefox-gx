@@ -171,22 +171,37 @@ Window controls will be all wrong without it
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 84px !important;
   }
+/*########################### Window controls on left - LINUX ##############################*/
+  
 @media (-moz-gtk-csd-reversed-placement){
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 0px !important;
     --uc-window-control-width-left: 84px !important;
   }
+/* Separador <window controls> y demás botones */
 #unified-extensions-button::after {
-    background: none !important;
-  }
+    background: none !important; 
+    padding-inline: 0px 0px !important;
+}
+  /* Separador <window controls> y demás botones */
+#back-button::before {
+    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
+    content: ""; display: block !important;
+    background-size: 6px 16px !important;
+    height: 16px;
+    fill: var(--button-hover-bgcolor) !important;
+    -moz-context-properties: fill !important;
+    padding-inline: 0px 4px !important;
+    margin-right: 6px !important;
+    opacity: 0.8;
+}
+:root:not([chromehidden~="toolbar"])[sizemode="normal"] #unified-extensions-button {
+    margin-right: 40px !important;
+}
+
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
     left: var(--uc-vertical-toolbar-width,0) !important;
-    }
-#back-button .toolbarbutton-icon {
-    border-inline-start: 1px solid var(--button-bgcolor) !important;
-    margin-block: 4px solid transparent !important;
-    border-radius: 0px !important;
     }
   }
 }
