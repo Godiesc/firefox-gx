@@ -65,7 +65,7 @@ tab:hover .tab-icon-image:is([sharing]) {opacity: 1 !important; }
 /* ------------------------------------ muteado -----------------------------------*/
 .tab-icon-overlay:not([pinned]):is([muted]){
     list-style-image: url("../images/paused.svg") !important;
-    top: -5px;  left: 8px !important; border-radius: 50% !important;
+    top: -5px;  left: 7px !important; border-radius: 50% !important;
     height: 14px !important;
     width: 14px !important;
     color: var(--toolbarbutton-icon-fill) !important;
@@ -89,7 +89,7 @@ tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(
 /* Audio bloqueado */
 .tab-icon-overlay:not([pinned]):is([activemedia-blocked]), .tab-icon-overlay:is([pinned]):is([activemedia-blocked]){
     list-style-image: url("../images/blocked.svg") !important;
-    top: -6px;  left: 8px !important; border-radius: 2px !important;
+    top: -6px;  left: 7px !important; border-radius: 2px !important;
     height: 14px !important;
     width: 14px !important;
     color: var(--toolbarbutton-icon-fill) !important;
@@ -103,21 +103,23 @@ tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(
 
 /* --------------------- Pinned Tabs ----------------------*/
 
-.tabbrowser-tab:is([pinned]) .tab-icon-stack:is([soundplaying],[activemedia-blocked]){
-  grid-template-areas: "a s"; }
-.tabbrowser-tab:is([pinned]) .tab-icon-overlay:is([soundplaying]){ grid-area: s; }
-
 .tab-icon-overlay[pinned] { opacity: 0 !important; }
 tab:hover .tab-icon-overlay { opacity: 1 !important; }
+
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+.tab-icon-stack:not([crashed]):is([soundplaying])[pinned] :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
+    mask-image: url("../images/tab_icon_masks.svg#SoundMask") !important;
+    }}
     
 /* Reproduciendo pinned */    
 .tab-icon-overlay:is([pinned])[soundplaying]{
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
     fill: var(--identity-tab-color, var(--general-color)) !important;
     stroke: transparent !important;
+    height: 14px !important;
+    width: 14px !important;
+    left: 7px !important;
     padding: 0px !important;
-    top: 0px !important;
-    margin-inline: -3px 3px !important;
     fill-opacity: 1 !important;
     opacity: 1 !important;
     clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%) !important;
@@ -136,7 +138,7 @@ tab:hover .tab-icon-overlay:is([pinned])[muted] {
     height: 14px !important;
     width: 14px !important;
     top: -5px !important;
-    left: 8px !important;
+    left: 7px !important;
     color: var(--toolbarbutton-icon-fill) !important;
     background-color: transparent !important;
     stroke: transparent !important;
