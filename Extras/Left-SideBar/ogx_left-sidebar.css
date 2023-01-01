@@ -85,7 +85,7 @@
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
     --toolbarbutton-hover-background: transparent !important;          /*"button_background_hover": "#26242e"*/
     --toolbarbutton-active-background: transparent !important;         /*"button_background_active": "#131217"*/
-    --padding-top-left-sidebar: 108px !important;
+    --padding-top-left-sidebar: 98px !important;
     --padding-bottom-left-sidebar: 40px !important;
     --height-left-sidebar: 104vh !important;
     
@@ -157,22 +157,11 @@
     margin-inline: 12px !important;
     margin-block: 6px !important;
 }
-/* Separador linea Vertical usando "espacio flexible" */
-:is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"],:is(#TabsToolbar) toolbarspring {
-    background: var(--general-color) !important;
-    max-width: 1px !important;
-    min-width: 1px !important;
-    max-height: 14px !important;
-    min-height: 14px !important;
-    margin-inline: 3px !important;
-    margin-block: calc(var(--tab-height-personal) - 22px) !important;
-}
 /*Quitar límite a las 'barras laterales' de Firefox */
 #sidebar-box { max-width: none !important; min-width: 30px !important; }
     
 /* Mover botón "atrás" más a la derecha */
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #back-button{
-    display: block !important;
     margin-left: var(--uc-vertical-toolbar-width,0) !important;
 }
 /* Color y tamaño Items de la barra lateral */
@@ -213,7 +202,7 @@
     width: -moz-available !important;
 }
 #PersonalToolbar .toolbarbutton-badge{
-  background-color: var(--button-active-bgcolor) !important;
+  background-color: var(--button-hover-bgcolor) !important;
   color: white !important;
   margin-top: 13px !important;
   margin-inline-end: -10px !important;
