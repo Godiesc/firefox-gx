@@ -1,6 +1,6 @@
 # How to apply. 
 <ol>
-  <li>Add the file <code>ogx_oneline.css</code> into the <code>chrome/components</code> folder.</li>
+  <li>Add the files <code>ogx_oneline.css</code> and <code>ogx_root.css</code> into the <code>chrome/components</code> folder.</li>
   <li>Delete "flex spaces" and put the icons just like the image below. </li>
 </ol>
 
