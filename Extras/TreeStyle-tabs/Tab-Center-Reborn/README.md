@@ -21,7 +21,7 @@
 
 ![imagen](https://user-images.githubusercontent.com/22057609/209563130-1b901142-18bc-4fe2-a5d2-651c2165fb87.png)
 
-<p>This style could work fine without: <a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar">Left-sidebar Config</a> if you want.</p>
+<p>This style works fine without: <a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar">Left-sidebar Config</a> if you want.</p>
 
 <ul>
   <li>Delete <code>ogx_left-sidebar.css</code> if exist.</li>
