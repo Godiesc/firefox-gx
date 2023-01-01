@@ -1,4 +1,4 @@
-## Tab Center Reborn [Link to extension](https://addons.mozilla.org/es/firefox/addon/tabcenter-reborn/) Extension.
+## Tab Center Reborn [ [Link to extension](https://addons.mozilla.org/es/firefox/addon/tabcenter-reborn/) ].
 
 ### Steps to apply this config
 <ol>
