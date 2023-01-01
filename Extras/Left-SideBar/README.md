@@ -18,7 +18,7 @@
 [Simple tab groups](https://addons.mozilla.org/es/firefox/addon/simple-tab-groups/) - 
 [Ublock](https://addons.mozilla.org/es/firefox/addon/ublock-origin/) </br>
 
-<p>PD: The extensions I used was for test purpose.</p>
+<p>PD: The extensions I used were for testing purposes.</p>
 
 ## Preview
 
