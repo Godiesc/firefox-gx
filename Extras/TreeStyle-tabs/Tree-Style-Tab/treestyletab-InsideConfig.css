@@ -1,0 +1,30 @@
+/* ## ##-> To customize the "tree style tabs sidebar" extension wallpaper <-## ## */
+
+@media (prefers-color-scheme: light){
+:root, body, #background {
+    --browser-bg-images: url("https://i.imgur.com/3znv3xE.png") !important;
+    }}
+  @media (prefers-color-scheme: dark){
+:root, body, #background {
+    --browser-bg-images: url("https://i.imgur.com/It1Ugaa.png") !important;
+    }}
+:root, body, #background {
+    --theme-images-additional_backgrounds-0: var(--browser-bg-images) !important;
+    --browser-bg-position: left bottom !important;
+    --browser-bg-size: cover !important;
+
+    background-color: var(--browser-background, var(--tabbar-bg));
+    background-image: var(--browser-bg-images, none) !important;
+    background-position: var(--browser-bg-position, left) !important;
+    background-size: var(--browser-bg-size, auto) !important;
+    background-repeat: var(--browser-bg-repeat, none);
+}
+#background{ margin-left: -33px !important;}
+
+@media (prefers-color-scheme: light){
+#tabbar-container{ backdrop-filter: brightness(100%) !important; }
+}
+@media (prefers-color-scheme: dark){
+  #tabbar-container{ backdrop-filter: brightness(51%) !important; }
+}
+
