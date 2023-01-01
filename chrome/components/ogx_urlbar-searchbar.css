@@ -21,7 +21,7 @@ findbar:-moz-lwtheme {
 }
 /* "popup_highlight" -> 1.- keyboard highlight 2.-mouse highlight*/
 .urlbarView-row:not([type="tip"], [type="dynamic"])[selected] > .urlbarView-row-inner, .urlbarView-row-inner[selected] {
-    background-color: var(--button-hover-bgcolor) !important; 
+    background-color: var(--button-bgcolor) !important; 
     color: var(--lwt-tab-text) !important; 
     border-radius: 0px !important; }
 .urlbarView-row .urlbarView-row-inner {

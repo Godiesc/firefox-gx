@@ -8,7 +8,7 @@
 
 .customizationmode-button {
     appearance: none !important;
-    background-color: var(--Button-background-personal) !important;
+    background-color: var(--input-border-color) !important;
     border-color: var(--input-border-color) !important;
     color: var(--lwt-tab-text) !important;
     border-radius: 3px !important;
@@ -16,22 +16,22 @@
 }
 .customizationmode-button:is(:active, :hover):not([disabled]), .customizationmode-button[open], .customizationmode-button[checked] {
     appearance: none !important;
-    background-color: var(--general-color) !important;
-    border-color: var(--button-primary-hover-bgcolor) !important;
-    color: white !important;
+    background-color: var(--button-active-bgcolor) !important;
+    border-color: var(--button-active-bgcolor) !important;
+    color: var(--lwt-tab-text) !important;
 }
 #customization-done-button {
     appearance: none !important;
-    color: #fff !important;
-    border-color: var(--button-active-bgcolor) !important;
-    background-color: var(--button-active-bgcolor) !important;
+    color: var(--lwt-tab-text) !important;
+    border-color: var(--button-hover-bgcolor) !important;
+    background-color: var(--button-hover-bgcolor) !important;
     padding: 2px 24px !important;
 }
 #customization-done-button:is(:active, :hover):not([disabled]) {
     appearance: none !important;
     color: var(--lwt-tab-text) !important;
-    background-color: var(--general-color) !important;
-    border-color: var(--general-color) !important;
+    background-color: var(--button-active-bgcolor) !important;
+    border-color: var(--button-active-bgcolor) !important;
 }
 /* Menú de desbordamiento*/
 .panel-arrowcontent { border-radius: 0px !important; margin-right: 0px !important; padding-right: 0px !important; }

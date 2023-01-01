@@ -24,7 +24,7 @@ background: url("../images/delete.svg") no-repeat center/16px !important;
     -moz-context-properties: fill !important;
 }
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton {
-    background-color: var(--Button-background-personal) !important;
+    background-color: var(--input-border-color) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 3px !important;
 }
@@ -41,18 +41,18 @@ background: url("../images/delete.svg") no-repeat center/16px !important;
 }
 /*Color del botón menú deplegable*/
 panel menulist, panel menulist:not([open]) {
-    background-color: var(--Button-background-personal) !important;
+    background-color: var(--input-border-color) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 3px !important;
 }
 panel menulist:hover, panel menulist[open] {
-    background-color: var(--button-active-bgcolor) !important;
-    color: white !important;
+    background-color: var(--button-hover-bgcolor) !important;
+    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
     box-shadow: none !important;
 }
 /*Color -fondo y borde-(flecha hacia abajo)*/
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
-    background-color: var(--Button-background-personal) !important;
+    background-color: var(--input-border-color) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border: none !important;
     border-radius: 3px !important
@@ -60,7 +60,7 @@ panel menulist:hover, panel menulist[open] {
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
     box-shadow: none !important;
     background-color: var(--button-active-bgcolor) !important;
-    color: white !important;
+    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 /*Color -fondo y "letras" - menu desplegable*/
 treechildren::-moz-tree-row(selected) {
@@ -68,15 +68,15 @@ treechildren::-moz-tree-row(selected) {
     outline: none !important;
 }
 treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected), treechildren::-moz-tree-cell-text(selected) {
-    color: var(--lwt-tab-text) !important;
+    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 #editBMPanel_folderTree treechildren{
     background-color: var(--arrowpanel-background) !important;
-    color: var(--lwt-tab-text) !important;
+    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 #editBMPanel_tagsSelector{
-    background-color: var(--Button-background-personal) !important;
-    border: 1px solid var(--input-border-color) !important;
+    background-color: var(--arrowpanel-background) !important;
+    border: 1px solid var(--button-bgcolor) !important;
 }
 /* Quitar linea gradiente en botones de extensiones puestas en la Barra de herramientas y de pestañas */
 :is(#nav-bar,#TabsToolbar, #PersonalToolbar) toolbaritem .toolbarbutton-1 { background-image: none !important; }
@@ -93,7 +93,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
     color: var(--general-color) !important;  fill:  var(--general-color) !important; 
     --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important; border-radius: 2px !important; }
 
-:root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
+/*:root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
     color: var(--general-color) !important;  fill:  var(--general-color) !important;
     background-color: var(--toolbarbutton-hover-background) !important; border-radius: 2px !important;
@@ -130,6 +130,39 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 #nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
     fill: var(--general-color)
 }
+/*#################Color de iconos de la tabs-bar cuando están :hover y [open] ###################### */
+
+#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-icon,
+#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-text,
+#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-badge-stack{
+    background-color: var(--toolbarbutton-hover-personal) !important;
+    fill: var(--general-color) !important;
+}
+#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-icon,
+#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-text,
+#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
+    background-color: var(--arrowpanel-background) !important;
+    fill: var(--general-color);
+    }
+/*Color de iconos de la tabs-bar cuando están :hover en temas con imágenes */
+:root:is([lwtheme-image],[style*="--lwt-additional-images"])
+#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-icon,
+:root:is([lwtheme-image],[style*="--lwt-additional-images"])
+#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-text,
+:root:is([lwtheme-image],[style*="--lwt-additional-images"])
+#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-badge-stack{
+    background-color: var(--toolbarbutton-hover-background) !important;
+    fill: var(--general-color) !important;
+    }
+:root:is([lwtheme-image],[style*="--lwt-additional-images"])
+#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-icon,
+:root:is([lwtheme-image],[style*="--lwt-additional-images"])
+#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-text,
+:root:is([lwtheme-image],[style*="--lwt-additional-images"])
+#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
+    background-color: var(--toolbarbutton-active-background) !important;
+    fill: var(--general-color);
+    }
 /* Barra de menú */
 #main-menubar>menu {
     text-shadow: none !important;
@@ -152,5 +185,15 @@ toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbu
 }
 /* Second label del botón de extenciones */
 #unified-extensions-area toolbaritem:hover .unified-extensions-item-message-deck label{
-    color: var(--lwt-tab-text) !important;
+    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+}
+/* Separador linea Vertical para tabs-bar, usando "espacio flexible" */
+:is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"],:is(#TabsToolbar) toolbarspring {
+    background: var(--button-active-bgcolor) !important;
+    max-width: 1px !important;
+    min-width: 1px !important;
+    max-height: 14px !important;
+    min-height: 14px !important;
+    margin-inline: 3px !important;
+    margin-block: calc(var(--tab-height-personal) - 22px) !important;
 }

@@ -3,7 +3,7 @@
 
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
     
-:root{ --label-color: color-mix(in srgb, var(--lwt-tab-text)80%, var(--Button-background-personal));
+:root{ --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--lwt-tab-text))80%, var(--Button-background-personal));
        --margin-left-icons-personal: 9px !important; }
 
 /* ------------Menú hamburguesa-> top-left ------------- */
@@ -46,6 +46,7 @@
     z-index: 2 !important;
 }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open] > .toolbarbutton-badge-stack{
+    background-image: var(--noise-urlbar-personal) !important;
     background-color: var(--arrowpanel-background) !important;
     border-radius: 0px !important;
     border-left: none !important; border-right: none !important;
@@ -113,8 +114,8 @@
     color: var(--label-color) !important; z-index: 2 !important;}
 .subviewbutton:hover, #appMenu-popup toolbarbutton:hover label { 
     -moz-context-properties: fill; 
-    fill: var(--lwt-tab-text) !important; 
-    color: var(--lwt-tab-text) !important; z-index: 2 !important;
+    fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important; 
+    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important; z-index: 2 !important;
 }
 /* baner de -actualización disponible- */
 #appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]){

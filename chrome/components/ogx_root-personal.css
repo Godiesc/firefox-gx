@@ -4,7 +4,7 @@
 :root{
 /* --------------------- Variables de colores, puedes poner tu color personalizado y utilizarlo -----------------------------*/  
   --fuchsia: #fa1e4e;     --blue: #4c4cff;     --aqua: #00bfff;         --cyan: #00ffff;          --lightblue: #45a1ff;     --pink: #FF0F7E;
-  --purple: #8d35e2;      --green: #05b694;    --aquamarine: #00ffa2;   --lightgreen: #36ff4e;    --yellowbrown: #febd60;
+  --purple: #8d35e2;      --green: #05b694;    --aquamarine: #00ffa2;   --lightgreen: #36ff4e;    --yellowbrown: #febd60;   --swampautumn: #fdf008;
   --gray: #bfb6d2;        --orange: #ff6c22;   --yellow: #ffe20f;       --red: #ff3230;           --navyblue: #0050cE;
   
 /*                                                                                                                                 
@@ -48,7 +48,7 @@
   --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
   --newtab-pinnedsites-position-top: 0px ;                                                   /* Posición pinnedsites - top-> : 0px ; default-> : auto*/
   
-  --selected-text-background: var(--general-color);                                          /* Selected text background */
+  --selected-text-background: var(--button-active-bgcolor);                                  /* Selected text background */
    
   --personal-blur: blur(26px) ;                                                              /* Utilizado para personalizar userContent.css */
   
@@ -65,21 +65,14 @@
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
   --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) ,transparent) !important;
   --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 36%, var(--arrowpanel-background) 100%) !important;
-}
-@media (prefers-color-scheme: dark){ :root{ 
+
   /*------------------------------Botones hover, clic--------------------------------*/
   --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 22%, transparent) !important;    /*Color usado en el botón menú*/
-  --button-bgcolor: color-mix(in srgb, var(--general-color) 30%, transparent) !important;             /*Color de buttons*/
+  --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /*Color de buttons*/
   --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color fondo de menuitems :hover*/
   --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /*color clic en menuitems*/
-  }}
-@media (prefers-color-scheme: light){ :root{ 
-  /*------------------------------Botones hover, clic--------------------------------*/
-  --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 22%, transparent) !important;    /*Color usado en el botón menú*/
-  --button-bgcolor: color-mix(in srgb, var(--general-color) 30%, transparent) !important;             /*Color de buttons*/
-  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color fondo de menuitems :hover*/
-  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 85%, transparent) !important;      /*color clic en menuitems*/
-  }}
+  }
+
 @media (-moz-platform: linux ){:root{
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 92% , transparent 100%) !important;
   }}

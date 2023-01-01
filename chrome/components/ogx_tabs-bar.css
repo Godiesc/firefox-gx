@@ -39,11 +39,11 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
     border-radius: 3px !important;
     margin: -2px !important;
     background: var(--button-hover-bgcolor) !important;
-    fill: var(--lwt-tab-text) !important;
+    fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
  toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon{
     background: var(--button-hover-bgcolor) !important;
-    fill: var(--lwt-tab-text) !important;
+    fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 /*--------------Pestaña activa---------------*/
 .tab-stack, .tab-background { 
@@ -75,14 +75,14 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
     background-color: transparent  !important; 
 }
 .tabbrowser-tab:not([selected="true"], [multiselected]):hover .tab-stack{
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
+    background-color: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent)  !important;
     z-index: 2 !important;
 }
 :root[lwtheme-image] .tabbrowser-tab:not([selected="true"], [multiselected]):hover .tab-stack{
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
+    background-color: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent)  !important;
 }
 :root[style*="--lwt-additional-images"] .tabbrowser-tab:not([selected="true"], [multiselected]):hover .tab-stack{
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent)  !important;
+    background-color: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent)  !important;
 }
 /*Regla para visualizar mejor el seleccionar varias pestañas*/
 .tab-background[multiselected]:not([selected="true"]), tab-background:is([multiselected]):not([selected="true"]) .tab-stack {
@@ -148,10 +148,6 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
 /* Quitar label "Navegación Privada" */
 #private-browsing-indicator-with-label > label {
 	display: none !important;
-}
-/* Color hover the íconos en la tab-bar */
-#TabsToolbar .toolbarbutton-1:hover {
-    fill: var(--general-color) !important;
 }
 /* Tamaño horizontal pestañas*/
 .tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 200px !important; 

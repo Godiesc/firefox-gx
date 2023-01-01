@@ -61,4 +61,5 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 }
 /* Label colorida según su contenedor */
 .identity-color-red {--identity-tab-color: #ff2940 !important; --identity-icon-color: #ff2940 !important; }
-.tab-label{color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-tab-text)) 80%, var(--lwt-tab-text)) !important;}
+.tab-label[selected]{color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-tab-text)) 80%, var(--lwt-tab-text)) !important;}
+.tab-label:not([selected]){color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-text-color)) 80%, var(--lwt-text-color)) !important;}

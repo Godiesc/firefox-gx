@@ -330,6 +330,7 @@ button.primary:hover{
 /*Color fondo y letra al seleccionar texto*/
 ::selection {
     color: black !important;
+    box-shadow: none !important;
     background: var(--selected-text-background) !important;
 }
 /* ----------------------- search input and ads style in private mode ------------------------*/

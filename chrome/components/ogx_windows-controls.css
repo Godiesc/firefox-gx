@@ -23,7 +23,7 @@
     height: 14px !important; width: 13px !important;
     }
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
-    background-color: var(--toolbar-bgcolor) !important; color: var(--general-color) !important;
+    background-color: var(--toolbarbutton-hover-background) !important; color: var(--general-color) !important;
     }
 /* Keep the same windows control icons in all the themes, includint the themes with images */
     .titlebar-button{
