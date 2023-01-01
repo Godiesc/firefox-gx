@@ -235,10 +235,6 @@ Window controls will be all wrong without it
   margin-left: var(--uc-navigationbar-width);
   --tabs-navbar-shadow-size: inherit !important;
 }
-/* Sobre-escribir: reserved space for overflow + menu buttons */
-#navigator-toolbox{
-  --uc-buttons-width: calc(48px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
-}
 
 @media (prefers-color-scheme: dark){
 :root:is([brighttext]):-moz-lwtheme,
@@ -246,12 +242,13 @@ Window controls will be all wrong without it
   :root:-moz-lwtheme{
   --toolbar-bgcolor: transparent !important;                             /* "toolbar":"#131118", "Color de la toolbar"*/
   --lwt-sidebar-background-color:  #101019 !important;                   /* Necesario para corregir bug en ogx_library.css */
-  --lwt-selected-tab-background-color: #101019 !important;               /* Color defaul de la petaña activa */
+  /*--lwt-selected-tab-background-color: #101019 !important;               /* Color defaul de la petaña activa */
   --tab-height-personal: 32px !important;                                /* Minimum Height 32px for the right function of the theme*/
   --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
-  --navbarWidth:32vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
-  --toolbarbutton-hover-personal: #1d172b !important;
+  --navbarWidth:31vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
+  /*--toolbarbutton-hover-personal: #1d172b !important;*/
   --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: var(--arrowpanel-background) !important;          /*"button_background_hover": "#26242e"*/
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
   }}
 @media (prefers-color-scheme: light){
@@ -260,45 +257,30 @@ Window controls will be all wrong without it
   :root:-moz-lwtheme{
   --toolbar-bgcolor: transparent !important;                             /* "toolbar":"#131118", "Color de la toolbar"*/
   --lwt-sidebar-background-color:  #f9f9f9 !important;                   /* Necesario para corregir bug en ogx_library.css */
-  --lwt-selected-tab-background-color: #f9f9f9 !important;               /* Color defaul de la petaña activa */
+  /*--lwt-selected-tab-background-color: #f9f9f9 !important;               /* Color defaul de la petaña activa */
   --tab-height-personal: 32px !important;                                /* Minimum Height 32px for the right function of the theme*/
   --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
-  --navbarWidth:32vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
-  --toolbarbutton-hover-personal: #cfcfcf !important;
+  --navbarWidth:31vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
+  /*--toolbarbutton-hover-personal: #cfcfcf !important;
   --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: var(--arrowpanel-background) !important;          /*"button_background_hover": "#26242e"*/
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
   }}
 @media (prefers-color-scheme: dark){
-:root[lwtheme-image]{
+:root[lwtheme-image], :root[style*="--lwt-additional-images"]{
   --toolbar-bgcolor: transparent !important;                                     
   --lwt-selected-tab-background-color: #101019bf !important;                     
-  --toolbarbutton-hover-personal: color-mix(in srgb, #1010195f 70%, black) !important;
-  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
-  --toolbarbutton-active-background: black !important;                                       /*"button_background_active": "#26242e"*/
+  --toolbarbutton-hover-background: color-mix(in srgb, transparent 92%, var(--lwt-tab-text)) !important;         /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;                              /* Button :hover color personal*/
+  --toolbarbutton-active-background: color-mix(in srgb, transparent 86%, var(--lwt-tab-text)) !important;        /*"button_background_active": "#26242e"*/
   }}
 @media (prefers-color-scheme: light){
-:root[lwtheme-image]{
+:root[lwtheme-image], :root[style*="--lwt-additional-images"]{
   --toolbar-bgcolor: transparent !important;                                     
   --lwt-selected-tab-background-color: #f9f9f9bf !important;                     
-  --toolbarbutton-hover-personal: color-mix(in srgb, #f9f9f95f 70%, white) !important;
-  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
-  --toolbarbutton-active-background: white !important;                                       /*"button_background_active": "#26242e"*/
-  }}
-@media (prefers-color-scheme: dark){
-:root[style*="--lwt-additional-images"]{
-  --toolbar-bgcolor: transparent !important;                                                                
-  --lwt-selected-tab-background-color: #101019cf !important;
-  --toolbarbutton-hover-personal: color-mix(in srgb, #1010195f 70%, black) !important;
-  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
-  --toolbarbutton-active-background: black !important;                                       /*"button_background_active": "#26242e"*/
-  }}
-@media (prefers-color-scheme: light){
-:root[style*="--lwt-additional-images"]{
-  --toolbar-bgcolor: transparent !important;                                                                
-  --lwt-selected-tab-background-color: #f9f9f9cf !important;
-  --toolbarbutton-hover-personal: color-mix(in srgb, #f9f9f95f 70%, white) !important;
-  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
-  --toolbarbutton-active-background: white !important;                                       /*"button_background_active": "#26242e"*/
+  /*--toolbarbutton-hover-personal: color-mix(in srgb, transparent 70%, white) !important;
+  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;                             /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: color-mix(in srgb, transparent 86%, var(--lwt-tab-text)) !important;       /*"button_background_active": "#26242e"*/
   }}
 /* Sobre-escribir la regla usada en ogx_tabs-bar, lineas 175-183 */
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
@@ -309,22 +291,6 @@ Window controls will be all wrong without it
 }
 /* Colores windows controls */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
-.titlebar-button{
-    background-color: transparent !important; color: var(--toolbarbutton-icon-fill) !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
-.titlebar-button:hover:not(.titlebar-close){
-    background-color: var(--toolbarbutton-hover-personal) !important; color: var(--general-color) !important;
-    }} 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
-:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button{
-    background-color: transparent !important; color: var(--toolbarbutton-icon-fill) !important;
-    }} 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
-:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
-    background-color: var(--toolbarbutton-hover-personal) !important; color: var(--general-color) !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:is(.titlebar-close){
     background-color: red !important; color: white !important;
     }}
@@ -332,15 +298,30 @@ Window controls will be all wrong without it
     padding-top: initial !important;
     padding-bottom: 0px !important;
     }}
+/* Separador <window controls> y demás botones */
+#unified-extensions-button::after {
+    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
+    content: ""; display: block !important;
+    background-size: 6px 16px !important;
+    height: 16px;
+    fill: var(--button-hover-bgcolor) !important;
+    -moz-context-properties: fill !important;
+    padding-inline: 8px 4px !important;
+    margin-left: 2px !important;
+    opacity: 0.8;
+}
+/* ############# añadir más espacio para usarlo como espacio de arrastre en ventana no maximizada ########### */
 
-/* ############# My code: añadir más espacio para usarlo como espacio de arrastre en ventana no maximizada ########### */
-
+/* Sobre-escribir: reserved space for overflow + menu buttons */
+#navigator-toolbox{
+  --uc-buttons-width: calc(62px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
+}
 /* Espacio de arraste <antes> de las pestañas en ventanas no maximizadas */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){:root[tabsintitlebar][sizemode="normal"] #tabbrowser-tabs{padding-inline-start: 30px !important;
   }}
 /* Espacio de arraste <despues> de las pestañas en ventanas no maximizadas */
 :root[sizemode="normal"] #navigator-toolbox{
-  --uc-buttons-width: calc(88px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
+  --uc-buttons-width: calc(102px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))
 }
 :root:is([tabsintitlebar][sizemode="normal"]) {
     --uc-window-control-width: 158px;
@@ -360,6 +341,12 @@ Window controls will be all wrong without it
 /*################################# Compatibilidad con <window controls> on left en linux ###########################*/
 
 @media (-moz-gtk-csd-reversed-placement){
+  /* Quitar separador de  <window controls> de la derecha*/
+  #unified-extensions-button::after {
+    background: none !important;
+    padding-inline: 0px !important;
+    margin: 0px !important;
+  }
   /* Espacio de arrastre derecha ventana <no maximizada> */
   :root[tabsintitlebar][sizemode="normal"]:not([sizemode="maximized"]) #navigator-toolbox{
   --uc-buttons-width: calc(98px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important; }
@@ -427,7 +414,7 @@ Window controls will be all wrong without it
     --uc-vertical-toolbar-width: 41px;
     --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
-    --min-width-url: 26vw !important;
+    --min-width-url: 23vw !important;
   }
 /* Botones de recorrer pestañas */
 #scrollbutton-down ,#scrollbutton-up{
@@ -505,7 +492,7 @@ Window controls will be all wrong without it
     min-width: var(--min-width-url) !important; }
 #urlbar:focus-within  { 
     min-width: calc(var(--min-width-url) + 30vw) !important; 
-    clip-path: polygon(0px 0%, calc(var(--min-width-url) + 0.4vw) 0%, 0% 999999vw, 0% 0px) !important;}
+    clip-path: polygon(0px 0%, calc(var(--min-width-url) ) 0%, 0% 999999vw, 0% 0px) !important;}
 #urlbar[open=true]  { 
     min-width: calc(var(--min-width-url) + 30vw) !important; 
     clip-path: none !important;
@@ -585,9 +572,9 @@ toolbar:not(#PersonalToolbar,#TabsToolbar) .toolbarbutton-1{
 /* Forward button */
 /* #forward-button { display: none !important } */
 
-/* Hide forward button only when disabled */
+/* Hide forward button only when disabled 
 #forward-button[disabled="true"] { display: none !important }
-
+*/
 /* "Shield" icon */
 #tracking-protection-icon-container { display: none !important }
 
