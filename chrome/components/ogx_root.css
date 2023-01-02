@@ -236,7 +236,7 @@
   --toolbar-bgcolor: #f9f9f9cf !important;                                                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                      /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                          /*"toolbar_field_border": "#363540"*/
-  --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;                                        /*"tab_selected":"#363540"*/
+  --lwt-selected-tab-background-color: transparent !important;                                                   /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 14%, #f9f9f9fb) !important;    /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbarbutton-hover-background: color-mix(in srgb, transparent 80%, var(--lwt-tab-text)) !important;         /*"button_background_hover": "#26242e"*/
   --toolbarbutton-active-background: color-mix(in srgb, transparent 78%, var(--lwt-tab-text)) !important;        /*"button_background_active": "#131217"*/
