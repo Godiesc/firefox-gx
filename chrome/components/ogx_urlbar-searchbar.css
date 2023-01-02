@@ -112,6 +112,26 @@ findbar:-moz-lwtheme {
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ #urlbar-input, #urlbar-scheme{
     padding-bottom: 2px !important;
 }}
+/* Brighness when urlbar [open]*/
+#nav-bar[urlbar-exceeds-toolbar-bounds="true"]::before{
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 4;
+  pointer-events: none;
+}
+/* Blur cuando se muestran dialogos del navegador */
+browser[primary="true"][tabDialogShowing="true"],
+#main-window[window-modal-open="true"] > body > #browser{
+  filter: blur(10px)
+}
+#browser .browserStack:has(.dialogStack.tab-dialog-box:not([hidden="true"])) > browser {
+    filter: blur(10px)
+}
 /* Search-bar */
 #searchbar {
     min-height: 29px !important;
