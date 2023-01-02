@@ -45,7 +45,7 @@ tab[soundplaying]:not([pinned]) .tab-background::after{
 tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     /*list-style-image: url("../images/paused.svg") !important;*/
     /*clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%) !important;*/
-    fill: var(--identity-tab-color, var(--lwt-tab-text)) !important;
+    fill: var(--lwt-tab-text) !important;
     background-color: color-mix(in srgb, var(--toolbar-bgcolor), transparent) !important;
     fill-opacity: 1 !important;
     opacity: 0.8 !important;
