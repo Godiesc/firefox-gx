@@ -163,12 +163,11 @@ tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
     color: var(--lwt-tab-text) !important;
     fill-opacity: 1 !important;
     }
-/* Eliminar ícono de sonido cuando la página está cargandose */
+
+/* ocultar ícono [muted] en pestaba <cargando> */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tabbrowser-tab:is([muted],[soundplaying],[pictureinpicture])[busy] .tab-throbber{ visibility: visible !important; opacity: 1 !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-.tabbrowser-tab:is([muted],[pictureinpicture])[busy] .tab-icon-overlay{ opacity: 0 !important; 
+tab[busy] .tab-icon-overlay:not([pinned]):is([muted]), tab[busy][pinned] .tab-icon-overlay:is([muted]){
+    opacity: 0 !important;
     }}
 
 /*_________________________________________MacOS________________________________________*/
