@@ -13,3 +13,5 @@
 <p><b>For default the <code>user.js</code> file has "chrome" shape enable.</b></p>
 
 ![imagen](https://user-images.githubusercontent.com/22057609/210465037-adc84c5e-883a-43ea-b2e4-e6744842740d.png)
+
+![Tab-Shapes](https://user-images.githubusercontent.com/22057609/210485114-cea4ac40-42bc-43f8-9a2c-514db9dc152b.png)
