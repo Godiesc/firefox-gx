@@ -21,7 +21,7 @@
   --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-light2.png") !important;                /* new-tab page image - white theme*/
+  --lwt-main-image:  url("../images/newtab/wallpaper-light.png") !important;                /* new-tab page image - white theme*/
   --lwt-private-image:  url("../images/newtab/private-light.png") !important;                /* new-tab private-page image - white theme*/
   --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default and Main-image config */ }}
 
