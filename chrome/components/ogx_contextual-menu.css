@@ -40,8 +40,8 @@ menupopup:not(#PlacesToolbar) menupopup { margin-top: -9px !important; }
 /* Colores generales */
 .menupopup-arrowscrollbox{
     background-image: var(--noise-urlbar-personal) !important;
-    box-shadow: 0px 0px 0 1px var(--input-bgcolor) !important;
-    background-color: var(--arrowpanel-background, #50505090) !important;
+    box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
+    background-color: color-mix(in srgb, var(--arrowpanel-background, #50505090) 90%, var(--contrast-color)) !important; 
     color: var(--arrowpanel-color, #ffffff) !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
     border-radius: 0px !important;
