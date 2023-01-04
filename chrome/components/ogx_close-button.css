@@ -26,7 +26,7 @@
     pointer-events: none
     }
 .tab-icon-image:not([busy]){ display: block !important; }
-.tabbrowser-tab:hover .tab-icon-image,
+.tabbrowser-tab:hover .tab-icon-image:not([pinned]),
 .tabbrowser-tab:hover > .tab-icon-stack{
     visibility: hidden;
     opacity: 0 !important;
