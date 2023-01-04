@@ -1,6 +1,6 @@
 # How to apply.
 <p>This configuration will simulate an image behind all the browser.</p>
-<ul><b><< Fast step to apply the config. >></b>
+<ul><p><b><< Fast step to apply the config. >></p></b>
 <li>Add the files <code>ogx_main-image.css</code> and <code>ogx_root-personal.css</code> into the <code>chrome/components</code> folder.</li></ul></br>
 
 <p><i>PD: The file <code>ogx_root-personal.css</code> will set the default values of the theme, if you changed some rule in the file you will need to change again in this new file. The wallpaper will be the named <b>>>main-image-dark.png<<</b> and <b>>>main-image-light.png<<</b> in <code>chrome</code> >> <code>images</code> >> <code>newtab</code>, if you want to change them you will need to replace your new images with those names.</br>You will need to edit the line 51 to set the correct number to align the image if you have active the bookmark toolbar or the menu-bar.</i></p>
