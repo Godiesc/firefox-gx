@@ -79,8 +79,8 @@ findbar:-moz-lwtheme {
 
 /* Urlbar */
 #urlbar{
-    min-height: 29px !important; 
-    padding-left: 10px !important; 
+    min-height: calc(var(--toolbar-height-personal) - 9px) !important; 
+    padding-left: 10px !important;
     padding-right: 10px !important; 
     border-radius: 4px !important; }
 #urlbar:not([open=true],[focused=true]) #urlbar-background{

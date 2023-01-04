@@ -213,7 +213,11 @@ input:focus-visible, input:focus-visible{
     margin-left: 1px !important;
     z-index: 1000 !important;
     clip-path: none !important;
-}    
+}
+    browser[primary="true"][tabDialogShowing="true"],
+#main-window[window-modal-open="true"] > body > #browser{
+  filter: blur(10px)
+}
 /* Actividad reciente */
 .card-outer .card { 
     backdrop-filter: var(--personal-blur);

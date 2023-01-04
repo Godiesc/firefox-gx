@@ -70,6 +70,7 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
 .tab-content { height: var(--tab-height-personal) !important; margin-left: -1px !important;}
 .tab-content:is([pinned]){margin-left: 0px !important; }
 
+
 /*Color :hover de las pestañas no seleccionadas*/
 .tabbrowser-tab:not([selected="true"], [multiselected]):hover > .tab-stack > .tab-background:not([selected="true"], [multiselected]){
     background-color: transparent  !important; 
@@ -85,12 +86,24 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
     background-color: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent)  !important;
 }
 /*Regla para visualizar mejor el seleccionar varias pestañas*/
+@supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner")
+  @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") or
+    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") or 
+    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
+    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
+    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge")
 .tab-background[multiselected]:not([selected="true"]), tab-background:is([multiselected]):not([selected="true"]) .tab-stack {
     margin-inline: 0px 0px !important; 
     background: var(--button-hover-bgcolor) !important; 
     outline: none !important;  
     margin-block: 0px !important;
 }
+@supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner")
+  @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") or
+    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") or 
+    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
+    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
+    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge")
 .tab-background[multiselected][selected="true"] hbox{
     background: var(--general-color) !important;
 }

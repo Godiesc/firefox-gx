@@ -5,23 +5,23 @@
 /* --------------------- Variables de colores, puedes poner tu color personalizado y utilizarlo -----------------------------*/  
   --fuchsia: #fa1e4e;     --blue: #4c4cff;     --aqua: #00bfff;         --cyan: #00ffff;          --lightblue: #45a1ff;     --pink: #FF0F7E;
   --purple: #8d35e2;      --green: #05b694;    --aquamarine: #00ffa2;   --lightgreen: #36ff4e;    --yellowbrown: #febd60;   --swampautumn: #fdf008;
-  --gray: #bfb6d2;        --orange: #ff6c22;   --yellow: #ffe20f;       --red: #ff3230;           --navyblue: #0050cE;      --poison: #cb17cf;
+  --gray: #bfb6d2;        --orange: #ff6c22;   --yellow: #ffe20f;       --red: #ff3230;           --navyblue: #0050cE;      --poison: #cb17cf; 
   
 /*                                                                                                                                 
     Accent color -----> UI del navegador.  -----|                  |---- userContent <------------ Accent color
                                                 |                  |     (Add-ons, preferences and newtab page.)
                                                 v                  v                                                          */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--poison));
 }
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
 
 @media (prefers-color-scheme: dark){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - dark theme */ 
+  --lwt-main-image:  url("../images/newtab/wallpaper-dark30.png") !important;                  /* new-tab page image - dark theme */ 
   --lwt-private-image:  url("../images/newtab/private-dark.png") !important;                 /* new-tab private-page image - dark theme */
   --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-light.png") !important;                 /* new-tab page image - white theme*/
+  --lwt-main-image:  url("../images/newtab/wallpaper-light2.png") !important;                 /* new-tab page image - white theme*/
   --lwt-private-image:  url("../images/newtab/private-light.png") !important;                /* new-tab private-page image - white theme*/
   --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default and Main-image config */ }}
 
@@ -30,8 +30,8 @@
 :root{  
   --wallpaper-size: cover;                                                                   /* cover-> default ; auto auto -> to <<main-image>> config */
   
-  --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas*/
-  --toolbar-height-personal: 38px ;                                                          /* Toolbar height */
+  --tab-height-personal: 30px ;                                                              /* Tamaño altura de pestañas - 30px mínimo*/
+  --toolbar-height-personal: 38px ;                                                          /* Toolbar height - 32px mínimo*/
   
   --menu-label: "Menu" ;                                                                     /* Label botón -Menú- */
   --padding-left-tab: 74px ;                                                                 /* Tamaño horizontal botón -Menú- */

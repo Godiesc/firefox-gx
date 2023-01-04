@@ -36,19 +36,19 @@ tab[muted] .tab-content .tab-label{
 }
 /* Pinned */
 .tabbrowser-tab:is([pinned]) .tab-context-line{
-    height: 2px !important; 
+    height: 2px ; 
     margin-bottom: 3px !important;
-    -moz-box-ordinal-group: 2 !important; 
+    -moz-box-ordinal-group: 2 ; 
 }
 tab:is([pinned])[selected] .tab-context-line {
-    width: 18px !important; 
+    width: 18px  !important;
     margin-inline: 8px !important;
-    transition-duration: 150ms !important;
+    transition-duration: 150ms ;
 }
 tab:is([pinned]):not([selected]) .tab-context-line {
-    width: 8px !important;
-    margin-inline: 13px !important;
-    transition-duration: 0ms !important;
+    width: 8px  !important;
+    margin-inline: 13px  !important;
+    transition-duration: 0ms ;
 }
 /* Eliminar label del contenedor de la urlbar, manteniendo el ícono */
 #userContext-label{
@@ -63,3 +63,4 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 .identity-color-red {--identity-tab-color: #ff2940 !important; --identity-icon-color: #ff2940 !important; }
 .tab-label[selected]{color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-tab-text)) 80%, var(--lwt-tab-text)) !important;}
 .tab-label:not([selected]){color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-text-color)) 80%, var(--lwt-text-color)) !important;}
+
