@@ -6,8 +6,8 @@
 :root:is([brighttext]):-moz-lwtheme,
 :root[lwt-toolbar-field-focus-brighttext],
 :root:-moz-lwtheme{
-  --contrast-color: #09080d !important;
-  --border-contrast-color: #09080d !important;
+  --contrast-color: #000000 !important;
+  --border-contrast-color: color-mix(in srgb, var(--arrowpanel-background) 40%, var(--contrast-color)) !important; 
   
   /*--lwt-accent-color: #09080d !important;                                             /*"frame": "#17161c" */
   --lwt-frame: var(--lwt-accent-color, #09080d) !important;                             /*"frame": "#17161c" */
@@ -122,7 +122,7 @@
   /*--lwt-text-color: #101010 !important;                                               /*"tab_background_text": "#c3c3c3"*/
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /*"frame_inactive": "#17161c" */
   
-  --lwt-tab-text: var(--lwt-text-color, #000) !important;                               /*"tab_text": "#ffffff"*/
+  --lwt-tab-text: #101019 !important;                                                   /*"tab_text": "#ffffff"*/
   
   /*--toolbar-bgcolor: #f4f2f7 !important;                                              /*"toolbar":"#131118", "Color de la toolbar"*/
   
