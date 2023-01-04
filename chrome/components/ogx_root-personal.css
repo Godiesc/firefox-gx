@@ -11,17 +11,17 @@
     Accent color -----> UI del navegador.  -----|                  |---- userContent <------------ Accent color
                                                 |                  |     (Add-ons, preferences and newtab page.)
                                                 v                  v                                                          */
-  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--poison));
+  --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
 }
   /*--------------------------<-Personalizaciones Varias->----------------------------*/
 
 @media (prefers-color-scheme: dark){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-dark30.png") !important;                  /* new-tab page image - dark theme */ 
+  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - dark theme */ 
   --lwt-private-image:  url("../images/newtab/private-dark.png") !important;                 /* new-tab private-page image - dark theme */
   --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-light2.png") !important;                 /* new-tab page image - white theme*/
+  --lwt-main-image:  url("../images/newtab/wallpaper-light2.png") !important;                /* new-tab page image - white theme*/
   --lwt-private-image:  url("../images/newtab/private-light.png") !important;                /* new-tab private-page image - white theme*/
   --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default and Main-image config */ }}
 
