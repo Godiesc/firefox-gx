@@ -7,11 +7,12 @@ slot{
     margin-right: 4px !important;
     margin-left: 3px !important;
     margin-bottom: 4px !important;
-    border-color: var(--input-bgcolor) !important; 
+    border-color: var(--border-contrast-color) !important;
     box-shadow: inset 0px 0 0 1px var(--button-active-bgcolor) !important;
 }
 panelview {
     background-image: var(--noise-urlbar-personal) !important;
+    background-color: color-mix(in srgb, var(--arrowpanel-background, #50505090) 90%, var(--contrast-color)) !important;
     border: 1px solid #0c0a10 !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
 }
