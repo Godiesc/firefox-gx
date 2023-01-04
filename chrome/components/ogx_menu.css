@@ -41,7 +41,7 @@
     min-height: calc(var(--tab-height-personal) ) !important;
     }
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
-    background-color: color-mix(in srgb, var(--toolbar-bgcolor) 94%, white) !important; 
+    background-color: var(--toolbarbutton-hover-personal) !important; 
     border-radius: 0px !important;
     z-index: 2 !important;
 }
