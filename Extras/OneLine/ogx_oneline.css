@@ -497,6 +497,13 @@ Window controls will be all wrong without it
     min-width: calc(var(--min-width-url) + 30vw) !important; 
     clip-path: none !important;
 }
+/* Separador derecha url*/
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{
+    padding-top: calc(var(--urlbar-height) - 0px) !important;
+  }
+#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{
+    margin-top: calc( 0px - var(--urlbar-height) + 5px) !important;
+}
 /* Borde Gradiente */
 toolbar:is(.browser-toolbar){    
     border-image: var(--panel-separator-zap-gradient2) 1 !important; 
