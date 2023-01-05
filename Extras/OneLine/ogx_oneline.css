@@ -469,7 +469,8 @@ Window controls will be all wrong without it
 /* ------------------------- url --------------------------*/
 /* Urlbar más pequeña */
 #urlbar:not([open]){
-    min-height: 28px !important;
+    min-height: 26px !important;
+    max-height: 26px !important;
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
 }
