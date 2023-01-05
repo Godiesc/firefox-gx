@@ -32,7 +32,7 @@
    
 <p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode.</b></p>
 
-<hr style="size:1px;border-style:dotted;color:#50505050" />
+<hr size=1px;border-style=dotted;color="#50505050" />
  
 <ol><p>You can also use the <b><a href="https://addons.mozilla.org/es/firefox/addon/firefox-color/">"Firefox Color"</a> </b>extension to change the accent color to your preference.</p>
 <li>Install the extension.</li>
