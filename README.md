@@ -9,13 +9,13 @@
 <ol><b>(ES) Pasos para configurar el tema:</b>
 
    <li>Descarga el tema desde la sección <code>Releases</code> en el lado derecho de esta página.</code></li>
-   <li>Descomprime el archivo y copia la carpeta <code>chrome</code> y el archivo <code>user.js</code> dentro de la carpeta de perfil de tu usuario de firefox.</li>
+   <li>Descomprime el archivo y copia la carpeta 👉<code>chrome</code>👈 y el archivo 👉<code>user.js</code>👈 dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>Instala y usa un <a href="https://github.com/Godiesc/opera-gx#temas---themes" >tema</a> compatible.</li>
    <li>Reinicia el navegador.</li></ol>
 
 <ol><b>(EN) Steps to configure the theme:</b>
    <li>Download the theme from the <code>Releases</code> section, in the right side of this page</code></li> 
-   <li>Unzip the file and copy the <code>chrome</code> folder and the <code>user.js</code> file into your Firefox profile directory. </li>
+   <li>Unzip the file and copy the 👉<code>chrome</code>👈 folder and the 👉<code>user.js</code>👈 file into your Firefox profile directory. </li>
    <li>Install and use a compatible <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a>.</li>
    <li>Restart the browser. </li></ol>
    <ul>
@@ -32,7 +32,7 @@
    
 <p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode.</b></p>
 
-<hr size="1px" color="#50505050" />
+<hr style="size:1px;border-style:dotted;color:#50505050" />
  
 <ol><p>You can also use the <b><a href="https://addons.mozilla.org/es/firefox/addon/firefox-color/">"Firefox Color"</a> </b>extension to change the accent color to your preference.</p>
 <li>Install the extension.</li>
