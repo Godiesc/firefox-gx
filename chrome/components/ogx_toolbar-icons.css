@@ -93,7 +93,7 @@ animation-duration: 0ms !important;
     background: url("../images/urlbar-separator.svg") no-repeat right; content: ""; display: block; 
     background-size: 16px 16px !important;
     height: 16px;
-    margin-top: calc( 0px - var(--urlbar-height) + 6px) !important;
+    margin-top: calc( 0px - var(--urlbar-height) + 7px) !important;
     margin-right: -7px !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
