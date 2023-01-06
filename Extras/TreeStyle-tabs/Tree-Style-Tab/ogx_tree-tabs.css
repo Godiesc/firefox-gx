@@ -318,7 +318,7 @@ Window controls will be all wrong without it
 :root{
     --uc-vertical-toolbar-width: 41px !important;                                                               /* Nuevo tamaño sidebar */
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
-    --margin-left-icons-personal: 15px !important;                                                              /* Nuevo margen left de íconos del menú */
+    --margin-left-icons-personal: 11px !important;                                                              /* Nuevo margen left de íconos del menú */
 }
 /* color botón Menú para hacer coincidir con la barra de pestañas de <tab-center-reborn> en temas claros */
 @media (prefers-color-scheme: light){
@@ -345,26 +345,26 @@ Window controls will be all wrong without it
 /* Hacer el botón más ancho en el menú [open] */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
-    --padding-left-tab: 87px !important;
+    --padding-left-tab: 79px !important;
     max-width: var(--padding-left-tab) !important;
     min-width: var(--padding-left-tab) !important;
     }}
 @media (-moz-platform: linux){
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
-    --padding-left-tab: 93px !important;
+    --padding-left-tab: 85px !important;
     }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
-    --padding-left-tab: 85px !important;
+    --padding-left-tab: 79px !important;
     }}
 @media (-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
-      --padding-left-tab: 93px !important;
+      --padding-left-tab: 85px !important;
     }}
 /* tamaño nuevo botón Menú */
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PanelUI-menu-button,
 :root[sizemode="maximized"] #appMenu-popup{
-    --tab-height-personal: 39px !important;
+    --tab-height-personal: var(--toolbar-height-personal) !important;
     }
 /* botón Menú [open] no muy grande */
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
