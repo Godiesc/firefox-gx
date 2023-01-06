@@ -223,7 +223,7 @@
   --toolbar-bgcolor: #101019cf !important;                                                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                      /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                          /*"toolbar_field_border": "#363540"*/
-  --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;                                        /*"tab_selected":"#363540"*/
+  --lwt-selected-tab-background-color: transparent !important;                                        /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #2e273ffb) !important;     /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbarbutton-hover-background: color-mix(in srgb, 
     transparent 90%, color-mix(in srgb, var(--lwt-tab-text)60%, var(--general-color))) !important;               /*"button_background_hover": "#26242e"*/
