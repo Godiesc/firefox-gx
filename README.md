@@ -12,6 +12,8 @@
    <li>Descomprime el archivo y copia la carpeta 👉<code>chrome</code>👈 y el archivo 👉<code>user.js</code>👈 dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>Instala y usa un <a href="https://github.com/Godiesc/opera-gx#temas---themes" >tema</a> compatible.</li>
    <li>Reinicia el navegador.</li></ol>
+   <ul>
+<li>(ES) Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles. </li></ul>
 
 <ol><b>(EN) Steps to configure the theme:</b>
    <li>Download the theme from the <b> << Releases >> </b> section, in the right side of this page</code></li> 
@@ -19,7 +21,6 @@
    <li>Install and use a compatible <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a>.</li>
    <li>Restart the browser. </li></ol>
    <ul>
-<li>(ES) Para encontrar el directorio de tu perfil ve a <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles. </li>
 <li>(EN) To find out the location of your profile directory go to <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</li></ul>
 
 ⚠ 🛑 ‼ The latest code updated in the repository (code > download zip) would work well only on beta o nightly versions.
