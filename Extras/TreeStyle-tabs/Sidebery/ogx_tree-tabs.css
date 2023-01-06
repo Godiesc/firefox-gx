@@ -171,22 +171,37 @@ Window controls will be all wrong without it
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 84px !important;
   }
+/*########################### Window controls on left - LINUX ##############################*/
+  
 @media (-moz-gtk-csd-reversed-placement){
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 0px !important;
     --uc-window-control-width-left: 84px !important;
   }
+/* Separador <window controls> y demás botones */
 #unified-extensions-button::after {
-    background: none !important;
-  }
+    background: none !important; 
+    padding-inline: 0px 0px !important;
+}
+  /* Separador <window controls> y demás botones */
+#back-button::before {
+    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
+    content: ""; display: block !important;
+    background-size: 6px 16px !important;
+    height: 16px;
+    fill: var(--button-hover-bgcolor) !important;
+    -moz-context-properties: fill !important;
+    padding-inline: 0px 4px !important;
+    margin-right: 6px !important;
+    opacity: 0.8;
+}
+:root:not([chromehidden~="toolbar"])[sizemode="normal"] #unified-extensions-button {
+    margin-right: 40px !important;
+}
+
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
     left: var(--uc-vertical-toolbar-width,0) !important;
-    }
-#back-button .toolbarbutton-icon {
-    border-inline-start: 1px solid var(--button-bgcolor) !important;
-    margin-block: 4px solid transparent !important;
-    border-radius: 0px !important;
     }
   }
 }
@@ -208,15 +223,15 @@ Window controls will be all wrong without it
   --toolbar-bgcolor: #1010199f !important;
   }}
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
-  --padding-top-left-sidebar: 78px !important;
+  --padding-top-left-sidebar: 68px !important;
   --padding-bottom-left-sidebar: 90px !important;
   --tab-height-personal: calc(-30px - var(--windowed-top-padding, 0px)) !important;
 }
-/* Quitar imagen de la Side-bar */
+/* Quitar imagen de la Side-bar 
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar,
 :root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar  {
     --toolbar-bgcolor: var(--lwt-frame) !important;
-}
+}*/
 /* Background color de botones <Window Controls> */
 :root[tabsintitlebar] .titlebar-buttonbox {
     background: var(--toolbar-bgcolor) !important;
@@ -241,12 +256,10 @@ Window controls will be all wrong without it
 }}
 /* Mover botón "atrás" más a la derecha */
 :root:not([chromehidden~="toolbar"]) #back-button{
-    display: block !important;
     padding-inline-start: 0px !important;
     margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 6px) !important;
 }
 :root:not([chromehidden~="toolbar"])[sizemode="normal"] #back-button{
-    display: block !important;
     padding-inline-start: 0px !important;
     margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 40px) !important;
 }
@@ -260,16 +273,15 @@ Window controls will be all wrong without it
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ .titlebar-min{
     padding-top: 2px !important;
     }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
+    .titlebar-button:hover:not(.titlebar-close){
+    background-color: var(--toolbarbutton-hover-background) !important;
+    }}
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close){
-    background-color: var(--toolbarbutton-hover-background) !important; color: var(--toolbarbutton-icon-fill) !important;
+    background-color: var(--toolbarbutton-hover-background) !important;
     }
 }
-/* nuevo botón Menú */
-:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"])[tabsintitlebar] #PanelUI-menu-button{
-    background-color: var(--lwt-frame) !important; 
-    border-right: 1px solid var(--general-color) !important;  
-  }
 /*###################################################*/
 
 :root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
@@ -299,3 +311,81 @@ Window controls will be all wrong without it
 .urlbar-page-action {
   margin-block: 4px 2px !important;
 }
+
+
+
+/* ----------------Nuevos margenes Botón menú------------------- */
+:root{
+    --uc-vertical-toolbar-width: 41px !important;                                                               /* Nuevo tamaño sidebar */
+    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
+    --margin-left-icons-personal: 11px !important;                                                              /* Nuevo margen left de íconos del menú */
+}
+/* color botón Menú para hacer coincidir con la barra de pestañas de <tab-center-reborn> en temas claros */
+@media (prefers-color-scheme: light){
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button  {
+    --lwt-frame: #e9e6ef !important;
+    }}}
+/*
+@media (prefers-color-scheme: dark){
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
+    --lwt-frame: #101019 !important;
+    }}}
+*/
+/* Quitar label -Menu- del menú not [open] */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]) > stack::after {
+    content: none !important ;
+    }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+    :root:not([chromehidden~="toolbar"]):is([sizemode="normal"],[sizemode="fullscreen"]) #PanelUI-menu-button:is([open]) > stack::after {
+    content: none !important ;
+    }}
+/* Hacer el botón más ancho en el menú [open] */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
+    --padding-left-tab: 79px !important;
+    max-width: var(--padding-left-tab) !important;
+    min-width: var(--padding-left-tab) !important;
+    }}
+@media (-moz-platform: linux){
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
+    --padding-left-tab: 85px !important;
+    }}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+:root:is([sizemode="maximized"]) #appMenu-popup{
+    --padding-left-tab: 79px !important;
+    }}
+@media (-moz-platform: linux){
+:root:is([sizemode="maximized"]) #appMenu-popup{
+      --padding-left-tab: 85px !important;
+    }}
+/* tamaño nuevo botón Menú */
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PanelUI-menu-button,
+:root[sizemode="maximized"] #appMenu-popup{
+    --tab-height-personal: var(--toolbar-height-personal) !important;
+    }
+/* botón Menú [open] no muy grande */
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+    padding-top: calc(-10px + var(--tab-height-personal)) !important; 
+    z-index: 2 !important;
+}
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup{
+    clip-path: polygon(
+        calc(var(--padding-left-tab) - 1px) 0%, 
+        200% 0%, 0% 900%,
+        0% calc(var(--tab-height-personal) - 8px ), 
+        calc(var(--padding-left-tab)) calc(var(--tab-height-personal) - 8px )); 
+    }
+/* Logo más grande */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
+    min-height: 20px !important;
+    min-width:  20px !important;
+        } }
+/* menu :hover */
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
+    background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
+        } }
