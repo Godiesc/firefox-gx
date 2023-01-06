@@ -316,7 +316,7 @@ Window controls will be all wrong without it
 
 /* ----------------Nuevos margenes Botón menú------------------- */
 :root{
-    --uc-vertical-toolbar-width: 48px !important;                                                               /* Nuevo tamaño sidebar */
+    --uc-vertical-toolbar-width: 41px !important;                                                               /* Nuevo tamaño sidebar */
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
     --margin-left-icons-personal: 15px !important;                                                              /* Nuevo margen left de íconos del menú */
 }
