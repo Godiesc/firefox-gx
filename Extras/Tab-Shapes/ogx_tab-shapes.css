@@ -1,6 +1,10 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
+:root{  
+  --tab-height-personal: 31px ;     /* Tamaño altura de pestañas - 31px mínimo para usar estos nuevos estilos de pestaña*/
+}
+
 /* Sobreescribir codigo de <ogx_tab-bar.css> */
 
 /*--------------Pestaña activa - ogx-tabs-bar.css ---------------*/
@@ -26,9 +30,19 @@
 #tabs-newtab-button, #TabsToolbar #new-tab-button {       
     padding-inline-start: 0px !important;
 }
+
+@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") or 
+          -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") {
 #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
     border-radius: 50% !important;
-}
+    }}
+
+@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
+          -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge") or 
+          -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy"){
+#TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
+    border-radius: 2px !important;
+    }}
 
 /* Sobreescribir - ogx_containers.css */
 /* Pinned */
@@ -199,7 +213,6 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
               :root:not([customizing="true"]) .tabbrowser-tab .tab-background::after {
                 /* Based on tab background
                    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)), linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none);
-
                    defaults
                    background-color: var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
                    background-image: var(--tab-selected-bgimage, var(--toolbar-bgimage));
@@ -419,7 +432,6 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
       .tabbrowser-tab .tab-background::after {
         /* Based on tab background
              background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)), linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none);
-
              defaults
              background-color: var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
              background-image: var(--tab-selected-bgimage, var(--toolbar-bgimage));
@@ -500,37 +512,3 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
     }
   }
 }
-/*-----------------------------------------------------------------------------------------------------------------------------*/
-
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner")
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") or 
-          -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") or 
-  -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
-  -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
-  -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge")
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis")
-
-#TabsToolbar {
-  --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-australis.svg");
-  --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-australis.svg#svgClipPath");
-  --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-australis.svg");
-  --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-australis.svg#svgClipPath");
-  --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-australis-clipped.svg");
-  --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-australis-cilpped.svg");
-}
-
-/*-----------------------------------------------------------------------------------------------------------------*/
-  @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner")
-  @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") or 
-            -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") or 
-            -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
-            -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
-            -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge")
-#TabsToolbar {
-  --uc-tab-corner-height: calc(var(--tab-min-height) + 1px);
-  --uc-tab-corner-size: var(--uc-tab-corner-height);
-  --uc-tab-corner-half-size: calc(var(--uc-tab-corner-size) / 2);
-  --uc-tab-corner-half-size-reverse: calc(var(--uc-tab-corner-half-size) * -1);
-  --uc-tab-corner-bgimage: none;
-}
-  
