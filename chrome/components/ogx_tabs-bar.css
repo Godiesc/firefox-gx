@@ -162,7 +162,7 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
 #private-browsing-indicator-with-label > label {
 	display: none !important;
 }
-/* Tamaño horizontal pestañas*/
+/* Tamaño horizontal pestañas */
 .tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 200px !important; 
 }
 /* Reduce spacing between pinned and regular tabs */
