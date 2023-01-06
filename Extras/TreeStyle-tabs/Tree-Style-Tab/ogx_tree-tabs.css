@@ -227,11 +227,11 @@ Window controls will be all wrong without it
   --padding-bottom-left-sidebar: 90px !important;
   --tab-height-personal: calc(-30px - var(--windowed-top-padding, 0px)) !important;
 }
-/* Quitar imagen de la Side-bar */
+/* Quitar imagen de la Side-bar 
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar,
 :root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar  {
     --toolbar-bgcolor: var(--lwt-frame) !important;
-}
+}*/
 /* Background color de botones <Window Controls> */
 :root[tabsintitlebar] .titlebar-buttonbox {
     background: var(--toolbar-bgcolor) !important;
