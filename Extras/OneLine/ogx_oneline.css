@@ -223,7 +223,7 @@ Window controls will be all wrong without it
 /* Sobre-escribir ancho <window controls> linux */
 @media (-moz-gtk-csd-available) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 78px;
+    --uc-window-control-width: 84px;
   }
 }
 /* Sobreescribir height de <window controls> */
@@ -235,29 +235,30 @@ Window controls will be all wrong without it
   margin-left: var(--uc-navigationbar-width);
   --tabs-navbar-shadow-size: inherit !important;
 }
-
+  
 @media (prefers-color-scheme: dark){
 :root:is([brighttext]):-moz-lwtheme,
 :root[lwt-toolbar-field-focus-brighttext],
   :root:-moz-lwtheme{
   --toolbar-bgcolor: transparent !important;                             /* "toolbar":"#131118", "Color de la toolbar"*/
   --lwt-sidebar-background-color:  #101019 !important;                   /* Necesario para corregir bug en ogx_library.css */
-  /*--lwt-selected-tab-background-color: #101019 !important;               /* Color defaul de la petaña activa */
+  /*--lwt-selected-tab-background-color: #101019 !important;             /* Color defaul de la petaña activa */
   --tab-height-personal: 32px !important;                                /* Minimum Height 32px for the right function of the theme*/
   --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
   --navbarWidth:31vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
   /*--toolbarbutton-hover-personal: #1d172b !important;*/
   --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;          /*"button_background_hover": "#26242e"*/
-  --toolbarbutton-active-background: var(--arrowpanel-background) !important;          /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: var(--arrowpanel-background) !important;                /*"button_background_hover": "#26242e"*/
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
   }}
+  
 @media (prefers-color-scheme: light){
 :root:is([darktext]):-moz-lwtheme,
 :root[lwt-toolbar-field-focus-darktext],
   :root:-moz-lwtheme{
   --toolbar-bgcolor: transparent !important;                             /* "toolbar":"#131118", "Color de la toolbar"*/
   --lwt-sidebar-background-color:  #f9f9f9 !important;                   /* Necesario para corregir bug en ogx_library.css */
-  /*--lwt-selected-tab-background-color: #f9f9f9 !important;               /* Color defaul de la petaña activa */
+  /*--lwt-selected-tab-background-color: #f9f9f9 !important;             /* Color defaul de la petaña activa */
   --tab-height-personal: 32px !important;                                /* Minimum Height 32px for the right function of the theme*/
   --toolbar-height-personal: var(--tab-height-personal) !important;      /* Toolbar height */
   --navbarWidth:31vw;                                                    /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
@@ -266,22 +267,61 @@ Window controls will be all wrong without it
   --toolbarbutton-active-background: var(--arrowpanel-background) !important;          /*"button_background_hover": "#26242e"*/
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 82% , transparent 100%) !important;
   }}
-@media (prefers-color-scheme: dark){
+  
+  @media (prefers-color-scheme: dark){
 :root[lwtheme-image], :root[style*="--lwt-additional-images"]{
   --toolbar-bgcolor: transparent !important;                                     
   --lwt-selected-tab-background-color: #101019bf !important;                     
   --toolbarbutton-hover-background: color-mix(in srgb, transparent 92%, var(--lwt-tab-text)) !important;         /*"button_background_hover": "#26242e"*/
   --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;                              /* Button :hover color personal*/
   --toolbarbutton-active-background: color-mix(in srgb, transparent 86%, var(--lwt-tab-text)) !important;        /*"button_background_active": "#26242e"*/
-  }}
-@media (prefers-color-scheme: light){
+    }}
+  
+  @media (prefers-color-scheme: light){
 :root[lwtheme-image], :root[style*="--lwt-additional-images"]{
   --toolbar-bgcolor: transparent !important;                                     
   --lwt-selected-tab-background-color: #f9f9f9bf !important;                     
   /*--toolbarbutton-hover-personal: color-mix(in srgb, transparent 70%, white) !important;
   --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;                             /*"button_background_hover": "#26242e"*/
   --toolbarbutton-active-background: color-mix(in srgb, transparent 86%, var(--lwt-tab-text)) !important;       /*"button_background_active": "#26242e"*/
-  }}
+    }}
+
+/* Compatibilidad parcial con "Tab-Shapes" config */
+  
+  @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+  @media (prefers-color-scheme: dark){
+:root:is([brighttext]):-moz-lwtheme,
+:root[lwt-toolbar-field-focus-brighttext],
+  :root:-moz-lwtheme{
+  --toolbar-bgcolor: var(--lwt-frame) !important;                        /* "toolbar":"#131118", "Color de la toolbar"*/
+  --lwt-selected-tab-background-color: inherit !important;               /* Color defaul de la petaña activa */
+  --tab-height-personal: 31px !important;                                /* Minimum Height 31px for the right function of the theme*/
+    }}}
+  
+  @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+    @media (prefers-color-scheme: light){
+:root:is([darktext]):-moz-lwtheme,
+:root[lwt-toolbar-field-focus-darktext],
+  :root:-moz-lwtheme{
+  --toolbar-bgcolor: var(--lwt-frame) !important;                        /* "toolbar":"#131118", "Color de la toolbar"*/
+  --lwt-selected-tab-background-color: inherit !important;               /* Color defaul de la petaña activa */
+  --tab-height-personal: 31px !important;                                /* Minimum Height 31px for the right function of the theme*/
+    }}}
+  
+  @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+  @media (prefers-color-scheme: dark){
+:root[lwtheme-image], :root[style*="--lwt-additional-images"]{
+  --toolbar-bgcolor: #101019bf !important;                                                         /* "toolbar":"#131118", "Color de la toolbar"*/
+  --lwt-selected-tab-background-color: #101019bf !important;
+    }}}
+
+@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+  @media (prefers-color-scheme: light){
+:root[lwtheme-image], :root[style*="--lwt-additional-images"]{
+  --toolbar-bgcolor: #fefefebf !important;                                                         /* "toolbar":"#131118", "Color de la toolbar"*/
+  --lwt-selected-tab-background-color: #fefefebf !important;
+    }}}
+
 /* Sobre-escribir la regla usada en ogx_tabs-bar, lineas 175-183 */
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
