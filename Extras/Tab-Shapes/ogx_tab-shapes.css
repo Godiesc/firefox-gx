@@ -302,6 +302,14 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-wave-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
       }
+      :root:is([style*="--lwt-additional-images"],[lwtheme-image]) #TabsToolbar {
+        --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-wave1.svg");
+        --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-wave1.svg#svgClipPath");
+        --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-wave1.svg");
+        --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-wave1.svg#svgClipPath");
+        --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-wave-clipped.svg");
+        --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
+      }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") {
       #TabsToolbar {
@@ -312,6 +320,14 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-australis-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-australis-cilpped.svg");
       }
+      :root:is([style*="--lwt-additional-images"],[lwtheme-image]) #TabsToolbar {
+        --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-australis1.svg");
+        --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-australis1.svg#svgClipPath");
+        --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-australis1.svg");
+        --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-australis1.svg#svgClipPath");
+        --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-australis-clipped.svg");
+        --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-australis-cilpped.svg");
+      }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") {
       #TabsToolbar {
@@ -319,6 +335,15 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-chrome.svg#svgClipPath");
         --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-chrome.svg");
         --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-chrome.svg#svgClipPath");
+        --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-chrome-clipped.svg");
+        --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chrome-clipped.svg");
+        --uc-tab-corner-size: 16px;
+      }
+      :root:is([style*="--lwt-additional-images"],[lwtheme-image]) #TabsToolbar {
+        --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-chrome1.svg");
+        --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-chrome1.svg#svgClipPath");
+        --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-chrome1.svg");
+        --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-chrome1.svg#svgClipPath");
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-chrome-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chrome-clipped.svg");
         --uc-tab-corner-size: 16px;
@@ -340,6 +365,15 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-edge.svg#svgClipPath");
         --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-edge.svg");
         --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-edge.svg#svgClipPath");
+        --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-edge-clipped.svg");
+        --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-edge-clipped.svg");
+        --uc-tab-corner-size: 14px;
+      }
+      :root:is([style*="--lwt-additional-images"],[lwtheme-image]) #TabsToolbar {
+        --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-edge1.svg");
+        --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-edge1.svg#svgClipPath");
+        --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-edge1.svg");
+        --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-edge1.svg#svgClipPath");
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-edge-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-edge-clipped.svg");
         --uc-tab-corner-size: 14px;
@@ -417,6 +451,10 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
     #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([visuallyselected], [multiselected]) .tab-background:-moz-lwtheme {
       /* My edit */
 /*      --uc-tab-corner-bgimage: none;*/
+    }
+      #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([multiselected]) .tab-background:-moz-lwtheme {
+      /* My edit - Fondo de pestañas al mover un grupo de pestañas */
+        background: color-mix(in srgb, var(--contrast-color) 46%, var(--general-color, transparent)) !important;
     }
     @media (-moz-gtk-csd-available) {
       /* Fill color for GTK */
