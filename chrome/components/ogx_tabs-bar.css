@@ -86,27 +86,17 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
     background-color: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent)  !important;
 }
 /*Regla para visualizar mejor el seleccionar varias pestañas*/
-@supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner")
-  @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") or
-    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") or 
-    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
-    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
-    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge")
+@supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner"){
 .tab-background[multiselected]:not([selected="true"]), tab-background:is([multiselected]):not([selected="true"]) .tab-stack {
     margin-inline: 0px 0px !important; 
     background: var(--button-hover-bgcolor) !important; 
     outline: none !important;  
     margin-block: 0px !important;
-}
-@supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner")
-  @supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") or
-    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") or 
-    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
-    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
-    not -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge")
+    }}
+@supports not -moz-bool-pref("userChrome.tab.bottom_rounded_corner"){
 .tab-background[multiselected][selected="true"] hbox{
     background: var(--general-color) !important;
-}
+    }}
 /*"toolbar_top_separator": "#17161c"*/
 #navigator-toolbox{
     --tabs-border-color: transparent !important; 
@@ -184,16 +174,8 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
   background-image: radial-gradient(circle, var(--general-color), var(--general-color) 2px, transparent 2px) !important;
   background-position: center top calc(0px + var(--tabs-navbar-shadow-size)) !important;
 }
-/* Mantener una imagen al mover pestaña en temas con imagenes [lwtheme-image] - still needs fix */
-:root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
-   background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
-   linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
-   background-position: left bottom !important;
-   background-repeat:  no-repeat !important;
-   background-size:  inherit !important;  
-}
 
-/* --------------------- config to themes that have :root[style*="--lwt-additional-images"] ---------------------------
+/* ----------------------------------- config to themes that have "IMAGES" --------------------------------------------
    ------------------------------------------ Compatibilidad parcial -------------------------------------------------- */
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
@@ -205,7 +187,9 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
    background-size:  auto auto !important;  
 }
 /* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
+:root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+   --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;                                                   /*"tab_selected":"#363540"*/
    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
    linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
    background-position: left center !important;
