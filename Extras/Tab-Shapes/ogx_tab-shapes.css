@@ -358,6 +358,14 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-chromeLegacy-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chromeLegacy-clipped.svg");
       }
+      :root:is([style*="--lwt-additional-images"],[lwtheme-image]) #TabsToolbar {
+        --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-chromeLegacy1.svg");
+        --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-chromeLegacy1.svg#svgClipPath");
+        --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-chromeLegacy1.svg");
+        --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-chromeLegacy1.svg#svgClipPath");
+        --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-chromeLegacy-clipped.svg");
+        --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chromeLegacy-clipped.svg");
+      }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge") {
       #TabsToolbar {
