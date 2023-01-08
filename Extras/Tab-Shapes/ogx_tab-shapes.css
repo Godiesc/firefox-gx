@@ -64,7 +64,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
 
 @supports -moz-bool-pref("userChrome.tab.multi_selected") {
   #TabsToolbar {
-    --uc-multiselected-tab-bgcolor: color-mix(in srgb, currentColor 18%, var(--contrast-color, transparent));
+    --uc-multiselected-tab-bgcolor: color-mix(in srgb, var(--contrast-color) 46%, var(--general-color, transparent));
   }
   #TabsToolbar[brighttext] {
     --uc-multiselected-tab-bgcolor: color-mix(in srgb, var(--contrast-color) 46%, var(--general-color, transparent));
@@ -108,7 +108,8 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
   }
   #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
     box-shadow: unset !important;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(-1px -0.5px 0px var(--general-color, transparent))
+      drop-shadow(1px -0.5px 0px var(--general-color, transparent)) /*drop-shadow(0 2px rgba(128, 128, 142, 0.5))*/ ;
   }
   :root:is([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])
     #TabsToolbar[brighttext]
@@ -116,7 +117,8 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
     .tabbrowser-tab:is([selected], [multiselected])
     > .tab-stack
     > .tab-background:-moz-lwtheme {
-    filter: drop-shadow(0 0 1px var(--uc-tab-shadow-color, transparent));
+    filter: drop-shadow(-1px -0.5px 0px var(--general-color, transparent))
+      drop-shadow(1px -0.5px 0px var(--general-color, transparent)) /*drop-shadow(0 2px rgba(128, 128, 142, 0.5))*/ ;
   }
   :root:is([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])
     #TabsToolbar[brighttext]
@@ -126,7 +128,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
     #TabsToolbar[brighttext]
     #tabbrowser-tabs:not([noshadowfortests])
     .tabbrowser-tab[multiselected]:not([visuallyselected]) {
-    --uc-tab-shadow-color: var(--toolbar-color);
+    --uc-tab-shadow-color-bundle: var(--toolbar-color);
   }
   /* For themes outside of Light and Dark (which are curated by Mozilla), show a thicker border
      around the tab to help themes that are dependent on tab_line to show the selected tab. */
@@ -460,7 +462,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
       /* My edit */
 /*      --uc-tab-corner-bgimage: none;*/
     }
-      #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([multiselected]) .tab-background:-moz-lwtheme {
+      #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([multiselected]):not([visuallyselected]) .tab-background {
       /* My edit - Fondo de pestañas al mover un grupo de pestañas */
         background: color-mix(in srgb, var(--contrast-color) 46%, var(--general-color, transparent)) !important;
     }
