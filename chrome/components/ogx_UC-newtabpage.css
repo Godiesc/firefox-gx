@@ -10,6 +10,7 @@
 
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
     body{
+     --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
     --contrast-color: white !important;
     --border-contrast-color: #acacac50 !important;
         
@@ -179,7 +180,7 @@ input:focus-visible, input:focus-visible{
     background: var(--newtab-pinnedsites-background) !important;
     opacity: var(--searchbar-on-off, 1) !important;
     display: var(--searchbar-display, flex) !important;
-    margin-top: 50px !important;
+    margin-top: 16px !important;
     outline: 1px solid #50505030 !important;
     }
 .search-inner-wrapper::after {width: unset !important; 
@@ -194,6 +195,11 @@ input:focus-visible, input:focus-visible{
 .search-inner-wrapper:not(:focus){
     border-radius: 4px !important;
     backdrop-filter: none !important;
+}
+@supports -moz-bool-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
+.search-inner-wrapper:not(:focus){
+    backdrop-filter: var(--personal-blur) !important;
+    }
 }
 .search-inner-wrapper:is(:hover){
     border-radius: 4px !important;
@@ -211,10 +217,9 @@ input:focus-visible, input:focus-visible{
     outline: 1px solid var(--button-active-bgcolor) !important;
     border: transparent !important;
     margin-left: 1px !important;
-    z-index: 1000 !important;
-    clip-path: none !important;
+    z-index: 1 !important;
 }
-    browser[primary="true"][tabDialogShowing="true"],
+browser[primary="true"][tabDialogShowing="true"],
 #main-window[window-modal-open="true"] > body > #browser{
   filter: blur(10px)
 }
@@ -304,19 +309,32 @@ body{
 .wordmark {
     background: url("../images/firefox-wordmark.svg") no-repeat center center !important;
     background-size: 134px !important;
-    height: 82px !important;
-    width: 134px !important;
-    margin-inline-start: 16px !important;
     Opacity: var(--logo-wordmark-visibility) !important;
     display: var(--logo-wordmark-display) !important;
     }
 .search-wrapper .logo-and-wordmark {
-    margin-bottom: 0px !important; }
+    margin-bottom: 0px !important;
+    }
 .promo-cta .button {
     color: #cacaca !important; }
 main {
     margin-top: var(--newtab-pinnedsites-position-top, auto) !important;
 }
+    
+/* "Logo-wordmark" y search-box en una sola linea */
+@media screen and (min-width: 1000px){
+.wordmark{ margin-inline-end: 50px !important;  }
+.search-wrapper, .search-inner-wrapper{
+    display: var(--orientation-display) !important;
+    justify-content: center !important;
+    }
+.search-inner-wrapper{
+    display: var(--searchbar-display) !important;
+    height: 52px !important;
+    margin-top: 16px !important;
+    }
+  }
+
 }
 /*---------------------------------- Pagina de Error al Cargar Página ---------------------------------------------*/
 @-moz-document url('about:config'),  url(about:privatebrowsing),
