@@ -9,7 +9,7 @@
   <li>Add the file <code>ogx_main-image.css</code> into the <code>chrome/components</code> folder.</li>
   <li>Edit the line <code>31</code> into the <code>ogx_root-personal.css</code> file with the code: <code>--wallpaper-size: auto auto ;</code>.</li>
   <li>Edit the line <code>21</code> into the <code>ogx_root-personal.css</code> file with the code: <code>--brightness-wallpaper: brightness(51%);</code>.</li>
-  <li> Edit the line <code>55</code> into the <code>ogx_root-personal.css</code> file, uncomment it and write the right number, 
+  <li> Edit the line <code>56</code> into the <code>ogx_root-personal.css</code> file, uncomment it and write the right number, 
   there is a description on the right side of the rule, That's all. 💙</li>
 </ol>
 
