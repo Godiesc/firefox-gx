@@ -14,7 +14,6 @@ user_pref("userChrome.tab.box_shadow",                 true);
 user_pref("userChrome.tab.connect_to_window",          true);
 user_pref("userChrome.tab.bottom_rounded_corner.all",  true);
 user_pref("userChrome.tab.color_like_toolbar",         true);
-user_pref("userChrome.tab.bottom_rounded_corner.all",  true);
 user_pref("userChrome.tab.multi_selected",             true);
 user_pref("userChrome.tab.bottom_rounded_corner",      true);
 
