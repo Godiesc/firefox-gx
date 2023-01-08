@@ -5,7 +5,7 @@
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){ 
     .tab-secondary-label{display: none !important;
     }
-@keyframes slide1 {
+@keyframes slide2 {
     from { transform: scale(1.0, 1.0); }
       to { transform: scale(0.6, 1.0); }
 }
@@ -136,7 +136,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
   background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important;
   stroke: none !important;
   box-shadow: none !important;
-  animation: 500ms infinite ease-in-out; animation-name: slide1;
+  animation: 500ms infinite ease-in-out; animation-name: slide2;
     }
 .tabbrowser-tab:is([pinned]):hover .tab-icon-overlay:is([pinned])[soundplaying]{
     border-radius: 2px !important; 
