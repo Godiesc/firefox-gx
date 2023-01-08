@@ -625,6 +625,15 @@ toolbar:not(#PersonalToolbar,#TabsToolbar) .toolbarbutton-1{
     
     border-top: 0px !important;
 }
+/* Compatibilidad left-sidebar con <tab-shapes> */
+@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
+  :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
+  border-image: linear-gradient(to bottom, transparent 
+        calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 63px),
+        var(--general-color) calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 63px),
+        var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;
+  }}
+  
 /* H I D I N G   E L E M E N T S */
 /* Comment or uncomment depending of what elements you want to hide */
 
