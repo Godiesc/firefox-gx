@@ -44,6 +44,7 @@
   --logo-wordmark-display: none ;                                                            /* :none ->eliminar , :flex ->Mostrar;  Logo-wordmark*/
   --searchbar-on-off: 1 ;                                                                    /* :1 visible, :0 invisible ; searchbar*/
   --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
+  --orientation-display: flex ;                                                              /* :block -> vertical , :flex -> horizontal ; Logo-wordmark y searchbar*/
   
   --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
   --newtab-pinnedsites-position-top: 0px ;                                                   /* Posición pinnedsites - top-> : 0px ; default-> : auto*/
