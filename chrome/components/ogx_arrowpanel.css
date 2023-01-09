@@ -89,7 +89,7 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover{ colo
 #downloadsListBox > richlistitem { 
     border-radius: 0px !important;
     background-image: var(--noise-urlbar-personal) !important;
-    background-color: var(--arrowpanel-background) !important; 
+    background-color: transparent !important; 
     padding-inline: 4px 4px !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;}
 #downloadsListBox > richlistitem:is(:hover) {
