@@ -483,7 +483,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
       :root:not([lwtheme="true"]) .tabbrowser-tab[visuallyselected] .tab-background::after {
         /* As GTK Toolbar's background-color + background-image
          * --toolbar-non-lwt-bgcolor: -moz-dialog;
-         --toolbar-non-lwt-bgimage: linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15));*/
+         --toolbar-non-lwt-bgimage: linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15));
          */
         --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-non-lwt-bgcolor), var(--toolbar-non-lwt-bgcolor));
         fill: rgba(255, 255, 255, 0.075);
