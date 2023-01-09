@@ -173,13 +173,19 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     background-color: var(--button-active-bgcolor) !important;
 }
 /* :hover en botones de: all-tabs and unified extensions */
-toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, .unified-extensions-item-menu-button.subviewbutton,
+toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, 
+.unified-extensions-item-menu-button.subviewbutton,
 .all-tabs-secondary-button{
     margin-right: 6px !important;
     border-radius: 3px !important;
+    border: none !important;
+}
+.unified-extensions-item-action-button[disabled].subviewbutton{
+    margin-right: 8px !important;
 }
 toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton:hover, 
 #unified-extensions-area .unified-extensions-item-menu-button.subviewbutton:hover,
+.unified-extensions-item-menu-button.subviewbutton.subviewbutton-iconic:hover,
 #allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover{
     background: var(--button-hover-bgcolor) !important;
 }
