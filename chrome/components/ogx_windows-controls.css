@@ -58,8 +58,10 @@
 .titlebar-close {
   -moz-default-appearance: -moz-window-button-close !important;
   }
+.titlebar-buttonbox {
+    height: var(--tab-height-personal) !important;
+  }
 }
-
 @media (-moz-gtk-csd-reversed-placement) {
 .titlebar-buttonbox-container {
     margin-inline: 2px 8px !important;
