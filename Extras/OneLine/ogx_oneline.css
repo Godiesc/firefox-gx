@@ -402,14 +402,24 @@ Window controls will be all wrong without it
     padding-inline: 0px !important;
     margin: 0px !important;
   }
+  /* Poner Separador <window controls on left> y demás botones */
+:root:not([chromehidden~="toolbar"]) #back-button::before {
+    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
+    content: ""; display: block !important;
+    background-size: 6px 16px !important;
+    height: 16px;
+    fill: var(--button-hover-bgcolor) !important;
+    -moz-context-properties: fill !important;
+    padding-inline: 4px 4px !important;
+    margin-left: 2px !important;
+    opacity: 0.8;
+}  
   /* Espacio de arrastre derecha ventana <no maximizada> */
   :root[tabsintitlebar][sizemode="normal"]:not([sizemode="maximized"]) #navigator-toolbox{
   --uc-buttons-width: calc(98px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important; }
   :root[tabsintitlebar][sizemode="normal"]:not([sizemode="maximized"]) #nav-bar{
     border-inline-end-width: 50px  !important;
-  }
-  /* Espacio de arrastre derecha ventana <maximizada> */
-  
+  }  
   :root:is([tabsintitlebar="true"][sizemode="maximized"],[tabsintitlebar][sizemode="fullscreen"]) #nav-bar{
     border-inline-end-width: 0px  !important;
   }
@@ -439,17 +449,17 @@ Window controls will be all wrong without it
   /*Botón <atrás> más a la derecha */
   :root:not([chromehidden~="toolbar"]) #back-button{
     display: block !important;
-    margin-left: calc(var(--uc-vertical-toolbar-width,0) + var(--uc-window-control-width) - 2px) !important;
+    margin-left: calc(var(--uc-vertical-toolbar-width,0) + var(--uc-window-control-width)) !important;
     padding-inline-start: 2px !important;
     }
   /* mover tabs-bar más a la derecha a causa de los <window controls> */
   #TabsToolbar{
-    margin-left: calc(var(--uc-navigationbar-width) + var(--uc-window-control-width) - 14px);
+    margin-left: calc(var(--uc-navigationbar-width) + var(--uc-window-control-width));
     --tabs-navbar-shadow-size: inherit !important;
     }
   /* Menu bar */
   :root:not([chromehidden~="toolbar"]) #toolbar-menubar{
-    padding-left: calc(var(--uc-vertical-toolbar-width,0) + var(--uc-window-control-width) ) !important;
+    padding-left: calc(var(--uc-vertical-toolbar-width,0) + var(--uc-window-control-width)) !important;
     }
   :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="false"] + #TabsToolbar{
     padding-left: calc(var(--uc-vertical-toolbar-width,0) + 4px) !important;
