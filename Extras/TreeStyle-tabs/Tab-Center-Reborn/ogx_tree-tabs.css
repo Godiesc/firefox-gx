@@ -312,8 +312,11 @@ Window controls will be all wrong without it
 .urlbar-page-action {
   margin-block: 4px 2px !important;
 }
-
-
+/* Alinear verticalmente url */
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux){ 
+    #urlbar-input, #urlbar-scheme{
+        margin-bottom: -2px !important;
+}}
 
 /* ----------------Nuevos margenes Botón menú------------------- */
 :root{
