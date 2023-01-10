@@ -332,7 +332,7 @@ Window controls will be all wrong without it
         /* My edit - Fondo de pestañas al mover pestaña seleccionada imagenes: :before :after */
   #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([visuallyselected]) .tab-background::before, 
   #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([visuallyselected]) .tab-background::after{
-        background: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--contrast-color, transparent)),
+        background: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
   }
 }
