@@ -331,7 +331,8 @@ Window controls will be all wrong without it
   }
         /* My edit - Fondo de pestañas al mover pestaña seleccionada imagenes: :before :after */
   #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([visuallyselected]) .tab-background::before, 
-  #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([visuallyselected]) .tab-background::after{
+  #tabbrowser-tabs[movingtab] .tabbrowser-tab:is([visuallyselected]) .tab-background::after,
+  :root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
         background: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
   }
@@ -339,8 +340,7 @@ Window controls will be all wrong without it
   
 /* Sobre-escribir la regla usada en ogx_tabs-bar, lineas 175-183 */
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"],
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
 }
