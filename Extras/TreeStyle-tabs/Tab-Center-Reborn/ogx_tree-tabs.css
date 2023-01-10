@@ -182,6 +182,7 @@ Window controls will be all wrong without it
 #unified-extensions-button::after {
     background: none !important; 
     padding-inline: 0px 0px !important;
+    margin: 0px !important;
 }
   /* Separador <window controls> y demás botones */
 #back-button::before {
