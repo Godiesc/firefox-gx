@@ -10,7 +10,7 @@
 
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
     body{
-     --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
+    --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
     --contrast-color: white !important;
     --border-contrast-color: #acacac50 !important;
         
@@ -218,6 +218,9 @@ input:focus-visible, input:focus-visible{
     border: transparent !important;
     margin-left: 1px !important;
     z-index: 1 !important;
+}
+.search-wrapper .search-button:focus, .search-wrapper .search-button:hover {
+    fill: white !important;
 }
 browser[primary="true"][tabDialogShowing="true"],
 #main-window[window-modal-open="true"] > body > #browser{
