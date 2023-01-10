@@ -163,6 +163,11 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
 .titlebar-spacer[type="pre-tabs"]{
     display: none !important
 }
+/* Espacio de arrastre (en la derecha) en linux con <window controls> en la izquierda */
+@media (-moz-gtk-csd-reversed-placement) {
+.titlebar-spacer[type="post-tabs"]{
+    display: block !important
+    }}
 /* Sombra label de pestañas - sombra de pestaña*/
 .tab-label{ text-shadow: none !important;
 }
@@ -196,11 +201,6 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
    background-repeat:  no-repeat !important;
    background-size:  auto auto !important;  
 }
-/* Espacio de arrastre en linux con <window controls> en la izquierda */
-@media (-moz-gtk-csd-reversed-placement) {
-.titlebar-spacer[type="post-tabs"]{
-    display: block !important
-    }}
 
 /* ------------------------ config to MacOS ---------------------------
    ------------- partial compatibility to window Controls ----------*/
