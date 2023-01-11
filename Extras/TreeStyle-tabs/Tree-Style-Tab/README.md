@@ -1,6 +1,6 @@
 ## [Tree style tabs](https://addons.mozilla.org/es/firefox/addon/tree-style-tab/) Extension.
 
-This style is compatible with [Left-sidebar Config](https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar) if you want..
+This style is compatible with [Left-sidebar Config](https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar) if you want.
 
 ### Steps to apply this config
 <ol><li>Install the addon (link above).</li>
