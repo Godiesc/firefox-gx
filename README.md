@@ -42,12 +42,12 @@
 
 # Extras
 <ul><li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/OneLine"><b>OneLine</b></a> - The tabs-bar will be next to the navbar.</li>
+<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Tab-Shapes"><b>Tab Shapes</b></a> - Give the tabs other style.</li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a></a> - This configuration will simulate a image behind all the browser.</li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Left-SideBar"><b>Left Side-Bar</b></a> - The bookmark-bar will display on the left of the window.</li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/TreeStyle-tabs"><b>Tree Style Tabs</b></a> - Compatibility to the extension that put the tabs vertically.</li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Classic-Sound-icon"><b>Classic-Sound-icon</b></a> - The tabs with sound will show a rhythm image.</li>
 <li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension</b></a> - Enables the possibility to play or pause tabs with a click on the sound icon.</li>
-<li><a href="https://github.com/Godiesc/opera-gx/tree/main/Extras/Tab-Shapes"><b>Tab Shapes</b></a> - Give the tabs other style.</li>
 <li><a href="https://github.com/MemeMan404/GX-NewTab-using-NightTab"><b>Night tab extension</b></a> - Simple OperaGX style Newtab using the Nighttab extension. [external partner]</li></ul>
 
 # Personalizar - Customize
