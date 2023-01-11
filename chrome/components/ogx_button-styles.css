@@ -176,7 +176,7 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, 
 .unified-extensions-item-menu-button.subviewbutton,
 .all-tabs-secondary-button{
-    margin-right: 6px !important;
+    margin-right: 5px !important;
     border-radius: 3px !important;
     border: none !important;
 }
