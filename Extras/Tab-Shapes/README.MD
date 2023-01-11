@@ -16,4 +16,4 @@
 
 ## Preview
 
-![Tab-Shapes](https://user-images.githubusercontent.com/22057609/210485114-cea4ac40-42bc-43f8-9a2c-514db9dc152b.png)
+![GX-Tab_shapes](https://user-images.githubusercontent.com/22057609/211934914-f46a674a-f636-4daa-bc37-981a7e2a2901.png)
