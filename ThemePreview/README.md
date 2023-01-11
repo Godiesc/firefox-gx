@@ -4,6 +4,10 @@
 
 ![light-dark](https://user-images.githubusercontent.com/22057609/211889538-4cd75d99-8ffc-4516-8286-b3cc766ae8d2.png)
 
+### Tab-Shapes
+
+![GX-Tab_shapes](https://user-images.githubusercontent.com/22057609/211902860-d9b885f2-9a62-4eae-8adc-fa27ee92f24f.png)
+
 ### Preferences Page
 
 ![imagen](https://user-images.githubusercontent.com/22057609/186515863-c6ded24a-4621-4efd-99ea-191ff235f906.png)
