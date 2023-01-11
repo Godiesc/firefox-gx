@@ -31,13 +31,16 @@
 /* Newtab button */
 #tabs-newtab-button, #TabsToolbar #new-tab-button {       
     padding-inline-start: 0px !important;
+    margin-bottom: 2px !important;
 }
 
 @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.wave") or 
           -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") {
 #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
-    border-radius: 50% !important;
-    }}
+    border-radius: 50% !important; }
+#tabs-newtab-button{
+    margin-left: -6px !important; }
+  }
 
 @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
           -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge") or 
