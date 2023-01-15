@@ -11,5 +11,5 @@
 --bg-img: url("https://i.imgur.com/iOl6TWI.png") !important;
 --bg-size: cover !important;
 background-image: var(--bg-img) !important;
-background-repet: no-repeat !important;
+background-repeat: no-repeat !important;
 }
