@@ -76,7 +76,7 @@
 
 <ul><li>Windows 7 (Not tested - No probado) ❌</li>
 <li>Linux - Manjaro KDE (Tested - Probado) ✔ - <a href="https://imgur.com/a/Byo3Mn7">Preview</a></li>
-<li>Windows 10 (Tested - Probado) ✔ - <a href="https://i.imgur.com/ckLxcZe.png">Preview</a></li>
+<li>Windows 10 (Tested - Probado) ✔ - <a href="https://imgur.com/a/aYl8fjn">Preview</a></li>
 <li>Windows 11 (Tested - Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png" >Preview</a></li>
 <li>MacOS (Tested - Probado) ✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a> </br> Thanks to <a href= "https://github.com/FormalSnake"> FormalSnake</a> for helping to test the theme in this OS.</li>
 </ul>
