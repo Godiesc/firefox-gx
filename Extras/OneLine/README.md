@@ -5,7 +5,8 @@
 </ol>
 
 ## Position of buttons before apply the One-line config
-![PositionOfButtonsOneLine](https://user-images.githubusercontent.com/22057609/206939542-d7e0d137-7cf8-4181-b28a-9834ac53cf1b.png)
+
+![OnelineSplashParaPosiciónBotones](https://user-images.githubusercontent.com/22057609/213766636-6cc2cbe4-4c1d-4b6a-92d1-323857a420f0.png)
 
 ## Preview
 ![imagen](https://user-images.githubusercontent.com/22057609/196294613-0d40bef9-e1e2-4ec3-a44e-b6ff3cce5433.png)
