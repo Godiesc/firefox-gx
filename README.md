@@ -13,7 +13,7 @@
    <li>Instala y usa un <a href="https://github.com/Godiesc/opera-gx#temas---themes" >tema</a> compatible.</li>
    <li>Reinicia el navegador.</li></ol>
 
-<p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p>
+<ul><li><p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
 
 <ol><b>(EN) Steps to configure the theme:</b>
    <li>Download the theme from the <b> << Releases >> </b> section, in the right side of this page</code></li> 
@@ -21,7 +21,7 @@
    <li>Install and use a compatible <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a>.</li>
    <li>Restart the browser. </li></ol>
 
-<p><b> To find out the location of your profile directory go to <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p>
+<ul><li><p><b> To find out the location of your profile directory go to <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
 
 ⚠ 🛑 ‼ The latest code updated in the repository (code > download zip) would work well only on beta o nightly versions.
 
@@ -29,7 +29,7 @@
 <ul><li>Temas Principales - Main Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li>
 
 <li> Otros Colores - Other Colors: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
-   <li>Temas Claros - Light themes: <a href="https://addons.mozilla.org/es/firefox/addon/opera-light/">Fuchsia ⚪🔴</a> <a href="https://addons.mozilla.org/es/firefox/addon/beautiful-waves/">Waves ⚪🔵 </a></li></ul>
+   <li>Temas Claros - Light themes: <a href="https://addons.mozilla.org/es/firefox/addon/opera-light/"> ⚪🔴 Fuchsia</a> <a href="https://addons.mozilla.org/es/firefox/addon/beautiful-waves/"> ⚪🔵 Waves</a></li></ul>
    
 <p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode.</b></p>
 
