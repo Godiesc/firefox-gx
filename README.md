@@ -56,7 +56,9 @@
 </ul>
 
 # Personalizar - Customize
-<ul><b><i>Personalizaciones Varias - Various customizations</i></b>
+
+<b><i>Personalizaciones Varias - Various customizations</i></b>
+<ul>
 <li><p>The file --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> contains very useful and easy to use variables, so it is easier to change:</p>
 <ul>
 <li>Wallpaper and its brightness.</li>
@@ -67,10 +69,14 @@
 <li>Hide or show the firefox logo or the search bar.</li>
 </ul>
 <p>Every variable has a description on the right, so you know what to customize without breaking the file.</p></li></ul>
-<ul><b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
+
+<b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
+<ul>
    <li><p>(Option 1) In the directory: <code>chrome</code> >> <code>images</code> >> <code>newtab</code> there is a set of wallpapers, the images that the theme will select by default are: "wallpaper-light.png" and "wallpaper-dark.png", you could rename the images you want with that names and the theme will select them, you can add your own images. If you don't want a wallpaper just delete the files with the specified names. You can find more images here: <a href="https://imgur.com/a/j78IhJN"><b> >>This Gallery<< </b></a>. <b>Restarting the browser after changing the wallpaper is required. </b></p></li>
 <li><p>(Option 2) Editing the code --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> lines: <code>19</code> and <code>23</code>.<p></li></ul></br>
-<ul><b><i>Color Principal - Accent Color</i></b>
+
+<b><i>Color Principal - Accent Color</i></b>
+<ul>
 <li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in --> <code>chrome</code> --> <code>components</code> --> <code>ogx_root-personal.css</code> has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤
    --> <b>Restarting the browser is required. </b></p></li></ul>
 
