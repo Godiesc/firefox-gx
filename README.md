@@ -11,7 +11,7 @@
    <ul><li>Descarga el tema desde la sección <b> << Releases >> </b> en el lado derecho de esta página.</code></li>
    <li>Descomprime el archivo y copia la carpeta 👉<code>chrome</code>👈 y el archivo 👉<code>user.js</code>👈 dentro de la carpeta de perfil de tu usuario de firefox.</li>
    <li>Instala y usa un <a href="https://github.com/Godiesc/opera-gx#temas---themes" >tema</a> compatible.</li>
-   <li>Reinicia el navegador.</li></ol></ul>
+   <li>Reinicia el navegador.</li></ul></ol>
 
 <ul><li><p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
 
