@@ -63,7 +63,7 @@ See the above repository for updates as well as full license text. */
 }
 
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-:root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: 32px }
+:root[sizemode="fullscreen"] #window-controls{ height: 32px }
 
 #nav-bar{
   border-inline: var(--uc-window-drag-space-pre,0px) solid var(--toolbar-bgcolor);
@@ -105,10 +105,10 @@ Get window_control_placeholder_support.css
 Window controls will be all wrong without it
 */
 
-:root[uidensity="compact"]{
+/*:root[uidensity="compact"]{
   --tab-block-margin: 2px !important;
 }
-
+*/
 /* Modify these to change relative widths or default height */
 #navigator-toolbox{
   --uc-navigationbar-width: 50vw;
@@ -125,7 +125,7 @@ Window controls will be all wrong without it
 #nav-bar:not([overflowing]) > #nav-bar-customization-target{ 
   --uc-buttons-width: calc(28px + 2 * var(--toolbarbutton-outer-padding) + 6px)
 }
-/* Override for other densities */
+/* Override for other densities 
 :root[uidensity="compact"] #navigator-toolbox{
   --uc-toolbar-height: 34px;
   --uc-menubutton-padding: 0px;
@@ -141,7 +141,7 @@ Window controls will be all wrong without it
 :root[uidensity="compact"] #urlbar{
   --urlbar-toolbar-height: var(--uc-toolbar-height) !important;
 }
-
+*/
 /* prevent urlbar overflow on narrow windows */
 /* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
 @media screen and (max-width: 1000px){
@@ -228,7 +228,7 @@ Window controls will be all wrong without it
 }
 /* Sobreescribir height de <window controls> */
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-:root[uidensity="compact"][sizemode="fullscreen"] #window-controls{ height: var(--tab-height-personal) !important; }
+:root[sizemode="fullscreen"] #window-controls{ height: var(--tab-height-personal) !important; }
 
 /* Sobre-escribir variable a su valor inherit */
 #TabsToolbar{
