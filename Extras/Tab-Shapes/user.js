@@ -10,11 +10,6 @@ user_pref("layout.css.backdrop-filter.enabled", 				     true);
 user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 
 /* Make it all false if you don't want other forms of tabs than default */
-user_pref("userChrome.tab.box_shadow",                 true);
-user_pref("userChrome.tab.connect_to_window",          true);
-user_pref("userChrome.tab.bottom_rounded_corner.all",  true);
-user_pref("userChrome.tab.color_like_toolbar",         true);
-user_pref("userChrome.tab.multi_selected",             true);
 user_pref("userChrome.tab.bottom_rounded_corner",      true);
 
 /* Make it True (only one) the rule with the form of the tab you want */
