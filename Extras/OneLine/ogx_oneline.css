@@ -387,9 +387,8 @@ Window controls will be all wrong without it
   }}
 /* Mover botón "atrás" más a la derecha */
 @media (-moz-platform: windows-win7),(-moz-platform: windows-win10), (-moz-platform: linux) { 
-  :root:not([chromehidden~="toolbar"]) #back-button{
-    display: block !important;
-    margin-left: calc(var(--uc-vertical-toolbar-width,0) - 2px) !important;
+  :root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
+    margin-left: var(--uc-vertical-toolbar-width,0) !important;
     padding-inline-start: 2px !important;
     }}
 
@@ -403,7 +402,7 @@ Window controls will be all wrong without it
     margin: 0px !important;
   }
   /* Poner Separador <window controls on left> y demás botones */
-:root:not([chromehidden~="toolbar"]) #back-button::before {
+:root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child::before {
     background: url("../images/urlbar-separator.svg") no-repeat center !important; 
     content: ""; display: block !important;
     background-size: 6px 16px !important;
@@ -447,8 +446,7 @@ Window controls will be all wrong without it
     z-index: 2 !important;
 }
   /*Botón <atrás> más a la derecha */
-  :root:not([chromehidden~="toolbar"]) #back-button{
-    display: block !important;
+  :root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
     margin-left: calc(var(--uc-vertical-toolbar-width,0) + var(--uc-window-control-width)) !important;
     padding-inline-start: 2px !important;
     }
