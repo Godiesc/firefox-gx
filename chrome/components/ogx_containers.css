@@ -2,27 +2,16 @@
    https://github.com/Godiesc/opera-gx */
 
 .tabbrowser-tab:not([pinned]) .tab-context-line {
-    -moz-box-ordinal-group: 2 !important; 
-    background-color: transparent !important;
-    height: 2px !important;
-    margin: 0 !important;
+    -moz-box-ordinal-group: 2 !important;
     margin-bottom: 3px !important;
-    background-position: left bottom, left bottom !important;
-    background-repeat: no-repeat, no-repeat !important;
 }
 .tabbrowser-tab:not([pinned],[selected]) .tab-context-line {
-    background-image: linear-gradient(to right, var(--identity-icon-color, transparent), var(--identity-icon-color, transparent)) !important;
-    clip-path: polygon(0px 0px, 22px 0%, 22px 100%, 0% 100%);
-    border-left: 6px solid transparent !important;
-    border-right: 7px solid transparent !important;
+    clip-path: polygon(4px 0%, 20px 0%, 20px 100%, 4px 100%);
     transition-duration: 0ms !important;
 } 
 .tabbrowser-tab[selected]:not([pinned]) .tab-context-line {
-    background-image: linear-gradient(to right, var(--identity-icon-color, transparent), var(--identity-icon-color, transparent)) !important;
-    clip-path: polygon(0px 0px, 100% 0%, 100% 100%, 0% 100%);
-    border-left: 6px solid transparent !important;
-    border-right: 7px solid transparent !important;
-    transition-duration: 150ms !important;
+    clip-path: polygon(4px 0%, calc(100% - 4px) 0%, calc(100% - 4px) 100%, 4px 100%);
+    transition-duration: 200ms !important;
 }
 /* Mover la label para hacer espacio para el ícono de sonido darle una ligera animación de posición */
 tab[soundplaying] .tab-content .tab-label{
@@ -63,4 +52,3 @@ tab:is([pinned]):not([selected]) .tab-context-line {
 .identity-color-red {--identity-tab-color: #ff2940 !important; --identity-icon-color: #ff2940 !important; }
 .tab-label[selected]{color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-tab-text)) 80%, var(--lwt-tab-text)) !important;}
 .tab-label:not([selected]){color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-text-color)) 80%, var(--lwt-text-color)) !important;}
-

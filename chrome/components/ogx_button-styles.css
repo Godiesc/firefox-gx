@@ -189,6 +189,16 @@ toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbu
 #allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover{
     background: var(--button-hover-bgcolor) !important;
 }
+#unified-extensions-panel .unified-extensions-item{
+    padding-block: 0 !important;
+    margin-block: 0px !important;
+}
+#unified-extensions-panel .subviewbutton{
+  padding-block: 8px !important;
+}
+:root{
+    --uei-icon-size: 18px !important;
+}
 /* Second label del botón de extenciones */
 #unified-extensions-area toolbaritem:hover .unified-extensions-item-message-deck label{
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;

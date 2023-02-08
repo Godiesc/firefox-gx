@@ -403,3 +403,7 @@ body{
     box-shadow: 0px 2px 14px var(--button-bgcolor) !important;
 }
 }
+
+@-moz-document url-prefix(https://www.facebook.com/watch){
+  .ecyo15nh {width: 1108px !important;}  .x1cvmir6 {width:176px !important;} .o36gj0jk {width:221px !important;}  .x1gryazu {margin-left: 0px !important;}
+}

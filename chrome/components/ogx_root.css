@@ -60,7 +60,7 @@
   
   --tab-min-height: var(--tab-height-personal) !important;                                /*tamaño pestañas*/
   --tabs-shadow-size: 0px !important;                                                     /*sombras de pestaña*/
-  --tab-border-radius: 0px 0px 0 0 !important;                                            /*forma de la pestaña*/
+  --tab-border-radius: 2px 2px 0 0 !important;                                            /*forma de la pestaña*/
   
   --arrowpanel-menuitem-padding: 8px !important;                                        /*menu mas pequeño*/
   --arrowpanel-border-radius: 0px !important;                                           /*forma de los menús*/

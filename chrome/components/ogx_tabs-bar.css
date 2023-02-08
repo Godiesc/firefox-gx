@@ -53,7 +53,8 @@ toolbar:is(#TabsToolbar, #PersonalToolbar) #firefox-view-button[aria-pressed="tr
 .tab-stack { margin-top: var(--margin-top-personal) !important; }
 
 .tabbrowser-tab[selected="true"] .tab-stack { 
-    background: var(--gradient) !important; 
+    background: var(--gradient) !important;
+    z-index: 2 !important;
 }
 .tab-background{ 
     height: var(--tab-height-personal) !important; 
@@ -120,10 +121,10 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button,#new-tab-button, 
 #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
     padding-block-start: calc(var(--margin-top-personal) ) !important;
     padding: 3px !important;
-    max-height: 22px !important; 
-    max-width: 22px !important; 
+    max-height: 22px !important;  
     min-height: 22px !important; 
-    min-width: 22px !important;
+    max-width: 28px !important; 
+    min-width: 28px !important;
     border-radius: 2px !important;
 }
 :root[privatebrowsingmode="temporary"] #TabsToolbar #tabs-newtab-button>image, :root[privatebrowsingmode="temporary"] #TabsToolbar #new-tab-button>image{
