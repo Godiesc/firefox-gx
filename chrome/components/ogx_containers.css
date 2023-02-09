@@ -30,12 +30,12 @@ tab[muted] .tab-content .tab-label{
     -moz-box-ordinal-group: 2 ; 
 }
 tab:is([pinned])[selected] .tab-context-line {
-    width: 18px  !important;
+    max-width: 18px  !important;
     margin-inline: 8px !important;
     transition-duration: 150ms ;
 }
 tab:is([pinned]):not([selected]) .tab-context-line {
-    width: 8px  !important;
+    max-width: 8px  !important;
     margin-inline: 13px  !important;
     transition-duration: 0ms ;
 }
