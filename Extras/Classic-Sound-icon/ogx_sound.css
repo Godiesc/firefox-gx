@@ -11,6 +11,17 @@
 }
 /*--------ícono de sonido simpre visible en pestañas con sonido, sin dejar de mostrar el favicon-------*/
 
+/* Compatibilidad con compact mode */
+    :root[uidensity="compact"] .tab-icon-image{
+        opacity: 1 !important;
+    }
+    :root[uidensity="compact"] tab[muted]:hover .tab-icon-image{
+        opacity: 0 !important;
+    }
+    :root[uidensity="compact"] tab[muted]:not(:hover) .tab-icon-overlay{
+        opacity: 0 !important;
+    }
+
 .tab-icon-overlay, .tab-icon-overlay:is([pinned]) {
     height:16px !important;
     width: 16px !important;
@@ -134,7 +145,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
   width: 12px !important; height: 3px !important; opacity: 1 !important; 
   color: transparent !important; 
   background: linear-gradient(to right, #00aaff 0%, #a06bff 50%, #cd4AA2 100%) !important;
-  stroke: none !important;
+  stroke: transparent !important;
   box-shadow: none !important;
   animation: 500ms infinite ease-in-out; animation-name: slide2;
     }
