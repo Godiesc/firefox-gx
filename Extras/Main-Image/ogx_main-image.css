@@ -62,6 +62,10 @@
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
    background-image: transparent !important;
 }
+/* Compatibilidad con Tab-shapes config */
+#TabsToolbar {
+   --uc-margin-left-right: 0px !important;
+}
 /* Compatibilidad con Left-sidebar */
 /*
 #PersonalToolbar{
