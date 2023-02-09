@@ -10,22 +10,22 @@
 <ol>
    <li>Descarga el tema desde la sección <b> << Releases >> </b> en el lado derecho de esta página.</code></li>
    <li>Descomprime el archivo y copia la carpeta 👉<code>chrome</code>👈 y el archivo 👉<code>user.js</code>👈 dentro de la carpeta de perfil de tu usuario de firefox.</li>
-   <li>Instala y usa un <a href="https://github.com/Godiesc/opera-gx#temas---themes" >tema</a> compatible.</li>
+   <li>Instala y usa un <a href="https://github.com/Godiesc/firefox-gx#temas---themes" >tema</a> compatible.</li>
    <li>Reinicia el navegador.</li>
 </ol>
 
-<ul><li><p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
+<ul><li><p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
 </br>
 
 <b>(EN) Steps to configure the theme:</b>
 <ol>
    <li>Download the theme from the <b> << Releases >> </b> section, in the right side of this page</code></li> 
    <li>Unzip the file and copy the 👉<code>chrome</code>👈 folder and the 👉<code>user.js</code>👈 file into your Firefox profile directory. </li>
-   <li>Install and use a compatible <a href="https://github.com/Godiesc/opera-gx#temas---themes" >theme</a>.</li>
+   <li>Install and use a compatible <a href="https://github.com/Godiesc/firefox-gx#temas---themes" >theme</a>.</li>
    <li>Restart the browser. </li>
 </ol>
 
-<ul><li><p><b> To find out the location of your profile directory go to <a href="https://github.com/Godiesc/opera-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
+<ul><li><p><b> To find out the location of your profile directory go to <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
 </br>
 ⚠ 🛑 ‼ The latest code updated in the repository (code > download zip) would work well only on beta o nightly versions.
 
