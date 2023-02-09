@@ -66,11 +66,11 @@
     -moz-box-ordinal-group: 2 ; 
 }
 tab:is([pinned])[selected] .tab-context-line { margin-inline: 0px  !important;
-    width: -moz-available  !important;
+    max-width: -moz-available  !important;
     transition-duration: 150ms ;
 }
 tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !important;
-    width: -moz-available  !important;
+    max-width: -moz-available  !important;
     transition-duration: 0ms ;
 }
 
