@@ -5,7 +5,7 @@
   <li>Add the file <code>user.js</code> into your <code>Profile folder (outside the "chrome" folder)</code>.
     <ul>
       <li>open this file with any text editor.</li>
-      <li>the lines 22-26 has the types of shapes for the tabs, choose the one you like and replace "false" with "true".
+      <li>the lines 16-20 has the types of shapes for the tabs, choose the one you like and replace "false" with "true".
        Be careful to only have one in "true".</li>
     </ul></li>
 </ul>
