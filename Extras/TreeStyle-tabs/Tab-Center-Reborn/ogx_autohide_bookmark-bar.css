@@ -111,7 +111,6 @@ See the above repository for updates as well as full license text. */
   transition: transform 135ms linear var(--uc-autohide-toolbar-delay) !important;
   z-index: 1;
   /* The following properties should allow the themes with trasparent toolbars to work */
-  background-color: transparent !important;
   background-repeat: no-repeat,no-repeat,var(--lwt-background-tiling);
   --uc-bg-y: calc(-2 * (var(--tab-block-margin) + var(--toolbarbutton-inner-padding) + var(--toolbarbutton-outer-padding)) - var(--tab-min-height) - 16px - var(--bookmark-block-padding));
   background-position: top left,top left,var(--lwt-background-alignment,top left);
