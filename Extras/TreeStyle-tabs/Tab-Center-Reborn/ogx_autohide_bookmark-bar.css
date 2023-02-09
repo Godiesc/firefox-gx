@@ -97,11 +97,6 @@ See the above repository for updates as well as full license text. */
   --uc-autohide-toolbar-focus-rotation: 90deg; /* urlbar is focused */
   --uc-autohide-toolbar-hover-rotation: 0deg; /* cursor is over the toolbar area */
 }
-@media (-moz-platform: linux){
-#PersonalToolbar{
-    --uc-bm-height: 22px; /* Might need to adjust if the toolbar has other buttons */
-    --uc-bm-padding: 4px; /* Vertical padding to be applied to bookmarks */
-    }}
 
 #PersonalToolbar:not([customizing]){
   position: relative;
