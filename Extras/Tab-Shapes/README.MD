@@ -12,7 +12,7 @@
 
 <p><b>For default the <code>user.js</code> file has "chrome" shape enable.</b></p>
 
-![imagen](https://user-images.githubusercontent.com/22057609/210465037-adc84c5e-883a-43ea-b2e4-e6744842740d.png)
+![imagen](https://user-images.githubusercontent.com/22057609/217698676-5337004e-f047-46bd-bef6-3ef56065aed3.png)
 
 ## Preview
 
