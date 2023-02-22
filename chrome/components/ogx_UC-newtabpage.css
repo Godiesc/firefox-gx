@@ -9,6 +9,7 @@
 .main-stop  { stop-color: var(--right-color) !important; }                                    /* right color logo-and wordmark*/
 
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
+     @media (prefers-color-scheme: light){
     body{
     --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
     --contrast-color: white !important;
@@ -44,7 +45,9 @@
     /*--lwt-main-image: url("../images/newtab/wallpaper-light.png") ;*/
         
     }
-    body[lwt-newtab-brighttext] {
+    }
+    @media (prefers-color-scheme: dark){
+    body{
     --contrast-color: black !important;
     --border-contrast-color: #09080d !important;
         
@@ -79,6 +82,7 @@
     /*--lwt-main-image: url("../images/newtab/wallpaper-dark.png") ;*/
         
         }
+    }
 /* ntp - Fondo general de la paginas newtab y home */
 .activity-stream {
     background-color: var(--newtab-background-color, #ff0000) !important;
@@ -221,6 +225,10 @@ input:focus-visible, input:focus-visible{
 }
 .search-wrapper .search-button:focus, .search-wrapper .search-button:hover {
     fill: white !important;
+}
+.search-wrapper .search-inner-wrapper:active input,
+.search-wrapper input:focus {
+  box-shadow: none !important;
 }
 browser[primary="true"][tabDialogShowing="true"],
 #main-window[window-modal-open="true"] > body > #browser{
