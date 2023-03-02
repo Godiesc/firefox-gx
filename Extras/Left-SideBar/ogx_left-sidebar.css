@@ -252,6 +252,14 @@
     background-size: 18px!important;
     background-position: center !important;
 }
+/* Tab-group Extension */
+#PersonalToolbar #panorama-tab-groups_example_com-browser-action image{ opacity: 0 !important; }
+#PersonalToolbar #panorama-tab-groups_example_com-browser-action .toolbarbutton-1 .toolbarbutton-badge-stack{
+    background-image: url("../images/logo_grouptabs.svg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px!important;
+    background-position: center !important;
+}
 /*------------- items en modo "customize toolbar -------------------"*/
     /* Separador Horizontal */
 #PersonalToolbar toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"]{
