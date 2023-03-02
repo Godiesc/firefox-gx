@@ -15,7 +15,7 @@
 [Facebook-messenger](https://addons.mozilla.org/es/firefox/addon/sideapp-for-messenger/) - 
 [Whatsapp](https://addons.mozilla.org/es/firefox/addon/whatsapp-messenger/) - 
 [Telegram](https://addons.mozilla.org/es/firefox/addon/messenger-for-telegram/) - 
-[Simple tab groups](https://addons.mozilla.org/es/firefox/addon/simple-tab-groups/) - 
+[Panorama tab groups](https://addons.mozilla.org/es/firefox/addon/panorama-tab-groups/) - 
 [Ublock](https://addons.mozilla.org/es/firefox/addon/ublock-origin/) </br>
 
 <p>PD: The extensions I used were for testing purposes.</p>
