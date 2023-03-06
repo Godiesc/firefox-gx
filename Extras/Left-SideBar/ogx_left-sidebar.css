@@ -106,7 +106,7 @@
         calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 31px),
         var(--general-color) calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 31px),
         var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;
-    z-index: 1 !important;
+        /*z-index: 1 !important;*/
 }
 :root[sizemode="normal"] #PersonalToolbar {
     --height-left-sidebar: 106vh !important;
