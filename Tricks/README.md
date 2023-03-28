@@ -29,7 +29,8 @@
   
 :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
     --arrowpanel-background: var(--toolbar-bgcolor) !important;
-}  
+}
+
 .menupopup-arrowscrollbox {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                       linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
@@ -37,12 +38,20 @@
     background-size: cover !important;
     background-position: -1px 0px !important;
 }
+
 panelview {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                       linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     backdrop-filter: brightness(10%) !important;
     background-size: cover !important;
     background-position: -1px 0px !important;
+}
+
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
+        background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
+                          linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    }
 }
 ```
 
