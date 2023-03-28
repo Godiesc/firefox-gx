@@ -4,7 +4,7 @@
 
 ## Image in the left-sidebar
 
-~
+```
 /* Image in the left-sidebar in themes tha use images */
 
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar, 
@@ -15,15 +15,15 @@
     background-repeat: repeat-y !important;
     background-size: cover !important;
 }
-~
+```
 
 ![ImageInLeftSidebar](https://user-images.githubusercontent.com/22057609/228342105-0aadebca-eb96-407c-b0d3-a6bdfe5ba3f4.png)
 
-## Image in menus
+## Image in menus (contextual menu and arrowpanel menus)
 
 <p><b>Warning: </b>In themes that use  an animated image could cause a hight cpu use, in themes with static image I didn't notice any inconvenient. </p>
 
-<code>
+```
 /* Image in menus in themes with images */
   
 :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
@@ -43,7 +43,7 @@ panelview {
     background-size: cover !important;
     background-position: -1px 0px !important;
 }
-</code>
+```
 
 ![ImageInMenus](https://user-images.githubusercontent.com/22057609/228356808-02b9cb92-ba4b-4769-a870-8b41b638c18f.png)
 
