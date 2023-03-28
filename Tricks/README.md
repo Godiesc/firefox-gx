@@ -1,10 +1,10 @@
 # Tricks
 
-<p>You can add the code below to give the theme some little extra feature. <b>You should add the code into the <code>chrome/components/tricks</code> file.</b></p>
+<p>You can add the code below to give the theme some little extra feature. <b>You should add the code into the <code>chrome/components/tricks.css</code> file.</b></p>
 
 ## Image in the left-sidebar
 
-<code>
+~
 /* Image in the left-sidebar in themes tha use images */
 
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar, 
@@ -15,7 +15,7 @@
     background-repeat: repeat-y !important;
     background-size: cover !important;
 }
-</code>
+~
 
 ![ImageInLeftSidebar](https://user-images.githubusercontent.com/22057609/228342105-0aadebca-eb96-407c-b0d3-a6bdfe5ba3f4.png)
 
