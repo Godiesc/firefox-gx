@@ -10,7 +10,8 @@
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar, 
 :root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
     --toolbar-bgcolor: transparent !important;
-    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
+    linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     background-position: left top !important;
     background-repeat: repeat-y !important;
     background-size: cover !important;
@@ -27,7 +28,7 @@
 /* Image in menus in themes with images */
   
 :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-  --arrowpanel-background: var(--toolbar-bgcolor) !important;
+    --arrowpanel-background: var(--toolbar-bgcolor) !important;
 }  
 .menupopup-arrowscrollbox {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
