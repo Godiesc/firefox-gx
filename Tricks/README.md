@@ -2,16 +2,17 @@
 
 <p>You can add the code below to give the theme some little extra feature. <b>You should add the code into the <code>chrome/components/tricks.css</code> file.</b></p>
 
-## Image in the left-sidebar
+## Image in the left-sidebar in themes that use images
 
 ```
-/* Image in the left-sidebar in themes tha use images */
+/* Image in the left-sidebar in themes that use images */
 
 :root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar, 
 :root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
     --toolbar-bgcolor: transparent !important;
     background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
-    linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+                      linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     background-position: left top !important;
     background-repeat: repeat-y !important;
     background-size: cover !important;
@@ -33,7 +34,8 @@
 
 .menupopup-arrowscrollbox {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
-                      linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+                      linear-gradient(transparent, transparent), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     backdrop-filter: blur(12px) !important;
     background-size: cover !important;
     background-position: -1px 0px !important;
@@ -41,7 +43,8 @@
 
 panelview {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
-                      linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+                      linear-gradient(transparent, transparent), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     backdrop-filter: brightness(10%) !important;
     background-size: cover !important;
     background-position: -1px 0px !important;
@@ -50,7 +53,8 @@ panelview {
 @media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
         background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
-                          linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+                          linear-gradient(transparent, transparent), 
+                          var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     }
 }
 ```
