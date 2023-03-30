@@ -1,6 +1,8 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
-   
+   https://github.com/Godiesc/firefox-gx */
+
+/* ############# Required files ############## */
+
 @import url('components/ogx_root.css');
 @import url('components/ogx_root-personal.css');
 @import url('components/ogx_toolbar-icons.css');
@@ -19,9 +21,16 @@
 @import url('components/ogx_library.css');
 @import url('components/ogx_hamburger-menu-icons.css');
 @import url('components/ogx_menu.css');
+
+/* ############## Extra Files ###############  */
+
 @import url('components/ogx_left-sidebar.css');
 @import url('components/ogx_oneline.css');
 @import url('components/ogx_main-image.css');
 @import url('components/ogx_tree-tabs.css');
 @import url('components/ogx_tab_center_reborn.css');
 @import url('components/ogx_autohide_bookmark-bar.css');
+
+/* ############# Your Personal File ##############  */
+
+@import url('components/ogx_tricks.css');
