@@ -550,20 +550,20 @@ Window controls will be all wrong without it
   margin-top: -1px !important;
 }
 /* urlbar focus - open */
-#urlbar-container:not([open=true],:focus, :focus-within ){
+#urlbar-container:not([open],:focus, :focus-within ){
     min-width: var(--min-width-url) !important; }
 #urlbar:focus-within  { 
     min-width: calc(var(--min-width-url) + 30vw) !important; 
     clip-path: polygon(0px 0%, calc(var(--min-width-url) ) 0%, 0% 999999vw, 0% 0px) !important;}
-#urlbar[open=true]  { 
+#urlbar[open]  { 
     min-width: calc(var(--min-width-url) + 30vw) !important; 
     clip-path: none !important;
 }
 /* Separador derecha url*/
-#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::before{
+#urlbar:not([open],[focused], :hover) #urlbar-background::before{
     padding-top: calc(var(--urlbar-height) - 0px) !important;
   }
-#urlbar:not([open=true],[focused=true], :hover) #urlbar-background::after{
+#urlbar:not([open],[focused], :hover) #urlbar-background::after{
     margin-top: calc( 0px - var(--urlbar-height) + 5px) !important;
 }
 /* Borde Gradiente */
