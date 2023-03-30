@@ -1,7 +1,8 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
-/* dark theme */
+/* Dark theme */
+
 @media (prefers-color-scheme: dark){
 :root:is([brighttext]):-moz-lwtheme,
 :root[lwt-toolbar-field-focus-brighttext],
@@ -23,7 +24,7 @@
   /*--arrowpanel-background: #1c1726 !important;                                        /*"popup": "#1c1b22Fa"*/
   /*--arrowpanel-color: var(--lwt-tab-text) !important;                                 /*"popup_text": "#dfdfdf"*/  
   --arrowpanel-border-color: transparent !important;                                    /*"popup_border": "#304f60"*/    
-/*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);               /*"popup_highlight": "#006f80"*/
+  /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);             /*"popup_highlight": "#006f80"*/
   
   --panel-description-color: var(--general-color) !important;                           /*"Color de letras de: correo de la cuenta, y dispositivos conectados"*/
   --toolbar-field-background-color: var(--toolbar-bgcolor) !important;                  /*"toolbar_field":"#1a1b25"*/
@@ -58,9 +59,9 @@
   --tab-block-margin: 0px !important;                                                   /*margenes pestañas - change this will break the theme*/
   --margin-top-personal: 0px !important;                                                /*margen top pestañas - variable personal*/
   
-  --tab-min-height: var(--tab-height-personal) !important;                                /*tamaño pestañas*/
-  --tabs-shadow-size: 0px !important;                                                     /*sombras de pestaña*/
-  --tab-border-radius: 2px 2px 0 0 !important;                                            /*forma de la pestaña*/
+  --tab-min-height: var(--tab-height-personal) !important;                              /*tamaño pestañas*/
+  --tabs-shadow-size: 0px !important;                                                   /*sombras de pestaña*/
+  --tab-border-radius: 2px 2px 0 0 !important;                                          /*forma de la pestaña*/
   
   --arrowpanel-menuitem-padding: 8px !important;                                        /*menu mas pequeño*/
   --arrowpanel-border-radius: 0px !important;                                           /*forma de los menús*/
@@ -93,10 +94,10 @@
   --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;              /*ColorBotónGuardar :Hover*/
   --button-primary-active-bgcolor: var(--button-active-bgcolor) !important;             /*ColorBotónGuardar :clic*/
 
-  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)50%, var(--border-contrast-color)) !important;   /*Color input background en Marcadores*/
-  --focus-outline-color: var(--general-color) !important;                                                          /*Color borde en InputText Focus*/
-  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;      /*Color borde en InputText*/
-  --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;                                         /*Background of buttons - variable personal */
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)50%, var(--border-contrast-color)) !important;        /*Color input background en Marcadores*/
+  --focus-outline-color: var(--general-color) !important;                                                               /*Color borde en InputText Focus*/
+  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;           /*Color borde en InputText*/
+  --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /*Background of buttons - variable personal */
 
     /*Colores checkbox —v*/
   --checkbox-unchecked-bgcolor: var(--toolbarbutton-hover-personal) !important;
@@ -110,7 +111,8 @@
   --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
 }
 }
-/* White Theme*/
+
+/* White Theme */
 @media (prefers-color-scheme: light){
 :root:not([lwtheme-brighttext="true"]),
 :root:-moz-lwtheme{
@@ -131,7 +133,7 @@
   /*--arrowpanel-background: #ffffff !important;                                        /*"popup": "#1c1b22Fa"*/
   /*--arrowpanel-color: var(--lwt-tab-text) !important;                                 /*"popup_text": "#dfdfdf"*/  
   --arrowpanel-border-color: transparent !important;                                    /*"popup_border": "#304f60"*/    
-/*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);               /*"popup_highlight": "#006f80"*/
+  /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);             /*"popup_highlight": "#006f80"*/
   
   --panel-description-color: var(--general-color) !important;                           /*"Color de letras de: correo de la cuenta, y dispositivos conectados"*/
   --toolbar-field-background-color: var(--toolbar-bgcolor) !important;                  /*"toolbar_field":"#1a1b25"*/
@@ -166,9 +168,9 @@
   --tab-block-margin: 0px !important;                                                   /*margenes pestañas - change this will break the theme*/
   --margin-top-personal: 0px !important;                                                /*margen top pestañas - variable personal*/
   
-  --tab-min-height: var(--tab-height-personal) !important;                                /*tamaño pestañas*/
-  --tabs-shadow-size: 0px !important;                                                     /*sombras de pestaña*/
-  --tab-border-radius: 0px 0px 0 0 !important;                                            /*forma de la pestaña*/
+  --tab-min-height: var(--tab-height-personal) !important;                              /*tamaño pestañas*/
+  --tabs-shadow-size: 0px !important;                                                   /*sombras de pestaña*/
+  --tab-border-radius: 0px 0px 0 0 !important;                                          /*forma de la pestaña*/
   
   --arrowpanel-menuitem-padding: 8px !important;                                        /*menu mas pequeño*/
   --arrowpanel-border-radius: 0px !important;                                           /*forma de los menús*/
@@ -201,10 +203,10 @@
   --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;              /*ColorBotónGuardar :Hover*/
   --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;            /*ColorBotónGuardar :clic*/
 
-  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background) 86%, black) !important;                  /*Color input background en Marcadores*/
-  --focus-outline-color: var(--general-color) !important;                                                   /*Color borde en InputText Focus*/
-  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 66%, black) !important;             /*Color borde en InputText*/
-  --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background) 86%, black) !important;                              /*Color input background en Marcadores*/
+  --focus-outline-color: var(--general-color) !important;                                                               /*Color borde en InputText Focus*/
+  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 66%, black) !important;                         /*Color borde en InputText*/
+  --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /*Background of buttons - variable personal */
 
     /*Colores checkbox —v*/
   --checkbox-unchecked-bgcolor: var(--toolbarbutton-hover-personal) !important;
@@ -215,15 +217,16 @@
   --checkbox-checked-color: #eaeaea !important;
   --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
   --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
-}
-}
-/* Compatibilidad Parcial para temas que usan "Imagenes" en su tema */
+}}
+
+/* Compatibilidad Parcial para temas que usan "Imagenes" */
+
 @media (prefers-color-scheme: dark){
 :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
   --toolbar-bgcolor: #101019cf !important;                                                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                      /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                          /*"toolbar_field_border": "#363540"*/
-  --lwt-selected-tab-background-color: transparent !important;                                        /*"tab_selected":"#363540"*/
+  --lwt-selected-tab-background-color: transparent !important;                                                   /*"tab_selected":"#363540"*/
   --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 4%, #2e273ffb) !important;     /*"toolbar_field_focus": "#1a1b25FB"*/
   --toolbarbutton-hover-background: color-mix(in srgb, 
     transparent 90%, color-mix(in srgb, var(--lwt-tab-text)60%, var(--general-color))) !important;               /*"button_background_hover": "#26242e"*/

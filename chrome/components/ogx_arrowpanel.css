@@ -1,132 +1,189 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /* Borde gradiente menús desplegables */
-slot{
-    margin-top: 0px !important;
-    margin-right: 4px !important;
+
+slot {
+    --panel-shadow-margin: 0px !important;
+    background-image: var(--noise-urlbar-personal) !important;
+    margin-right: 5px !important;
     margin-left: 3px !important;
     margin-bottom: 4px !important;
     border-color: var(--border-contrast-color) !important;
+    /* Borde para anuncios emergentes, por ejemplo al instalar un complemento */
     box-shadow: inset 0px 0 0 1px var(--button-active-bgcolor) !important;
 }
+
 panelview {
     background-image: var(--noise-urlbar-personal) !important;
-    background-color: color-mix(in srgb, var(--arrowpanel-background, #50505090) 90%, var(--contrast-color)) !important;
     border: 1px solid #0c0a10 !important;
     border-image: var(--panel-separator-zap-gradient4) 1 !important;
 }
+
 /* Margen de varios arrowpanels [Open] */
-#downloadsPanel, #widget-overflow, #customizationui-widget-panel, 
-#unified-extensions-panel, #notification-popup {
-    margin-top: -1px !important; 
-    margin-inline: -6px !important; }
 
-#identity-popup, #permission-popup, #appMenu-popup{
-    margin-top: 0px !important; 
-    margin-inline: -4px !important; }
+#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #unified-extensions-panel, #notification-popup {
+    margin-top: -1px !important;
+    margin-inline: -6px !important;
+}
 
-#protections-popup, #editBookmarkPanel{ 
-    margin-top: 0px !important;  
-    margin-inline: -6px !important; }
+#identity-popup, #permission-popup, #appMenu-popup {
+    margin-top: 0px !important;
+    margin-inline: -4px !important;
+}
 
-#BMB_bookmarksPopup{ 
-    margin-top: -4px !important;  
-    margin-inline: -8px !important; }
+#protections-popup, #editBookmarkPanel {
+    margin-top: 0px !important;
+    margin-inline: -6px !important;
+}
 
-panel[type="arrow"]{ 
+#BMB_bookmarksPopup {
+    margin-top: -4px !important;
+    margin-inline: -8px !important;
+}
+
+/*  panel[type="arrow"]{ 
     margin-top: 0px !important;
     margin-left: initial !important; }
+*/
 
-addon-install-confirmation-notification{
-    margin-inline: 1px !important; 
+addon-install-confirmation-notification {
+    margin-inline: 1px !important;
 }
-/*Color fondo gradiente :hover por los diferentes items de menús principales*/
-.protections-popup-category:not(#appMenu-popup toolbarbutton):hover, .protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, 
-#protections-popup-show-report-stack:not(#appMenu-popup toolbarbutton):hover > .protections-popup-footer-button:not(#appMenu-popup toolbarbutton),
- panelview .toolbarbutton-1:not([disabled], [open]:not(#appMenu-popup toolbarbutton)):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open],.subviewbutton-back):is(:hover), 
-.navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover],
- menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover),
-.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover) {
+
+/* Color fondo gradiente :hover por los diferentes items de menús principales */
+
+.protections-popup-category:not(#appMenu-popup toolbarbutton):hover, .protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, #protections-popup-show-report-stack:not(#appMenu-popup toolbarbutton):hover > .protections-popup-footer-button:not(#appMenu-popup toolbarbutton), panelview .toolbarbutton-1:not([disabled], [open]:not(#appMenu-popup toolbarbutton)):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open], .subviewbutton-back):is(:hover), .navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover], menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover), .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover) {
     background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
-/*Color fondo clic por los diferentes items de menús principales*/
-.protections-popup-category:active, .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button,
- panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled],.subviewbutton-back):is(:active, [open]), 
-.navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover,
- menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]),
-.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]) {
- background: linear-gradient(to right, var(--button-hover-bgcolor) 80%, transparent) !important;
+
+/* Color fondo clic por los diferentes items de menús principales */
+
+.protections-popup-category:active, .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button, panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back):is(:active, [open]), .navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]), .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]) {
+    background: linear-gradient(to right, var(--button-hover-bgcolor) 80%, transparent) !important;
 }
-/*Linea gradiente en los menús principales*/
-toolbarseparator{    
+
+/* Linea gradiente en los menús principales */
+
+toolbarseparator {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     margin-left: 6px !important;
     margin-right: 6px !important;
 }
-menuseparator::before{    
+
+menuseparator::before {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
-    --panel-separator-margin-horizontal:8px !important;
+    --panel-separator-margin-horizontal: 8px !important;
 }
-#PlacesToolbarItems toolbarseparator{
+
+#PlacesToolbarItems toolbarseparator {
     border-image: none !important;
 }
-/*Color label deshabilitado y elementos de: "protección contra rastreo"*/
-.protections-popup-category.notFound {color: #777 !important;}
-.panel-info-button:not([disabled]):is([checked],:hover, :active) {background-color: var(--button-hover-bgcolor) !important;}
-.panel-info-button:not([disabled]):is(:hover) {background-color: var(--button-active-bgcolor) !important;
+
+/* Color label deshabilitado y elementos de: "protección contra rastreo" */
+
+.protections-popup-category.notFound {
+    color: #777 !important;
 }
-/*Margenes protección antirastreo*/
+
+.panel-info-button:not([disabled]):is([checked], :hover, :active) {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+.panel-info-button:not([disabled]):is(:hover) {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+/* Márgenes protección antirastreo */
+
 #protections-popup-blocking-section-header, #protections-popup-not-blocking-section-header, #protections-popup-not-found-section-header, #protections-popup-tp-switch-section, .protections-popup-category, .protections-popup-footer-button {
-padding-left: 16px !important; padding-right: 16px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
 }
-/* Color Label "No funciona el sitio "*/
-toolbar .text-link:-moz-lwtheme, panel .text-link:-moz-lwtheme{ color: var(--general-color) !important; }
-toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover{ color: var(--blue) !important; 
-}
-/* Panel de descargas */
-#downloadsListBox > richlistitem { 
-    border-radius: 0px !important;
-    background-image: var(--noise-urlbar-personal) !important;
-    background-color: transparent !important; 
-    padding-inline: 4px 4px !important;
-    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;}
-#downloadsListBox > richlistitem:is(:hover) {
-    background: linear-gradient(to right, var(--button-bgcolor) 70%, transparent) !important;
-    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;}
-#downloadsPanel-blockedSubview, #downloadsPanel-mainView {
-  padding: 0.62em 0.0em 0.62em 0em !important;
-}
-/*Color Sidebar*/
-#sidebar-header{
-    background-color: var(--lwt-sidebar-background-color) !important;
-}
-#sidebar-switcher-target:is(:hover, [open]) {    
+
+/* Color Label "No funciona el sitio " */
+
+toolbar .text-link:-moz-lwtheme, panel .text-link:-moz-lwtheme {
     color: var(--general-color) !important;
 }
-/* Linea Separadora */
-treechildren::-moz-tree-separator {
-  border-bottom: none !important;
-  border-image: var(--panel-separator-zap-gradient4) 1 !important;
+
+toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
+    color: var(--blue) !important;
 }
-/* menú desplegable boton de la toolbar que muestra todos los marcadores*/
-#BMB_bookmarksPopup>.menupopup-arrowscrollbox {
+
+/* Panel de descargas */
+
+#downloadsListBox > richlistitem {
+    border-radius: 0px !important;
+    background-image: var(--noise-urlbar-personal) !important;
+    background-color: transparent !important;
+    padding-inline: 4px 4px !important;
+    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+}
+
+#downloadsListBox > richlistitem:is(:hover) {
+    background: linear-gradient(to right, var(--button-bgcolor) 70%, transparent) !important;
+    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+}
+
+#downloadsPanel-blockedSubview, #downloadsPanel-mainView {
+    padding: 0.62em 0.0em 0.62em 0em !important;
+}
+
+/* Color Sidebar */
+
+#sidebar-header {
+    background-color: var(--lwt-sidebar-background-color) !important;
+}
+
+#sidebar-switcher-target:is(:hover, [open]) {
+    color: var(--general-color) !important;
+}
+
+/* Linea Separadora */
+
+treechildren::-moz-tree-separator {
+    border-bottom: none !important;
+    border-image: var(--panel-separator-zap-gradient4) 1 !important;
+}
+
+/* menú desplegable boton de la toolbar que muestra todos los marcadores */
+
+#BMB_bookmarksPopup > .menupopup-arrowscrollbox {
     margin: 0px !important;
     margin-inline-end: 0px !important;
 }
-#PlacesToolbar menupopup[placespopup="true"] menuseparator{
-   margin-left: 6px !important;  margin-right: 8px !important;
+
+#PlacesToolbar menupopup[placespopup="true"] menuseparator {
+    margin-left: 6px !important;
+    margin-right: 8px !important;
 }
+
 #PlacesToolbar menupopup[placespopup="true"] menuseparator::before {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
-/*Botón flecha atrás*/
-.panel-header > .subviewbutton-back{ border-radius: 3px !important; }
-.panel-header > .subviewbutton-back image{ margin-inline-start: -2px !important;}
-.panel-header > .subviewbutton-back:hover { background: var(--button-hover-bgcolor) !important; }
-.panel-header > .subviewbutton-back:active { background: var(--button-active-bgcolor) !important; }
+
+/* Botón flecha atrás */
+
+.panel-header > .subviewbutton-back {
+    border-radius: 3px !important;
+}
+
+.panel-header > .subviewbutton-back image {
+    margin-inline-start: -2px !important;
+}
+
+.panel-header > .subviewbutton-back:hover {
+    background: var(--button-hover-bgcolor) !important;
+}
+
+.panel-header > .subviewbutton-back:active {
+    background: var(--button-active-bgcolor) !important;
+}
 
 /* Fondo :hover botones de zoom */
-.PanelUI-subView .toolbaritem-combined-buttons > .subviewbutton:is(:hover, :hover:active) { background: transparent !important;
+
+.PanelUI-subView .toolbaritem-combined-buttons > .subviewbutton:is(:hover, :hover:active) {
+    background: transparent !important;
 }

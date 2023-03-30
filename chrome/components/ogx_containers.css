@@ -1,54 +1,87 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
+
+/* Posición de la nueva linea de contenedor */
 
 .tabbrowser-tab:not([pinned]) .tab-context-line {
     -moz-box-ordinal-group: 2 !important;
+    order: 2 !important;
     margin-bottom: 3px !important;
 }
-.tabbrowser-tab:not([pinned],[selected]) .tab-context-line {
+
+.tabbrowser-tab:not([pinned], [selected]) .tab-context-line {
     clip-path: polygon(4px 0%, 20px 0%, 20px 100%, 4px 100%);
     transition-duration: 0ms !important;
-} 
+}
+
 .tabbrowser-tab[selected]:not([pinned]) .tab-context-line {
     clip-path: polygon(4px 0%, calc(100% - 4px) 0%, calc(100% - 4px) 100%, 4px 100%);
     transition-duration: 200ms !important;
 }
-/* Mover la label para hacer espacio para el ícono de sonido darle una ligera animación de posición */
-tab[soundplaying] .tab-content .tab-label{
+
+/* Mover la label para hacer espacio para el ícono de sonido y darle una ligera animación */
+
+tab[soundplaying] .tab-content .tab-label {
     padding-left: 18px !important;
     z-index: 0 !important;
     transition-duration: 200ms !important;
 }
-tab[muted] .tab-content .tab-label{
+
+tab[muted] .tab-content .tab-label {
     padding-left: 0px !important;
     transition-duration: 200ms !important;
 }
+
 /* Pinned */
-.tabbrowser-tab:is([pinned]) .tab-context-line{
-    height: 2px ; 
+
+.tabbrowser-tab:is([pinned]) .tab-context-line {
+    -moz-box-ordinal-group: 2 !important;
+    height: 2px;
     margin-bottom: 3px !important;
-    -moz-box-ordinal-group: 2 ; 
+    order: 2;
 }
+
 tab:is([pinned])[selected] .tab-context-line {
-    max-width: 18px  !important;
+    max-width: 18px !important;
     margin-inline: 8px !important;
-    transition-duration: 150ms ;
+    transition-duration: 150ms;
 }
+
 tab:is([pinned]):not([selected]) .tab-context-line {
-    max-width: 8px  !important;
-    margin-inline: 13px  !important;
-    transition-duration: 0ms ;
+    max-width: 8px !important;
+    margin-inline: 13px !important;
+    transition-duration: 0ms;
 }
+
 /* Eliminar label del contenedor de la urlbar, manteniendo el ícono */
-#userContext-label{
+
+#userContext-label {
     display: none !important;
 }
+
 /* Color contenedor default */
+
 .identity-color-toolbar {
-    --identity-tab-color: #0c86ee !important;
-    --identity-icon-color: #0c86ee !important;
+    --identity-tab-color: color-mix(in srgb, #0c86ee 80%, var(--lwt-tab-text)) !important;
+    --identity-icon-color: color-mix(in srgb, #0c86ee 80%, var(--lwt-tab-text)) !important;
 }
+
+.identity-color-toolbar:-moz-window-inactive {
+    --identity-tab-color: #0c86ee !important;
+    --identity-icon-color: color-mix(in srgb, #0c86ee 60%, transparent) !important;
+}
+
 /* Label colorida según su contenedor */
-.identity-color-red {--identity-tab-color: #ff2940 !important; --identity-icon-color: #ff2940 !important; }
-.tab-label[selected]{color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-tab-text)) 80%, var(--lwt-tab-text)) !important;}
-.tab-label:not([selected]){color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-text-color)) 80%, var(--lwt-text-color)) !important;}
+
+.identity-color-red {
+    --identity-tab-color: #ff2940 !important;
+    --identity-icon-color: #ff2940 !important;
+}
+
+.tab-label[selected] {
+    color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-tab-text)) 80%, var(--lwt-tab-text)) !important;
+}
+
+.tab-label:not([selected]) {
+    color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-text-color)) 80%, var(--lwt-text-color)) !important;
+}

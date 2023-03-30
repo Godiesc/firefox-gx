@@ -1,69 +1,81 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /*"Botón de cerrar pestaña" en windows y linux */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){ .close-icon {
-    width: 15px !important;
-    height: 15px !important;
-    }}
+
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+    .close-icon {
+        width: 15px !important;
+        height: 15px !important;
+    }
+}
+
 .tab-close-button {
     list-style-image: url('../images/close.svg') !important;
     padding: 3px !important;
     border-radius: 0px !important;
     margin-inline-end: -2px !important;
+}
+
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+    .tab-close-button:hover {
+        background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
+        fill: var(--identity-tab-color, var(--general-color)) !important;
     }
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tab-close-button:hover {
-    background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
-    fill: var(--identity-tab-color, var(--general-color)) !important;
-    }}
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){.tabbrowser-tab:not([pinned]):hover .tab-close-button {
-    display: -moz-box !important
-    }}
+}
 
 /*----------------- Botón de cerrar pestaña" en MacOS --------------------*/
+
 @media (-moz-platform: macos) {
-.tab-content{
-    pointer-events: none
+    .tab-content {
+        pointer-events: none
     }
-.tab-icon-image:not([busy]){ display: block !important; }
-.tabbrowser-tab:hover .tab-icon-image:not([pinned]),
-.tabbrowser-tab:hover > .tab-icon-stack{
-    visibility: hidden;
-    opacity: 0 !important;
+    .tab-icon-image:not([busy]) {
+        display: block !important;
     }
-.tabbrowser-tab:hover .tab-throbber[busy],.tabbrowser-tab:hover .tab-icon-pending[busy]{
-    --tab-loading-fill: transparent !important;
-    opacity: 0 !important;
+    .tabbrowser-tab:hover .tab-icon-image:not([pinned]), .tabbrowser-tab:hover > .tab-icon-stack {
+        visibility: hidden;
+        opacity: 0 !important;
     }
-.tab-close-button {
-    -moz-box-ordinal-group: 0;
-    display: -moz-box !important;
-    position: relative;
-    margin-inline: 4px -20px !important;
-    padding-inline-start: 0px !important;
-    opacity: 0;
-    width: 20px !important;
-    height: 20px !important;
-    padding: 3px !important;
-    pointer-events: auto;
-    border-radius: 50% !important;
-    background-color: color-mix(in srgb, var(--lwt-tab-text) 80%,transparent) !important;
-    color: var(--contrast-color) !important;
+    .tabbrowser-tab:hover .tab-throbber[busy], .tabbrowser-tab:hover .tab-icon-pending[busy] {
+        --tab-loading-fill: transparent !important;
+        opacity: 0 !important;
     }
-.tabbrowser-tab:hover .tab-close-button:not(:hover){background-color: transparent !important;
-    color: var(--lwt-tab-text) !important;
+    .tab-close-button {
+        -moz-box-ordinal-group: 0;
+        display: -moz-box !important;
+        position: relative;
+        margin-inline: 4px -20px !important;
+        padding-inline-start: 0px !important;
+        opacity: 0;
+        width: 20px !important;
+        height: 20px !important;
+        padding: 3px !important;
+        pointer-events: auto;
+        border-radius: 50% !important;
+        background-color: color-mix(in srgb, var(--lwt-tab-text) 80%, transparent) !important;
+        color: var(--contrast-color) !important;
     }
-.close-icon{
-    width: 16px !important;
-    height: 16px !important;
+    .tabbrowser-tab:hover .tab-close-button:not(:hover) {
+        background-color: transparent !important;
+        color: var(--lwt-tab-text) !important;
     }
-.tabbrowser-tab:hover .tab-close-button{ opacity: 1; margin-inline: 0px -16px !important; }
-.tabbrowser-tab[pinned] .tab-close-button{ display: none !important; }
-
-/* These exist for compatibility with combined_favicon_and_tab_close_button.css */
-.tab-icon-overlay{ pointer-events: auto }
-
-.tab-content > .tab-icon-stack,
-.tab-icon-stack:hover > 
-.tab-icon-image{ visibility: visible }
+    .close-icon {
+        width: 16px !important;
+        height: 16px !important;
+    }
+    .tabbrowser-tab:hover .tab-close-button {
+        opacity: 1;
+        margin-inline: 0px -16px !important;
+    }
+    .tabbrowser-tab[pinned] .tab-close-button {
+        display: none !important;
+    }
+    /* These exist for compatibility with combined_favicon_and_tab_close_button.css */
+    .tab-icon-overlay {
+        pointer-events: auto
+    }
+    .tab-content > .tab-icon-stack, .tab-icon-stack:hover > .tab-icon-image {
+        visibility: visible
+    }
 }
