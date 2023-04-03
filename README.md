@@ -45,6 +45,7 @@
 <li> Go to "Advanced colors" tab and change the color in "icons attention", this color will set the accent color to the theme.</li></ol>
 
 # Extras
+<p>Into the "Extras" folder you will find the next features.</p>
 <ul><li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/OneLine"><b>OneLine</b></a> - The tabs-bar will be next to the navbar.</li>
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/Tab-Shapes"><b>Tab Shapes</b></a> - Give the tabs other style.</li>
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/Main-Image"><b>Main-Image</b></a></a> - This configuration will simulate a image behind all the browser.</li>
