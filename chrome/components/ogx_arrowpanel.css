@@ -5,7 +5,6 @@
 
 slot {
     --panel-shadow-margin: 0px !important;
-    background-image: var(--noise-urlbar-personal) !important;
     margin-right: 5px !important;
     margin-left: 3px !important;
     margin-bottom: 4px !important;
