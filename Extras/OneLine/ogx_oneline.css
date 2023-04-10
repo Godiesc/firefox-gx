@@ -549,6 +549,16 @@ Window controls will be all wrong without it
   margin-left: -2px !important;
   margin-top: -1px !important;
 }
+#notification-popup-box {
+    width: 18px !important;
+    height: 18px !important;
+}
+#notification-popup-box image{
+    margin-left: 1px !important;
+}
+.drm-icon, .geo-icon {
+    padding-inline: 1px 5px !important;
+}
 /* urlbar focus - open */
 #urlbar-container:not([open],:focus, :focus-within ){
     min-width: var(--min-width-url) !important; }
