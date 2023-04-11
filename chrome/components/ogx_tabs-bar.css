@@ -295,7 +295,7 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button,
     #TabsToolbar {
         padding-block-start: 6px !important;
     }
-    :root[sizemode="fullscreen"] #tabbrowser-tabs {
+    :root:not([sizemode="fullscreen"]) #tabbrowser-tabs {
         padding-inline-start: 10px !important;
     }
 }
