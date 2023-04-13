@@ -35,7 +35,7 @@
         padding: var(--margin-top-personal) 0 0 0 !important;
         max-height: calc(var(--tab-height-personal)) !important;
         min-height: calc(var(--tab-height-personal)) !important;
-        -moz-box-align: start !important;
+
     }
     /* menu :hover y open */
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>.toolbarbutton-badge-stack {
@@ -74,6 +74,7 @@
     /* Label Menú */
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
         display: flex;
+        align-items: center !important;
     }
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>stack::after {
         display: -moz-box;
