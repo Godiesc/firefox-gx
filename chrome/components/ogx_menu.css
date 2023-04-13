@@ -36,7 +36,6 @@
         max-height: calc(var(--tab-height-personal)) !important;
         min-height: calc(var(--tab-height-personal)) !important;
         -moz-box-align: start !important;
-        z-index: 2 !important;
     }
     /* menu :hover y open */
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>.toolbarbutton-badge-stack {
@@ -46,16 +45,12 @@
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
         background-color: var(--toolbarbutton-hover-personal) !important;
         border-radius: 0px !important;
-        z-index: 2 !important;
     }
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
         background-image: var(--noise-urlbar-personal) !important;
         background-color: var(--arrowpanel-background, #50505090) !important;
         border-radius: 0px !important;
-        border-left: none !important;
-        border-right: none !important;
         border-image: var(--panel-separator-zap-gradient5) 1 !important;
-        z-index: 2 !important;
         width: 28.5em !important;
     }
 
@@ -69,30 +64,28 @@
         -moz-box-pack: center !important;
         fill: var(--general-color) !important;
         border: 1px solid transparent !important;
-        z-index: 2 !important;
     }
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image {
         margin-top: -1px !important;
         min-height: 18px !important;
         min-width: 18px !important;
-        z-index: 2 !important;
+        margin-inline-start: 2px !important;
     }
     /* Label Menú */
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
+        display: flex;
+    }
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>stack::after {
         display: -moz-box;
         content: var(--menu-label);
         color: var(--label-color) !important;
-        margin-inline: 5px 3px !important;
+        margin-inline-start: 5px !important;
         text-shadow: none !important;
-        -moz-box-pack: center !important;
-        -moz-box-orient: vertical !important;
-        z-index: 2 !important;
         animation: none !important;
     }
     /* Padding top para hacer espacio para la fila del Label menú */
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
         padding-top: calc(-5px + var(--tab-height-personal)) !important;
-        z-index: 2 !important;
     }
     /* Margin top para subir el menú [open] */
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
@@ -100,7 +93,6 @@
         margin-top: calc(-1px - var(--tab-height-personal)) !important;
         clip-path: polygon( calc(var(--padding-left-tab) - 7px) 0%, 200% 0%, 0% 200%, 0% calc(var(--tab-height-personal)), 
                    calc(var(--padding-left-tab) - 7px) calc(var(--tab-height-personal)));
-        z-index: 2 !important;
         --arrowpanel-menuitem-padding: 6px !important;
     }
     :root:is([sizemode="maximized"]):not([tabsintitlebar], [chromehidden~="toolbar"]) #appMenu-popup {
@@ -111,20 +103,17 @@
         margin-inline-start: 30px !important;
         --panel-separator-margin-vertical: 2px !important;
         --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
-        z-index: 2 !important;
     }
     /* Color de íconos y label */
     .subviewbutton, #appMenu-popup label {
         -moz-context-properties: fill;
         fill: var(--label-color) !important;
         color: var(--label-color) !important;
-        z-index: 2 !important;
     }
     .subviewbutton:hover, #appMenu-popup toolbarbutton:hover label {
         -moz-context-properties: fill;
         fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
         color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
-        z-index: 2 !important;
     }
     /* baner de -actualización disponible- */
     #appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]) {
