@@ -203,16 +203,6 @@ findbar:-moz-lwtheme {
     pointer-events: none;
 }
 
-/* Blur cuando se muestran dialogos del navegador */
-
-browser[primary="true"][tabDialogShowing="true"], #main-window[window-modal-open="true"]>body>#browser {
-    filter: blur(10px)
-}
-
-#browser .browserStack:has(.dialogStack.tab-dialog-box:not([hidden="true"]))>browser {
-    filter: blur(10px)
-}
-
 /* Search-bar */
 
 #searchbar {
