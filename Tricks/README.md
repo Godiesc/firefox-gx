@@ -45,6 +45,7 @@
         background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                           linear-gradient(transparent, transparent), 
                           var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+        background-size: auto 104vh !important;
     }}
 ```
 
