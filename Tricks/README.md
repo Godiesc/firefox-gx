@@ -36,8 +36,7 @@
     background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                       linear-gradient(transparent, transparent), 
                       var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-    backdrop-filter: brightness(10%) !important;
-    background-size: cover !important;
+    background-size: auto 104vh !important;
     background-position: -1px 0px !important;
 }
 
