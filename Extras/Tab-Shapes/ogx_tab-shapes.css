@@ -54,7 +54,7 @@
           -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge") or 
           -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy"){
 #tabs-newtab-button{
-    padding-inline-start: var(--uc-margin-left-newtab) !important; 
+    padding-inline-start: calc(var(--tab-height-personal) - 31px + var(--uc-margin-left-newtab)) !important; 
             }
   }
 
