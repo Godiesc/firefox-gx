@@ -58,7 +58,10 @@
     #customization-container {
         margin-left: var(--uc-vertical-toolbar-width, 0);
     }
-    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #browser, :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #browser-bottombox, #main-window:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body::after, :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #customization-container {
+    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #browser, 
+    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #browser-bottombox, 
+    #main-window:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body::after, 
+    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #customization-container {
         margin-left: 0;
     }
     #PersonalToolbar #PlacesToolbarItems {
@@ -434,8 +437,8 @@
 }
 
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
-    clip-path: polygon( calc(var(--padding-left-tab) - 7px) 0%, 200% 0%, 0% 900%, 0% calc(var(--tab-height-personal) - 9px), 
-               calc(var(--padding-left-tab) - 7px) calc(var(--tab-height-personal) - 9px));
+    clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 10px, calc(var(--padding-left-tab) - 7px) 10px,
+               calc(var(--padding-left-tab) - 7px) calc(var(--tab-height-personal) - 9px), 0 calc(var(--tab-height-personal) - 9px), 0 100%, 100% 100%, 100% 0%);
 }
 
 /* Logo más grande */
