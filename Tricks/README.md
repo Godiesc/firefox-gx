@@ -51,12 +51,11 @@
     
 ```
 
+![ImageInMenus](https://user-images.githubusercontent.com/22057609/228356808-02b9cb92-ba4b-4769-a870-8b41b638c18f.png)
+
 ## Extensions button into the "left-sidebar" - Immovable
 
 ```
-
-![ImageInMenus](https://user-images.githubusercontent.com/22057609/228356808-02b9cb92-ba4b-4769-a870-8b41b638c18f.png)
-
 /* Extensions button into the "left-sidebar" - Immovable */
 
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
@@ -86,3 +85,5 @@
 }
 
 ```
+
+![TricksFirefoxGX](https://user-images.githubusercontent.com/22057609/232177194-4557d278-a9c4-4b93-be64-01d469a4de27.png)
