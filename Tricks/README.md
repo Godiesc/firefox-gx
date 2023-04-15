@@ -70,7 +70,7 @@
     top: 76px !important;
     z-index: 2 !important;
     fill: var(--general-color) !important;
-    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    width: calc(var(--uc-vertical-toolbar-width) - 4px) !important;
 }
 
 :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:hover, 
