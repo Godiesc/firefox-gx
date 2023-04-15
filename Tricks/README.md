@@ -20,6 +20,7 @@
 <p><b>Warning: </b>In themes that use  an animated image could cause a hight cpu use, in themes with static image I didn't notice any inconvenient. </p>
 
 ```
+
 /* Image in menus in themes with images */
 
 @media (prefers-color-scheme: dark){
@@ -47,7 +48,41 @@
                           var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
         background-size: auto 104vh !important;
     }}
+    
+```
+
+## Extensions button into the "left-sidebar" - Immovable
+
 ```
 
 ![ImageInMenus](https://user-images.githubusercontent.com/22057609/228356808-02b9cb92-ba4b-4769-a870-8b41b638c18f.png)
 
+/* Extensions button into the "left-sidebar" - Immovable */
+
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
+    --padding-top-left-sidebar: 144px !important;
+}
+
+:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button {
+    --toolbarbutton-hover-background: transparent !important;
+    --toolbarbutton-active-background: transparent !important;
+    position: fixed;
+    display: flex;
+    top: 76px !important;
+    z-index: 2 !important;
+    fill: var(--general-color) !important;
+    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+}
+
+:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:hover, 
+:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button[open] {
+    transform: scale(1.12) !important;
+    transition: ease-in-out !important;
+}
+
+:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:active {
+    transform: scale(1.0) !important;
+    transition-duration: 0ms !important;
+}
+
+```
