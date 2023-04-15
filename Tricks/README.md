@@ -86,4 +86,4 @@
 
 ```
 
-![TricksFirefoxGX](https://user-images.githubusercontent.com/22057609/232177194-4557d278-a9c4-4b93-be64-01d469a4de27.png)
+![ExtensionButtonLeftSidebar](https://user-images.githubusercontent.com/22057609/232178144-499c9c9b-995d-4e9d-9f2b-1356aa34fd84.png)
