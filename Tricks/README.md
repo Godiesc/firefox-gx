@@ -1,6 +1,6 @@
 # Tricks
 
-<p>You can add the code below to give the theme some little extra feature. <b>You should add the code into the <code>chrome/components/tricks.css</code> file, if not exist be free to create it.</b></p>
+<p>You can add the code below to give the theme some little extra feature. <b>You should add the code into the <code>chrome/components/ogx_tricks.css</code> file, if not exist be free to create it.</b></p>
 
 ## Non Image in the left-sidebar in themes that use images
 
