@@ -275,14 +275,17 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button,
     background-size: auto auto !important;
 }
 
-/* New accent color and Non image in private mode */
+/* New accent color and Non image, etc ... in private mode */
 
 :root[privatebrowsingmode="temporary"][style*="--lwt-additional-images"]{
-  --general-color: var(--purple) !important; 
   --lwt-header-image: none !important; 
   --lwt-additional-images: none !important;
   --toolbar-bgcolor: var(--contrast-color) !important;
-}      
+}
+
+:root[privatebrowsingmode="temporary"] #urlbar:is([open], [focused]) #urlbar-background {
+    background-color: color-mix(in srgb, var(--general-color) 25%, var(--contrast-color)) !important;
+}
 
 /* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
 
