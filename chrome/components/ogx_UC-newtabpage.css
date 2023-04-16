@@ -523,7 +523,11 @@ body{
     
 .fake-textbox, .fake-editable {
     color: var(--newtab-wordmark-color) !important;
-    }    
+    }
+
+.fake-caret{ 
+    background-color: var(--in-content-icon-color) !important 
+    }
 
 .search-inner-wrapper:not(:focus){
     backdrop-filter: var(--personal-blur) !important;
