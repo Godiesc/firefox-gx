@@ -1,56 +1,21 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 @media (prefers-color-scheme: dark){:root{ scrollbar-color: #38375580 #18173530 !important; }}      /*Color de la barra de desplazamiento*/
 @media(prefers-color-scheme: light){:root{ scrollbar-color: #d8d9da #f4f2f7!important; }}           /*Color de la barra de desplazamiento*/
 /**{ scrollbar-width: thin !important}*/                                                            /*Barra de desplazamiento delgada*/
 
-.alt-stop { stop-color: var(--left-color) !important; }                                       /* left color logo-and-wordmark */
-.main-stop  { stop-color: var(--right-color) !important; }                                    /* right color logo-and wordmark*/
+.alt-stop { stop-color: var(--left-color) !important; }                                             /* left color logo-and-wordmark */
+.main-stop { stop-color: var(--right-color) !important; }                                           /* right color logo-and wordmark*/
 
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
-     @media (prefers-color-scheme: light){
-    body{
-    --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
-    --contrast-color: white !important;
-    --border-contrast-color: #acacac50 !important;
-        
-    --arrowpanel-background-personal: #f9f9f9 !important;
-    --lwt-sidebar-background-color: #efeff5 !important;                                       /* Sidebar fondo */
-    --newtab-background-color: #efeff5 !important;                                            /* Color fondo general */
-        
-    --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/
-    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* color de fondo al hacer clic al ícono menú 3 puntos*/
-        
-    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
-      var(--button-hover-bgcolor) 49%, transparent) !important;
-
-    --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
-      var(--button-active-bgcolor) 69%, transparent) !important;
-        
-    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
-        var(--newtab-wordmark-color)) !important;
-        
-    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
-    --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
-        
-    --newtab-overlay-color: color-mix(in srgb, var(--arrowpanel-background-personal) 34%, transparent) !important;     /* fondo al editar sitio, transparente */
-        
-    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
-    --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
-      var(--newtab-background-color) 86%, var(--newtab-wordmark-color) ) !important;
-        
-    --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* color bola de radiobutton */
-        
-    /*--lwt-main-image: url("../images/newtab/wallpaper-light.png") ;*/
-        
-    }
-    }
+   
     @media (prefers-color-scheme: dark){
+        
     body{
-    --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
-    --contrast-color: black !important;
-    --border-contrast-color: #09080d !important;
+    --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;        /* Image in the newtab searchbox */
+    --contrast-color: black !important;                                                       /* Variable fondo personal de contraste */
+    --border-contrast-color: #09080d !important;                                              /* Variable borde personal de contraste */
         
     --arrowpanel-background-personal: #1c1726 !important;
     --lwt-sidebar-background-color: #14141d !important;                                       /* Sidebar fondo */
@@ -79,107 +44,202 @@
       var(--newtab-background-color) 90%, var(--newtab-wordmark-color) ) !important;
 
     --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* color bola de radiobutton */
+
+    }}
     
-    /*--lwt-main-image: url("../images/newtab/wallpaper-dark.png") ;*/
+    @media (prefers-color-scheme: light){
         
-        }
-    }
+    body{
+    --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;        /* Image in the newtab searchbox */
+    --contrast-color: white !important;                                                       /* Variable fondo personal de contraste */
+    --border-contrast-color: #acacac50 !important;                                            /* Variable borde personal de contraste */
+        
+    --arrowpanel-background-personal: #f9f9f9 !important;
+    --lwt-sidebar-background-color: #efeff5 !important;                                       /* Sidebar fondo */
+    --newtab-background-color: #efeff5 !important;                                            /* Color fondo general */
+        
+    --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda */
+    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* color de fondo al hacer clic al ícono menú 3 puntos */
+        
+    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
+      var(--button-hover-bgcolor) 49%, transparent) !important;
+
+    --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
+      var(--button-active-bgcolor) 69%, transparent) !important;
+        
+    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio */
+        var(--newtab-wordmark-color)) !important;
+        
+    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
+    --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
+        
+    --newtab-overlay-color: color-mix(in srgb,                                                /* fondo al editar sitio, transparente */
+      var(--arrowpanel-background-personal) 34%, transparent) !important;
+        
+    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
+    --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
+      var(--newtab-background-color) 86%, var(--newtab-wordmark-color) ) !important;
+        
+    --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* color bola de radiobutton */
+        
+    }}
+    
 /* ntp - Fondo general de la paginas newtab y home */
+    
 .activity-stream {
     background-color: var(--newtab-background-color, #ff0000) !important;
-}
+    }
+    
 /* Eliminar scrollbar */
+    
 *{scrollbar-width: none !important }
 
 /* Color checkbox accesos patrocinados */
-.sponsored-checkbox:is(:checked):hover, .sponsored-checkbox:not(:checked):hover{ background-color: var(--button-hover-bgcolor) !important;}
+    
+.sponsored-checkbox:is(:checked):hover, .sponsored-checkbox:not(:checked):hover{ 
+    background-color: var(--button-hover-bgcolor) !important;
+    }
 
 /* Color de borde del radio-button en "Personalizar" */
+    
 .home-section .section .slider {border-color: transparent !important;}
 .home-section .section .slider:hover {background-color: var(--button-hover-bgcolor) !important;}
 
 /* Colores al "editar" un sitio anclado */
+    
 .modal{
     background: var(--newtab-overlay-color) !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
-    border-radius: 0 !important; }
+    border-radius: 0 !important; 
+    }
+    
 .modalOverlayOuter{
-    backdrop-filter: blur(26px); }
+    backdrop-filter: blur(26px); 
+    }
+    
 .topsite-form .actions{
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;}
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    }
+    
 input[type="text"], input[type="search"] {
-    border-radius: 4px !important; }
+    border-radius: 4px !important; 
+    }
+    
 input:focus-visible, input:focus-visible{
     outline: 1px solid var(--general-color) !important;
     border-color: var(--general-color) !important;
-}
+    }
+    
 /* Fondo y borde del menú de 3 puntos */
+    
 .context-menu {
     background-color: var(--arrowpanel-background-personal) !important; border-radius: 0px !important;
     box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
     border: 1px solid var(--arrowpanel-background-personal) !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
-}
+    }
+    
 /* linea separadora */
+    
 .context-menu .separator{
     margin-block: 2px !important;
     margin-left: 6px !important; margin-right: 6px !important;
     width: -moz-available !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
-}
+    }
+    
 /* Color de borde del boton "Guardar" */
+    
 .actions button:not(.cancel), .actions button:focus:not(.cancel) {
-    color: white !important;  border: transparent !important;}
+    color: white !important;  
+    border: transparent !important;
+    }
 .actions button:hover:not(.dismiss) {
-    background-color: var(--button-hover-bgcolor) !important; color: white !important; box-shadow:none !important; }
+    background-color: var(--button-hover-bgcolor) !important; 
+    color: white !important; 
+    box-shadow:none !important; 
+    }
 
-/* Color de borde del boton "Cancelar"*/
+/* Color de borde del boton "Cancelar" */
+    
 .actions button:is(.cancel){
-    background-color: var(--newtab-element-secondary-color) !important; border-color: transparent !important; }
+    background-color: var(--newtab-element-secondary-color) !important; 
+    border-color: transparent !important; 
+    }
 .actions button:is(.cancel):hover {
-    box-shadow:none !important; background-color: #da3633 !important; color: #f0f6fc !important; border-color: #f85149 !important;}
+    box-shadow:none !important; 
+    background-color: #da3633 !important; 
+    color: #f0f6fc !important; 
+    border-color: #f85149 !important;
+    }
 
 /* Botón "Personalizar" */
+    
 .icon.icon-settings {
-    background-image: url("../images/edit.svg") !important; }
+    background-image: url("../images/edit.svg") !important; 
+    }
 .personalize-button {
-    color: color-mix( in srgb, var(--newtab-background-color) 60%, var(--newtab-wordmark-color) ) !important;}
+    color: color-mix( in srgb, var(--newtab-background-color) 60%, var(--newtab-wordmark-color) ) !important;
+    }
 .personalize-button:hover {
-    background-color: var(--newtab-background-color-secondary)!important; fill:var(--newtab-wordmark-color)  !important;}
+    background-color: var(--newtab-background-color-secondary)!important; 
+    fill:var(--newtab-wordmark-color)  !important;
+    }
 
 /* Colores del botón "Cerrar" */
+    
 .close-button {
     background-color: var(--newtab-element-secondary-color) !important;
     color: var(--newtab-wordmark-color)  !important;
     border-radius: 4px !important;
-    border-color: transparent !important; }
+    border-color: transparent !important; 
+    }
 .close-button:hover{
     background-color: var(--button-active-bgcolor) !important;
     color: white  !important;
     border-radius: 4px !important;
-}
+    }
+    
 /*Colores de la sidebar deslizante para Personalizar la NewTab*/
+    
     /* Fondo */
+    
 .customize-menu {
     background-color: color-mix(in srgb, var(--newtab-background-color) ,var(--newtab-overlay-color)) !important;
     color: var(--newtab-wordmark-color) !important;
-    backdrop-filter: var(--personal-blur); }
+    backdrop-filter: var(--personal-blur); 
+    }
+    
     /* Combobox */
+    
 .home-section .section .selector {
     background-color: var(--newtab-element-secondary-color) !important;
     border-color: transparent !important;
-    border-radius: 4px !important; }
+    border-radius: 4px !important; 
+    }
+    
 .home-section .section .selector:hover {
     background-color: var(--button-active-bgcolor) !important;
     border-color: var(--button-hover-bgcolor) !important;
-    color: white !important;}
+    color: white !important;
+    }
+    
     /* Sombra izquierda de la sidebar */
+    
 .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
-    box-shadow: -1px 0 #00000030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;}
+    box-shadow: -1px 0 #00000030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+    }
+    
     /* Separador*/
+    
     .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 
-/* Cuadro de búsqueda*/
+/* Cuadro de búsqueda */
+    
+.search-wrapper .search-button {
+    display: none !important;
+    }
+    
 .search-inner-wrapper{
     position: relative;
     background: var(--newtab-pinnedsites-background) !important;
@@ -188,108 +248,153 @@ input:focus-visible, input:focus-visible{
     margin-top: 16px !important;
     outline: 1px solid #50505030 !important;
     }
+    
 .search-inner-wrapper::after {width: unset !important; 
     background: linear-gradient(to right, var(--button-bgcolor), var(--button-hover-bgcolor), var(--button-bgcolor)) !important;
     border-radius:0 0 4px 4px ;  content: '';  height: 3px;  left: 0px;
-    position: absolute; right: 0; bottom: -1px; transform: scale(0, 1);}
-.search-inner-wrapper::after { transform: scale(1, 1);}
+    position: absolute; right: 0; bottom: -1px; transform: scale(0, 1);
+    }
+    
+.search-inner-wrapper::after { 
+    transform: scale(1, 1);
+    }
 
 .search-inner-wrapper:is(:hover)::after{
     background: var(--button-active-bgcolor) !important;
-}
+    }
+    
 .search-inner-wrapper:not(:focus){
     border-radius: 4px !important;
     backdrop-filter: none !important;
-}
+    }
+    
 @supports -moz-bool-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
 .search-inner-wrapper:not(:focus){
     backdrop-filter: var(--personal-blur) !important;
-    }
-}
+    }}
+    
 .search-inner-wrapper:is(:hover){
     border-radius: 4px !important;
-}
+    }
+    
 .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
     border-radius: 4px !important;
     backdrop-filter: var(--personal-blur) !important;
-}
+    }
+    
 .search-handoff-button{
     border-color: transparent !important;
     border-radius: 4px !important;
     box-shadow: none !important; 
-}
+    }
+    
 .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
     outline: 1px solid var(--button-active-bgcolor) !important;
     border: transparent !important;
     margin-left: 1px !important;
     z-index: 1 !important;
-}
+    }
+    
 .search-wrapper .search-button:focus, .search-wrapper .search-button:hover {
     fill: white !important;
-}
+    }
+    
 .search-wrapper .search-inner-wrapper:active input,
 .search-wrapper input:focus {
   box-shadow: none !important;
-}
+    }
+    
 browser[primary="true"][tabDialogShowing="true"],
 #main-window[window-modal-open="true"] > body > #browser{
   filter: blur(10px)
-}
+    }
+    
 /* Actividad reciente */
+    
 .card-outer .card { 
     backdrop-filter: var(--personal-blur);
-    border-radius: 0px !important;
+    border-radius: 3px !important;
     box-shadow: 0px 2px 0px var(--button-hover-bgcolor) !important;
     border: 1px solid !important;
     border-bottom: 0px !important;
     border-color: #50505030 !important;
 }
-.compact-cards .card-outer .card-preview-image-outer { border-radius: 0 !important; }
     
-/*fondo pequeño de los favICON de los sitios anclados*/
-.top-site-icon{ background-color: transparent !important; }
+.compact-cards .card-outer .card-preview-image-outer { 
+    border-radius: 3px !important; 
+    }
+    
+/* Fondo pequeño de los favICON de los sitios anclados */
+    
+.top-site-icon{ background-color: transparent !important;
+    }
 
 /* Sitios anclados */
+    
 .top-site-outer .tile{
     box-shadow: none !important;
     outline: 0px solid #50505030 !important;
-}
-/* Pinned icon */
-.title.has-icon.pinned { margin-left: -14px !important;  }
-.top-site-outer .title span:is(:hover) .icon.icon-pin-small{ transition-delay: 150ms !important; }
-.top-site-outer .title span:not(:hover) .icon.icon-pin-small{ opacity: 0 !important; }
+    }
     
-/* Fondo de sitios anclados*/
+/* Pinned icon */
+    
+.title.has-icon.pinned { 
+    margin-left: -14px !important;  
+    }
+.top-site-outer .title span:is(:hover) .icon.icon-pin-small{ 
+    transition-delay: 150ms !important; 
+    }
+.top-site-outer .title span:not(:hover) .icon.icon-pin-small{ 
+    opacity: 0 !important; 
+    }
+    
+/* Fondo de sitios anclados */
+    
 .top-sites-list{
     background: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;
     outline: 1px solid #50505030 !important;
     outline-offset: -1px !important;
     border-radius: 4px !important;
-}
-.top-sites-list { position: relative;}
-.top-sites-list::after {width: unset !important; 
+    }
+    
+.top-sites-list::after {
+    width: unset !important; 
     background: linear-gradient(to right, var(--button-bgcolor), var(--button-hover-bgcolor), var(--button-bgcolor)) !important;
     border-radius:0 0 4px 4px;  content: '';  height: 3px;  left: 1px;
-    position: absolute; right: 0; bottom: 0px; transform: scale(0, 1);}
-.top-sites-list::after { transform: scale(1, 1);}
+    position: absolute; right: 0; bottom: 0px; transform: scale(0, 1);
+    }
+    
+.top-sites-list::after { transform: scale(1, 1);    
+    }
 
 .top-sites-list:is(:hover)::after{
     background: linear-gradient(to right, var(--button-active-bgcolor), var(--button-active-bgcolor), var(--button-active-bgcolor)) !important;
-}
-/* colores al pasar el mouse sobre los sitios anclados en :hover */
+    }
+    
+/* Colores al pasar el mouse sobre los sitios anclados en :hover */
+    
 .top-site-outer:is(.active, :focus, :hover) .tile{
     background: color-mix(in srgb, var(--contrast-color) 10%, transparent) !important;
     box-shadow: 0 0 0 1px var(--button-active-bgcolor) !important;
-}
-/* colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
+    }
+    
+/* Colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
+    
 .top-site-outer:is(.active, :focus, :hover){
-    background:transparent !important;
-}
-/* ícono de 3 puntos al hacerle hover y clic */
-.context-menu-button:active, .context-menu-button:focus{ fill: var(--general-color) !important;
-}
+    background: transparent !important;
+    }
+    
+/* Ícono de 3 puntos al hacerle hover y clic */
+    
+.context-menu-button, .context-menu-button:active, .context-menu-button:focus{ 
+    background-color: var(--border-contrast-color) !important;
+    fill: var(--general-color) !important;
+    border-color: #50505050 !important;
+    }
+    
 /* Botón de editar sitio anclado */
+    
 .top-site-outer .context-menu-button {
     background-image: url("../images/more.svg") !important;
     background-color: transparent !important;
@@ -297,19 +402,24 @@ browser[primary="true"][tabDialogShowing="true"],
     top: -2px !important;
     transition: opacity 200ms;
     fill: var(--button-hover-bgcolor) !important;
-}
+    }
+    
 /* Fondo de <popup> al intentar eliminar un sitio anclado*/
+    
 .modal{
     backdrop-filter: var(--personal-blur) !important;
-    outline: 1px solid var(--border-contrast-color) !important;
+    outline: 1px solid var(--contrast-color) !important;
     }
+    
 /*------------------------fondo (imagen), Logo y Wordmark------------------------*/
+    
 body{
     background: var(--lwt-main-image) no-repeat right top fixed !important;
     background-size:  var(--wallpaper-size) !important;
     background-position-y: var(--background-align-y) !important;
     backdrop-filter: var(--brightness-wallpaper) !important;
     }
+    
 .logo{
     background: url("../images/foxlogo.svg") no-repeat !important;
     background-size: cover !important;
@@ -318,97 +428,148 @@ body{
     Opacity: var(--logo-wordmark-visibility) !important;
     display: var(--logo-wordmark-display) !important;
     }
+    
 .wordmark {
     background: url("../images/firefox-wordmark.svg") no-repeat center center !important;
     background-size: 134px !important;
     Opacity: var(--logo-wordmark-visibility) !important;
     display: var(--logo-wordmark-display) !important;
     }
+    
 .search-wrapper .logo-and-wordmark {
     margin-bottom: 0px !important;
     }
+    
 .promo-cta .button {
-    color: #cacaca !important; }
+    color: #cacaca !important; 
+    }
+    
 main {
     margin-top: var(--newtab-pinnedsites-position-top, auto) !important;
 }
     
 /* "Logo-wordmark" y search-box en una sola linea */
+    
 @media screen and (min-width: 1000px){
-.wordmark{ margin-inline-end: 50px !important;  }
-.search-wrapper, .search-inner-wrapper{
-    display: var(--orientation-display) !important;
-    justify-content: center !important;
+    
+    .wordmark{ 
+        margin-inline-end: 50px !important;  
     }
-.search-inner-wrapper{
-    display: var(--searchbar-display) !important;
-    height: 52px !important;
-    margin-top: 16px !important;
+    .search-wrapper, .search-inner-wrapper{
+        display: var(--orientation-display) !important;
+        justify-content: center !important;
+    }
+    .search-inner-wrapper{
+        display: var(--searchbar-display) !important;
+        height: 52px !important;
+        margin-top: 16px !important;
     }
   }
-
+    
 }
+
 /*---------------------------------- Pagina de Error al Cargar Página ---------------------------------------------*/
-@-moz-document url('about:config'),  url(about:privatebrowsing),
-    regexp("^about:(neterror|certerror).*") , url('about:firefoxview') {
+
+@-moz-document url('about:config'),  url(about:privatebrowsing), regexp("^about:(neterror|certerror).*") , url('about:firefoxview') {
 
 .button[autofocus], .button[type="submit"], .button[default], button.primary:not(:hover) {
     background-color: var(--button-active-bgcolor) !important;
     color: white !important;
     border-color: transparent !important;
     }
+    
 button.primary:hover{
     background-color: var(--general-color) !important;
-    color: white !important; }
+    color: white !important; 
+    }
 }
-/*Color fondo y letra al seleccionar texto*/
+
+/* ---------------------- Color fondo y letra al seleccionar texto ------------------------- */
+
 ::selection {
     color: black !important;
     box-shadow: none !important;
+    text-shadow: none !important;
     background: var(--selected-text-background) !important;
 }
-/* ----------------------- search input and ads style in private mode ------------------------*/
+
+/* -------------------------------- #### Private Mode #### ----------------------------------*/
+
 @-moz-document url(about:privatebrowsing) {
-    :root{ --general-color: var(--purple) !important; }
+    
+    :root{ 
+        --general-color: var(--purple) !important; 
+    }
+    
 body{
+    --newtab-search-icon: url("chrome://global/skin/icons/indicator-private-browsing.svg") !important;
     background: var(--lwt-private-image) no-repeat right top fixed !important;
     background-size:  var(--wallpaper-size) !important;
     background-position-y: var(--background-align-y) !important;
     backdrop-filter: var(--brightness-wallpaper) !important;
     }
+    
 .promo.below-search, .info{
     background-color: var(--newtab-pinnedsites-background) !important;
     backdrop-filter: var(--personal-blur) !important;
     outline: 1px solid #50505030 !important;
     }
+    
 .search-handoff-button{
     background-color: transparent !important;
     border: transparent !important;
     box-shadow: none !important;
     }
-.fake-textbox{
+    
+.fake-textbox, .fake-editable {
     color: var(--newtab-wordmark-color) !important;
+    }    
+
+.search-inner-wrapper:not(:focus){
+    backdrop-filter: var(--personal-blur) !important;
+    }
+    
+.logo{
+    background: url("chrome://global/skin/icons/indicator-private-browsing.svg") no-repeat !important;
+    background-size: cover !important;
+    height: 80px !important;
+    width: 80px !important;
+    Opacity: var(--logo-wordmark-visibility) !important;
+    display: var(--logo-wordmark-display) !important;
+    }
+    
+.wordmark {
+    background: url("../images/firefox-wordmark-private.svg") no-repeat center center !important;
+    Opacity: var(--logo-wordmark-visibility) !important;
+    display: var(--logo-wordmark-display) !important;
     }
 }
+
 /*..........................................Firefox--------------------------------------------
 ---------------------------------------------view-----------------------------------------------*/
+
 @-moz-document url(about:firefoxview), regexp("^about:.*") {
+    
     @media (prefers-color-scheme: dark){
+        
     body{ 
         --in-content-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
         background-color: #101019 !important;
-        }
-    }
+        }}
+    
     @media (prefers-color-scheme: light){
+        
     body{
         --in-content-zap-gradient: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
         background-color: #efeff5 !important; }
     }
+    
     .synced-tab-a{
         border-color: var(--in-content-box-border-color) !important;
     }
+    
     .synced-tab-a:hover {
-    border-color: var(--general-color) !important;
-    box-shadow: 0px 2px 14px var(--button-bgcolor) !important;
-}
+        border-color: var(--general-color) !important;
+        box-shadow: 0px 2px 14px var(--button-bgcolor) !important;
+    }
 }
