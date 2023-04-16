@@ -281,7 +281,7 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button,
   --general-color: var(--purple) !important; 
   --lwt-header-image: none !important; 
   --lwt-additional-images: none !important;
-  --toolbar-bgcolor: #101019 !important;
+  --toolbar-bgcolor: var(--contrast-color) !important;
 }      
 
 /* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
