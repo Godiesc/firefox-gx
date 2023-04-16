@@ -223,6 +223,7 @@
 
 @media (prefers-color-scheme: dark){
 :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
+  --contrast-color: #070712 !important;
   --toolbar-bgcolor: #101019cf !important;                                                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                      /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                          /*"toolbar_field_border": "#363540"*/
@@ -236,6 +237,7 @@
   }}
 @media (prefers-color-scheme: light){
   :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
+  --contrast-color: #eaeaea !important;
   --toolbar-bgcolor: #f9f9f9cf !important;                                                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                      /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                          /*"toolbar_field_border": "#363540"*/
