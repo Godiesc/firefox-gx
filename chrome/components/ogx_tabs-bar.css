@@ -275,6 +275,15 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button,
     background-size: auto auto !important;
 }
 
+/* New accent color and Non image in private mode */
+
+:root[privatebrowsingmode="temporary"][style*="--lwt-additional-images"]{
+  --general-color: var(--purple) !important; 
+  --lwt-header-image: none !important; 
+  --lwt-additional-images: none !important;
+  --toolbar-bgcolor: #101019 !important;
+}      
+
 /* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
 
 :root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
@@ -295,7 +304,7 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button,
     #TabsToolbar {
         padding-block-start: 6px !important;
     }
-    :root:not([sizemode="fullscreen"]) #tabbrowser-tabs {
+    :root[sizemode="fullscreen"] #tabbrowser-tabs {
         padding-inline-start: 10px !important;
     }
 }
