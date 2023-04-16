@@ -113,6 +113,7 @@
 }
 
 /* White Theme */
+
 @media (prefers-color-scheme: light){
 :root:not([lwtheme-brighttext="true"]),
 :root:-moz-lwtheme{
@@ -219,11 +220,54 @@
   --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
 }}
 
+/* Private Browsing Mode */
+
+@media (prefers-color-scheme: dark){
+  
+:root:is([privatebrowsingmode="temporary"], 
+         [privatebrowsingmode="temporary"][style*="--lwt-additional-images"],
+         [privatebrowsingmode="temporary"][lwtheme-image]){
+  
+  --lwt-header-image: none !important; 
+  --lwt-additional-images: none !important;
+  --lwt-accent-color: #0d0c15 !important;                                             /*"frame": "#17161c" */
+  --arrowpanel-background: #1c1726 !important;                                        /*"popup": "#1c1b22Fa"*/
+  --toolbar-field-focus-background-color: #2e273ffb !important;                       /*"toolbar_field_focus": "#1a1b25FB"*/    
+  --lwt-selected-tab-background-color: #070712 !important;                            /*"tab_selected":"#363540"*/
+  --toolbar-bgcolor: var(--lwt-selected-tab-background-color) !important;
+  --toolbarbutton-icon-fill: #b6b6d2 !important;                                      /*"icons": "#00dbfd"*/
+  --lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /*"icons_attention": "#00dbfd"*/
+  
+  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 60%, black) !important;    /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 20%, black) !important;   /*"button_background_active": "#131217"*/
+
+  }}
+
+@media (prefers-color-scheme: light){
+  
+:root:is([privatebrowsingmode="temporary"], 
+         [privatebrowsingmode="temporary"][style*="--lwt-additional-images"],
+         [privatebrowsingmode="temporary"][lwtheme-image]){
+  
+  --lwt-header-image: none !important; 
+  --lwt-additional-images: none !important;  
+  --lwt-accent-color: #e0dfec !important;                                             /*"frame": "#17161c" */
+  --arrowpanel-background: #f0eff6 !important;                                        /*"popup": "#1c1b22Fa"*/
+  --toolbar-field-focus-background-color: #e0dfecfb !important;                       /*"toolbar_field_focus": "#1a1b25FB"*/
+  --lwt-selected-tab-background-color: #f0eff6 !important;                            /*"tab_selected":"#363540"*/
+  --toolbar-bgcolor: var(--lwt-selected-tab-background-color) !important;
+  --toolbarbutton-icon-fill: #505050 !important;                                      /*"icons": "#00dbfd"*/
+  --lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /*"icons_attention": "#00dbfd"*/
+  
+  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, white) !important;    /*"button_background_hover": "#26242e"*/
+  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 20%, white) !important;   /*"button_background_active": "#131217"*/
+
+  }}
+
 /* Compatibilidad Parcial para temas que usan "Imagenes" */
 
 @media (prefers-color-scheme: dark){
-:root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-  --contrast-color: #070712 !important;
+  :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
   --toolbar-bgcolor: #101019cf !important;                                                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                      /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                          /*"toolbar_field_border": "#363540"*/
@@ -237,7 +281,6 @@
   }}
 @media (prefers-color-scheme: light){
   :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-  --contrast-color: #eaeaea !important;
   --toolbar-bgcolor: #f9f9f9cf !important;                                                                       /*"toolbar":"#131118", "Color de la toolbar"*/
   --toolbar-field-background-color: transparent !important;                                                      /*"toolbar_field":"#1a1b25"*/
   --toolbar-field-border-color: transparent !important;                                                          /*"toolbar_field_border": "#363540"*/
