@@ -59,7 +59,7 @@
 /* Extensions button into the "left-sidebar" - Immovable */
 
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
-    --padding-top-left-sidebar: 144px !important;
+    --padding-top-left-sidebar: 146px !important;
 }
 
 :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button {
@@ -68,6 +68,7 @@
     position: fixed;
     display: flex;
     top: 76px !important;
+    left: inherit !important;
     z-index: 2 !important;
     fill: var(--general-color) !important;
     width: calc(var(--uc-vertical-toolbar-width) - 4px) !important;
