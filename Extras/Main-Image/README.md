@@ -1,5 +1,5 @@
 # How to apply.
-<p>This configuration will simulate an image behind all the browser.</p>
+<p>This configuration will simulate an image behind all the browser. You are forced to use an image at least the same width and 150px bigger height of the resolution of your monitor.</p>
 <p><b><< Fast step to apply the config. >></b></p>
 <ul>
 <li>Add the files <code>ogx_main-image.css</code> and <code>ogx_root-personal.css</code> into the <code>chrome/components</code> folder.</li></ul></br>
