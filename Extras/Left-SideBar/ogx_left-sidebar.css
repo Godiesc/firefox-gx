@@ -184,9 +184,10 @@
 
 /* Mover botón "atrás" más a la derecha */
 
-:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #back-button {
-    margin-left: var(--uc-vertical-toolbar-width, 0) !important;
-}
+@media (-moz-platform: windows-win7),(-moz-platform: windows-win10), (-moz-platform: linux) { 
+  :root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
+    margin-left: calc(var(--uc-vertical-toolbar-width,0) - 4px) !important;
+    }}
 
 /* Color y tamaño Items de la barra lateral */
 
