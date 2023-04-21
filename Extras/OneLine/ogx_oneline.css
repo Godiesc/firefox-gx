@@ -228,7 +228,7 @@ Window controls will be all wrong without it
   
 @media (-moz-gtk-csd-available) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 84px;
+    --uc-window-control-width: 94px;
   }
 }
 
@@ -336,6 +336,15 @@ Window controls will be all wrong without it
            
           --uc-buttons-width: calc(73px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
 }
+
+  @media (-moz-platform: linux) {
+  :root:is([privatebrowsingmode="temporary"], 
+         [privatebrowsingmode="temporary"][style*="--lwt-additional-images"],
+         [privatebrowsingmode="temporary"][lwtheme-image])  #navigator-toolbox{
+           
+         --uc-window-control-width: 156px !important; 
+         --uc-buttons-width: calc(93px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+    }}
   
 /* ######################################## Compatibilidad con "Tab-Shapes" config ##############################################*/
   
@@ -449,11 +458,10 @@ Window controls will be all wrong without it
 }
   
 /* Espacio de arraste <antes> de las pestañas en ventanas no maximizadas */
-  
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){
-  :root[tabsintitlebar][sizemode="normal"] #tabbrowser-tabs{
-    padding-inline-start: 30px !important;
-  }}
+
+:root[tabsintitlebar][sizemode="normal"] #tabbrowser-tabs{
+  padding-inline-start: 30px !important;
+}
   
 /* Espacio de arraste <despues> de las pestañas en ventanas no maximizadas */
   
@@ -467,7 +475,7 @@ Window controls will be all wrong without it
   
 @media (-moz-gtk-csd-available) {
 :root:is([tabsintitlebar][sizemode="normal"]) {
-    --uc-window-control-width: 116px;
+    --uc-window-control-width: 135px;
   }}
   
 /* Mover botón "atrás" más a la derecha */
@@ -842,6 +850,12 @@ toolbar:not(#PersonalToolbar,#TabsToolbar) .toolbarbutton-1{
   background-color: var(--lwt-frame) !important;
   color: var(--arrowpanel-color);
 }
+  
+/* Height menubar in Linux*/
+@media (-moz-platform: linux) { 
+  #main-menubar{
+  height: calc(var(--tab-height-personal) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 1px);
+  }}
 
 #menubar-items{
   -moz-box-orient: horizontal !important; /* Fx <112 compatibility */
