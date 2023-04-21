@@ -35,7 +35,7 @@
   
   --menu-label: "Menu" ;                                                                     /* Label botón -Menú- */
   --padding-left-tab: 74px ;                                                                 /* Tamaño horizontal botón -Menú- */
-  --account-label: "𝕐𝕠𝕦𝕣 𝕒𝕔𝕔𝕠𝕦𝕟𝕥 𝕝𝕒𝕓𝕖𝕝";                                                     /* Label to replace email in hamburger-menu*/
+  --account-label: "𝕄𝕪 𝔸𝕔𝕔𝕠𝕦𝕟𝕥";                                                            /* Label to replace email in hamburger-menu*/
   
   --left-color: var(--general-color);                                                        /* Color left logo y wordmark */
   --right-color: #0060bfdd ;                                                                 /* Color right logo y wordmark */
