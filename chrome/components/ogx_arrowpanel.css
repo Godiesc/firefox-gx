@@ -5,7 +5,7 @@
 
 slot {
     --panel-shadow-margin: 0px !important;
-    margin-right: 5px !important;
+    margin-right: 3px !important;
     margin-left: 3px !important;
     margin-bottom: 4px !important;
     border-color: var(--border-contrast-color) !important;
