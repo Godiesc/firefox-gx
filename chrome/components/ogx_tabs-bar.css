@@ -277,12 +277,10 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button,
 
 /* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
 
-:root[lwtheme-image] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"],
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"] {
-    --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;
-    /*"tab_selected":"#363540"*/
-    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)), 
-                      linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+:root:is([lwtheme-image], [style*="--lwt-additional-images"]) #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
+                      linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     background-position: left center !important;
     background-repeat: no-repeat !important;
     background-size: auto auto !important;
