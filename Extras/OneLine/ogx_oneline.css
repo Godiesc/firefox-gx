@@ -314,9 +314,8 @@ Window controls will be all wrong without it
          [privatebrowsingmode="temporary"][lwtheme-image]){
   
           --toolbar-bgcolor: transparent !important;
-          --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;     /* "button_background_hover": "#26242e"*/
-          --toolbarbutton-active-background: var(--arrowpanel-background) !important;           /* "button_background_hover": "#26242e"*/
-           
+          --toolbarbutton-hover-background: color-mix(in srgb, var(--arrowpanel-background) 94%, var(--lwt-tab-text)) !important;  /*"button_background_hover": "#26242e"*/
+          --toolbarbutton-active-background: var(--arrowpanel-background) !important;                                              /*"button_background_active": "#131217"*/
   }
   
 :root:is([privatebrowsingmode="temporary"][sizemode="maximized"], 
@@ -337,14 +336,46 @@ Window controls will be all wrong without it
           --uc-buttons-width: calc(73px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
 }
 
-  @media (-moz-platform: linux) {
+@media (-moz-platform: linux) {
   :root:is([privatebrowsingmode="temporary"], 
-         [privatebrowsingmode="temporary"][style*="--lwt-additional-images"],
-         [privatebrowsingmode="temporary"][lwtheme-image])  #navigator-toolbox{
+           [privatebrowsingmode="temporary"][style*="--lwt-additional-images"],
+           [privatebrowsingmode="temporary"][lwtheme-image])  #navigator-toolbox{
            
-         --uc-window-control-width: 156px !important; 
-         --uc-buttons-width: calc(93px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
-    }}
+         --uc-window-control-width: 134px !important; 
+         --uc-buttons-width: calc(71px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+}
+  :root:is([privatebrowsingmode="temporary"][sizemode="normal"], 
+           [privatebrowsingmode="temporary"][sizemode="normal"][style*="--lwt-additional-images"],
+           [privatebrowsingmode="temporary"][sizemode="normal"][lwtheme-image])  #navigator-toolbox{
+           
+         --uc-window-control-width: 154px !important; 
+         --uc-buttons-width: calc(91px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+}
+
+/* Fondo al mover una pestaña */
+  
+:root:is([privatebrowsingmode="temporary"], 
+         [privatebrowsingmode="temporary"][style*="--lwt-additional-images"],
+         [privatebrowsingmode="temporary"][lwtheme-image]) 
+         #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > 
+         .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
+            
+        background: var(--lwt-selected-tab-background-color) !important;
+  }
+
+/* Urlbar más pequeña en ventanas privadas */
+  
+:root:is([privatebrowsingmode="temporary"]) #urlbar-container:not([open],:focus, :focus-within ){
+    max-width: calc(var(--min-width-url) - 1vw) !important;
+}
+
+@media (-moz-gtk-csd-reversed-placement){
+  :root:is([privatebrowsingmode="temporary"]) #nav-bar-customization-target {
+    padding-right: 0px !important;
+}
+  }
+  
+}
   
 /* ######################################## Compatibilidad con "Tab-Shapes" config ##############################################*/
   
@@ -513,12 +544,20 @@ Window controls will be all wrong without it
   
 /* Espacio de arrastre derecha ventana <no maximizada> */
   
+:root[tabsintitlebar][sizemode="normal"] #nav-bar-customization-target{ 
+  padding-right: 0px !important;
+  }
+  
+:root[tabsintitlebar][sizemode="normal"] #tabbrowser-tabs{
+  padding-inline-start: 30px !important;
+}
+  
 :root[tabsintitlebar][sizemode="normal"]:not([sizemode="maximized"]) #navigator-toolbox{
-  --uc-buttons-width: calc(98px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important; 
+  --uc-buttons-width: calc(86px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important; 
 }
   
 :root[tabsintitlebar][sizemode="normal"]:not([sizemode="maximized"]) #nav-bar{
-    border-inline-end-width: 50px  !important;
+    border-inline-end-width: 66px  !important;
 }
   
 :root:is([tabsintitlebar="true"][sizemode="maximized"],[tabsintitlebar][sizemode="fullscreen"]) #nav-bar{
@@ -526,24 +565,47 @@ Window controls will be all wrong without it
 }
   
 :root:is([tabsintitlebar][sizemode="maximized"]) #TabsToolbar-customization-target{
-    border-right: 62px solid transparent !important;
+    border-right: 66px solid transparent !important;
+}
+ 
+/* Espacio de arraste antes y despues en ventanas privadas */
+  
+:root:is([privatebrowsingmode="temporary"][sizemode="normal"]):not([privatebrowsingmode="temporary"][sizemode="maximized"]) #navigator-toolbox{
+  --uc-window-control-width: inherit !important; 
+  --uc-buttons-width: calc(56px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important; 
+}
+:root:is([privatebrowsingmode="temporary"][sizemode="normal"],
+         [privatebrowsingmode="temporary"][sizemode="maximized"],
+         [privatebrowsingmode="temporary"][sizemode="fullscreen"]) #navigator-toolbox{
+  --uc-window-control-width: 96px !important; 
+}
+  
+:root:is([privatebrowsingmode="temporary"][sizemode="maximized"],[privatebrowsingmode="temporary"][sizemode="fullscreen"]) #nav-bar{
+    border-inline-end-width: 64px  !important;
+}
+
+:root:is([privatebrowsingmode="temporary"][sizemode="fullscreen"]) #navigator-toolbox{
+  --uc-buttons-width: calc(56px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important; 
 }
   
 /* Hacer clicleable los botones de extensiones y overflow menu */
   
-#PanelUI-button,#nav-bar-overflow-button{
+#nav-bar-overflow-button{
   margin: 0px !important;
   border: 0px !important;
   position: relative;
   z-index: 3;
 }
   
+/* Unified extension button on right - Immovable */
+  
 #unified-extensions-button{
-  margin: 0px !important;
-  border: 0px !important;
-  position: absolute !important;
-  right: 0 !important;
-  z-index: 3;
+    position: fixed;
+    display: flex;
+    left: initial !important;
+    right: 33px !important;
+    top: calc(var(--windowed-top-padding, 0px) + 0px);
+    z-index: 3 !important;
 }
   
 /* Reordenar los <window controls> */
@@ -555,7 +617,6 @@ Window controls will be all wrong without it
   height: var(--tab-height-personal) !important;
   top: var(--windowed-top-padding, 0px) !important;
   left: var(--uc-vertical-toolbar-width,0) !important;
-  flex-direction: row-reverse !important;
   background: transparent !important;
   padding-left: 2px !important;
   z-index: 2 !important;
@@ -581,7 +642,18 @@ Window controls will be all wrong without it
 }
   
 :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="false"] + #TabsToolbar{
-  padding-left: calc(var(--uc-vertical-toolbar-width,0) + 4px) !important;
+  padding-left: calc(var(--uc-vertical-toolbar-width,0) - 9px) !important;
+  }
+/* Mantener espacio derecha con la barra de menú siempre activa */
+  :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar[autohide="false"] + #TabsToolbar > :is(.titlebar-buttonbox-container, .titlebar-spacer) {
+    display: none !important;
+  }
+/* margen izquierda pestañas when menubar active */
+  :root:not([chromehidden~="toolbar"]) #toolbar-menubar, :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="false"]{
+    padding-left: calc(var(--padding-left-tab) + var(--uc-window-control-width)) !important;
+  }
+  :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="false"]+#TabsToolbar{
+    padding-left: var(--uc-window-control-width) !important;
   }
 }
   
@@ -720,7 +792,7 @@ Window controls will be all wrong without it
 /* urlbar focus - open */
   
 #urlbar-container:not([open],:focus, :focus-within ){
-/*  max-width: var(--min-width-url) !important;*/
+    max-width: var(--min-width-url) !important;
     min-width: 5vw !important;
     width: 5vw !important;
 }
@@ -854,7 +926,7 @@ toolbar:not(#PersonalToolbar,#TabsToolbar) .toolbarbutton-1{
 /* Height menubar in Linux*/
 @media (-moz-platform: linux) { 
   #main-menubar{
-  height: calc(var(--tab-height-personal) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 1px);
+  height: calc(var(--tab-height-personal) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) + 0px);
   }}
 
 #menubar-items{
