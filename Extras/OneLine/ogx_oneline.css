@@ -433,7 +433,13 @@ Window controls will be all wrong without it
     :root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
         background: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
                     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-  }}
+  }
+
+/* Centrar verticalmente botón de extensiones*/
+  
+#unified-extensions-button{
+    top: initial !important;
+}}
   
 /* Sobre-escribir la regla usada en ogx_tabs-bar, lineas 175-183 */
   
@@ -476,6 +482,7 @@ Window controls will be all wrong without it
     position: fixed;
     display: flex;
     left: calc(100vw - var(--uc-window-control-width) - 83px) !important;
+    top: var(--windowed-top-padding, 0px);
     z-index: 3 !important;
 }
   
