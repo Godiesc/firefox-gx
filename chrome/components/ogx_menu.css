@@ -92,8 +92,8 @@
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
         appearance: none !important;
         margin-top: calc(-1px - var(--tab-height-personal)) !important;
-        clip-path: polygon( calc(var(--padding-left-tab) - 7px) 0%, 200% 0%, 0% 200%, 0% calc(var(--tab-height-personal)), 
-                   calc(var(--padding-left-tab) - 7px) calc(var(--tab-height-personal)));
+        clip-path: polygon( var(--padding-left-tab) 0%, 200% 0%, 0% 200%, 0% calc(var(--tab-height-personal)), 
+                   var(--padding-left-tab) calc(var(--tab-height-personal)));
         --arrowpanel-menuitem-padding: 6px !important;
     }
     :root:is([sizemode="maximized"]):not([tabsintitlebar], [chromehidden~="toolbar"]) #appMenu-popup {
