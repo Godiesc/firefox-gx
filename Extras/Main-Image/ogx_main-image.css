@@ -43,7 +43,7 @@
    --toolbar-bgcolor: #ffffff7d !important;
    --lwt-selected-tab-background-color: none !important;
    }}
-#navigator-toolbox {
+:root:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
    --lwt-header-image: var(--lwt-main-image) !important;
      background-image: var(--lwt-main-image) !important; 
    /*background-size:  cover !important;  */
@@ -68,8 +68,10 @@
 }
 /* Compatibilidad con Left-sidebar */
 /*
-#PersonalToolbar{
+:root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
+:root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
+:root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
    background: var(--lwt-main-image) !important;
-   background-size:  var(--wallpaper-size) !important;
+   background-position: 0 30px !important;
 }
 */
