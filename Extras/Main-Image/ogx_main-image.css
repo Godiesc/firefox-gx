@@ -64,7 +64,7 @@
 }
 /* Compatibilidad con Tab-shapes config */
 #TabsToolbar {
-   --uc-margin-left-right: 0px !important;
+   --uc-margin-left-right: 2px !important;
 }
 /* Compatibilidad con Left-sidebar */
 /*
