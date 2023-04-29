@@ -57,7 +57,7 @@
 
 ```
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
-    --padding-top-left-sidebar: 146px !important; /* 182px to one-line config 
+    --padding-top-left-sidebar: 146px !important; /* 182px to one-line config */
 }
 
 :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button {
