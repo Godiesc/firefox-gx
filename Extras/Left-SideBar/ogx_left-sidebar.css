@@ -185,7 +185,7 @@
 /* Mover botón "atrás" más a la derecha */
 
 :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
-    margin-left: calc(var(--uc-vertical-toolbar-width,0) - 4px) !important;
+    margin-left: var(--uc-vertical-toolbar-width,0) !important;
 }
 
 /* Color y tamaño Items de la barra lateral */
