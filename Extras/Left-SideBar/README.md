@@ -16,6 +16,10 @@
 
 <p>PD: I'm the owner only of Instagram Chat extension, The other extensions I used were for testing purposes.</p>
 
+## Example of the layout of the interface before the apply of this config
+
+![imagen](https://user-images.githubusercontent.com/22057609/235777416-6a17f63a-4443-4c34-8856-77374a4f08a7.png)
+
 ## Preview
 
-![imagen](https://user-images.githubusercontent.com/22057609/208995577-f92ddee5-4cc7-4d17-a2c5-a9a2fae8cbba.png)
+![imagen](https://user-images.githubusercontent.com/22057609/235786441-1199844a-fc5a-44e1-8369-aad7faca393f.png)
