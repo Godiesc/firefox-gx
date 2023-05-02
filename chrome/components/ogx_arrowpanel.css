@@ -134,6 +134,8 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
 
 #sidebar-header {
     background-color: var(--lwt-sidebar-background-color) !important;
+    border-top: 1px dotted var(--sidebar-border-color) !important;
+    padding: 4px 6px !important;
 }
 
 #sidebar-switcher-target:is(:hover, [open]) {
