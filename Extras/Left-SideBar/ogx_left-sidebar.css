@@ -218,8 +218,8 @@
 
 #PersonalToolbar .toolbaritem-combined-buttons, #PersonalToolbar .toolbaritem-menu-buttons {
     margin-inline: 0px !important;
-    -moz-box-align: center !important;
-    -moz-box-orient: vertical !important;
+    /*-moz-box-align: center !important;
+    -moz-box-orient: vertical !important;*/
 }
 
 /* Alinear Items Left sidebar */
@@ -250,7 +250,7 @@
     background-color: var(--button-hover-bgcolor) !important;
     color: white !important;
     margin-top: 13px !important;
-    margin-inline-end: -10px !important;
+    margin-inline-end: -9px !important;
     min-width: auto !important;
     max-width: auto !important;
     transform: none !important;
@@ -259,82 +259,59 @@
 /*-------------------------------------- Extensiones --------------------------------------
 --------------------------------------------------------------------------------------------*/
 
-/* Twitch Extension */
+/* Tamaño más grande para las extensiones puestas en la barra lateral */
 
-#PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-browser-action image {
-    opacity: 0 !important;
+#PersonalToolbar .toolbarbutton-badge-stack image{
+    height: 18px !important;
+    width: 18px !important;
 }
 
-#PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-browser-action .toolbarbutton-1 .toolbarbutton-badge-stack {
-    background-image: url("../images/logo_twitch.svg") !important;
-    background-repeat: no-repeat !important;
-    background-size: 18px !important;
-    background-position: center !important;
+/* Twitch Extension */
+
+#PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP {
+    list-style-image: url("../images/logo_twitch.svg") !important;
 }
 
 /* Messenger Extension */
 
-#PersonalToolbar #sbfofm_ff_scripty_via_the_unity_empire-browser-action image {
-    opacity: 0 !important;
-}
-
-#PersonalToolbar #sbfofm_ff_scripty_via_the_unity_empire-browser-action .toolbarbutton-1 .toolbarbutton-badge-stack {
-    background-image: url("../images/logo_messenger.svg") !important;
-    background-repeat: no-repeat !important;
-    background-size: 18px !important;
-    background-position: center !important;
+#PersonalToolbar #xrst_vardakis_gmail_com-BAP {
+    list-style-image:url("../images/logo_messenger.svg") !important;
 }
 
 /* Whatsapp Extension */
 
-#PersonalToolbar #rt42fsdty645jiidd_jetpack-browser-action image {
-    opacity: 0 !important;
-}
-
-#PersonalToolbar #rt42fsdty645jiidd_jetpack-browser-action .toolbarbutton-1 .toolbarbutton-badge-stack {
-    background-image: url("../images/logo_whatsapp.svg") !important;
-    background-repeat: no-repeat !important;
-    background-size: 20px !important;
-    background-position: center !important;
+#PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP{
+    list-style-image: url("../images/logo_whatsapp.svg") !important;
 }
 
 /* Telegram Extension */
 
-#PersonalToolbar #_7b657ab8-4869-4244-8cb7-e15524a933dd_-browser-action image {
-    opacity: 0 !important;
-}
-
-#PersonalToolbar #_7b657ab8-4869-4244-8cb7-e15524a933dd_-browser-action .toolbarbutton-1 .toolbarbutton-badge-stack {
-    background-image: url("../images/logo_telegram.svg") !important;
-    background-repeat: no-repeat !important;
-    background-size: 18px !important;
-    background-position: center !important;
+#PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{
+    list-style-image: url("../images/logo_telegram.svg") !important;
 }
 
 /* ublock Extension */
 
-#PersonalToolbar #ublock0_raymondhill_net-browser-action image {
-    opacity: 0 !important;
-}
-
-#PersonalToolbar #ublock0_raymondhill_net-browser-action .toolbarbutton-1 .toolbarbutton-badge-stack {
-    background-image: url("../images/logo_ublock.svg") !important;
-    background-repeat: no-repeat !important;
-    background-size: 18px!important;
-    background-position: center !important;
+#PersonalToolbar #ublock0_raymondhill_net-BAP{
+    list-style-image: url("../images/logo_ublock.svg") !important;
 }
 
 /* Tab-group Extension */
 
-#PersonalToolbar #panorama-tab-groups_example_com-browser-action image {
-    opacity: 0 !important;
+#PersonalToolbar #panorama-tab-groups_example_com-BAP{
+    list-style-image: url("../images/logo_grouptabs.svg") !important;
 }
 
-#PersonalToolbar #panorama-tab-groups_example_com-browser-action .toolbarbutton-1 .toolbarbutton-badge-stack {
-    background-image: url("../images/logo_grouptabs.svg") !important;
-    background-repeat: no-repeat !important;
-    background-size: 16px!important;
-    background-position: center !important;
+/* Discord Extension */
+
+#PersonalToolbar #_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP{
+    list-style-image: url("../images/logo_discord.svg") !important;
+}
+
+/* Twitter Extension */
+
+#PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{
+    list-style-image: url("../images/logo_twitter.svg") !important;
 }
 
 /*------------- items en modo "customize toolbar -------------------"*/
