@@ -240,10 +240,9 @@
 
 @media (-moz-platform: linux) {
     :root {
-        --margin-left-icons-personal: 6px !important;
+        --margin-left-icons-personal: 9px !important;
     }
-    :root[sizemode="maximized"] #appMenu-popup {
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
         --arrowpanel-menuitem-padding: 5px !important;
-        z-index: 2 !important;
     }
 }
