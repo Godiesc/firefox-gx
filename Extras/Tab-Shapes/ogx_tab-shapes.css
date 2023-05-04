@@ -397,7 +397,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-edge-clipped.svg");
         --uc-tab-corner-size: 12px;
         
-        --uc-margin-left-right: 3px;
+        --uc-margin-left-right: 4px;
         --uc-margin-left-newtab: 10px;
       }
     }
