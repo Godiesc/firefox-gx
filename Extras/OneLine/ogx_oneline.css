@@ -1,5 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /* ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ IMPORTANT: To only apply one-line config to screen bigger than some px !!!!!!!!!!!!!!!!!!!!!!!!!! */
 
@@ -382,24 +382,6 @@ Window controls will be all wrong without it
 @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
   @media (prefers-color-scheme: dark){
     
-    :root:is([brighttext]):-moz-lwtheme,
-    :root[lwt-toolbar-field-focus-brighttext],
-    :root:-moz-lwtheme{
-        --tab-height-personal: 31px !important;                                /* Minimum Height 31px for the right function of the theme */
-    }}}
-  
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
-    @media (prefers-color-scheme: light){
-      
-      :root:is([darktext]):-moz-lwtheme,
-      :root[lwt-toolbar-field-focus-darktext],
-      :root:-moz-lwtheme{
-        --tab-height-personal: 31px !important;                                /* Minimum Height 31px for the right function of the theme */
-    }}}
-  
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
-  @media (prefers-color-scheme: dark){
-    
     :root[lwtheme-image], :root[style*="--lwt-additional-images"]{
       --toolbar-bgcolor: #10101900 !important;                                 /* "toolbar":"#131118", "Color de la toolbar" */
       --lwt-selected-tab-background-color: #101019bf !important;
@@ -434,12 +416,7 @@ Window controls will be all wrong without it
         background: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
                     linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
   }
-
-/* Centrar verticalmente botón de extensiones*/
-  
-#unified-extensions-button{
-    top: initial !important;
-}}
+}
   
 /* Sobre-escribir la regla usada en ogx_tabs-bar, lineas 175-183 */
   
@@ -878,6 +855,13 @@ toolbar:is(.browser-toolbar){
     background: var(--lwt-selected-tab-background-color) !important;
 }
   
+/* Ícono de "show more bookmarks" modificado */
+  
+#PlacesChevron>image {
+    transform: rotate(90deg);
+    padding: 2px !important;
+}
+  
 /* Fondo correcto al mover una pestaña en temas sólidos */
   
 #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
@@ -961,16 +945,6 @@ toolbar:not(#PersonalToolbar,#TabsToolbar) .toolbarbutton-1{
               var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;  
   border-top: 0px !important;
 }
-  
-/* Compatibilidad left-sidebar con <tab-shapes> */
-  
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
-  :root:not([chromehidden~="toolbar"]) #PersonalToolbar{
-  border-image: linear-gradient(to bottom, transparent 
-                calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 63px),
-                var(--general-color) calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 63px),
-                var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;
-  }}
   
 /* H I D I N G   E L E M E N T S */
   
