@@ -855,13 +855,6 @@ toolbar:is(.browser-toolbar){
     background: var(--lwt-selected-tab-background-color) !important;
 }
   
-/* Ícono de "show more bookmarks" modificado */
-  
-#PlacesChevron>image {
-    transform: rotate(90deg);
-    padding: 2px !important;
-}
-  
 /* Fondo correcto al mover una pestaña en temas sólidos */
   
 #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme{
