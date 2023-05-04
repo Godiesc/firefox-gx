@@ -492,8 +492,6 @@
     
 */
 
-}
-
 /* Compatibilidad para <sidebar reborn> */
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
