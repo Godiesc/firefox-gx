@@ -1,5 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /*###################################### Mantener Window Controls quitando las pestañas ###########################
 ############################################## Codigo sin editar de MrOtherGuy ####################################*/
@@ -171,7 +171,7 @@ Window controls will be all wrong without it
 /* Espacio para los window controls in linux */
 @media (-moz-gtk-csd-available) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 84px !important;
+    --uc-window-control-width: 98px !important;
   }
 /*########################### Window controls on left - LINUX ##############################*/
   
