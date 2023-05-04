@@ -203,6 +203,14 @@ toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbu
 #unified-extensions-area toolbaritem:hover .unified-extensions-item-message-deck label{
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
+
+@media (-moz-platform: linux) {
+#unified-extensions-area toolbaritem .unified-extensions-item-message-deck label{
+    appearance: none !important;
+    font-size: 0.875em !important;
+    width: -moz-available !important;
+    }}
+
 /* Separador linea Vertical para tabs-bar, usando "espacio flexible" */
 :is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"],:is(#TabsToolbar) toolbarspring {
     background: var(--button-active-bgcolor) !important;
