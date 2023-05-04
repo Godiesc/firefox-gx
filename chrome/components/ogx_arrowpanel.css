@@ -142,6 +142,13 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
     color: var(--general-color) !important;
 }
 
+/*Quitar límite a las 'barras laterales' - sidebar de Firefox */
+
+#sidebar-box {
+    max-width: none !important;
+    min-width: 30px !important;
+}
+
 /* Linea Separadora */
 
 treechildren::-moz-tree-separator {
