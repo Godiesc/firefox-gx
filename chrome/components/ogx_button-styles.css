@@ -1,5 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /*Botones generales*/
 /* Botón info*/
@@ -209,7 +209,15 @@ toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbu
     appearance: none !important;
     font-size: 0.875em !important;
     width: -moz-available !important;
-    }}
+    }
+#unified-extensions-panel .unified-extensions-item{
+    padding-block: 0 !important;
+    margin-block: 0px !important;
+}
+#unified-extensions-panel .subviewbutton{
+  padding-block: 4px !important;
+}
+}
 
 /* Separador linea Vertical para tabs-bar, usando "espacio flexible" */
 :is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"],:is(#TabsToolbar) toolbarspring {
