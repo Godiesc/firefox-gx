@@ -175,13 +175,6 @@
     margin-block: 6px !important;
 }
 
-/*Quitar límite a las 'barras laterales' de Firefox */
-
-#sidebar-box {
-    max-width: none !important;
-    min-width: 30px !important;
-}
-
 /* Mover botón "atrás" más a la derecha */
 
 :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
