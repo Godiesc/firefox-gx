@@ -79,7 +79,6 @@ See the above repository for updates as well as full license text. */
   :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
   :root[sizemode="fullscreen"] #window-controls{ right: unset }
 }
-
 /* This pref can be used to force window controls on left even if that is not normal behavior on your OS */
 @supports -moz-bool-pref("userchrome.force-window-controls-on-left.enabled"){
   :root[tabsintitlebar="true"] #nav-bar{
@@ -129,22 +128,7 @@ Window controls will be all wrong without it
 #nav-bar:not([nonemptyoverflow="true"]) > #nav-bar-customization-target{ 
   --uc-buttons-width: calc(64px + 4 * var(--toolbarbutton-outer-padding) + 6px)
 }
-/* Override for other densities 
-:root[uidensity="compact"] #navigator-toolbox{
-  --uc-toolbar-height: 34px;
-  --uc-menubutton-padding: 0px;
-}
-:root[uidensity="touch"] #navigator-toolbox{
-  --uc-toolbar-height: 44px;
-}
-
-:root[uidensity="compact"] #urlbar-container{
-  --urlbar-container-height: var(--uc-toolbar-height) !important;
-  padding-block: 0 !important;
-}
-:root[uidensity="compact"] #urlbar{
-  --urlbar-toolbar-height: var(--uc-toolbar-height) !important;
-}
+/* Override for other densities -#$ Deleted <<< !important >>> */
 
 /* prevent urlbar overflow on narrow windows */
 /* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
@@ -165,11 +149,9 @@ Window controls will be all wrong without it
 #TabsToolbar .tab-background[selected]{
   background: var(--lwt-selected-tab-background-color,rgba(0,0,0,0.2)) !important;
 }
-
 #TabsToolbar[brighttext] .tab-background[selected]{
   background: var(--lwt-selected-tab-background-color,rgba(255,255,255,0.2)) !important;
 }
-
 /* This isn't useful when tabs start in the middle of the window */
 .titlebar-spacer[type="pre-tabs"]{ width:8px !important}
 #nav-bar{ margin-top: calc(0px - var(--uc-toolbar-height)) !important; }
@@ -874,6 +856,7 @@ toolbar:not(#PersonalToolbar,#TabsToolbar) .toolbarbutton-1{
   :root:not([chromehidden~="toolbar"]) #toolbar-menubar, :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="true"]+#TabsToolbar{
     padding-left: calc(var(--padding-left-tab) - 1px) !important;
   }
+  
   /* Mantener espacio derecha con la barra de menú siempre activa */
   :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar[autohide="false"] + #TabsToolbar > :is(.titlebar-buttonbox-container, .titlebar-spacer) {
     display: flex !important;
