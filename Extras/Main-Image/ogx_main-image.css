@@ -1,5 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 @media (prefers-color-scheme: dark){
 :root:is([brighttext]):-moz-lwtheme,
@@ -62,10 +62,19 @@
 :root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
    background-image: transparent !important;
 }
+
 /* Compatibilidad con Tab-shapes config */
+
+@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") {
 #TabsToolbar {
    --uc-margin-left-right: 2px !important;
-}
+             }}
+
+@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge") {
+#TabsToolbar {
+   --uc-margin-left-right: 4px !important;
+             }}
+
 /* Compatibilidad con Left-sidebar */
 /*
 :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
