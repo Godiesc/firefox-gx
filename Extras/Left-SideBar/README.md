@@ -8,7 +8,7 @@
 ## Extensions used to test this config
 
 [Twitch](https://addons.mozilla.org/es/firefox/addon/twitch-live-channels/) - 
-[Whatsapp](https://addons.mozilla.org/es/firefox/addon/whatsapp-within-sidebar/) - 
+[Whatsapp](https://addons.mozilla.org/es/firefox/addon/whatsapp-chat-in-sidebar/) - 
 [Telegram](https://addons.mozilla.org/es/firefox/addon/telegram-in-sidebar/) -
 [Facebook messenger](https://addons.mozilla.org/es/firefox/addon/messenger-sidebar-with-toolbar/) - 
 [Twitter](https://addons.mozilla.org/es/firefox/addon/twitter-as-a-sidebar/) -
