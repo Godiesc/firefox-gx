@@ -1,7 +1,7 @@
 # How to apply. 
 <ol>
   <li>Add the file <code>ogx_oneline.css</code> into the <code>chrome/components</code> folder.</li>
-  <li>Delete "flex spaces" and put the icons just like the image below. </li>
+  <li>Delete "Flexible Space" and put the icons just like the image below. </li>
 </ol>
 
 ## Position of buttons before apply the One-line config
