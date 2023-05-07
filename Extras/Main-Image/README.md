@@ -16,4 +16,6 @@
   there is a description on the right side of the rule, That's all. 💙</li>
 </ol>
 
+## Preview
+
 ![imagen](https://user-images.githubusercontent.com/22057609/235237869-7e2aab34-e82f-4fd7-b559-a9e51305ca09.png)
