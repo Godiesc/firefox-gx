@@ -20,7 +20,7 @@
 
 <p>PD: I'm the owner of <b>Instagram Chat extension</b> and <b>WhatsApp extension</b>, The other extensions I used were for testing purposes.</p></br>
 
-><p><b>Notice:</b></br><ul><li>If you use the<a href="https://addons.mozilla.org/es/firefox/addon/side-view/"> Side View </a>extension you will get the movil version of the sites in the sidebar, but "facebook messenger" for example won't display the chat for self restrictions, the rest of the extensions works flawless.</li></ul></p>
+><p><b>Notice:</b></br><ul><li>If you use the<a href="https://addons.mozilla.org/es/firefox/addon/side-view/"> Side View </a>extension you will get the mobile version of the sites in the sidebar, but "facebook messenger" for example won't display the chat for self restrictions, the rest of the extensions works flawless.</li></ul></p>
 
 </br>
 
