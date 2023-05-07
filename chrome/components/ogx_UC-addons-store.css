@@ -39,6 +39,10 @@
         color: var(--in-content-page-color) !important;
         background: var(--in-content-page-background) !important;
       }
+      
+      .Header , .Footer{
+        background: var(--button-bgcolor) !important;
+      }
 
       /* Text */
 
@@ -194,6 +198,14 @@
       .blogpost-nav * {
         background: var(--in-content-table-background) !important;
       }
+      
+      /* Menus desplegables */
+      
+      .DropdownMenu-items{
+        background: var(--in-content-box-background) !important;
+        box-shadow: 0 0 0 1px #50505090 !important;
+      }
+      
       .Paginate .Button.Paginate-item:is(:active, :hover) {
         background: var(--in-content-button-background-hover) !important;
       }
@@ -230,10 +242,8 @@
       .Icon-heart {
         filter: brightness(0) !important;
       }
-      /* Others */
-      .DropdownMenu-items {
-        box-shadow: 0 0 2px var(--in-content-border-color) !important;
-      }
+      
+      /* Others */     
       input,
       textarea,
       select {
@@ -244,7 +254,7 @@
         background-color: var(--in-content-box-background-odd) !important;
       }
       .AutoSearchInput-query {
-        border: 1px solid var(--in-content-table-background) !important;
+        border: 1px solid var(--button-active-bgcolor) !important;
       }
       .AutoSearchInput-query:is(:hover, :focus),
       .UserProfileEditNotifications .UserProfileEditNotification-input:checked ~ .UserProfileEditNotification-checkbox {
@@ -254,8 +264,7 @@
       .UserProfileEdit textarea:focus,
       .AutoSearchInput-query:focus,
       .UserProfileEditNotifications .UserProfileEditNotification-input:focus ~ .UserProfileEditNotification-checkbox {
-        box-shadow: inset 0 0 0 1px var(--in-content-primary-button-background),
-          0 0 0 1px var(--in-content-primary-button-background), 0 0 0 4px rgba(0, 211, 255, 0.3) !important;
+        box-shadow: 0 0 0 2px var(--general-color) !important;
       }
       .PromotedBadge-link--line {
         border-color: var(--in-content-deemphasized-text) !important;
