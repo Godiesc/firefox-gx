@@ -63,18 +63,6 @@
    background-image: transparent !important;
 }
 
-/* Compatibilidad con Tab-shapes config */
-
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") {
-#TabsToolbar {
-   --uc-margin-left-right: 2px !important;
-             }}
-
-@supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge") {
-#TabsToolbar {
-   --uc-margin-left-right: 4px !important;
-             }}
-
 /* Compatibilidad con Left-sidebar */
 /*
 :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
