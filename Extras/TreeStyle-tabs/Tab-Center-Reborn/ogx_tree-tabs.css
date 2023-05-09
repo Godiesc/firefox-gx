@@ -147,7 +147,7 @@ Window controls will be all wrong without it
     --uc-toolbar-height: var(--tab-height-personal) !important;
 }
 /* Separador <window controls> y demás botones */
-#unified-extensions-button::after {
+#nav-bar-overflow-button::after {
     background: url("../images/urlbar-separator.svg") no-repeat center !important; 
     content: ""; display: block !important;
     background-size: 6px 16px !important;
@@ -158,7 +158,7 @@ Window controls will be all wrong without it
     margin-left: 2px !important;
     opacity: 0.8;
 }
-:root:not([chromehidden~="toolbar"])[sizemode="normal"] #unified-extensions-button {
+:root:not([chromehidden~="toolbar"])[sizemode="normal"] #nav-bar-overflow-button {
     margin-right: 40px !important;
 }
 
@@ -178,10 +178,10 @@ Window controls will be all wrong without it
 @media (-moz-gtk-csd-reversed-placement){
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 0px !important;
-    --uc-window-control-width-left: 84px !important;
+    --uc-window-control-width-left: 104px !important;
   }
 /* Separador <window controls> y demás botones */
-#unified-extensions-button::after {
+#nav-bar-overflow-button::after {
     background: none !important; 
     padding-inline: 0px 0px !important;
     margin: 0px !important;
@@ -198,14 +198,14 @@ Window controls will be all wrong without it
     margin-right: 6px !important;
     opacity: 0.8;
 }
-:root:not([chromehidden~="toolbar"])[sizemode="normal"] #unified-extensions-button {
+:root:not([chromehidden~="toolbar"])[sizemode="normal"] #nav-bar-overflow-button {
     margin-right: 40px !important;
 }
 
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
     left: var(--uc-vertical-toolbar-width,0) !important;
-    }
+    }    
   }
 }
 /* Sobreescribir variable de tamaño */
@@ -258,11 +258,11 @@ Window controls will be all wrong without it
     background-color: var(--lwt-frame) !important;  
 }}
 /* Mover botón "atrás" más a la derecha */
-:root:not([chromehidden~="toolbar"]) #back-button{
+:root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
     padding-inline-start: 0px !important;
     margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 6px) !important;
 }
-:root:not([chromehidden~="toolbar"])[sizemode="normal"] #back-button{
+:root:not([chromehidden~="toolbar"])[sizemode="normal"] #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
     padding-inline-start: 0px !important;
     margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 40px) !important;
 }
@@ -305,6 +305,7 @@ Window controls will be all wrong without it
 }
 /* Margen Izquierda de la barra de menú al precionr <alt> */
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"] #main-menubar{
+    margin-left: 1px !important;
     background-color: color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) !important;
     border-left: 2px solid transparent;
     border-image: linear-gradient(to left, 
