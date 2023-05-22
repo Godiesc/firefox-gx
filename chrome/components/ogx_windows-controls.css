@@ -6,15 +6,15 @@
 @media (-moz-platform: windows-win7), (-moz-platform: windows-win10) {
     .titlebar-button {
         color: var(--general-color) !important;
-        padding-left: 13px !important;
-        padding-right: 13px !important;
+        padding-inline-start: 13px !important;
+        padding-inline-end: 13px !important;
     }
     .titlebar-button:hover:not(.titlebar-close) {
         background-color: var(--toolbarbutton-hover-personal) !important;
     }
     .titlebar-min {
-        padding-top: 12px !important;
-        padding-bottom: 0px !important;
+        padding-block-start: 12px !important;
+        padding-block-end: 0px !important;
     }
     .titlebar-min image, .titlebar-max image, .titlebar-close image {
         border-radius: 0 !important;
