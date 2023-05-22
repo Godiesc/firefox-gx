@@ -28,7 +28,7 @@
     }
     /* margen izquierda pestañas*/
     :root:not([chromehidden~="toolbar"]) #toolbar-menubar, :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="true"]+#TabsToolbar {
-        padding-left: var(--padding-left-tab) !important;
+        padding-inline-start: var(--padding-left-tab) !important;
     }
     /* tamaño botón Menú */
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
@@ -181,16 +181,16 @@
     }
     /* Linea gradiente bajo label Menú solo en ventana maximizada*/
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-label2 {
-        margin-left: 0px !important;
+        margin-inline-start: 0px !important;
         border-top: 1px solid var(--button-active-bgcolor) !important;
         border-image: var(--panel-separator-zap-gradient4) 1 !important;
         padding-bottom: 6px !important;
         margin-bottom: -3px !important;
-        margin-right: 6px !important;
+        margin-inline-end: 6px !important;
     }
     /* Alinear item account en ventana no maximizada*/
     :root:is([sizemode="normal"], [sizemode="fullscreen"]) #appMenu-fxa-label2 {
-        margin-left: 0px !important;
+        margin-inline-start: 0px !important;
     }
     /*ícono account - first */
     #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
@@ -198,7 +198,7 @@
     }
     /* Ícono sign-in, cuenta no iniciada  */
     #appMenu-fxa-status2:not([fxastatus="signedin"]) {
-        margin-right: -1px !important;
+        margin-inline-end: -1px !important;
         margin-inline-start: calc(var(--margin-left-icons-personal) + 17px) !important;
     }
     #appMenu-fxa-status2:not([fxastatus="signedin"]):hover toolbarbutton {
@@ -227,7 +227,7 @@
     }
     /*Ícono ConectarOtroDispositivo*/
     #PanelUI-fxa-menu-connect-device-button {
-        margin-left: 0px !important;
+        margin-inline-start: 0px !important;
     }
     /*Ícono SincronizarAhora*/
     .syncNowBtn {
