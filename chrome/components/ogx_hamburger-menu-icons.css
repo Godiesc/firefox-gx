@@ -1,7 +1,11 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /*-----------------íconos en el menú de hamburguesa----------------------*/
+
+:root{
+    --margin-left-icons-personal: 10px !important;
+}
 
 /* Tamaño menu Open ventana no maximizada */
 #appMenu-popup panelview{ width: 25.5em !important;
@@ -91,7 +95,7 @@ panelmultiview .toolbaritem-combined-buttons > label {
     border-radius: 50%;
 }
 :root[fxastatus="signedin"] #fxa-menu-avatar {
-    display: unset; -moz-box-ordinal-group: 2;
+    display: unset; order: 2;
 }
 /* Alinear lista de pestañas sincronizadas */
 .PanelUI-remotetabs-clientcontainer label {
@@ -194,7 +198,7 @@ panelmultiview .toolbaritem-combined-buttons > label {
 }
 /*Ícono SincronizarAhora*/
 .syncNowBtn {
-    visibility: visible !important; -moz-box-ordinal-group: 0 !important;
+    visibility: visible !important; order: -1 !important;
 }
 /*Ícono ConectarOtroDispositivo*/
 #PanelUI-fxa-menu-connect-device-button {
