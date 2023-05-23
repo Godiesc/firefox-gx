@@ -1,7 +1,7 @@
 ## Display  a sidebar with whatsapp web.
 
 ## How to apply?
-<ol><li>Drop the `SidebarWhatsapp@Godie.xpi` file into firefox browser.</li>
+<ol><li>Drop the <code>SidebarWhatsapp@Godie.xpi</code> file into firefox browser.</li>
  <li>Acept to install the extension.</li></ol>
 
 ## Preview
