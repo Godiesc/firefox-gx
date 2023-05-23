@@ -6,4 +6,4 @@
 
 ## Preview
 
-![ChatWappPreview](https://github.com/Godiesc/firefox-gx/assets/22057609/a3b0b20f-8813-43d6-80d2-1d32cbf3d948)
+![ChatWappPrev](https://github.com/Godiesc/firefox-gx/assets/22057609/6ac769a9-b1ec-4d2a-af58-a6d5d6457dcf)
