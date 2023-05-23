@@ -57,13 +57,13 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
 @media{
     :root[sizemode="maximized"] #appMenu-fxa-label2{
-    margin-left: 0px !important;
+    margin-inline-start: 0px !important;
     padding-bottom: 6px !important;
-    margin-right: 6px !important;
+    margin-inline-end: 6px !important;
 }
 /* Alinear item account */
 :root[sizemode="normal"] #appMenu-fxa-label2{
-    margin-left: 0px !important;
+    margin-inline-start: 0px !important;
 }
 /*ícono account - first */
 #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
@@ -71,7 +71,7 @@ panelmultiview .toolbaritem-combined-buttons > label {
 }
 /* Ícono sign-in, cuenta no iniciada  */
 #appMenu-fxa-status2:not([fxastatus="signedin"]) { 
-    margin-right: -1px !important;
+    margin-inline-end: -1px !important;
     margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;}
 #appMenu-fxa-status2:not([fxastatus="signedin"]):hover  toolbarbutton {
     background-color: var(--button-active-bgcolor) !important;
@@ -202,5 +202,5 @@ panelmultiview .toolbaritem-combined-buttons > label {
 }
 /*Ícono ConectarOtroDispositivo*/
 #PanelUI-fxa-menu-connect-device-button {
-    margin-left: 0px !important;
+    margin-inline-start: 0px !important;
 }
