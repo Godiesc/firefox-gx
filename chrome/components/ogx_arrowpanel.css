@@ -26,18 +26,18 @@ panelview {
 }
 
 #identity-popup, #permission-popup, #appMenu-popup {
-    margin-top: 0px !important;
+    margin-top: -1px !important;
     margin-inline: -4px !important;
 }
 
 #protections-popup, #editBookmarkPanel {
-    margin-top: 0px !important;
+    margin-top: -1px !important;
     margin-inline: -6px !important;
 }
 
 #BMB_bookmarksPopup {
-    margin-top: -4px !important;
-    margin-inline: -8px !important;
+    margin-top: -3px !important;
+    margin-inline: -6px !important;
 }
 
 /*  panel[type="arrow"]{ 
