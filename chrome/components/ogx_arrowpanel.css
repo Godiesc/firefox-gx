@@ -4,10 +4,9 @@
 /* Borde gradiente menús desplegables */
 
 slot {
-    --panel-shadow-margin: 0px !important;
-    margin-right: 3px !important;
-    margin-left: 3px !important;
-    margin-bottom: 4px !important;
+    --panel-shadow-margin: 1px !important;
+    margin-inline: 3px !important;
+    margin-block-end: 4px !important;
     border-color: var(--border-contrast-color) !important;
     /* Borde para anuncios emergentes, por ejemplo al instalar un complemento */
     box-shadow: inset 0px 0 0 1px var(--button-active-bgcolor) !important;
