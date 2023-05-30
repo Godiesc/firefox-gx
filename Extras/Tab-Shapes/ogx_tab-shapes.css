@@ -343,8 +343,8 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-wave-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
         
-        --uc-margin-left-right: 8px;
-        --uc-margin-left-newtab: 14px;
+        --uc-margin-left-right: 7px;
+        --uc-margin-left-newtab: 15px;
       }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") {
@@ -371,7 +371,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-size: 12px;
         
         --uc-margin-left-right: 0px;
-        --uc-margin-left-newtab: 10px;
+        --uc-margin-left-newtab: 13px;
       }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
