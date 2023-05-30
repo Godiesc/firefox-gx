@@ -407,8 +407,8 @@
 }
 
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
-    clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 10px, calc(var(--padding-left-tab) - 7px) 10px,
-               calc(var(--padding-left-tab) - 3px) calc(var(--tab-height-personal) - 5px), 0 calc(var(--tab-height-personal) - 5px), 0 100%, 100% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 10px, calc(var(--padding-left-tab) - 3px) 10px,
+               calc(var(--padding-left-tab) - 3px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px), 0 100%, 100% 100%, 100% 0%);
 }
 
 /* Logo más grande */
