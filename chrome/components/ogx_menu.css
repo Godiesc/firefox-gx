@@ -91,9 +91,9 @@
     /* Margin top para subir el menú [open] */
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
         appearance: none !important;
-        margin-top: calc(-1px - var(--tab-height-personal)) !important;       
-        clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 2px, calc(var(--padding-left-tab) - 7px) 10px,
-               calc(var(--padding-left-tab) - 7px) calc(var(--tab-height-personal) - 2px), 0 calc(var(--tab-height-personal) - 2px), 0 100%, 100% 100%, 100% 0%);
+        margin-top: calc(-2px - var(--tab-height-personal)) !important;       
+        clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 6px, calc(var(--padding-left-tab) - 4px) 6px,
+               calc(var(--padding-left-tab) - 4px) calc(var(--tab-height-personal) - 2px), 0 calc(var(--tab-height-personal) - 2px), 0 100%, 100% 100%, 100% 0%);
         --arrowpanel-menuitem-padding: 6px !important;
     }
     :root:is([sizemode="maximized"]):not([tabsintitlebar], [chromehidden~="toolbar"]) #appMenu-popup {
