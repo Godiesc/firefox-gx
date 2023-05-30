@@ -2,12 +2,15 @@
    https://github.com/Godiesc/firefox-gx */
 
 /*Botones generales*/
+
 /* Botón info*/
+
 .panel-info-button{ border-radius: 3px !important; color: var(--toolbarbutton-icon-fill) !important; }
 .panel-info-button:is(:hover){ background-color: var(--button-hover-bgcolor) !important; border-radius: 2px !important; color: white !important;}
 .panel-info-button:not(:hover)[checked]{ background-color: var(--general-color) !important; border-radius: 2px !important; color: white !important;}
 
 /*-"Radiobutton"-ProtecciónAntirastreo*/
+
 .protections-popup-tp-switch:not([enabled]):not(:hover){background-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;}
 .protections-popup-tp-switch::before {outline: none !important; }
 .protections-popup-tp-switch:not([enabled]):hover{background-color: var(--button-bgcolor) !important;}
@@ -15,78 +18,101 @@
 .protections-popup-tp-switch[enabled]{background-color: var(--button-active-bgcolor) !important; border-color: transparent !important; }
 
 /*color Rojo de boton "borrar marcador"*/
+
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton label{
 display: none !important;
 }
+
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton{
 background: url("../images/delete.svg") no-repeat center/16px !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
 }
+
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton {
     background-color: var(--input-border-color) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 3px !important;
 }
+
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton:hover {
     background-color: #da3633 !important;
     color: #f0f6fc !important;
     box-shadow: none !important;
     fill: white !important;
 }
+
 /*color letras de boton "Guardar" marcador en :hover*/
+
 #editBookmarkPanelBottomButtons>#editBookmarkPanelDoneButton {   
     color: white !important;
     border-radius: 4px !important;
 }
+
 /*Color del botón menú deplegable*/
+
 panel menulist, panel menulist:not([open]) {
     background-color: var(--input-border-color) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 3px !important;
 }
+
 panel menulist:hover, panel menulist[open] {
     background-color: var(--button-hover-bgcolor) !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
     box-shadow: none !important;
 }
+
 /*Color -fondo y borde-(flecha hacia abajo)*/
+
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
     background-color: var(--input-border-color) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border: none !important;
     border-radius: 3px !important
 }
+
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
     box-shadow: none !important;
     background-color: var(--button-active-bgcolor) !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
+
 /*Color -fondo y "letras" - menu desplegable*/
+
 treechildren::-moz-tree-row(selected) {
     background-color: var(--button-active-bgcolor) !important;
     outline: none !important;
 }
+
 treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected), treechildren::-moz-tree-cell-text(selected) {
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
+
 #editBMPanel_folderTree treechildren{
     background-color: var(--arrowpanel-background) !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
+
 #editBMPanel_tagsSelector{
     background-color: var(--arrowpanel-background) !important;
     border: 1px solid var(--button-bgcolor) !important;
 }
+
 /* Quitar linea gradiente en botones de extensiones puestas en la Barra de herramientas y de pestañas */
+
 :is(#nav-bar,#TabsToolbar, #PersonalToolbar) toolbaritem .toolbarbutton-1 { background-image: none !important; }
 
 /*--------------------------Marcadores----------------------------------*/
+
 /* Barra de marcadores - color [open] */
+
 toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
     color: var(--general-color) !important;  fill:  var(--general-color) !important; 
 }
+
 /* Barra de marcadores - color :hover */
+
 #PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]) {text-shadow: none !important; }
 
 #PersonalToolbar .toolbarbutton-1:hover , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
@@ -98,20 +124,27 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
     color: var(--general-color) !important;  fill:  var(--general-color) !important;
     background-color: var(--toolbarbutton-hover-background) !important; border-radius: 2px !important;
 }
+
 /*Color de "highlight" inputtext*/
+
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
     background-color: var(--general-color) !important;
     color: var(--contrast-color) !important;
 }
+
 richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     color: var(--lwt-tab-text) !important;
 }
+
 /*Imagen grande Marcador*/
+
 #editBookmarkPanelImage{
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 0px !important;
 }
+
 /*Favicon Marcador*/
+
 #editBookmarkPanelFavicon[src] {
   background-color: var(--arrowpanel-background) !important;
   box-shadow: inset 0px 0px 0 1px var(--button-bgcolor) !important;
@@ -121,7 +154,9 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
   margin-top: 4px !important;
   margin-inline-start: 4px !important;
 }
+
 /*Color de iconos de la toolbar cuando están :hover */
+
 #nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-icon,
 #nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-text,
 #nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-badge-stack,
@@ -130,6 +165,7 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 #nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
     fill: var(--general-color)
 }
+
 /*#################Color de iconos de la tabs-bar cuando están :hover y [open] ###################### */
 
 #TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-icon,
@@ -143,8 +179,10 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 #TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
     background-color: var(--arrowpanel-background) !important;
     fill: var(--general-color);
-    }
+}
+
 /*Color de iconos de la tabs-bar cuando están :hover en temas con imágenes */
+
 :root:is([lwtheme-image],[style*="--lwt-additional-images"])
 #TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-icon,
 :root:is([lwtheme-image],[style*="--lwt-additional-images"])
@@ -153,7 +191,8 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 #TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-badge-stack{
     background-color: var(--toolbarbutton-hover-background) !important;
     fill: var(--general-color) !important;
-    }
+}
+
 :root:is([lwtheme-image],[style*="--lwt-additional-images"])
 #TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-icon,
 :root:is([lwtheme-image],[style*="--lwt-additional-images"])
@@ -162,44 +201,57 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 #TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
     background-color: var(--toolbarbutton-active-background) !important;
     fill: var(--general-color);
-    }
+}
+
 /* Barra de menú */
+
 #main-menubar>menu {
     text-shadow: none !important;
     border-radius: 2px !important;
     background-color: transparent !important;
 }
+
 #main-menubar>menu:is(:hover, [open]){
     background-color: var(--button-active-bgcolor) !important;
 }
+
 /* :hover en botones de: all-tabs and unified extensions */
-toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, 
-.unified-extensions-item-menu-button.subviewbutton,
-.all-tabs-secondary-button{
-    margin-right: 5px !important;
-    border-radius: 3px !important;
-    border: none !important;
-}
-.unified-extensions-item-action-button[disabled].subviewbutton{
-    margin-right: 8px !important;
-}
-toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton:hover, 
-#unified-extensions-area .unified-extensions-item-menu-button.subviewbutton:hover,
-.unified-extensions-item-menu-button.subviewbutton.subviewbutton-iconic:hover,
-#allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover{
-    background: var(--button-hover-bgcolor) !important;
-}
+
 #unified-extensions-panel .unified-extensions-item{
     padding-block: 0 !important;
     margin-block: 0px !important;
 }
+
 #unified-extensions-panel .subviewbutton{
-  padding-block: 8px !important;
+  padding-block: 4px !important;
 }
+
+toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, 
+.unified-extensions-item-menu-button.subviewbutton{
+    display: none !important;
+}
+
+.all-tabs-secondary-button{
+    margin-right: 4px !important;
+    border-radius: 3px !important;
+    border: none !important;
+}
+
+.unified-extensions-item-action-button[disabled].subviewbutton{
+    margin-right: 8px !important;
+}
+
+#allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover,
+.all-tabs-secondary-button.subviewbutton.subviewbutton-iconic:hover{
+    background: var(--button-hover-bgcolor) !important;
+}
+
 :root{
     --uei-icon-size: 18px !important;
 }
+
 /* Second label del botón de extenciones */
+
 #unified-extensions-area toolbaritem:hover .unified-extensions-item-message-deck label{
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
@@ -210,13 +262,6 @@ toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbu
     font-size: 0.875em !important;
     width: -moz-available !important;
     }
-#unified-extensions-panel .unified-extensions-item{
-    padding-block: 0 !important;
-    margin-block: 0px !important;
-}
-#unified-extensions-panel .subviewbutton{
-  padding-block: 4px !important;
-}
 }
 
 /* Separador linea Vertical para tabs-bar, usando "espacio flexible" */
