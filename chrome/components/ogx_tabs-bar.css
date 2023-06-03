@@ -286,6 +286,14 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button,
     background-size: auto auto !important;
 }
 
+/* Code to tabs-bar reach lower height that 30px */
+
+#titlebar{ appearance: none !important; }
+
+.titlebar-buttonbox-container, .tab-close-button, .tab-label-container{
+  max-height: var(--tab-height-personal) !important;
+}
+
 /* ------------------------ config to MacOS ---------------------------
    ------------- partial compatibility to window Controls ----------*/
 
