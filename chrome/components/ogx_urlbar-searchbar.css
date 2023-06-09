@@ -373,6 +373,33 @@ findbar:-moz-lwtheme {
     height: 15px !important;
 }
 
+/* Translate button */
+
+#translations-button[translationsactive="true"]{
+    width: initial !important;
+    border-radius: 52px !important;
+}
+
+#translations-button[translationsactive="true"] .urlbar-icon{
+    display: none !important;
+}
+
+#translations-button-locale {
+    background-color: var(--button-active-bgcolor) !important;
+    color: var(--lwt-tab-text) !important;
+    border-radius: 52px !important;
+    height: 20px !important;
+    padding-top: 1px !important;
+    padding-inline-start: 0px !important;
+    margin-inline: -3px -3px !important;
+    margin-block: -3px !important;
+}
+
+#translations-button:is([open], :hover) #translations-button-locale{
+    background-color: var(--toolbarbutton-icon-fill) !important;
+    color: var(--contrast-color) !important;
+}
+
 /* Fondo :hover de íconos de la urlbar" */
 
 #notification-popup-box:hover:not([open="true"]), #identity-icon-box:hover:not([open="true"]), #identity-permission-box:hover:not([open="true"]), 
