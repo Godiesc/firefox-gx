@@ -215,7 +215,7 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     background-color: var(--button-active-bgcolor) !important;
 }
 
-/* :hover en botones de: all-tabs and unified extensions */
+/* :hover en botones de: unified extensions and all-tabs */
 
 #unified-extensions-panel .unified-extensions-item{
     padding-block: 0 !important;
@@ -223,27 +223,36 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 }
 
 #unified-extensions-panel .subviewbutton{
-  padding-block: 4px !important;
+    padding-block: 2px !important;
 }
 
-toolbaritem.unified-extensions-item .unified-extensions-item-open-menu.subviewbutton, 
-.unified-extensions-item-menu-button.subviewbutton{
-    display: none !important;
+.unified-extensions-item-menu-button:is(panelview .toolbarbutton-1, toolbarbutton.subviewbutton, .widget-overflow-list .toolbarbutton-1, .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton):not([disabled]) {
+    background: transparent !important;
+    padding-inline-end: 6px !important;
 }
 
-.all-tabs-secondary-button{
-    margin-right: 4px !important;
+.unified-extensions-item-menu-button.subviewbutton.subviewbutton-iconic:hover image {
+    background: var(--button-active-bgcolor) !important;
     border-radius: 3px !important;
-    border: none !important;
 }
 
 .unified-extensions-item-action-button[disabled].subviewbutton{
     margin-right: 8px !important;
 }
 
+.all-tabs-secondary-button{
+    margin-inline-end: 4px !important;
+    border-radius: 3px !important;
+    border: none !important;
+    width: 35px !important;
+}
+
 #allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover,
-.all-tabs-secondary-button.subviewbutton.subviewbutton-iconic:hover{
+.all-tabs-secondary-button.subviewbutton.subviewbutton-iconic:hover,
+.all-tabs-close-button.all-tabs-secondary-button.subviewbutton:hover,
+.all-tabs-mute-button.all-tabs-secondary-button.subviewbutton:hover{
     background: var(--button-hover-bgcolor) !important;
+   
 }
 
 :root{
