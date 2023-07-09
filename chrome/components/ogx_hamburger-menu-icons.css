@@ -8,35 +8,46 @@
 }
 
 /* Tamaño menu Open ventana no maximizada */
+
 #appMenu-popup panelview{ width: 25.5em !important;
 }
+
 /*Posicion y margen de los íconos*/
+
 .subviewbutton[shortcut]::after, .widget-overflow-list .subviewbutton-nav::after, .PanelUI-subView .subviewbutton-nav::after {
 /*    margin-inline-end: 20px !important; */
 }
+
 [oncommand="switchToTabHavingURI('about:performance', true)"] {
     background-position: left 10px center;
     background-repeat: no-repeat;
     background-size: 16px;    
 }
+
 .subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon, .syncNowBtn{
     width: 16px; height: 16px;   
     margin-inline-end: 7px !important;
 }
+
 /* Color los íconos */
+
 .subviewbutton {  -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
 .subviewbutton:hover { -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
 
-/* -------Margen de los íconos---------- 
+/* -------------------  Margen de los íconos  -------------------- */
 
 /* Margen item "tamaño" */
+
 :root[sizemode="maximized"] panelmultiview .toolbaritem-combined-buttons > label {
     margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
 }
+
 panelmultiview .toolbaritem-combined-buttons > label {
     margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
 }
+
 /* Ícono de Actualización disponible */
+
 #appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]){
     background: var(--button-bgcolor) !important;
 }
@@ -52,24 +63,36 @@ panelmultiview .toolbaritem-combined-buttons > label {
 #appMenu-popup .panel-banner-item label {
     padding-inline-start: calc(var(--margin-left-icons-personal) - 12px) !important;;
 }
-/*ícono account Margenes */
-#appMenu-fxa-label2{ margin-inline-start: -8px !important; }
-#appMenu-fxa-label2::after{ margin-inline-end: -6px !important; }
+
+/*ícono account Margenes - Padding lines for compatibility without "ogx_menu.css" */
+
+#appMenu-fxa-label2 label {
+        margin-inline-start: calc(var(--margin-left-icons-personal) - 25px) !important;
+        padding-inline-start: calc(var(--margin-left-icons-personal) + 13px) !important;
+    }
+
+#fxa-manage-account-button label {
+        margin-inline-start: calc(var(--margin-left-icons-personal) - 30px) !important;
+        padding-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
+    }
+
 @media{
     :root[sizemode="maximized"] #appMenu-fxa-label2{
     margin-inline-start: 0px !important;
     padding-bottom: 6px !important;
     margin-inline-end: 6px !important;
 }
+    
 /* Alinear item account */
+    
 :root[sizemode="normal"] #appMenu-fxa-label2{
     margin-inline-start: 0px !important;
 }
+    
 /*ícono account - first */
-#appMenu-fxa-status2[fxastatus="signedin"] #appMenu-header-description {
-    display: none !important;
-}
+    
 /* Ícono sign-in, cuenta no iniciada  */
+    
 #appMenu-fxa-status2:not([fxastatus="signedin"]) { 
     margin-inline-end: -1px !important;
     margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;}
@@ -77,30 +100,29 @@ panelmultiview .toolbaritem-combined-buttons > label {
     background-color: var(--button-active-bgcolor) !important;
 }
 #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2::before  {
-    background: var(--avatar-image-url) no-repeat left/16px;
-    margin-inline-end: 7px;
-    
-    content: var(--account-label) !important;
-    display: inline-block;
-    border-radius: 0%;
-    padding-inline-start: 23px !important;
-    pointer-events: none !important;
-    clip-path: circle !important;
+    background: var(--avatar-image-url) no-repeat center/16px;
+    content: ""; display: inline-block !important; width: 16px; height: 16px; 
+    border-radius: 50% !important;
 }
 /* Ícono account - second */
+    
 #fxa-manage-account-button::before {
     background: var(--avatar-image-url) no-repeat center/16px;
     content: ""; display: block; width: 16px; height: 16px;
     margin-inline-end: 7px;
     border-radius: 50%;
 }
+    
 :root[fxastatus="signedin"] #fxa-menu-avatar {
     display: unset; order: 2;
 }
+
 /* Alinear lista de pestañas sincronizadas */
+    
 .PanelUI-remotetabs-clientcontainer label {
     padding-inline-start: 0px !important;
 }
+    
 /*Ícono Nueva Pestaña*/
 #appMenu-new-tab-button2 {
     list-style-image: url("chrome://browser/skin/new-tab.svg");
