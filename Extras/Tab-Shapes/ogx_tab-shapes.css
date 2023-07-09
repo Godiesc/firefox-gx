@@ -85,20 +85,20 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
 
 /* trick para mantener margen left-right de las pestañas */
   
-.tabbrowser-tab:not(#tabbrowser-tabs[haspinnedtabs]:is([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab){
+.tabbrowser-tab:not(#tabbrowser-tabs[haspinnedtabs]:is([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab):nth-child(1 of :not([hidden])){
     margin-inline-start: calc( 0px - var(--uc-margin-left-right) + var(--uc-tab-corner-half-size)) !important; 
-    margin-inline-end: calc(var(--uc-margin-left-right) - var(--uc-tab-corner-half-size)) !important;
-}
+  }
   
 /* Margen left de la barra de pestañas cuando está en overflow */
   
 #tabbrowser-tabs[haspinnedtabs]:is([positionpinnedtabs]){
     margin-inline-start: calc( 4px - var(--uc-margin-left-right) + var(--uc-tab-corner-half-size)) !important;
+  }
+ 
+  #tabbrowser-tabs[haspinnedtabs]> #tabbrowser-arrowscrollbox > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
+    margin-inline-start: 4px !important;
+  }
 }
-  
-#tabbrowser-tabs[haspinnedtabs]> #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
-    margin-left: 6px !important;
-}}
 
 /*############################# Multi Selected Color - More Contrast =====================================*/
 
@@ -344,7 +344,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
         
         --uc-margin-left-right: 7px;
-        --uc-margin-left-newtab: 15px;
+        --uc-margin-left-newtab: 7px;
       }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.australis") {
@@ -357,7 +357,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-australis-cilpped.svg");
         
         --uc-margin-left-right: 4px;
-        --uc-margin-left-newtab: 20px;
+        --uc-margin-left-newtab: 8px;
       }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome") {
@@ -371,7 +371,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-size: 12px;
         
         --uc-margin-left-right: 0px;
-        --uc-margin-left-newtab: 13px;
+        --uc-margin-left-newtab: 7px;
       }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
@@ -384,7 +384,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chromeLegacy-clipped.svg");
         
         --uc-margin-left-right: 7px;
-        --uc-margin-left-newtab: 20px;
+        --uc-margin-left-newtab: 12px;
       }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner.edge") {
@@ -398,7 +398,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-size: 12px;
         
         --uc-margin-left-right: 4px;
-        --uc-margin-left-newtab: 10px;
+        --uc-margin-left-newtab: 8px;
       }
     }
     @supports -moz-bool-pref("userChrome.tab.bottom_rounded_corner") {
