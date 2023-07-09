@@ -394,22 +394,24 @@
 }
 
 /* Tamaño nuevo botón Menú */
-
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
 :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #PanelUI-menu-button, :root[sizemode="maximized"] #appMenu-popup {
     --tab-height-personal: 40px !important;
-}
+    }}
 
 /* Botón Menú [open] no muy grande */
 
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
     padding-top: calc(-10px + var(--tab-height-personal)) !important;
     z-index: 2 !important;
-}
+    }}
 
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
     clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 10px, calc(var(--padding-left-tab) - 3px) 10px,
                calc(var(--padding-left-tab) - 3px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px), 0 100%, 100% 100%, 100% 0%);
-}
+    }}
 
 /* Logo más grande */
 
@@ -419,6 +421,16 @@
         min-width: 20px !important;
     }
 }
+
+/* Nuevo margen label Account */
+@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+#appMenu-fxa-label2 label {
+        margin-inline-start: calc(var(--margin-left-icons-personal) - 28px) !important;
+    }
+
+#fxa-manage-account-button label {
+        margin-inline-start: calc(var(--margin-left-icons-personal) - 34px) !important;
+    }}
 
 /* Menu :hover */
 
