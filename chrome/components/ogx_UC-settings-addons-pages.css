@@ -82,7 +82,7 @@
     --in-content-border-color:  var(--in-content-box-border-color) !important;          /*Linea separadora en la configuración*/
     --in-content-table-border-color: var(--in-content-border-color) !important;         /*Borde de tablas*/
 
-    --in-content-button-background: var(--in-content-border-color) !important;                                 /*color de botones*/
+    --in-content-button-background: var(--in-content-border-color) !important;          /*color de botones*/
     --in-content-button-background-hover: var(--button-active-bgcolor) !important;      /*color de botones :hover*/
     --in-content-button-background-active: var(--general-color) !important;             /*color de botones al darle clic*/
 
@@ -173,7 +173,7 @@
 
 @-moz-document  
     url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support), 
-    url-prefix(about:profiles) , url-prefix(about:debugging){
+    url-prefix(about:profiles) , url-prefix(about:debugging), url-prefix(about:welcome){
         
 /* Toggle button */
         
