@@ -31,10 +31,18 @@ menugroup > menuitem > hbox > image {
 
 /* separador de items */
 
-menuseparator {
+menuseparator::before {
     appearance: none !important;
-    margin-inline: 6px !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    margin-inline: -6px !important;
+}
+
+@media (-moz-platform: linux) {
+    menuseparator::before {
+    appearance: none !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    margin-inline: 6px !important;
+    }
 }
 
 /* Márgenes menú y menú desplegable del menú */
