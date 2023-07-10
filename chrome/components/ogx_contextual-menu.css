@@ -37,21 +37,6 @@ menuseparator {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 
-@media (-moz-platform: linux) {
-    menuseparator:not(#PlacesToolbar) {
-        appearance: none !important;
-        border-block-start: 1px solid transparent !important;
-        border-block-end: none !important;
-        border-image: var(--panel-separator-zap-gradient1) 1 !important;
-        padding-block-start: 2px !important;
-        margin-inline-start: 2px !important;
-    }
-    #PlacesToolbar menuseparator {
-        appearance: none !important;
-        border: none !important;
-    }
-}
-
 /* Márgenes menú y menú desplegable del menú */
 
 menupopup:not(#PlacesToolbar) menupopup {
