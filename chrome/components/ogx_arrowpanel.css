@@ -67,13 +67,7 @@ addon-install-confirmation-notification {
 
 toolbarseparator {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
-    margin-left: 6px !important;
-    margin-right: 6px !important;
-}
-
-menuseparator::before {
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;
-    --panel-separator-margin-horizontal: 8px !important;
+    margin-inline: 6px !important;
 }
 
 #PlacesToolbarItems toolbarseparator {
