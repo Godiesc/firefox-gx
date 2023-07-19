@@ -25,18 +25,18 @@
 
 @media (prefers-color-scheme: dark){
     :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-        --arrowpanel-background: #101019cf !important;
+        --arrowpanel-background: #10101990 !important;
     }}
 
 @media (prefers-color-scheme: light){
     :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-        --arrowpanel-background: #f9f9f9cf !important;
+        --arrowpanel-background: #f9f9f990 !important;
     }}
 
 .menupopup-arrowscrollbox, slot, panelview {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                       linear-gradient(transparent, transparent), 
-                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+                      var(--main-image, var(--lwt-additional-images, none)) !important;
     background-size: auto 104vh !important;
     background-position: -1px 0px !important;
 }
@@ -45,7 +45,7 @@
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
         background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                           linear-gradient(transparent, transparent), 
-                          var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+                          var(--main-image, var(--lwt-additional-images, none)) !important;
         background-size: auto 104vh !important;
     }}
     
