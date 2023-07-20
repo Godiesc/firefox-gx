@@ -17,7 +17,7 @@
 
 ## Image in menus (contextual menu and arrowpanel menus)
 
-<p><b>Warning: </b>In themes that use  an animated image could cause a hight cpu use, in themes with static image I didn't notice any inconvenient. </p>
+<p><b>Warning: </b>Not comptible if you use "Firefox Color" extension" and themes that use an animated image will cause a hight cpu use, in themes with static image I didn't notice any inconvenient. </p>
 
 ```
 
@@ -56,6 +56,8 @@
 ## Extensions button into the "left-sidebar" - Immovable
 
 ```
+/* Extensions button into the "left-sidebar" - Immovable */
+
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
     --padding-top-left-sidebar: 146px !important; /* 182px to one-line config */
 }
