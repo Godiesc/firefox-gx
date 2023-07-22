@@ -12,7 +12,6 @@ menupopup > menuitem, menupopup > menu {
 
 #ContentSelectDropdown > menupopup > menuitem {
     padding: 0 6px !important;
-    background-color: inherit !important;
 }
 
 /* Borde izquierda y derecha del menú contextual */
