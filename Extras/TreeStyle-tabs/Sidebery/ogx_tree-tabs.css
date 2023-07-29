@@ -290,7 +290,7 @@ Window controls will be all wrong without it
 :root:is([tabsintitlebar][sizemode="normal"]) {
   --uc-window-drag-space-post: 1px !important; /* Add post space */
 }
-/* Tabaño vertical de los <window controls> */
+/* Tamaño vertical de los <window controls> */
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
     height: var(--uc-toolbar-height) !important;
@@ -379,8 +379,8 @@ Window controls will be all wrong without it
     clip-path: polygon(
         calc(var(--padding-left-tab) - 1px) 0%, 
         200% 0%, 0% 900%,
-        0% calc(var(--tab-height-personal) - 8px ), 
-        calc(var(--padding-left-tab)) calc(var(--tab-height-personal) - 8px )); 
+        0% calc(var(--tab-height-personal) - 6px ), 
+        calc(var(--padding-left-tab)) calc(var(--tab-height-personal) - 6px )); 
     }
 /* Logo más grande */
 @media (-moz-platform: windows),(-moz-platform: linux) {
@@ -393,3 +393,8 @@ Window controls will be all wrong without it
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
+
+/* Alinear account label */
+#appMenu-fxa-label2 label {
+        margin-inline-start: calc(var(--margin-left-icons-personal) - 29px) !important;
+}
