@@ -84,7 +84,7 @@ tab:hover .tab-icon-overlay:not(:hover):is([muted][pinned]){
     opacity: 1 !important;
     }
 /* favicon de pestañas recortado para mostrar mejor el ícono de silenciado */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
 tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
     mask-image: url("../images/tab_icon_masks.svg#SoundMask") !important;
     }}
@@ -108,7 +108,7 @@ tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(
 .tab-icon-overlay[pinned] { opacity: 0 !important; }
 tab:hover .tab-icon-overlay { opacity: 1 !important; }
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
 .tab-icon-stack:not([crashed]):is([soundplaying])[pinned] :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
     mask-image: url("../images/tab_icon_masks.svg#SoundMask") !important;
     }}
@@ -165,7 +165,7 @@ tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
     }
 
 /* ocultar ícono [muted] en pestaba <cargando> */
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
 tab[busy] .tab-icon-overlay:not([pinned]):is([muted]), tab[busy][pinned] .tab-icon-overlay:is([muted]){
     opacity: 0 !important;
     }}

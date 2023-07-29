@@ -183,7 +183,7 @@ findbar:-moz-lwtheme {
     z-index: 4 !important;
 }
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10) {
+@media (-moz-platform: windows) {
     #urlbar-input, #urlbar-scheme {
         padding-bottom: 2px !important;
     }

@@ -3,7 +3,7 @@
 
 /* WindowsOS - window control icons */
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10) {
+@media (-moz-platform: windows) {
     .titlebar-button {
         color: var(--general-color) !important;
         padding-inline-start: 13px !important;

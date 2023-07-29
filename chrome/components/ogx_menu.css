@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
     :root {
         --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--lwt-tab-text))80%, var(--Button-background-personal));
         --margin-left-icons-personal: 9px !important;
