@@ -2,7 +2,7 @@
    https://github.com/Godiesc/opera-gx */
 
 /*Label de medios "Reproduciendo" eliminado*/
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){ 
+@media (-moz-platform: windows),(-moz-platform: linux){ 
     .tab-secondary-label{display: none !important;
     }
 @keyframes slide2 {
