@@ -17,7 +17,7 @@
 /* color botón Menú para hacer coincidir con la barra de pestañas de <tab-center-reborn> en temas claros */
 
 @media (prefers-color-scheme: light){
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button  {
     --lwt-frame: #e9e6ef !important;
     }}}
@@ -32,19 +32,19 @@
 
 /* Quitar label -Menu- del menú not [open] */
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]) > stack::after {
     content: none !important ;
     }}
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]):is([sizemode="normal"],[sizemode="fullscreen"]) #PanelUI-menu-button:is([open]) > stack::after {
     content: none !important ;
     }}
 
 /* Hacer el botón más ancho en el menú [open] */
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
     --padding-left-tab: 87px !important;
     max-width: var(--padding-left-tab) !important;
@@ -56,7 +56,7 @@
     --padding-left-tab: 93px !important;
     }}
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
     --padding-left-tab: 85px !important;
     }}
@@ -90,7 +90,7 @@
 
 /* Logo más grande */
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+@media (-moz-platform: windows),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     min-height: 20px !important;
     min-width:  20px !important;
@@ -98,7 +98,7 @@
 
 /* menu :hover */
 
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+@media (-moz-platform: windows),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
@@ -109,6 +109,11 @@
     background-color: var(--lwt-frame) !important; 
     border-right: 1px solid var(--general-color) !important;  
   }
+
+/* Alinear account label */
+#appMenu-fxa-label2 label {
+        margin-inline-start: calc(var(--margin-left-icons-personal) - 36px) !important;
+}
 
 /*##################################### Auto hide bookmark-bar ######################################################*/
 
