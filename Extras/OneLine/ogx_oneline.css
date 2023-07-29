@@ -28,10 +28,7 @@ See the above repository for updates as well as full license text. */
   --uc-window-drag-space-pre: 0px; /* Remove pre space */
 }
 
-@media  (-moz-platform: windows-win7),
-        (-moz-platform: windows-win8),
-        (-moz-os-version: windows-win7),
-        (-moz-os-version: windows-win8){
+@media  (-moz-platform: windows) {
   :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
     --uc-window-control-width: 105px;
   }
@@ -410,13 +407,13 @@ Window controls will be all wrong without it
   
 /* Sobreescribir window controls */
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10) { 
+@media (-moz-platform: windows) { 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:is(.titlebar-close){
     background-color: red !important; 
     color: white !important;
     }}
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10){ :root:is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-min{
+@media (-moz-platform: windows) { :root:is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-min{
     padding-top: initial !important;
     padding-bottom: 0px !important;
     }}
@@ -476,7 +473,7 @@ Window controls will be all wrong without it
   
 /* Mover botón "atrás" más a la derecha */
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10), (-moz-platform: linux) { 
+@media (-moz-platform: windows), (-moz-platform: linux) { 
   :root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
     margin-left: calc(var(--uc-vertical-toolbar-width,0) - 4px) !important;
     }}
@@ -653,19 +650,19 @@ Window controls will be all wrong without it
 
 /* Quitar label -Menu- del menú not [open] */
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]) > stack::after {
     content: none !important ;
     }}
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]):is([sizemode="normal"],[sizemode="fullscreen"]) #PanelUI-menu-button:is([open]) > stack::after {
     content: none !important ;
     }}
   
 /* Hacer el botón más ancho en el menú [open] */
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
   --padding-left-tab: 80px !important;
     max-width: var(--padding-left-tab) !important;
@@ -677,7 +674,7 @@ Window controls will be all wrong without it
   --padding-left-tab: 86px !important;
     }}
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
+@media (-moz-platform: windows),(-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
       --padding-left-tab: 80px !important;
     }}
@@ -689,7 +686,7 @@ Window controls will be all wrong without it
   
 /* Logo más grande */
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+@media (-moz-platform: windows),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     min-height: 20px !important;
     min-width:  20px !important;
@@ -697,7 +694,7 @@ Window controls will be all wrong without it
   
 /* menu :hover */
   
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux) {
+@media (-moz-platform: windows),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         }}
