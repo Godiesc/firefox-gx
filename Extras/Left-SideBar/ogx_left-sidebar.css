@@ -352,13 +352,13 @@
 
 /* Quitar label -Menu- del menú not [open] */
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open])>stack::after {
         content: none !important;
     }
 }
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]):is([sizemode="normal"], [sizemode="fullscreen"]) #PanelUI-menu-button:is([open])>stack::after {
         content: none !important;
     }
@@ -366,7 +366,7 @@
 
 /* Hacer el botón más ancho en el menú [open] */
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
         --padding-left-tab: 78px !important;
         max-width: var(--padding-left-tab) !important;
@@ -381,7 +381,7 @@
     }
 }
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
     :root:is([sizemode="maximized"]) #appMenu-popup {
         --padding-left-tab: 78px !important;
     }
@@ -394,20 +394,20 @@
 }
 
 /* Tamaño nuevo botón Menú */
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
 :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #PanelUI-menu-button, :root[sizemode="maximized"] #appMenu-popup {
     --tab-height-personal: 40px !important;
     }}
 
 /* Botón Menú [open] no muy grande */
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
     padding-top: calc(-10px + var(--tab-height-personal)) !important;
     z-index: 2 !important;
     }}
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
     clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 10px, calc(var(--padding-left-tab) - 3px) 10px,
                calc(var(--padding-left-tab) - 3px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px), 0 100%, 100% 100%, 100% 0%);
@@ -415,7 +415,7 @@
 
 /* Logo más grande */
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image {
         min-height: 20px !important;
         min-width: 20px !important;
@@ -423,7 +423,7 @@
 }
 
 /* Nuevo margen label Account */
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
 #appMenu-fxa-label2 label {
         margin-inline-start: calc(var(--margin-left-icons-personal) - 28px) !important;
     }
@@ -434,7 +434,7 @@
 
 /* Menu :hover */
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
         background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
     }
