@@ -4,6 +4,7 @@
 
 ## Non Image in the left-sidebar in themes that use images
 <details><summary>Code Here</summary>
+    
 ```
 /* Non Image in the left-sidebar in themes that use images */
 
@@ -12,6 +13,7 @@
     background-image: none !important;
 }
 ```
+
 </details>
 
 ![NonImageInLeftSidebar](https://user-images.githubusercontent.com/22057609/228630330-a32dbd11-6800-4cb2-a402-4793cdfe805c.png)
@@ -20,6 +22,7 @@
 
 <p><b>Warning: </b>Not comptible if you use "Firefox Color" extension" and themes that use an animated image will cause a hight cpu use, in themes with static image I didn't notice any inconvenient. </p>
 <details><summary>Code Here</summary>
+    
 ```
 /* Image in menus in themes with images */
 
@@ -55,6 +58,7 @@
 
 ## Extensions button into the "left-sidebar" - Immovable
 <details><summary>Code Here</summary>
+    
 ```
 /* Extensions button into the "left-sidebar" - Immovable */
 
