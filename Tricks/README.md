@@ -3,7 +3,7 @@
 <p>You can add the code below to give the theme some little extra feature. <b>You should add the code into the <code>chrome/components/ogx_tricks.css</code> file, if not exist be free to create it.</b></p>
 
 ## Non Image in the left-sidebar in themes that use images
-
+<details><summary>Code Here</summary>
 ```
 /* Non Image in the left-sidebar in themes that use images */
 
@@ -12,15 +12,15 @@
     background-image: none !important;
 }
 ```
+</detail>
 
 ![NonImageInLeftSidebar](https://user-images.githubusercontent.com/22057609/228630330-a32dbd11-6800-4cb2-a402-4793cdfe805c.png)
 
 ## Image in menus (contextual menu and arrowpanel menus)
 
 <p><b>Warning: </b>Not comptible if you use "Firefox Color" extension" and themes that use an animated image will cause a hight cpu use, in themes with static image I didn't notice any inconvenient. </p>
-
+<details><summary>Code Here</summary>
 ```
-
 /* Image in menus in themes with images */
 
 @media (prefers-color-scheme: dark){
@@ -48,13 +48,13 @@
                           var(--main-image, var(--lwt-additional-images, none)) !important;
         background-size: auto 104vh !important;
     }}
-    
 ```
+</details>
 
 ![ImageInMenus](https://user-images.githubusercontent.com/22057609/228356808-02b9cb92-ba4b-4769-a870-8b41b638c18f.png)
 
 ## Extensions button into the "left-sidebar" - Immovable
-
+<details><summary>Code Here</summary>
 ```
 /* Extensions button into the "left-sidebar" - Immovable */
 
@@ -84,7 +84,7 @@
     transform: scale(1.0) !important;
     transition-duration: 0ms !important;
 }
-
 ```
+</details>
 
 ![ExtensionButtonLeftSidebar](https://user-images.githubusercontent.com/22057609/232178144-499c9c9b-995d-4e9d-9f2b-1356aa34fd84.png)
