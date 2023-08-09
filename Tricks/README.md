@@ -20,7 +20,7 @@
 
 ## Image in menus (contextual menu and arrowpanel menus)
 
-<p><b>Warning: </b>Not comptible if you use "Firefox Color" extension" and themes that use an animated image will cause a hight cpu use, in themes with static image I didn't notice any inconvenient. </p>
+<p><b>Warning: </b>Not compatible if you use "Firefox Color" extension" and themes that use an animated image will cause a high cpu use, in themes with static image I didn't notice any inconvenience. </p>
 <details><summary>Code Here</summary>
     
 ```
