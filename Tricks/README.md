@@ -12,7 +12,7 @@
     background-image: none !important;
 }
 ```
-</detail>
+</details>
 
 ![NonImageInLeftSidebar](https://user-images.githubusercontent.com/22057609/228630330-a32dbd11-6800-4cb2-a402-4793cdfe805c.png)
 
