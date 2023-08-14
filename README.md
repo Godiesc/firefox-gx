@@ -99,6 +99,11 @@
 <li>Not compatibility for RTL(right-to-left) languages.</li>
 </ul>
 
+# Related Topic - Tema relacionado
+Available [Firefox-ONE](https://github.com/Godiesc/firefox-one)
+
+![SplashPromocionalFirefoxONE](https://github.com/Godiesc/firefox-one/assets/22057609/453c2917-8cee-4424-b550-e4e38f492c84)
+
 # Example of about:support
 
 ![120349392-b372f980-c2c3-11eb-904d-b088168fd849](https://user-images.githubusercontent.com/22057609/156908375-824f8679-56a5-4d09-a86f-353a7f61135e.png)
