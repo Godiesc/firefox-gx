@@ -85,7 +85,7 @@
 
 # Compatibilidad - Compatibility
 
-<ul><li>Windows 7 (Not tested - No probado) ❌</li>
+<ul><li>Windows 7 (Tested partially) ❌✔ - <a href="https://github.com/Godiesc/firefox-gx/discussions/70">Preview</a></li>
 <li>Linux - Manjaro KDE (Tested - Probado) ✔ - <a href="https://imgur.com/a/Byo3Mn7">Preview</a></li>
 <li>Windows 10 (Tested - Probado) ✔ - <a href="https://imgur.com/a/aYl8fjn">Preview</a></li>
 <li>Windows 11 (Tested - Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png" >Preview</a></li>
