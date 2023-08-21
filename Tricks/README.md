@@ -44,7 +44,7 @@
     background-position: -1px 0px !important;
 }
 
-@media (-moz-platform: windows-win7), (-moz-platform: windows-win10), (-moz-platform: linux) {
+@media (-moz-platform: windows), (-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
         background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                           linear-gradient(transparent, transparent), 
