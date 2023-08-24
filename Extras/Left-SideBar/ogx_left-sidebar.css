@@ -422,16 +422,6 @@
     }
 }
 
-/* Nuevo margen label Account */
-@media (-moz-platform: windows), (-moz-platform: linux) {
-#appMenu-fxa-label2 label {
-        margin-inline-start: calc(var(--margin-left-icons-personal) - 28px) !important;
-    }
-
-#fxa-manage-account-button label {
-        margin-inline-start: calc(var(--margin-left-icons-personal) - 34px) !important;
-    }}
-
 /* Menu :hover */
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
