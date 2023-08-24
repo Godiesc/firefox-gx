@@ -20,7 +20,7 @@
 
 ## Image in menus (contextual menu and arrowpanel menus)
 
-<p><b>Warning: </b>Not compatible if you use "Firefox Color" extension" and themes that use an animated image will cause a high cpu use, in themes with static image I didn't notice any inconvenience. </p>
+<p><b>Warning: </b>Not compatible if you use "Firefox Color" extension", with Main-Image config you will get some bugs. Themes that use an animated image will cause a high cpu use, in themes with static image I didn't notice any inconvenience. </p>
 <details><summary>Code Here</summary>
     
 ```
@@ -39,7 +39,7 @@
 .menupopup-arrowscrollbox, slot, panelview {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                       linear-gradient(transparent, transparent), 
-                      var(--main-image, var(--lwt-additional-images, none)) !important;
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     background-size: auto 104vh !important;
     background-position: -1px 0px !important;
 }
@@ -48,7 +48,7 @@
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
         background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
                           linear-gradient(transparent, transparent), 
-                          var(--main-image, var(--lwt-additional-images, none)) !important;
+                          var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
         background-size: auto 104vh !important;
     }}
 ```
