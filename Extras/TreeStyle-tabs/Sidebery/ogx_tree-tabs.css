@@ -393,8 +393,3 @@ Window controls will be all wrong without it
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
-
-/* Alinear account label */
-#appMenu-fxa-label2 label {
-        margin-inline-start: calc(var(--margin-left-icons-personal) - 29px) !important;
-}
