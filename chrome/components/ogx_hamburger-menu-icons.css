@@ -1,5 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/firefox-gx */
+   https://github.com/Godiesc/firefox-one */
 
 /*-----------------íconos en el menú de hamburguesa----------------------*/
 
@@ -12,38 +12,31 @@
 #appMenu-popup panelview{ width: 25.5em !important;
 }
 
-/*Posicion y margen de los íconos*/
+/* Color los íconos */
 
-.subviewbutton[shortcut]::after, .widget-overflow-list .subviewbutton-nav::after, .PanelUI-subView .subviewbutton-nav::after {
-/*    margin-inline-end: 20px !important; */
-}
+.subviewbutton:not([disabled]) {  -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
+.subviewbutton:not([disabled], [#appMenu-zoom-controls]):hover { -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
 
-[oncommand="switchToTabHavingURI('about:performance', true)"] {
-    background-position: left 10px center;
-    background-repeat: no-repeat;
-    background-size: 16px;    
-}
+/* -------------------  Margen de los íconos  -------------------- */
+
+/* Tamaño y margen de los íconos */
 
 .subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon, .syncNowBtn{
     width: 16px; height: 16px;   
     margin-inline-end: 7px !important;
 }
 
-/* Color los íconos */
-
-.subviewbutton {  -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
-.subviewbutton:hover { -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
-
-/* -------------------  Margen de los íconos  -------------------- */
-
 /* Margen item "tamaño" */
 
-:root[sizemode="maximized"] panelmultiview .toolbaritem-combined-buttons > label {
-    margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
+#appMenu-zoom-controls>.toolbarbutton-text{
+    padding-inline-start: 7px !important;
 }
 
-panelmultiview .toolbaritem-combined-buttons > label {
-    margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
+#appMenu-zoom-controls:before{
+    background: url(../images/zoom.svg) no-repeat center/16px;
+    content: "";
+    width: 16px;
+    height: 16px;
 }
 
 /* Ícono de Actualización disponible */
@@ -66,28 +59,10 @@ panelmultiview .toolbaritem-combined-buttons > label {
 
 /*ícono account Margenes - Padding lines for compatibility without "ogx_menu.css" */
 
-#appMenu-fxa-label2 label {
-        margin-inline-start: calc(var(--margin-left-icons-personal) - 25px) !important;
-        padding-inline-start: calc(var(--margin-left-icons-personal) + 13px) !important;
+#appMenu-fxa-label2 label, #fxa-manage-account-button label {
+        margin-inline-start: 7px !important;
+        /*padding-inline-start: calc(var(--margin-left-icons-personal) + 16px) !important;*/
     }
-
-#fxa-manage-account-button label {
-        margin-inline-start: calc(var(--margin-left-icons-personal) - 30px) !important;
-        padding-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
-    }
-
-@media{
-    :root[sizemode="maximized"] #appMenu-fxa-label2{
-    margin-inline-start: 0px !important;
-    padding-bottom: 6px !important;
-    margin-inline-end: 6px !important;
-}
-    
-/* Alinear item account */
-    
-:root[sizemode="normal"] #appMenu-fxa-label2{
-    margin-inline-start: 0px !important;
-}
     
 /*ícono account - first */
     
@@ -95,26 +70,30 @@ panelmultiview .toolbaritem-combined-buttons > label {
     
 #appMenu-fxa-status2:not([fxastatus="signedin"]) { 
     margin-inline-end: -1px !important;
-    margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;}
+    margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
+}
+
 #appMenu-fxa-status2:not([fxastatus="signedin"]):hover  toolbarbutton {
     background-color: var(--button-active-bgcolor) !important;
 }
+
 #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2::before  {
     background: var(--avatar-image-url) no-repeat center/16px;
-    content: ""; display: inline-block !important; width: 16px; height: 16px; 
+    content: ""; 
+    display: inline-block !important; 
+    width: 16px; 
+    height: 16px; 
     border-radius: 50% !important;
 }
 /* Ícono account - second */
     
 #fxa-manage-account-button::before {
     background: var(--avatar-image-url) no-repeat center/16px;
-    content: ""; display: block; width: 16px; height: 16px;
-    margin-inline-end: 7px;
+    content: ""; 
+    display: block; 
+    width: 16px; 
+    height: 16px;
     border-radius: 50%;
-}
-    
-:root[fxastatus="signedin"] #fxa-menu-avatar {
-    display: unset; order: 2;
 }
 
 /* Alinear lista de pestañas sincronizadas */
@@ -177,11 +156,17 @@ panelmultiview .toolbaritem-combined-buttons > label {
 }
 /* Guardar como... */
 #appMenu-save-file-button2{
+    list-style-image: url("../images/save.svg");
     padding-inline-end: 25px !important;
 }
 /* Ícono buscar */
 #appMenu-find-button2, #panelMenu_searchBookmarks {
     list-style-image: url("chrome://global/skin/icons/search-glass.svg");
+    padding-inline-end: 25px !important;
+}
+/* Ícono translate */
+#appMenu-translate-button{
+    list-style-image: url(chrome://browser/skin/translations.svg);
     padding-inline-end: 25px !important;
 }
 /*Ícono Ajustes*/
@@ -191,15 +176,13 @@ panelmultiview .toolbaritem-combined-buttons > label {
 /*Ícono Ayuda*/
 #appMenu-help-button2 {
     list-style-image: url("chrome://global/skin/icons/help.svg");
-    /*margin-inline-end: -25px !important;*/
 }
 #appMenu-more-button2 {
-    /*margin-inline-end: -25px !important;*/
+    list-style-image: url("chrome://global/skin/icons/developer.svg");
 }
 /*Ícono salir*/
 #appMenu-quit-button2 {
     list-style-image: url("../images/quit1.svg");
-
     padding-inline-end: 25px !important;
 }
 #appMenu-quit-button2:hover {
@@ -224,5 +207,5 @@ panelmultiview .toolbaritem-combined-buttons > label {
 }
 /*Ícono ConectarOtroDispositivo*/
 #PanelUI-fxa-menu-connect-device-button {
-    margin-inline-start: 0px !important;
+    list-style-image:  url("chrome://browser/skin/synced-tabs.svg");
 }

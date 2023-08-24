@@ -132,19 +132,27 @@
         --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
     }
     
-/* Color de íconos y label */
+/* zoom icons */
     
-    .subviewbutton, #appMenu-popup label {
+#appMenu-zoomReduce-button2 > .toolbarbutton-icon, #appMenu-zoomEnlarge-button2 > .toolbarbutton-icon{
+    margin-inline: -4px !important;
+}
+    
+/* Separadores */
+    
+    :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator {
+        margin-inline-start: 30px !important;
+        --panel-separator-margin-vertical: 2px !important;
+        --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
+    }
+    
+/* Color de íconos y label */
+
+    .subviewbutton:not([disabled]), #appMenu-popup toolbarbutton:not([disabled]) .toolbarbutton-text label {
         -moz-context-properties: fill;
         fill: var(--label-color) !important;
         color: var(--label-color) !important;
-    }
-    
-    .subviewbutton:hover, #appMenu-popup toolbarbutton:hover label {
-        -moz-context-properties: fill;
-        fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
-        color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
-    }
+    }   
     
 /* baner de -actualización disponible- */
     
@@ -201,12 +209,9 @@
     
 /* Margen item -tamaño- */
     
-    :root[sizemode="maximized"] panelmultiview .toolbaritem-combined-buttons>label {
-        margin-inline-start: calc(var(--margin-left-icons-personal) + 17px) !important;
-    }
-    panelmultiview .toolbaritem-combined-buttons>label {
-        margin-inline-start: calc(var(--margin-left-icons-personal) + 15px) !important;
-    }
+#appMenu-zoom-controls{
+    padding-inline-start: calc(var(--margin-left-icons-personal) - 0px) !important;
+}
     
 /* ------------------------ícono account----------------------- */
     
@@ -238,14 +243,6 @@
     }
     
 /* Label account - first */    
-    /*Margen izquierda */
-    
-    #appMenu-fxa-label2 label {
-        padding-inline-start: calc(var(--margin-left-icons-personal) + 13px) !important;
-    }
-    #fxa-manage-account-button label {
-        padding-inline-start: calc(var(--margin-left-icons-personal) + 14px) !important;
-    }
 
     /* Ícono sign-in, cuenta no iniciada  */
     
@@ -255,28 +252,6 @@
     }
     #appMenu-fxa-status2:not([fxastatus="signedin"]):hover toolbarbutton {
         background-color: var(--button-active-bgcolor) !important;
-    }
-    
-/* Alinear lista de pestañas sincronizadas */
-    
-    .PanelUI-remotetabs-clientcontainer label {
-        padding-inline-start: 0px !important;
-    }
-    
-/* ------------------Posición de items del lado derecho del menú---------------------*/
-    
-    #appMenu-new-tab-button2, #appMenuRecentlyClosedTabs, #sidebar-switcher-tabs, #appMenu-new-window-button2, 
-    #appMenuRecentlyClosedWindows, #appMenu-new-private-window-button2, #appMenu-downloads-button, 
-    #appMenu-library-downloads-button, #appMenu-extensions-themes-button, #appMenu-print-button2,
-    #appMenu-save-file-button2, #appMenu-find-button2, #panelMenu_searchBookmarks, #appMenu-quit-button2 {
-        padding-inline-end: 25px !important;
-    }
-    
-    /*Ícono SincronizarAhora*/
-    
-    .syncNowBtn {
-        visibility: visible !important;
-        order: 0 !important;
     }
 }
 

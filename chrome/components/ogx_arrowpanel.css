@@ -31,7 +31,7 @@ panelview {
     margin-inline: -4px !important;
 }
 
-#protections-popup, #editBookmarkPanel {
+#protections-popup, #editBookmarkPanel, #translations-panel {
     margin-top: -1px !important;
     margin-inline: -6px !important;
 }
@@ -62,6 +62,14 @@ addon-install-confirmation-notification {
 .protections-popup-category:active, .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button, panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back):is(:active, [open]), .navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]), .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]) {
     background: linear-gradient(to right, var(--button-hover-bgcolor) 80%, transparent) !important;
 }
+
+/* Colores en items deshabilitados*/
+
+.subviewbutton:is([disabled]), .subviewbutton:where([disabled="true"]):hover {       
+    -moz-context-properties: fill;
+    color: #808080 !important;
+    fill:  #808080 !important;
+    }
 
 /* Linea gradiente en los menús principales */
 
