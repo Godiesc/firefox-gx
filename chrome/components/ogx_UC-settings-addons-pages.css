@@ -2,6 +2,8 @@
    https://github.com/Godiesc/firefox-gx */
 
 @media (prefers-color-scheme: dark){
+    @-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support), 
+                   url-prefix(about:profiles) , url-prefix(about:debugging), url-prefix(about:welcome){
  window, dialog {                                                                            /*Colores varios de paginas de about:addons y about:settings*/
     background-color: #1a1a24 !important;
     --in-content-primary-button-background: var(--general-color) !important;
@@ -23,9 +25,11 @@
     --in-content-button-background: var(--in-content-box-border-color) !important;           /*color de botones*/
     --in-content-button-background-hover: var(--general-color) !important;                   /*color de botones :hover*/
     --in-content-button-background-active: var(--button-hover-bgcolor) !important;           /*color de botones al darle clic*/
-    }}
+            }}}
 
 @media (prefers-color-scheme: light){
+    @-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support), 
+                   url-prefix(about:profiles) , url-prefix(about:debugging), url-prefix(about:welcome){
  window, dialog {                                                                            /*Colores varios de paginas de about:addons y about:settings*/
     background-color: #f9f9f9 !important;
     --in-content-primary-button-background: var(--general-color) !important;
