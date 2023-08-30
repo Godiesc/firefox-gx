@@ -84,10 +84,9 @@ tab:hover .tab-icon-overlay:not(:hover):is([muted][pinned]){
     opacity: 1 !important;
     }
 /* favicon de pestañas recortado para mostrar mejor el ícono de silenciado */
-@media (-moz-platform: windows),(-moz-platform: linux){
 tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
     mask-image: url("../images/tab_icon_masks.svg#SoundMask") !important;
-    }}
+    }
 /* Audio bloqueado */
 .tab-icon-overlay:not([pinned]):is([activemedia-blocked]), .tab-icon-overlay:is([pinned]):is([activemedia-blocked]){
     list-style-image: url("../images/blocked.svg") !important;
@@ -108,10 +107,9 @@ tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(
 .tab-icon-overlay[pinned] { opacity: 0 !important; }
 tab:hover .tab-icon-overlay { opacity: 1 !important; }
 
-@media (-moz-platform: windows),(-moz-platform: linux){
 .tab-icon-stack:not([crashed]):is([soundplaying])[pinned] :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
     mask-image: url("../images/tab_icon_masks.svg#SoundMask") !important;
-    }}
+    }
     
 /* Reproduciendo pinned */    
 .tab-icon-overlay:is([pinned])[soundplaying]{
@@ -165,29 +163,6 @@ tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
     }
 
 /* ocultar ícono [muted] en pestaba <cargando> */
-@media (-moz-platform: windows),(-moz-platform: linux){
 tab[busy] .tab-icon-overlay:not([pinned]):is([muted]), tab[busy][pinned] .tab-icon-overlay:is([muted]){
     opacity: 0 !important;
-    }}
-
-/*_________________________________________MacOS________________________________________*/
-
-@media (-moz-platform: macos){
-.tabbrowser-tab:not([pinned]) .tab-icon-stack:is([muted],[activemedia-blocked]){
-  grid-template-areas: "a s";
     }
-.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted],[activemedia-blocked]){ 
-    opacity: 1 !important;
-    top: initial !important;
-    left: initial !important;
-    height: 16px !important;
-    width: 16px !important;
-    fill: var(--identity-tab-color, var(--general-color)) !important;
-    padding: 0px !important;
-    margin-inline: -2px 3px !important;
-    grid-area: s; 
-    }
-.tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted],[activemedia-blocked]):hover{ 
-    fill: currentColor !important;
-    fill-opacity: 1 !important;
-}}
