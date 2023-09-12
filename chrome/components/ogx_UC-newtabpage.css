@@ -552,7 +552,7 @@ body{
 /*..........................................Firefox--------------------------------------------
 ---------------------------------------------view-----------------------------------------------*/
 
-@-moz-document url(about:firefoxview), regexp("^about:.*") {
+@-moz-document url(about:firefoxview){
     
     @media (prefers-color-scheme: dark){
         
