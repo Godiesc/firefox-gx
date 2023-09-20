@@ -348,6 +348,70 @@
     margin-right: -1px !important;
 }
 
+/* Colored folders for bookmarks */
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+1) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder1.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+2) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder2.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+3) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder3.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+4) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder4.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+5) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder5.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+6) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder6.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+7) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder7.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+8) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder8.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+9) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder9.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+/* Carpeta "Otros Marcadores" */
+
+#OtherBookmarks > .toolbarbutton-icon{
+    list-style-image: url("../images/folder-otherbookmarks.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
 /* ------------------------------ Nuevos margenes Botón menú ------------------------------- */
 
 /* Quitar label -Menu- del menú not [open] */
