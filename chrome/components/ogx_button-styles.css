@@ -217,28 +217,36 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 
 /* :hover en botones de: unified extensions and all-tabs */
 
+/* botón >> Unified extentions */
+
+:root{ --uei-icon-size: 18px !important; }
+
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not(.toolbarbutton-1)[disabled] {
+    opacity: 1 !important;
+}
+
 #unified-extensions-panel .unified-extensions-item{
     padding-block: 0 !important;
     margin-block: 0px !important;
 }
 
-#unified-extensions-panel .subviewbutton{
+.unified-extensions-item-action-button.panel-no-padding.webextension-browser-action.subviewbutton.subviewbutton-iconic{
     padding-block: 2px !important;
+    margin-block: 0px !important;
 }
 
-.unified-extensions-item-menu-button:is(panelview .toolbarbutton-1, toolbarbutton.subviewbutton, .widget-overflow-list .toolbarbutton-1, .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton):not([disabled]) {
+.unified-extensions-item-menu-button:is(panelview .toolbarbutton-1, toolbarbutton.subviewbutton, .widget-overflow-list .toolbarbutton-1, 
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton):not([disabled]) {
     background: transparent !important;
-    padding-inline-end: 6px !important;
+    padding: 0px 6px !important;
 }
 
 .unified-extensions-item-menu-button.subviewbutton.subviewbutton-iconic:hover image {
-    background: var(--button-active-bgcolor) !important;
+    background: var(--general-color) !important;
     border-radius: 3px !important;
 }
 
-.unified-extensions-item-action-button[disabled].subviewbutton{
-    margin-right: 8px !important;
-}
+/* botón >> ALL tabs */
 
 .all-tabs-secondary-button{
     margin-inline-end: 4px !important;
@@ -252,11 +260,6 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 .all-tabs-close-button.all-tabs-secondary-button.subviewbutton:hover,
 .all-tabs-mute-button.all-tabs-secondary-button.subviewbutton:hover{
     background: var(--button-hover-bgcolor) !important;
-   
-}
-
-:root{
-    --uei-icon-size: 18px !important;
 }
 
 /* Second label del botón de extenciones */
