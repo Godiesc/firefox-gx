@@ -32,7 +32,7 @@ findbar:-moz-lwtheme {
 .urlbarView-row[selected], .urlbarView-row[row-selectable]:not([selected]):hover {
     --urlbar-popup-url-color: var(--toolbar-field-focus-color) !important; 
     background-color: var(--autocomplete-popup-hover-background) !important;
-    color: var(--lwt-tab-text) !important;
+    --link-color: var(--lwt-tab-text) !important;
     border-radius: 0px !important;
 }
 

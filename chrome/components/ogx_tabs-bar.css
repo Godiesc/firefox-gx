@@ -88,6 +88,8 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
     z-index: 2 !important;
 }
 
+.tab-content[selected] { z-index: 2 !important; }
+
 .tabbrowser-tab[selected] > .tab-stack::before{
     content: "";
     display: -moz-box;
@@ -100,7 +102,7 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
     position: absolute !important;
 }
 
-.tab-content{ padding-top: 0px !important; margin-left: -1px !important; z-index: 3 !important;
+.tab-content{ padding-top: 0px !important; margin-left: -1px !important;
 }
 
 /* Imagen en pestaña */

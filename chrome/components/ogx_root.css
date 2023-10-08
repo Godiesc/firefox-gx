@@ -109,6 +109,7 @@
   --checkbox-checked-color: #eaeaea !important;
   --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
   --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
+  --link-color: var(--general-color) !important;
 }
 }
 
@@ -218,6 +219,7 @@
   --checkbox-checked-color: #eaeaea !important;
   --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
   --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
+  --link-color: var(--general-color) !important;
 }}
 
 /* Private Browsing Mode */
