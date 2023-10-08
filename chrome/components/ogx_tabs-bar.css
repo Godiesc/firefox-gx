@@ -74,27 +74,44 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
     fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 
-/* ---------------------Pestaña activa------------------------ */
+/* ------------------------------------- Pestaña activa ------------------------------------- */
 
-.tab-stack, .tab-background {
-    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
+.tab-background[selected]{
+    outline: none !important;
+    border-top: 1px solid transparent !important;
+    border-left: 1px solid transparent !important;
+    border-right: 1px solid transparent !important;
+    box-shadow: none !important;
+    background-clip: padding-box;
+    clip-path: polygon(7px 0%, 200% 0%, 0% 200%, 0% 7px);
     border-radius: var(--tab-border-radius) !important;
-}
-
-.tab-stack {
-    margin-top: var(--margin-top-personal) !important;
-}
-
-.tabbrowser-tab[selected="true"] .tab-stack {
-    background: var(--gradient) !important;
     z-index: 2 !important;
 }
 
-.tab-background {
-    height: var(--tab-height-personal) !important;
-    margin-left: 1px !important;
-    margin-right: 1px !important;
-    margin-top: 1px !important;
+.tabbrowser-tab[selected] > .tab-stack::before{
+    content: "";
+    display: -moz-box;
+    min-height: var(--tab-height-personal) !important;
+    width: -moz-available !important;
+    margin-block: var(--tab-block-margin);
+    background: var(--general-color) !important;
+    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
+    border-radius: var(--tab-border-radius) !important;
+    position: absolute !important;
+}
+
+.tab-content{ padding-top: 0px !important; margin-left: -1px !important; z-index: 3 !important;
+}
+
+/* Imagen en pestaña */
+
+:root:not([chromehidden~="toolbar"]):is([lwtheme-image],[style*="--lwt-additional-images"]) tab[selected] .tab-background{
+    --lwt-background-alignment: right top, right top, right top !important;
+    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
+        linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    background-position: right top !important;
+    background-repeat: repeat-x !important;
+    background-size: auto auto !important;
 }
 
 /* Borde entre pestañas */
@@ -122,6 +139,7 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
 }
 
 .tabbrowser-tab:not([selected="true"], [multiselected]):hover .tab-stack {
+    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
     background-color: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent) !important;
     z-index: 2 !important;
 }
@@ -163,6 +181,7 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
     padding-top: 1px !important;
     border-top: 1px solid var(--toolbar-bgcolor) !important;
     padding-bottom: 1px !important;
+    z-index: 1 !important;
 }
 
 toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button, .titlebar-button) {
@@ -263,17 +282,7 @@ toolbar:is(#TabsToolbar) toolbarbutton:not(#tabs-newtab-button, #new-tab-button,
 }
 
 /* ----------------------------------- config to themes that have "IMAGES" --------------------------------------------
-   ------------------------------------------ Compatibilidad parcial -------------------------------------------------- */
-
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="false"], 
-:root[style*="--lwt-additional-images"] #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"] {
-    --lwt-background-alignment: right top, right top, right top !important;
-    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-        linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-    background-position: right top !important;
-    background-repeat: repeat-x !important;
-    background-size: auto auto !important;
-}
+   ------------------------------------------ Compatibilidad parcial -------------------------------------------------- 
 
 /* Mantener una imagen al mover pestaña en temas con imagenes - still needs fix */
 

@@ -1,11 +1,16 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
+menupopup {
+    --panel-padding: 4px 0px !important;
+}
+
 /* Menú contextual */
 
 menupopup > menuitem, menupopup > menu {
     appearance: none !important;
     padding-block: 0.4em !important;
+    border-radius: 0px !important;
 }
 
 /* Combo-box - Select Box more compact */
@@ -49,6 +54,7 @@ menuseparator::before {
 menupopup:not(#PlacesToolbar) menupopup {
     appearance: none !important;
     margin-block-start: -9px !important;
+    margin-inline-start: -10px !important;
 }
 
 #permission-popup menupopup {
