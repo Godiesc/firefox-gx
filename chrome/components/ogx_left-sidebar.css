@@ -1,0 +1,567 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/firefox-gx */
+
+/*----------------------------------------------This first code block is from MrOtherGuy-----------------------------------------------------
+-----------------> https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/vertical_bookmarks_toolbar.css -------------------*/
+
+/* Makes bookmarks toolbar appear vertically at the left side of the window */
+
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+    :root:not([inDOMFullscreen]) {
+        --uc-vertical-toolbar-width: 60px;
+    }
+    #navigator-toolbox {
+        position: relative
+    }
+    #PersonalToolbar {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 100%;
+        left: 0;
+        width: var(--uc-vertical-toolbar-width, 0);
+        min-width: unset !important;
+        /* These create a empty area to the bottom of the toolbar, which is to mask a fact that we don't know exactly how high the toolbar should be */
+        height: 100vh;
+        max-height: 100vh !important;
+        padding-bottom: 120px !important;
+    }
+    #PersonalToolbar #PlacesChevron {
+        display: none;
+    }
+    #PersonalToolbar > #personal-bookmarks {
+        overflow-y: auto;
+        scrollbar-width: none;
+        height: 100vh;
+    }
+    #PersonalToolbar #PlacesToolbarItems {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+    #PersonalToolbar #PlacesToolbarItems > toolbarseparator {
+        height: 7px;
+        background-color: currentColor;
+        background-clip: padding-box;
+        border-block: 3px solid transparent !important;
+    }
+    #PersonalToolbar .toolbarbutton-1 {
+        padding-block: 10px !important
+    }
+    #PersonalToolbar #PlacesToolbarItems > .bookmark-item {
+        padding-block: 4px !important;
+        margin-inline: 0 !important;
+    }
+    #browser, #browser-bottombox, #main-window > body::after,
+    /* This selector is for compatibility with tabs_below_content.css */
+    #customization-container {
+        margin-left: var(--uc-vertical-toolbar-width, 0);
+    }
+    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #browser, 
+    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #browser-bottombox, 
+    #main-window:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body::after, 
+    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"]) > body > #customization-container {
+        margin-left: 0;
+    }
+    #PersonalToolbar #PlacesToolbarItems {
+        display: -webkit-box;
+        -webkit-box-orient: vertical !important;
+    }
+}
+
+/* --------------------------------------- My Code to Adapt to GX Style --------------------------- */
+
+:root {
+    /* Nuevo tamaño sidebar */
+    --uc-vertical-toolbar-width: 41px !important;
+    /* Nuevo tamaño botón "Menú" */
+    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    /* Nuevo margen left de íconos del menú */
+    --margin-left-icons-personal: 11px !important;
+}
+
+/* Margen izquierda pestañas */
+
+#toolbar-menubar, #toolbar-menubar[autohide="false"]+#TabsToolbar {
+    padding-left: calc(var(--padding-left-tab) + 0px) !important;
+}
+
+/* Orientación vertical a los marcadores de la sidebar */
+
+#PersonalToolbar>#personal-bookmarks>#PlacesToolbar>hbox, #personal-bookmarks, #PlacesToolbar, #PlacesToolbarItems {
+    flex-direction: column !important;
+    -moz-box-orient: vertical !important;
+}
+
+/* Posición y estilo de la barra lateral izquierda de marcadores */
+
+:root:not([chromehidden~="toolbar"]) #PersonalToolbar {
+    /* "button_background_hover": "#26242e" */
+    --toolbarbutton-hover-background: transparent !important;
+    /* "button_background_active": "#131217" */
+    --toolbarbutton-active-background: transparent !important;
+    --padding-top-left-sidebar: 98px !important;
+    --padding-bottom-left-sidebar: 90px !important;
+    --height-left-sidebar: calc(100vh + 31px + var(--toolbar-height-personal) + var(--tab-height-personal) + var(--windowed-top-padding, 0px)) !important;
+    height: var(--height-left-sidebar) !important;
+    max-height: var(--height-left-sidebar) !important;
+    background-color: var(--lwt-frame) !important;
+    padding-bottom: var(--padding-bottom-left-sidebar) !important;
+    /* Alinear barra */
+    margin-top: calc( -31px - var(--toolbar-height-personal) - var(--tab-height-personal) - var(--windowed-top-padding, 0px)) !important;
+    padding-top: var(--padding-top-left-sidebar) !important;
+    padding-inline: 0px 2px !important;
+    /* Linea Gradiente */
+    border-right: 1px solid transparent !important;
+    border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 31px), 
+                  var(--general-color) calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 31px), var(--button-active-bgcolor) 42%, var(--lwt-frame) 94%) 1 !important;
+    /*z-index: 1 !important;*/
+}
+    
+/* Image in the left-sidebar in themes that use images */
+
+:root:not([chromehidden~="toolbar"]):is([lwtheme-image]) #PersonalToolbar, 
+:root:not([chromehidden~="toolbar"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
+    --toolbar-bgcolor: transparent !important;
+    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
+                      linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    background-position: left top !important;
+    background-repeat: repeat-y !important;
+    background-size: cover !important;
+}
+
+/* Zoom on :hover items */
+
+#PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked]), #PersonalToolbar #PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon, 
+#PersonalToolbar #OtherBookmarks:not(.subviewbutton, [disabled="true"], [open], .bookmark-item) image {
+    transform: none !important;
+    transition-duration: 180ms !important;
+}
+
+#PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked]):is(:hover, [open]), 
+#PersonalToolbar #PlacesToolbarItems>.bookmark-item:is(:hover):not([open])>.toolbarbutton-icon, 
+#PersonalToolbar #OtherBookmarks:hover:not(.subviewbutton, [disabled="true"], [open]) image {
+    transform: scale(1.12) !important;
+    transition: ease-in-out !important;
+    transition-duration: 0ms !important;
+}
+
+#PersonalToolbar .toolbarbutton-1:not([disabled="true"], [checked]):active, 
+#PersonalToolbar #PlacesToolbarItems>.bookmark-item:is(:active):not([open="false"])>.toolbarbutton-icon, 
+#PersonalToolbar #OtherBookmarks:not(.subviewbutton, [disabled="true"], [open], .bookmark-item):is(:active) image {
+    transform: scale(1.0) !important;
+    transition: none !important;
+    transition-duration: 180ms !important;
+}
+
+/* Separador default */
+
+#PersonalToolbar #PlacesToolbarItems>toolbarseparator {
+    color: var(--general-color) !important;
+    margin-inline: 12px !important;
+}
+
+/* Separador linea horizontal usando "espacio flexible" */
+
+#PersonalToolbar toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], #PersonalToolbar toolbarspring {
+    background: var(--general-color) !important;
+    max-width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    min-width: 14px !important;
+    min-height: 1px !important;
+    max-height: 1px !important;
+    margin-inline: 12px !important;
+    margin-block: 6px !important;
+}
+
+/* Mover botón "atrás" más a la derecha */
+
+#nav-bar{
+    margin-left: var(--uc-vertical-toolbar-width,0) !important;
+}
+
+/* Color y tamaño Items de la barra lateral */
+
+#PersonalToolbar .toolbarbutton-1, #PersonalToolbar toolbarbutton {
+    padding-block: 0px !important;
+    margin-block: 7px!important;
+    fill: var(--general-color) !important;
+    height: 32px !important;
+    min-height: 32px !important;
+}
+
+/* Firefox view icon */
+
+#PersonalToolbar toolbar:not(#TabsToolbar) #firefox-view-button {
+    fill: var(--general-color) !important;
+}
+
+/* Sobreescribir color :hover de items usado en ogx_button-styles */
+
+#PersonalToolbar .toolbarbutton-1:hover, #PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
+    --toolbarbutton-hover-background: transparent !important;
+}
+
+#PersonalToolbar toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back):is(:hover, [open]) {
+    background: transparent !important;
+}
+
+/* Centrar Items de extensiones */
+
+#PersonalToolbar .toolbaritem-combined-buttons, #PersonalToolbar .toolbaritem-menu-buttons {
+    margin-inline: 0px !important;
+    /*-moz-box-align: center !important;
+    -moz-box-orient: vertical !important;*/
+}
+
+/* Alinear Items Left sidebar */
+
+#PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon {
+    margin: 0 !important;
+}
+
+/* Quitar label de items de la barra laterar */
+
+#personal-bookmarks .bookmark-item>.toolbarbutton-text, #import-button label {
+    display: none !important;
+}
+
+/* Quitar oversize de las extensiones puestas en la barra lateral */
+
+#PersonalToolbar toolbaritem toolbarbutton {
+    padding: 0px !important;
+}
+
+/* Contador de la extension */
+
+#PersonalToolbar>toolbaritem>toolbarbutton {
+    width: -moz-available !important;
+}
+
+#PersonalToolbar .toolbarbutton-badge {
+    background-color: var(--button-hover-bgcolor) !important;
+    color: white !important;
+    margin-top: 13px !important;
+    margin-inline-end: -9px !important;
+    min-width: auto !important;
+    max-width: auto !important;
+    transform: none !important;
+}
+
+/*-------------------------------------- Extensiones --------------------------------------
+--------------------------------------------------------------------------------------------*/
+
+/* Tamaño más grande para las extensiones puestas en la barra lateral */
+
+#PersonalToolbar .toolbarbutton-badge-stack image{
+    height: 18px !important;
+    width: 18px !important;
+}
+
+/* Twitch Extension */
+
+#PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP {
+    list-style-image: url("../images/logo_twitch.svg") !important;
+}
+
+/* Messenger Extension */
+
+#PersonalToolbar #xrst_vardakis_gmail_com-BAP {
+    list-style-image:url("../images/logo_messenger.svg") !important;
+}
+
+/* Whatsapp Extension */
+
+#PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP{
+    list-style-image: url("../images/logo_whatsapp.svg") !important;
+}
+
+/* Telegram Extension */
+
+#PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{
+    list-style-image: url("../images/logo_telegram.svg") !important;
+}
+
+/* ublock Extension */
+
+#PersonalToolbar #ublock0_raymondhill_net-BAP{
+    list-style-image: url("../images/logo_ublock.svg") !important;
+}
+
+/* Tab-group Extension */
+
+#PersonalToolbar #panorama-tab-groups_example_com-BAP{
+    list-style-image: url("../images/logo_grouptabs.svg") !important;
+}
+
+/* Discord Extension */
+
+#PersonalToolbar #_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP{
+    list-style-image: url("../images/logo_discord.svg") !important;
+}
+
+/* Twitter Extension */
+
+#PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{
+    list-style-image: url("../images/logo_twitter.svg") !important;
+}
+
+/*------------- items en modo "customize toolbar -------------------"*/
+
+/* Separador Horizontal */
+
+#PersonalToolbar toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"] {
+    min-width: 0px !important;
+    min-height: 2px !important;
+    max-height: 2px !important;
+    margin-inline: 0 !important;
+}
+
+/* Separador vertical */
+
+:is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"] {
+    min-width: 2px !important;
+    min-height: var(--tabs-height-personal) !important;
+    max-height: var(--tabs-height-personal) !important;
+    margin-block: 0 !important;
+}
+
+#PersonalToolbar toolbarpaletteitem[place="toolbar"] toolbarbutton {
+    max-width: -moz-available !important;
+    margin-inline: 7px !important;
+}
+
+/* ícono de "Elementos de la barra de herramientas de marcadores" */
+
+#wrapper-personal-bookmarks image {
+    margin-inline: 3px !important;
+}
+
+#PersonalToolbar toolbarpaletteitem[place="toolbar"] toolbaritem toolbarbutton .toolbarbutton-badge {
+    display: none !important;
+}
+
+/* Carpeta "Otros Marcadores" */
+
+#OtherBookmarks {
+    margin-right: -1px !important;
+}
+
+/* Colored folders for bookmarks */
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+1) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder1.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+2) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder2.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+3) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder3.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+4) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder4.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+5) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder5.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+6) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder6.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+7) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder7.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+8) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder8.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+9) > .toolbarbutton-icon {
+    list-style-image: url("../images/folder9.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+/* Carpeta "Otros Marcadores" */
+
+#OtherBookmarks > .toolbarbutton-icon{
+    list-style-image: url("../images/folder-otherbookmarks.svg") !important;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+/* ------------------------------ Nuevos margenes Botón menú ------------------------------- */
+
+/* Quitar label -Menu- del menú not [open] */
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open])>stack::after {
+        content: none !important;
+    }
+}
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]):is([sizemode="normal"], [sizemode="fullscreen"]) #PanelUI-menu-button:is([open])>stack::after {
+        content: none !important;
+    }
+}
+
+/* Hacer el botón más ancho en el menú [open] */
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
+        --padding-left-tab: 78px !important;
+        max-width: var(--padding-left-tab) !important;
+        min-width: var(--padding-left-tab) !important;
+        align-items: center !important;
+    }
+}
+
+@media (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
+        --padding-left-tab: 84px !important;
+    }
+}
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    :root:is([sizemode="maximized"]) #appMenu-popup {
+        --padding-left-tab: 78px !important;
+    }
+}
+
+@media (-moz-platform: linux) {
+    :root:is([sizemode="maximized"]) #appMenu-popup {
+        --padding-left-tab: 84px !important;
+    }
+}
+
+/* Tamaño nuevo botón Menú */
+@media (-moz-platform: windows), (-moz-platform: linux) {
+:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #PanelUI-menu-button, :root[sizemode="maximized"] #appMenu-popup {
+    --tab-height-personal: 40px !important;
+    }}
+
+/* Botón Menú [open] no muy grande */
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+    padding-top: calc(-10px + var(--tab-height-personal)) !important;
+    z-index: 2 !important;
+    }}
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
+    clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 10px, calc(var(--padding-left-tab) - 3px) 10px,
+               calc(var(--padding-left-tab) - 3px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px), 0 100%, 100% 100%, 100% 0%);
+    }}
+
+/* Logo más grande */
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image {
+        min-height: 20px !important;
+        min-width: 20px !important;
+    }
+}
+
+/* Menu :hover */
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
+        background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
+    }
+}
+
+/* Baner de -actualización disponible- */
+
+@keyframes slide1 {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#PanelUI-menu-button[badge-status="update-available"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-downloading"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-manual"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-other-instance"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-restart"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+#PanelUI-menu-button[badge-status="update-unsupported"]>.toolbarbutton-badge-stack>.toolbarbutton-badge {
+    display: none !important;
+}
+
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="update-available"]:not([open]) .toolbarbutton-badge-stack, 
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="update-downloading"]:not([open]) .toolbarbutton-badge-stack, 
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="update-manual"]:not([open]) .toolbarbutton-badge-stack, 
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="update-other-instance"]:not([open]) .toolbarbutton-badge-stack, 
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="update-restart"]:not([open]) .toolbarbutton-badge-stack, 
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="update-unsupported"]:not([open]) .toolbarbutton-badge-stack, 
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="addon-alert"]:not([open]) .toolbarbutton-badge-stack, 
+:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="fxa-needs-authentication"]:not([open]) .toolbarbutton-badge-stack {
+    list-style-image: url("../images/foxFill.svg") !important;
+    fill: var(--general-color) !important;
+    animation: 2000ms infinite ease;
+    animation-name: slide1;
+    margin-inline: 0px !important;
+    border-radius: 50% !important;
+}
+
+/* ------------------------ with Linux default window controls on left position ----------------------------- 
+    
+@media (-moz-platform: linux ){:root:not([chromehidden~="toolbar"])[tabsintitlebar] #PersonalToolbar{
+    
+     --padding-top-left-sidebar: 90px !important;
+        }}
+    
+@media (-moz-platform: linux) { :root:not([sizemode=fullscreen]) .titlebar-buttonbox {
+    appearance: none !important;
+    position: fixed !important;
+    display: flex !important;
+    top: calc(var(--tab-height-personal) + 12px) !important;
+    left: 0px !important;
+    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
+    flex-direction: column-reverse !important;
+    background: transparent !important;
+    padding-left: 2px !important;
+    z-index: 2 !important;
+}
+}
+@media (-moz-platform: linux){ .titlebar-button image { height: 24px !important; }}
+@media (-moz-platform: linux){ .titlebar-close { margin-left: -6px !important;}}
+@media (-moz-platform: linux){ .titlebar-restore { margin-left: -3px !important;}}
+@media (-moz-platform: linux){ .titlebar-max { margin-left: -3px !important;}}
+@media (-moz-platform: linux){ .titlebar-min { margin-left: 0px !important;}}
+    
+*/
+
+/* Compatibilidad para <sidebar reborn> */
+
+#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
+    border-right: 1px solid var(--border-contrast-color);
+    box-shadow: none !important;
+    border-image: none !important;
+}

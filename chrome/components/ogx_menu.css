@@ -15,6 +15,7 @@
         position: fixed;
         display: flex;
         top: var(--windowed-top-padding, 0px);
+        left: 0px !important;
         z-index: 2 !important;
     }
     
