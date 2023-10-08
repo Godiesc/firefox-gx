@@ -7,12 +7,9 @@
 
 /*--------------Pestaña activa - ogx-tabs-bar.css ---------------*/
   
-.tab-stack, .tab-background { 
+.tab-background[selected], .tabbrowser-tab[selected] > .tab-stack::before, .tabbrowser-tab:not([selected="true"], [multiselected]):hover .tab-stack  { 
     clip-path: none;
-}
-  
-.tabbrowser-tab[selected="true"] .tab-stack { 
-    background: transparent !important; 
+    min-height: 0px !important;
 }
   
 /*Color :hover de las pestañas no seleccionadas*/
