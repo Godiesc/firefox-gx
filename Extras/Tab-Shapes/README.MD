@@ -1,8 +1,10 @@
-## Steps to apply this config
-
-<ul>
-  <li>Add the <code>ogx_tab-shapes.css</code> file into <code>chrome/components</code> folder.</li>
-  <li>Add the file <code>user.js</code> into your <code>Profile folder (outside the "chrome" folder)</code>.
+# Steps to apply this config
+<ul><li>Create this preference in <b>about:config</b> page.</li>
+<table><tr>
+    <td width="320px">firefoxgx.tab-shapes</td>
+    <td width="50px">true</td></tr>
+</table>
+<li>Add the file <code>user.js</code> into your <code>Profile folder (outside the "chrome" folder)</code>.
     <ul>
       <li>open this file with any text editor.</li>
       <li>the lines 16-20 has the types of shapes for the tabs, choose the one you like and replace "false" with "true".
