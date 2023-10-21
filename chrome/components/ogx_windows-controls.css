@@ -4,6 +4,7 @@
 /* WindowsOS - window control icons */
 
 @media (-moz-platform: windows) {
+
     .titlebar-button {
         color: var(--general-color) !important;
         padding-inline-start: 13px !important;
@@ -26,7 +27,7 @@
         width: 13px !important;
     }
     :root:is([lwtheme-image], [style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close) {
-        background-color: var(--toolbarbutton-hover-background) !important;
+        background-color: var(--toolbarbutton-hover-personal) !important;
         color: var(--general-color) !important;
     }
     

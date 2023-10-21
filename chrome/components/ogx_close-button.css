@@ -3,9 +3,9 @@
 
 /*"Botón de cerrar pestaña" en windows y linux */
 
-.close-icon {
-   width: 15px !important;
-   height: 15px !important;
+:is(#TabsToolbar) .close-icon {
+    width: 15px !important;
+    height: 15px !important;
 }
 
 .tab-close-button {

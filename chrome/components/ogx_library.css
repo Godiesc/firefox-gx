@@ -3,7 +3,7 @@
 
 /*---------------------------------library ----------------------------------*/
 
-@-moz-document url(chrome://browser/content/places/places.xhtml) {
+@-moz-document url(chrome://browser/content/places/places.xhtml) , url(chrome://browser/content/webext-panels.xhtml){
     @media (prefers-color-scheme: dark){
         :root{
         --arrowpanel-background: #1c1726 !important;

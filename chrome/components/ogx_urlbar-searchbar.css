@@ -1,12 +1,6 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Bookmark text */
-
-.browser-toolbar:not(.titlebar-color) {
-    color: var(--lwt-text-color) !important;
-}
-
 /* Barra de busqueda */
 
 findbar:-moz-lwtheme {
@@ -103,6 +97,18 @@ findbar:-moz-lwtheme {
     clip-path: circle(50%);
 }
 
+/* No hacer doble fila url results en cuadro pequeño */
+
+@media screen and (min-height: 600px) {
+  .urlbarView-results[wrap] > .urlbarView-row {
+    &:where(:not([rich-suggestion])) > .urlbarView-row-inner {
+      & > .urlbarView-no-wrap {
+        flex-basis: 0% !important;
+      }
+    }
+  }
+}
+
 /* Botones de acciones rápidas urlbar open */
 
 .urlbarView-row[dynamicType="quickactions"] .urlbarView-quickaction-row {
@@ -145,15 +151,16 @@ findbar:-moz-lwtheme {
 }
 
 #urlbar:not([open], [focused]):hover #urlbar-background {
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+    background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
     border-radius: 4px !important;
     border-color: transparent !important;
     transition: linear 150ms !important;
     transition-delay: 80ms !important;
 }
 
-#urlbar:not([open]):is([focused]) #urlbar-background {
-    background-color: color-mix(in srgb, var(--general-color) 16%, transparent) !important;
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) 
+    #urlbar:not([open]):is([focused]) #urlbar-background {
+        background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
 }
 
 #urlbar:not([open]) {
@@ -208,6 +215,7 @@ findbar:-moz-lwtheme {
 #searchbar {
     min-height: 29px !important;
     max-height: 29px !important;
+    border-radius: 4px !important;
 }
 
 #search-container {
@@ -224,11 +232,17 @@ findbar:-moz-lwtheme {
     background-color: var(--toolbar-field-focus-background-color) !important;
 }
 
-#PopupSearchAutoComplete {
+#PopupSearchAutoComplete{
     appearance: none !important;
-    margin-top: -1px !important;
+    margin-top: -3px !important;
     margin-left: -3px !important;
-    --arrowpanel-border-color: none !important;
+    --arrowpanel-border-color: none !important;   
+}
+
+.search-go-button, #urlbar-go-button {
+    width: calc(var(--urlbar-min-height) - 7px - 2 * var(--urlbar-container-padding)) !important;
+    height: calc(var(--urlbar-min-height) - 7px - 2 * var(--urlbar-container-padding)) !important;
+    margin-inline-end: 4px !important;
 }
 
 /* Páginas de extensiones */

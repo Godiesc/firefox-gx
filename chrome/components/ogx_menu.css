@@ -4,7 +4,8 @@
 @media (-moz-platform: windows), (-moz-platform: linux) {
     :root {
         --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--lwt-tab-text))80%, var(--Button-background-personal));
-        --margin-left-icons-personal: 9px !important;
+        --margin-left-icons-personal: 8px !important;
+        --margin-right-icons-personal: 6px !important;
     }
 
 /* ------------Menú hamburguesa-> top-left ------------- */
@@ -62,8 +63,9 @@
     }
     
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
-        background-image: var(--noise-urlbar-personal) !important;
-        background-color: var(--arrowpanel-background, #50505090) !important;
+        background-image: var(--noise-urlbar-personal, var(--noise-urlbar-personal, none)),
+                          linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)),
+                          linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)) !important;
         border-radius: 0px !important;
         border-image: var(--panel-separator-zap-gradient5) 1 !important;
         width: 28.5em !important;
@@ -97,12 +99,12 @@
     }
     
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>stack::after {
-        display: -moz-box;
+        width: var(--padding-left-tab) !important;
         content: var(--menu-label);
         color: var(--label-color) !important;
-        margin-inline-start: 5px !important;
+        padding-inline-start: var(--margin-right-icons-personal) !important;
+        padding-block: 6px !important;
         text-shadow: none !important;
-        animation: none !important;
     }
     
 /* Padding top para hacer espacio para la fila del Label menú */
@@ -115,9 +117,10 @@
     
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
         appearance: none !important;
-        margin-top: calc(-2px - var(--tab-height-personal)) !important;       
-        clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 6px, var(--padding-left-tab) 6px,
-               var(--padding-left-tab) calc(var(--tab-height-personal) - 2px), 0 calc(var(--tab-height-personal) - 2px), 0 100%, 100% 100%, 100% 0%);
+        margin-top: calc(-2px - var(--tab-height-personal)) !important;
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 2px) 3px,
+                   calc(var(--padding-left-tab) + 2px) calc(var(--tab-height-personal) + 1px), 0 calc(var(--tab-height-personal) + 1px),
+                   0 100%, 100% 100%, 100% 0%);
         --arrowpanel-menuitem-padding: 6px !important;
     }
     
@@ -219,22 +222,15 @@
     #appMenu-fxa-status2:not([fxastatus])>#appMenu-fxa-label2 {
         margin-inline-end: 1px !important;
     }
-    
-/* Margen de la flecha derecha */
-    
-    #appMenu-fxa-label2::after {
-        margin-inline-end: -6px !important;
-    }
-    
+
 /* Linea gradiente sobre label Account solo en ventana maximizada */
     
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-label2 {
-        margin-inline-start: 0px !important;
-        border-top: 1px solid var(--button-active-bgcolor) !important;
-        border-image: var(--panel-separator-zap-gradient4) 1 !important;
-        padding-bottom: 6px !important;
-        margin-bottom: -3px !important;
-        margin-inline-end: 6px !important;
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-status2 {
+        padding-top: 2px !important;
+        border-image: linear-gradient(to left, transparent 8px,var(--general-color) 8px, 
+                        transparent calc(100% - var(--margin-left-icons-personal) - 20px), 
+                        transparent calc(100% - var(--margin-left-icons-personal) - 20px)) 1 !important;
+        border-top: 1px solid var(--panel-separator-color) !important;
     }
     
 /* Alinear item account en ventana no maximizada */

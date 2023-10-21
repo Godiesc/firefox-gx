@@ -86,10 +86,10 @@
     --in-content-button-background-hover: var(--button-active-bgcolor) !important;      /*color de botones :hover*/
     --in-content-button-background-active: var(--general-color) !important;             /*color de botones al darle clic*/
 
-    --in-content-link-color: var(--general-color) !important;                           /*color de links*/
-    --in-content-link-color-hover: #00ccff !important;                                  /*color de links*/
-    --in-content-link-color-active:  #0099ff !important;                                /*color de links*/
-    --in-content-link-color-visited: #0099ff !important;                                /*color de links*/
+    --link-color: var(--general-color) !important;                                      /*color de links*/
+    --link-color-hover: var(--green) !important;                                        /*color de links*/
+    --link-color-active: var(--blue) !important;                                        /*color de links*/
+    --link-color-visited: var(--general-color) !important;                              /*color de links*/
 
     --in-content-accent-color:  var(--in-content-text-color) !important;                /*color de label del menú izquiero seleccionado*/
     --in-content-accent-color-active: var(--in-content-text-color) !important;          /*color de label del menú izquiero seleccionado (al dar clic)*/
@@ -146,10 +146,10 @@
     --in-content-button-background-active: var(--general-color) !important;             /*color de botones al darle clic*/
     --in-content-button-text-color-hover: white !important;                             /*Color de letras en botones hover */
 
-    --in-content-link-color: var(--general-color) !important;                           /*color de links*/
-    --in-content-link-color-hover: #00ccff !important;                                  /*color de links*/
-    --in-content-link-color-active:  #0099ff !important;                                /*color de links*/
-    --in-content-link-color-visited: #0099ff !important;                                /*color de links*/
+    --link-color: var(--general-color) !important;                                      /*color de links*/
+    --link-color-hover: var(--green) !important;                                        /*color de links*/
+    --link-color-active: var(--blue) !important;                                        /*color de links*/
+    --link-color-visited: var(--general-color) !important;                              /*color de links*/
 
     --in-content-accent-color:  var(--in-content-text-color) !important;                /*color de label del menú izquiero seleccionado*/
     --in-content-accent-color-active: var(--in-content-text-color) !important;          /*color de label del menú izquiero seleccionado (al dar clic)*/

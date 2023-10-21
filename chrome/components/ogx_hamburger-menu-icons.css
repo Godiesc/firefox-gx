@@ -1,211 +1,253 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/firefox-one */
+   https://github.com/Godiesc/firefox-gx */
 
 /*-----------------íconos en el menú de hamburguesa----------------------*/
 
-:root{
-    --margin-left-icons-personal: 10px !important;
-}
+:root {
+        --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--lwt-tab-text))80%, var(--Button-background-personal));
+    }
 
 /* Tamaño menu Open ventana no maximizada */
 
-#appMenu-popup panelview{ width: 25.5em !important;
+#appMenu-popup panelview{ width: 26.5em !important;
 }
 
-/* Color los íconos */
+/* Color de íconos y label */
 
-.subviewbutton:not([disabled]) {  -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
-.subviewbutton:not([disabled], [#appMenu-zoom-controls]):hover { -moz-context-properties: fill; fill: var(--lwt-tab-text) !important;;}
-
-/* -------------------  Margen de los íconos  -------------------- */
-
-/* Tamaño y margen de los íconos */
-
-.subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon, .syncNowBtn{
-    width: 16px; height: 16px;   
-    margin-inline-end: 7px !important;
-}
-
-/* Margen item "tamaño" */
-
-#appMenu-zoom-controls>.toolbarbutton-text{
-    padding-inline-start: 7px !important;
-}
-
-#appMenu-zoom-controls:before{
-    background: url(../images/zoom.svg) no-repeat center/16px;
-    content: "";
-    width: 16px;
-    height: 16px;
-}
-
-/* Ícono de Actualización disponible */
-
-#appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]){
-    background: var(--button-bgcolor) !important;
-}
-#appMenu-popup .panel-banner-item:not([disabled]):hover, #appMenu-popup .addon-banner-item:not([disabled]):hover {
-    background: var(--button-active-bgcolor) !important;
-}
-.panel-banner-item::before {
-    background: url("../images/foxFill.svg") no-repeat center/16px;
-    content: ""; display: block; width: 16px; height: 16px;
-    margin-inline-end: 7px; -moz-context-properties: fill;
-    fill: #3ad3a2 !important;
-}
-#appMenu-popup .panel-banner-item label {
-    padding-inline-start: calc(var(--margin-left-icons-personal) - 12px) !important;;
-}
-
-/*ícono account Margenes - Padding lines for compatibility without "ogx_menu.css" */
-
-#appMenu-fxa-label2 label, #fxa-manage-account-button label {
-        margin-inline-start: 7px !important;
-        /*padding-inline-start: calc(var(--margin-left-icons-personal) + 16px) !important;*/
-    }
-    
-/*ícono account - first */
-    
-/* Ícono sign-in, cuenta no iniciada  */
-    
-#appMenu-fxa-status2:not([fxastatus="signedin"]) { 
-    margin-inline-end: -1px !important;
-    margin-inline-start: calc(var(--margin-left-icons-personal) + 12px) !important;
-}
-
-#appMenu-fxa-status2:not([fxastatus="signedin"]):hover  toolbarbutton {
-    background-color: var(--button-active-bgcolor) !important;
-}
-
-#appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2::before  {
-    background: var(--avatar-image-url) no-repeat center/16px;
-    content: ""; 
-    display: inline-block !important; 
-    width: 16px; 
-    height: 16px; 
-    border-radius: 50% !important;
-}
-/* Ícono account - second */
-    
-#fxa-manage-account-button::before {
-    background: var(--avatar-image-url) no-repeat center/16px;
-    content: ""; 
-    display: block; 
-    width: 16px; 
-    height: 16px;
-    border-radius: 50%;
+.subviewbutton:not([disabled]), #appMenu-popup toolbarbutton:not([disabled]) .toolbarbutton-text label {
+    -moz-context-properties: fill;
+    fill: var(--label-color) !important;
+    color: var(--label-color) !important;
 }
 
 /* Alinear lista de pestañas sincronizadas */
     
-.PanelUI-remotetabs-clientcontainer label {
-    padding-inline-start: 0px !important;
+.PanelUI-remotetabs-clientcontainer>.subviewbutton>label {
+    padding-inline-start: calc(0px - var(--margin-right-icons-personal, 0px)) !important;
+}
+
+/* Tamaño y margen de los íconos */
+
+.subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon,          /* Mayoría de botones */
+#appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2::before, #fxa-manage-account-button::before,     /* Account icon signedin */
+#appMenu-fxa-status2:not([fxastatus="signedin"])::before,                                                       /* Account icon not signedin */
+.panel-banner-item::before,                                                                                     /* Baner de actualización disponible */
+#appMenu-zoom-controls:before, .syncNowBtn{           
+    width: 16px; height: 16px;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 8px !important;
+}
+
+/* Margen derecha de las funciones Ctrl + */
+
+#appMenu-new-tab-button2, #appMenuRecentlyClosedTabs, #sidebar-switcher-tabs, #appMenu-new-window-button2, #appMenuRecentlyClosedWindows,
+#appMenu-new-private-window-button2, #appMenu-downloads-button, #appMenu-library-downloads-button, #appMenu-extensions-themes-button,
+#appMenu-print-button2, #appMenu-save-file-button2, #appMenu-find-button2, #panelMenu_searchBookmarks, #appMenu-translate-button,
+#appMenu-quit-button2 {
+    padding-inline-end: 26px !important;
+}
+
+/* Ícono de Actualización disponible */
+
+.panel-banner-item::before {
+    background: url("../images/foxFill.svg") no-repeat center/16px;
+    content: ""; 
+    display: inline-flex;
+    -moz-context-properties: fill;
+    fill: #3ad3a2 !important;
+}
+
+#appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]){
+    background: var(--button-bgcolor) !important;
+    padding-inline-end: 4px !important;
+}
+#appMenu-popup .panel-banner-item:not([disabled]):hover, #appMenu-popup .addon-banner-item:not([disabled]):hover {
+    background: var(--button-active-bgcolor) !important;
 }
     
-/*Ícono Nueva Pestaña*/
+/* ----------------------------- Ícono Account ------------------------------ */
+    
+/* Cuenta no iniciada  */
+
+#appMenu-fxa-status2:not([fxastatus="signedin"])  toolbarbutton {
+    border-radius: 4px !important;
+}
+
+#appMenu-fxa-status2:not([fxastatus="signedin"])  toolbarbutton:hover {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+#appMenu-fxa-status2:not([fxastatus="signedin"])::before  {
+    content: var(--avatar-image-url);
+}
+
+/* Cuenta iniciada */
+
+#appMenu-fxa-status2:is([fxastatus="signedin"], [fxastatus="unverified"], [fxastatus="login-failed"]) #appMenu-fxa-label2::before,
+#fxa-manage-account-button::before {
+    content: "";
+    border-radius: 50% !important;
+    background-size: 16px !important;
+    background-image: var(--avatar-image-url) !important;
+}
+    
+/* Ícono Nueva Pestaña */
+
 #appMenu-new-tab-button2 {
     list-style-image: url("chrome://browser/skin/new-tab.svg");
-    padding-inline-end: 25px !important;
 }
-/*Ícono Nueva Ventana - PestañasCerradasRecientes*/
+
+/* Ícono Nueva Ventana - PestañasCerradasRecientes */
+
 #appMenuRecentlyClosedTabs, #sidebar-switcher-tabs {
     list-style-image: url("chrome://browser/skin/window.svg");
-    padding-inline-end: 25px !important;
 }
+
 #appMenu-new-window-button2, #appMenuRecentlyClosedWindows {
     list-style-image: url("chrome://browser/skin/tab.svg");
-    padding-inline-end: 25px !important;
 }
-/*Ícono Ventana Privada*/
+
+/* Ícono Ventana Privada */
+
 #appMenu-new-private-window-button2 {
     list-style-image: url("chrome://browser/skin/privateBrowsing.svg");
-    padding-inline-end: 25px !important;
 }
-/*Ícono Marcadores*/
+
+/* Ícono Marcadores */
+
 #panelMenuBookmarkThisPage[starred]{
     list-style-image: url("../images/bookmark.svg");
     fill: var(--general-color) !important;
 }
 #appMenu-bookmarks-button, #appMenu-library-bookmarks-button, #sidebar-switcher-bookmarks,#panelMenuBookmarkThisPage:not([starred]) {
     list-style-image: url("../images/bookmark-empty.svg");
-    /*margin-inline-end: -25px !important;*/
 }
-/*ícono Historial*/
+
+/* ícono Historial */
+
 #appMenu-history-button, #appMenu-library-history-button, #sidebar-switcher-history {
     list-style-image: url("chrome://browser/skin/history.svg");
-    /*margin-inline-end: -25px !important;*/
 }
-/*ícono decargas*/
+
+/* ícono decargas */
+
 #appMenu-downloads-button, #appMenu-library-downloads-button {
     list-style-image: url("chrome://browser/skin/downloads/downloads.svg");
-    padding-inline-end: 25px !important;
 }
-/*Ícono Contraseñas*/
+
+/* Ícono Contraseñas */
+
 #appMenu-passwords-button {
     list-style-image: url("chrome://browser/skin/login.svg");
 }
-/*Ícono Complementos*/
+
+/* Ícono Complementos */
+
 #appMenu-extensions-themes-button {
     list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
-    padding-inline-end: 25px !important;
 }
-/*Ícono Imprimir*/
+
+/* Ícono Imprimir */
+
 #appMenu-print-button2 {
     list-style-image: url("chrome://global/skin/icons/print.svg");
-    padding-inline-end: 25px !important;
 }
+
 /* Guardar como... */
+
 #appMenu-save-file-button2{
     list-style-image: url("../images/save.svg");
-    padding-inline-end: 25px !important;
 }
+
 /* Ícono buscar */
+
 #appMenu-find-button2, #panelMenu_searchBookmarks {
     list-style-image: url("chrome://global/skin/icons/search-glass.svg");
-    padding-inline-end: 25px !important;
 }
+
 /* Ícono translate */
+
 #appMenu-translate-button{
     list-style-image: url(chrome://browser/skin/translations.svg);
-    padding-inline-end: 25px !important;
 }
-/*Ícono Ajustes*/
+
+/* Item -tamaño- */
+
+#appMenu-zoom-controls:before{
+    content: url(../images/zoom.svg);
+}
+
+/* Ícono Ajustes */
+
 #appMenu-settings-button {
     list-style-image: url("chrome://global/skin/icons/settings.svg");
 }
-/*Ícono Ayuda*/
+
+/* Ícono Ayuda */
+
 #appMenu-help-button2 {
     list-style-image: url("chrome://global/skin/icons/help.svg");
 }
 #appMenu-more-button2 {
     list-style-image: url("chrome://global/skin/icons/developer.svg");
 }
-/*Ícono salir*/
+
+/* Ícono salir */
+
 #appMenu-quit-button2 {
     list-style-image: url("../images/quit1.svg");
-    padding-inline-end: 25px !important;
 }
+
 #appMenu-quit-button2:hover {
     list-style-image: url("../images/quit2.svg");
-    background-size: 16px;
-    padding-inline-end: 25px !important;
 }
+
 #panelMenu_viewBookmarksToolbar {
     list-style-image: url("chrome://browser/skin/bookmarks-toolbar.svg");
 }
-/*Ícono Borrar Historial*/
+
+/* Ícono -Buscar en el historial- */
+
+#appMenuSearchHistory{
+    list-style-image: url("chrome://global/skin/icons/search-glass.svg");
+}
+
+/* Ícono Borrar Historial */
+
 #appMenuClearRecentHistory {
     list-style-image: url("chrome://browser/skin/forget.svg");
 }
-/*ícono Personalizar Barra Herramientas*/
+
+/* ícono Personalizar Barra Herramientas */
+
 #appmenu-moreTools-button, #overflowMenu-customize-button {
     list-style-image: url("chrome://browser/skin/customize.svg");
 }
-/*Ícono SincronizarAhora*/
+
+/* Ícono SincronizarAhora */
+
 .syncNowBtn {
     visibility: visible !important; order: -1 !important;
 }
-/*Ícono ConectarOtroDispositivo*/
+
+/* Ícono -Conectar Otro Dispositivo- */
+
 #PanelUI-fxa-menu-connect-device-button {
-    list-style-image:  url("chrome://browser/skin/synced-tabs.svg");
+    list-style-image:  url("chrome://browser/skin/device-phone.svg");
+}
+
+/* Ícono -enviar pestaña a dispositivo- */
+
+#PanelUI-fxa-menu-sendtab-button{
+    list-style-image:  url("chrome://browser/skin/synced-tabs.svg");    
+}
+
+/* Ícono -Ajustes de sincronización- */
+#PanelUI-fxa-menu-sync-prefs-button{
+    list-style-image: url("chrome://global/skin/icons/settings.svg");
+}
+
+/* Ícono de -Cerrar sesión- */
+#PanelUI-fxa-menu-account-signout-button{
+    list-style-image: url("../images/logout.svg");
 }

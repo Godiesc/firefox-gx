@@ -3,28 +3,18 @@
 
 /*Botones generales*/
 
-/* Botón info*/
+/* Radiobutton -ProtecciónAntirastreo- */
 
-.panel-info-button{ border-radius: 3px !important; color: var(--toolbarbutton-icon-fill) !important; }
-.panel-info-button:is(:hover){ background-color: var(--button-hover-bgcolor) !important; border-radius: 2px !important; color: white !important;}
-.panel-info-button:not(:hover)[checked]{ background-color: var(--general-color) !important; border-radius: 2px !important; color: white !important;}
-
-/*-"Radiobutton"-ProtecciónAntirastreo*/
-
-.protections-popup-tp-switch:not([enabled]):not(:hover){background-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;}
-.protections-popup-tp-switch::before {outline: none !important; }
-.protections-popup-tp-switch:not([enabled]):hover{background-color: var(--button-bgcolor) !important;}
-.protections-popup-tp-switch[enabled]:hover {background-color: var(--button-hover-bgcolor) !important; border-color: transparent !important; }
-.protections-popup-tp-switch[enabled]{background-color: var(--button-active-bgcolor) !important; border-color: transparent !important; }
+.toggle-button{ margin-right: -14px !important; }
 
 /*color Rojo de boton "borrar marcador"*/
 
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton label{
-display: none !important;
+    display: none !important;
 }
 
 #editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton{
-background: url("../images/delete.svg") no-repeat center/16px !important;
+    background: url("../images/delete.svg") no-repeat center/16px !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
 }
@@ -99,121 +89,74 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     border: 1px solid var(--button-bgcolor) !important;
 }
 
-/* Quitar linea gradiente en botones de extensiones puestas en la Barra de herramientas y de pestañas */
+/* Quitar linea gradiente en botones de extensiones puestas en la Barra de herramientas y de pestañas 
 
-:is(#nav-bar,#TabsToolbar, #PersonalToolbar) toolbaritem .toolbarbutton-1 { background-image: none !important; }
+:is(#nav-bar,#TabsToolbar, #PersonalToolbar) toolbaritem .toolbarbutton-1 { background-image: none !important; }*/
 
-/*--------------------------Marcadores----------------------------------*/
+/* ---------------------------------------------- Nav-bar buttons ---------------------------------------------- */
 
-/* Barra de marcadores - color [open] */
+/* :hover */
 
-toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"])[open] {
-    color: var(--general-color) !important;  fill:  var(--general-color) !important; 
-}
-
-/* Barra de marcadores - color :hover */
-
-#PersonalToolbar .toolbarbutton-1 , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]) {text-shadow: none !important; }
-
-#PersonalToolbar .toolbarbutton-1:hover , toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
-    color: var(--general-color) !important;  fill:  var(--general-color) !important; 
-    --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important; border-radius: 2px !important; }
-
-/*:root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar .toolbarbutton-1:hover , 
-:root:is([lwtheme-image],[style*="--lwt-additional-images"]) toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover {
-    color: var(--general-color) !important;  fill:  var(--general-color) !important;
-    background-color: var(--toolbarbutton-hover-background) !important; border-radius: 2px !important;
-}
-
-/*Color de "highlight" inputtext*/
-
-richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
-    background-color: var(--general-color) !important;
-    color: var(--contrast-color) !important;
-}
-
-richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
-    color: var(--lwt-tab-text) !important;
-}
-
-/*Imagen grande Marcador*/
-
-#editBookmarkPanelImage{
-    box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
-    border-radius: 0px !important;
-}
-
-/*Favicon Marcador*/
-
-#editBookmarkPanelFavicon[src] {
-  background-color: var(--arrowpanel-background) !important;
-  box-shadow: inset 0px 0px 0 1px var(--button-bgcolor) !important;
-  width: 16px !important;
-  height: 16px !important;
-  border-radius: 3px !important;
-  margin-top: 4px !important;
-  margin-inline-start: 4px !important;
-}
-
-/*Color de iconos de la toolbar cuando están :hover */
-
-#nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-icon,
-#nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-text,
-#nav-bar .toolbarbutton-1:hover:not([disabled="true"]) > .toolbarbutton-badge-stack,
-#nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-icon,
-#nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-text,
-#nav-bar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
-    fill: var(--general-color)
-}
-
-/*#################Color de iconos de la tabs-bar cuando están :hover y [open] ###################### */
-
-#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-icon,
-#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-text,
-#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-badge-stack{
-    background-color: var(--toolbarbutton-hover-personal) !important;
+:root:not([lwtheme-image],[style*="--lwt-additional-images"]) {
+#nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) > .toolbarbutton-badge-stack {
     fill: var(--general-color) !important;
-}
-#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-icon,
-#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-text,
-#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
-    background-color: var(--arrowpanel-background) !important;
-    fill: var(--general-color);
-}
+}}
 
-/*Color de iconos de la tabs-bar cuando están :hover en temas con imágenes */
+/* [open] -Temas con imagenes- */
 
-:root:is([lwtheme-image],[style*="--lwt-additional-images"])
-#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-icon,
-:root:is([lwtheme-image],[style*="--lwt-additional-images"])
-#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-text,
-:root:is([lwtheme-image],[style*="--lwt-additional-images"])
-#TabsToolbar .toolbarbutton-1:hover:not([disabled="true"],[open="true"],#tabs-newtab-button,  #new-tab-button) > .toolbarbutton-badge-stack{
-    background-color: var(--toolbarbutton-hover-background) !important;
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
+#nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) > .toolbarbutton-badge-stack {
     fill: var(--general-color) !important;
-}
+}}
 
-:root:is([lwtheme-image],[style*="--lwt-additional-images"])
-#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-icon,
-:root:is([lwtheme-image],[style*="--lwt-additional-images"])
-#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-text,
-:root:is([lwtheme-image],[style*="--lwt-additional-images"])
-#TabsToolbar .toolbarbutton-1[open="true"] > .toolbarbutton-badge-stack {
-    background-color: var(--toolbarbutton-active-background) !important;
-    fill: var(--general-color);
-}
+/* ---------------------------------------------- bookmarks buttons ---------------------------------------------- */
 
-/* Barra de menú */
-
-#main-menubar>menu {
+#PersonalToolbar {
+    --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important; 
+    --toolbarbutton-active-background: var(--contrast-color) !important; 
+    --toolbarbutton-icon-fill: var(--toolbar-color) !important;
     text-shadow: none !important;
-    border-radius: 2px !important;
-    background-color: transparent !important;
+    font-weight: 501 !important;
 }
 
-#main-menubar>menu:is(:hover, [open]){
-    background-color: var(--button-active-bgcolor) !important;
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar {
+        --toolbarbutton-hover-background: inherit !important; 
+        --toolbarbutton-active-background: var(--contrast-color) !important; 
 }
+
+/* icono and label [open], :active  */
+
+#PersonalToolbar .toolbarbutton-1:is([open],:active) ,
+#PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):is([open],:active) {
+    color: var(--general-color) !important;
+    fill:  var(--general-color) !important;
+}
+
+/* ---------------------------------------------- Tabs-bar buttons ---------------------------------------------- */
+
+#TabsToolbar {
+    --toolbarbutton-icon-fill: var(--general-color);
+}
+
+#TabsToolbar {
+    --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
+}
+
+#TabsToolbar {
+    --toolbarbutton-active-background: color-mix(in srgb, var(--toolbarbutton-hover-personal)75%, var(--contrast-color)) !important;
+}
+
+
+/* [open]  -Temas con imagenes- */
+
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) #TabsToolbar {
+    --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;
+}
+
 
 /* :hover en botones de: unified extensions and all-tabs */
 
@@ -252,7 +195,12 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     margin-inline-end: 4px !important;
     border-radius: 3px !important;
     border: none !important;
-    width: 35px !important;
+    width: 30px !important;
+}
+
+.all-tabs-secondary-button .toolbarbutton-icon{
+    width: 14px !important;
+    height: 14px !important;
 }
 
 #allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover,
@@ -262,7 +210,7 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     background: var(--button-hover-bgcolor) !important;
 }
 
-/* Second label del botón de extenciones */
+/* Second label del botón de extensiones */
 
 #unified-extensions-area toolbaritem:hover .unified-extensions-item-message-deck label{
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
@@ -276,13 +224,37 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     }
 }
 
+/* Arrowpanel de marcador, [open] -Heart icon- */
+
+/*Color de "highlight" input-text*/
+
+richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
+    background-color: var(--general-color) !important;
+    color: var(--contrast-color) !important;
+}
+
+richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
+    color: var(--lwt-tab-text) !important;
+}
+
 /* Separador linea Vertical para tabs-bar, usando "espacio flexible" */
-:is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"],:is(#TabsToolbar) toolbarspring {
-    background: var(--button-active-bgcolor) !important;
+
+:is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], :is(#TabsToolbar) toolbarspring {
     max-width: 1px !important;
     min-width: 1px !important;
-    max-height: 14px !important;
-    min-height: 14px !important;
+    min-height: calc(var(--tab-height-personal) + 0px) !important;
+    max-height: calc(var(--tab-height-personal) + 0px) !important;
     margin-inline: 3px !important;
-    margin-block: calc(var(--tab-height-personal) - 22px) !important;
+    background-image: linear-gradient(transparent 25%, var(--button-active-bgcolor) 25%, var(--button-active-bgcolor) 75%, transparent 75% ) !important;
+}
+
+:is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"]{
+    background: var(--button-active-bgcolor) !important;
+    max-width: 3px !important;
+    min-width: 3px !important;
+    padding-inline: 3px !important; 
+}
+
+:is(#TabsToolbar) toolbarpaletteitem[place="toolbar"] > toolbarspring{
+    display: none !important;
 }

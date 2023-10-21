@@ -13,7 +13,7 @@
     @media (prefers-color-scheme: dark){
         
     body{
-    --newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;        /* Image in the newtab searchbox */
+    /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;        /* Image in the newtab searchbox */
     --contrast-color: black !important;                                                       /* Variable fondo personal de contraste */
     --border-contrast-color: #09080d !important;                                              /* Variable borde personal de contraste */
         
@@ -234,174 +234,260 @@ input:focus-visible, input:focus-visible{
     
     .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 
-/* Cuadro de búsqueda */
+/* ###################################### Cuadro de búsqueda ###################################### */
     
-.search-wrapper .search-button {
-    display: none !important;
+    
+/* Elimina flecha */
+    
+.search-wrapper .search-button { display: none !important; }
+    
+/* Fondo general */
+
+.search-wrapper{ 
+    border-radius: 0px !important;
+    outline: none !important;
+    box-shadow: none !important;
     }
     
 .search-inner-wrapper{
-    position: relative;
-    background: var(--newtab-pinnedsites-background) !important;
     opacity: var(--searchbar-on-off, 1) !important;
     display: var(--searchbar-display, flex) !important;
     margin-top: 16px !important;
-    outline: 1px solid #50505030 !important;
+    box-shadow: 0 2px var(--button-bgcolor) !important;
+    width: 58% !important;
+    /*clip-path: polygon(0 0, 100% 0, 100% 104%, 6% 104%, 6% 100%, 0 100%) !important;*/
+    /*clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 92%, 90% 2004%, 9% 2004%, 9% 93%, 0 93%);*/
     }
     
-.search-inner-wrapper::after {width: unset !important; 
-    background: linear-gradient(to right, var(--button-bgcolor), var(--button-hover-bgcolor), var(--button-bgcolor)) !important;
-    border-radius:0 0 4px 4px ;  content: '';  height: 3px;  left: 0px;
-    position: absolute; right: 0; bottom: -1px; transform: scale(0, 1);
-    }
-    
-.search-inner-wrapper::after { 
-    transform: scale(1, 1);
-    }
+@supports not -moz-bool-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
 
-.search-inner-wrapper:is(:hover)::after{
-    background: var(--button-active-bgcolor) !important;
-    }
-    
-.search-inner-wrapper:not(:focus){
-    border-radius: 4px !important;
-    backdrop-filter: none !important;
-    }
-    
-@supports -moz-bool-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
-.search-inner-wrapper:not(:focus){
-    backdrop-filter: var(--personal-blur) !important;
-    }}
-    
-.search-inner-wrapper:is(:hover){
-    border-radius: 4px !important;
-    }
-    
 .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
-    border-radius: 4px !important;
-    backdrop-filter: var(--personal-blur) !important;
-    }
+    /*border-radius: 4px !important;*/
+    /*backdrop-filter: var(--personal-blur) !important;*/
+    box-shadow: none !important;
+    /*padding-inline-start: 66px !important;*/
     
-.search-handoff-button{
-    border-color: transparent !important;
-    border-radius: 4px !important;
-    box-shadow: none !important; 
     }
     
 .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
-    outline: 1px solid var(--button-active-bgcolor) !important;
-    border: transparent !important;
-    margin-left: 1px !important;
-    z-index: 1 !important;
+    /*outline: 1px solid var(--button-active-bgcolor) !important;*/
+    outline: none !important;
+    border-color: transparent !important;
+    /*margin-left: 1px !important;
+    /*z-index: 1 !important;*/
     }
-    
-.search-wrapper .search-button:focus, .search-wrapper .search-button:hover {
-    fill: white !important;
-    }
-    
-.search-wrapper .search-inner-wrapper:active input,
-.search-wrapper input:focus {
-  box-shadow: none !important;
-    }
-    
+
 browser[primary="true"][tabDialogShowing="true"],
 #main-window[window-modal-open="true"] > body > #browser{
   filter: blur(10px)
     }
     
+#newtab-search-text{
+    border-radius: 0px !important;
+    box-shadow: 0 2px 0 0 var(--general-color) !important;
+    clip-path: polygon(0 0, 200% 0, 200% 84%, 0% 84%, 0% 200%, 0 200%);
+    transition-duration: 400ms !important;
+    /*background-size: 35px 35px !important;*/
+    }
+
+#newtab-search-text[Keepfocus="true"]{
+    clip-path: polygon(0 0, 200% 0, 200% 84%, 200% 84%, 200% 200%, 0 200%);
+    transition-duration: 900ms !important;
+    }
+}
+    
+@supports -moz-bool-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
+
+/* Border button */
+    
+    .search-inner-wrapper{
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 95%, 95% 104%, 6.5% 104%, 6.5% 95%, 0 95%);
+        /*background-color: yellow !important;*/
+    }
+    
+/* Margen izquiera - Buscar con goolgle ... */ 
+    
+    .search-handoff-button, .fake-editable{
+        padding-inline-start: 62px !important;
+    }
+
+/* Borde transparente :focus */
+    
+    .search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button {
+        box-shadow: none !important;
+        border-color: transparent !important;
+    }
+    
+/* Tamaño del ícono del search-engine */
+    
+.search-wrapper .search-inner-wrapper .search-handoff-button {
+    background-size: 30px 30px !important;
+    margin-inline-start: -25px !important;
+    }
+    
+.search-wrapper .search-inner-wrapper .search-handoff-button{
+    border-radius: 0px !important;
+    box-shadow: 0 2px 0 0 var(--general-color) !important;
+    clip-path: polygon(0 0, 100% 0, 100% 93%, 0% 99%, 0% 114%, 0 114%);
+    transition-duration: 400ms !important;
+
+    }
+    
+.search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button{
+    border-radius: 0px !important;
+    box-shadow: 0 2px 0 0 var(--general-color) !important;
+    opacity: 1 !important;
+    clip-path: polygon(0 0, 100% 0, 100% 72%, 100% 72%, 100% 114%, 0 114%);
+    transition-duration: 400ms !important;
+
+    }
+}
+    
 /* Actividad reciente */
     
 .card-outer .card { 
-    backdrop-filter: var(--personal-blur);
-    border-radius: 3px !important;
-    box-shadow: 0px 2px 0px var(--button-hover-bgcolor) !important;
-    border: 1px solid !important;
-    border-bottom: 0px !important;
-    border-color: #50505030 !important;
+    outline-offset: -1px !important;
 }
-    
-.compact-cards .card-outer .card-preview-image-outer { 
-    border-radius: 3px !important; 
-    }
+
+/* --------------------------------------- Sitios anclados ---------------------------------------- */
     
 /* Fondo pequeño de los favICON de los sitios anclados */
     
-.top-site-icon{ background-color: transparent !important;
-    }
-
-/* Sitios anclados */
-    
-.top-site-outer .tile{
-    box-shadow: none !important;
-    outline: 0px solid #50505030 !important;
-    }
-    
+.top-site-icon{ background-color: transparent !important; }
+   
 /* Pinned icon */
     
-.title.has-icon.pinned { 
-    margin-left: -14px !important;  
-    }
-.top-site-outer .title span:is(:hover) .icon.icon-pin-small{ 
-    transition-delay: 150ms !important; 
-    }
-.top-site-outer .title span:not(:hover) .icon.icon-pin-small{ 
-    opacity: 0 !important; 
-    }
+.top-site-outer .title span .icon.icon-pin-small { display: none !important; }
     
-/* Fondo de sitios anclados */
+/* Label - pinned site */
     
-.top-sites-list{
-    background: var(--newtab-pinnedsites-background) !important;
-    backdrop-filter: var(--personal-blur) !important;
-    outline: 1px solid #50505030 !important;
-    outline-offset: -1px !important;
-    border-radius: 4px !important;
-    }
+.top-site-outer .title  {
+    width: 80px !important;
+    font-weight: 501 !important;
+    font-size: 14px !important;
+    margin-top: -40px !important;
+    text-shadow: 1px -1px 2px color-mix(in srgb, var(--contrast-color) 60%, transparent) !important;
+    margin-inline: 10px !important;
+    }   
     
-.top-sites-list::after {
-    width: unset !important; 
-    background: linear-gradient(to right, var(--button-bgcolor), var(--button-hover-bgcolor), var(--button-bgcolor)) !important;
-    border-radius:0 0 4px 4px;  content: '';  height: 3px;  left: 1px;
-    position: absolute; right: 0; bottom: 0px; transform: scale(0, 1);
-    }
+/* Alinear los -sitios anclados- con -Actividad Reciente- */
     
-.top-sites-list::after { transform: scale(1, 1);    
+.collapsible-section{
+        margin-left: -12px !important;
     }
 
-.top-sites-list:is(:hover)::after{
-    background: linear-gradient(to right, var(--button-active-bgcolor), var(--button-active-bgcolor), var(--button-active-bgcolor)) !important;
+/* Colores sitios anclados (fondo pequeño) */
+    
+.top-site-outer .tile {
+    border-radius: 6px !important;
+    width: 100px !important;
+    height: 100px !important;
+    align-items: start !important;
+    padding-top: 12px !important;
+    outline: 1px solid #50505030 !important;
+    outline-offset: -1px !important;
+    background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)6%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
+                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
+    backdrop-filter: var(--personal-blur) !important;
+    filter: saturate(105%) !important;
+    }
+
+/* Colores :hover sitios anclados (fondo más grande) */
+    
+.top-site-outer, .top-site-outer.active{
+    background-color: transparent !important;
     }
     
-/* Colores al pasar el mouse sobre los sitios anclados en :hover */
+/* Colores al pasar el mouse en :hover sobre los sitios anclados y actividad reciente */
     
-.top-site-outer:is(.active, :focus, :hover) .tile{
-    background: color-mix(in srgb, var(--contrast-color) 10%, transparent) !important;
-    box-shadow: 0 0 0 1px var(--button-active-bgcolor) !important;
+.top-site-outer:hover .tile, .card-outer:hover .card{
+    /*background-color: color-mix(in srgb, var(--newtab-pinnedsites-background)96%, var(--general-color)) !important;*/
+    background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)13%, transparent) , rgba(0,255,0,0) 64.71%),
+                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
+    outline: 1px solid var(--button-hover-bgcolor) !important;
     }
     
-/* Colores al pasar el mouse sobre los sitios anclados (fondo más grande) */
+/* Quita el borde que aparece luego de dar clic a un sitio anclado y mover el mouse fuera */
     
-.top-site-outer:is(.active, :focus, :hover){
-    background: transparent !important;
+.top-site-outer:is(:focus-within) .tile, .card-outer:is(.active,:focus-within) .card{
+    background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)18%, transparent) , rgba(0,255,0,0) 64.71%),
+                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
+    outline: 1px solid var(--button-hover-bgcolor) !important;
+    box-shadow: none !important;
     }
-    
-/* Ícono de 3 puntos al hacerle hover y clic */
-    
-.context-menu-button, .context-menu-button:active, .context-menu-button:focus{ 
-    background-color: var(--border-contrast-color) !important;
-    fill: var(--general-color) !important;
-    border-color: #50505050 !important;
+/* 
+.top-site-outer:is(:focus-within) .title, .card-outer:is(.active,:focus-within) .card{
+    text-decoration: underline !important;
     }
-    
+  */  
 /* Botón de editar sitio anclado */
     
 .top-site-outer .context-menu-button {
     background-image: url("../images/more.svg") !important;
     background-color: transparent !important;
-    inset-inline-end: 2px !important;
-    top: -2px !important;
+    border-radius: 2px 4px 2px 8px !important;
+    inset-inline-end: -10px !important;
+    top: 2px !important;
     transition: opacity 200ms;
-    fill: var(--button-hover-bgcolor) !important;
+    fill: var(--newtab-text-primary-color) !important;
+    }
+    
+.top-site-outer .context-menu-button:is(:hover, :focus) {
+    background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
+    transition: opacity 200ms;
+    fill: var(--newtab-text-primary-color) !important;
+    }
+    
+    
+/* -------------------------- Actividad reciente --------------------------- */
+    
+.card-outer .card {
+    background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)6%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 24.71%),
+                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
+    backdrop-filter: var(--personal-blur) !important;
+    filter: saturate(105%) !important;
+    border-radius: 6px !important;
+    border: 1px solid #50505030 !important;
+}
+    
+.compact-cards .card-outer .card-preview-image-outer { 
+    border-radius: 6px 6px 0 0 !important; 
+    }
+    
+.ds-highlights .section .section-list .card-outer .card-host-name {
+    text-shadow: 1px -1px 2px color-mix(in srgb, var(--contrast-color) 60%, transparent) !important;
+    color: var(--newtab-text-primary-color) !important;
+    }
+    
+.card-outer:not(.placeholder) .card-title {
+    text-shadow: 1px -1px 2px color-mix(in srgb, var(--contrast-color) 60%, transparent) !important;
+    }
+    
+.card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-title, 
+.card-outer:is(:hover, :focus, .active):not(.placeholder) .card-title {
+    --newtab-primary-action-background: blue !important;
+    color: var(--newtab-text-primary-color) !important;
+    text-shadow: 1px -1px 2px color-mix(in srgb, var(--contrast-color) 60%, transparent) !important;
+    text-decoration: underline !important;
+    }
+    
+.compact-cards .card-outer .card-context>.card-context-icon {
+    fill: var(--newtab-wordmark-color) !important;
+    opacity: 0.7 !important;
+    /*filter: drop-shadow( 0px 1px 0px var(--contrast-color)) !important;*/
+    }
+    
+/* Ícono de 3 puntos al hacerle hover y clic */
+    
+.card-outer .context-menu-button, .card-outer .context-menu-button:active, .card-outer .context-menu-button:focus{
+    margin-top: 14px !important;
+    margin-right: 15px !important;
+    background-image: url("../images/more.svg") !important;
+    border-radius: 3px 6px 3px 8px !important;
+    background-color: color-mix(in srgb, var(--contrast-color) 70%, transparent) !important;
+    fill: var(--newtab-text-primary-color) !important;
+    border-color: #50505030 !important;
+    transition-delay: 0ms !important;
     }
     
 /* Fondo de <popup> al intentar eliminar un sitio anclado*/
@@ -410,7 +496,6 @@ browser[primary="true"][tabDialogShowing="true"],
     backdrop-filter: var(--personal-blur) !important;
     outline: 1px solid var(--contrast-color) !important;
     }
-    
 /*------------------------fondo (imagen), Logo y Wordmark------------------------*/
     
 body{

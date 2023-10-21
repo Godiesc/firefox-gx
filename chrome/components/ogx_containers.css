@@ -3,18 +3,18 @@
 
 /* Posición de la nueva linea de contenedor */
 
-.tabbrowser-tab:not([pinned]) .tab-context-line {
+tab:not([pinned]) .tab-context-line {
     -moz-box-ordinal-group: 2 !important;
     order: 2 !important;
     margin-bottom: 3px !important;
 }
 
-.tabbrowser-tab:not([pinned], [selected]) .tab-context-line {
-    clip-path: polygon(4px 0%, 20px 0%, 20px 100%, 4px 100%);
+tab:not([pinned],[selected]) .tab-context-line {
+    clip-path: polygon(4px 0%, 22px 0%, 22px 100%, 4px 100%);
     transition-duration: 0ms !important;
 }
 
-.tabbrowser-tab[selected]:not([pinned]) .tab-context-line {
+tab[selected]:not([pinned]) .tab-context-line {
     clip-path: polygon(4px 0%, calc(100% - 4px) 0%, calc(100% - 4px) 100%, 4px 100%);
     transition-duration: 200ms !important;
 }
@@ -34,7 +34,7 @@ tab[muted] .tab-content .tab-label {
 
 /* Pinned */
 
-.tabbrowser-tab:is([pinned]) .tab-context-line {
+tab:is([pinned]) .tab-context-line {
     -moz-box-ordinal-group: 2 !important;
     height: 2px;
     margin-bottom: 3px !important;
@@ -48,7 +48,7 @@ tab:is([pinned])[selected] .tab-context-line {
 }
 
 tab:is([pinned]):not([selected]) .tab-context-line {
-    max-width: 8px !important;
+    max-width: 9px !important;
     margin-inline: 13px !important;
     transition-duration: 0ms;
 }

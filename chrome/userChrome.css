@@ -8,7 +8,6 @@
 @import url('components/ogx_toolbar-icons.css');
 @import url('components/ogx_containers.css');
 @import url('components/ogx_tabs-bar.css');
-@import url('components/ogx_tab-shapes.css');
 @import url('components/ogx_urlbar-searchbar.css');
 @import url('components/ogx_windows-controls.css');
 @import url('components/ogx_customize-styles.css');
@@ -26,10 +25,10 @@
 
 @import url('components/ogx_left-sidebar.css');
 @import url('components/ogx_oneline.css');
-@import url('components/ogx_main-image.css');
+@import url('components/ogx_tab-shapes.css');
 @import url('components/ogx_tree-tabs.css');
-@import url('components/ogx_tab_center_reborn.css');
 @import url('components/ogx_autohide_bookmark-bar.css');
+@import url('components/ogx_main-image.css');
 
 /* ############# Your Personal File ##############  */
 
