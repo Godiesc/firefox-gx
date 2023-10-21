@@ -4,7 +4,6 @@ This style is compatible with [Left-sidebar Config](https://github.com/Godiesc/o
 
 ### Steps to apply this config
 <ol><li>Install the addon (link above).</li>
-<li>Add the file <code>ogx_tree-tabs.css</code> into <code>chrome/components</code> folder.</li>
 <li>Open the options of the addon "Tree Style tab", go to advanced, at the end choose "Load from file" and select the <code>treestyletab-InsideConfig.css</code> file. You will see in this code the url to the image to use, the link could be whatever image link in the internet. I used an image from <a href="https://imgur.com/a/j78IhJN"><b> >>The Galery<< </b></a> of this theme.</li></ol>
 
 ### Preview
