@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@supports -moz-bool-pref("firefoxgx.oneline") {
+@media (-moz-bool-pref:"firefoxgx.oneline") {
 
 /* ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ IMPORTANT: To only apply one-line config to screen bigger than some px !!!!!!!!!!!!!!!!!!!!!!!!!! */
 
@@ -168,7 +168,7 @@
 
 #nav-bar-customization-target{ padding-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-post)); }
 
-@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
+@media (-moz-bool-pref:"layout.css.osx-font-smoothing.enabled"){
   .titlebar-buttonbox-container{ position: fixed; display: blocK; left: 0px; z-index: 3; }
   #nav-bar-customization-target{ padding-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-buttons-width) - var(--uc-window-drag-space-pre)) }
 }
@@ -896,7 +896,7 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
   
 /* ############################################### Compatibilidad con -left-sidebar- config ############################################### */
   
-@supports -moz-bool-pref("firefoxgx.left-sidebar") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
   
   :root{ 
     --my-vertical-toolbar-width: 41px !important;
@@ -922,7 +922,7 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
   
 /* ####################################################### Compatibilidad con "Tab-Shapes" config ####################################################### */
   
-@supports -moz-bool-pref("firefoxgx.tab-shapes") {
+@media (-moz-bool-pref:"firefoxgx.tab-shapes") {
   
 /* Necesario por bug del border-top al cambiar la manera de formar la pestaña */
   

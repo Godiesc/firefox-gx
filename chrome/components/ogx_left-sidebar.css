@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@supports -moz-bool-pref("firefoxgx.left-sidebar") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
 
 /* ------------------- Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/vertical_bookmarks_toolbar.css ------------------- */
 
@@ -408,7 +408,8 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 /* ##################################################### Nuevos margenes Botón menú ##################################################### */
 
 :root {
-    --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 10px) !important;     /* Nuevo margen-left del ícono -menu- */
+    --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 16px) !important;     /* Nuevo margen-left de íconos del -menu- */
+    --margin-right-icons-personal: 8px !important;                                                  /* Nuevo margen-right de íconos del -menu- */
     }
     
     /* Quitar label -Menu- del menú not [open] */
@@ -479,7 +480,13 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 /* Logo alineado */
     
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image {
-        margin-inline-start: calc(var(--margin-left-icons-personal) - 8px) !important;
+        margin-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
+    }
+    
+/* Label Menú */
+    
+    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>stack::after {
+        padding-inline-start: calc(var(--margin-right-icons-personal) - 2px) !important;
     }
 
 /* Menu :hover */

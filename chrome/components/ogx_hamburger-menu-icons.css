@@ -70,7 +70,7 @@
 /* Cuenta no iniciada  */
 
 #appMenu-fxa-status2:not([fxastatus="signedin"])  toolbarbutton {
-    border-radius: 4px !important;
+    border-radius: 2px !important;
 }
 
 #appMenu-fxa-status2:not([fxastatus="signedin"])  toolbarbutton:hover {

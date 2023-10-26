@@ -4,7 +4,7 @@
 @media (-moz-platform: windows), (-moz-platform: linux) {
     :root {
         --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--lwt-tab-text))80%, var(--Button-background-personal));
-        --margin-left-icons-personal: 8px !important;
+        --margin-left-icons-personal: 3px !important;
         --margin-right-icons-personal: 6px !important;
     }
 
@@ -102,7 +102,7 @@
         width: var(--padding-left-tab) !important;
         content: var(--menu-label);
         color: var(--label-color) !important;
-        padding-inline-start: var(--margin-right-icons-personal) !important;
+        padding-inline-start: calc(var(--margin-right-icons-personal) - 1px) !important;
         padding-block: 6px !important;
         text-shadow: none !important;
     }
@@ -200,55 +200,21 @@
     
 /* ---------------------------------------- Config para alinear íconos en el menú de hamburguesa ------------------------------------------- */
     
-/* -> Margen de los íconos <- */
+/* Sobreescribir nuevo Tamaño y margen de los íconos - Trick para aplicar margen nuevo solo al menu hamburguesa maximizado */
     
-    .subviewbutton:is(#appMenu-popup toolbarbutton):not(.subviewbutton-back) {
-        padding-inline-start: var(--margin-left-icons-personal) !important;
-    }
-    .subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])>.toolbarbutton-icon, .syncNowBtn {
-        width: 16px;
-        height: 16px;
-        margin-inline-end: 7px !important;
-    }
-    
-/* Margen item -tamaño- */
-    
-#appMenu-zoom-controls{
-    padding-inline-start: calc(var(--margin-left-icons-personal) - 0px) !important;
-}
-    
-/* ------------------------ícono account----------------------- */
-    
-    #appMenu-fxa-status2:not([fxastatus])>#appMenu-fxa-label2 {
-        margin-inline-end: 1px !important;
-    }
-
-/* Linea gradiente sobre label Account solo en ventana maximizada */
-    
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-status2 {
-        padding-top: 2px !important;
-        border-image: linear-gradient(to left, transparent 8px,var(--general-color) 8px, 
-                        transparent calc(100% - var(--margin-left-icons-personal) - 20px), 
-                        transparent calc(100% - var(--margin-left-icons-personal) - 20px)) 1 !important;
-        border-top: 1px solid var(--panel-separator-color) !important;
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"]{
+        
+    #appMenu-popup .subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon,                       /* Mayoría de botones */
+    #appMenu-popup #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2::before, #appMenu-popup #fxa-manage-account-button::before,   /* Account icon signedin */
+    #appMenu-popup #appMenu-fxa-status2:not([fxastatus="signedin"])::before,                                                                    /* Account icon not signedin */
+    #appMenu-popup #appMenu-zoom-controls:before, #appMenu-popup .syncNowBtn{           
+        width: 16px; height: 16px;
+        margin-inline-start: var(--margin-left-icons-personal) !important;
+        margin-inline-end: var(--margin-right-icons-personal) !important;
     }
     
-/* Alinear item account en ventana no maximizada */
-    
-    :root:is([sizemode="normal"], [sizemode="fullscreen"]) #appMenu-fxa-label2 {
-        margin-inline-start: 0px !important;
-    }
-    
-/* Label account - first */    
-
-    /* Ícono sign-in, cuenta no iniciada  */
-    
-    #appMenu-fxa-status2:not([fxastatus="signedin"]) {
-        margin-inline-end: -1px !important;
-        margin-inline-start: calc(var(--margin-left-icons-personal) + 17px) !important;
-    }
-    #appMenu-fxa-status2:not([fxastatus="signedin"]):hover toolbarbutton {
-        background-color: var(--button-active-bgcolor) !important;
+    #appMenu-popup .subviewbutton.subviewbutton-iconic:not(.subviewbutton-back) image{
+        margin-inline-start: var(--margin-left-icons-personal) !important;
     }
 }
 

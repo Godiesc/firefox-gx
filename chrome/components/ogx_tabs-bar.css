@@ -126,7 +126,7 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
 
 /* Regla para visualizar mejor el seleccionar varias pestañas */
 
-@supports not -moz-bool-pref("firefoxgx.tab-shapes") {
+@media not (-moz-bool-pref:"firefoxgx.tab-shapes") {
     
     .tab-background[multiselected]:not([selected="true"]), tab-background:is([multiselected]):not([selected="true"]) .tab-stack {
         margin-inline: 0px 0px !important;

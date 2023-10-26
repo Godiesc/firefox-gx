@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@supports -moz-bool-pref("firefoxgx.main-image") {
+@media (-moz-bool-pref:"firefoxgx.main-image") {
 
 @media (prefers-color-scheme: dark){
    :root[brighttext]:-moz-lwtheme,
@@ -62,7 +62,7 @@
    
 /* Compatibilidad con Left-sidebar */
    
-@supports -moz-bool-pref("firefoxgx.left-sidebar") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
 
 :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
 :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
@@ -73,8 +73,8 @@
    
 /* Compatibilidad con Left-sidebar + oneline  */
    
-@supports -moz-bool-pref("firefoxgx.left-sidebar") and 
-          -moz-bool-pref("firefoxgx.oneline"){
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") and 
+       (-moz-bool-pref:"firefoxgx.oneline"){
 
    :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
    :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
@@ -92,8 +92,8 @@
    
 /* Compatibilidad con Left-sidebar + tree-tabs  */
    
-@supports -moz-bool-pref("firefoxgx.left-sidebar") and 
-          -moz-bool-pref("firefoxgx.tree-tabs") and (not -moz-bool-pref("firefoxgx.autohide-bookmarks-bar")){
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") and 
+       (-moz-bool-pref:"firefoxgx.tree-tabs") and not (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar"){
 
    :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
    :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
@@ -105,7 +105,7 @@
    
 /* Compatibilidad con -oneline- config */
 
-@supports -moz-bool-pref("firefoxgx.oneline") {
+@media (-moz-bool-pref:"firefoxgx.oneline") {
           
    @media (prefers-color-scheme: dark){
       :root, :root:-moz-lwtheme, :root:not(:-moz-lwtheme){
@@ -124,7 +124,7 @@
    
 /* COmpatibilidad con tree-tabs config */
    
-@supports -moz-bool-pref("firefoxgx.tree-tabs") and -moz-bool-pref("firefoxgx.autohide-bookmarks-bar"){
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar"){
    
    @media (prefers-color-scheme: dark){
        :root:not([chromehidden~="toolbar"]):is([lwtheme-image], [style*="--lwt-additional-images"]) #PersonalToolbar{

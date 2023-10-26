@@ -177,8 +177,12 @@
         
 /* Toggle button */
         
-.toggle-button {
-  --toggle-background-color-pressed: var(--general-color) !important;
+.toggle-button[aria-pressed="true"]:enabled {
+  background: var(--button-active-bgcolor) !important;
+}
+        
+.toggle-button[aria-pressed="true"]:enabled:hover {
+  background: var(--button-hover-bgcolor) !important;
 }
 
 /* Botón más opciones */        
@@ -188,7 +192,7 @@
     border-color: color-mix( in srgb, var(--in-content-border-color) 96%, var(--in-content-text-color))  !important;
 }
 
-button:hover {
+button:hover:not(.toggle-button) {
     background-color: var(--button-active-bgcolor) !important;
     color: #fafafa !important;
     border-color: transparent !important;
