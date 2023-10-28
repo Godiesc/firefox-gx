@@ -198,6 +198,18 @@
         border-radius: 0px !important;
     }
     
+/* ------------------------ícono account----------------------- */
+
+/* Linea gradiente sobre label Account solo en ventana maximizada */
+
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-status2 {
+        padding-top: 2px !important;
+        border-image: linear-gradient(to left, transparent 8px,var(--general-color) 8px, 
+                        transparent calc(100% - var(--margin-left-icons-personal) - 20px), 
+                        transparent calc(100% - var(--margin-left-icons-personal) - 20px)) 1 !important;
+        border-top: 1px solid var(--panel-separator-color) !important;
+    }
+    
 /* ---------------------------------------- Config para alinear íconos en el menú de hamburguesa ------------------------------------------- */
     
 /* Sobreescribir nuevo Tamaño y margen de los íconos - Trick para aplicar margen nuevo solo al menu hamburguesa maximizado */
