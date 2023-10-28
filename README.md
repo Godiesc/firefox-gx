@@ -1,5 +1,3 @@
-⚠⚠⚠ The information was updated for the upcoming release of the theme for firefox v.119 on October 24 ⚠⚠⚠
-
 # Opera-GX Theme for Firefox Css
 <ul><li>(ES) Tema para los amantes de la skin GX de Opera. Compatibilidad - Versión estable del navegador.</li>
 <li>(EN) A theme for Opera GX Skin Lovers. Complete compatibility with the stable version of the browser.</li></ul>
