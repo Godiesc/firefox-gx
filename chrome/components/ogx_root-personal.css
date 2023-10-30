@@ -18,12 +18,12 @@
 @media (prefers-color-scheme: dark){ :root{
   --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - dark theme */
   --lwt-private-image:  url("../images/newtab/private-dark.png") !important;                 /* new-tab private-page image - dark theme */
-  --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default ; 51% -> to <<main-image>> config */ }}
+  --brightness-wallpaper: brightness(99%);                                                   /* 99% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
   --lwt-main-image:  url("../images/newtab/wallpaper-light.png") !important;                 /* new-tab page image - white theme*/
   --lwt-private-image:  url("../images/newtab/private-light.png") !important;                /* new-tab private-page image - white theme*/
-  --brightness-wallpaper: brightness(100%);                                                  /* 100% -> default and Main-image config */ }}
+  --brightness-wallpaper: brightness(99%);                                                   /* 99% -> default and Main-image config */ }}
 
 :root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }         /* Accent color private mode */
   
@@ -69,7 +69,7 @@
   :root{  
   --wallpaper-size: auto auto;                                                                  /* cover-> default ; auto auto -> to <<main-image>> config */
     
-  --background-align-y: -69px ;                                                                /* Alinear new-tab wallpaper to <<main-image>> config 
+  --background-align-y: -69px ;                                                                 /* Alinear new-tab wallpaper to <<main-image>> config 
                                                                                                   -69px ventana normal; 
                                                                                                   -97px con Barra de Marcadores;
                                                                                                   -99px con B.Menu;

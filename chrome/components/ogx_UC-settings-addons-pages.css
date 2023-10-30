@@ -3,6 +3,8 @@
 
 @media (prefers-color-scheme: dark){
  window, dialog {                                                                            /*Colores varios de paginas de about:addons y about:settings*/
+     
+     --color-accent-primary: var(--general-color) !important;
     --in-content-page-background: #1a1a24 !important;
     --in-content-primary-button-background: var(--general-color) !important;
     --in-content-primary-button-text-color: white !important;
@@ -52,6 +54,8 @@
 
 @media (prefers-color-scheme: dark){
 :root {                                                                             /*Colores varios de paginas de about:addons y about:settings*/
+    
+    --color-accent-primary: var(--general-color) !important;                        /*Outline color en input-text en about:config*/
     --in-content-page-background: #121018 !important;                               /*Fondo general*/
     --in-content-text-color: #fff !important;                                       /*Color general de label*/
     --in-content-page-color: #fff !important;                                       /*color de texto general*/
@@ -111,7 +115,9 @@
     }}
 @media (prefers-color-scheme: light){
 :root{
-   --in-content-page-background: #f9f9f9 !important;                                /*Fondo general*/
+    
+    --color-accent-primary: var(--general-color) !important;                        /*Outline color en input-text en about:config*/
+    --in-content-page-background: #f9f9f9 !important;                               /*Fondo general*/
     --in-content-text-color: #000 !important;                                       /*Color general de label*/
     --in-content-page-color: #000 !important;                                       /*color de texto general*/
     
