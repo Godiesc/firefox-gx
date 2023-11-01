@@ -147,6 +147,10 @@
     list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
 }
 
+#openprofiledir .toolbarbutton-icon{
+    list-style-image: url("../images/profile-folder.svg");
+}
+
 /* Ícono Imprimir */
 
 #appMenu-print-button2 {
@@ -190,6 +194,10 @@
 }
 #appMenu-more-button2 {
     list-style-image: url("chrome://global/skin/icons/developer.svg");
+}
+
+#rebootappmenu{
+list-style-image: url("../images/reload.svg") !important;
 }
 
 /* Ícono salir */
