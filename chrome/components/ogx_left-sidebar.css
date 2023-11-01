@@ -324,8 +324,10 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 
 /* Tamaño más grande para las extensiones ssociales puestas en la barra lateral */
 
+#PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP image,
 #PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP image,
 #PersonalToolbar #xrst_vardakis_gmail_com-BAP image,
+#PersonalToolbar #chatwappinsidebar_godie-BAP image,
 #PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP image,
 #PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP image,
 #PersonalToolbar #ublock0_raymondhill_net-BAP image,
@@ -335,6 +337,9 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     height: 18px !important;
     width: 18px !important;
 }
+    
+/* Twitch Extension */
+#PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP { list-style-image: url("../images/logo_chatgpt.svg") !important; }
 
 /* Twitch Extension */
 #PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP { list-style-image: url("../images/logo_twitch.svg") !important; }
@@ -343,7 +348,8 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 #PersonalToolbar #xrst_vardakis_gmail_com-BAP { list-style-image:url("../images/logo_messenger.svg") !important; }
 
 /* Whatsapp Extension */
-#PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP{ list-style-image: url("../images/logo_whatsapp.svg") !important; }
+#PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP,
+#chatwappinsidebar_godie-BAP{ list-style-image: url("../images/logo_whatsapp.svg") !important; }
 
 /* Telegram Extension */
 #PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{ list-style-image: url("../images/logo_telegram.svg") !important; }
