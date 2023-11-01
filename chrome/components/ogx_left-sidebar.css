@@ -338,7 +338,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     width: 18px !important;
 }
     
-/* Twitch Extension */
+/* ChatGPT Extension */
 #PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP { list-style-image: url("../images/logo_chatgpt.svg") !important; }
 
 /* Twitch Extension */
