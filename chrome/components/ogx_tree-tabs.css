@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and not ( -moz-bool-pref:"firefoxgx.oneline"){
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")){
     
 /*###################################### Mantener Window Controls quitando las pestañas ###########################
 ############################################## Codigo sin editar de MrOtherGuy ####################################*/
