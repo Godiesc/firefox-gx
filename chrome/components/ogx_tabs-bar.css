@@ -76,6 +76,8 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
     background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
                       linear-gradient(transparent, transparent), 
                       var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    background-position: initial, initial, left top, right top, right top !important;
+    background-repeat: repeat, repeat, var(--lwt-background-tiling) !important;
     margin-block-start: 1px !important;
     margin-inline: 1px !important;
     box-shadow: none !important;
