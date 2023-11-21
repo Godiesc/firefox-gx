@@ -10,6 +10,8 @@
   /*--lwt-text-color: inherit !important;                                               /* tab_background_text */
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /* frame_inactive */
   
+  --lwt-selected-tab-background-color: var(--tab-selected-bgcolor) !important;          /* tab_selected */
+  
   --toolbar-bgcolor: var(--lwt-selected-tab-background-color) !important;               /* toolbar */
   
   /*--toolbar-color: #8e8085 !important;                                                /* ColorLabelMarcadores */
@@ -30,8 +32,6 @@
   --toolbar-field-focus-border-color: transparent !important;                           /* toolbar_field_border_focus */
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /* toolbar_field_highlight */
   --lwt-toolbar-field-highlight-text: var(--contrast-color) !important;                 /* toolbar_field_highlight_text */
-    
-  /*--lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;             /* tab_selected */
 
   /*--toolbarbutton-icon-fill: #b6b6d2 !important;                                      /* icons */
   /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /* icons_attention */    
