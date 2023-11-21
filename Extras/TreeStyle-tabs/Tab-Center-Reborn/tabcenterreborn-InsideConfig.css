@@ -1,8 +1,7 @@
 :root {
     --tab-separator: transparent;
     --tablist-separator: #cccccc;
-    --overflow-indicator-border: #333333;
-}
+    --overflow-indicator-border: #333333; }
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -23,21 +22,16 @@
         --input-text-focus: rgb(251,251,254);
         --identity-color-toolbar: rgb(251,251,254);
         --tablist-separator: #333333;
-        --overflow-indicator-border: #cccccc;
-    }
-}
+        --overflow-indicator-border: #cccccc; }}
+
 @media (prefers-color-scheme: light) {
-    :root {
-        --lwt-frame-personal:  #e9e6ef;
-    }
-}
+    :root { --lwt-frame-personal:  #e9e6ef;  }}
 
 /* fix autoscrolling bug when middle clicking */
-:root,
-body {
+:root, body {
     overflow: hidden;
-    background-color: var(--lwt-frame-personal, var(--background));
-}
+    background-color: var(--lwt-frame-personal, var(--background)); }
+
 /* Move topmenu to bottom */
 #topmenu {
     order: 2;
@@ -48,9 +42,8 @@ body {
     margin-left: 6px;
 }
 
-#settings {
-    margin-right: 2px;
-}
+#settings { margin-right: 2px; }
+
 /* Hide filterbox & settings icon */
 #filterbox-icon,
 #filterbox-input,
@@ -69,12 +62,12 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 #tablist-wrapper::after {
     content: "";
-    margin: 2px 0;
+    margin: 2px 1px -2px 1px;
     border: 1px solid var(--tab-loading-fill);
-    border-bottom-width: 0px;
-}
+    border-bottom-width: 0px; }
 
 #newtab {
     flex-grow: 1;
@@ -82,16 +75,37 @@ body {
     margin-left: 2px;
     padding-left: 9px;
     min-width: 36px;
-    width: 100%;
+    width: 100%; }
 
-}
+/* middle click newtab workaround */
+
+/* allows the #spacer element to take up more space */
+   #spacer { min-height: 100vh; }
+
+/* moves the new tab button to the original position */
+   #tablist-wrapper { margin-bottom: -100vh; }
+
+/* moves the new tab button separator to the original position */
+   #tablist-wrapper::after { transform: translateY(-100vh); }
 
 .tab,
 .tab.active {
 background-color: var(identity-color, var(--tab-loading-fill));
     border-bottom: none !important;
-    margin: 1px 0;
+    margin: 0px;
 }
+
+#pinnedtablist:not(.compact) .tab:before,
+   #tablist .tab:before {
+     content: "";
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: -6px;
+     width: 6px; }
+
+#pinnedtablist.compact .tab{ margin-bottom: 2px;}
+
 /* Change the line of selected tab to container color too */
 #pinnedtablist:not(.compact) .tab.active, #tablist .tab.active {
     background-color: color-mix(in srgb,  var(--identity-color, var(--tab-loading-fill, var(--general-color))) 22%, transparent);
@@ -106,10 +120,10 @@ background-color: var(identity-color, var(--tab-loading-fill));
     border-radius: 4px;
 }
 #pinnedtablist.compact:not(:empty) {
-    border-color: color-mix(in srgb, var(--identity-color,var(--tab-loading-fill)) 30%, transparent);
+    border-color: color-mix(in srgb, var(--identity-color,var(--tab-loading-fill)) 30%, transparent); margin-bottom: 2px;
 }
 .tab:not(.active):hover {
---prueba-variable: color-mix(in srgb,  var(--tab-loading-fill) 8%, transparent);
+--prueba-variable: color-mix(in srgb,  var(--background) 94%, var(--input-text));
     background-color: var(--prueba-variable);
     border-radius: 4px;
 }
@@ -128,32 +142,6 @@ background-color: var(identity-color, var(--tab-loading-fill));
 
 #newtab-icon {
     min-width: 16px;
-}
-
-/* the @media rule only allows these settings apply when the sidebar is expanded */
-@media (min-width: 49px) {
-    /* Move close button to left side */
-    /*.tab-close {
-        left: 0;
-        margin-left: 3px;
-    }*/
-
-    /* Fix title gradient */
-    /*#tablist .tab:hover > .tab-title-wrapper {
-        mask-image: linear-gradient(to left, transparent 0, black 2em);
-    }*/
-
-    /* Move tab text to right when hovering to accomodate for the close button */
-    /*#tablist .tab:hover > .tab-title-wrapper {
-        margin-left: 28px;
-        transition: all 0.2s ease;
-    }*/
-
-    /* Move favicon to right when hovering to accomodate for the close button */
-    /*#tablist .tab:hover > .tab-meta-image {
-        padding-left: 25px;
-        transition: all 0.2s ease;
-    }*/
 }
 
 /*** Move container indicators to left ***/
@@ -204,9 +192,7 @@ background-color: var(identity-color, var(--tab-loading-fill));
     }
 
 /* hide scrollbar when sidebar is collapsed */
-#tablist {
-        scrollbar-width: none;
-    }
+#tablist {  scrollbar-width: none; }
 }
 
 @media (max-width: 48px) {
@@ -256,9 +242,8 @@ background-color: var(identity-color, var(--tab-loading-fill));
     }
 }
 /* Change the radius of the close button */
-.tab-close{
-border-radius: 0 4px 4px 0;
-}
+.tab-close{ border-radius: 0 4px 4px 0; }
+
 /* Sound icon */
 .tab.audible:not(.muted) .tab-icon-overlay-audible {
     background-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") ;
@@ -266,11 +251,10 @@ border-radius: 0 4px 4px 0;
     -moz-context-properties: fill ;
     fill: var(--tab-loading-fill, var(--general-color)) ;
     box-shadow: none;
-    border-width: 0px;
-}
-.tab.muted .tab-icon-overlay-muted {
-    opacity: 0;
-}
+    border-width: 0px; }
+
+.tab.muted .tab-icon-overlay-muted { opacity: 0; }
+
 .tab.muted:hover .tab-icon-overlay-muted {
     opacity: 1;
     background-image: url("https://raw.githubusercontent.com/Godiesc/opera-gx/3e95a8141d23f9870d1c40a661a0460ed53c064f/chrome/images/paused.svg");
@@ -278,5 +262,4 @@ border-radius: 0 4px 4px 0;
     -moz-context-properties: fill ;
     fill: var(--tab-loading-fill, var(--general-color)) ;
     box-shadow: none;
-    border-width: 0px;
-}
+    border-width: 0px; }
