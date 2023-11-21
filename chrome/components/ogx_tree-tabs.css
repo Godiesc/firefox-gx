@@ -360,7 +360,7 @@ Window controls will be all wrong without it
 :root{
     --uc-vertical-toolbar-width: 41px !important;                                                               /* Nuevo tamaño sidebar */
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
-    --margin-left-icons-personal: 11px !important;                                                              /* Nuevo margen left de íconos del menú */
+    --margin-left-icons-personal: 5px !important;                                                              /* Nuevo margen left de íconos del menú */
 }
 /* color botón Menú para hacer coincidir con la barra de pestañas de <tab-center-reborn> en temas claros */
 @media (prefers-color-scheme: light){
