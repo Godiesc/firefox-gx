@@ -128,14 +128,6 @@
         margin-top: calc(-1px - var(--tab-height-personal) + var(--tab-block-margin)) !important;
     }
     
-/* Separadores */
-    
-    :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator {
-        margin-inline-start: 30px !important;
-        --panel-separator-margin-vertical: 2px !important;
-        --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
-    }
-    
 /* zoom icons */
     
 #appMenu-zoomReduce-button2 > .toolbarbutton-icon, #appMenu-zoomEnlarge-button2 > .toolbarbutton-icon{
@@ -204,7 +196,7 @@
 
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-status2 {
         padding-top: 2px !important;
-        border-image: linear-gradient(to left, transparent 8px,var(--general-color) 8px, 
+        border-image: linear-gradient(to left, transparent 7px,var(--general-color) 7px, 
                         transparent calc(100% - var(--margin-left-icons-personal) - 20px), 
                         transparent calc(100% - var(--margin-left-icons-personal) - 20px)) 1 !important;
         border-top: 1px solid var(--panel-separator-color) !important;
