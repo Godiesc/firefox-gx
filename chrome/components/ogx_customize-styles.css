@@ -6,20 +6,13 @@
 /*"Color de fondo e íconos en "Perzonalizar barra de herramientas"*/
 #customization-container {color: var(--lwt-text-color) !important; background-color: var(--toolbar-bgcolor) !important;} 
 
-.customizationmode-button {
+#customization-footer .footer-button:not(#customization-done-button,:hover,:active,[open]) {
     appearance: none !important;
     background-color: var(--input-border-color) !important;
     border-color: var(--input-border-color) !important;
     color: var(--lwt-tab-text) !important;
-    border-radius: 3px !important;
-    padding: 2px 8px !important;
 }
-.customizationmode-button:is(:active, :hover):not([disabled]), .customizationmode-button[open], .customizationmode-button[checked] {
-    appearance: none !important;
-    background-color: var(--button-active-bgcolor) !important;
-    border-color: var(--button-active-bgcolor) !important;
-    color: var(--lwt-tab-text) !important;
-}
+
 #customization-done-button {
     appearance: none !important;
     color: var(--lwt-tab-text) !important;
@@ -27,12 +20,15 @@
     background-color: var(--button-hover-bgcolor) !important;
     padding: 2px 24px !important;
 }
+
+#customization-footer .footer-button:is([open]), 
 #customization-done-button:is(:active, :hover):not([disabled]) {
     appearance: none !important;
     color: var(--lwt-tab-text) !important;
     background-color: var(--button-active-bgcolor) !important;
     border-color: var(--button-active-bgcolor) !important;
 }
+
 /* Menú de desbordamiento*/
 .panel-arrowcontent { border-radius: 0px !important; margin-right: 0px !important; padding-right: 0px !important; }
 #customization-panel-container{  padding-right: 2px !important; }

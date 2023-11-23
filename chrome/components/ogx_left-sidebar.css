@@ -113,7 +113,8 @@
     
 /* Mover nav-bar a la derecha */
 
-    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
+    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child,
+    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) toolbarpaletteitem[place="toolbar"]:first-child{
         margin-left: var(--uc-vertical-toolbar-width,0) !important;
     }
 
