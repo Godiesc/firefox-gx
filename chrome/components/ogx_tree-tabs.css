@@ -2,6 +2,7 @@
    https://github.com/Godiesc/firefox-gx */
 
 @media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")){
+    @media (-moz-platform: windows), (-moz-platform: linux) {
     
 /*###################################### Mantener Window Controls quitando las pestañas ###########################
 ############################################## Codigo sin editar de MrOtherGuy ####################################*/
@@ -256,7 +257,8 @@ Window controls will be all wrong without it
 /* Background color de botones <Window Controls> */
     
 :root[tabsintitlebar] .titlebar-buttonbox {
-    background: var(--toolbar-bgcolor) !important;
+    /*background: var(--toolbar-bgcolor) !important;/**/
+    background-color: transparent !important;
 }
     
 /* Ocultar encabezado de la sidebar de pestañas */
@@ -350,11 +352,6 @@ Window controls will be all wrong without it
 .urlbar-page-action {
   margin-block: 4px 2px !important;
 }
-/* Alinear verticalmente url */
-@media (-moz-platform: windows), (-moz-platform: linux){ 
-    #urlbar-input, #urlbar-scheme{
-        margin-bottom: -2px !important;
-}}
 
 /* ----------------Nuevos margenes Botón menú------------------- */
 :root{
@@ -540,6 +537,59 @@ Window controls will be all wrong without it
 [sidebarcommand*="tabcenter"] #sidebar-switcher-target,
 [sidebarcommand*="tabcenter"] #sidebar-close {
     filter: invert(100%);
+    }}
+
+/* ###################################################### MacOS ###################################################### 
+   ################################################################################################################### */
+    
+@media (-moz-platform: macos) {
+    
+        @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+    
+/* Adapted from https://www.reddit.com/r/FirefoxCSS/comments/ao3ydl/configuring_firefox_for_tree_style_tab_usage/ */
+
+/* hide native tabs and sidebar header */
+#TabsToolbar-customization-target {
+  visibility: collapse;
 }
 
+#navigator-toolbox[inFullscreen="true"] #titlebar {
+  visibility: collapse;
+}
+
+#sidebar-header {
+  visibility: collapse;
+}
+
+/* realign elements */
+#nav-bar {
+  margin-top: calc(-1 * var(--tab-min-height));
+
+  box-shadow: none !important;
+}
+
+#nav-bar[inFullscreen="true"] {
+  margin-top: unset;
+  margin-right: unset;
+}
+
+.titlebar-buttonbox-container {
+  min-height: var(--tab-min-height);
+}
+
+/* recolor elements and enable window dragging */
+#navigator-toolbox {
+  background-color: var(--toolbar-bgcolor);
+  background-image: var(--toolbar-bgimage);
+  background-clip: padding-box;
+  color: var(--toolbar-color);
+  
+  -moz-window-dragging: drag;
+}
+
+
+#TabsToolbar > .toolbar-items,
+#TabsToolbar > .titlebar-spacer{ visibility: hidden }
+#nav-bar{ margin-top: -32px; padding: 0px 15px 0px 75px !important; }
+    }
 }

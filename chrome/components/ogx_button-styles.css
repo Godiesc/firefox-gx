@@ -185,7 +185,7 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
 }
 
 .unified-extensions-item-menu-button.subviewbutton.subviewbutton-iconic:hover image {
-    background: var(--general-color) !important;
+    background: var(--button-hover-bgcolor) !important;
     border-radius: 3px !important;
 }
 
@@ -257,4 +257,12 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 
 :is(#TabsToolbar) toolbarpaletteitem[place="toolbar"] > toolbarspring{
     display: none !important;
+}
+
+/* Status panel */
+
+#statuspanel label{
+    background-color: var(--toolbar-bgcolor) !important;
+    border-color: var(--lwt-frame) !important;
+    border-radius: 0px !important;
 }

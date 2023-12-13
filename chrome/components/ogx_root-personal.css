@@ -36,7 +36,6 @@
   --menu-label: "Menu" ;                                                                     /* Label botón -Menú- */
   --padding-left-tab: 74px ;                                                                 /* Tamaño horizontal botón -Menú- */
   --my-vertical-toolbar-width: 41px ;                                                        /* Ancho de la left-sidebar */
-  --account-label: "My Firefox Account";                                                     /* Label to replace email in hamburger-menu*/
   
   --left-color: var(--general-color);                                                        /* Color left logo y wordmark */
   --right-color: #0060bfdd ;                                                                 /* Color right logo y wordmark */
@@ -45,7 +44,7 @@
   --logo-wordmark-display: flex ;                                                            /* :none ->eliminar , :flex ->Mostrar;  Logo-wordmark*/
   --searchbar-on-off: 1 ;                                                                    /* :1 visible, :0 invisible ; searchbar*/
   --searchbar-display: flex ;                                                                /* :none ->eliminar , :flex ->Mostrar; searchbar*/
-  --orientation-display: block ;                                                              /* :block -> vertical , :flex -> horizontal ; Logo-wordmark y searchbar*/
+  --orientation-display: block ;                                                             /* :block -> vertical , :flex -> horizontal ; Logo-wordmark y searchbar*/
   
   --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;               /* color - fondo de sitios fijados y barra de búsqueda*/
   --newtab-pinnedsites-position-top: 0px ;                                                   /* Posición pinnedsites - top-> : 0px ; default-> : auto*/
@@ -101,14 +100,11 @@
   --panel-separator-zap-gradient1: linear-gradient(to left, var(--general-color) , #ff000000) !important;
   --panel-separator-zap-gradient2: linear-gradient(to right,var(--general-color) 82% , transparent 96%) !important;
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
-  --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) , transparent) !important;
-  --panel-separator-zap-gradient5: linear-gradient(to left, var(--button-bgcolor-personal) 36%, var(--arrowpanel-background) 100%) !important;
 
   /*------------------------------Botones hover, clic--------------------------------*/
-  --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 22%, transparent) !important;    /*Color usado en el botón menú*/
-  --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /*Color de buttons*/
-  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /*Color fondo de menuitems :hover*/
-  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /*color clic en menuitems*/
+  --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /* Color de buttons */
+  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /* Color de botones :hover */
+  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /* color de botones :active */
   }
 
 @media (-moz-platform: linux ){:root{

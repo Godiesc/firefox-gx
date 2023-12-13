@@ -72,6 +72,8 @@
   --autocomplete-popup-hover-background: var(--button-bgcolor) !important;              /* Color hover de sujerencias de búsqueda */
   --urlbarView-separator-color: transparent !important;                                 /* color separador urlbar y sugerencias de búsqueda */
   
+  --border-radius-urlbar-personal: 4px;                                                 /* Variable personal para cambiar forma en tab-shapes config */
+  
   /* Colores checkbox —v */
   --checkbox-unchecked-bgcolor: var(--toolbarbutton-hover-personal) !important;
   --checkbox-unchecked-hover-bgcolor: var(--button-primary-bgcolor) !important;      

@@ -114,7 +114,7 @@
 /* Mover nav-bar a la derecha */
 
     :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child,
-    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) toolbarpaletteitem[place="toolbar"]:first-child{
+    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #nav-bar-customization-target toolbarpaletteitem[place="toolbar"]:first-child{
         margin-left: var(--uc-vertical-toolbar-width,0) !important;
     }
 
@@ -152,8 +152,8 @@
 /* Linea gradiente -touch mode- */
 
     :root[uidensity="touch"]:not([chromehidden~="toolbar"]) #PersonalToolbar {
-        border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) - 1px), 
-                      var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) - 1px), var(--button-active-bgcolor) 42%, var(--lwt-frame) 94%) 1 !important;
+        border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) - 0px), 
+                      var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) - 0px), var(--button-active-bgcolor) 42%, var(--lwt-frame) 94%) 1 !important;
     }
     
 /* Quitar label de items de la barra laterar */
@@ -340,7 +340,8 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 }
     
 /* ChatGPT Extension */
-#PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP { list-style-image: url("../images/logo_chatgpt.svg") !important; }
+#PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP,
+#PersonalToolbar #_63ec59d8-ba50-4d88-917e-fb65af892a39_-BAP { list-style-image: url("../images/logo_chatgpt.svg") !important; }
 
 /* Twitch Extension */
 #PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP { list-style-image: url("../images/logo_twitch.svg") !important; }
@@ -366,6 +367,9 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 
 /* Twitter Extension */
 #PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{ list-style-image: url("../images/logo_twitter.svg") !important; }
+    
+/* Simple Translate extension */
+#PersonalToolbar #simple-translate_sienori-BAP { list-style-image: url(chrome://browser/skin/translations.svg) !important; }
 
 /* ------------------------ Colored folders for bookmarks ------------------------ */
 
@@ -419,9 +423,10 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     --margin-right-icons-personal: 8px !important;                                                  /* Nuevo margen-right de íconos del -menu- */
     }
     
-    /* Quitar label -Menu- del menú not [open] */
-
 @media (-moz-platform: windows), (-moz-platform: linux) {
+    
+/* Quitar label -Menu- del menú not [open] */
+
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open])>stack::after {
         content: none !important;
     }
@@ -439,42 +444,43 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         align-items: center !important;
     }}
 
-@media (-moz-platform: linux) {
-    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
-        --padding-left-tab: 82px !important;
+    @media (-moz-platform: linux) {
+        :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
+            --padding-left-tab: 82px !important;
+        }
     }
-}
 
-@media (-moz-platform: windows), (-moz-platform: linux) {
-    :root:is([sizemode="maximized"]) #appMenu-popup {
-        --padding-left-tab: 78px !important;
+    @media (-moz-platform: windows), (-moz-platform: linux) {
+        :root:is([sizemode="maximized"]) #appMenu-popup {
+            --padding-left-tab: 78px !important;
+        }
     }
-}
 
-@media (-moz-platform: linux) {
-    :root:is([sizemode="maximized"]) #appMenu-popup {
-        --padding-left-tab: 82px !important;
+    @media (-moz-platform: linux) {
+        :root:is([sizemode="maximized"]) #appMenu-popup {
+            --padding-left-tab: 82px !important;
+        }
     }
-}
 
 /* Tamaño nuevo botón Menú */
-@media (-moz-platform: windows), (-moz-platform: linux) {
-:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #PanelUI-menu-button, :root[sizemode="maximized"] #appMenu-popup {
-    --tab-height-personal: 40px !important;
+    
+    @media (-moz-platform: windows), (-moz-platform: linux) {
+    :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #PanelUI-menu-button, :root[sizemode="maximized"] #appMenu-popup {
+        --tab-height-personal: 40px !important;
     }
 
 /* Botón Menú [open] no muy grande */
 
-:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
-    padding-top: calc(var(--tab-height-personal) - 10px) !important;
-    z-index: 2 !important;
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+        padding-top: calc(var(--tab-height-personal) - 10px) !important;
+        z-index: 2 !important;
     }
 
 
-:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
-    clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 4px, var(--padding-left-tab) 4px,
-               var(--padding-left-tab) calc(var(--tab-height-personal) - 4px), 0 calc(var(--tab-height-personal) - 4px),
-               0 100%, 100% 100%, 100% 0%);
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
+        clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 4px, var(--padding-left-tab) 4px,
+                   var(--padding-left-tab) calc(var(--tab-height-personal) - 4px), 0 calc(var(--tab-height-personal) - 4px),
+                   0 100%, 100% 100%, 100% 0%);
     }
 
 /* Logo más grande */

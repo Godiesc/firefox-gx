@@ -1,22 +1,21 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Posición de la nueva linea de contenedor */
+/* Posición y tamaño linea de contenedor */
 
-tab:not([pinned]) .tab-context-line {
-    -moz-box-ordinal-group: 2 !important;
+.tab-context-line {
     order: 2 !important;
+    width: 14px !important;
+    height: 2px !important;
+    margin-inline: 7px !important;
     margin-bottom: 3px !important;
+    box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
 }
 
-tab:not([pinned],[selected]) .tab-context-line {
-    clip-path: polygon(4px 0%, 22px 0%, 22px 100%, 4px 100%);
-    transition-duration: 0ms !important;
-}
+/* Pinned */
 
-tab[selected]:not([pinned]) .tab-context-line {
-    clip-path: polygon(4px 0%, calc(100% - 4px) 0%, calc(100% - 4px) 100%, 4px 100%);
-    transition-duration: 200ms !important;
+tab:is([pinned]) .tab-context-line {
+    margin-inline-start: 10px !important;
 }
 
 /* Mover la label para hacer espacio para el ícono de sonido y darle una ligera animación */
@@ -30,27 +29,6 @@ tab[soundplaying] .tab-content .tab-label {
 tab[muted] .tab-content .tab-label {
     padding-left: 0px !important;
     transition-duration: 200ms !important;
-}
-
-/* Pinned */
-
-tab:is([pinned]) .tab-context-line {
-    -moz-box-ordinal-group: 2 !important;
-    height: 2px;
-    margin-bottom: 3px !important;
-    order: 2;
-}
-
-tab:is([pinned])[selected] .tab-context-line {
-    max-width: 18px !important;
-    margin-inline: 8px !important;
-    transition-duration: 150ms;
-}
-
-tab:is([pinned]):not([selected]) .tab-context-line {
-    max-width: 9px !important;
-    margin-inline: 13px !important;
-    transition-duration: 0ms;
 }
 
 /* Eliminar label del contenedor de la urlbar, manteniendo el ícono */
@@ -71,17 +49,9 @@ tab:is([pinned]):not([selected]) .tab-context-line {
     --identity-icon-color: color-mix(in srgb, #0c86ee 60%, transparent) !important;
 }
 
-/* Label colorida según su contenedor */
+/* Contenedor rojo nuevo color */
 
 .identity-color-red {
     --identity-tab-color: #ff2940 !important;
     --identity-icon-color: #ff2940 !important;
-}
-
-.tab-label[selected] {
-    color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-tab-text)) 80%, var(--lwt-tab-text)) !important;
-}
-
-.tab-label:not([selected]) {
-    color: color-mix(in srgb, var(--identity-tab-color, var(--lwt-text-color)) 80%, var(--lwt-text-color)) !important;
 }

@@ -206,7 +206,7 @@
 /* ################################################################ My Code ################################################################ 
 ################################################## Además de sobre-escribir el código de arriba ############################################ */
 
-/* Cambio la forma de mostras la pestaña por bug con pinned tabs en scroll */
+/* Cambio la forma de mostras la pestaña por bug con pinned tabs en scroll 
   
 .tab-background[selected]{
     margin-block-start: 0px !important;
@@ -214,7 +214,7 @@
     border-block-start: 1px solid transparent !important;
     border-inline: 1px solid transparent !important;
     clip-path: polygon(7px 0%, 200% 0%, 0% 200%, 0% 7px);
-}
+}*/
 
 /* Sobre-escribir: Modify these values to match your preferences */
   
@@ -232,10 +232,10 @@
   }
 }
 
-/* Sobreescribir height de <window controls> */
+/* Sobreescribir height de <window controls> 
   
 #TabsToolbar > .titlebar-buttonbox-container:last-child,
-#window-controls{ height: calc(var(--tab-height-personal) - 1px) !important; }
+#window-controls{ height: calc(var(--tab-height-personal) - 1px) !important; }*/
   
 /* New :root preferences to adapt oneline style */
   
@@ -243,7 +243,7 @@
 :root:-moz-lwtheme,
 :root:not(:-moz-lwtheme){
     --toolbar-bgcolor: transparent !important;                                            /* toolbar */
-    --lwt-sidebar-background-color:  #101019 !important;                                  /* Necesario para corregir bug en ogx_library.css */
+    --lwt-sidebar-background-color: #101019 !important;                                   /* Necesario para corregir bug en ogx_library.css */
     --tab-height-personal: 32px !important;                                               /* Minimum Height 32px for the right function of the theme */
     --toolbar-height-personal: var(--tab-height-personal) !important;                     /* Toolbar height */
     --navbarWidth:32vw;                                                                   /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
@@ -337,21 +337,32 @@
   
 /* ###################################################################################################################################################### */
    
-/* Sobre-escribir la regla usada en ogx_tabs-bar */
+/* Sobre-escribir ogx_tabs-bar */
   
-.tab-background[selected]{
-    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
-                      linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-}
+    .tab-background[selected]{
+        background: var(--lwt-selected-tab-background-color, transparent) !important;
+    }
   
-/* Sobreescribir window controls 
+/* Sobre-escribir ogx_tabs-bar: Completar Linea gradiente al aparecer el scroll de pestañas */
+
+  #scrollbutton-up::before{
+      content: ""; position: absolute; align-self: end;
+      height: 4px;
+      width: 36px;
+      margin-left: 4px;
+      border-bottom: 1px solid var(--general-color);
+      }
+
+  #scrollbutton-down::after{
+      content: "" !important; position: absolute; align-self: end;
+      width: 180px;
+      margin-left: 140px;
+      border-bottom: 1px solid var(--general-color);
+      border-image: linear-gradient(to right, var(--general-color) 0%, transparent) 1;
+  }
   
-@media (-moz-platform: windows) { 
-:root:is([lwtheme-image],[style*="--lwt-additional-images"]) .titlebar-button:hover:is(.titlebar-close){
-    background-color: red !important; 
-    color: white !important;
-    }}
-  */
+/* Sobreescribir window controls */
+  
 @media (-moz-platform: windows) { :root:is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-min{
     padding-top: initial !important;
     padding-bottom: 0px !important;
@@ -441,20 +452,13 @@
     --min-width-url: 23.6vw !important;
 }
   
-/* Botones scroll de pestañas */
-  
-#scrollbutton-down ,#scrollbutton-up{
-  height: calc(var(--tab-height-personal) - 1px) !important;
-  
-}
-  
 /* -------------------------------------------- url --------------------------------------------*/
 
 /* Urlbar más pequeña */
   
 #urlbar:not([open]){
-    min-height: 27px !important;
-    max-height: 27px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
 }
@@ -568,10 +572,16 @@
 
 /* Borde Gradiente */
   
-#nav-bar{    
-    border-image: var(--panel-separator-zap-gradient2) 1 !important; 
-    border-bottom: 1px solid var(--toolbar-bgcolor) !important;    
-}
+  #TabsToolbar::before{
+        content: "" !important; position: absolute !important; align-self: end !important;
+        width: var(--padding-left-tab) !important;
+        height: 1px !important;
+        min-height: 1px !important;
+        max-height: 1px !important;
+        left: 0 !important;
+        width: calc(var(--navbarWidth) + var(--padding-left-tab)) !important;
+        border-bottom: 1px solid var(--general-color) !important;
+    }
   
 /* Alinear la linea gradiente de la nav-bar con pestaña seleccionada 
    y truco para centrar verticalmente todos los elementos */ 
@@ -581,8 +591,8 @@
     border-top: none !important;
     padding-bottom: none !important;
     padding-inline-end: var(--uc-window-control-width) !important;
-    margin-top: calc(0px - var(--tab-height-personal) - 1px) !important;
-    height: calc(var(--tab-height-personal) + 1px) !important;
+    margin-top: calc(0px - var(--tab-height-personal) - 3px) !important;
+    height: calc(var(--tab-height-personal) + 3px) !important;
 }
   
 #PersonalToolbar {
@@ -593,7 +603,7 @@
 /* Igualar estilos de botones de la nav-bar y tabs-bar */
   
 /* Tamaño y forma */
-toolbar .toolbarbutton-1, 
+toolbar .toolbarbutton-1:not(#firefox-view-button), 
 #TabsToolbar .toolbarbutton-1 > .toolbarbutton-badge-stack, 
 #TabsToolbar .toolbarbutton-1 > .toolbarbutton-icon{
     --toolbarbutton-inner-padding: 4px !important;
@@ -652,6 +662,10 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
 /* "Shield" icon */
   
 #tracking-protection-icon-container { display: none !important }
+  
+/* Container icon */
+  
+#userContext-indicator { display: none !important; }
 
 
 /* ############################################################### Nuevos margenes Botón Menu ######################################################## */
@@ -704,57 +718,61 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
   :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar[autohide="false"] + #TabsToolbar > :is(.titlebar-buttonbox-container, .titlebar-spacer) {
     display: flex !important;
   }
-
-#toolbar-menubar{
-  position: fixed;
-  display: flex;
-  top: 0px;
-  width: 100vw;
-  height: initial !important;
-  z-index: 1;
-}
   
-#toolbar-menubar[autohide="true"][inactive="true"]{ height: 0px !important; }
+  :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar[autohide="false"] + #TabsToolbar > :is(.titlebar-spacer[type="pre-tabs"]){
+    width: 33px !important;
+  }
 
-#toolbar-menubar > spacer{ flex-grow: 1 }
-#toolbar-menubar[inactive] > .titlebar-buttonbox-container{ display: none }
+  #toolbar-menubar{
+    position: fixed;
+    display: flex;
+    top: 0px;
+    width: 100vw;
+    height: initial !important;
+    z-index: 1;
+  }
 
-#main-menubar{
-  height: calc(var(--tab-height-personal) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 1px);
-  background-color: var(--lwt-frame) !important;
-  color: var(--arrowpanel-color) !important;
-}
-  
-/* Height menubar in Linux*/
-@media (-moz-platform: linux) { 
+  #toolbar-menubar[autohide="true"][inactive="true"]{ height: 0px !important; }
+
+  #toolbar-menubar > spacer{ flex-grow: 1 }
+  #toolbar-menubar[inactive] > .titlebar-buttonbox-container{ display: none }
+
   #main-menubar{
-  height: calc(var(--tab-height-personal) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 2px);
-  }}
+    height: calc(var(--tab-height-personal) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 1px);
+    background-color: var(--lwt-frame) !important;
+    color: var(--arrowpanel-color) !important;
+  }
 
-#menubar-items{
-  -moz-box-orient: horizontal !important; /* Fx <112 compatibility */
-  flex-direction: row !important;
-}
-#menubar-items::after{
-  content: "";
-  display: flex;
-  width: 50px;
-  height: calc(var(--tab-min-height) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 1px );
-  background-image: linear-gradient(to right, var(--lwt-frame) 30%, transparent);
-}
+  /* Height menubar in Linux*/
+  @media (-moz-platform: linux) { 
+    #main-menubar{
+    height: calc(var(--tab-height-personal) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 2px);
+    }}
 
-@media (-moz-platform: linux) {
+  #menubar-items{
+    -moz-box-orient: horizontal !important; /* Fx <112 compatibility */
+    flex-direction: row !important;
+  }
   #menubar-items::after{
-  height: calc(var(--tab-min-height) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 2px );
-  }}
+    content: "";
+    display: flex;
+    width: 50px;
+    height: calc(var(--tab-min-height) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 1px );
+    background-image: linear-gradient(to right, var(--lwt-frame) 30%, transparent);
+  }
 
-#main-menubar>menu {  
-  border-radius: 0px !important;
-}
+  @media (-moz-platform: linux) {
+    #menubar-items::after{
+    height: calc(var(--tab-min-height) +  2 * var(--tab-block-margin,0px) + var(--windowed-top-padding, 0px) - 2px );
+    }}
 
-@media (-moz-gtk-csd-reversed-placement){
-  #toolbar-menubar[autohide="true"]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
-}
+  #main-menubar>menu {  
+    border-radius: 0px !important;
+  }
+
+  @media (-moz-gtk-csd-reversed-placement){
+    #toolbar-menubar[autohide="true"]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
+  }
   
 /* ############################################## Compatibilidad con <window controls> on left en linux ############################################## */
 
@@ -918,67 +936,20 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
       border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 34px),
                     var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 34px),
                     var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;  
+      z-index: 2 !important;
+  }
+
+/* Sobre-escribir ogx_left-sidebar : Margen izquierda pestañas cuando se muestra la menu-bar */
+
+    #toolbar-menubar, #toolbar-menubar[autohide="true"]+#TabsToolbar {
+        padding-left: 0px !important;
+    }
+  
+/* Sobreescribir regla de arriba: Mantener espacio derecha con la barra de menú siempre activa */
+  
+  :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar[autohide="false"] + #TabsToolbar > :is(.titlebar-spacer[type="pre-tabs"]){
+    width: 0px !important;
   }}
-  
-/* ####################################################### Compatibilidad con "Tab-Shapes" config ####################################################### */
-  
-@media (-moz-bool-pref:"firefoxgx.tab-shapes") {
-  
-/* Necesario por bug del border-top al cambiar la manera de formar la pestaña */
-  
-#TabsToolbar{
-    --tabs-navbar-shadow-size: 1px !important;
-}
-  
-.tab-background[selected]{
-    margin-block-start: 1px !important;
-    border-block-start: 0px solid transparent !important;
-    border-inline: none !important;
-    clip-path: none;
-}
-  
-#nav-bar{
-    margin-top: calc(0px - var(--tab-height-personal) - 2px) !important;
-    height: calc(var(--tab-height-personal) + 2px) !important;
-}
-  
-/* Poner la imagen los lados de la pestaña */
-  
-  @media (prefers-color-scheme: dark){
-    
-    :root[lwtheme-image], :root[style*="--lwt-additional-images"]{
-      --toolbar-bgcolor: #10101900 !important;                                 /* "toolbar":"#131118", "Color de la toolbar" */
-      --lwt-selected-tab-background-color: #101019bf !important;
-    }}
-
-  @media (prefers-color-scheme: light){
-    
-    :root[lwtheme-image], :root[style*="--lwt-additional-images"]{
-      --toolbar-bgcolor: #fefefe00 !important;                                 /* "toolbar":"#131118", "Color de la toolbar"*/
-      --lwt-selected-tab-background-color: #fefefebf !important;
-    }}
-  
-  
-.tabbrowser-tab[visuallyselected] .tab-background::before,
-.tabbrowser-tab[visuallyselected] .tab-background::after {
-    fill: var(--lwt-selected-tab-background-color, var(--toolbar-bgcolor)) !important;
-    stroke: var(--tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9))) !important;
-  }
-  
-:root:not([customizing="true"]) .tabbrowser-tab[multiselected][visuallyselected] .tab-background::before,
-:root:not([customizing="true"]) .tabbrowser-tab[multiselected][visuallyselected] .tab-background::after {
-    fill: var(--lwt-selected-tab-background-color, var(--toolbar-bgcolor)) !important;
-  }
-
-/* My edit - Fondo de pestañas al mover pestaña seleccionada imagenes: :before :after */
-  
-#tabbrowser-tabs[movingtab] .tabbrowser-tab:is([visuallyselected]) .tab-background::before, 
-#tabbrowser-tabs[movingtab] .tabbrowser-tab:is([visuallyselected]) .tab-background::after,
-    :root[style*="--lwt-additional-images"] #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]{
-        background: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
-                    linear-gradient(transparent, transparent), var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-  }
-}
   
 /* ####################################################################################################################################################### */
   

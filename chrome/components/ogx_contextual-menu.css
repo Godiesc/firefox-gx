@@ -72,11 +72,13 @@ menupopup:not(#PlacesToolbar) menupopup {
 
 .menupopup-arrowscrollbox {
     appearance: none !important;
-    background-image: var(--noise-urlbar-personal) !important;
-    box-shadow: 0px 0px 0 1px var(--border-contrast-color, #09080d) !important;
+    background-image: linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)),
+                      linear-gradient(transparent, transparent),
+                      var(--noise-urlbar-personal, var(--noise-urlbar-personal, none)) !important;
     background-color: var(--arrowpanel-background, Menu) !important; 
+    box-shadow: 0px 0px 0 1px var(--border-contrast-color, #09080d) !important;
     color: var(--arrowpanel-color, #ffffff) !important;
-    border-image: var(--panel-separator-zap-gradient4) 1 !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
     border-radius: 0px !important;
 }
 
@@ -123,7 +125,9 @@ menupopup > menuitem:is([disabled="true"]):hover {
 
 /* Necesario para quitar glitch indeseado al mover el mouse rapidamente sobre items de menús */
 
-menupopup > menuitem:not([selected="true"]), menupopup > menu {
+menupopup > menuitem:not([selected="true"]),
+#context-navigation > menuitem:not([selected="true"]),
+menupopup > menu {
     appearance: none !important;
     background-color: transparent !important;
 }

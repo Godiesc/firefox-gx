@@ -137,22 +137,23 @@ findbar:-moz-lwtheme {
 
 /* Urlbar */
 
+#urlbar, #urlbar-background{
+    border-radius: var(--border-radius-urlbar-personal) !important;
+}
+
 #urlbar {
     min-height: calc(var(--toolbar-height-personal) - 9px) !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
-    border-radius: 4px !important;
 }
 
 #urlbar:not([open], [focused]) #urlbar-background {
-    border-radius: 4px !important;
     transition: ease-in 150ms !important;
     transition-delay: 80ms !important;
 }
 
 #urlbar:not([open], [focused]):hover #urlbar-background {
-    background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
-    border-radius: 4px !important;
+    background-color: color-mix(in srgb, var(--general-color) 20%, transparent) !important;
     border-color: transparent !important;
     transition: linear 150ms !important;
     transition-delay: 80ms !important;
@@ -160,26 +161,18 @@ findbar:-moz-lwtheme {
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) 
     #urlbar:not([open]):is([focused]) #urlbar-background {
-        background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
-}
-
-#urlbar:not([open]) {
-    margin-top: -1px !important;
+        background-color: color-mix(in srgb, var(--general-color) 20%, transparent) !important;
 }
 
 #urlbar[focused] #urlbar-background {
-    border-radius: 4px !important;
     box-shadow: none !important;
 }
 
 #urlbar[open] #urlbar-background {
     background-image: var(--noise-urlbar-personal) !important;
-    border-radius: 10px !important;
+    border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-color: transparent !important;
-}
-
-#urlbar[breakout][breakout-extend]>#urlbar-input-container {
-    margin-top: -1px !important;
+    margin-top: 1px !important;
 }
 
 #urlbar-input, #urlbar-scheme {
@@ -188,12 +181,6 @@ findbar:-moz-lwtheme {
 
 #urlbar[open] {
     z-index: 4 !important;
-}
-
-@media (-moz-platform: windows) {
-    #urlbar-input, #urlbar-scheme {
-        padding-bottom: 2px !important;
-    }
 }
 
 /* Brighness when urlbar [open]*/
@@ -377,7 +364,8 @@ findbar:-moz-lwtheme {
 .urlbar-page-action {
     width: 21px !important;
     height: 20px !important;
-    margin-inline: 3px 3px!important;
+    margin-block-start: 1px !important;
+    margin-inline: 3px 3px !important;
     padding: 3px !important;
     color: var(--toolbarbutton-icon-fill) !important;
 }
@@ -385,6 +373,10 @@ findbar:-moz-lwtheme {
 .urlbar-page-action>.urlbar-icon {
     width: 15px !important;
     height: 15px !important;
+}
+    /* Container icon */
+#userContext-icons{
+    margin-top: 4px !important;
 }
 
 /* Translate button */

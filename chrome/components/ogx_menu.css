@@ -17,7 +17,7 @@
         display: flex;
         top: var(--windowed-top-padding, 0px);
         left: 0px !important;
-        z-index: 2 !important;
+        z-index: 3 !important;
     }
     
 /* Tamaño menu [Open] - ventana maximizada y no maximizada*/
@@ -40,6 +40,19 @@
     
     :root:not([chromehidden~="toolbar"]) #toolbar-menubar, :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="true"]+#TabsToolbar {
         padding-inline-start: var(--padding-left-tab) !important;
+    }
+    
+/* Completar linea antes de la primera pestaña */
+    
+    #TabsToolbar::before{
+        content: "" !important; position: absolute !important; align-self: end !important;
+        width: var(--padding-left-tab) !important;
+        height: 1px !important;
+        min-height: 1px !important;
+        max-height: 1px !important;
+        left: 0 !important;
+        width: var(--padding-left-tab) !important;
+        border-bottom: 1px solid var(--general-color) !important;
     }
     
 /* tamaño botón Menú */
@@ -67,7 +80,7 @@
                           linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)),
                           linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)) !important;
         border-radius: 0px !important;
-        border-image: var(--panel-separator-zap-gradient5) 1 !important;
+        border-color: transparent !important;
         width: 28.5em !important;
     }
 

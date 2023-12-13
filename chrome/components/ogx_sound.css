@@ -12,7 +12,7 @@
 .tab-icon-overlay[soundplaying]:not([pinned]){
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
     opacity: 1 !important;
-    fill: var(--identity-tab-color,var(--general-color))  !important;
+    fill: var(--general-color)  !important;
     background: color-mix(in srgb, var(--contrast-color), transparent) !important;
     border-radius: 50% !important;
     padding: 0px !important;
@@ -114,7 +114,7 @@ tab:hover .tab-icon-overlay { opacity: 1 !important; }
 /* Reproduciendo pinned */    
 .tab-icon-overlay:is([pinned])[soundplaying]{
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
-    fill: var(--identity-tab-color, var(--general-color)) !important;
+    fill: var(--general-color) !important;
     stroke: transparent !important;
     height: 14px !important;
     width: 14px !important;

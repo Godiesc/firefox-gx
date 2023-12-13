@@ -7,32 +7,66 @@
 
 /* Pestaña activa - ogx-tabs-bar.css */
   
-.tab-background, .tab-stack::before{ clip-path: none; }
-  
-.tabbrowser-tab[selected] > .tab-stack::before{ height: 0px !important; }
+.tabbrowser-tab[selected] { z-index: 1 !important; }
 
-.tab-background[selected]{ border-radius: 0px !important; }
+.tab-background{
+    border-top: 1px solid transparent !important;
+    border-inline: none !important;
+    clip-path: none !important;
+}
+
+.tab-background[selected]{
+    border-color: var(--general-color) !important;
+    background-color: var(--toolbar-bgcolor, transparent) !important;
+    box-shadow: none !important;
+    background-clip: padding-box;
+    border-radius: 0px 0px 0 0 !important;
+    clip-path: none !important;
+}
+
+.tabbrowser-tab[selected] > .tab-stack::before{
+    display: none !important;
+}
   
-/* Newtab button */
+/* Quita pixeles que rellenaban espacio entre pestañas */
+  
+#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab[selected] ~ .tabbrowser-tab:not([hidden])::after{
+   display: none !important;
+}
+  
+/* Sobre-escribir ogx_tabs-bar: Completar Linea gradiente al aparecer el scroll de pestañas */
+
+  #scrollbutton-up::before{
+      width: 38px !important;
+      margin-left: 12px !important;
+      }
+
+  #scrollbutton-down::after{
+      width: 180px !important;
+      margin-left: 118px !important;
+    }
+  
+/* ############################# Sobreescribir codigo de <ogx_menu.css> ############################# */
+  
+ #TabsToolbar::before{
+        width: calc(var(--padding-left-tab) + var(--uc-margin-left-right) + var(--uc-tab-corner-half-size)*3) !important;
+    }
+  
+/* ############################# Newtab button ############################# */
 
 @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") or
-       (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") {
+       (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") or
+       (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome") {
+         
+    :root{ --border-radius-urlbar-personal: 14px !important; }
+         
+    .tab-close-button {
+        list-style-image: url(chrome://global/skin/icons/close-12.svg) !important;
+        padding: 2px !important; 
+            }
             
     #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
         border-radius: 50% !important;
-            }}
-
-@media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome"){
-            
-    #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
-        border-radius: 3px !important;
-            }}
-  
-@media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.edge") or 
-       (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome_legacy"){
-            
-    #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
-        border-radius: 2px !important;
             }}
   
 @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") or
@@ -47,27 +81,34 @@
 
 /* ############################# Sobreescribir - ogx_containers.css ############################# */
   
+.tab-context-line {
+    width: 18px !important;
+    margin-inline-start: 0px !important;
+    box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
+    transition-duration: 100ms !important;
+    clip-path: none !important;
+}
+  
+tab:not([pinned])[selected] .tab-context-line {
+    width: calc(100% - calc(-6px + var(--uc-margin-left-newtab))) !important;
+    transition-duration: 200ms !important;
+}
+  
 /* Pinned */
   
-.tabbrowser-tab:is([pinned]) .tab-context-line{
-    height: 2px ; 
-    margin-bottom: 3px ;
-    -moz-box-ordinal-group: 2 ; 
-}
-tab:is([pinned])[selected] .tab-context-line { margin-inline: 0px  !important;
-    max-width: -moz-available  !important;
-    transition-duration: 150ms ;
-}
-tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !important;
-    max-width: -moz-available  !important;
-    transition-duration: 0ms ;
+tab:is([pinned]) .tab-context-line {
+    position: absolute !important;
+    width: 14px !important;
+    margin-inline: 0px !important;
+    align-self: center !important;
+    bottom: 0 !important;
 }
 
 /* trick para mantener margen left-right de las pestañas */
   
 .tabbrowser-tab:not(#tabbrowser-tabs[haspinnedtabs]:is([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab):nth-child(1 of :not([hidden])){
     margin-inline-start: calc( 0px - var(--uc-margin-left-right) + var(--uc-tab-corner-half-size)) !important; 
-  } 
+  }
   
 /* Margen left de la barra de pestañas cuando está en overflow */
   
@@ -91,17 +132,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
     > #tabbrowser-arrowscrollbox
     > .tabbrowser-tab
     > .tab-stack
-    > .tab-background[multiselected]:not([selected]) {
-    /* Original:
-    background-attachment: scroll, scroll, fixed;
-    background-color: transparent;
-    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)),
-                      linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
-                      var(--lwt-header-image, none);
-    background-position: 0 0, 0 0, right top;
-    background-repeat: repeat-x, repeat-x, no-repeat;
-    background-size: auto 100%, auto 100%, auto auto;
-    */
+    > .tab-background[multiselected]:not([selected]){
     background-attachment: scroll, fixed !important;
     background-color: transparent !important;
     background-image: linear-gradient(var(--uc-multiselected-tab-bgcolor), var(--uc-multiselected-tab-bgcolor)),
@@ -119,7 +150,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
 
 /* ########################################## Selected Tab - Box Shadow ########################################## */
 
-@media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+@media (-moz-bool-pref:"firefoxgx.tab-shapes") {
   #TabsToolbar {
     --uc-tab-shadow-color: var( --general-color, var(--lwt-tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9)))  );
     --uc-tab-shadow-color-bundle: var(--general-color, var(--lwt-tab-line-color, rgba(128, 128, 142, 0.9)));
@@ -127,51 +158,16 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
   #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
     box-shadow: unset !important;
     filter: drop-shadow(-1px -0.5px 0px var(--general-color, transparent))
-      drop-shadow(1px -0.5px 0px var(--general-color, transparent)) /*drop-shadow(0 2px rgba(128, 128, 142, 0.5))*/ ;
-  }
-  :root:is([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])
-    #TabsToolbar[brighttext]
-    #tabbrowser-tabs:not([noshadowfortests])
-    .tabbrowser-tab:is([selected], [multiselected])
-    > .tab-stack
-    > .tab-background:-moz-lwtheme {
-    filter: drop-shadow(-1px -0.5px 0px var(--general-color, transparent))
-      drop-shadow(1px -0.5px 0px var(--general-color, transparent)) /*drop-shadow(0 2px rgba(128, 128, 142, 0.5))*/ ;
-  }
-  :root:is([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])
-    #TabsToolbar[brighttext]
-    #tabbrowser-tabs:not([noshadowfortests])
-    .tabbrowser-tab[visuallyselected="true"]:not(:focus),
-  :root:is([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])
-    #TabsToolbar[brighttext]
-    #tabbrowser-tabs:not([noshadowfortests])
-    .tabbrowser-tab[multiselected]:not([visuallyselected]) {
-    --uc-tab-shadow-color-bundle: var(--toolbar-color);
-  }
-  /* For themes outside of Light and Dark (which are curated by Mozilla), show a thicker border
-     around the tab to help themes that are dependent on tab_line to show the selected tab. */
-  :root:not([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(240, 240, 244); --lwt-text-color: rgba(21, 20, 26);"])
-    #TabsToolbar:not([brighttext])
-    #tabbrowser-tabs:not([noshadowfortests])
-    .tabbrowser-tab:is([visuallyselected="true"], [multiselected])
-    > .tab-stack
-    > .tab-background:-moz-lwtheme {
-    --uc-tab-shadow-color: var(--uc-tab-shadow-color-bundle);
-    filter: drop-shadow(-1px -0.5px 0px var(--uc-tab-shadow-color, transparent))
-      drop-shadow(1px -0.5px 0px var(--uc-tab-shadow-color, transparent)) /*drop-shadow(0 2px rgba(128, 128, 142, 0.5))*/ ;
-  }
-  :root:not([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])
-    #TabsToolbar[brighttext]
-    #tabbrowser-tabs:not([noshadowfortests])
-    .tabbrowser-tab:is([visuallyselected="true"], [multiselected])
-    > .tab-stack
-    > .tab-background:-moz-lwtheme {
-    filter: drop-shadow(-1px -0.5px 0px var(--uc-tab-shadow-color))
-      drop-shadow(1px -0.5px 0px var(--uc-tab-shadow-color, transparent));
+      drop-shadow(1px -0.5px 0px var(--general-color, transparent));
+    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
+                      linear-gradient(transparent, transparent), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    background-size: auto auto !important;
   }
 }
+  
 /*= Selected Tab - Bottom Rounded Corner =====================================*/
-@media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+@media (-moz-bool-pref:"firefoxgx.tab-shapes") {
   @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") {
     @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") {
       @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome") {
@@ -203,7 +199,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
               background-repeat: no-repeat;
               background-position-y: bottom;
             }
-            @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+            @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
               :root:not([customizing="true"]) .tabbrowser-tab .tab-background::before,
               :root:not([customizing="true"]) .tabbrowser-tab .tab-background::after {
                 content: "";
@@ -222,7 +218,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
               fill: var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
               stroke: var(--tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9)));
             }
-            @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+            @media not (-moz-bool-pref:"firefoxgx.tab-shapes") {
               :root:not([customizing="true"]) .tabbrowser-tab[visuallyselected] .tab-background::before,
               :root:not([customizing="true"]) .tabbrowser-tab[visuallyselected] .tab-background::after {
                 content: "";
@@ -233,40 +229,6 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
               fill: var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
             }
             
-        /* :hover en pestaña no seleccionada 
-            
-            :root:not([customizing="true"])
-              .tabbrowser-tab:hover:not([visuallyselected], [multiselected])
-              .tab-background::before,
-            :root:not([customizing="true"])
-              .tabbrowser-tab:hover:not([visuallyselected], [multiselected])
-              .tab-background::after {
-              fill: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent) !important;
-            }
-            @media ( -moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
-              :root:not([customizing="true"])
-                .tabbrowser-tab[multiselected]:not([visuallyselected])
-                .tab-background::before,
-              :root:not([customizing="true"])
-                .tabbrowser-tab[multiselected]:not([visuallyselected])
-                .tab-background::after {
-                fill: color-mix(in srgb, currentColor 65%, transparent);
-                opacity: 0;
-              }
-            }*/
-            :root:not([customizing="true"])::is([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])
-              #TabsToolbar[brighttext]
-              #tabbrowser-tabs:not([noshadowfortests])
-              .tabbrowser-tab[visuallyselected]
-              .tab-background:-moz-lwtheme::before,
-            :root:not([customizing="true"])::is([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])
-              #TabsToolbar[brighttext]
-              #tabbrowser-tabs:not([noshadowfortests])
-              .tabbrowser-tab[visuallyselected]
-              .tab-background:-moz-lwtheme::after {
-              /* As Selected Tab - Box Shadow */
-              stroke: var(--toolbar-color);
-            }
             @media (-moz-gtk-csd-available) {
               :root:not([customizing="true"]) {
                 /* Fill color for GTK */
@@ -381,7 +343,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-margin-left-newtab: 8px;
       }
     }
-    @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+    @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
       .tabbrowser-tab {
         padding-inline: 0 !important;
         overflow-clip-margin: var(--uc-tab-corner-half-size) !important;
@@ -411,7 +373,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
       background-position: top, right top;
       background-attachment: scroll, fixed;
     }
-    @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+    @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
       .tabbrowser-tab .tab-background::before,
       .tabbrowser-tab .tab-background::after {
         content: "";
@@ -434,19 +396,25 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
 /*      --uc-tab-corner-left-side-svg: var(--uc-tab-corner-left-side-svg-clipped); */
     }
     .tabbrowser-tab:is([visuallyselected], [multiselected]) .tab-background {
-      --uc-tab-corner-bgimage: var(--lwt-header-image, var(--lwt-additional-images, none));
+      --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
+                      linear-gradient(transparent, transparent), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
     }
-    .tabbrowser-tab:is([visuallyselected], [multiselected]) .tab-background::before,
-    .tabbrowser-tab:is([visuallyselected], [multiselected]) .tab-background::after {
-      fill: var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
+    .tabbrowser-tab:is([visuallyselected]) .tab-background::before,
+    .tabbrowser-tab:is([visuallyselected]) .tab-background::after {
+      /*My code*/
+      background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
+                      linear-gradient(transparent, transparent), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    }
     }
     .tabbrowser-tab:hover:not([visuallyselected], [multiselected]) .tab-background::before,
     .tabbrowser-tab:hover:not([visuallyselected], [multiselected]) .tab-background::after {
-      fill: color-mix(in srgb, var(--identity-icon-color, var(--general-color)) 25%, transparent) !important;
+      fill: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
       height: calc(var(--tab-height-personal) + 2px) !important;        /* My edit */
       width: calc(var(--uc-tab-corner-size) + 2px) !important;          /* My edit */
     }
-    @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+    @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
       .tabbrowser-tab[multiselected]:not([visuallyselected]) .tab-background::before,
       .tabbrowser-tab[multiselected]:not([visuallyselected]) .tab-background::after {
         fill: var(--uc-multiselected-tab-bgcolor);
@@ -462,7 +430,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
     }
     @media (-moz-gtk-csd-available) {
       /* Fill color for GTK */
-      @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+      @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
         :root:not([lwtheme="true"]) .tabbrowser-tab {
           --uc-tab-shadow-color: rgba(0, 0, 0, 0.4);
         }
@@ -479,7 +447,7 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
         --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-non-lwt-bgcolor), var(--toolbar-non-lwt-bgcolor));
         fill: rgba(255, 255, 255, 0.075);
       }
-      @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner") {
+      @media not (-moz-bool-pref:"firefoxgx.tab-shapes") {
         :root:not([lwtheme="true"]) .tabbrowser-tab[visuallyselected] .tab-background::before,
         :root:not([lwtheme="true"]) .tabbrowser-tab[visuallyselected] .tab-background::after {
           fill: rgba(255, 255, 255, 0.15);
@@ -487,5 +455,59 @@ tab:is([pinned]):not([selected]) .tab-context-line { margin-inline: 0px  !import
       }
     }
   }
+/* ####################################################### Compatibilidad con "one-line" config ####################################################### */
+  
+@media (-moz-bool-pref:"firefoxgx.oneline") {
+  
+/* ############################# Sobreescribir codigo de <ogx_tab-shapes.css> + <ogx_oneline.css> ############################# */
+  
+#TabsToolbar::before{
+    width: calc(var(--navbarWidth) + var(--padding-left-tab) + var(--uc-margin-left-right) + var(--uc-tab-corner-half-size)*3) !important;
 }
+  
+/* Sobreescribir ogx_oneline.css */
+
+.tab-background[selected]{
+    background: var(--lwt-selected-tab-background-color) !important;   
 }
+  
+/* ----------------- Corrige bug: [pinned] Tabs + scroll - normal window ----------------- */
+  
+#tabbrowser-arrowscrollbox[overflowing="true"] .tabbrowser-tab[pinned] .tab-background[selected] {
+    border-block-start: 0px !important;
+    margin-block-start: 1px !important;
+}
+  
+/* -------------------------------------------------------------------------------------- */
+  
+.tabbrowser-tab:is([visuallyselected]) .tab-background::before,
+.tabbrowser-tab:is([visuallyselected]) .tab-background::after {      
+    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)), 
+                      linear-gradient(transparent, transparent), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    }
+  
+#tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+    box-shadow: unset !important;
+    filter: drop-shadow(-1px -0.5px 0px var(--general-color, transparent))
+      drop-shadow(1px -0.5px 0px var(--general-color, transparent));
+    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)), 
+                      linear-gradient(transparent, transparent), 
+                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+    background-size: auto auto !important;
+  overflow-clip-margin: 30px !important;
+  }
+  
+/* Sobre-escribir ogx_tabs-bar: Completar Linea gradiente al aparecer el scroll de pestañas */
+
+  #scrollbutton-up::before{
+      width: 44px;
+      margin-left: 8px;
+      }
+
+  #scrollbutton-down::after{
+      width: 180px;
+      margin-left: 118px;
+
+    }
+}}

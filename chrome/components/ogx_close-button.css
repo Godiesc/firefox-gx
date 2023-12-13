@@ -4,18 +4,21 @@
 /*"Botón de cerrar pestaña" en windows y linux */
 
 :is(#TabsToolbar) .close-icon {
-    width: 15px !important;
-    height: 15px !important;
+    width: 17px !important;
+    height: 17px !important;
 }
 
 .tab-close-button {
     list-style-image: url('../images/close.svg') !important;
-    padding: 3px !important;
-    border-radius: 0px !important;
+    padding: 4px !important;
+    border-radius: calc(var(--border-radius-urlbar-personal) - 4px) !important;
     margin-inline-end: -2px !important;
+    opacity: 0.8 !important;
 }
 
+.tabbrowser-tab:is(:hover, [selected]) .tab-close-button{ opacity: 1 !important; }
+
 .tab-close-button:hover {
-   background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
-   fill: var(--identity-tab-color, var(--general-color)) !important;
+    background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
+    fill: var(--general-color) !important;
 }

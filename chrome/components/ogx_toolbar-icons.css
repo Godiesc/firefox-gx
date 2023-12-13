@@ -109,6 +109,22 @@
     padding: 1px !important;
 }
 
+/* Extension GX Mods */
+
+#gxmods_glacier_dog-BAP{
+    list-style-image: url("../images/edit.svg") !important;
+}
+
+/* Firefox view icon */
+
+#firefox-view-button {
+    list-style-image: url("../images/firefoxview-close.svg") !important;
+}
+
+#firefox-view-button[aria-pressed="true"] {
+    list-style-image: url("../images/firefoxview-open.svg") !important;
+}
+
 /* separador izquierda y derecha urlbar */
 
 #urlbar:not([open=true], [focused=true], :hover) #urlbar-background::before {

@@ -4,7 +4,7 @@
 @media (prefers-color-scheme: dark){
  window, dialog {                                                                            /*Colores varios de paginas de about:addons y about:settings*/
      
-     --color-accent-primary: var(--general-color) !important;
+    --color-accent-primary: var(--general-color) !important;
     --in-content-page-background: #1a1a24 !important;
     --in-content-primary-button-background: var(--general-color) !important;
     --in-content-primary-button-text-color: white !important;
@@ -181,6 +181,17 @@
     url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support), 
     url-prefix(about:profiles) , url-prefix(about:debugging), url-prefix(about:welcome){
         
+:root{
+    --opaque: color-mix(in srgb, var(--in-content-page-background) 60%, transparent) !important;
+}
+        
+/* Mensajes informativos */
+        
+.discopane-notice{
+    --message-bar-background-color: var(--button-bgcolor) !important;
+    --message-bar-border-color: var(--button-active-bgcolor) !important;
+}
+        
 /* Toggle button */
         
 .toggle-button[aria-pressed="true"]:enabled {
@@ -221,10 +232,11 @@ button.primary:hover {
         
 #categories{
     margin: 70px 15px 0 -18px !important; 
+    background-color: transparent !important;
 }
         
 #categories > .category{
-    background-color: var(--in-content-box-background) !important;
+    background-color: transparent !important;
     color: color-mix(in srgb, var(--in-content-text-color)76%, transparent) !important;
 }
         
@@ -319,8 +331,8 @@ addon-card[expanded] .addon.card {
     outline-offset: 1px !important;
 }
         
-#categories, #sidebar ,.main-heading, .main-search , .navigation, .sticky-container  {
-    background: var(--in-content-box-background) !important;
+#sidebar, .main-heading, .navigation, .sticky-container  {
+    background: var(--opaque) !important;
 }
         
 .navigation, #sidebar{ 
@@ -348,7 +360,8 @@ addon-card[expanded] .addon.card {
 .main-heading {
     margin-top: -52px !important;
     margin-bottom: 4px !important;
-    min-width: 50% !important; 
+    min-width: 50% !important;
+    background-color: transparent !important;
 }
         
 .main-heading .spacer {
@@ -395,7 +408,21 @@ search-addons > search-textbox[focused] {
 
 #searchInput[focused]{ 
     outline: 2px solid var(--general-color) !important; 
-}}
+}
+        
+body{
+    --bg: var(--lwt-main-image);
+    
+    background-image: linear-gradient(var(--opaque), var(--opaque)),
+                      linear-gradient(var(--opaque), var(--opaque)), 
+                      var(--bg) !important;
+    background-repeat: repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position-y: var(--background-align-y) !important;
+    backdrop-filter: var(--brightness-wallpaper) !important;
+    }
+}
 
 @-moz-document url-prefix(about:preferences){
     
@@ -409,8 +436,7 @@ search-addons > search-textbox[focused] {
 }
 
 .sticky-container {
-    background: var(--in-content-box-background) !important;
-    background: linear-gradient(to right, var(--in-content-box-background) 94%, var(--in-content-page-background)) !important;
+    background: linear-gradient(to right, var(--in-content-page-background) 94%, transparent) !important;
     width: 125% !important;
     margin-left: -98px !important;
     border-bottom: 1px solid transparent !important;

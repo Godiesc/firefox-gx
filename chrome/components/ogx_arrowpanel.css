@@ -16,7 +16,7 @@ slot {
 panelview {    
     background-image: var(--noise-urlbar-personal) !important;
     border: 1px solid #0c0a10 !important;
-    border-image: var(--panel-separator-zap-gradient4) 1 !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 
 /* Margen de varios arrowpanels [Open] */
@@ -155,7 +155,7 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
 
 treechildren::-moz-tree-separator {
     border-bottom: none !important;
-    border-image: var(--panel-separator-zap-gradient4) 1 !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 
 /* menú desplegable boton de la toolbar que muestra todos los marcadores */
