@@ -28,12 +28,12 @@
 
 @media (prefers-color-scheme: dark){
     :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-        --arrowpanel-background: #10101990 !important;
+        --arrowpanel-background: #101019b0 !important;
     }}
 
 @media (prefers-color-scheme: light){
     :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-        --arrowpanel-background: #f9f9f990 !important;
+        --arrowpanel-background: #f9f9f9b0 !important;
     }}
 
 .menupopup-arrowscrollbox, slot, panelview {
