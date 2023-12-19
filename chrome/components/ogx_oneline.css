@@ -933,8 +933,8 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
       --padding-top-left-sidebar: 130px !important;
       --padding-bottom-left-sidebar: 70px !important;
 
-      border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 34px),
-                    var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 34px),
+      border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 33px),
+                    var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 33px),
                     var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;  
       z-index: 2 !important;
   }

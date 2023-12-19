@@ -72,7 +72,7 @@
 
 /* ------------------------------------- Gradiente bajo pestañas ------------------------------------- */
 
-#navigator-toolbox { --lwt-tabs-border-color: transparent !important; }
+#nav-bar:not([tabs-hidden="true"]) { box-shadow: none !important; }
 
 .tabbrowser-tab:not([selected]){  box-shadow: inset 0 -1px var(--general-color) !important; }
 
@@ -128,15 +128,7 @@
     border-image: linear-gradient(to right, var(--general-color) 0%, transparent) 1;
 }
 
-/* Linea gradiente más grande al seleccionar las primeras pestañas
-
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab + #tabbrowser-arrowscrollbox-periphery::after,
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab[hidden="true"][label="Firefox View"]:last-of-type + #tabbrowser-arrowscrollbox-periphery::after{
-    content: "" !important; position: absolute !important; align-self: end !important;
-    width: 180px !important;
-    border-bottom: 1px solid transparent !important;
-    border-image: linear-gradient(to right, var(--general-color), var(--general-color) 20%, transparent) 1 !important;
-    } */
+/* Linea gradiente más grande al seleccionar las primeras pestañas */
 
 #tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab:is(
 :nth-child(1 of :not([hidden],[pinned]))) + #tabbrowser-arrowscrollbox-periphery::after,

@@ -22,9 +22,9 @@
   /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);             /* popup_highlight */
   
   --panel-description-color: var(--general-color) !important;                           /* Color de letras de: correo de la cuenta, y dispositivos conectados"*/
-  --toolbar-field-background-color: var(--toolbar-bgcolor) !important;                  /* toolbar_field */
+  --toolbar-field-background-color: transparent !important;                             /* toolbar_field */
   --toolbar-field-color: var(--lwt-tab-text) !important;                                /* toolbar_field_text */
-  --toolbar-field-border-color: var(--toolbar-bgcolor) !important;                      /* toolbar_field_border */
+  --toolbar-field-border-color: transparent !important;                                 /* toolbar_field_border */
   
   /*--toolbar-field-focus-background-color: color-mix(in srgb, 
   var(--general-color) 4%, #2e273ffb) !important;                                       /* toolbar_field_focus */
