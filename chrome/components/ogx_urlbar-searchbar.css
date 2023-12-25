@@ -49,7 +49,7 @@ findbar:-moz-lwtheme {
 /* tamaño letras urlbar */
 
 #urlbar-input {
-    font-weight: 501 !important;
+    /* font-weight: 501 !important; */
     opacity: 0.9 !important;
 }
 
