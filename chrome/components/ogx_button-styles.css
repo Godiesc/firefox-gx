@@ -120,7 +120,7 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     --toolbarbutton-active-background: var(--contrast-color) !important; 
     --toolbarbutton-icon-fill: var(--toolbar-color) !important;
     text-shadow: none !important;
-    font-weight: 501 !important;
+    /* font-weight: 501 !important; */
 }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar {
