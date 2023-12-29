@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg16"
+   fill="context-fill"
+   sodipodi:docname="foxlogofavicon2.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="11.313709"
+     inkscape:cx="4.4636116"
+     inkscape:cy="11.623068"
+     inkscape:window-width="1304"
+     inkscape:window-height="697"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g14"
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid865" />
+  </sodipodi:namedview>
+  <g
+     id="g14">
+    <rect
+       style="fill-opacity:1;fill-rule:nonzero;stroke-width:4.94013;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers fill stroke"
+       id="rect1049"
+       width="18.027458"
+       height="14.210326"
+       x="3.4917669"
+       y="9.4146738"
+       ry="0" />
+    <rect
+       style="fill-opacity:1;fill-rule:nonzero;stroke-width:5.16346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers fill stroke"
+       id="rect1049-07"
+       width="18.039482"
+       height="15.513865"
+       x="3.4917669"
+       y="26.486135"
+       ry="0" />
+    <rect
+       style="fill-opacity:1;fill-rule:nonzero;stroke-width:5.11867;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers fill stroke"
+       id="rect1049-07-9"
+       width="17.890625"
+       height="15.372779"
+       x="24.53125"
+       y="26.62722"
+       ry="0" />
+    <rect
+       style="fill-opacity:1;fill-rule:nonzero;stroke-width:4.92614;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+       id="rect1049-0"
+       width="17.891544"
+       height="14.241576"
+       x="24.530331"
+       y="9.4146738"
+       ry="0" />
+  </g>
+</svg>
