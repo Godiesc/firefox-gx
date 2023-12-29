@@ -27,6 +27,8 @@
 
 .tabbrowser-tab[selected] { z-index: 1 !important; }
 
+:root[tabsintitlebar] #titlebar:-moz-window-inactive { opacity: 1 !important; }
+
 .tab-background{
     border-top: 1px solid transparent !important;
     border-inline: 1px solid transparent !important;
@@ -199,13 +201,6 @@
 
 #tabs-newtab-button:hover .toolbarbutton-icon, #TabsToolbar #new-tab-button:hover .toolbarbutton-icon {
     background: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
-}
-
-/* Favicon de pagina newtab */
-
-.tab-icon-image[src="chrome://branding/content/icon32.png"] {
-    content: url("../images/foxlogofavicon.svg");
-    fill: var(--identity-icon-color, var(--general-color)) !important;
 }
 
 /* Medidas menores para scroll de pestañas */

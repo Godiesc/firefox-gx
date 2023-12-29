@@ -176,16 +176,16 @@
     }
     
     #firefox-view-button image {
-        list-style-image: url("../images/firefoxview-close.svg") !important;
+        list-style-image: url("../icons/firefoxview-close.svg") !important;
     }
 
     #firefox-view-button[aria-pressed="false"]:active .toolbarbutton-icon{
-        list-style-image: url("../images/firefoxview-close.svg") !important;
+        list-style-image: url("../icons/firefoxview-close.svg") !important;
         transition-duration: 250ms !important;
     }
     
     #firefox-view-button[aria-pressed="true"]:not(:active) .toolbarbutton-icon{
-        list-style-image: url("../images/firefoxview-open.svg") !important;
+        list-style-image: url("../icons/firefoxview-open.svg") !important;
         transition-duration: 350ms !important;
     }   
     
@@ -341,32 +341,32 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
 /* ChatGPT Extension */
 #PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP,
-#PersonalToolbar #_63ec59d8-ba50-4d88-917e-fb65af892a39_-BAP { list-style-image: url("../images/logo_chatgpt.svg") !important; }
+#PersonalToolbar #_63ec59d8-ba50-4d88-917e-fb65af892a39_-BAP { list-style-image: url("../icons/logo_chatgpt.svg") !important; }
 
 /* Twitch Extension */
-#PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP { list-style-image: url("../images/logo_twitch.svg") !important; }
+#PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP { list-style-image: url("../icons/logo_twitch.svg") !important; }
 
 /* Messenger Extension */
-#PersonalToolbar #xrst_vardakis_gmail_com-BAP { list-style-image:url("../images/logo_messenger.svg") !important; }
+#PersonalToolbar #xrst_vardakis_gmail_com-BAP { list-style-image:url("../icons/logo_messenger.svg") !important; }
 
 /* Whatsapp Extension */
 #PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP,
-#chatwappinsidebar_godie-BAP{ list-style-image: url("../images/logo_whatsapp.svg") !important; }
+#chatwappinsidebar_godie-BAP{ list-style-image: url("../icons/logo_whatsapp.svg") !important; }
 
 /* Telegram Extension */
-#PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{ list-style-image: url("../images/logo_telegram.svg") !important; }
+#PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{ list-style-image: url("../icons/logo_telegram.svg") !important; }
 
 /* ublock Extension */
-#PersonalToolbar #ublock0_raymondhill_net-BAP{ list-style-image: url("../images/logo_ublock.svg") !important; }
+#PersonalToolbar #ublock0_raymondhill_net-BAP{ list-style-image: url("../icons/logo_ublock.svg") !important; }
 
 /* Tab-group Extension */
-#PersonalToolbar #panorama-tab-groups_example_com-BAP{ list-style-image: url("../images/logo_grouptabs.svg") !important; }
+#PersonalToolbar #panorama-tab-groups_example_com-BAP{ list-style-image: url("../icons/logo_grouptabs.svg") !important; }
 
 /* Discord Extension */
-#PersonalToolbar #_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP{ list-style-image: url("../images/logo_discord.svg") !important; }
+#PersonalToolbar #_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP{ list-style-image: url("../icons/logo_discord.svg") !important; }
 
 /* Twitter Extension */
-#PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{ list-style-image: url("../images/logo_twitter.svg") !important; }
+#PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{ list-style-image: url("../icons/logo_twitter.svg") !important; }
     
 /* Simple Translate extension */
 #PersonalToolbar #simple-translate_sienori-BAP { list-style-image: url(chrome://browser/skin/translations.svg) !important; }
@@ -374,45 +374,45 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 /* ------------------------ Colored folders for bookmarks ------------------------ */
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+1) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder1.svg") !important;
+    list-style-image: url("../icons/folder1.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+2) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder2.svg") !important;
+    list-style-image: url("../icons/folder2.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+3) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder3.svg") !important;
+    list-style-image: url("../icons/folder3.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+4) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder4.svg") !important;
+    list-style-image: url("../icons/folder4.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+5) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder5.svg") !important;
+    list-style-image: url("../icons/folder5.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+6) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder6.svg") !important;
+    list-style-image: url("../icons/folder6.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+7) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder7.svg") !important;
+    list-style-image: url("../icons/folder7.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+8) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder8.svg") !important;
+    list-style-image: url("../icons/folder8.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+9) > .toolbarbutton-icon {
-    list-style-image: url("../images/folder9.svg") !important;
+    list-style-image: url("../icons/folder9.svg") !important;
 }
 
 /* Carpeta "Otros Marcadores" */
 
 #OtherBookmarks > .toolbarbutton-icon{
-    list-style-image: url("../images/folder-otherbookmarks.svg") !important;
+    list-style-image: url("../icons/folder-otherbookmarks.svg") !important;
 }
     
 
@@ -533,7 +533,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="update-unsupported"]:not([open]) .toolbarbutton-badge-stack, 
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="addon-alert"]:not([open]) .toolbarbutton-badge-stack, 
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[badge-status="fxa-needs-authentication"]:not([open]) .toolbarbutton-badge-stack {
-    list-style-image: url("../images/foxFill.svg") !important;
+    list-style-image: url("../icons/foxFill.svg") !important;
     fill: var(--general-color) !important;
     animation: 2000ms infinite ease;
     animation-name: slide1;

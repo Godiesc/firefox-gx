@@ -32,6 +32,12 @@
   --toolbar-field-focus-border-color: transparent !important;                           /* toolbar_field_border_focus */
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /* toolbar_field_highlight */
   --lwt-toolbar-field-highlight-text: var(--contrast-color) !important;                 /* toolbar_field_highlight_text */
+  
+  --urlbar-box-hover-bgcolor: color-mix(in srgb,                                        /* Fondo :hover de íconos de la urlbar */
+    var(--button-bgcolor) 90%, white) !important;
+  --urlbar-box-active-bgcolor: color-mix(in srgb,                                       /* Fondo :active de íconos de la urlbar */
+    var(--button-bgcolor) 82%, white) !important;
+  --urlbar-icon-border-radius: 2px !important;                                          /* forma iconos urlbar */
 
   /*--toolbarbutton-icon-fill: #b6b6d2 !important;                                      /* icons */
   /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /* icons_attention */    
@@ -73,19 +79,17 @@
   --urlbarView-separator-color: transparent !important;                                 /* color separador urlbar y sugerencias de búsqueda */
   
   --border-radius-urlbar-personal: 4px;                                                 /* Variable personal para cambiar forma en tab-shapes config */
-  
-  /* Colores checkbox —v */
-  --checkbox-unchecked-bgcolor: var(--toolbarbutton-hover-personal) !important;
-  --checkbox-unchecked-hover-bgcolor: var(--button-primary-bgcolor) !important;      
-  --checkbox-unchecked-active-bgcolor: var(--general-color) !important;
-  --checkbox-unchecked-border-color: blue !important;
-  --checkbox-checked-border-color: var(--button-hover-bgcolor) !important;
-  --checkbox-checked-bgcolor: var(--button-primary-bgcolor) !important;
-  --checkbox-checked-color: #eaeaea !important;
-  --checkbox-checked-hover-bgcolor: var(--button-primary-hover-bgcolor) !important;
-  --checkbox-checked-active-bgcolor: var(--button-primary-bgcolor) !important;
+
   --link-color: var(--general-color) !important;
+  --link-color-hover: var(--blue) !important;
+  --link-color-active: var(--purple);
+  --link-color-visited: var(--purple);
   
+    accent-color: var(--general-color) !important;
+  
+  --color-accent-primary: var(--button-active-bgcolor) !important;                      /* Radiobutton */
+  --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton :hover */
+  --color-accent-primary-active: var(--general-color) !important;                       /* Radiobutton :active */
 }
 
 /* Dark theme */
@@ -107,13 +111,13 @@
   --toolbarbutton-hover-personal: var(--toolbar-field-focus-background-color) !important;                               /* Button :hover color personal */
   
   scrollbar-color: #38375580 #18173530 !important;                                                                      /* Colores - Barra de deplazamiento */
-  --shield-icon-personal: url("../images/shield-dark.svg") !important;                                                  /* Ícono protección contra rastreo */
-  --noise-urlbar-personal: url("../images/urlbar-noise-light.png") !important;                                          /* imagen de desenfoque urlbar open */
+  --shield-icon-personal: url("../icons/shield-dark.svg") !important;                                                   /* Ícono protección contra rastreo */
+  --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* imagen de desenfoque urlbar open */
   
-  --button-primary-bgcolor: var(--button-hover-bgcolor) !important;                                                     /* ColorBotónGuardar */   
+  --button-primary-bgcolor: var(--button-active-bgcolor) !important;                                                    /* ColorBotónGuardar */   
   --button-primary-color: #eaeaea !important;                                                                           /* ColorLetrasBotónGuardar */
    
-  --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;                                              /* ColorBotónGuardar :Hover */
+  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;                                               /* ColorBotónGuardar :Hover */
   --button-primary-active-bgcolor: var(--button-active-bgcolor) !important;                                             /* ColorBotónGuardar :clic */
 
   --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)50%, var(--border-contrast-color)) !important;        /* Color input background en Marcadores */
@@ -142,8 +146,8 @@
   --toolbarbutton-hover-personal: color-mix(in srgb, var(--toolbar-bgcolor) 88%, black) !important;                     /* Button :hover color personal */
 
   scrollbar-color: #d8d9da var(--toolbar-bgcolor) !important;                                                           /* Colores - Barra de deplazamiento */
-  --shield-icon-personal: url("../images/shield-light.svg") !important;                                                 /* Ícono protección contra rastreo */
-  --noise-urlbar-personal: url("../images/urlbar-noise-light.png") !important;                                          /* imagen de desenfoque urlbar open */
+  --shield-icon-personal: url("../icons/shield-light.svg") !important;                                                  /* Ícono protección contra rastreo */
+  --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* imagen de desenfoque urlbar open */
 
   --button-primary-bgcolor: var(--general-color) !important;                                                            /* ColorBotónGuardar */   
   --button-primary-color: #eaeaea !important;                                                                           /* ColorLetrasBotónGuardar */
@@ -205,16 +209,16 @@
   
   --lwt-header-image: none !important; 
   --lwt-additional-images: none !important;
-  --lwt-accent-color: #0d0c15 !important;                                                                        /*"frame": "#17161c" */
-  --arrowpanel-background: #1c1726 !important;                                                                   /*"popup": "#1c1b22Fa"*/
-  --toolbar-field-focus-background-color: #2e273ffb !important;                                                  /*"toolbar_field_focus": "#1a1b25FB"*/    
-  --lwt-selected-tab-background-color: #070712 !important;                                                       /*"tab_selected":"#363540"*/
+  --lwt-accent-color: #0d0c15 !important;                                                                        /* frame */
+  --arrowpanel-background: #1c1726 !important;                                                                   /* popup */
+  --toolbar-field-focus-background-color: #2e273ffb !important;                                                  /* toolbar_field_focus */    
+  --lwt-selected-tab-background-color: #070712 !important;                                                       /* tab_selected */
   --toolbar-bgcolor: var(--lwt-selected-tab-background-color) !important;
-  --toolbarbutton-icon-fill: #b6b6d2 !important;                                                                 /*"icons": "#00dbfd"*/
-  --lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;                                      /*"icons_attention": "#00dbfd"*/
+  --toolbarbutton-icon-fill: #b6b6d2 !important;                                                                 /* icons */
+  --lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;                                      /* icons_attention */
   
-  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 60%, black) !important;            /*"button_background_hover": "#26242e"*/
-  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 20%, black) !important;           /*"button_background_active": "#131217"*/
+  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 60%, black) !important;            /* button_background_hover */
+  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 20%, black) !important;           /* button_background_active */
 
   }}
 
@@ -226,16 +230,16 @@
   
   --lwt-header-image: none !important; 
   --lwt-additional-images: none !important;  
-  --lwt-accent-color: #e0dfec !important;                                                                        /*"frame": "#17161c" */
-  --arrowpanel-background: #f0eff6 !important;                                                                   /*"popup": "#1c1b22Fa"*/
-  --toolbar-field-focus-background-color: #e0dfecfb !important;                                                  /*"toolbar_field_focus": "#1a1b25FB"*/
-  --lwt-selected-tab-background-color: #f0eff6 !important;                                                       /*"tab_selected":"#363540"*/
+  --lwt-accent-color: #e0dfec !important;                                                                        /* frame */
+  --arrowpanel-background: #f0eff6 !important;                                                                   /* popup */
+  --toolbar-field-focus-background-color: #e0dfecfb !important;                                                  /* toolbar_field_focus */
+  --lwt-selected-tab-background-color: #f0eff6 !important;                                                       /* tab_selected */
   --toolbar-bgcolor: var(--lwt-selected-tab-background-color) !important;
-  --toolbarbutton-icon-fill: #505050 !important;                                                                 /*"icons": "#00dbfd"*/
-  --lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;                                      /*"icons_attention": "#00dbfd"*/
+  --toolbarbutton-icon-fill: #505050 !important;                                                                 /* icons */
+  --lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;                                      /* icons_attention */
   
-  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, white) !important;            /*"button_background_hover": "#26242e"*/
-  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 20%, white) !important;           /*"button_background_active": "#131217"*/
+  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, white) !important;            /* button_background_hover */
+  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 20%, white) !important;           /* button_background_active */
 
   }}
 

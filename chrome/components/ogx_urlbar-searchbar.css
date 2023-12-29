@@ -46,13 +46,6 @@ findbar:-moz-lwtheme {
     font-size: 1.0em !important;
 }
 
-/* tamaño letras urlbar */
-
-#urlbar-input {
-    /* font-weight: 501 !important; */
-    opacity: 0.9 !important;
-}
-
 /* Sugerencias de búsqueda */
 
 .urlbarView {
@@ -70,7 +63,7 @@ findbar:-moz-lwtheme {
 }
 
 .urlbarView-row-inner {
-    padding-left: 14px !important;
+    padding-left: 8px !important;
 }
 
 #urlbar .search-panel-header {
@@ -94,7 +87,16 @@ findbar:-moz-lwtheme {
     border-radius: 8px !important;
     margin-top: -2px !important;
     margin-bottom: -2px !important;
+    margin-inline-end: 6px !important;
     clip-path: circle(50%);
+}
+
+/* Sugerencias enriquecidas */
+
+.urlbarView-row[rich-suggestion] > .urlbarView-row-inner > .urlbarView-favicon {
+    max-height: 16px !important;
+    max-width: 16px !important;
+    margin-inline: 6px !important;
 }
 
 /* No hacer doble fila url results en cuadro pequeño */
@@ -134,12 +136,6 @@ findbar:-moz-lwtheme {
 /* Tamaño Nav-bar */
 
 #nav-bar { min-height: var(--toolbar-height-personal) !important; }
-
-/* nav-bar - color de fondo en ventana inactiva */
-
-#nav-bar{ &:-moz-window-inactive {
-    background-color: color-mix(in srgb, var(--toolbar-bgcolor) 60%, transparent) !important;
-  }}
 
 /* Urlbar */
 
@@ -257,7 +253,6 @@ findbar:-moz-lwtheme {
 }
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
-    list-style-image: url("../images/foxFill.svg") !important;
     -moz-context-properties: fill !important;
     fill: var(--general-color) !important;
     width: 15px !important;
@@ -328,13 +323,20 @@ findbar:-moz-lwtheme {
     margin-left: 0px !important;
 }
 
-/* ícono contenido DRM */
+/* ícono varios permisos */
 
-.drm-icon, .geo-icon {
+#notification-popup-box .notification-anchor-icon,
+#blocked-permissions-container .blocked-permission-icon{
     padding: 3px !important;
     height: 20px !important;
     width: 20px !important;
 }
+
+/* background-color - Íconos permisos :hover - :active */
+
+#notification-popup-box:hover{ background-color: var(--urlbar-box-hover-bgcolor) !important; }
+
+#notification-popup-box[open] { background-color: var(--urlbar-box-active-bgcolor) !important; }
 
 /* ícono de Permitir Notificaciones */
 
@@ -412,32 +414,11 @@ findbar:-moz-lwtheme {
     color: var(--contrast-color) !important;
 }
 
-/* Fondo :hover de íconos de la urlbar" */
-
-#notification-popup-box:hover:not([open="true"]), #identity-icon-box:hover:not([open="true"]), #identity-permission-box:hover:not([open="true"]), 
-#tracking-protection-icon-container:hover:not([open="true"]), .urlbar-page-action:not([disabled], [open="true"]):hover, #urlbar-go-button:hover, 
-.search-go-button:hover, #identity-box[pageproxystate="valid"].extensionPage>.identity-box-button:hover {
-    background-color: color-mix(in srgb, var(--button-bgcolor) 90%, white) !important;
-    border-radius: 2px !important;
-}
-
 /* Color verde de la descripción de web segura */
 
 description#identity-popup-content-owner-label, description#identity-popup-content-owner, description#identity-popup-content-verifier, 
 #identity-popup-securityView-body>button {
     color: #2cf62c !important
-}
-
-/* Fondo active de íconos de la urlbar */
-
-#notification-popup-box[open="true"], #identity-icon-box[open="true"], #identity-permission-box[open="true"], #tracking-protection-icon-container[open="true"], 
-.urlbar-page-action:not([disabled])[open="true"], #urlbar-go-button[open="true"], .search-go-button[open="true"], 
-:not(.urlbar-icon-wrapper)>.urlbar-icon[open="true"], :not(.urlbar-icon-wrapper)>.urlbar-icon[open="true"], 
-.urlbar-icon-wrapper[open="true"], .urlbar-icon-wrapper[open="true"], .identity-box-button[open="true"], 
-#tracking-protection-icon-container[open="true"], .identity-box-button[open="true"] .urlbar-page-action:not([disabled]):hover, 
-#identity-box[pageproxystate="valid"].extensionPage>.identity-box-button[open="true"] {
-    background-color: color-mix(in srgb, var(--button-bgcolor) 82%, white) !important;
-    border-radius: 2px !important;
 }
 
 /* Eliminar ícono de -sitio anclado- en las sugerencias de busqueda */

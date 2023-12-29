@@ -99,8 +99,7 @@ toolbarseparator {
 /* Márgenes protección antirastreo */
 
 #protections-popup-blocking-section-header, #protections-popup-not-blocking-section-header, #protections-popup-not-found-section-header, #protections-popup-tp-switch-section, .protections-popup-category, .protections-popup-footer-button {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-inline: 16px !important;
 }
 
 /* Color Label "No funciona el sitio " */

@@ -60,10 +60,7 @@
          
     :root{ --border-radius-urlbar-personal: 14px !important; }
          
-    .tab-close-button {
-        list-style-image: url(chrome://global/skin/icons/close-12.svg) !important;
-        padding: 2px !important; 
-            }
+    .tab-close-button { padding: 2px !important; }
             
     #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
         border-radius: 50% !important;

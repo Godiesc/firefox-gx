@@ -9,11 +9,15 @@
 }
 
 .tab-close-button {
-    list-style-image: url('../images/close.svg') !important;
+    list-style-image: url('../icons/close.svg') !important;
     padding: 4px !important;
     border-radius: calc(var(--border-radius-urlbar-personal) - 4px) !important;
     margin-inline-end: -2px !important;
     opacity: 0.8 !important;
+}
+
+.tabbrowser-tab:not([pinned]) .tab-close-button{
+    display: flex !important;
 }
 
 .tabbrowser-tab:is(:hover, [selected]) .tab-close-button{ opacity: 1 !important; }

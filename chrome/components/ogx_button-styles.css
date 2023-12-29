@@ -3,29 +3,40 @@
 
 /*Botones generales*/
 
+/* Information button -ProtecciónAntirastreo- */
+
+.panel-header.panel-header-with-info-button > h1 { margin-inline: var(--arrowpanel-header-info-icon-full-width) !important; }
+
+#protections-popup-info-button{ margin-inline-end: 6px !important; }
+
 /* Radiobutton -ProtecciónAntirastreo- */
 
-.toggle-button{ margin-right: -14px !important; }
+.toggle-button{ margin-inline: -6px !important; }
+
+.toggle-button[aria-pressed="false"] { background: initial !important; }
+
+.toggle-button[aria-pressed="false"]:is(:hover) {
+    --toggle-dot-background-color: color-mix(in srgb, var(--toogle-border-color), var(--lwt-tab-text)) !important;
+    --toogle-border-color: var(--gray) !important;
+    background: initial !important;
+    border-color: color-mix(in srgb, var(--toogle-border-color), var(--lwt-tab-text)) !important;
+}
 
 /*color Rojo de boton "borrar marcador"*/
 
-#editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton label{
+#editBookmarkPanelRemoveButton label{
     display: none !important;
 }
 
-#editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton{
-    background: url("../images/delete.svg") no-repeat center/16px !important;
+#editBookmarkPanelRemoveButton{
     fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
-}
-
-#editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton {
-    background-color: var(--input-border-color) !important;
     box-shadow: inset 0px 0px 0 1px var(--input-border-color) !important;
     border-radius: 3px !important;
+    padding-inline: 16px !important;
 }
 
-#editBookmarkPanelBottomButtons>#editBookmarkPanelRemoveButton:hover {
+#editBookmarkPanelRemoveButton:hover {
     background-color: #da3633 !important;
     color: #f0f6fc !important;
     box-shadow: none !important;
@@ -120,7 +131,6 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     --toolbarbutton-active-background: var(--contrast-color) !important; 
     --toolbarbutton-icon-fill: var(--toolbar-color) !important;
     text-shadow: none !important;
-    /* font-weight: 501 !important; */
 }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar {
@@ -195,12 +205,6 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     margin-inline-end: 4px !important;
     border-radius: 3px !important;
     border: none !important;
-    width: 30px !important;
-}
-
-.all-tabs-secondary-button .toolbarbutton-icon{
-    width: 14px !important;
-    height: 14px !important;
 }
 
 #allTabsMenu-allTabsView-tabs > .all-tabs-item > .all-tabs-secondary-button:hover,

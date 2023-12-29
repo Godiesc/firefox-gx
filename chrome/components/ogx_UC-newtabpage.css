@@ -189,7 +189,7 @@ input:focus-visible, input:focus-visible{
 /* Botón "Personalizar" */
     
 .icon.icon-settings {
-    background-image: url("../images/edit.svg") !important; 
+    background-image: url("../icons/edit.svg") !important; 
     }
 .personalize-button {
     color: color-mix( in srgb, var(--newtab-background-color) 60%, var(--newtab-wordmark-color) ) !important;
@@ -436,7 +436,7 @@ browser[primary="true"][tabDialogShowing="true"],
 /* Botón de editar sitio anclado */
     
 .top-site-outer .context-menu-button {
-    background-image: url("../images/more.svg") !important;
+    background-image: url("../icons/more.svg") !important;
     background-color: transparent !important;
     border-radius: 2px 4px 2px 8px !important;
     inset-inline-end: -10px !important;
@@ -495,7 +495,7 @@ browser[primary="true"][tabDialogShowing="true"],
 .card-outer .context-menu-button, .card-outer .context-menu-button:active, .card-outer .context-menu-button:focus{
     margin-top: 14px !important;
     margin-right: 15px !important;
-    background-image: url("../images/more.svg") !important;
+    background-image: url("../icons/more.svg") !important;
     border-radius: 3px 6px 3px 8px !important;
     background-color: color-mix(in srgb, var(--contrast-color) 70%, transparent) !important;
     fill: var(--newtab-text-primary-color) !important;
@@ -519,7 +519,7 @@ body{
     }
     
 .logo{
-    background: url("../images/foxlogo.svg") no-repeat !important;
+    background: url("../icons/foxlogo.svg") no-repeat !important;
     background-size: cover !important;
     height: 80px !important;
     width: 75px !important;
@@ -528,7 +528,7 @@ body{
     }
     
 .wordmark {
-    background: url("../images/firefox-wordmark.svg") no-repeat center center !important;
+    background: url("../icons/firefox-wordmark.svg") no-repeat center center !important;
     background-size: 134px !important;
     Opacity: var(--logo-wordmark-visibility) !important;
     display: var(--logo-wordmark-display) !important;
@@ -641,7 +641,7 @@ body{
     }
     
 .wordmark {
-    background: url("../images/firefox-wordmark-private.svg") no-repeat center center !important;
+    background: url("../icons/firefox-wordmark-private.svg") no-repeat center center !important;
     Opacity: var(--logo-wordmark-visibility) !important;
     display: var(--logo-wordmark-display) !important;
     }

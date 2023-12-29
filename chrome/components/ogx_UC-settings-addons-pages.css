@@ -2,177 +2,105 @@
    https://github.com/Godiesc/firefox-gx */
 
 @media (prefers-color-scheme: dark){
- window, dialog {                                                                            /*Colores varios de paginas de about:addons y about:settings*/
+ window, dialog {
      
     --color-accent-primary: var(--general-color) !important;
     --in-content-page-background: #1a1a24 !important;
     --in-content-primary-button-background: var(--general-color) !important;
     --in-content-primary-button-text-color: white !important;
-    --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;   /*color de los radiobutton (fondo) :hover*/
-    --in-content-primary-button-background-active: var(--general-color) !important;          /*color de los radiobutton (clic) con check*/
-
-    --checkbox-unchecked-bgcolor: #101019 !important;                                        /*color de los checkbox vacíos*/
-    --checkbox-unchecked-hover-bgcolor: var(--general-color) !important;                     /*color de los checkbox hover*/
-    --checkbox-unchecked-active-bgcolor: var(--general-color) !important;                    /*color de los checkbox al darle clic*/
-    --checkbox-checked-bgcolor: var(--general-color) !important;                             /*color de los checkbox con check*/
-    --checkbox-checked-color: #fff !important;                                               /*color de la palomita check*/
-    --checkbox-checked-hover-bgcolor: color-mix(in srgb,
-        var(--general-color), transparent) !important;                                       /*color de los checkbox con check hover*/
+    --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;      /* color de los radiobutton (fondo) :hover */
+    --in-content-primary-button-background-active: var(--general-color) !important;             /* color de los radiobutton (clic) con check */
 
     --in-content-box-background: #1f1f30  !important;
     --in-content-box-border-color: #4d4d68  !important;
 
-    --in-content-button-background: var(--in-content-box-border-color) !important;           /*color de botones*/
-    --in-content-button-background-hover: var(--general-color) !important;                   /*color de botones :hover*/
-    --in-content-button-background-active: var(--button-hover-bgcolor) !important;           /*color de botones al darle clic*/
+    --in-content-button-background: var(--in-content-box-border-color) !important;              /* color de botones */
+    --in-content-button-background-hover: var(--general-color) !important;                      /* color de botones :hover */
+    --in-content-button-background-active: var(--button-hover-bgcolor) !important;              /* color de botones al darle clic */
             }}
 
 @media (prefers-color-scheme: light){
- window, dialog {                                                                            /*Colores varios de paginas de about:addons y about:settings*/
+ window, dialog {                                                                               /*Colores varios de paginas de about:addons y about:settings*/
+    --color-accent-primary: var(--general-color) !important;
     --in-content-page-background: #f9f9f9 !important;
     --in-content-primary-button-background: var(--general-color) !important;
     --in-content-primary-button-text-color: white !important;
-    --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;   /*color de los radiobutton (fondo) :hover*/
-    --in-content-primary-button-background-active: var(--general-color) !important;          /*color de los radiobutton (clic) con check*/
-
-    --checkbox-unchecked-bgcolor: #f9f9f9 !important;                                        /*color de los checkbox vacíos*/
-    --checkbox-unchecked-hover-bgcolor: var(--general-color) !important;                     /*color de los checkbox hover*/
-    --checkbox-unchecked-active-bgcolor: var(--general-color) !important;                    /*color de los checkbox al darle clic*/
-    --checkbox-checked-bgcolor: var(--general-color) !important;                             /*color de los checkbox con check*/
-    --checkbox-checked-color: #fff !important;                                               /*color de la palomita check*/
-    --checkbox-checked-hover-bgcolor: color-mix(in srgb,
-        var(--general-color), transparent) !important;                                       /*color de los checkbox con check hover*/
+    --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;      /*color de los radiobutton (fondo) :hover*/
+    --in-content-primary-button-background-active: var(--general-color) !important;             /*color de los radiobutton (clic) con check*/
 
     --in-content-box-background: #bababa  !important;
     --in-content-box-border-color: #aeaeae  !important;
 
-    --in-content-button-background: var(--in-content-box-border-color) !important;           /*color de botones*/
-    --in-content-button-background-hover: var(--button-active-bgcolor) !important;           /*color de botones :hover*/
-    --in-content-button-background-active: var(--button-hover-bgcolor) !important;           /*color de botones al darle clic*/
+    --in-content-button-background: var(--in-content-box-border-color) !important;              /*color de botones*/
+    --in-content-button-background-hover: var(--button-active-bgcolor) !important;              /*color de botones :hover*/
+    --in-content-button-background-active: var(--button-hover-bgcolor) !important;              /*color de botones al darle clic*/
     --in-content-button-text-color: black !important;
     }}
 
+:root { 
+    --color-accent-primary: var(--general-color) !important;                                    /* Main Accent color */
+    --color-accent-primary-hover: var(--button-hover-personal) !important;
+    --color-accent-primary-active: var(--button-active-bgcolor) !important;
+    
+    --in-content-text-color: var(--contrast-color) !important;                                  /* Color general de label*/
+    --in-content-page-color: var(--contrast-color) !important;                                  /* Color de texto general*/
+    
+    
+    --in-content-box-background-odd: color-mix(in srgb,                                         /* Color destinción entre filas de una tabla-atajos de busqueda */
+      var(--in-content-box-border-color), transparent) !important;     
+    --in-content-box-info-background: var(--in-content-box-background-odd) !important;          /* Color de la caja de elementos que se sincronizan */
+    --section-highlight-background-color: var(--in-content-box-info-background) !important;
+    
+    --in-content-border-color: var(--in-content-box-border-color) !important;                   /* Linea separadora en la configuración*/
+    --in-content-table-border-color: var(--in-content-box-border-color) !important;             /* Borde de tablas*/
+    
+    --in-content-table-background: var(--in-content-page-background) !important;                /* Color de fondo de tablas de "about:support" */
+    
+    --card-outline-color: var(--general-color) !important;                                      /* outline color temas-extensiones */
+    --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;    /* outline color :hover temas-extensiones */
+    
+    --in-content-item-hover: var(--button-active-bgcolor) !important;                           /* Color de fondo al pasar por los items de un combobox */
+    --in-content-item-hover-text: var(--in-content-text-color) !important;                      /* Color de label del item hover del combobox */
+    --in-content-item-selected: var(--general-color) !important;                                /* Color de fondo al pasar por los items de un combobox (teclas de direccion)" */
+    --in-content-item-selected-text:  var(--in-content-text-color) !important;                  /* Color de label al pasar por los items de un combobox (teclas de direccion)" */
+    
+    --in-content-button-background: var(--in-content-border-color) !important;                  /* color de botones */
+    --in-content-button-background-hover: var(--button-active-bgcolor) !important;              /* color de botones :hover */
+    --in-content-button-background-active: var(--general-color) !important;                     /* color de botones al darle clic */
+    
+    --in-content-primary-button-background: var(--general-color) !important;                    /* Color botones principales */
+    --in-content-primary-button-background-hover: var(--button-hover-bgcolor) !important;       /* Color botones principales :hover */
+    --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;     /* Color botones principales :active */
+    
+    --link-color: var(--general-color) !important;                                              /* Color de links */
+    --link-color-hover: var(--blue) !important;                                                 /* Color de links :hover */
+    --link-color-active: var(--purple) !important;                                              /* Color de links :active */
+    --link-color-visited: var(--general-color) !important;                                      /* Color de links :visited */
+    
+    --gradiente-casual: linear-gradient(to right,                                               /* Gradiente personal about:preferences */
+      var(--in-content-box-border-color) 90%, transparent ) !important;
+}
+
+/* Colores varios de paginas de about:addons y about:settings */
+
 @media (prefers-color-scheme: dark){
-:root {                                                                             /*Colores varios de paginas de about:addons y about:settings*/
-    
-    --color-accent-primary: var(--general-color) !important;                        /*Outline color en input-text en about:config*/
-    --in-content-page-background: #121018 !important;                               /*Fondo general*/
-    --in-content-text-color: #fff !important;                                       /*Color general de label*/
-    --in-content-page-color: #fff !important;                                       /*color de texto general*/
-    
-    --checkbox-unchecked-bgcolor: var(--in-content-page-background) !important;     /*color de los checkbox vacíos*/
-    --checkbox-unchecked-hover-bgcolor: var(--general-color) !important;            /*color de los checkbox hover*/
-    --checkbox-unchecked-active-bgcolor: #26264f !important;                        /*color de los checkbox al darle clic*/
+    :root {
+        --contrast-color: #ffffff !important;                                                   /* Color de contraste */
+        --in-content-page-background: #121018 !important;                                       /* Fondo general */
 
-    --checkbox-checked-bgcolor: var(--button-active-bgcolor) !important;                        /*color de los checkbox con check*/
-    --checkbox-checked-color: var(--in-content-text-color) !important;                          /*color de la palomita check*/
-    --checkbox-checked-hover-bgcolor: var(--general-color) !important;                          /*color de los checkbox con check :hover*/
-
-    --in-content-primary-button-text-color: var(--in-content-border-color) !important;          /*color de los radiobutton (circulo) con check*/
-    --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;      /*color de los radiobutton (fondo) :hover*/
-    --in-content-primary-button-background-active: var(--general-color) !important;             /*color de los radiobutton (clic) con check*/
-
-    --in-content-box-background: #14141d !important;                                            /*color de los textbox y fondo de menús desplegables*/
-    --in-content-box-border-color: #272b37 !important;                                          /*color del borde de los textbox*/
-    
-    --in-content-box-background-odd: color-mix(in srgb,                                         /*color destinción entre filas de una tabla-atajos de busqueda*/
-        var(--in-content-box-border-color), transparent) !important;     
-    --in-content-box-info-background: var(--in-content-box-background-odd) !important;          /*color de la caja de elementos que se sincronizan*/
-    --section-highlight-background-color: var(--in-content-box-info-background) !important;
-
-    --in-content-primary-button-background: var(--general-color) !important;            /*color de la label colorida y de enlaces*/
-    --in-content-deemphasized-text: #fff !important;                                    /*color de la descripción  de los temas y extensiones*/
-
-    --in-content-border-color:  var(--in-content-box-border-color) !important;          /*Linea separadora en la configuración*/
-    --in-content-table-border-color: var(--in-content-border-color) !important;         /*Borde de tablas*/
-
-    --in-content-button-background: var(--in-content-border-color) !important;          /*color de botones*/
-    --in-content-button-background-hover: var(--button-active-bgcolor) !important;      /*color de botones :hover*/
-    --in-content-button-background-active: var(--general-color) !important;             /*color de botones al darle clic*/
-
-    --link-color: var(--general-color) !important;                                      /*color de links*/
-    --link-color-hover: var(--green) !important;                                        /*color de links*/
-    --link-color-active: var(--blue) !important;                                        /*color de links*/
-    --link-color-visited: var(--general-color) !important;                              /*color de links*/
-
-    --in-content-accent-color:  var(--in-content-text-color) !important;                /*color de label del menú izquiero seleccionado*/
-    --in-content-accent-color-active: var(--in-content-text-color) !important;          /*color de label del menú izquiero seleccionado (al dar clic)*/
-    --card-outline-color: var(--general-color) !important;                              /*Color de borde al pasar por elementos de addons*/
-
-    --in-content-table-background: var(--in-content-page-background) !important;        /*Color de fondo de tablas de "about:support"*/
-
-    --in-content-item-hover: color-mix(in srgb,
-        var(--general-color), transparent) !important;                                  /*Color de fondo al pasar por los items de un combobox"*/
-    --in-content-item-hover-text: var(--in-content-text-color) !important;              /*Color de label del item hover del combobox"*/
-    --in-content-item-selected: var(--button-active-bgcolor) !important;                /*Color de fondo al pasar por los items de un combobox (teclas de direccion)"*/
-    --in-content-item-selected-text:  var(--in-content-text-color) !important;          /*Color de label al pasar por los items de un combobox (teclas de direccion)"*/
-
-    --in-content-focus-outline-color: var(--general-color) !important;                  /*color de focus de txt "buscar..."*/
-
-    --gradiente-casual: linear-gradient(to right, var(--in-content-box-border-color) 90%, transparent ) !important;
-    --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;
-
+        --in-content-box-background: #15151e !important;                                        /* Color de los textbox y fondo de menús desplegables */
+        --in-content-box-border-color: #272b37 !important;                                      /* Color del borde de los textbox */
     }}
+
 @media (prefers-color-scheme: light){
-:root{
-    
-    --color-accent-primary: var(--general-color) !important;                        /*Outline color en input-text en about:config*/
-    --in-content-page-background: #f9f9f9 !important;                               /*Fondo general*/
-    --in-content-text-color: #000 !important;                                       /*Color general de label*/
-    --in-content-page-color: #000 !important;                                       /*color de texto general*/
-    
-    --checkbox-unchecked-bgcolor: var(--in-content-page-background) !important;     /*color de los checkbox vacíos*/
-    --checkbox-unchecked-hover-bgcolor: var(--general-color) !important;            /*color de los checkbox hover*/
-    --checkbox-unchecked-active-bgcolor: #c9c9bb !important;                        /*color de los checkbox al darle clic*/
+    :root{
+        --contrast-color: #000000 !important;
+        --in-content-page-background: #f9f9f9 !important;                                       /* Fondo general */
 
-    --checkbox-checked-bgcolor: var(--button-active-bgcolor) !important;                        /*color de los checkbox con check*/
-    --checkbox-checked-color: white !important;                                                 /*color de la palomita check*/
-    --checkbox-checked-hover-bgcolor: var(--general-color) !important;                          /*color de los checkbox con check :hover*/
+        --in-content-box-background: #f9f9fb !important;                                        /* Color de los textbox y fondo de menús desplegables */
+        --in-content-box-border-color: #d4cfe7 !important;                                      /* Color del borde de los textbox */
 
-    --in-content-primary-button-text-color: var(--in-content-button-background) !important;     /*color de los radiobutton (circulo) con check*/
-    --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;      /*color de los radiobutton (fondo) :hover*/
-    --in-content-primary-button-background-active: var(--general-color) !important;             /*color de los radiobutton (clic) con check*/
-
-    --in-content-box-background: #f9f9fb !important;                                            /*color de los textbox y fondo de menús desplegables*/
-    --in-content-box-border-color: #d4cfe7 !important;                                          /*color del borde de los textbox*/
-    
-    --in-content-box-background-odd: color-mix(in srgb,                                         /*color destinción entre filas de una tabla-atajos de busqueda*/
-        var(--in-content-box-border-color), transparent) !important;     
-    --in-content-box-info-background: var(--in-content-box-background-odd) !important;          /*color de la caja de elementos que se sincronizan*/
-    --section-highlight-background-color: var(--in-content-box-info-background) !important;
-
-    --in-content-primary-button-background: var(--general-color) !important;            /*color de la label colorida y de enlaces*/
-    --in-content-deemphasized-text: #000 !important;                                    /*color de la descripción  de los temas y extensiones*/
-
-    --in-content-border-color: var(--in-content-box-border-color) !important;           /*Linea separadora en la configuración*/
-    --in-content-table-border-color: var(--in-content-box-border-color) !important;     /*Borde de tablas*/
-
-    --in-content-button-background: #d3d3df !important;                                 /*color de botones*/
-    --in-content-button-background-hover: var(--button-active-bgcolor) !important;      /*color de botones :hover*/
-    --in-content-button-background-active: var(--general-color) !important;             /*color de botones al darle clic*/
-    --in-content-button-text-color-hover: white !important;                             /*Color de letras en botones hover */
-
-    --link-color: var(--general-color) !important;                                      /*color de links*/
-    --link-color-hover: var(--green) !important;                                        /*color de links*/
-    --link-color-active: var(--blue) !important;                                        /*color de links*/
-    --link-color-visited: var(--general-color) !important;                              /*color de links*/
-
-    --in-content-accent-color:  var(--in-content-text-color) !important;                /*color de label del menú izquiero seleccionado*/
-    --in-content-accent-color-active: var(--in-content-text-color) !important;          /*color de label del menú izquiero seleccionado (al dar clic)*/
-    --card-outline-color: var(--general-color) !important;                              /*Color de borde al pasar por elementos de addons*/
-
-    --in-content-table-background: var(--in-content-page-background) !important;        /*Color de fondo de tablas de "about:support"*/
-
-    --in-content-item-hover: color-mix(in srgb,
-        var(--general-color), transparent) !important;                                  /*Color de fondo al pasar por los items de un combobox"*/
-    --in-content-item-hover-text: var(--in-content-text-color) !important;              /*Color de label del item hover del combobox"*/
-    --in-content-item-selected: var(--button-active-bgcolor) !important;                /*Color de fondo al pasar por los items de un combobox (teclas de direccion)"*/
-    --in-content-item-selected-text:  var(--in-content-text-color) !important;          /*Color de label al pasar por los items de un combobox (teclas de direccion)"*/
-
-    --in-content-focus-outline-color: var(--general-color) !important;                  /*color de focus de txt "buscar..."*/
-
-    --gradiente-casual: linear-gradient(to right, var(--in-content-box-border-color) 90%, transparent ) !important;
-    --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;
+        /*--in-content-button-text-color-hover: white !important;                               /* Color de letras en botones hover */
     }}
 
 /*-------------------------------> Colores varios de la interfaz de complementos y configuración <---------------------------------------*/
@@ -213,6 +141,22 @@ button:hover:not(.toggle-button) {
     background-color: var(--button-active-bgcolor) !important;
     color: #fafafa !important;
     border-color: transparent !important;
+}
+        
+/* Checkbox */
+        
+checkbox:not(:hover) .checkbox-check:not([checked="true"]) {
+    appearance: none !important;
+    border: 2px solid color-mix(in srgb, var(--gray) 20%, transparent) !important;
+    background: var(--opaque) !important;
+    border-radius: 2px !important;
+}
+        
+checkbox:hover .checkbox-check:not([checked="true"]) {
+    appearance: none !important; 
+    border: 2px solid color-mix(in srgb, var(--gray) 60%, transparent) !important;
+    background: var(--opaque) !important;
+    border-radius: 2px !important;
 }
         
 /* Color de Botones resaltados por default */
@@ -383,10 +327,6 @@ addon-card[expanded] .addon.card {
 .privacy-detailedoption.selected .content-blocking-warning {  background-color: color-mix(in srgb, var(--in-content-box-background), transparent) !important; }
         
 .privacy-detailedoption.selected .content-blocking-warning {  border-color: var(--in-content-border-hover) !important; }
-        
-input[type="radio"]:enabled:hover, .radio-check {
-    border-color: transparent !important;
-}
         
 .privacy-detailedoption.selected {
     background-color: var(--in-content-border-color) !important;

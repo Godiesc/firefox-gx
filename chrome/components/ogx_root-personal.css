@@ -16,13 +16,13 @@
 /*---------------------------------------------- <-Personalizaciones Varias-> ---------------------------------------------------*/
 
 @media (prefers-color-scheme: dark){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-dark.png") !important;                  /* new-tab page image - dark theme */
-  --lwt-private-image:  url("../images/newtab/private-dark.png") !important;                 /* new-tab private-page image - dark theme */
+  --lwt-main-image:  url("../newtab/wallpaper-dark.png") !important;                  /* new-tab page image - dark theme */
+  --lwt-private-image:  url("../newtab/private-dark.png") !important;                 /* new-tab private-page image - dark theme */
   --brightness-wallpaper: brightness(99%);                                                   /* 99% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../images/newtab/wallpaper-light.png") !important;                 /* new-tab page image - white theme*/
-  --lwt-private-image:  url("../images/newtab/private-light.png") !important;                /* new-tab private-page image - white theme*/
+  --lwt-main-image:  url("../newtab/wallpaper-light.png") !important;                 /* new-tab page image - white theme*/
+  --lwt-private-image:  url("../newtab/private-light.png") !important;                /* new-tab private-page image - white theme*/
   --brightness-wallpaper: brightness(99%);                                                   /* 99% -> default and Main-image config */ }}
 
 :root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }         /* Accent color private mode */
@@ -58,11 +58,11 @@
 @media (-moz-bool-pref:"firefoxgx.main-image") {
   
   @media (prefers-color-scheme: dark){ :root{
-    --lwt-main-image:  url("../images/newtab/main-image-dark.png") !important;                  /* new-tab page image - white team */
+    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                  /* new-tab page image - white team */
     --brightness-wallpaper: brightness(51%);                                                    /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
   @media (prefers-color-scheme: light){ :root{
-    --lwt-main-image:  url("../images/newtab/main-image-light.png") !important;                 /* new-tab page image - dark theme*/
+    --lwt-main-image:  url("../newtab/main-image-light.png") !important;                 /* new-tab page image - dark theme*/
     --brightness-wallpaper: brightness(100%);                                                   /* 100% -> default and Main-image config */ }}
   
   :root{  
