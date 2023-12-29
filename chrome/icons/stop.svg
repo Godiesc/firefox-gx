@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<svg
+   viewBox="0 0 16 16"
+   width="16"
+   height="16"
+   fill="context-fill"
+   fill-opacity="context-fill-opacity"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="stop.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="21.439478"
+     inkscape:cx="3.521541"
+     inkscape:cy="8.6056201"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4">
+    <inkscape:grid
+       type="xygrid"
+       id="grid845" />
+  </sodipodi:namedview>
+  <path
+     d="M 9.5431195,7.3215731 13.886042,2.9786508 A 0.57733477,0.57733477 0 0 0 13.070764,2.1624506 L 8.7462868,6.4869278 H 8.2962239 L 3.9717467,2.1633729 A 0.57681466,0.57681466 0 1 0 3.1564689,2.979573 L 7.4791016,7.3012834 V 7.7541131 L 3.1564689,12.076746 a 0.57733477,0.57733477 0 0 0 0.8152778,0.8162 L 8.2943794,8.5703132 h 0.4528297 l 4.3226329,4.3226328 a 0.57825703,0.57825703 0 0 0 0.8162,0 0.57733477,0.57733477 0 0 0 0,-0.8162 L 9.5431195,7.7338234 Z"
+     id="path2"
+     style="fill-opacity:1;stroke-width:0.92226" />
+</svg>
