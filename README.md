@@ -74,7 +74,7 @@
 
 <b><i>Fondo Nueva Pestaña - NewTab Wallpaper</i></b>
 <ul>
-   <li><p>(Option 1) In the directory: <code>chrome/images/newtab</code> there is a set of wallpapers, the images that the theme will select by default are: <b><i>wallpaper-light.png</i></b> and <b><i>wallpaper-dark.png</i></b>, you could rename the images you want with that names and the theme will select them, you can add your own images. If you don't want a wallpaper just delete the files with the specified names. You can find more images in: <a href="https://imgur.com/a/j78IhJN"><b>This Gallery</b></a>. <b>Restarting the browser after changing the wallpaper is required. </b></p></li>
+   <li><p>(Option 1) In the directory: <code>chrome/newtab</code> there is a set of wallpapers, the images that the theme will select by default are: <b><i>wallpaper-light.png</i></b> and <b><i>wallpaper-dark.png</i></b>, you could rename the images you want with that names and the theme will select them, you can add your own images. If you don't want a wallpaper just delete the files with the specified names. You can find more images in: <a href="https://imgur.com/a/j78IhJN"><b>This Gallery</b></a>. <b>Restarting the browser after changing the wallpaper is required. </b></p></li>
 <li><p>(Option 2) Editing the code <code>chrome/components/ogx_root-personal.css</code> lines: <code>19</code> and <code>24</code>.<p></li></ul></br>
 
 <b><i>Color Principal - Accent Color</i></b>
@@ -94,7 +94,6 @@
 
 # Known Issues - Problemas Conocidos
 <ul>
-<li>When using a theme that use more that one image, the theme will display a bad background in the selected tab, for example the alpenglow theme from firefox.</li>
 <li>In themes with images, when moving a tab it will display a bad background.</li>
 <li>Not compatibility for RTL(right-to-left) languages.</li>
 </ul>
