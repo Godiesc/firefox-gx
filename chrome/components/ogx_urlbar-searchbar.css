@@ -113,12 +113,13 @@ findbar:-moz-lwtheme {
 
 /* Botones de acciones rápidas urlbar open */
 
-.urlbarView-row[dynamicType="quickactions"] .urlbarView-quickaction-row {
+.urlbarView-quickaction-button {
     box-shadow: 0px 0px 1px rgba(128, 128, 142, 0.9) !important;
 }
 
-.urlbarView-row[dynamicType="quickactions"] .urlbarView-quickaction-row:hover {
-    box-shadow: 0px 0px 0px 1px var(--autocomplete-popup-hover-background) !important;
+.urlbarView-quickaction-button:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+    box-shadow: 0px 0px 0px 1px var(--button-hover-bgcolor) !important;
 }
 
 /* Label "Sugerencias de firefox - Sugerencias de google" */
@@ -144,9 +145,8 @@ findbar:-moz-lwtheme {
 }
 
 #urlbar {
-    min-height: calc(var(--toolbar-height-personal) - 9px) !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    min-height: calc(var(--toolbar-height-personal) - 10px) !important;
+    padding-inline: 10px !important;
 }
 
 #urlbar:not([open], [focused]) #urlbar-background {
@@ -155,7 +155,7 @@ findbar:-moz-lwtheme {
 }
 
 #urlbar:not([open], [focused]):hover #urlbar-background {
-    background-color: color-mix(in srgb, var(--general-color) 20%, transparent) !important;
+    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     border-color: transparent !important;
     transition: linear 150ms !important;
     transition-delay: 80ms !important;
@@ -163,7 +163,7 @@ findbar:-moz-lwtheme {
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) 
     #urlbar:not([open]):is([focused]) #urlbar-background {
-        background-color: color-mix(in srgb, var(--general-color) 20%, transparent) !important;
+        background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
 }
 
 #urlbar[focused] #urlbar-background {
@@ -341,9 +341,7 @@ findbar:-moz-lwtheme {
 /* ícono de Permitir Notificaciones */
 
 .popup-notification-icon[popupid="web-notifications"], .desktop-notification-icon {
-    width: 16px !important;
-    height: 16px !important;
-    padding: 1px !important;
+    margin-inline: 0px 3px !important;
 }
 
 #notification-popup-box {
@@ -371,8 +369,7 @@ findbar:-moz-lwtheme {
 
 .urlbar-page-action {
     width: 21px !important;
-    height: 20px !important;
-    margin-block-start: 1px !important;
+    height: 19px !important;
     margin-inline: 3px 3px !important;
     padding: 3px !important;
     color: var(--toolbarbutton-icon-fill) !important;

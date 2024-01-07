@@ -2,20 +2,10 @@
    https://github.com/Godiesc/firefox-gx */
 
 @media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")){
-    @media (-moz-platform: windows), (-moz-platform: linux) {
     
-/*###################################### Mantener Window Controls quitando las pestañas ###########################
-############################################## Codigo sin editar de MrOtherGuy ####################################*/
+/* ######################################## Mantener Window Controls quitando las pestañas #######################################
+  ########### https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css ########### */
 
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
-
-/* Creates placeholders for window controls */
-/* This is a supporting file used by other stylesheets */
-
-/* This stylesheet is pretty much unnecessary if window titlebar is enabled */
-
-/* This file should preferably be imported before other stylesheets */
 
 /* Defaults for window controls on RIGHT side of the window */
 /* Modify these values to match your preferences */
@@ -62,6 +52,7 @@ See the above repository for updates as well as full license text. */
 #nav-bar{
   border-inline: var(--uc-window-drag-space-pre,0px) solid var(--toolbar-bgcolor);
   border-inline-style: solid !important;
+  border-inline-color: transparent !important;
   border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));
 }
 
@@ -78,24 +69,8 @@ See the above repository for updates as well as full license text. */
   :root[sizemode="fullscreen"] #window-controls{ right: unset }
 }
 
-/*########################################## OCULTAR TABS-BAR ##############################################
-####################################Codigo sin editar de MrOtherGuy ########################################*/
-
-/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_toolbar.css made available under Mozilla Public License v. 2.0
-See the above repository for updates as well as full license text. */
-
-/* Hides tabs toolbar */
-/* For OSX use hide_tabs_toolbar_osx.css instead */
-
-/* Note, if you have either native titlebar or menubar enabled, then you don't really need this style.
- * In those cases you can just use: #TabsToolbar{ visibility: collapse !important }
- */
-
-/* IMPORTANT */
-/*
-Get window_control_placeholder_support.css
-Window controls will be all wrong without it
-*/
+/* #################################################### OCULTAR TABS-BAR ####################################################
+   ############# https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_toolbar.css  ################### */
 
 :root[tabsintitlebar]{ --uc-toolbar-height: 40px; }
 :root[tabsintitlebar][uidensity="compact"]{ --uc-toolbar-height: 32px }
@@ -139,34 +114,9 @@ Window controls will be all wrong without it
   margin-left: var(--uc-window-drag-space-pre,0px)
 }
 
-/* ##################################################### My Code ######################################################
-###################################### Adicional <sobre-escribir> Codigo de Arriba ####################################*/
-
-:root{
-    --tab-height-personal: calc(var(--toolbar-height-personal) - 1px) !important;
-    --uc-toolbar-height: var(--tab-height-personal) !important;
-}
+/* ########################################################## My Code ##########################################################
+   ######################################## Adicional <sobre-escribir> Codigo de Arriba ######################################## */
     
-/* Separador <window controls> y demás botones */
-    
-#nav-bar-overflow-button::after,
-:root:not([chromehidden~="toolbar"]) #nav-bar:not([nonemptyoverflow]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):last-child::after{
-    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
-    content: ""; display: block !important;
-    background-size: 6px 16px !important;
-    height: 16px;
-    fill: var(--button-hover-bgcolor) !important;
-    -moz-context-properties: fill !important;
-    padding-inline: 8px 4px !important;
-    margin-left: 2px !important;
-    opacity: 0.8;
-}
-    
-:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) {
-#nav-bar-overflow-button,
-#nav-bar:not([nonemptyoverflow]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):last-child{
-    margin-right: 40px !important;
-    }}
 
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
   --uc-window-control-width: 119px; /* Space reserved for window controls (Win10) */
@@ -175,42 +125,62 @@ Window controls will be all wrong without it
   --uc-window-drag-space-post: 0px; /* right side*/
 }
     
-/* Espacio para los window controls in linux */
+
+:root{
+    --tab-height-personal: var(--toolbar-height-personal) !important;
+    --uc-toolbar-height: var(--tab-height-personal) !important;
+}
+    
+/* Separador <window controls> y demás botones */
+    
+:root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-buttonbox::before{
+    content: ""; position: absolute !important; align-self: center !important;
+    background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
+    background-size: 6px 16px !important;
+    width: 6px !important;
+    height: 16px !important;
+    fill: var(--toolbarbutton-icon-fill) !important;
+    -moz-context-properties: fill !important;
+    opacity: 0.2 !important;
+    fill-opacity: 1 !important;
+    margin-left: -24px !important;
+    }
+    
+/* Espacio arrastre maximized - normal window */
+    
+:root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) {
+#nav-bar-overflow-button,
+#nav-bar:not([nonemptyoverflow]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):last-child{
+    margin-inline-end: 40px !important;
+    }}
+    
+:root:not([chromehidden~="toolbar"]):is([sizemode="normal"]) {
+#nav-bar-overflow-button,
+#nav-bar:not([nonemptyoverflow]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):last-child{
+    margin-inline-end: 60px !important;
+    }}
+
+/* ########################### Espacio para los window controls in LINUX ########################### */
+    
 @media (-moz-gtk-csd-available) {
     
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 98px !important;
+    --uc-window-control-width: 80px !important;
   }
     
-/*########################### Window controls on left - LINUX ##############################*/
+/* Window controls on left - LINUX */
   
 @media (-moz-gtk-csd-reversed-placement){
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 0px !important;
-    --uc-window-control-width-left: 104px !important;
+    --uc-window-control-width-left: 108px !important;
   }
-/* Separador <window controls> y demás botones */
-#nav-bar-overflow-button::after {
-    background: none !important; 
-    padding-inline: 0px 0px !important;
-    margin: 0px !important;
-}
-  /* Separador <window controls> y demás botones */
-#back-button::before {
-    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
-    content: ""; display: block !important;
-    background-size: 6px 16px !important;
-    height: 16px;
-    fill: var(--button-hover-bgcolor) !important;
-    -moz-context-properties: fill !important;
-    padding-inline: 0px 4px !important;
-    margin-right: 6px !important;
-    opacity: 0.8;
-}
     
-:root:not([chromehidden~="toolbar"])[sizemode="normal"] #nav-bar-overflow-button {
-    margin-right: 40px !important;
-}
+/* Separador <window controls> y demás botones */
+    
+:root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-buttonbox:before{
+    margin-left: calc(var(--uc-window-control-width-left) - 18px) !important;
+    }
     
 :root:not([chromehidden~="toolbar"][sizemode="maximized"]) {
 #nav-bar-overflow-button,
@@ -224,12 +194,8 @@ Window controls will be all wrong without it
     }    
   }
 }
-
-/* Sobreescribir variable de tamaño - sube la nav-bar */
     
-:root:not([inFullscreen]) #nav-bar{
-    margin-top: calc(-1px - var(--uc-toolbar-height,0px)) !important;
-}
+/* ___________________________________________________________________________________________________ */
     
 /* Mis Variables Personales */
     
@@ -252,25 +218,6 @@ Window controls will be all wrong without it
   --padding-top-left-sidebar: 68px !important;
   --padding-bottom-left-sidebar: 68px !important;
   --tab-height-personal: calc(0px - var(--windowed-top-padding, 0px)) !important;
-}
-
-/* Background color de botones <Window Controls> */
-    
-:root[tabsintitlebar] .titlebar-buttonbox {
-    /*background: var(--toolbar-bgcolor) !important;/**/
-    background-color: transparent !important;
-}
-    
-/* Ocultar encabezado de la sidebar de pestañas */
-    
-#sidebar-header {
-    display: none;
-}
-    
-/* Quitar Linea gradiente sobre la nav-bar */
-    
-#nav-bar{
-    border-top: none !important;
 }
     
 /* border-right de la sidebar de pestañas */
@@ -295,7 +242,7 @@ Window controls will be all wrong without it
     
 :root:not([chromehidden~="toolbar"])[sizemode="normal"] #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
     padding-inline-start: 0px !important;
-    margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 40px) !important;
+    margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 60px) !important;
 }
     
 /* Borde Bottom toolbar */
@@ -348,17 +295,17 @@ Window controls will be all wrong without it
     border-image: linear-gradient(to left, 
     transparent, color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) 30px) 20 / 30px !important;
 }
-/* Alinear ícono bookmark, vista de lectura, etc */
-.urlbar-page-action {
-  margin-block: 4px 2px !important;
-}
 
 /* ----------------Nuevos margenes Botón menú------------------- */
+        
+@media not (-moz-bool-pref:"firefoxgx.menu.disabled") {
+        
 :root{
     --uc-vertical-toolbar-width: 41px !important;                                                               /* Nuevo tamaño sidebar */
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
-    --margin-left-icons-personal: 5px !important;                                                              /* Nuevo margen left de íconos del menú */
+    --margin-left-icons-personal: 5px !important;                                                               /* Nuevo margen left de íconos del menú */
 }
+    
 /* color botón Menú para hacer coincidir con la barra de pestañas de <tab-center-reborn> en temas claros */
 @media (prefers-color-scheme: light){
 @media (-moz-platform: windows),(-moz-platform: linux){
@@ -410,13 +357,13 @@ Window controls will be all wrong without it
     padding-top: calc(-10px + var(--tab-height-personal)) !important; 
     z-index: 2 !important;
 }
+    
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup{
-    clip-path: polygon(
-        calc(var(--padding-left-tab) - 1px) 0%, 
-        200% 0%, 0% 900%,
-        0% calc(var(--tab-height-personal) - 6px ), 
-        calc(var(--padding-left-tab)) calc(var(--tab-height-personal) - 6px )); 
+    clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 2px) 3px,
+                   calc(var(--padding-left-tab) + 2px) calc(var(--tab-height-personal) - 3px), 0 calc(var(--tab-height-personal) - 3px),
+                   0 100%, 100% 100%, 100% 0%);
     }
+
 /* Logo más grande */
 @media (-moz-platform: windows),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
@@ -428,6 +375,7 @@ Window controls will be all wrong without it
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
+}
     
 /* #################################################### Tab-center-reborn autohide sidebar #################################################### */
     
@@ -537,59 +485,5 @@ Window controls will be all wrong without it
 [sidebarcommand*="tabcenter"] #sidebar-switcher-target,
 [sidebarcommand*="tabcenter"] #sidebar-close {
     filter: invert(100%);
-    }}
-
-/* ###################################################### MacOS ###################################################### 
-   ################################################################################################################### */
-    
-@media (-moz-platform: macos) {
-    
-        @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-    
-/* Adapted from https://www.reddit.com/r/FirefoxCSS/comments/ao3ydl/configuring_firefox_for_tree_style_tab_usage/ */
-
-/* hide native tabs and sidebar header */
-#TabsToolbar-customization-target {
-  visibility: collapse;
-}
-
-#navigator-toolbox[inFullscreen="true"] #titlebar {
-  visibility: collapse;
-}
-
-#sidebar-header {
-  visibility: collapse;
-}
-
-/* realign elements */
-#nav-bar {
-  margin-top: calc(-1 * var(--tab-min-height));
-
-  box-shadow: none !important;
-}
-
-#nav-bar[inFullscreen="true"] {
-  margin-top: unset;
-  margin-right: unset;
-}
-
-.titlebar-buttonbox-container {
-  min-height: var(--tab-min-height);
-}
-
-/* recolor elements and enable window dragging */
-#navigator-toolbox {
-  background-color: var(--toolbar-bgcolor);
-  background-image: var(--toolbar-bgimage);
-  background-clip: padding-box;
-  color: var(--toolbar-color);
-  
-  -moz-window-dragging: drag;
-}
-
-
-#TabsToolbar > .toolbar-items,
-#TabsToolbar > .titlebar-spacer{ visibility: hidden }
-#nav-bar{ margin-top: -32px; padding: 0px 15px 0px 75px !important; }
     }
 }

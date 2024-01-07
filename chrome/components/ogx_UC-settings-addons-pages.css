@@ -100,7 +100,7 @@
         --in-content-box-background: #f9f9fb !important;                                        /* Color de los textbox y fondo de menús desplegables */
         --in-content-box-border-color: #d4cfe7 !important;                                      /* Color del borde de los textbox */
 
-        /*--in-content-button-text-color-hover: white !important;                               /* Color de letras en botones hover */
+        --in-content-button-text-color-hover: white !important;                                 /* Color de letras en botones hover */
     }}
 
 /*-------------------------------> Colores varios de la interfaz de complementos y configuración <---------------------------------------*/

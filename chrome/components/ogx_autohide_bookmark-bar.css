@@ -4,10 +4,13 @@
 @media (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar") and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
 
 /* ----------------Nuevos margenes Botón menú------------------- */
+    
+@media not (-moz-bool-pref:"firefoxgx.menu.disabled") {
+    
 :root{
     --uc-vertical-toolbar-width: 48px !important;                                                               /* Nuevo tamaño sidebar */
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
-    --margin-left-icons-personal: 8px !important;                                                              /* Nuevo margen left de íconos del menú */
+    --margin-left-icons-personal: 8px !important;                                                               /* Nuevo margen left de íconos del menú */
 }
 
 /* Centrar menu-logo */
@@ -24,15 +27,7 @@
     --lwt-frame: #e9e6ef !important;
     }}}
 
-/*
-@media (prefers-color-scheme: dark){
-@media (-moz-platform: windows-win7),(-moz-platform: windows-win10),(-moz-platform: linux){
-:root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
-    --lwt-frame: #101019 !important;
-    }}}
-*/
-
-/* Quitar label -Menu- del menú not [open] */
+/* Quitar label -Menu- not [open] */
 
 @media (-moz-platform: windows),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]) > stack::after {
@@ -69,9 +64,9 @@
 /* tamaño nuevo botón Menú */
 
 @media (-moz-platform: windows),(-moz-platform: linux){
-:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PanelUI-menu-button,
-:root[sizemode="maximized"] #appMenu-popup{
-    --tab-height-personal: var(--toolbar-height-personal) !important;
+    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PanelUI-menu-button,
+    :root[sizemode="maximized"] #appMenu-popup{
+        --tab-height-personal: calc(var(--toolbar-height-personal) + 1px) !important;
     }
 
 /* botón Menú [open] no muy grande */
@@ -100,7 +95,8 @@
     background-color: var(--lwt-frame) !important; 
     border-right: 1px solid var(--general-color) !important;  
     }}
-
+}
+    
 /*##################################### Auto hide bookmark-bar ######################################################*/
 
 /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_bookmarks_toolbar.css made available under Mozilla Public License v. 2.0

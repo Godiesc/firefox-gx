@@ -204,22 +204,12 @@
   
 
 /* ################################################################ My Code ################################################################ 
-################################################## Además de sobre-escribir el código de arriba ############################################ */
-
-/* Cambio la forma de mostras la pestaña por bug con pinned tabs en scroll 
-  
-.tab-background[selected]{
-    margin-block-start: 0px !important;
-    margin-inline: 0px !important;
-    border-block-start: 1px solid transparent !important;
-    border-inline: 1px solid transparent !important;
-    clip-path: polygon(7px 0%, 200% 0%, 0% 200%, 0% 7px);
-}*/
+   ################################################# Además de sobre-escribir el código de arriba ########################################## */
 
 /* Sobre-escribir: Modify these values to match your preferences */
   
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-  --uc-window-control-width: 118px;                   /* Space reserved for window controls (Win10) */
+  --uc-window-control-width: 144px;                   /* Space reserved for window controls (Win10) */
   --uc-window-drag-space-pre: 0px;                    /* left side*/
   --uc-window-drag-space-post: 0px;                   /* right side*/
 }
@@ -228,15 +218,10 @@
   
 @media (-moz-gtk-csd-available) {
   :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 94px;
+    --uc-window-control-width: 108px;
   }
 }
 
-/* Sobreescribir height de <window controls> 
-  
-#TabsToolbar > .titlebar-buttonbox-container:last-child,
-#window-controls{ height: calc(var(--tab-height-personal) - 1px) !important; }*/
-  
 /* New :root preferences to adapt oneline style */
   
 :root,
@@ -284,14 +269,22 @@
          [privatebrowsingmode="temporary"][lwtheme-image][sizemode="fullscreen"]){
   
           --toolbar-bgcolor: transparent !important;
-          --uc-window-control-width: 156px !important;
+          --uc-window-control-width: 150px !important;
   }
   
 :root:is([privatebrowsingmode="temporary"], 
          [privatebrowsingmode="temporary"][style*="--lwt-additional-images"],
          [privatebrowsingmode="temporary"][lwtheme-image])  #navigator-toolbox{
            
-          --uc-buttons-width: calc(63px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+          --uc-buttons-width: calc(43px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+}
+  
+:root:is([privatebrowsingmode="temporary"][sizemode="normal"], 
+         [privatebrowsingmode="temporary"][sizemode="normal"][style*="--lwt-additional-images"],
+         [privatebrowsingmode="temporary"][sizemode="normal"][lwtheme-image])  #navigator-toolbox{
+           
+          --uc-window-control-width: 150px !important; 
+          --uc-buttons-width: calc(42px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
 }
 
 @media (-moz-platform: linux) {
@@ -299,14 +292,14 @@
            [privatebrowsingmode="temporary"][style*="--lwt-additional-images"],
            [privatebrowsingmode="temporary"][lwtheme-image])  #navigator-toolbox{
            
-         --uc-window-control-width: 134px !important; 
-         --uc-buttons-width: calc(76px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+         --uc-window-control-width: 114px !important; 
+         --uc-buttons-width: calc(42px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
 }
   :root:is([privatebrowsingmode="temporary"][sizemode="normal"], 
            [privatebrowsingmode="temporary"][sizemode="normal"][style*="--lwt-additional-images"],
            [privatebrowsingmode="temporary"][sizemode="normal"][lwtheme-image])  #navigator-toolbox{
            
-         --uc-window-control-width: 154px !important; 
+         --uc-window-control-width: 167px !important; 
          --uc-buttons-width: calc(95px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
 }
 
@@ -339,26 +332,9 @@
    
 /* Sobre-escribir ogx_tabs-bar */
   
-    .tab-background[selected]{
-        background: var(--lwt-selected-tab-background-color, transparent) !important;
-    }
-  
-/* Sobre-escribir ogx_tabs-bar: Completar Linea gradiente al aparecer el scroll de pestañas */
-
-  #scrollbutton-up::before{
-      content: ""; position: absolute; align-self: end;
-      height: 4px;
-      width: 36px;
-      margin-left: 4px;
-      border-bottom: 1px solid var(--general-color);
-      }
-
-  #scrollbutton-down::after{
-      content: "" !important; position: absolute; align-self: end;
-      width: 180px;
-      margin-left: 140px;
-      border-bottom: 1px solid var(--general-color);
-      border-image: linear-gradient(to right, var(--general-color) 0%, transparent) 1;
+.tab-background:is([selected]){
+    background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)), 
+                      var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
   }
   
 /* Sobreescribir window controls */
@@ -369,25 +345,26 @@
     }}
   
 /* Separador <window controls> y demás botones */
-  
-#nav-bar-overflow-button::after {
-    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
-    content: ""; display: block !important;
+    
+:root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-buttonbox::before{
+    content: ""; position: absolute !important; align-self: center !important;
+    background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
     background-size: 6px 16px !important;
-    height: 16px;
-    fill: var(--button-hover-bgcolor) !important;
+    width: 6px !important;
+    height: 16px !important;
+    fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
-    padding-inline: 8px 4px !important;
-    margin-left: 2px !important;
-    opacity: 0.8;
-}
-  
+    opacity: 0.2 !important;
+    fill-opacity: 1 !important;
+    margin-left: -16px !important;
+    }
+ 
 /* Unified extension button on right - Immovable */
   
 #unified-extensions-button{
     position: fixed;
     display: flex;
-    left: calc(100vw - var(--uc-window-control-width) - 78px) !important;
+    left: calc(100vw - var(--uc-window-control-width) - 64px) !important;
     top: var(--windowed-top-padding, 0px);
     padding-block: 4px !important;
     z-index: 3 !important;
@@ -396,7 +373,7 @@
 /* Sobre-escribir: reserved space for overflow + menu buttons */
   
 #navigator-toolbox{
-  --uc-buttons-width: calc(55px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+  --uc-buttons-width: calc(67px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
 }
   
 /* Sobre-escribir: reserved space for overflow + menu buttons on LINUX */
@@ -419,12 +396,12 @@
   }}
   
 :root:is([tabsintitlebar][sizemode="normal"]) {
-    --uc-window-control-width: 158px;
+    --uc-window-control-width: 172px;
 }
   
 @media (-moz-gtk-csd-available) {
 :root:is([tabsintitlebar][sizemode="normal"]) {
-    --uc-window-control-width: 135px;
+    --uc-window-control-width: 149px;
   }}
   
 /* Mover botón "atrás" más a la derecha */
@@ -457,8 +434,8 @@
 /* Urlbar más pequeña */
   
 #urlbar:not([open]){
-    min-height: 28px !important;
-    max-height: 28px !important;
+    min-height: 26px !important;
+    max-height: 26px !important;
     -moz-box-pack: center !important;
     -moz-box-orient: vertical !important;
 }
@@ -468,28 +445,10 @@
 #identity-icon-box, #tracking-protection-icon-container, #identity-permission-box, #notification-popup-box {   
     margin-block: 2px !important;
 }
-  
-.urlbar-page-action {
+
+#notification-popup-box{
     width: 18px !important;
     height: 18px !important;
-    margin-inline: 2px 2px !important;
-}
-  
-.urlbar-page-action .urlbar-icon{
-  margin-left: -2px !important;
-  margin-top: -1px !important;
-}
-#notification-popup-box {
-    width: 18px !important;
-    height: 18px !important;
-}
-  
-#notification-popup-box image{
-    margin-left: 1px !important;
-}
-  
-.drm-icon, .geo-icon {
-    padding-inline: 1px 5px !important;
 }
   
 /* Desenboque final en "Search with..." */
@@ -569,19 +528,6 @@
 .urlbar-page-action[open] ~ .urlbar-page-action{
   opacity: 1;
 }
-
-/* Borde Gradiente */
-  
-  #TabsToolbar::before{
-        content: "" !important; position: absolute !important; align-self: end !important;
-        width: var(--padding-left-tab) !important;
-        height: 1px !important;
-        min-height: 1px !important;
-        max-height: 1px !important;
-        left: 0 !important;
-        width: calc(var(--navbarWidth) + var(--padding-left-tab)) !important;
-        border-bottom: 1px solid var(--general-color) !important;
-    }
   
 /* Alinear la linea gradiente de la nav-bar con pestaña seleccionada 
    y truco para centrar verticalmente todos los elementos */ 
@@ -778,31 +724,14 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
 
 @media (-moz-gtk-csd-reversed-placement){
   
-/* Quitar separador de  <window controls> de la derecha*/
+/* Separador window controls */
   
-#nav-bar-overflow-button::after {
-    background: none !important;
-    padding-inline: 0px !important;
-    margin: 0px !important;
-}
-  
-/* Poner Separador <window controls on left> y demás botones */
-  
-:root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child::before {
-    background: url("../images/urlbar-separator.svg") no-repeat center !important; 
-    content: ""; display: block !important;
-    background-size: 6px 16px !important;
-    height: 16px;
-    fill: var(--button-hover-bgcolor) !important;
-    -moz-context-properties: fill !important;
-    padding-inline: 4px 4px !important;
-    margin-left: 2px !important;
-    opacity: 0.8;
-}
+:root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-buttonbox:before{
+    margin-left: calc(var(--uc-window-control-width) - 18px) !important;
+    }
   
 /* Espacio de arrastre derecha ventana <no maximizada> */
 
-  
 :root[tabsintitlebar][sizemode="normal"]:not([sizemode="maximized"]) #navigator-toolbox{
   --uc-buttons-width: calc(72px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important; 
 }
@@ -828,11 +757,11 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
 :root:is([privatebrowsingmode="temporary"][sizemode="normal"],
          [privatebrowsingmode="temporary"][sizemode="maximized"],
          [privatebrowsingmode="temporary"][sizemode="fullscreen"]) #navigator-toolbox{
-  --uc-window-control-width: 96px !important; 
+  --uc-window-control-width: 108px !important; 
 }
   
 :root:is([privatebrowsingmode="temporary"][sizemode="maximized"],[privatebrowsingmode="temporary"][sizemode="fullscreen"]) #nav-bar{
-    border-inline-end-width: 64px  !important;
+    margin-inline-end: 60px  !important;
 }
 
 :root:is([privatebrowsingmode="temporary"][sizemode="fullscreen"]) #navigator-toolbox{

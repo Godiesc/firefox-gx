@@ -146,14 +146,7 @@
     border-right: 1px solid transparent !important;
     border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 1px), 
                   var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 1px), 
-                  var(--button-active-bgcolor) 42%, var(--lwt-frame) 94%) 1 !important;
-    }
-    
-/* Linea gradiente -touch mode- */
-
-    :root[uidensity="touch"]:not([chromehidden~="toolbar"]) #PersonalToolbar {
-        border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) - 0px), 
-                      var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) - 0px), var(--button-active-bgcolor) 42%, var(--lwt-frame) 94%) 1 !important;
+                  var(--button-active-bgcolor) 42%, transparent 94%) 1 !important;
     }
     
 /* Quitar label de items de la barra laterar */
@@ -417,7 +410,17 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
 
 /* ##################################################### Nuevos margenes Botón menú ##################################################### */
+  
+@media (-moz-bool-pref:"firefoxgx.menu.disabled") {
+    
+    /* margen izquierda pestañas menu deshabilitado */
+    :root:not([chromehidden~="toolbar"]) #toolbar-menubar, :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="true"]+#TabsToolbar {
+        padding-inline-start: var(--padding-left-tab) !important;
+    }
+}
 
+@media not (-moz-bool-pref:"firefoxgx.menu.disabled") {
+    
 :root {
     --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 16px) !important;     /* Nuevo margen-left de íconos del -menu- */
     --margin-right-icons-personal: 8px !important;                                                  /* Nuevo margen-right de íconos del -menu- */
@@ -506,7 +509,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
         background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
-    }
+    }}
 }
 
 /* ########################################### Baner de -actualización disponible- ########################################### */

@@ -25,39 +25,45 @@
 
 /* ------------------------------------- Pestaña activa ------------------------------------- */
 
-.tabbrowser-tab[selected] { z-index: 1 !important; }
-
 :root[tabsintitlebar] #titlebar:-moz-window-inactive { opacity: 1 !important; }
 
-.tab-background{
-    border-top: 1px solid transparent !important;
-    border-inline: 1px solid transparent !important;
-    clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px) !important;
-}
+.tabbrowser-tab[selected] { z-index: 1 !important; }
 
-.tab-background[selected]{
-    border-color: var(--general-color) !important;
-    background-color: var(--toolbar-bgcolor, transparent) !important;
+.tab-background, .tab-stack::before{ clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); }
+
+.tab-background{ margin-block-start: 1px !important; margin-inline: 1px !important; border-radius: 0px 2px 0px 0px !important;}
+
+.tab-background:is([selected]){
+    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
+                      var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
+    background-position: 0 0, var(--lwt-background-alignment), right top !important;
+    background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
+    background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
+    background-attachment: scroll, fixed, fixed !important;
+    background-color: transparent !important;
     box-shadow: none !important;
     background-clip: padding-box;
-    border-radius: 0px 0px 0px 0px !important;
-    clip-path: polygon(7px 0%, 200% 0%, 0% 200%, 0% 7px) !important;
+    border-radius: 0px 2px 0px 0px !important;
 }
 
 .tabbrowser-tab[selected] > .tab-stack::before{
-    content: "" !important; display: -moz-box !important; position: absolute !important;
-    height: 8px !important;
-    width: 8px !important;
+    content: "";
+    display: flex;
+    min-height: inherit;
+    border-radius: var(--tab-border-radius);
+    grid-area: 1/1;
+    margin-block: var(--tab-block-margin);
+  /* Edit gradient colors here */
     background: var(--general-color) !important;
-    border-radius: 0px 0px 0px 0px !important;
-    clip-path: polygon(60% 0, 95% 0, 0 95%, 0 60%);
+    border-radius: 0px 2px 0px 0px !important;
 }
 
 /* Sombra label de pestañas - quita sombra bajo todas las pestañas */
 
 .tab-label { text-shadow: none !important; }
 
-#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon, #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon, 
+#tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
     box-shadow: none !important; }
 
 #TabsToolbar{ --tabs-navbar-shadow-size: 0px !important; }
@@ -76,96 +82,40 @@
 
 #nav-bar:not([tabs-hidden="true"]) { box-shadow: none !important; }
 
-.tabbrowser-tab:not([selected]){  box-shadow: inset 0 -1px var(--general-color) !important; }
-
-#tabbrowser-arrowscrollbox:not([overflowing]) #tabbrowser-arrowscrollbox-periphery::after {
+#TabsToolbar::before{
     content: "" !important; position: absolute !important; align-self: end !important;
     height: 1px !important;
-    width: 180px !important;
-    margin-left: -2px !important;
-    border-bottom: 1px solid transparent !important;
-    border-image: linear-gradient(to right, var(--general-color) 0%, transparent) 1 !important;
-}
-
-/* Completar linea gradiente: dos pixeles faltantes */
-
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab[selected] ~ .tabbrowser-tab:not([hidden])::after{
-    content: ""; position: absolute !important; align-self: end !important;
-    background-color: var(--general-color)   !important;
-    height: 1px !important;
-    width: 4px !important;
-    margin-left: -2px !important;
-}
-
-/* Linea gradiente al mover pestaña */
-
-#tabbrowser-tabs:is([movingtab])::before{
-    content: "" !important; position: fixed !important; align-self: end !important;
+    min-height: 1px !important;
+    max-height: 1px !important;
     left: 0 !important;
-    width: 100vw !important;
+    width: 100% !important;
     border-bottom: 1px solid var(--general-color) !important;
-    border-image: linear-gradient(to right, var(--general-color) 82%, var(--general-color) 82%, transparent 93%) 1 !important;
-}
-
-    /* Disimular la linea bajo la pestaña activa al moverla */
-    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #tabbrowser-tabs:is([movingtab]) .tab-background[selected]{
-        box-shadow: inset 0 -1px var(--toolbar-bgcolor) !important;
-    }
-
-/* Completar Linea gradiente al aparecer el scroll de pestañas */
-
-#scrollbutton-up::before{
-    content: ""; position: absolute; align-self: end;
-    height: 4px;
-    width: 32px;
-    margin-left: 6px;
-    border-bottom: 1px solid var(--general-color);
-    }
-
-#scrollbutton-down::after{
-    content: "" !important; position: absolute; align-self: end;
-    width: 180px;
-    margin-left: 142px;
-    border-bottom: 1px solid var(--general-color);
-    border-image: linear-gradient(to right, var(--general-color) 0%, transparent) 1;
-}
-
-/* Linea gradiente más grande al seleccionar las primeras pestañas */
-
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab:is(
-:nth-child(1 of :not([hidden],[pinned]))) + #tabbrowser-arrowscrollbox-periphery::after,
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab[hidden="true"][label="Firefox View"]:last-of-type + #tabbrowser-arrowscrollbox-periphery::after{
-    width: calc(180px + 25vw) !important;
-}
-
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab:is(
-:nth-child(2 of :not([hidden],[pinned]))) + #tabbrowser-arrowscrollbox-periphery::after,
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab[hidden="true"][label="Firefox View"]:last-of-type + #tabbrowser-arrowscrollbox-periphery::after{
-    width: calc(180px + 20vw) !important;
-}
-
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab:is(
-:nth-child(3 of :not([hidden],[pinned]))) + #tabbrowser-arrowscrollbox-periphery::after{
-    width: calc(180px + 15vw) !important;
-}
-
-#tabbrowser-arrowscrollbox:not([overflowing]) .tabbrowser-tab:is(
-:nth-child(4 of :not([hidden],[pinned]))) + #tabbrowser-arrowscrollbox-periphery::after{
-    width: calc(180px + 10vw) !important;
+    border-image: var(--panel-separator-zap-gradient2) 1 !important;
 }
 
 /* Color :hover de las pestañas no seleccionadas */
 
-.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
-}
+@media not (-moz-bool-pref:"firefoxgx.tab-shapes") {
+
+    .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
+        background-color: transparent !important;
+    }
+
+    .tabbrowser-tab:hover > .tab-stack:not([selected],[multiselected]) {
+        background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+        clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
+    }
 
 /* Regla para visualizar mejor el seleccionar varias pestañas */
-
-@media not (-moz-bool-pref:"firefoxgx.tab-shapes") {
     
-    .tab-background[multiselected]:not([selected]), tab-background:is([multiselected]):not([selected]) .tab-stack {
+    .tabbrowser-tab:is([multiselected]):not([selected]) .tab-stack {
         background: var(--button-hover-bgcolor) !important;
+        clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
+        outline: none !important;
+    }
+    
+    .tab-background[multiselected]:not([selected]) {
+        background: transparent !important;
         outline: none !important;
     }
 
@@ -178,10 +128,6 @@
 
 .tabbrowser-tab {
     padding-inline: 0px 2px !important;
-}
-
-#tabbrowser-arrowscrollbox[overflowing] > .tabbrowser-tab{
-    padding-inline: 0px !important;
 }
 
 /* Botón "Open Newtab" */
@@ -215,10 +161,6 @@
 
 .all-tabs-item {
     margin-inline: 0px !important;
-}
-
-.all-tabs-item:hover {
-    background-color: transparent !important;
 }
 
 /* Quitar label "Navegación Privada" */
@@ -270,7 +212,7 @@
     padding: 1px 4px 3px 4px !important;
     margin-block-start: 0px !important;
     margin-block-end: 1px !important;
-    margin-inline: 0px 6px !important;
+    margin-inline: 1px 5px !important;
 }
 
 @media (-moz-platform: linux) {
@@ -302,7 +244,7 @@ toolbar:is(#TabsToolbar) #firefox-view-button:hover .toolbarbutton-icon {
 }
 
 toolbar:is(#TabsToolbar) #firefox-view-button .toolbarbutton-icon {
-    border-radius: 4px !important;
+    border-radius: var(--border-radius-urlbar-personal) !important;
     height: calc(var(--tab-height-personal) - 6px) !important;
     width: calc(var(--tab-height-personal) - 6px) !important;
     padding: 4px !important;
@@ -317,22 +259,6 @@ toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutto
 toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
     background: var(--button-hover-bgcolor) !important;
     fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
-}
-
-    /* Firefox-view button + pinned tabs + scroll de pestañas */
-:root:not([privatebrowsingmode], [firefoxviewhidden]) :is(toolbarbutton, toolbarpaletteitem) + #tabbrowser-tabs{
-    padding-inline-start: var(--tab-overflow-pinned-tabs-width, 0px) !important;
-    margin-inline-start: 0px !important;
-}
-
-/* Completar linea bajo botones ubicados antes de la primera pestaña */
-    
-#TabsToolbar-customization-target toolbarbutton:not(#tabs-newtab-button, toolbaritem.toolbaritem-combined-buttons toolbarbutton):is(:nth-child(1)):after,
-#TabsToolbar-customization-target toolbarbutton:not(#tabs-newtab-button):is(:nth-child(1)) + toolbarbutton:not(#tabs-newtab-button):nth-child(2):after{
-    content: ""; position: absolute; align-self: end;
-    width: calc(32px + var(--uc-margin-left-right, 0px));
-    margin-bottom: -1px !important;
-    border-bottom: 1px solid var(--general-color);
 }
 
 /* ------------------------ config to MacOS ---------------------------

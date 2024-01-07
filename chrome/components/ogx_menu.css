@@ -84,20 +84,7 @@
     :root:not([chromehidden~="toolbar"]) #toolbar-menubar, :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="true"]+#TabsToolbar {
         padding-inline-start: var(--padding-left-tab) !important;
     }
-    
-/* Completar toolbar linea gradiente antes de la primera pestaña */
-    
-    #TabsToolbar::before{
-        content: "" !important; position: absolute !important; align-self: end !important;
-        width: var(--padding-left-tab) !important;
-        height: 1px !important;
-        min-height: 1px !important;
-        max-height: 1px !important;
-        left: 0 !important;
-        width: var(--padding-left-tab) !important;
-        border-bottom: 1px solid var(--general-color) !important;
-    }
-    
+
 /* tamaño botón Menú */
     
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
