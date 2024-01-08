@@ -1,6 +1,6 @@
 # Thème CSS Opera-GX pour Firefox
 [![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Tintouin/firefox-gx/blob/main/README.es.md)
-[![en](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/jonatasemidio/multilanguage-readme-pattern/blob/master/README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.md)
 
 <ul><li>Un thème pour les amateurs d'Opera GX. Compatibilité totale avec la version stable du navigateur.</li></ul>
 
