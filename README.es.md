@@ -1,4 +1,5 @@
 # Opera-GX Theme for Firefox Css
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.fr.md)
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.md)
 
 <ul><li>Tema para los amantes de la skin GX de Opera. Compatibilidad - Versión estable del navegador.</li></ul>
