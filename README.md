@@ -1,3 +1,4 @@
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.fr.md)
 [![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Tintouin/firefox-gx/blob/main/README.es.md)
 
 # Opera-GX Theme for Firefox Css
