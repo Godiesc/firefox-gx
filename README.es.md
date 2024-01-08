@@ -1,30 +1,33 @@
-[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.fr.md)
-[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/Tintouin/firefox-gx/blob/main/README.es.md)
-
 # Opera-GX Theme for Firefox Css
-<ul><li>A theme for Opera GX Skin Lovers. Complete compatibility with the stable version of the browser.</li></ul>
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.md)
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.fr.md)
+
+<ul><li>Tema para los amantes de la skin GX de Opera. Compatibilidad - Versión estable del navegador.</li></ul>
 
 ![GX-Animated](https://user-images.githubusercontent.com/22057609/210189445-ced79421-3e1e-411b-87ed-1afbff82d9b1.png)
 
-# How to install?
+# ¿Cómo instalar?
 
-<b>Steps to configure the theme:</b>
+<b>Pasos para configurar el tema:</b>
 <ol>
-   <li>Download the theme from the <b> << Releases >> </b> section, in the right side of this page</code></li> 
-   <li>Unzip the file and copy the 👉<code>chrome</code>👈 folder and the 👉<code>user.js</code>👈 file into your Firefox profile directory. </li>
-   <li>Install and use a compatible <a href="https://github.com/Godiesc/firefox-gx#temas---themes" >theme</a>.</li>
-   <li>Restart the browser. </li>
+   <li>Descarga el tema desde la sección <b> << Releases >> </b> en el lado derecho de esta página.</code></li>
+   <li>Descomprime el archivo y copia la carpeta 👉<code>chrome</code>👈 y el archivo 👉<code>user.js</code>👈 dentro de la carpeta de perfil de tu usuario de firefox.</li>
+   <li>Instala y usa un <a href="https://github.com/Godiesc/firefox-gx#temas---themes" >tema</a> compatible.</li>
+   <li>Reinicia el navegador.</li>
 </ol>
 
-<ul><li><p><b> To find out the location of your profile directory go to <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
+<ul><li><p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
 </br>
 
-> <p>Notice:<ul><li>⚠ The latest code updated in the repository (code > download zip) may work well only on beta or nightly versions.</li></ul></p>
+> <p>Notice:<ul><li>⚠ El último código actualizado en el repositorio (code > download zip) puede funcionar bien sólo en versiones beta o nightly.</li></ul></p>
 
-# Themes
-<ul><li>Main Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li></ul>
+# Temas - Themes
+<ul><li>Temas Principales <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li>
+
+<li> Otros Colores <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
+   <li>Temas Claros: <a href="https://addons.mozilla.org/es/firefox/addon/opera-light/"> ⚪🔴 Fuchsia</a> <a href="https://addons.mozilla.org/es/firefox/addon/beautiful-waves/"> ⚪🔵 Waves</a></li></ul>
    
-<p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode.</b></p>
+<p><b>Aquí un <a href="https://imgur.com/a/0ZASdRb">"Video Explicativo"</a> de cómo cambiar al modo claro y oscuro.</b></p>
 
 <hr size=1px;border-style=dotted;color="#50505050" />
  
@@ -45,9 +48,9 @@
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension</b></a> - Enables the possibility to play or pause tabs with a click on the sound icon.</li>
 </ul>
 
-# Customize
+# Personalizar
 
-<b><i>Various customizations</i></b>
+<b><i>Personalizaciones Varias</i></b>
 <ul>
 <li><p>The file <code>chrome/components/ogx_root-personal.css</code> contains very useful and easy to use variables, so it is easier to change:</p>
 <ul>
@@ -60,33 +63,34 @@
 </ul>
 <p>Every variable has a description on the right, so you know what to customize without breaking the file.</p></li></ul>
 
-<b><i>NewTab Wallpaper</i></b>
+<b><i>Fondo Nueva Pestaña</i></b>
 <ul>
-   <li><p>(Option 1) In the directory: <code>chrome/newtab</code> there is a set of wallpapers, the images that the theme will select by default are: <b><i>wallpaper-light.png</i></b> and <b><i>wallpaper-dark.png</i></b>, you could rename the images you want with that names and the theme will select them, you can add your own images. If you don't want a wallpaper just delete the files with the specified names. You can find more images in: <a href="https://imgur.com/a/j78IhJN"><b>This Gallery</b></a>. <b>Restarting the browser after changing the wallpaper is required. </b></p></li>
+   <li><p>(Option 1) In the directory: <code>chrome/images/newtab</code> there is a set of wallpapers, the images that the theme will select by default are: <b><i>wallpaper-light.png</i></b> and <b><i>wallpaper-dark.png</i></b>, you could rename the images you want with that names and the theme will select them, you can add your own images. If you don't want a wallpaper just delete the files with the specified names. You can find more images in: <a href="https://imgur.com/a/j78IhJN"><b>This Gallery</b></a>. <b>Restarting the browser after changing the wallpaper is required. </b></p></li>
 <li><p>(Option 2) Editing the code <code>chrome/components/ogx_root-personal.css</code> lines: <code>19</code> and <code>24</code>.<p></li></ul></br>
 
-<b><i>Accent Color</i></b>
+<b><i>Color Principal</i></b>
 <ul>
 <li><p>It has manual customization of the accent color for userContent.css (new-tab, preferences and add-ons page). The file in <code>chrome/components/ogx_root-personal.css</code> has the variable: " --general-color " to set the color, you could choose whatever you like. 💙💚💜🤎💛🧡❤ <b>Restarting the browser is required. </b></p></li></ul>
 
 ![Captura de pantalla 2022-06-05 155840](https://user-images.githubusercontent.com/22057609/172070426-0de79289-eaa3-4826-ac62-af6230cdf877.png)
 
-# Compatibility
+# Compatibilidad
 
 <ul><li>Windows 7 (Tested partially) ❌✔ - <a href="https://github.com/Godiesc/firefox-gx/discussions/70">Preview</a></li>
-<li>Linux - Manjaro KDE (Tested - Probado) ✔ - <a href="https://imgur.com/a/Byo3Mn7">Preview</a></li>
-<li>Windows 10 (Tested - Probado) ✔ - <a href="https://imgur.com/a/aYl8fjn">Preview</a></li>
-<li>Windows 11 (Tested - Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png" >Preview</a></li>
+<li>Linux - Manjaro KDE (Probado) ✔ - <a href="https://imgur.com/a/Byo3Mn7">Preview</a></li>
+<li>Windows 10 (Probado) ✔ - <a href="https://imgur.com/a/aYl8fjn">Preview</a></li>
+<li>Windows 11 (Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png" >Preview</a></li>
 <li>MacOS (Tested partially) ❌✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a></li><ul><li>Base theme</li><li>Left-sidebar</li></ul>
 </ul>
 
-# Known Issues
+# Problemas Conocidos
 <ul>
+<li>When using a theme that use more that one image, the theme will display a bad background in the selected tab, for example the alpenglow theme from firefox.</li>
 <li>In themes with images, when moving a tab it will display a bad background.</li>
 <li>Not compatibility for RTL(right-to-left) languages.</li>
 </ul>
 
-# Related Topic
+# Tema relacionado
 Available [Firefox-ONE](https://github.com/Godiesc/firefox-one)
 
 ![SplashPromocionalFirefoxONE](https://github.com/Godiesc/firefox-one/assets/22057609/453c2917-8cee-4424-b550-e4e38f492c84)
