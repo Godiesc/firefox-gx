@@ -62,7 +62,7 @@
 
 <b><i>Fond d'écran de la page d'accueil</i></b>
 <ul>
-   <li><p>(Option 1) Dans le dossier : <code>chrome/images/newtab</code> se trouvent quelques fonds d'écran, les images que le thème sélectionnera par défaut sont : <b><i>wallpaper-light.png</i></b> et <b><i>wallpaper-dark.png</i></b>, vous pouvez renommer les images que vous voulez ajouter avec le même nom et le thème les sélectionnera si vous ne voulez pas de fond d'écran créez un dossier dans l'emplacement et déplacez les fonds d'écran. Vous pouvez trouver d'autres images dans <a href="https://imgur.com/a/j78IhJN"><b>Cette Galerie</b></a>. <b>Il est requis de redémarrer le navigateur après un changement de fond d'écran.</b></p></li>
+   <li><p>(Option 1) Dans le dossier : <code>chrome/newtab</code> se trouvent quelques fonds d'écran, les images que le thème sélectionnera par défaut sont : <b><i>wallpaper-light.png</i></b> et <b><i>wallpaper-dark.png</i></b>, vous pouvez renommer les images que vous voulez ajouter avec le même nom et le thème les sélectionnera si vous ne voulez pas de fond d'écran créez un dossier dans l'emplacement et déplacez les fonds d'écran. Vous pouvez trouver d'autres images dans <a href="https://imgur.com/a/j78IhJN"><b>Cette Galerie</b></a>. <b>Il est requis de redémarrer le navigateur après un changement de fond d'écran.</b></p></li>
 <li><p>(Option 2 <b>Recommandée</b>) Modifier le nom du fond d'écran dans le fichier <code>chrome/components/ogx_root-personal.css</code> à la ligne : <code>19</code> et <code>24</code>.<p></li></ul></br>
 
 <b><i>Couleur d'accentuation</i></b>
