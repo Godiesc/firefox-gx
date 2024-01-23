@@ -64,7 +64,7 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
 /*------ícono  reproduciendose-------*/
 @media (prefers-color-scheme: dark){
 .tab-icon-overlay:is([soundplaying]):not([pinned]) {
-    list-style-image: url("../images/Beats.webp") !important;
+    list-style-image: url("../icons/Beats.webp") !important;
     border-radius: 2px !important;
     width: 100% !important;
     inset-block-start: 9px !important; 
@@ -77,7 +77,7 @@ tab[pinned]:not(:hover) .tab-icon-overlay:not([soundplaying]) {
 }
 @media (prefers-color-scheme: light){
 .tab-icon-overlay:is([soundplaying]):not([pinned]){
-    list-style-image: url("../images/Beats.gif") !important;
+    list-style-image: url("../icons/Beats.gif") !important;
     border-radius: 2px !important;
     width: 16px !important;
     height: 10px !important;
@@ -115,7 +115,7 @@ tab:hover .tab-icon-overlay:not([pinned])[soundplaying]{
 
 /*----ícono "reproduciendo" hover----*/
 tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
-    /*list-style-image: url("../images/muted.svg") !important;*/
+    /*list-style-image: url("../icons/muted.svg") !important;*/
     /*color: var(--lwt-tab-text) !important;*/
     /*clip-path: polygon(20% 0%, 100% 0%, 100% 14%, 100% 100%, 100% 100%, 14% 100%, 0% 100%, 0% 20%);*/
     background: var(--identity-icon-color,var(--general-color))  !important;
@@ -125,7 +125,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
 /*------muteado-------*/
 /* muteado */
 .tab-icon-overlay:not([pinned])[muted]{
-    list-style-image: url("../images/muted.svg") !important;
+    list-style-image: url("../icons/muted.svg") !important;
     height: 16px !important;
     width: 16px !important;
     color: var(--lwt-tab-text) !important;
@@ -175,7 +175,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
 /* muteado pinned*/
 .tab-icon-overlay:is([pinned][muted]) {
     border-radius: 2px !important;
-    list-style-image: url("../images/muted.svg") !important;
+    list-style-image: url("../icons/muted.svg") !important;
     width: 16px !important; 
     height: 16px !important;
     color: var(--lwt-tab-text) !important;
@@ -197,7 +197,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     fill-opacity: 1 !important;
     }
 .tabbrowser-tab:is([pinned]):hover .tab-icon-overlay:is([pinned][soundplaying]):hover {
-    /*list-style-image: url("../images/muted.svg") !important;*/
+    /*list-style-image: url("../icons/muted.svg") !important;*/
     padding: 0px !important;
     fill-opacity: 1 !important;
     color: var(--contrast-color) !important;
@@ -245,7 +245,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     }
 /* Colores muted*/
 .tabbrowser-tab:not([pinned]) .tab-icon-overlay:is([muted]){
-    list-style-image: url("../images/muted.svg") !important;
+    list-style-image: url("../icons/muted.svg") !important;
     fill: var(--lwt-tab-text) !important;
     fill-opacity: 0.8 !important;
     }
