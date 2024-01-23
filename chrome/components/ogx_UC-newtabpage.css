@@ -18,8 +18,7 @@
     --border-contrast-color: #09080d !important;                                              /* Variable borde personal de contraste */
         
     --arrowpanel-background-personal: #1c1726 !important;
-    --lwt-sidebar-background-color: #14141d !important;                                       /* Sidebar fondo */
-    --newtab-background-color: #101019 !important;                                            /* Color fondo general */
+    --newtab-fake-background-color: #101019 !important;                                       /* Color fondo general */
 
     --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/
     --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* color de fondo al hacer clic al ícono menú 3 puntos*/
@@ -30,7 +29,7 @@
     --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
       var(--button-active-bgcolor) 69%, transparent) !important;
 
-    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
+    --newtab-border-color: color-mix(in srgb, var(--newtab-fake-background-color) 92%,        /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
         var(--newtab-wordmark-color)) !important;
 
     --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
@@ -41,7 +40,7 @@
     --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
 
     --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
-      var(--newtab-background-color) 90%, var(--newtab-wordmark-color) ) !important;
+      var(--newtab-fake-background-color) 90%, var(--newtab-wordmark-color) ) !important;
 
     --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* color bola de radiobutton */
 
@@ -55,8 +54,7 @@
     --border-contrast-color: #acacac50 !important;                                            /* Variable borde personal de contraste */
         
     --arrowpanel-background-personal: #f9f9f9 !important;
-    --lwt-sidebar-background-color: #efeff5 !important;                                       /* Sidebar fondo */
-    --newtab-background-color: #efeff5 !important;                                            /* Color fondo general */
+    --newtab-fake-background-color: #efeff5 !important;                                       /* Color fondo general */
         
     --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda */
     --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* color de fondo al hacer clic al ícono menú 3 puntos */
@@ -67,7 +65,7 @@
     --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
       var(--button-active-bgcolor) 69%, transparent) !important;
         
-    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* Color borde menu de 3 puntos y de input-text al editar un sitio */
+    --newtab-border-color: color-mix(in srgb, var(--newtab-fake-background-color) 92%,        /* Color borde menu de 3 puntos y de input-text al editar un sitio */
         var(--newtab-wordmark-color)) !important;
         
     --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
@@ -78,17 +76,11 @@
         
     --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
     --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
-      var(--newtab-background-color) 86%, var(--newtab-wordmark-color) ) !important;
+      var(--newtab-fake-background-color) 86%, var(--newtab-wordmark-color) ) !important;
         
     --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* color bola de radiobutton */
         
     }}
-    
-/* ntp - Fondo general de la paginas newtab y home */
-    
-.activity-stream {
-    background-color: var(--newtab-background-color, #ff0000) !important;
-    }
     
 /* Eliminar scrollbar */
     
@@ -192,7 +184,7 @@ input:focus-visible, input:focus-visible{
     background-image: url("../icons/edit.svg") !important; 
     }
 .personalize-button {
-    color: color-mix( in srgb, var(--newtab-background-color) 60%, var(--newtab-wordmark-color) ) !important;
+    color: color-mix( in srgb, var(--newtab-fake-background-color) 60%, var(--newtab-wordmark-color) ) !important;
     }
 .personalize-button:hover {
     background-color: var(--newtab-background-color-secondary)!important; 
@@ -218,7 +210,7 @@ input:focus-visible, input:focus-visible{
     /* Fondo */
     
 .customize-menu {
-    background-color: color-mix(in srgb, var(--newtab-background-color) ,var(--newtab-overlay-color)) !important;
+    background-color: color-mix(in srgb, var(--newtab-fake-background-color) ,var(--newtab-overlay-color)) !important;
     color: var(--newtab-wordmark-color) !important;
     backdrop-filter: var(--personal-blur); 
     }
@@ -512,7 +504,10 @@ browser[primary="true"][tabDialogShowing="true"],
 /*------------------------fondo (imagen), Logo y Wordmark------------------------*/
     
 body{
-    background: var(--lwt-main-image) no-repeat right top fixed !important;
+    background-image: var(--lwt-main-image, initial) !important;
+    background-repeat: no-repeat !important; 
+    background-position: right top !important;
+    background-attachment: fixed !important;
     background-size:  var(--wallpaper-size) !important;
     background-position-y: var(--background-align-y) !important;
     backdrop-filter: var(--brightness-wallpaper) !important;

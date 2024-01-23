@@ -176,10 +176,11 @@
   --toolbarbutton-active-background: var(--contrast-color) !important;                                           /* button_background_active */
   --toolbarbutton-hover-personal: color-mix(in srgb, 
     transparent 85%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;               /* Button :hover color personal */
-  --lwt-background-alignment: right top, left top, right top !important;
+  --lwt-background-alignment: right top, left top, right top !important;                                         /* Alineación imagen del tema */
   --chrome-content-separator-color: color-mix(in srgb, 
     var(--toolbar-bgcolor) 84%, var(--contrast-color)) !important;                                               /* toolbar_bottom_separator */
-  }}
+  }
+}
 
 @media (prefers-color-scheme: light){
   :root:is([lwtheme-image],[style*="--lwt-additional-images"]){
@@ -194,10 +195,14 @@
     var(--toolbar-field-focus-background-color) 94%, var(--lwt-tab-text)) !important;                            /* button_background_active */
   --toolbarbutton-hover-personal: color-mix(in srgb, 
     transparent 85%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;               /* Button :hover color personal */
-  --lwt-background-alignment: right top, left top, right top !important;
+  --lwt-background-alignment: right top, left top, right top !important;                                         /* Alineación imagen del tema */
   --chrome-content-separator-color: color-mix(in srgb, 
     var(--toolbar-bgcolor) 90%, var(--lwt-tab-text)) !important;                                                 /* toolbar_bottom_separator */
   }}
+
+:root:is([lwtheme-image]){
+  --lwt-background-alignment: right top !important;                                                              /* Alineación imagen del tema - 1 imagen */
+}
 
 /* Private Browsing Mode */
 

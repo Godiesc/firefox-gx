@@ -76,8 +76,6 @@
 
 .tab-content { margin-bottom: 1px !important; }
 
-.tab-content:not([pinned]) { margin-inline-start: -1px !important; }
-
 /* ------------------------------------- Gradiente bajo pestañas ------------------------------------- */
 
 #nav-bar:not([tabs-hidden="true"]) { box-shadow: none !important; }

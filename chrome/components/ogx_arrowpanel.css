@@ -116,7 +116,6 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
 
 #downloadsListBox > richlistitem {
     border-radius: 0px !important;
-    background-image: var(--noise-urlbar-personal) !important;
     background-color: transparent !important;
     padding-inline: 4px 4px !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
@@ -147,7 +146,7 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
 
 #sidebar-box {
     max-width: none !important;
-    min-width: 30px !important;
+    min-width: 1px !important;
 }
 
 /* Linea Separadora */

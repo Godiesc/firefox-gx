@@ -106,9 +106,8 @@
     }
     
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
-        background-image: linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)),
-                          linear-gradient(transparent, transparent),
-                          var(--noise-urlbar-personal, transparent) !important;
+        background-image: var(--noise-urlbar-personal) !important;
+        background-color: var(--arrowpanel-background) !important;
         border-radius: 0px !important;
         border-color: transparent !important;
         width: 28.5em !important;

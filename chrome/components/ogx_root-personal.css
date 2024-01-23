@@ -3,9 +3,9 @@
 
 :root{  
 /* --------------------- Variables de colores, puedes poner tu color personalizado y utilizarlo -----------------------------*/  
-  --fuchsia: #fa1e4e;     --blue: #4c4cff;     --aqua: #00bfff;         --cyan: #00ffff;          --lightblue: #45a1ff;     --pink: #FF0F7E;
-  --purple: #8d35e2;      --green: #05b694;    --aquamarine: #00ffa2;   --lightgreen: #36ff4e;    --yellowbrown: #febd60;   --swampautumn: #fdf008;
-  --gray: #bfb6d2;        --orange: #ff6c22;   --yellow: #ffe20f;       --red: #ff3230;           --navyblue: #0050cE;      --poison: #cb17cf; 
+  --fuchsia: #fa1e4e;  --blue: #4c4cff;    --aqua: #00bfff;        --cyan: #00ffff;        --lightblue: #45a1ff;   --pink: #FF0F7E;        --catppuccino: #f38ba8;
+  --purple: #8d35e2;   --green: #05b694;   --aquamarine: #00ffa2;  --lightgreen: #36ff4e;  --yellowbrown: #febd60; --swampautumn: #fdf008;
+  --gray: #bfb6d2;     --orange: #ff6c22;  --yellow: #ffe20f;      --red: #ff3230;         --navyblue: #0050cE;    --poison: #cb17cf; 
   
 /*                                                                                                                                 
     Accent color -----> UI del navegador.  -----|                  |---- userContent <------------ Accent color
@@ -16,13 +16,13 @@
 /*---------------------------------------------- <-Personalizaciones Varias-> ---------------------------------------------------*/
 
 @media (prefers-color-scheme: dark){ :root{
-  --lwt-main-image:  url("../newtab/wallpaper-dark.png") !important;                  /* new-tab page image - dark theme */
-  --lwt-private-image:  url("../newtab/private-dark.png") !important;                 /* new-tab private-page image - dark theme */
+  --lwt-main-image:  url("../newtab/wallpaper-dark.png") !important;                         /* new-tab page image - dark theme */
+  --lwt-private-image:  url("../newtab/private-dark.png") !important;                        /* new-tab private-page image - dark theme */
   --brightness-wallpaper: brightness(99%);                                                   /* 99% -> default ; 51% -> to <<main-image>> config */ }}
   
 @media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../newtab/wallpaper-light.png") !important;                 /* new-tab page image - white theme*/
-  --lwt-private-image:  url("../newtab/private-light.png") !important;                /* new-tab private-page image - white theme*/
+  --lwt-main-image:  url("../newtab/wallpaper-light.png") !important;                        /* new-tab page image - white theme*/
+  --lwt-private-image:  url("../newtab/private-light.png") !important;                       /* new-tab private-page image - white theme*/
   --brightness-wallpaper: brightness(99%);                                                   /* 99% -> default and Main-image config */ }}
 
 :root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }         /* Accent color private mode */
@@ -58,11 +58,11 @@
 @media (-moz-bool-pref:"firefoxgx.main-image") {
   
   @media (prefers-color-scheme: dark){ :root{
-    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                  /* new-tab page image - white team */
+    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                         /* new-tab page image - white team */
     --brightness-wallpaper: brightness(51%);                                                    /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
   @media (prefers-color-scheme: light){ :root{
-    --lwt-main-image:  url("../newtab/main-image-light.png") !important;                 /* new-tab page image - dark theme*/
+    --lwt-main-image:  url("../newtab/main-image-light.png") !important;                        /* new-tab page image - dark theme*/
     --brightness-wallpaper: brightness(100%);                                                   /* 100% -> default and Main-image config */ }}
   
   :root{  
