@@ -117,12 +117,12 @@
     .tabbrowser-tab:is([multiselected]):not([selected]) .tab-stack {
         background: var(--button-hover-bgcolor) !important;
         clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
-        outline: none !important;
+        outline-color: transparent !important;
     }
     
     .tab-background[multiselected]:not([selected]) {
         background: transparent !important;
-        outline: none !important;
+        outline-color: transparent !important;
     }
 
     .tab-background[multiselected][selected] {
@@ -257,7 +257,7 @@ toolbar:is(#TabsToolbar) #firefox-view-button .toolbarbutton-icon {
 }
 
 toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
-    outline: none !important;
+    outline-color: transparent !important;
     background: var(--button-hover-bgcolor) !important;
     fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
