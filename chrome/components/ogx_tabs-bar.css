@@ -27,7 +27,15 @@
 
 :root[tabsintitlebar] #titlebar:-moz-window-inactive { opacity: 1 !important; }
 
+/* Necesario  para que la primera pestaña :selected no quede bajo left-sidebar */
+
 .tabbrowser-tab[selected] { z-index: 1 !important; }
+
+#titlebar{
+  will-change: unset !important;
+  transition: none !important;
+  opacity: 1 !important;
+}
 
 .tab-background, .tab-stack::before{ clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); }
 
