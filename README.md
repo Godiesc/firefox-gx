@@ -19,20 +19,24 @@
 <ul><li><p><b> To find out the location of your profile directory go to <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport"> about:support</a> or about:profiles.</b></p></li></ul>
 </br>
 
-> <p>Notice:<ul><li>⚠ The latest code updated in the repository (code > download zip) may work well only on beta or nightly versions.</li></ul></p>
+> <p>Notice:</p>⚠ The latest code updated in the repository (code > download zip) may work well only on beta or nightly versions.</p>
 
 # Themes
 <ul><li>Main Themes <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li>
 
 <li> Other Colors <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
    <li>White Themes: <a href="https://addons.mozilla.org/es/firefox/addon/opera-light/"> ⚪🔴 Fuchsia</a> <a href="https://addons.mozilla.org/es/firefox/addon/beautiful-waves/"> ⚪🔵 Waves</a></li></ul>
-   
-<p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode.</b></p>
 
-<hr size=1px;border-style=dotted;color="#50505050" />
+<p>You can use the <a href="https://addons.mozilla.org/es/firefox/addon/gx-theme-styles">"GX Theme Styles"</a> Extension to a quick change of themes and colores, this extension works for solid themes only and for users that use the extra feature "Main-image". For change the new-tab background image  and its accent-color you should do it manually like before. This extension was created by me.</p>
+
+![imagen](https://github.com/Godiesc/firefox-gx/assets/22057609/c584a7ea-2410-4504-9de4-c00046da4b02) 
+
+<p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode for your web content.</b></p>
+
+<hr style="size:1px;border-style:dotted;border-bottom: none" />
  
-<ol><p>You can also use the <b><a href="https://addons.mozilla.org/es/firefox/addon/firefox-color/">"Firefox Color"</a> </b>extension to change the accent color to your preference.</p>
-<li>Install the extension.</li>
+<p>You can also use the <b><a href="https://addons.mozilla.org/es/firefox/addon/firefox-color/">"Firefox Color"</a> </b>extension to change the accent color to your preference.</p>
+<ol><li>Install the extension.</li>
 <li> Open the theme you want to set: <a href="https://color.firefox.com/?theme=XQAAAAJWBAAAAAAAAABBKYhm849SCicxcUfbB38oKRicm6da8pC6zcajvXUxVWhow0XG5K6BSwfdWytulM34uzM3LhuZvlDLNlGrQWcJvtOkdch_qcsPVi0nURBtsyHwEHcPSSdZBUPlEd-vDQwNy7595jjXYHVUDZw8QUFX13YJoRcCcwEU_Dzw709yH1YhjPaZd9vc7d_pmujWu5Wak7eyIlDRz7msPTiOUQAGJk08pOmPGTlzqfqv_zVenGs8n34O-pwABvBa3bniENYtOjF2zG6a1clmNiITgbNcIb_62b4a9Yemcqv7EZHQrCW7zmsAvNSloPy7oL6whNUFLSwbI6Mw5vgLa-hxr68dhAHr1ci0sPBuzH4X2v7tLQo5vKFoUH93wsR4AwL9J43ZXmO9TER1RnH2xUG4I0NvW4qxmJjIat-ppv43c0-fRci1Bj6noY7L9y6poRreLfdGKUXGbKH0FLlRHhs-Bia-AWSh_UuNqz1ILqetzdDWEtHtq2xzUlsh56YTwVUn1MCnjH3ms_M2oZCiP5nz8yVJeLgQPR0F6WFW4nJItk3xtTf9kvzHolSRcToly_Y8OTydALDLYe28MG_QaZDIhDmgJYn8pIdOSufv2FBPdGAxKQXqhhzhzNqEIz5uMi4Jz4ap3D7S1LXeRP_7RdGY"> ⚫ Dark Theme</a> or <a href="https://color.firefox.com/?theme=XQAAAAKEBAAAAAAAAABBKYhm849SCicxcUfbB38oKRicm6da8pvltSB9WkV2c-XLRbQ1Oez1zWXjUJZMfxQUKzTC_-cAsWtnZjVBpeauBmTjVBPomCKsNVE80fvRwY-rJ65R4jKCyUVJUxrFBxVOxkA_Rxvv8TOD070oV0UwW995RyQV9JG-qcd5cFRiuYzkoOoHlCuFUVFtPj-_VSSr0BzL4pxY0IpdnWN0KWhRBmt3bJSbrY2SZACmpn1-skZEU9Pl7kzFVSTXlVU1skeP3kB-2KFUyqRH8Bq3xQ7pvZUvgKGdOF1eMnUXONJyIXPMhZtlrI7Obxy9YLSETBcgDeTe9bxN3BBYKOuF10prltedblsTxpIdNNgEoG2yh9uTnk3c89KqyaYqsomU-bkA9mnxUzpdUGedTZy2yRp9rBdPL4OdYjxI6RX_vOIwZIreHwYr6bE18aOxjMyNAVkKeN7DlxTjNUXmGPcEA0AEAdibEk3tv-OZ9gM8LqxIC0vu9IQNCetSFNPUfnFa2mp-WLBnl9jxa_r-5geKcLuM29u1Tc1YVcfuE0T38PfAh6RtjUPUGW6AhKR5Q25wKre_e_CN-gF5_EA1eeTI_-9-6wg"> ⚪ Light Theme</a>.</li>
 <li> Go to "Advanced colors" tab and change the color in "icons attention", this color will set the accent color to the theme.</li></ol>
 
