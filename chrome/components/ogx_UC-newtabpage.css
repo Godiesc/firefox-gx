@@ -250,7 +250,7 @@ input:focus-visible, input:focus-visible{
 
 .search-wrapper{ 
     border-radius: 0px !important;
-    outline: none !important;
+    outline-color: transparent !important;
     box-shadow: none !important;
     }
     
@@ -276,7 +276,7 @@ input:focus-visible, input:focus-visible{
     
 .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
     /*outline: 1px solid var(--button-active-bgcolor) !important;*/
-    outline: none !important;
+    outline-color: transparent !important;
     border-color: transparent !important;
     /*margin-left: 1px !important;
     /*z-index: 1 !important;*/

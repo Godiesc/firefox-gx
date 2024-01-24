@@ -115,7 +115,7 @@ tab:is([pinned]) .tab-context-line {
     border-radius: 0px !important;
   }
   .tab-background[multiselected="true"]{
-      outline: none !important;
+      outline-color: transparent !important;
   }
 
 /* ########################################## Selected Tab - Box Shadow ########################################## */
