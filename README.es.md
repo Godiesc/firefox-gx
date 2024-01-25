@@ -19,15 +19,19 @@
 <ul><li><p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport"> about:support</a> o about:profiles.</b></p></li></ul>
 </br>
 
-> <p>Notice:<ul><li>⚠ El último código actualizado en el repositorio (code > download zip) puede funcionar bien sólo en versiones beta o nightly.</li></ul></p>
+> <p>Notice:</p> ⚠ El último código actualizado en el repositorio (code > download zip) puede funcionar bien sólo en versiones beta o nightly.
 
 # Temas
 <ul><li>Temas Principales <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li>
 
 <li> Otros Colores <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
    <li>Temas Claros: <a href="https://addons.mozilla.org/es/firefox/addon/opera-light/"> ⚪🔴 Fuchsia</a> <a href="https://addons.mozilla.org/es/firefox/addon/beautiful-waves/"> ⚪🔵 Waves</a></li></ul>
+
+<p>Puedes usar la extensión <a href="https://addons.mozilla.org/es/firefox/addon/gx-theme-styles">"GX Theme Styles"</a> para cambiar facilmente los temas y colores, essta extensión funciona para temas sólidos y para usuarios que usan la configuración "Main-image". Para cambiar la imagen de la página Nueva Pestaña y su color de acento debes hacerlo manualmente como de costumbre. Esta extensión fue creado por mi.</p>
+
+![imagen](https://github.com/Godiesc/firefox-gx/assets/22057609/c584a7ea-2410-4504-9de4-c00046da4b02) 
    
-<p><b>Aquí un <a href="https://imgur.com/a/0ZASdRb">"Video Explicativo"</a> de cómo cambiar al modo claro y oscuro.</b></p>
+<p><b>Aquí un <a href="https://imgur.com/a/0ZASdRb">"Video Explicativo"</a> de cómo cambiar al modo claro y oscuro su contenido web.</b></p>
 
 <hr size=1px;border-style=dotted;color="#50505050" />
  
