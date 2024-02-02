@@ -20,37 +20,62 @@
 
 ## Image in menus (contextual menu and arrowpanel menus)
 
-<p><b>Warning: </b>Not compatible if you use "Firefox Color" extension", with Main-Image config you will get some bugs. Themes that use an animated image will cause a high cpu use, in themes with static image I didn't notice any inconvenience. </p>
+<p><b>Warning: </b>For solid themes the image will be <code>chrome/newtab/menu-image.png</code>, If you use a theme with images and any extension to change some color, you should use too '<a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/Main-Image">Main-image</a>' config. Themes that use an animated image will cause a high cpu use.</p>
 <details><summary>Code Here</summary>
     
 ```
-/* Image in menus in themes with images */
+/* Image in menus */
+  
+    :root:not([style*="--lwt-additional-images"],[lwtheme-image]) :is(popupset, panelview, menupopup),
+    :root:not([style*="--lwt-additional-images"],[lwtheme-image]):is([sizemode="maximized"]) #PanelUI-menu-button{
+        --lwt-header-image: url("../newtab/menu-image.png") !important;
+        --lwt-additional-images: var(--lwt-header-image) !important;
+    }
 
-@media (prefers-color-scheme: dark){
-    :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-        --arrowpanel-background: #101019b0 !important;
+    @media (prefers-color-scheme: dark){
+        :root:is([style*="--lwt-additional-images"],[lwtheme-image]),
+        :root:not([style*="--lwt-additional-images"],[lwtheme-image]){
+            --arrowpanel-background: #101019d0 !important;
     }}
 
-@media (prefers-color-scheme: light){
-    :root[style*="--lwt-additional-images"], :root[lwtheme-image]{
-        --arrowpanel-background: #f9f9f9b0 !important;
+    @media (prefers-color-scheme: light){
+        :root:is([style*="--lwt-additional-images"],[lwtheme-image]),
+        :root:not([style*="--lwt-additional-images"],[lwtheme-image]){
+            --arrowpanel-background: #f9f9f9d0 !important;
     }}
 
-.menupopup-arrowscrollbox, slot, panelview {
-    background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
-                      linear-gradient(transparent, transparent), 
-                      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-    background-size: auto 104vh !important;
-    background-position: -1px 0px !important;
-}
-
-@media (-moz-platform: windows), (-moz-platform: linux) {
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
+    .menupopup-arrowscrollbox, popupset, panelview, popupnotification, slot,
+    :root:not([chromehidden~="toolbar"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack,
+    :root:not([chromehidden~="toolbar"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack::after{
         background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
-                          linear-gradient(transparent, transparent), 
-                          var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-        background-size: auto 104vh !important;
-    }}
+                          var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
+        background-position: -1px -1px !important;
+        background-repeat: repeat !important;
+        background-size: auto 100vh !important;
+        background-attachment: initial !important;
+    }
+
+    @media (-moz-platform: windows), (-moz-platform: linux) {
+        :root:not([chromehidden~="toolbar"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack::after{
+            background-color: var(--arrowpanel-background) !important;
+            background-position: -23px -1px !important;
+        }}
+
+    @media (-moz-bool-pref:"firefoxgx.main-image") {
+         @media (prefers-color-scheme: dark){
+            :root:not([style*="--lwt-additional-images"],[lwtheme-image]) :is(popupset, panelview, menupopup),
+            :root:not([style*="--lwt-additional-images"],[lwtheme-image]):is([sizemode="maximized"]) #PanelUI-menu-button{
+                --lwt-header-image: url("../newtab/main-image-dark.png") !important;
+                --lwt-additional-images: var(--lwt-header-image) !important;
+             }}
+
+        @media (prefers-color-scheme: light){
+            :is(popupset, panelview, menupopup),
+            :root:not([style*="--lwt-additional-images"],[lwtheme-image]):is([sizemode="maximized"]) #PanelUI-menu-button{
+                --lwt-header-image: url("../newtab/main-image-light.png") !important;
+                --lwt-additional-images: var(--lwt-header-image) !important;
+             }}
+        }
 ```
 </details>
 
@@ -63,8 +88,13 @@
 /* Extensions button into the "left-sidebar" - Immovable */
 
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
-    --padding-top-left-sidebar: 146px !important; /* 182px to one-line config */
+    --padding-top-left-sidebar: 146px !important;
 }
+
+@media (-moz-bool-pref:"firefoxgx.oneline") {
+    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
+    --padding-top-left-sidebar: 182px !important;
+}}
 
 :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button {
     --toolbarbutton-hover-background: transparent !important;
