@@ -54,7 +54,7 @@ findbar:-moz-lwtheme {
 }
 
 .urlbarView-row {
-    margin-top: -7px !important;
+    margin-top: -6px !important;
     margin-bottom: 5px !important;
 }
 
@@ -85,8 +85,7 @@ findbar:-moz-lwtheme {
 .urlbarView-favicon {
     padding: 6px !important;
     border-radius: 8px !important;
-    margin-top: -2px !important;
-    margin-bottom: -2px !important;
+    margin-block: -3px !important;
     margin-inline-end: 6px !important;
     clip-path: circle(50%);
 }
@@ -108,6 +107,16 @@ findbar:-moz-lwtheme {
         flex-basis: 0% !important;
       }
     }
+  }
+}
+
+/* Botón 'cambiar a pestaña' */
+
+.urlbarView-row:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) {
+  & > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action
+{
+    padding: 4px 8px !important;
+    margin-block: -2px !important;
   }
 }
 
@@ -328,8 +337,8 @@ findbar:-moz-lwtheme {
 #notification-popup-box .notification-anchor-icon,
 #blocked-permissions-container .blocked-permission-icon{
     padding: 3px !important;
-    height: 20px !important;
-    width: 20px !important;
+    height: 19px !important;
+    width: 19px !important;
 }
 
 /* background-color - Íconos permisos :hover - :active */
@@ -345,8 +354,8 @@ findbar:-moz-lwtheme {
 }
 
 #notification-popup-box {
-    width: 20px !important;
-    height: 20px !important;
+    width: 19px !important;
+    height: 19px !important;
 }
 
 /* ícono Portección contra rastreo */

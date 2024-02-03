@@ -19,7 +19,7 @@
 
 /* Margen derecha de los shortcut Ctrl + */
 
-.subviewbutton[shortcut]::after{
+#appMenu-popup .subviewbutton[shortcut]::after{
     padding-inline-end: 22px !important;
 }
 

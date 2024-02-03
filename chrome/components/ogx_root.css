@@ -248,16 +248,28 @@
 
   }}
 
-/* Other height for tabs in touch density */
+/* Sizes for other densities */
+
+/* Compact */
 
 :root[uidensity="compact"] {
     --tab-height-personal: 26px !important;
-    --my-vertical-toolbar-width: 35px !important;
     --toolbar-height-personal: 32px !important;
 }
 
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+  :root[uidensity="compact"]{
+  --my-vertical-toolbar-width: 35px !important;
+  }}
+
+/* Touch */
+
 :root[uidensity="touch"] {
     --tab-height-personal: 36px !important;
-    --my-vertical-toolbar-width: 47px !important;
     --toolbar-height-personal: 42px !important;
 }
+
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+  :root[uidensity="touch"]{
+  --my-vertical-toolbar-width: 47px !important;
+  }}
