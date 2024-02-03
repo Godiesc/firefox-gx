@@ -240,8 +240,7 @@ input:focus-visible, input:focus-visible{
     .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 
 /* ###################################### Cuadro de búsqueda ###################################### */
-    
-    
+
 /* Elimina flecha */
     
 .search-wrapper .search-button { display: none !important; }
@@ -257,63 +256,59 @@ input:focus-visible, input:focus-visible{
 .search-inner-wrapper{
     opacity: var(--searchbar-on-off, 1) !important;
     display: var(--searchbar-display, flex) !important;
-    margin-top: 16px !important;
     box-shadow: 0 2px var(--button-bgcolor) !important;
     width: 58% !important;
-    /*clip-path: polygon(0 0, 100% 0, 100% 104%, 6% 104%, 6% 100%, 0 100%) !important;*/
-    /*clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 92%, 90% 2004%, 9% 2004%, 9% 93%, 0 93%);*/
     }
     
-@supports not -moz-bool-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
+@media not (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
 
-.search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
-    /*border-radius: 4px !important;*/
-    /*backdrop-filter: var(--personal-blur) !important;*/
-    box-shadow: none !important;
-    /*padding-inline-start: 66px !important;*/
-    
-    }
-    
-.search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
-    /*outline: 1px solid var(--button-active-bgcolor) !important;*/
-    outline-color: transparent !important;
-    border-color: transparent !important;
-    /*margin-left: 1px !important;
-    /*z-index: 1 !important;*/
+    .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
+        box-shadow: none !important;
+        outline-color: transparent !important;
     }
 
-browser[primary="true"][tabDialogShowing="true"],
-#main-window[window-modal-open="true"] > body > #browser{
-  filter: blur(10px)
-    }
-    
-#newtab-search-text{
-    border-radius: 0px !important;
-    box-shadow: 0 2px 0 0 var(--general-color) !important;
-    clip-path: polygon(0 0, 200% 0, 200% 84%, 0% 84%, 0% 200%, 0 200%);
-    transition-duration: 400ms !important;
-    /*background-size: 35px 35px !important;*/
+    .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
+        outline-color: transparent !important;
+        border-color: transparent !important;
     }
 
-#newtab-search-text[Keepfocus="true"]{
-    clip-path: polygon(0 0, 200% 0, 200% 84%, 200% 84%, 200% 200%, 0 200%);
-    transition-duration: 900ms !important;
+    browser[primary="true"][tabDialogShowing="true"],
+    #main-window[window-modal-open="true"] > body > #browser{
+        filter: blur(10px)
+    }
+
+    #newtab-search-text{
+        border-radius: 0px !important;
+        box-shadow: 0 2px 0 0 var(--general-color) !important;
+        clip-path: polygon(0 0, 200% 0, 200% 84%, 0% 84%, 0% 200%, 0 200%);
+        transition-duration: 400ms !important;
+    }
+
+    #newtab-search-text[Keepfocus="true"]{
+        clip-path: polygon(0 0, 200% 0, 200% 84%, 200% 84%, 200% 200%, 0 200%);
+        transition-duration: 800ms !important;
     }
 }
     
-@supports -moz-bool-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
+@media (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
 
 /* Border button */
     
     .search-inner-wrapper{
-        clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 95%, 95% 104%, 6.5% 104%, 6.5% 95%, 0 95%);
-        /*background-color: yellow !important;*/
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 90%, 90% 104%, 8.5% 104%, 8.5% 95%, 0 95%);
+    }
+    
+/* Tamaño del ícono del search-engine */
+    
+    .search-wrapper .search-inner-wrapper .search-handoff-button {
+        background-size: 30px 30px !important;
+        margin-inline-start: -6px !important;
     }
     
 /* Margen izquiera - Buscar con goolgle ... */ 
     
     .search-handoff-button, .fake-editable{
-        padding-inline-start: 62px !important;
+        padding-inline-start: 54px !important;
     }
 
 /* Borde transparente :focus */
@@ -321,30 +316,27 @@ browser[primary="true"][tabDialogShowing="true"],
     .search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button {
         box-shadow: none !important;
         border-color: transparent !important;
+        transition-duration: 0ms !important;
     }
     
-/* Tamaño del ícono del search-engine */
-    
-.search-wrapper .search-inner-wrapper .search-handoff-button {
-    background-size: 30px 30px !important;
-    margin-inline-start: -25px !important;
-    }
-    
-.search-wrapper .search-inner-wrapper .search-handoff-button{
-    border-radius: 0px !important;
-    box-shadow: 0 2px 0 0 var(--general-color) !important;
-    clip-path: polygon(0 0, 100% 0, 100% 93%, 0% 99%, 0% 114%, 0 114%);
-    transition-duration: 400ms !important;
+/* Animación input focus */
 
+    .search-wrapper .fake-editable{
+        border-color: transparent !important;
+        border-radius: 0px !important;
+        box-shadow: 0 2px 0 0 var(--general-color) !important;
+        opacity: 1 !important;
+        clip-path: polygon(0 0, 100% 0, 100% 93%, 0% 99%, 0% 114%, 0 114%);
+        transition-duration: 400ms !important;
     }
-    
-.search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button{
-    border-radius: 0px !important;
-    box-shadow: 0 2px 0 0 var(--general-color) !important;
-    opacity: 1 !important;
-    clip-path: polygon(0 0, 100% 0, 100% 72%, 100% 72%, 100% 114%, 0 114%);
-    transition-duration: 400ms !important;
 
+    .search-wrapper.fake-focus .fake-editable{
+        border-color: transparent !important;
+        border-radius: 0px !important;
+        box-shadow: 0 2px 0 0 var(--general-color) !important;
+        opacity: 1 !important;
+        clip-path: polygon(0 0, 100% 0, 100% 72%, 100% 72%, 100% 134%, 0 114%);
+        transition-duration: 400ms !important;
     }
 }
     
@@ -505,11 +497,12 @@ browser[primary="true"][tabDialogShowing="true"],
     
 body{
     background-image: var(--lwt-main-image, initial) !important;
-    background-repeat: no-repeat !important; 
-    background-position: right top !important;
-    background-attachment: fixed !important;
-    background-size:  var(--wallpaper-size) !important;
-    background-position-y: var(--background-align-y) !important;
+    background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
+    background-size: calc(100% + var(--my-vertical-toolbar-width, 0px) + var(--extension-width, 0px)) !important;
+    background-attachment: scroll, fixed, fixed !important;
+    background-color: transparent !important;
+    background-position-x: right !important;
+    background-position-y: var(--background-align-y, 0px) !important;
     backdrop-filter: var(--brightness-wallpaper) !important;
     }
     

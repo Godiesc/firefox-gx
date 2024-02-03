@@ -370,6 +370,10 @@
     z-index: 3 !important;
 }
   
+/* Sobre-escribir: Evita que el botón sobresalga verticalmente */
+  
+#scrollbutton-up, #scrollbutton-down{ border-block-width: 1px !important; }
+  
 /* Sobre-escribir: reserved space for overflow + menu buttons */
   
 #navigator-toolbox{
@@ -463,12 +467,12 @@
   
 /* urlbar focus - open */
   
-#urlbar-container:not([open],:focus, :focus-within ){
+#urlbar-container, #urlbar-container:not([open],:focus, :focus-within ){
     max-width: var(--min-width-url) !important; 
 }
   
-#urlbar:focus-within { 
-    min-width: calc(var(--min-width-url) + 30vw) !important; 
+#urlbar:focus-within, #urlbar[focused="true"] { 
+    min-width: calc(var(--min-width-url) + 30vw) !important;
     clip-path: polygon(0px 0%, calc(var(--min-width-url) ) 0%, 0% 999999vw, 0% 0px) !important;
 }
   
@@ -864,8 +868,7 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
 
       border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 33px),
                     var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 33px),
-                    var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;  
-      z-index: 2 !important;
+                    var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;
   }
 
 /* Sobre-escribir ogx_left-sidebar : Margen izquierda pestañas cuando se muestra la menu-bar */

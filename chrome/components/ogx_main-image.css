@@ -41,17 +41,38 @@
    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
       --toolbar-bgcolor: #ffffff7d !important;
       --lwt-selected-tab-background-color: transparent !important;
-   }}
+      }}
+   
+/* Nueva imagen */
+   
+:root:not([privatebrowsingmode="temporary"]) {
+      --lwt-header-image: var(--lwt-main-image) !important;
+      --lwt-additional-images: var(--lwt-main-image) !important;
+      }
+
+/* Tamaño de la nueva imagen */
    
 :root:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
-   --lwt-header-image: var(--lwt-main-image) !important;
-     background-image: var(--lwt-header-image) !important; 
-}
+      background-image: var(--lwt-header-image) !important;
+      background-size: cover !important;
+      }
+   
+/* Alineamos la imagen de fondo con la pestaña seleccionada */
+
+.tab-background:is([selected]){
+    background-size: cover !important;
+      }
+   
+/* Mejora del fondo al mover la pestaña */
+   
+ #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack  > .tab-background{
+      background-size: 100vw 100vh !important;
+   }
    
 /* Sobreescribo url-bar focus from ogx_urlbar-searchbar.css */
    
 #urlbar:not([open]):is([focused]) #urlbar-background {
-   background-color: color-mix(in srgb, var(--general-color) 20%, transparent) !important;
+      background-color: color-mix(in srgb, var(--general-color) 20%, transparent) !important;
 }
    
 /* background-color para botones [open] en temas solidos - sirve para igualar los colores en temas solidos y con imágenes */
@@ -67,9 +88,18 @@
 :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
 :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
 :root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
-   background: var(--lwt-main-image) !important;
-   background-position: 0 var(--tab-height-personal) !important;
+   background-position: 0 calc(var(--tab-height-personal) + 0px) !important;
+   background-size: 100vw !important;
    }}
+   
+/* Compatibilidad con tab-shapes */
+
+.tab-background:is([selected]),
+.tabbrowser-tab:is([visuallyselected]) .tab-background::before,
+.tabbrowser-tab:is([visuallyselected]) .tab-background::after,
+#tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+    background-size: cover !important;
+  }
    
 /* Compatibilidad con Left-sidebar + oneline  */
    
@@ -79,29 +109,9 @@
    :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
    :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
    :root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
-      background: var(--lwt-main-image) !important;
-      background-position: 0 64px !important;
-      }
-             
-   /* Linea gradiente corregida 1px en la union */
-   :root:not([chromehidden~="toolbar"]) #PersonalToolbar {
-      border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 33px),
-                    var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 33px),
-                    var(--button-active-bgcolor) 42% , var(--lwt-frame) 94%) 1 !important;  
-      }}
-   
-/* Compatibilidad con Left-sidebar + tree-tabs  */
-   
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") and 
-       (-moz-bool-pref:"firefoxgx.tree-tabs") and not (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar"){
-
-   :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
-   :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
-   :root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
-      background: var(--lwt-main-image) !important;
-      background-position: 0 1px !important;
-      }
-}
+      background-position: 0 calc(var(--tab-height-personal) * 2) !important;
+      background-size: 100vw !important;
+   }}
    
 /* Compatibilidad con -oneline- config */
 
@@ -109,12 +119,12 @@
           
    @media (prefers-color-scheme: dark){
       :root, :root:-moz-lwtheme, :root:not(:-moz-lwtheme){
-         --lwt-selected-tab-background-color: #0000007d !important;                                                     /* tab_selected */
+         --lwt-selected-tab-background-color: #0000007d !important;
    }}
   
    @media (prefers-color-scheme: light){
       :root, :root:-moz-lwtheme, :root:not(:-moz-lwtheme){
-         --lwt-selected-tab-background-color: #ffffff7d !important;                                                      /* tab_selected */
+         --lwt-selected-tab-background-color: #ffffff7d !important;
    }}
    
    @media screen and (min-width: 1000px){
@@ -122,28 +132,15 @@
           background-color: transparent !important;
             }}}
    
-/* COmpatibilidad con tree-tabs config */
+/* Compatibilidad con tree-tabs config without left-sidebar */
    
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar"){
-   
-   @media (prefers-color-scheme: dark){
-       :root:not([chromehidden~="toolbar"]):is([lwtheme-image], [style*="--lwt-additional-images"]) #PersonalToolbar{
-           --toolbar-bgcolor: #0000007d !important;
-       }
-   }
-   @media (prefers-color-scheme: light){
-       :root:not([chromehidden~="toolbar"]):is([lwtheme-image], [style*="--lwt-additional-images"]) #PersonalToolbar{
-           --toolbar-bgcolor: #ffffff7d !important;
-       }
-   }
-   
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar"){   
    #PersonalToolbar:not([customizing]),
    :root:not([chromehidden~="toolbar"]):is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar{
        background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
                          var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-       background-position: right top !important;
-       background-repeat:  repeat !important;
-       background-size:  auto !important;
+       background-repeat: repeat !important;
+       background-size: cover !important;
        background-position-y: calc(0px - var(--toolbar-height-personal)) !important;
          }}
 }

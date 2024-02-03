@@ -35,7 +35,6 @@
   
   --menu-label: "Menu" ;                                                                     /* Label botón -Menú- */
   --padding-left-tab: 74px ;                                                                 /* Tamaño horizontal botón -Menú- */
-  --my-vertical-toolbar-width: 41px ;                                                        /* Ancho de la left-sidebar */
   
   --left-color: var(--general-color);                                                        /* Color left logo y wordmark */
   --right-color: #0060bfdd ;                                                                 /* Color right logo y wordmark */
@@ -55,14 +54,21 @@
 
 }
 
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+  :root{
+  --my-vertical-toolbar-width: 41px ;                                                        /* Ancho de la left-sidebar */
+  }}
+
+/* ----------------------------- -Main Image config ---------------------------- */
+
 @media (-moz-bool-pref:"firefoxgx.main-image") {
   
   @media (prefers-color-scheme: dark){ :root{
-    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                         /* new-tab page image - white team */
+    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                         /* new-tab page image - dark team */
     --brightness-wallpaper: brightness(51%);                                                    /* 100% -> default ; 51% -> to <<main-image>> config */ }}
   
   @media (prefers-color-scheme: light){ :root{
-    --lwt-main-image:  url("../newtab/main-image-light.png") !important;                        /* new-tab page image - dark theme*/
+    --lwt-main-image:  url("../newtab/main-image-light.png") !important;                        /* new-tab page image - light theme*/
     --brightness-wallpaper: brightness(100%);                                                   /* 100% -> default and Main-image config */ }}
   
   :root{  
@@ -89,6 +95,7 @@
 
 @media (-moz-bool-pref:"firefoxgx.main-image") and (-moz-bool-pref:"firefoxgx.tree-tabs"){  
     :root{
+      --extension-width: 48px ;
       --background-align-y: -39px ;                                                                     /* Alinear new-tab wallpaper to <<main-image>> config 
                                                                                                            -40px ventana normal
                                                                                                            -66px con Barra de Marcadores  */
