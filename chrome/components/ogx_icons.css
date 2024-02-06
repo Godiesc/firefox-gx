@@ -225,7 +225,7 @@
   }
 
   /*= Standard Folder - More Visible ===========================================*/
-  /* on Toolbar and Menus */
+  /* on Toolbar and Menus
   :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
     .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer]),
   :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
@@ -234,14 +234,14 @@
   #editBMPanel_folderMenuList .folder-icon:not([id]),
   .downloadIconShow > .button-box > .button-icon {
     list-style-image: var(--uc-folder-icon) !important;
-  }
-  /* Standard Folder - Open */
+  } */
+  /* Standard Folder - Open 
   :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
     .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
   :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
     treechildren::-moz-tree-image(title, container, open) {
     list-style-image: url("../icons/folder-open.svg") !important;
-  }
+  }*/
   /*= Other Folder - Inbox Icon ================================================*/
   /* on Menus */
   #PlacesToolbar #OtherBookmarks,
@@ -255,7 +255,7 @@
   #editBMPanel_folderMenuList[selectedGuid="unfiled_____"] {
     list-style-image: url("../icons/mail-inbox-all.svg") !important;
   }
-  /* Other Folder - Open */
+  /* Other Folder - Open 
   #PlacesToolbar #OtherBookmarks[open="true"],
   #BMB_bookmarksPopup #BMB_unsortedBookmarks[open="true"],
   #bookmarksMenuPopup #menu_unsortedBookmarks[open="true"],
@@ -264,7 +264,7 @@
   :-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
     treechildren::-moz-tree-image(container, open, queryFolder_unfiled_____) {
     list-style-image: url("../icons/mail-inbox.svg") !important;
-  }
+  }*/
   /*= Default Icon - Override ===================================================*/
   /* https://github.com/mozilla/gecko-dev/blob/master/browser/themes/shared/places/tree-icons.css */
   /* Query */
@@ -2682,9 +2682,9 @@
     --menuitem-image: url("chrome://global/skin/icons/settings.svg");
   }
 
-  .unified-extensions-context-menu-pin-to-toolbar {
+  /*.unified-extensions-context-menu-pin-to-toolbar {
     --menuitem-image: url("../icons/pin-tab.svg");
-  }
+  }/**/
 
   .unified-extensions-context-menu-manage-extension {
     --menuitem-image: url("chrome://global/skin/icons/settings.svg");

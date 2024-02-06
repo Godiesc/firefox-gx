@@ -23,7 +23,7 @@
   
   --panel-description-color: var(--general-color) !important;                           /* Color de letras de: correo de la cuenta, y dispositivos conectados"*/
   --toolbar-field-background-color: transparent !important;                             /* toolbar_field */
-  --toolbar-field-color: var(--lwt-tab-text) !important;                                /* toolbar_field_text */
+  --toolbar-field-color: var(--toolbar-color) !important;                               /* toolbar_field_text */
   --toolbar-field-border-color: transparent !important;                                 /* toolbar_field_border */
   
   /*--toolbar-field-focus-background-color: color-mix(in srgb, 

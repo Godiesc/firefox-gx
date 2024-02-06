@@ -20,11 +20,17 @@
 }
   
 /* Color :hover de las pestañas no seleccionadas */
+  
+/* used for smooth transition */
+.tabbrowser-tab:not(:hover) > .tab-stack > .tab-background:not([selected], [multiselected]) {
+    transition: background-color 0.2s ease !important;
+}
 
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
     background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     border-radius: 0px !important;
     margin-block-start: 0px !important;
+    transition: background-color 0.2s ease !important;
 }
   
 /* ############################# Newtab button ############################# */
@@ -393,11 +399,18 @@ tab:is([pinned]) .tab-context-line {
       background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
     }
     }
+  
+    /* used for smooth transition*/
+    .tabbrowser-tab:not(:hover):not([visuallyselected], [multiselected]) .tab-background::before,
+    .tabbrowser-tab:not(:hover):not([visuallyselected], [multiselected]) .tab-background::after {
+      transition: fill 0.2s ease !important;
+    }
     .tabbrowser-tab:hover:not([visuallyselected], [multiselected]) .tab-background::before,
     .tabbrowser-tab:hover:not([visuallyselected], [multiselected]) .tab-background::after {
       fill: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
       height: calc(var(--tab-height-personal) + 2px) !important;        /* My edit */
       width: calc(var(--uc-tab-corner-size) + 2px) !important;          /* My edit */
+      transition: fill 0.2s ease !important;
     }
     @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
       .tabbrowser-tab[multiselected]:not([visuallyselected]) .tab-background::before,
