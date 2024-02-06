@@ -106,21 +106,20 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
 
 /* ---------------------------------------------- Nav-bar buttons ---------------------------------------------- */
 
-/* :hover */
+/* :hover and open=true state styles */
 
 :root:not([lwtheme-image],[style*="--lwt-additional-images"]) {
-#nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) > .toolbarbutton-icon,
-#nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) > .toolbarbutton-text,
-#nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) > .toolbarbutton-badge-stack {
-    fill: var(--general-color) !important;
-}}
+    #nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) > 
+    :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+        fill: var(--general-color) !important;
+    }
+}
 
 /* [open] -Temas con imagenes- */
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-#nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) > .toolbarbutton-icon,
-#nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) > .toolbarbutton-text,
-#nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) > .toolbarbutton-badge-stack {
+#nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) >
+    :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
     fill: var(--general-color) !important;
 }}
 
@@ -160,19 +159,23 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     --toolbarbutton-active-background: color-mix(in srgb, var(--toolbarbutton-hover-personal)75%, var(--contrast-color)) !important;
 }
 
-
 /* [open]  -Temas con imagenes- */
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #TabsToolbar {
     --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;
 }
 
-
-/* :hover en botones de: unified extensions and all-tabs */
-
-/* botón >> Unified extentions */
+/* ----------------------------------------- botón >> Unified extentions ---------------------------------------- */
 
 :root{ --uei-icon-size: 18px !important; }
+
+#unified-extensions-manage-extensions .toolbarbutton-icon{
+    margin-inline-start: 2px !important;
+}
+
+#unified-extensions-manage-extensions .toolbarbutton-text{
+    padding-inline-start: 12px !important;
+}
 
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not(.toolbarbutton-1)[disabled] {
     opacity: 1 !important;
@@ -269,4 +272,29 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     background-color: var(--toolbar-bgcolor) !important;
     border-color: var(--lwt-frame) !important;
     border-radius: 0px !important;
+}
+
+/* ---------------------------------------------- Used for various smooth transition ---------------------------------------------- */
+
+panel :is(menulist, button, toolbarbutton:not(#firefox-view-button)):not([open]),   /* Botones dentro de arrowpanels */
+.titlebar-button,                                                                   /* Window controls */
+.toolbarbutton-1 stack,                                                             /* Algunos botones de la tabs-bar */
+.toolbarbutton-1 .toolbarbutton-icon,                                               /* Botones default */
+toolbaritem toolbarbutton stack,                                                    /* Extensiones */
+#PersonalToolbar #PlacesToolbarItems>.bookmark-item {                               /* Bookmark items */
+    transition: all 0.2s ease !important;
+}
+
+/* Transición del botón de página segura, bookmark y Tracking Protection de la url */
+
+#identity-box[pageproxystate="valid"].chromeUI #identity-icon,
+#pageAction-panel-bookmark[starred], #star-button[starred],
+#urlbar-input-container #tracking-protection-icon{ 
+    transition: fill 0.2s ease !important;
+}
+
+/* Transición para los demás botones de la url */
+
+#urlbar box, #page-action-buttons hbox { 
+    transition: background-color 0.2s ease !important;
 }

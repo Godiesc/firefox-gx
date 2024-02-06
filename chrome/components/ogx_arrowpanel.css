@@ -67,8 +67,8 @@ addon-install-confirmation-notification {
 
 .subviewbutton:is([disabled]), .subviewbutton:where([disabled="true"]):hover {       
     -moz-context-properties: fill;
-    color: #808080 !important;
-    fill:  #808080 !important;
+    color: color-mix(in srgb, var(--arrowpanel-color)30%, transparent) !important;
+    fill:  color-mix(in srgb, var(--arrowpanel-color)30%, transparent) !important;
     }
 
 /* Linea gradiente en los menús principales */
@@ -119,6 +119,7 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
     background-color: transparent !important;
     padding-inline: 4px 4px !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+    padding-inline-end: 14px !important;
 }
 
 #downloadsListBox > richlistitem:is(:hover) {
@@ -128,6 +129,10 @@ toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
 
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
     padding: 0.62em 0.0em 0.62em 0em !important;
+}
+
+#downloadsFooterButtons .button-icon{ 
+    margin-inline: 10px 6px !important;
 }
 
 /* Color Sidebar */

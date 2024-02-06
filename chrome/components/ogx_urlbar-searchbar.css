@@ -167,7 +167,7 @@ findbar:-moz-lwtheme {
     background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     border-color: transparent !important;
     transition: linear 150ms !important;
-    transition-delay: 80ms !important;
+    transition-delay: 100ms !important;
 }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) 
@@ -196,28 +196,29 @@ findbar:-moz-lwtheme {
 
 /* Brighness when urlbar [open]*/
 
-#nav-bar[urlbar-exceeds-toolbar-bounds="true"]::before {
+#nav-bar::before {
     position: fixed;
     content: "";
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     z-index: 4;
     pointer-events: none;
+    transition: background-color 0.2s ease !important; 
+}
+
+#nav-bar[urlbar-exceeds-toolbar-bounds="true"]::before {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Search-bar */
 
 #searchbar {
-    min-height: 29px !important;
-    max-height: 29px !important;
+    min-height: calc(var(--toolbar-height-personal) - 10px) !important;
     border-radius: 4px !important;
-}
-
-#search-container {
-    padding-block: 4px 3px !important;
+    border: none !important;
 }
 
 #searchbar:hover {
@@ -225,21 +226,25 @@ findbar:-moz-lwtheme {
 }
 
 #searchbar:focus-within {
-    border-color: var(--toolbar-field-focus-background-color) !important;
     box-shadow: none !important;
     background-color: var(--toolbar-field-focus-background-color) !important;
 }
 
 #PopupSearchAutoComplete{
-    appearance: none !important;
-    margin-top: -3px !important;
+    --uc-slot-radius: 4px;
+    --arrowpanel-border-radius: var(--uc-slot-radius) !important;
+    --arrowpanel-border-color: none !important;
+    margin-top: 0px !important;
     margin-left: -3px !important;
-    --arrowpanel-border-color: none !important;   
+}
+
+#PopupSearchAutoComplete menuseparator{
+    margin-inline-end: 12px !important;
 }
 
 .search-go-button, #urlbar-go-button {
-    width: calc(var(--urlbar-min-height) - 7px - 2 * var(--urlbar-container-padding)) !important;
-    height: calc(var(--urlbar-min-height) - 7px - 2 * var(--urlbar-container-padding)) !important;
+    width: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
+    height: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
     margin-inline-end: 4px !important;
 }
 

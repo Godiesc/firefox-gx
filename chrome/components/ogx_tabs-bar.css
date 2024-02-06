@@ -106,10 +106,17 @@
     .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
         background-color: transparent !important;
     }
+    
+        /* used for smooth transition */
+    .tabbrowser-tab:not(:hover) > .tab-stack:not([selected],[multiselected]) {
+        clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);  
+        transition: background-color 0.2s ease !important;
+    }
 
     .tabbrowser-tab:hover > .tab-stack:not([selected],[multiselected]) {
         background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
         clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
+        transition: background-color 0.2s ease !important;
     }
 
 /* Regla para visualizar mejor el seleccionar varias pestañas */
@@ -118,11 +125,13 @@
         background: var(--button-hover-bgcolor) !important;
         clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);
         outline-color: transparent !important;
+        transition: background 0.2s ease !important; /* Smooth transition for background color */
     }
     
     .tab-background[multiselected]:not([selected]) {
         background: transparent !important;
         outline-color: transparent !important;
+        transition: background-color 0.2s ease !important; /* Smooth transition for background color */
     }
 
     .tab-background[multiselected][selected] {
@@ -130,7 +139,7 @@
     }
 }
 
-/* Borde entre pestañas */
+/* Margen entre pestañas */
 
 .tabbrowser-tab {
     padding-inline: 0px 2px !important;
@@ -260,6 +269,7 @@ toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutto
     outline-color: transparent !important;
     background: var(--button-hover-bgcolor) !important;
     fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+    transition: none !important;
 }
 
 toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {

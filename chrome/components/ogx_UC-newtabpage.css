@@ -500,7 +500,6 @@ body{
     background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
     background-size: calc(100% + var(--my-vertical-toolbar-width, 0px) + var(--extension-width, 0px)) !important;
     background-attachment: scroll, fixed, fixed !important;
-    background-color: transparent !important;
     background-position-x: right !important;
     background-position-y: var(--background-align-y, 0px) !important;
     backdrop-filter: var(--brightness-wallpaper) !important;
@@ -532,7 +531,7 @@ body{
     
 main {
     margin-top: var(--newtab-pinnedsites-position-top, auto) !important;
-}
+    }
     
 /* "Logo-wordmark" y search-box en una sola linea */
     
@@ -638,20 +637,22 @@ body{
 /*..........................................Firefox--------------------------------------------
 ---------------------------------------------view-----------------------------------------------*/
 
-@-moz-document url-prefix(about:firefoxview-next){
+@-moz-document url-prefix(about:firefoxview){
     
     :root{
-        --fxview-primary-action-background: var(--general-color) !important;            /* Background categoría seleccionada */
+        --fxview-primary-action-background: transparent !important;            /* Background categoría seleccionada */
         --fxview-element-background-hover: var(--button-hover-bgcolor) !important;      /* contextual menu :hover item */
         --fxview-element-background-active: var(--button-active-bgcolor) !important;    /* contextual menu :active item */
+        --fxview-border: var(--fxview-primary-action-background) !important;
     }
     
-    button {
-        border: 2px solid transparent !important;
+    button[selected] {
+        transition-duration: 0ms !important;
     }
     
-    button[selected], button[selected]:hover {
-        border: 2px solid var(--general-color) !important;
-        border-radius: 4px !important;
+    .search-container input:focus{
+      &:focus-visible {
+        border: none !important;
+        }
     }
 }
