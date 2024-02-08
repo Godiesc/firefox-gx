@@ -177,6 +177,7 @@ findbar:-moz-lwtheme {
 
 #urlbar[focused] #urlbar-background {
     box-shadow: none !important;
+    transition: background-color 0.4s ease !important;
 }
 
 #urlbar[open] #urlbar-background {
@@ -206,7 +207,7 @@ findbar:-moz-lwtheme {
     background-color: transparent;
     z-index: 4;
     pointer-events: none;
-    transition: background-color 0.2s ease !important; 
+    transition: background-color 0.3s ease !important; 
 }
 
 #nav-bar[urlbar-exceeds-toolbar-bounds="true"]::before {

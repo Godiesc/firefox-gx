@@ -184,7 +184,12 @@ button.primary:hover {
     color: color-mix(in srgb, var(--in-content-text-color)76%, transparent) !important;
 }
         
-#categories > .category:hover, #categories > .category:hover .category-name {
+#categories > .category .category-name {
+    text-decoration: 1px underline transparent !important;
+    text-underline-offset: 4px !important; 
+        }
+        
+#categories > .category:hover .category-name {
     background-color: transparent !important;
     color: var(--in-content-text-color) !important;
     text-decoration: 1px underline var(--in-content-text-color) !important;
@@ -348,6 +353,20 @@ search-addons > search-textbox[focused] {
 
 #searchInput[focused]{ 
     outline: 2px solid var(--general-color) !important; 
+}
+
+/* Various smooth transitions */
+        
+button, menulist, treecol, .sidebar-footer-link{
+    transition: background-color 0.2s ease !important;
+}
+        
+search-textbox{
+    transition: border 0.2s ease !important;
+}
+        
+#categories > .category .category-name{
+    transition: all 0.1s ease !important;
 }
         
 body{
