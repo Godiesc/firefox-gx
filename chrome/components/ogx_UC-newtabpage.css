@@ -505,6 +505,11 @@ body{
     backdrop-filter: var(--brightness-wallpaper) !important;
     }
     
+@media not (-moz-bool-pref:"firefoxgx.main-image") {
+    body{
+    background-size: cover !important;
+    }}
+    
 .logo{
     background: url("../icons/foxlogo.svg") no-repeat !important;
     background-size: cover !important;
