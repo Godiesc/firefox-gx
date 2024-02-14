@@ -269,6 +269,16 @@
     background-color: var(--toolbarbutton-hover-background) !important;
     }}
     
+/* Oculta el header de la sidebar cuando se usan extensiones de pestañas verticales */
+    
+#sidebar-box:is(
+    [sidebarcommand*="tabcenter"],
+    [sidebarcommand*="treestyletab"],
+    [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]) #sidebar-header {
+    visibility: collapse;
+    display: none;
+}
+    
 /*###################################################*/
 
 :root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
@@ -399,10 +409,7 @@
     z-index: 1;
     --prueba-variable: green;
 }
-#sidebar-box[sidebarcommand*="tabcenter"] #sidebar-header {
-    visibility: collapse;
-    display: none;
-}
+    
 [sidebarcommand*="tabcenter"] #sidebar,
 #sidebar-box[sidebarcommand*="tabcenter"] {
     min-width: 48px !important;
