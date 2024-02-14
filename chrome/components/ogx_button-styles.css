@@ -279,7 +279,7 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 panel :is(menulist, button, toolbarbutton:not(#firefox-view-button)):not([open]),   /* Botones dentro de arrowpanels */
 .titlebar-button,                                                                   /* Window controls */
 .toolbarbutton-1 stack,                                                             /* Algunos botones de la tabs-bar */
-.toolbarbutton-1 .toolbarbutton-icon,                                               /* Botones default */
+.toolbarbutton-1:not(#tabs-newtab-button) .toolbarbutton-icon,                      /* Botones default */
 toolbaritem toolbarbutton stack,                                                    /* Extensiones */
 #PersonalToolbar #PlacesToolbarItems>.bookmark-item {                               /* Bookmark items */
     transition: all 0.2s ease !important;
