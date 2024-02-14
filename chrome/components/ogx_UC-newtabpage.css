@@ -499,7 +499,7 @@ body{
     background-image: var(--lwt-main-image, initial) !important;
     background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
     background-size: calc(100% + var(--my-vertical-toolbar-width, 0px) + var(--extension-width, 0px)) !important;
-    background-attachment: scroll, fixed, fixed !important;
+    background-attachment: fixed !important;
     background-position-x: right !important;
     background-position-y: var(--background-align-y, 0px) !important;
     backdrop-filter: var(--brightness-wallpaper) !important;
