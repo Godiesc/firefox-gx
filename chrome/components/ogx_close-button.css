@@ -9,7 +9,6 @@
 }
 
 .tab-close-button {
-    /*display: none !important;/**/
     list-style-image: url('../icons/close.svg') !important;
     padding: 4px !important;
     border-radius: calc(var(--border-radius-urlbar-personal) - 4px) !important;
@@ -18,6 +17,7 @@
 }
 
 .tabbrowser-tab:not([pinned]) .tab-close-button{
+    display: flex !important;
     transition: all 0.2s ease !important;
 }
 
