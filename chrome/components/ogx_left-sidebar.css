@@ -564,12 +564,14 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     border-image: none !important;
 }
     
-/* Nueva posición de Paneles [open] de left-sidebar 
+/* Nueva posición de Paneles [open] de marcadores en left-sidebar */
     
     #PlacesToolbarItems > .bookmark-item >  menupopup, #OtherBookmarks #OtherBookmarksPopup {
         margin-inline-start: calc(var(--padding-left-tab) - 2px) !important;
         margin-top: -56px  !important;
     }
+    
+/* Nueva posición de Paneles [open] de left-sidebar 
 
     #PersonalToolbar>toolbarbutton>menupopup {
         margin-right: calc(var(--padding-left-tab) - 10px) !important;
