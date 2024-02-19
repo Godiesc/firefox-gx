@@ -367,7 +367,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 #PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{ list-style-image: url("../icons/logo_twitter.svg") !important; }
     
 /* Simple Translate extension */
-#PersonalToolbar #simple-translate_sienori-BAP { list-style-image: url(chrome://browser/skin/translations.svg) !important; }
+#PersonalToolbar #simple-translate_sienori-BAP { list-style-image: url("../icons/translations.svg") !important; }
     
 /* Bitwarden extension */
 #PersonalToolbar #_446900e4-71c2-419f-a6a7-df9c091e268b_-BAP { list-style-image: url(../icons/logo_bitwarden.svg) !important; }

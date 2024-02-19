@@ -115,8 +115,8 @@ findbar:-moz-lwtheme {
 .urlbarView-row:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) {
   & > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action
 {
-    padding: 4px 8px !important;
-    margin-block: -2px !important;
+    padding-block: 3px 5px !important;
+    margin-block: -2px -3px !important;
   }
 }
 
@@ -297,12 +297,6 @@ findbar:-moz-lwtheme {
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button[open="true"], 
 #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button[open="true"] {
     background-color: color-mix(in srgb, var(--button-bgcolor) 72%, white) !important;
-}
-
-/* alinear: "Conexión segura" en candado */
-
-#identity-popup-security-button {
-    margin-bottom: 0px !important;
 }
 
 /* -----------------> Íconos de la urlbar más pequeños <--------------------- */

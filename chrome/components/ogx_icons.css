@@ -640,7 +640,7 @@
     list-style-image: url("chrome://global/skin/icons/search-glass.svg");
   }
   #appMenu-translate-button {
-    list-style-image: url(chrome://browser/skin/translations.svg);
+    list-style-image: url("../icons/translations.svg");
   }
   #appMenu-zoom-controls2::before,
   #appMenu-zoom-controls::before {
@@ -897,7 +897,7 @@
 
   #appmenu-developer-tools-view .subviewbutton:nth-last-child(5),
   #PanelUI-developer-tools-view .subviewbutton:nth-last-child(5) {
-    list-style-image: url("chrome://devtools/skin/images/command-console.svg");
+    list-style-image: url("../icons/command-console.svg");
   }
 
   #appmenu-developer-tools-view .subviewbutton:nth-last-child(4),
@@ -907,7 +907,7 @@
 
   #appmenu-developer-tools-view .subviewbutton:nth-last-child(3),
   #PanelUI-developer-tools-view .subviewbutton:nth-last-child(3) {
-    list-style-image: url("chrome://devtools/skin/images/command-eyedropper.svg");
+    list-style-image: url("../icons/command-eyedropper.svg");
   }
 
   #appmenu-developer-tools-view .subviewbutton:nth-last-child(2),
@@ -917,7 +917,7 @@
 
   #appmenu-developer-tools-view .subviewbutton:nth-last-child(1),
   #PanelUI-developer-tools-view .subviewbutton:nth-last-child(1) {
-    list-style-image: url("chrome://devtools/skin/images/debugging-addons.svg");
+    list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
   }
 
   #appmenu-developer-tools-view .subviewbutton:last-child {
@@ -3007,7 +3007,7 @@
   }
 
   #menu_browserConsole {
-    --menuitem-image: url("chrome://devtools/skin/images/command-console.svg");
+    --menuitem-image: url("../icons/command-console.svg");
   }
 
   #menu_responsiveUI {
@@ -3017,7 +3017,7 @@
 
   #menu_eyedropper {
     /* checkbox */
-    --menuitem-image: url("chrome://devtools/skin/images/command-eyedropper.svg");
+    --menuitem-image: url("../icons/command-eyedropper.svg");
   }
 
   #menu_pageSource {
@@ -3025,7 +3025,7 @@
   }
 
   #extensionsForDevelopers {
-    --menuitem-image: url("chrome://devtools/skin/images/debugging-addons.svg");
+    --menuitem-image: url("chrome://mozapps/skin/extensions/extension.svg");
   }
 
   #windowPopup > menuitem[command="minimizeWindow"] {
