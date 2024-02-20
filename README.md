@@ -94,9 +94,8 @@
 </ul>
 
 # Related Topic
-Available [Firefox-ONE](https://github.com/Godiesc/firefox-one)
 
-![SplashPromocionalFirefoxONE](https://github.com/Godiesc/firefox-one/assets/22057609/453c2917-8cee-4424-b550-e4e38f492c84)
+<a href="https://github.com/Godiesc/firefox-one"><img src="https://github.com/Godiesc/firefox-one/assets/22057609/453c2917-8cee-4424-b550-e4e38f492c84"></a>
 
 # Example of about:support
 
