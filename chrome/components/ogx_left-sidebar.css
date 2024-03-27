@@ -522,6 +522,12 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
         background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
     }}
+    
+/* Banner de -actualización disponible- */
+    
+    .panel-banner-item::before{
+        padding-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
+    }
 }
 
 /* ########################################### Baner de -actualización disponible- ########################################### */
@@ -554,6 +560,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     animation-name: slide1;
     margin-inline: 0px !important;
     border-radius: 50% !important;
+    transition-duration: 0ms !important;
 }
 
 /* Compatibilidad para <tab center reborn> extension */

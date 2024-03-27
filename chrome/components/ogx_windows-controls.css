@@ -69,22 +69,25 @@
 /* Linux default window control icons */
 
 @media (-moz-platform: linux) {
-    .titlebar-button {
-        list-style-image: none !important;
-        appearance: auto !important;
-    }
-    .titlebar-min {
-        -moz-default-appearance: -moz-window-button-minimize !important;
-    }
-    .titlebar-max {
-        -moz-default-appearance: -moz-window-button-maximize !important;
-    }
-    .titlebar-restore {
-        -moz-default-appearance: -moz-window-button-restore !important;
-    }
-    .titlebar-close {
-        -moz-default-appearance: -moz-window-button-close !important;
-    }
+        .titlebar-button{
+            list-style-image: none !important;
+            appearance: auto !important;
+        }
+        .titlebar-button > .toolbarbutton-icon{
+            background: none !important;
+        }
+        .titlebar-min {
+            -moz-default-appearance: -moz-window-button-minimize !important;
+        }
+        .titlebar-max {
+            -moz-default-appearance: -moz-window-button-maximize !important;
+        }
+        .titlebar-restore {
+            -moz-default-appearance: -moz-window-button-restore !important;
+        }
+        .titlebar-close {
+            -moz-default-appearance: -moz-window-button-close !important;
+        }
     .titlebar-buttonbox {
         max-height: var(--tab-height-personal) !important;
     }

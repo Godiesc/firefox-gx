@@ -3,15 +3,25 @@
 
 /* Barra de busqueda */
 
-findbar:-moz-lwtheme {
+findbar {
     background-color: var(--toolbar-bgcolor) !important;
     color: var(--lwt-tab-text) !important;
     border-color: var(--input-border-color) !important;
 }
 
+.findbar-textbox:focus {
+    color: var(--toolbar-field-focus-color);
+    outline-color: var(--general-color) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+.findbar-textbox[status="notfound"]{ 
+    outline-color: transparent !important;
+    border-color: transparent !important;
+}
+
 .findbar-find-status[status="notfound"] {
-    color: var(--general-color) !important;
-    font-weight: 600 !important;
+    color: var(--red) !important;
 }
 
 /* Vizualización correcta del porcentaje de zoom mostrado en la urlbar */
@@ -120,7 +130,7 @@ findbar:-moz-lwtheme {
   }
 }
 
-/* Botones de acciones rápidas urlbar open */
+/* Botones de -acciones rápidas- urlbar [open] */
 
 .urlbarView-quickaction-button {
     box-shadow: 0px 0px 1px rgba(128, 128, 142, 0.9) !important;
@@ -131,16 +141,19 @@ findbar:-moz-lwtheme {
     box-shadow: 0px 0px 0px 1px var(--button-hover-bgcolor) !important;
 }
 
+.urlbarView-label {
+    margin-block-start: 2px !important;
+}
+
 /* Label "Sugerencias de firefox - Sugerencias de google" */
 
 .urlbarView-row[label] {
-    margin-top: 16px !important;
+    margin-block-start: 26px !important;
 }
 
 .urlbarView-row[label]::before {
     margin-inline-start: 12px !important;
     font-weight: bold !important;
-    letter-spacing: 0.04em !important;
 }
 
 /* Tamaño Nav-bar */
@@ -185,6 +198,8 @@ findbar:-moz-lwtheme {
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-color: transparent !important;
     margin-top: 1px !important;
+    animation-duration: 0.4s !important;
+    transition: width 0.4s ease, height 0.4s ease !important;
 }
 
 #urlbar-input, #urlbar-scheme {

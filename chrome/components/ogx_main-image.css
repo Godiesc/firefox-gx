@@ -4,9 +4,10 @@
 @media (-moz-bool-pref:"firefoxgx.main-image") {
 
 @media (prefers-color-scheme: dark){
-   :root[brighttext]:-moz-lwtheme,
+   :root[brighttext],
    :root[lwt-toolbar-field-focus-brighttext],
-   :root:-moz-lwtheme{
+   :root[lwtheme],
+   :root:not([lwtheme]){
       --toolbar-bgcolor: #0000007d !important;
       --toolbar-field-background-color: transparent !important;                                                    /* toolbar_field */
       --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
@@ -19,7 +20,10 @@
       }}
    
 @media (prefers-color-scheme: light){
-   :root:-moz-lwtheme{
+   :root:not([lwtheme-brighttext="true"]),
+   :root:not([lwt-toolbar-field-focus-brighttext]),
+   :root[lwtheme],
+   :root:not([lwtheme]){
       --toolbar-bgcolor: #ffffff7d !important;
       --toolbar-field-background-color: transparent !important;                                                    /*"toolbar_field":"#1a1b25"*/
       --toolbar-field-border-color: transparent !important;                                                        /*"toolbar_field_border": "#363540"*/
@@ -118,12 +122,12 @@
 @media (-moz-bool-pref:"firefoxgx.oneline") {
           
    @media (prefers-color-scheme: dark){
-      :root, :root:-moz-lwtheme, :root:not(:-moz-lwtheme){
+      :root, :root[lwtheme], :root:not([lwtheme]){
          --lwt-selected-tab-background-color: #0000007d !important;
    }}
   
    @media (prefers-color-scheme: light){
-      :root, :root:-moz-lwtheme, :root:not(:-moz-lwtheme){
+      :root, :root[lwtheme], :root:not([lwtheme]){
          --lwt-selected-tab-background-color: #ffffff7d !important;
    }}
    

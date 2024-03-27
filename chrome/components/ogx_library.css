@@ -13,6 +13,8 @@
         --organizer-border-color: #373748 !important;
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
         --organizer-color: white !important;
+        --organizer-outline-color: var(--general-color) !important; 
+        --organizer-pane-field-border-color: color-mix(in srgb, var(--organizer-toolbar-background) 92%, white) !important; !important;
     }}
     @media (prefers-color-scheme: light){
         :root{
@@ -24,10 +26,11 @@
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, black) !important;
         --contrast-color: white !important;
         --organizer-color: black !important;
+        --organizer-pane-field-border-color: color-mix(in srgb, var(--organizer-toolbar-background) 78%, black) !important; !important;
     }}
     /* ---------------- Borde contextual - menu ------------------ */
     .menupopup-arrowscrollbox{
-    box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
+        box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
     }
     /* -------------- Border color to "nombre"-"Etiquetas"-"Dirección" -------------- */
     treecol, treecolpicker {
@@ -70,6 +73,12 @@
         appearance: none !important;
         background-color: color-mix(in srgb, var(--organizer-pane-background) 90%, var(--organizer-color, #eaeaea)) !important;
         color: var(--organizer-color, #eaeaea) !important;
+    }
+    #searchFilter:is([focused]){
+        background-color: color-mix(in srgb, var(--organizer-pane-background) 96%, var(--organizer-color, #eaeaea)) !important;
+        outline-color: var(--button-active-bgcolor) !important;
+        outline-offset: -1px !important;
+        transition-duration: 50ms !important;
     }
     /*---------------sidebar Izquierda----------------*/
     #placesList, #places treechildren::-moz-tree-row {
@@ -127,7 +136,7 @@
     #detailsPane, #places #downloadsRichListBox, #editBMPanel_keywordRow, #editBMPanel_locationRow, #editBMPanel_tagsRow, #editBMPanel_tagsSelectorRow {
         appearance: none !important;
         background: var(--organizer-pane-background2) !important;
-        color: var(--organizer-color, #eaeaea) !important;        
+        color: var(--organizer-color, #eaeaea) !important;
     }
     /*Fondo inputText al Editar*/
     #editBookmarkPanelRows>vbox>input, #editBookmarkPanelRows>vbox>hbox>input {

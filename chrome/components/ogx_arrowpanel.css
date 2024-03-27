@@ -31,7 +31,7 @@ panelview {
     margin-inline: -4px !important;
 }
 
-#protections-popup, #editBookmarkPanel, #translations-panel {
+#protections-popup, #editBookmarkPanel, #full-page-translations-panel {
     margin-top: -1px !important;
     margin-inline: -6px !important;
 }
@@ -100,16 +100,6 @@ toolbarseparator {
 
 #protections-popup-blocking-section-header, #protections-popup-not-blocking-section-header, #protections-popup-not-found-section-header, #protections-popup-tp-switch-section, .protections-popup-category, .protections-popup-footer-button {
     padding-inline: 16px !important;
-}
-
-/* Color Label "No funciona el sitio " */
-
-toolbar .text-link:-moz-lwtheme, panel .text-link:-moz-lwtheme {
-    color: var(--general-color) !important;
-}
-
-toolbar .text-link:-moz-lwtheme:hover, panel .text-link:-moz-lwtheme:hover {
-    color: var(--blue) !important;
 }
 
 /* Panel de descargas */

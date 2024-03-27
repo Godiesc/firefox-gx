@@ -17,26 +17,26 @@
     color: var(--label-color) !important;
 }
 
+/* Botón de Iniciar sesión */
+
+#appMenu-fxa-status2:not([fxastatus]) {
+        padding-top: 4px !important;
+    & > #appMenu-fxa-label2 {
+        border-radius: 4px !important;
+}}
+            
+#appMenu-fxa-status2:not([fxastatus]) #appMenu-fxa-label2:hover {
+            background-color: var(--button-hover-bgcolor) !important;
+}
+
 /* Margen derecha de los shortcut Ctrl + */
 
 #appMenu-popup .subviewbutton[shortcut]::after{
     padding-inline-end: 22px !important;
 }
 
-/* Ícono de Actualización disponible */
+/* banner de Actualización disponible */
 
-#appMenu-popup .panel-banner-item::before {
-    background: url("../images/foxFill.svg") no-repeat center/16px;
-    content: ""; 
-    display: inline-flex;
-    -moz-context-properties: fill;
-    fill: #3ad3a2 !important;
-}
-
-#appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]){
-    background: var(--button-bgcolor) !important;
-    padding-inline-end: 4px !important;
-}
 #appMenu-popup .panel-banner-item:not([disabled]):hover, #appMenu-popup .addon-banner-item:not([disabled]):hover {
     background: var(--button-active-bgcolor) !important;
 }
@@ -170,12 +170,6 @@
         margin-top: calc(-1px - var(--tab-height-personal) + var(--tab-block-margin)) !important;
     }
     
-/* zoom icons */
-    
-#appMenu-zoomReduce-button2 > .toolbarbutton-icon, #appMenu-zoomEnlarge-button2 > .toolbarbutton-icon{
-    margin-inline: -4px !important;
-}
-    
 /* Separadores */
     
     :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator {
@@ -185,10 +179,6 @@
     } 
     
 /* baner de -actualización disponible- */
-    
-    #appMenu-popup .panel-banner-item:not([disabled]), #appMenu-popup .addon-banner-item:not([disabled]) {
-        background: var(--button-bgcolor) !important;
-    }
     
     #appMenu-popup .panel-banner-item:not([disabled]):hover, #appMenu-popup .addon-banner-item:not([disabled]):hover {
         background: var(--button-active-bgcolor) !important;
@@ -202,38 +192,26 @@
     #PanelUI-menu-button[badge-status="update-other-instance"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
     #PanelUI-menu-button[badge-status="update-restart"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
     #PanelUI-menu-button[badge-status="update-unsupported"]>.toolbarbutton-badge-stack>.toolbarbutton-badge {
-        box-shadow: none;
         margin: -7px -3px 0px !important;
-        margin-inline-end: -7px !important;
+        margin-inline-end: -9px !important;
     }
-    
-    .panel-banner-item::before {
-        background: url("../icons/foxFill.svg") no-repeat center/16px;
-        content: "";
-        display: block;
-        width: 16px;
-        height: 16px;
-        margin-inline-end: 7px;
-        -moz-context-properties: fill;
-        fill: #3ad3a2 !important;
-    }
-    
-    #appMenu-popup .panel-banner-item {
-        margin: 0 0px 2px !important;
-        padding-inline-start: 8px !important;
-        border-radius: 0px !important;
-    }
-    
+
 /* ------------------------ícono account----------------------- */
 
 /* Linea gradiente sobre label Account solo en ventana maximizada */
 
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-status2 {
-        padding-top: 2px !important;
+        padding-top: 4px !important;
+        margin-inline-start: var(--margin-left-icons-personal) !important;
+        border-top: 1px solid var(--panel-separator-color) !important;
         border-image: linear-gradient(to left, transparent 7px,var(--general-color) 7px, 
                         transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
                         transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1 !important;
-        border-top: 1px solid var(--panel-separator-color) !important;
+    }
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-status2[fxastatus="signedin"] {
+        padding-top: 2px !important;
+        margin-inline-start: 0px !important;
     }
     
 /* ---------------------------------------- Config para alinear íconos en el menú de hamburguesa ------------------------------------------- */

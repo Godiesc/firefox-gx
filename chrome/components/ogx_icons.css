@@ -137,31 +137,36 @@
 
 /* separador izquierda y derecha urlbar */
 
-#urlbar:not([open=true], [focused=true], :hover) #urlbar-background::before {
+#urlbar-background::before {
     background: url("../icons/urlbar-separator.svg") no-repeat left;
-    content: "";
-    display: block;
+    content: ""; display: block;
+    height: calc(var(--toolbar-height-personal) - 10px) !important;
     background-size: 16px 16px !important;
-    padding-top: calc(var(--urlbar-height) - 1px) !important;
-    margin-left: -7px !important;
+    margin-inline-start: -7px !important;
     -moz-context-properties: fill !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     opacity: 0.1 !important;
+    transition-duration: 400ms !important;
 }
 
-#urlbar:not([open=true], [focused=true], :hover) #urlbar-background::after {
+#urlbar-background::after {
     background: url("../icons/urlbar-separator.svg") no-repeat right;
-    content: "";
-    display: block;
+    content: ""; display: block;
+    height: var(--toolbar-height-personal) !important;
+    margin-block-start: calc(5px - var(--toolbar-height-personal)) !important;
     background-size: 16px 16px !important;
-    height: 16px;
-    margin-top: calc( 0px - var(--urlbar-height) + 7px) !important;
     margin-right: -7px !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
     opacity: 0.1 !important;
+    transition-duration: 400ms !important;
 }
 
+#urlbar:is([open=true], [focused=true], :hover) #urlbar-background::before,
+#urlbar:is([open=true], [focused=true], :hover) #urlbar-background::after{
+    opacity: 0 !important;
+    transition-duration: 400ms !important;
+}
 
 /* ________________________________________________________________________________________________________________________________
   
@@ -716,16 +721,16 @@
     content: "";
     display: inline-flex;
     display: -moz-inline-box;
-    width: 32px !important;
-    height: 32px !important;
+    width: 16px !important;
+    height: 16px !important;
     border-radius: 50%;
-    background-size: 32px;
+    background-size: 16px;
     background-image: var(--avatar-image-url);
     margin-inline-end: var(--arrowpanel-menuicon-padding);
   }
 
   #fxa-manage-account-button::before {
-    order: 2 !important;
+    order: 0 !important;
     -moz-box-ordinal-group: 2 !important;
   }
 

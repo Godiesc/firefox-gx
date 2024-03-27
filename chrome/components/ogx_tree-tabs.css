@@ -205,7 +205,7 @@
     
 @media (prefers-color-scheme: light){
 :root:not([lwtheme-brighttext="true"]),
-:root:-moz-lwtheme{
+:root[lwtheme]{
     --toolbar-bgcolor: #f9f9f99f !important;
   }}
     

@@ -423,7 +423,8 @@ input:focus-visible, input:focus-visible{
     background-image: url("../icons/more.svg") !important;
     background-color: transparent !important;
     border-radius: 2px 4px 2px 8px !important;
-    inset-inline-end: -10px !important;
+    inset-inline-end: 6px !important;
+    margin-block-start: 20px !important;
     top: 2px !important;
     transition: opacity 200ms;
     fill: var(--newtab-text-primary-color) !important;
@@ -432,7 +433,7 @@ input:focus-visible, input:focus-visible{
 .top-site-outer .context-menu-button:is(:hover, :focus) {
     background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
     transition: opacity 200ms;
-    fill: var(--newtab-text-primary-color) !important;
+    fill: var(--general-color) !important;
     }
     
     
@@ -478,7 +479,7 @@ input:focus-visible, input:focus-visible{
     
 .card-outer .context-menu-button, .card-outer .context-menu-button:active, .card-outer .context-menu-button:focus{
     margin-top: 14px !important;
-    margin-right: 15px !important;
+    margin-right: 14px !important;
     background-image: url("../icons/more.svg") !important;
     border-radius: 3px 6px 3px 8px !important;
     background-color: color-mix(in srgb, var(--contrast-color) 70%, transparent) !important;
@@ -486,6 +487,10 @@ input:focus-visible, input:focus-visible{
     border-color: #50505030 !important;
     transition-delay: 0ms !important;
     }
+    
+.context-menu-button:hover{
+    fill: var(--general-color) !important;
+}
     
 /* Fondo de <popup> al intentar eliminar un sitio anclado*/
     

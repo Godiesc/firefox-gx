@@ -225,8 +225,8 @@
 /* New :root preferences to adapt oneline style */
   
 :root,
-:root:-moz-lwtheme,
-:root:not(:-moz-lwtheme){
+:root[lwtheme],
+:root:not([lwtheme]){
     --toolbar-bgcolor: transparent !important;                                            /* toolbar */
     --lwt-sidebar-background-color: #101019 !important;                                   /* Necesario para corregir bug en ogx_library.css */
     --tab-height-personal: 32px !important;                                               /* Minimum Height 32px for the right function of the theme */
@@ -504,12 +504,12 @@
   
 /* Separador <izquierda> - <derecha> url */
   
-#urlbar:not([open],[focused], :hover) #urlbar-background::before{
-    padding-top: calc(var(--urlbar-height) - 0px) !important;
+#urlbar-background::before{
+  margin-block-start: 2px !important;
 }
   
-#urlbar:not([open],[focused], :hover) #urlbar-background::after{
-    margin-top: calc( 0px - var(--urlbar-height) + 5px) !important;
+#urlbar-background::after{
+    margin-block-start: calc(5px - var(--toolbar-height-personal)) !important;
 }
   
 /* Ícono de Microfono */
@@ -521,16 +521,20 @@
 /* Urlbar icons - show on hover */
   
 .urlbar-page-action, #identity-box, #urlbar-zoom-button{
-  opacity: 0;
-  transition: margin-inline-end 100ms linear, opacity 200ms linear;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out !important;
+    transition-delay: 0ms !important;
 }
 
 #urlbar:is([open],:hover, [focused]) .urlbar-page-action, 
-#urlbar:is([open],:hover,[focused]) #urlbar-zoom-button,
+#urlbar:is([open],:hover, [focused]) #urlbar-zoom-button,
 #urlbar:is([open],:hover, [focused]) #identity-box,
 .urlbar-page-action[open],
-.urlbar-page-action[open] ~ .urlbar-page-action{
-  opacity: 1;
+.urlbar-page-action[open] ~ .urlbar-page-action,
+#identity-box:has(#identity-icon-box[open], #identity-permission-box[open], #notification-popup-box[open]){
+    opacity: 1;
+    transition: opacity 300ms ease-in-out !important;
+    transition-delay: 100ms !important;
 }
   
 /* Alinear la linea gradiente de la nav-bar con pestaña seleccionada 
