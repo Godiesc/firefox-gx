@@ -170,6 +170,7 @@
 
 #scrollbutton-up, #scrollbutton-down {
     border-block-width: var(--uc-tabs-scrollbutton-border, 0px) !important;
+    margin-bottom: 1px !important;
 }
 
 /* botón >> ALL tabs */
@@ -284,7 +285,7 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
     #TabsToolbar {
         padding-block-start: 6px !important;
     }
-    :root:not([sizemode="fullscreen"]) #tabbrowser-tabs {
-        padding-inline-start: 10px !important;
+    :root:not([sizemode="fullscreen"]) .titlebar-buttonbox-container {
+        margin-inline: 10px !important;
     }
 }

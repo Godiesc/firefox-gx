@@ -125,7 +125,7 @@
     --toolbarbutton-hover-background: transparent !important;
     --toolbarbutton-active-background: transparent !important;
     --toolbarbutton-hover-personal: transparent !important;
-    --toolbarbutton-icon-fill: var(--general-color) !important;
+    --toolbarbutton-icon-fill: color-mix(in srgb, var(--general-color) 90%, transparent) !important;
     --toolbarbutton-border-radius: 0px !important;
     --padding-top-left-sidebar: 96px !important;
     --padding-bottom-left-sidebar: 101px !important;
@@ -185,9 +185,9 @@
 /* Zoom on :hover items */
     
     /* animación */
-    @keyframes scale5{ 
-        0%{ transform:scale(0.8) } 
-        /*98%{ transform:scale(1.1) }*/
+    @keyframes scale{ 
+        0%{ transform:scale(1.1) } 
+        50%{ transform:scale(0.7) } 
         100%{ transform:scale(1) }}
     
    /* Normal */
@@ -195,7 +195,7 @@
     #PersonalToolbar #PlacesToolbarItems>.bookmark-item:not(:hover,[open="true"], :active)>.toolbarbutton-icon,    /* Botones de marcadores */
     #PersonalToolbar #OtherBookmarks:not(:hover,[open="true"], :active) .toolbarbutton-icon{                       /* Boton - OtrosMarcadores */                                        /* Boton - OtrosMarcadores */
         transform: scale(1.0) !important;
-        transition: ease-in-out !important;
+        transition: ease-out !important;
         transition-duration: 200ms !important;
     }
     
@@ -203,32 +203,24 @@
     #PersonalToolbar .toolbarbutton-1:hover:not([open="true"],:active) .toolbarbutton-icon,
     #PersonalToolbar #PlacesToolbarItems>.bookmark-item:is(:hover):not([open="true"],:active)>.toolbarbutton-icon,
     #PersonalToolbar #OtherBookmarks:is(:hover):not([open="true"],:active) .toolbarbutton-icon{
-        transform: scale(1.12) !important;
-        transition: ease-in-out !important;
+        transform: scale(1.1) !important;
+        transition: ease-in !important;
         transition-duration: 50ms !important;
     }
     
     /* Active */
     #PersonalToolbar .toolbarbutton-1:is(:active):not([open="true"]) .toolbarbutton-icon,                                                                
-    #PersonalToolbar #PlacesToolbarItems>.bookmark-item:is(:active):not([open="true"])>.toolbarbutton-icon,
-    #PersonalToolbar #OtherBookmarks:is(:active):not([open="true"]) .toolbarbutton-icon{
-        animation: scale5 ease-in-out 250ms !important;
+    #PersonalToolbar #PlacesToolbarItems>.bookmark-item:is(:active):not([container],[open])>.toolbarbutton-icon,
+    #PersonalToolbar #OtherBookmarks:is(:active):not([container],[open]) .toolbarbutton-icon{
+        animation: scale ease-in-out 250ms !important;
     }
     
     /* [open] */
-    #PersonalToolbar .toolbarbutton-1:is([open]) .toolbarbutton-icon ,                                                                
+    #PersonalToolbar .toolbarbutton-1:is([open]) .toolbarbutton-icon,                                                                
     #PersonalToolbar #PlacesToolbarItems>.bookmark-item:is([open])>.toolbarbutton-icon,
     #PersonalToolbar #OtherBookmarks:is([open]) image{
-        animation: scale5 ease-in-out 250ms !important;
+        animation: scale ease-in-out 250ms !important;
     }
-    
-    /* [open] marcadores - más tiempo
-    #PersonalToolbar #PlacesToolbarItems>.bookmark-item:is([open])>.toolbarbutton-icon,
-    #PersonalToolbar #OtherBookmarks:is([open]) .toolbarbutton-icon{
-        transform: scale(1.0) !important;
-        transition: ease-in-out !important;
-        transition-duration: 250ms !important;
-    } */
 
 /* Tamaño vertical de Items de la barra lateral */
     
@@ -240,12 +232,12 @@
     
 /* Efecto clic botones default y extensiones 
     
-    @keyframes scale-up-center1{
-        0%{ background-color: color-mix(in srgb, transparent 88%, var(--lwt-tab-text));
+    @keyframes scale-up-center{
+        0%{ background-color: color-mix(in srgb, transparent 82%, var(--lwt-tab-text));
             border-radius: 50%;
             width: 22px;
             height: 22px;} 
-       60%{ background-color: color-mix(in srgb, transparent 96%, var(--lwt-tab-text));
+       60%{ background-color: color-mix(in srgb, transparent 90%, var(--lwt-tab-text));
             border-radius: 10%;
             width: calc(var(--my-vertical-toolbar-width) + 0px);
             height: 32px;}
@@ -253,12 +245,12 @@
             border-radius: 0%;
             width: calc(var(--my-vertical-toolbar-width) + 20px);}}
     
-    #PersonalToolbar .toolbarbutton-1:is([open],:active)::after{
+    #PersonalToolbar .toolbarbutton-1:is([open])::after{
         content: "";  display: -moz-box;  position: absolute !important;
         align-self: center !important;
         background-color: transparent;
         border-radius: 0px;
-        animation: scale-up-center1 550ms !important;
+        animation: scale-up-center 700ms !important;
     }*/
     
 /* Separador usando "espacio flexible" */
@@ -315,26 +307,10 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     max-width: auto !important;
     align-self: end !important;
 }
-
-/* Tamaño más grande para las extensiones ssociales puestas en la barra lateral */
-
-#PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP image,
-#PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP image,
-#PersonalToolbar #xrst_vardakis_gmail_com-BAP image,
-#PersonalToolbar #sidebarspotyplay_godie-BAP image,
-#PersonalToolbar #chatwappinsidebar_godie-BAP image,
-#PersonalToolbar #sidebarinstachat_godie-BAP image,
-#PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP image,
-#PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP image,
-#PersonalToolbar #ublock0_raymondhill_net-BAP image,
-#PersonalToolbar #panorama-tab-groups_example_com-BAP image,
-#PersonalToolbar #_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP image,
-#PersonalToolbar #_446900e4-71c2-419f-a6a7-df9c091e268b_-BAP image,
-#PersonalToolbar #treestyletab_piro_sakura_ne_jp-BAP image,
-#PersonalToolbar #tabcenter-reborn_ariasuni-BAP image,
-#PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP image {
-    height: 18px !important;
-    width: 18px !important;
+    
+#PersonalToolbar toolbaritem>toolbarbutton>.toolbarbutton-badge-stack>.toolbarbutton-icon {
+    height: 17px !important;
+    width: 17px !important;
 }
     
 /* ChatGPT Extension */
@@ -577,14 +553,12 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         margin-inline-start: calc(var(--padding-left-tab) - 2px) !important;
         margin-top: -56px  !important;
     }
-    
-/* Nueva posición de Paneles [open] de left-sidebar 
 
     #PersonalToolbar>toolbarbutton>menupopup {
-        margin-right: calc(var(--padding-left-tab) - 10px) !important;
+        margin-right: calc(var(--padding-left-tab) - 9px) !important;
         margin-top: -39px  !important;
     }
-    
+/* Nueva posición de Paneles [open] de left-sidebar 
     #customizationui-widget-panel {
         margin-right: calc(var(--padding-left-tab) - 9px) !important;
         margin-top: -39px  !important;

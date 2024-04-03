@@ -22,6 +22,12 @@
     border-color: color-mix(in srgb, var(--toogle-border-color), var(--lwt-tab-text)) !important;
 }
 
+/* Botón -Informar problemas con un sitio */
+
+#protections-popup-report-broken-site-button .toolbarbutton-text{
+    padding: 0px !important;
+}
+
 /*color Rojo de boton "borrar marcador"*/
 
 #editBookmarkPanelRemoveButton label{

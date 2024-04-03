@@ -102,6 +102,12 @@ toolbarseparator {
     padding-inline: 16px !important;
 }
 
+/* Color Label 'saber más' */
+
+toolbar .text-link:hover, panel .text-link:hover {
+    color: var(--general-color) !important;
+}
+
 /* Panel de descargas */
 
 #downloadsListBox > richlistitem {
