@@ -86,7 +86,7 @@
 
 /* ------------------------------------- Gradiente bajo pestañas ------------------------------------- */
 
-#nav-bar:not([tabs-hidden="true"]) { box-shadow: none !important; }
+#nav-bar:not([tabs-hidden="true"]) { box-shadow: none !important; border-top: none !important; }
 
 #TabsToolbar::before{
     content: "" !important; position: absolute !important; align-self: end !important;
