@@ -344,6 +344,13 @@
     padding-bottom: 0px !important;
     }}
   
+/* fix for status panel */
+
+#statuspanel label{
+    background-color: var(--lwt-frame, var(--contrast-color)) !important;
+    border-color: #80808050 !important;
+}
+  
 /* Separador <window controls> y demás botones */
     
 :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-buttonbox::before{

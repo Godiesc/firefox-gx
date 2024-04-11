@@ -85,6 +85,13 @@
     --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;
 }
    
+/* fix for status panel */
+
+#statuspanel label{
+    background-color: var(--lwt-frame, var(--contrast-color)) !important;
+    border-color: #80808050 !important;
+}
+   
 /* Compatibilidad con Left-sidebar */
    
 @media (-moz-bool-pref:"firefoxgx.left-sidebar") {
