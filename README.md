@@ -12,7 +12,7 @@
 <ol>
    <li>Download the theme from the <b> << Releases >> </b> section, in the right side of this page</code></li> 
    <li>Unzip the file and copy the 👉<code>chrome</code>👈 folder and the 👉<code>user.js</code>👈 file into your Firefox profile directory. </li>
-   <li>Install and use a compatible <a href="https://github.com/Godiesc/firefox-gx#temas---themes" >theme</a>.</li>
+   <li>Install and use a compatible <a href="https://github.com/Godiesc/firefox-gx?tab=readme-ov-file#themes" >theme</a>.</li>
    <li>Restart the browser. </li>
 </ol>
 
@@ -29,7 +29,7 @@
 
 <p>You can use the <a href="https://addons.mozilla.org/es/firefox/addon/gx-theme-styles">"GX Theme Styles"</a> Extension to a quick change of themes and colores, this extension works for solid themes only and for users that use the extra feature "Main-image". For change the new-tab background image  and its accent-color you should do it manually like before. This extension was created by me.</p>
 
-![imagen](https://github.com/Godiesc/firefox-gx/assets/22057609/c584a7ea-2410-4504-9de4-c00046da4b02) 
+![Sin título](https://github.com/Godiesc/firefox-gx/assets/22057609/36b9c590-66ce-4877-926c-0c74f9e65a0e)
 
 <p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode for your web content.</b></p>
 
@@ -84,7 +84,11 @@
 <li>Linux - Manjaro KDE (Tested - Probado) ✔ - <a href="https://imgur.com/a/Byo3Mn7">Preview</a></li>
 <li>Windows 10 (Tested - Probado) ✔ - <a href="https://imgur.com/a/aYl8fjn">Preview</a></li>
 <li>Windows 11 (Tested - Probado) ✔ - <a href="https://user-images.githubusercontent.com/6202392/168166690-b9f232c7-ff0e-4107-95f0-2910f1c3c6fb.png" >Preview</a></li>
-<li>MacOS (Tested partially) ❌✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a></li><ul><li>Base theme</li><li>Left-sidebar</li></ul>
+<li>MacOS (Tested partially) ❌✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a></li>
+   <ul><li>Base theme ✔</li>
+       <li>Left-sidebar ✔</li>
+       <li>Other Extra features ❌</li>
+   </ul>
 </ul>
 
 # Known Issues
