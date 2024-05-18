@@ -104,7 +104,7 @@
 :root{
   /*-----------------------------------Gradientes------------------------------------*/
   --gradient: var(--general-color) !important;                                     
-  --panel-separator-zap-gradient1: linear-gradient(to left, var(--general-color) , #ff000000) !important;
+  --panel-separator-zap-gradient1: linear-gradient(to left, var(--general-color) , var(--arrowpanel-background)) !important;
   --panel-separator-zap-gradient2: linear-gradient(to right,var(--general-color) 82% , transparent 96%) !important;
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
 
