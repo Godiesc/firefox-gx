@@ -5,14 +5,12 @@
 @media(prefers-color-scheme: light){:root{ scrollbar-color: #d8d9da #f4f2f7!important; }}           /*Color de la barra de desplazamiento*/
 /**{ scrollbar-width: thin !important}*/                                                            /*Barra de desplazamiento delgada*/
 
-.alt-stop { stop-color: var(--left-color) !important; }                                             /* left color logo-and-wordmark */
-.main-stop { stop-color: var(--right-color) !important; }                                           /* right color logo-and wordmark*/
-
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
    
     @media (prefers-color-scheme: dark){
-        
-    body{
+
+    body {
+    background-image: var(--newtab-wallpaper-dark, "") !important;                            /* Necesario para que el url a la imagen acepte archivos locales*/
     /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;        /* Image in the newtab searchbox */
     --contrast-color: black !important;                                                       /* Variable fondo personal de contraste */
     --border-contrast-color: #09080d !important;                                              /* Variable borde personal de contraste */
@@ -49,6 +47,7 @@
     @media (prefers-color-scheme: light){
         
     body{
+    background-image: var(--newtab-wallpaper-light, "") !important;                           /* Necesario para que el url a la imagen acepte archivos locales*/
     /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;        /* Image in the newtab searchbox */
     --contrast-color: white !important;                                                       /* Variable fondo personal de contraste */
     --border-contrast-color: #acacac50 !important;                                            /* Variable borde personal de contraste */
@@ -81,6 +80,130 @@
     --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* color bola de radiobutton */
         
     }}
+    
+/* ------------------------------------ Todos los wallpapers ------------------------------------ */
+    
+    /* Dark 1 */
+    body:has(#dark-landscape[aria-checked="true"]), 
+    :root:has(#dark-landscape[aria-checked="true"]){
+        --newtab-wallpaper-dark: var(--wallpaper-dark1) !important;
+        --general-color: var(--general-color-dark1) !important;
+    }
+    /* Dark 2 */
+    body:has(#dark-panda[aria-checked="true"]), 
+    :root:has(#dark-panda[aria-checked="true"]){
+    --newtab-wallpaper-dark: var(--wallpaper-dark2) !important;
+    --general-color: var(--general-color-dark2) !important;
+    }
+    /* Dark 3 */    
+    body:has(#dark-color[aria-checked="true"]), 
+    :root:has(#dark-color[aria-checked="true"]){
+        --newtab-wallpaper-dark: var(--wallpaper-dark3) !important;
+        --general-color: var(--general-color-dark3) !important;
+    }
+    /* Dark 4 */    
+    body:has(#dark-sky[aria-checked="true"]), 
+    :root:has(#dark-sky[aria-checked="true"]){
+        --newtab-wallpaper-dark: var(--wallpaper-dark4) !important;
+        --general-color: var(--general-color-dark4) !important;
+    }
+    /* Dark 5 */    
+    body:has(#dark-mountain[aria-checked="true"]), 
+    :root:has(#dark-mountain[aria-checked="true"]){
+        --newtab-wallpaper-dark: var(--wallpaper-dark5) !important;
+        --general-color: var(--general-color-dark5) !important;
+    }
+    /* Dark 6 */    
+    body:has(#dark-beach[aria-checked="true"]), 
+    :root:has(#dark-beach[aria-checked="true"]){
+        --newtab-wallpaper-dark: var(--wallpaper-dark6) !important;
+        --general-color: var(--general-color-dark6) !important;
+    }
+
+    /* Light 1 */
+    body:has(#light-panda[aria-checked="true"]), 
+    :root:has(#light-panda[aria-checked="true"]){
+        --newtab-wallpaper-light: var(--wallpaper-light1) !important;
+        --general-color: var(--general-color-light1) !important;
+    }
+    /* Light 2 */    
+    body:has(#light-sky[aria-checked="true"]), 
+    :root:has(#light-sky[aria-checked="true"]){
+        --newtab-wallpaper-light: var(--wallpaper-light2) !important;
+        --general-color: var(--general-color-light2) !important;
+    }
+    /* Light 3 */    
+    body:has(#light-color[aria-checked="true"]), 
+    :root:has(#light-color[aria-checked="true"]){
+        --newtab-wallpaper-light: var(--wallpaper-light3) !important;
+        --general-color: var(--general-color-light3) !important;
+    }
+    /* Light 4 */    
+    body:has(#light-mountain[aria-checked="true"]), 
+    :root:has(#light-mountain[aria-checked="true"]){
+        --newtab-wallpaper-light: var(--wallpaper-light4) !important;
+        --general-color: var(--general-color-light4) !important;
+    }
+    /* Light 5 */    
+    body:has(#light-landscape[aria-checked="true"]), 
+    :root:has(#light-landscape[aria-checked="true"]){
+        --newtab-wallpaper-light: var(--wallpaper-light5) !important;
+        --general-color: var(--general-color-light5) !important;
+    }
+    /* Light 6 */    
+    body:has(#light-beach[aria-checked="true"]), 
+    :root:has(#light-beach[aria-checked="true"]){
+        --newtab-wallpaper-light: var(--wallpaper-light6) !important;
+        --general-color: var(--general-color-light6) !important;
+    }
+    
+/* ------------------------------------ Miniaturas de wallpapers ------------------------------------ */
+    
+/* Dark */
+    
+.wallpaper-input.dark-landscape { background-image: var(--wallpaper-dark1) !important; }
+    
+.wallpaper-input.dark-panda { background-image: var(--wallpaper-dark2) !important; }
+    
+.wallpaper-input.dark-color { background-image: var(--wallpaper-dark3) !important; }
+    
+.wallpaper-input.dark-sky { background-image: var(--wallpaper-dark4) !important; }
+    
+.wallpaper-input.dark-mountain { background-image: var(--wallpaper-dark5) !important; }
+    
+.wallpaper-input.dark-beach { background-image: var(--wallpaper-dark6) !important; }
+    
+/* Light */
+    
+.wallpaper-input.light-panda { background-image: var(--wallpaper-light1) !important; }
+    
+.wallpaper-input.light-sky { background-image: var(--wallpaper-light2) !important; }
+    
+.wallpaper-input.light-color { background-image: var(--wallpaper-light3) !important; }
+    
+.wallpaper-input.light-mountain { background-image: var(--wallpaper-light4) !important; }
+    
+.wallpaper-input.light-landscape { background-image: var(--wallpaper-light5) !important; }
+    
+.wallpaper-input.light-beach { background-image: var(--wallpaper-light6) !important; }
+    
+    
+/* Color borde :hover wallpapers */
+    
+.wallpaper-list .wallpaper-input:not(:checked):hover {
+  outline: 1px solid #80808080 !important;
+}
+    
+/* Color border :hover en wallpaper seleccionado */
+    
+.wallpaper-list .wallpaper-input:checked:hover {
+    filter: none !important;
+    outline: 2px solid var(--button-active-bgcolor) !important;
+}
+    
+/* Elimina creditos de la imagen usada como wallpaper */
+    
+.wallpaper-attribution { display: none !important; }
     
 /* Eliminar scrollbar */
     
@@ -237,7 +360,7 @@ input:focus-visible, input:focus-visible{
     
     /* Separador*/
     
-    .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}
+.home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 
 /* ###################################### Cuadro de búsqueda ###################################### */
 
@@ -498,7 +621,12 @@ input:focus-visible, input:focus-visible{
     backdrop-filter: var(--personal-blur) !important;
     outline: 1px solid var(--contrast-color) !important;
     }
-/*------------------------fondo (imagen), Logo y Wordmark------------------------*/
+    
+/* ------------- Wallpaper default brightness and wallpaper para Main-image config ------------- */
+    
+body{ backdrop-filter: var(--brightness-wallpaper) !important; }
+
+@media (-moz-bool-pref:"firefoxgx.main-image") {
     
 body{
     background-image: var(--lwt-main-image, initial) !important;
@@ -508,25 +636,23 @@ body{
     background-position-x: right !important;
     background-position-y: var(--background-align-y, 0px) !important;
     backdrop-filter: var(--brightness-wallpaper) !important;
-    }
-    
-@media not (-moz-bool-pref:"firefoxgx.main-image") {
-    body{
-    background-size: cover !important;
     }}
     
+/* ------------------------ Logo y Wordmark ------------------------ */
+    
 .logo{
-    background: url("../icons/foxlogo.svg") no-repeat !important;
+    background: url("../icons/foxmenu.svg") no-repeat !important;
+    -moz-context-properties: fill !important;
+    fill: var(--button-active-bgcolor) !important;
     background-size: cover !important;
-    height: 80px !important;
-    width: 75px !important;
     Opacity: var(--logo-wordmark-visibility) !important;
     display: var(--logo-wordmark-display) !important;
+    transform: scale(0.8) !important;
     }
     
 .wordmark {
-    background: url("../icons/firefox-wordmark.svg") no-repeat center center !important;
-    background-size: 134px !important;
+    /*background: url("../icons/firefox-wordmark.svg") no-repeat center center !important;/**/
+    fill: var(--button-active-bgcolor) !important;
     Opacity: var(--logo-wordmark-visibility) !important;
     display: var(--logo-wordmark-display) !important;
     }
@@ -540,7 +666,7 @@ body{
     }
     
 main {
-    margin-top: var(--newtab-pinnedsites-position-top, auto) !important;
+    justify-content: var(--newtab-pinnedsites-position-top, center) !important;
     }
     
 /* "Logo-wordmark" y search-box en una sola linea */

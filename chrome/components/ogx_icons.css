@@ -125,7 +125,7 @@
 /* Ícono logo-url en paginas seguras de firefox */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
-    list-style-image: url("../icons/foxFill.svg") !important;
+    list-style-image: url("../icons/foxmenu.svg") !important;
 }
 
 /* Favicon de pagina newtab */
