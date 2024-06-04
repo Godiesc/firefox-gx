@@ -161,8 +161,8 @@
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
         appearance: none !important;
         margin-top: calc(-2px - var(--tab-height-personal)) !important;
-        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 2px) 3px,
-                   calc(var(--padding-left-tab) + 2px) calc(var(--tab-height-personal) + 1px), 0 calc(var(--tab-height-personal) + 1px),
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 4px) 3px,
+                   calc(var(--padding-left-tab) + 4px) calc(var(--tab-height-personal) + 1px), 0 calc(var(--tab-height-personal) + 1px),
                    0 100%, 100% 100%, 100% 0%);
         --arrowpanel-menuitem-padding: 6px !important;
     }
