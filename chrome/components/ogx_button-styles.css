@@ -133,7 +133,6 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
 
 #PersonalToolbar {
     --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important; 
-    --toolbarbutton-active-background: var(--contrast-color) !important; 
     --toolbarbutton-icon-fill: var(--toolbar-color) !important;
     text-shadow: none !important;
 }

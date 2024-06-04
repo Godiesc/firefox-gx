@@ -306,9 +306,11 @@
     transparent, color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) 30px) 20 / 30px !important;
 }
 
-/* ----------------Nuevos margenes Botón menú------------------- */
+/* ##################################################### Nuevos margenes Botón menú ##################################################### */
         
 @media not (-moz-bool-pref:"firefoxgx.menu.disabled") {
+    
+@media (-moz-platform: windows), (-moz-platform: linux) {
         
 :root{
     --uc-vertical-toolbar-width: 41px !important;                                                               /* Nuevo tamaño sidebar */
@@ -353,7 +355,7 @@
 :root:is([sizemode="maximized"]) #appMenu-popup{
     --padding-left-tab: 79px !important;
     }}
-@media (-moz-platform: linux){
+    @media (-moz-platform: linux){
 :root:is([sizemode="maximized"]) #appMenu-popup{
       --padding-left-tab: 85px !important;
     }}
@@ -367,12 +369,6 @@
     padding-top: calc(-10px + var(--tab-height-personal)) !important; 
     z-index: 2 !important;
 }
-    
-:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup{
-    clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 2px) 3px,
-                   calc(var(--padding-left-tab) + 2px) calc(var(--tab-height-personal) - 3px), 0 calc(var(--tab-height-personal) - 3px),
-                   0 100%, 100% 100%, 100% 0%);
-    }
 
 /* Logo más grande */
 @media (-moz-platform: windows),(-moz-platform: linux) {
@@ -385,6 +381,29 @@
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         } }
+
+}
+    @media (-moz-platform: windows) {
+:root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup{
+    clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 2px) 3px,
+                   calc(var(--padding-left-tab) + 2px) calc(var(--tab-height-personal) - 3px), 0 calc(var(--tab-height-personal) - 3px),
+                   0 100%, 100% 100%, 100% 0%);
+    }
+}
+    
+    @media (-moz-platform: linux){
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 0px, calc(var(--padding-left-tab) - 1px) 0px,
+                   calc(var(--padding-left-tab) - 1px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px),
+                   0 100%, 100% 100%, 100% 0%);
+    }
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
+        border-color: var(--general-color) !important;
+        box-shadow: none !important;
+    }
+    }
 }
     
 /* #################################################### Tab-center-reborn autohide sidebar #################################################### */

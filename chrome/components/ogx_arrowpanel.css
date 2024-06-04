@@ -21,30 +21,17 @@ panelview {
 
 /* Margen de varios arrowpanels [Open] */
 
-#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #unified-extensions-panel, #notification-popup {
-    margin-top: -1px !important;
-    margin-inline: -6px !important;
-}
-
-#identity-popup, #permission-popup, #appMenu-popup {
+#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #unified-extensions-panel, #notification-popup,
+#identity-popup, #permission-popup, #appMenu-popup,
+#protections-popup, #editBookmarkPanel, #full-page-translations-panel {
     margin-top: -1px !important;
     margin-inline: -4px !important;
 }
 
-#protections-popup, #editBookmarkPanel, #full-page-translations-panel {
-    margin-top: -1px !important;
-    margin-inline: -6px !important;
-}
-
 #BMB_bookmarksPopup {
     margin-top: -3px !important;
-    margin-inline: -6px !important;
+    margin-inline: -4px !important;
 }
-
-/*  panel[type="arrow"]{ 
-    margin-top: 0px !important;
-    margin-left: initial !important; }
-*/
 
 addon-install-confirmation-notification {
     margin-inline: 1px !important;

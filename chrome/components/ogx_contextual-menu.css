@@ -67,9 +67,7 @@ menupopup:not(#PlacesToolbar) menupopup {
 
 .menupopup-arrowscrollbox {
     appearance: none !important;
-    background-image: linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)),
-                      linear-gradient(transparent, transparent),
-                      var(--noise-urlbar-personal, var(--noise-urlbar-personal, none)) !important;
+    background-image: var(--noise-urlbar-personal, none) !important;
     background-color: var(--arrowpanel-background, Menu) !important; 
     box-shadow: 0px 0px 0 1px var(--border-contrast-color, #09080d) !important;
     color: var(--arrowpanel-color, #ffffff) !important;

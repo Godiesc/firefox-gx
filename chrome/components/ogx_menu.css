@@ -138,6 +138,7 @@
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
         display: flex;
         align-items: center !important;
+        transition: none !important;
     }
     
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>stack::after {
@@ -240,8 +241,32 @@
     :root {
         --margin-left-icons-personal: 9px !important;
     }
+    
+/* Padding top para hacer espacio para la fila del Label menú */
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
+        padding-top: calc(-8px + var(--tab-height-personal)) !important;
+    }
+    
+/* Margin top para subir el menú [open] */
+    
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
+        margin-top: calc(-2px - var(--tab-height-personal)) !important;
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 0px, calc(var(--padding-left-tab) - 1px) 0px,
+                   calc(var(--padding-left-tab) - 1px) calc(var(--tab-height-personal) - 4px), 0 calc(var(--tab-height-personal) - 4px),
+                   0 100%, 100% 100%, 100% 0%);
         --arrowpanel-menuitem-padding: 5px !important;
+    }
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
+        border-color: var(--general-color) !important;
+        border-bottom-color: transparent !important;
+        box-shadow: 0 1px 0 0 var(--arrowpanel-background), 
+                    0 2px 0 0 var(--general-color) !important;
+    }
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup panelview {
+        border-image: none !important;
+        border-color: var(--general-color) !important;
     }
   }
 }

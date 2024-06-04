@@ -91,7 +91,7 @@
 
 /* nuevo color botón Menú */
 
-:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"])[tabsintitlebar] #PanelUI-menu-button{
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"])[tabsintitlebar] #PanelUI-menu-button:not([open]){
     background-color: var(--lwt-frame) !important; 
     border-right: 1px solid var(--general-color) !important;  
     }}

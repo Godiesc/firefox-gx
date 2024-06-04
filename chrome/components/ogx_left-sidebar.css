@@ -470,13 +470,6 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         z-index: 2 !important;
     }
 
-
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
-        clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 4px, var(--padding-left-tab) 4px,
-                   var(--padding-left-tab) calc(var(--tab-height-personal) - 4px), 0 calc(var(--tab-height-personal) - 4px),
-                   0 100%, 100% 100%, 100% 0%);
-    }
-
 /* Logo más grande */
 
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image {
@@ -506,6 +499,29 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
     .panel-banner-item::before{
         padding-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
+    }
+}
+    
+@media (-moz-platform: windows){
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
+        clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 4px, calc(var(--padding-left-tab) + 4px) 4px,
+                   calc(var(--padding-left-tab) + 4px) calc(var(--tab-height-personal) - 4px), 0 calc(var(--tab-height-personal) - 4px),
+                   0 100%, 100% 100%, 100% 0%);
+    }
+}
+   
+@media (-moz-platform: linux){
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 0px, calc(var(--padding-left-tab) + 3px) 0px,
+                   calc(var(--padding-left-tab) + 3px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px),
+                   0 100%, 100% 100%, 100% 0%);
+    }
+    
+    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
+        border-color: var(--general-color) !important;
+        box-shadow: none !important;
     }
 }
 
