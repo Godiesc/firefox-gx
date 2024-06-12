@@ -162,8 +162,8 @@
     transition-duration: 400ms !important;
 }
 
-#urlbar:is([open=true], [focused=true], :hover) #urlbar-background::before,
-#urlbar:is([open=true], [focused=true], :hover) #urlbar-background::after{
+#urlbar:is([open], [focused], :hover) #urlbar-background::before,
+#urlbar:is([open], [focused], :hover) #urlbar-background::after{
     opacity: 0 !important;
     transition-duration: 400ms !important;
 }
