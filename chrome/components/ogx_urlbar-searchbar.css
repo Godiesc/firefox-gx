@@ -162,10 +162,6 @@ findbar {
 
 /* Urlbar */
 
-.urlbar-input-box{
-    font-size: 10pt !important;
-}
-
 #urlbar, #urlbar-background{
     border-radius: var(--border-radius-urlbar-personal) !important;
 }

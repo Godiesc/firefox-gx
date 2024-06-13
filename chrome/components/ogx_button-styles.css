@@ -293,7 +293,7 @@ panel :is(menulist, button, toolbarbutton:not([.subviewbutton])):not([open]),   
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon,
 #pageAction-panel-bookmark[starred], #star-button[starred],
-#urlbar-input-container #tracking-protection-icon{ 
+#tracking-protection-icon{ 
     transition: fill 0.2s ease !important;
 }
 

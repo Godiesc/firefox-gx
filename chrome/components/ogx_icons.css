@@ -63,15 +63,21 @@
     order: 2 !important;
 }
 
-#urlbar-input-container[pageproxystate="valid"]>#tracking-protection-icon-container>#tracking-protection-icon-box:not([hasException])>#tracking-protection-icon {
+.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
+  & not([hasException]) {
     list-style-image: var(--shield-icon-personal) !important;
     fill: var(--general-color) !important;
-    opacity: 1 !important;
-}
+  }
+  &[active] {
+    list-style-image: var(--shield-icon-personal) !important;
+    fill: var(--general-color) !important;
+  }}
 
-#urlbar-input-container[pageproxystate="valid"]>#tracking-protection-icon-container:hover>#tracking-protection-icon-box>#tracking-protection-icon, 
-#urlbar-input-container[pageproxystate="valid"]>#tracking-protection-icon-container[open="true"]>#tracking-protection-icon-box>#tracking-protection-icon {
+.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container:is(:hover,[open]) > #tracking-protection-icon-box {
+  fill: var(--toolbarbutton-icon-fill) !important;
+  &[active] {
     fill: var(--toolbarbutton-icon-fill) !important;
+  }
 }
 
 /* Ícono candado */
