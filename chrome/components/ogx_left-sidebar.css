@@ -165,7 +165,7 @@
 /* Firefox view icon */
     
     toolbar:is(#PersonalToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
-        border-radius: 3px !important;
+        border-radius: 4px !important;
     }
     
     #firefox-view-button image {
@@ -174,53 +174,42 @@
 
     #firefox-view-button[aria-pressed="false"]:active .toolbarbutton-icon{
         list-style-image: url("../icons/firefoxview-close.svg") !important;
-        transition-duration: 250ms !important;
+        transition-duration: 0ms !important;
     }
     
     #firefox-view-button[aria-pressed="true"]:not(:active) .toolbarbutton-icon{
         list-style-image: url("../icons/firefoxview-open.svg") !important;
-        transition-duration: 350ms !important;
+        transition-duration: 0ms !important;
     }   
     
 /* Zoom on :hover items */
     
     /* animación */
-    @keyframes scale{ 
-        0%{ transform:scale(1.1) } 
-        50%{ transform:scale(0.7) } 
-        100%{ transform:scale(1) }}
+    @keyframes scalezoom{
+        0%{ transform:scale(1.12) }
+        50%{ transform:scale(0.7) }
+        100%{ transform:scale(1.0) }}
     
-   /* Normal */
-    #PersonalToolbar .toolbarbutton-1:not(:hover,[open="true"], :active) .toolbarbutton-icon,                      /* Botones default y extensiones */
-    #PersonalToolbar #PlacesToolbarItems>.bookmark-item:not(:hover,[open="true"], :active)>.toolbarbutton-icon,    /* Botones de marcadores */
-    #PersonalToolbar #OtherBookmarks:not(:hover,[open="true"], :active) .toolbarbutton-icon{                       /* Boton - OtrosMarcadores */                                        /* Boton - OtrosMarcadores */
-        transform: scale(1.0) !important;
-        transition: ease-out !important;
-        transition-duration: 200ms !important;
-    }
+   /* :hover */
     
-    /* :hover */
-    #PersonalToolbar .toolbarbutton-1:hover:not([open="true"],:active) .toolbarbutton-icon,
-    #PersonalToolbar #PlacesToolbarItems>.bookmark-item:is(:hover):not([open="true"],:active)>.toolbarbutton-icon,
-    #PersonalToolbar #OtherBookmarks:is(:hover):not([open="true"],:active) .toolbarbutton-icon{
-        transform: scale(1.1) !important;
-        transition: ease-in !important;
-        transition-duration: 50ms !important;
-    }
+    #PersonalToolbar {
+        & .toolbarbutton-1:is(:hover):not(:active,[open]) .toolbarbutton-icon:not(.toolbarbutton-1>image), /* Extensiones */
+        & .toolbarbutton-1:is(:hover):not(:active,[open])>image,                                           /* íconos default */
+        & #PlacesToolbarItems>.bookmark-item:is(:hover,:active):not([open])>.toolbarbutton-icon,           /* Marcadores */
+        & #OtherBookmarks:not(bookmark-item):is(:hover,:active):not([open])>.toolbarbutton-icon{           /* Other bookmarks button */
+            transform: scale(1.12) !important;
+            transition:  200ms !important;
+        }}
     
-    /* Active */
-    #PersonalToolbar .toolbarbutton-1:is(:active):not([open="true"]) .toolbarbutton-icon,                                                                
-    #PersonalToolbar #PlacesToolbarItems>.bookmark-item:is(:active):not([container],[open])>.toolbarbutton-icon,
-    #PersonalToolbar #OtherBookmarks:is(:active):not([container],[open]) .toolbarbutton-icon{
-        animation: scale ease-in-out 250ms !important;
-    }
-    
-    /* [open] */
-    #PersonalToolbar .toolbarbutton-1:is([open]) .toolbarbutton-icon,                                                                
-    #PersonalToolbar #PlacesToolbarItems>.bookmark-item:is([open])>.toolbarbutton-icon,
-    #PersonalToolbar #OtherBookmarks:is([open]) image{
-        animation: scale ease-in-out 250ms !important;
-    }
+    /* Animación clic */
+    #PersonalToolbar {
+        & .toolbarbutton-1:is(:active, [open]) .toolbarbutton-icon:not(.toolbarbutton-1>image),            /* Extensiones */
+        & .toolbarbutton-1:is(:active,[open])>image,                                                       /* íconos default */
+        & #PlacesToolbarItems>.bookmark-item:is([open]):not(:active)>.toolbarbutton-icon,                  /* Marcadores */
+        & #OtherBookmarks:not(bookmark-item):is([open]):not(:active)>.toolbarbutton-icon{                  /* Other bookmarks button */
+            animation: scalezoom ease-in-out 250ms !important;
+            transition:  200ms !important;
+        }}
 
 /* Tamaño vertical de Items de la barra lateral */
     

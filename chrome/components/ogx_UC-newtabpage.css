@@ -773,13 +773,57 @@ body{
 /*..........................................Firefox--------------------------------------------
 ---------------------------------------------view-----------------------------------------------*/
 
-@-moz-document url-prefix(about:firefoxview){
+@-moz-document regexp("^about:firefoxview.*") /*, regexp("^about:.*") */ {
     
     :root{
-        --fxview-primary-action-background: transparent !important;            /* Background categoría seleccionada */
+        --fxview-primary-action-background: transparent !important;                     /* Background categoría seleccionada */
         --fxview-element-background-hover: var(--button-hover-bgcolor) !important;      /* contextual menu :hover item */
         --fxview-element-background-active: var(--button-active-bgcolor) !important;    /* contextual menu :active item */
         --fxview-border: var(--fxview-primary-action-background) !important;
+        --fxview-background-color: transparent !important;
+        --opaque: color-mix(in srgb, var(--in-content-page-background) 70%, transparent) !important;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+  :host, :root {
+         --newtab-background-color: #14141d !important;
+         --newtab-background-color-secondary: rgba(52, 55, 69, 0.7) !important;
+         --newtab-primary-action-background: var(--general-color) !important;
+         --in-content-primary-button-text-color: white !important;
+         --in-content-primary-button-background: var(--general-color) !important;
+         --in-content-primary-button-background-hover: var(--button-hover-bgcolor) !important;
+         --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;
+        }
+    }
+    
+    @media (prefers-color-scheme: light){
+        :root{
+         --newtab-background-color: #efeff5 !important;
+         /*--newtab-background-color-secondary: white !important;*/
+         --newtab-primary-action-background: var(--general-color) !important;
+         --in-content-primary-button-text-color: white !important;
+         --in-content-primary-button-background: var(--general-color) !important;
+         --in-content-primary-button-background-hover: var(--button-hover-bgcolor) !important;
+         --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;
+        }
+    }
+    
+    body, .sticky-container{
+    --bg: var(--lwt-main-image);
+    background-image: linear-gradient(var(--opaque), var(--opaque)),
+                      linear-gradient(var(--opaque), var(--opaque)), 
+                      var(--bg) !important;
+    background-repeat: repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position-y: var(--background-align-y) !important;
+    backdrop-filter: var(--brightness-wallpaper) !important;
+    }
+    
+    .sticky-container{
+        margin-block-end: 10px !important;
+        box-shadow: 0 4px 10px var(--in-content-page-background) !important;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% + 10px), 0 calc(100% + 10px));
     }
     
     button[selected] {

@@ -286,6 +286,6 @@ toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
         padding-block-start: 6px !important;
     }
     :root:not([sizemode="fullscreen"]) .titlebar-buttonbox-container {
-        margin-inline: 10px !important;
+        margin-inline: 6px 10px !important;
     }
 }
