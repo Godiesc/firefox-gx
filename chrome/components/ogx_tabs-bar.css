@@ -4,7 +4,7 @@
 /* "tab_line": "#126e82" */
 
 #tabbrowser-tabs {
-    --lwt-tab-line-color: transparent !important;
+    --tab-selected-outline-color: transparent !important;
 }
 
 /* Color bolita de -cargando página- */
