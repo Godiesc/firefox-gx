@@ -71,7 +71,13 @@
 @media (-moz-platform: linux) {
         .titlebar-button{
             list-style-image: none !important;
+            appearance: none !important;
+        }
+        .titlebar-button > .toolbarbutton-icon{
             appearance: auto !important;
+            background: none !important;
+            width: unset !important;
+            height: unset !important;
         }
         .titlebar-button > .toolbarbutton-icon{
             background: none !important;
@@ -88,9 +94,9 @@
         .titlebar-close {
             -moz-default-appearance: -moz-window-button-close !important;
         }
-    .titlebar-buttonbox {
-        max-height: var(--tab-height-personal) !important;
-    }
+        .titlebar-buttonbox {
+            max-height: var(--tab-height-personal) !important;
+        }
 }
 
 @media (-moz-gtk-csd-reversed-placement) {

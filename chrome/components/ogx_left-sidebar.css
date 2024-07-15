@@ -503,8 +503,8 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 @media (-moz-platform: linux){
     
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
-        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 0px, calc(var(--padding-left-tab) + 3px) 0px,
-                   calc(var(--padding-left-tab) + 3px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px),
+        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 0px, calc(var(--padding-left-tab) - 1px) 0px,
+                   calc(var(--padding-left-tab) - 1px) calc(var(--tab-height-personal) - 6px), 0 calc(var(--tab-height-personal) - 6px),
                    0 100%, 100% 100%, 100% 0%);
     }
     
