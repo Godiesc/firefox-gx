@@ -61,19 +61,22 @@
 <li>Fondo en la pagina Nueva Pestaña y su brillo.</li>
 <li>Altura de las pestañas y altura de la barra de navegación.</li>
 <li>El ancho y la etiqueta del botón Menú.</li>
-<li>color del logo y la marca en la pagina de Nueva Pestaña.</li>
 <li>Ocultar o mostrar el logo o barra de búsqueda en la pagina de Nueva Pestaña.</li>
 </ul>
 <p>Cada variable tiene una descripción a su derecha para que puedas editar sin romper el archivo.</p></li></ul>
 
 <b><i>Fondo Nueva Pestaña</i></b>
 <ul>
-   <li><p>(Opción 1) En el directorio: <code>chrome/newtab</code> hay varios fondos de pantalla, las imágenes que el tema va a seleccionar por defecto son: <b><i>wallpaper-light.png</i></b> y <b><i>wallpaper-dark.png</i></b>, puedes renombrar las imágenes que quieres con esos nombres y el tema los seleccionará, puedes añadir tus propias imágenes. Si no quieres que se muestre ninguna imagen puedes eliminar sin problemas esos archivos. Puedes encontrar más imágenes en : <a href="https://imgur.com/a/j78IhJN"><b>Esta Galería</b></a>. <b>Es necesario reiniciar el navegador para ver los resultados. </b></p></li>
-<li><p>(Opción 2) Edita el archivo <code>chrome/components/ogx_root-personal.css</code>, las lineas : <code>19</code> y <code>24</code>.<p></li></ul></br>
+   <li><p>(Opción 1) En el directorio: <code>chrome/newtab</code> hay 12 wallpapers (6 para temas claros y 6 para temas oscuros), esas imágenes se mostraran en las opciones de la página Nueva Pestaña para que puedas elegirlas, puedes renombrar tus imágenes con esos nombres y el tema va a desplagarlas. Encuentra más imágenes en: <a href="https://imgur.com/a/j78IhJN"><b>Esta Galería</b></a>.
+<li><p>(Opción 2) Edita el archivo <code>chrome/components/ogx_root-personal.css</code>, las lineas de la <code>18</code> a la <code>31</code>.<p></li></ul></br>
+
+<b><i>Other 'about' pages Wallpaper</i></b>
+
+<ul><li>Por defecto el wallpaper seleccionado es <code>wallpaper-dark1.png</code> and <code>wallpaper-light1.png</code> en el directorio: <code>chrome/newtab</code>, recombra las imagenes con esos nombres y el tema desplegará esa imagen en esas páginas, o también puedes cambiar los nombres de tus imágenes en el archivo <code>chrome/components/ogx_root-personal.css</code> en las lineas 35 y linea 40.</li></ul>
 
 <b><i>Color de Acento</i></b>
 <ul>
-<li><p>Debes cambiar manualmente el color de acento para userContent.css (nueva pestaña, página de Configuración y página de Complementos y temas). El archivo <code>chrome/components/ogx_root-personal.css</code> tiene la variable: " --general-color " para definir el color, puedes elegir el que gustes. 💙💚💜🤎💛🧡❤ <b>Reinicia el navegador para ver los cambios. </b></p></li></ul>
+<li><p>Debes editar el archivo <code>chrome/components/ogx_root-personal.css</code> lineas de la 18 a la 31, puedes cambiar el color para cada wallpaper de la página Nueva Pestaña. Para otras páginas (NuevaPestaña sin wallpaper, Ajustes and página de complementos) el archivo <code>chrome/components/ogx_root-personal.css</code> tiene la variable: <code>--general-color</code> para definir el color, puedes elegir el color que prefieras. 💙💚💜🤎💛🧡❤ Se requiere que reinices el navegador. </b></p></li></ul>
 
 ![Captura de pantalla 2022-06-05 155840](https://user-images.githubusercontent.com/22057609/172070426-0de79289-eaa3-4826-ac62-af6230cdf877.png)
 
