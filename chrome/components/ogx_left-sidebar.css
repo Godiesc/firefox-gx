@@ -317,7 +317,8 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 #PersonalToolbar #chatwappinsidebar_godie-BAP{ list-style-image: url("../icons/logo_whatsapp.svg") !important; }
     
 /* Spotify Extension */
-#PersonalToolbar #sidebarspotyplay_godie-BAP{ list-style-image: url("../icons/logo_spotify.svg") !important; }
+#PersonalToolbar #sidebarspotyplay_godie-BAP,
+#PersonalToolbar #_1d0f1bc6-5e9c-4450-aef5-75cefb44660f_-BAP { list-style-image: url("../icons/logo_spotify.svg") !important; }
 
 /* Telegram Extension */
 #PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{ list-style-image: url("../icons/logo_telegram.svg") !important; }
