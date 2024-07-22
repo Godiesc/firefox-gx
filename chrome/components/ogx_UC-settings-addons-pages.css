@@ -86,6 +86,7 @@
 @media (prefers-color-scheme: dark){
     :root {
         --contrast-color: #ffffff !important;                                                   /* Color de contraste */
+        --border-contrast-color: #000000 !important;                                            /* Color borde contraste */
         --in-content-page-background: #121018 !important;                                       /* Fondo general */
 
         --in-content-box-background: #15151e !important;                                        /* Color de los textbox y fondo de menús desplegables */
@@ -94,7 +95,8 @@
 
 @media (prefers-color-scheme: light){
     :root{
-        --contrast-color: #000000 !important;
+        --contrast-color: #000000 !important;                                                   /* Color de contraste */
+        --border-contrast-color: #ffffff !important;                                            /* Color borde contraste */
         --in-content-page-background: #f9f9f9 !important;                                       /* Fondo general */
 
         --in-content-box-background: #f9f9fb !important;                                        /* Color de los textbox y fondo de menús desplegables */
@@ -280,8 +282,8 @@ addon-card[expanded] .addon.card {
     outline-offset: 1px !important;
 }
         
-#sidebar, .main-heading, .navigation, .sticky-container  {
-    background: var(--opaque) !important;
+#sidebar, .navigation, .sticky-container{
+    background-color: var(--opaque) !important;
 }
         
 .navigation, #sidebar{ 
@@ -290,7 +292,7 @@ addon-card[expanded] .addon.card {
         
 .sticky-container{
     border-bottom: 1px solid var(--in-content-box-border-color) !important;
-    box-shadow: 3px 3px 7px #00000050 !important;
+    box-shadow: 3px 3px 10px var(--in-content-page-background) !important;
 }
         
 #main{
@@ -302,11 +304,13 @@ addon-card[expanded] .addon.card {
 }
 
 .main-search {
+    background: transparent !important;
     max-width: 100% !important;
     padding: 20px 20px !important;
 }
         
 .main-heading {
+    background: transparent !important;
     margin-top: -52px !important;
     margin-bottom: 4px !important;
     min-width: 50% !important;
@@ -369,9 +373,10 @@ search-textbox{
     transition: all 0.1s ease !important;
 }
         
-body{
+/* Wallpaper */
+
+body,.sticky-container{
     --bg: var(--lwt-main-image);
-    
     background-image: linear-gradient(var(--opaque), var(--opaque)),
                       linear-gradient(var(--opaque), var(--opaque)), 
                       var(--bg) !important;
@@ -379,8 +384,36 @@ body{
     background-size: cover !important;
     background-attachment: fixed !important;
     background-position-y: var(--background-align-y) !important;
-    backdrop-filter: var(--brightness-wallpaper) !important;
     }
+        
+.sticky-container{
+    background-image: linear-gradient(var(--opaque), var(--opaque)),
+                      linear-gradient(var(--opaque), var(--opaque)),
+                      linear-gradient(var(--opaque), var(--opaque)),
+                      var(--bg) !important;
+    }
+        
+/* ------------- Wallpaper cuando se usa Main-image config ------------- */
+        
+@media (-moz-bool-pref:"firefoxgx.main-image") {
+    
+#sidebar, .navigation, .sticky-container{
+    background-color: transparent !important;
+}
+    
+body,.sticky-container{
+    --opaque: color-mix(in srgb, var(--border-contrast-color) 70%, transparent) !important;
+    background-image: linear-gradient(var(--opaque), var(--opaque)),
+                      linear-gradient(var(--opaque), var(--opaque)), 
+                      var(--bg) !important;
+    background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
+    background-size: calc(100% + var(--my-vertical-toolbar-width, 0px) + var(--extension-width, 0px)) !important;
+    background-attachment: fixed !important;
+    background-position-x: right !important;
+    background-position-y: var(--background-align-y, 0px) !important;
+    backdrop-filter: var(--brightness-wallpaper) !important;
+    }}
+/* --------------------------------------------------------------------- */
 }
 
 @-moz-document url-prefix(about:preferences){
@@ -395,11 +428,10 @@ body{
 }
 
 .sticky-container {
-    background: linear-gradient(to right, var(--in-content-page-background) 94%, transparent) !important;
     width: 125% !important;
     margin-left: -98px !important;
     border-bottom: 1px solid transparent !important;
     border-image: var(--gradiente-casual) 1 !important;
-    box-shadow: -7px 3px 7px #00000050 !important;
+    box-shadow: -17px 3px 17px #0000006a !important;
     }
 }
