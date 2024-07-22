@@ -22,14 +22,14 @@
 > <p>Notice:</p>⚠ The latest code updated in the repository (code > download zip) may work well only on beta or nightly versions.</p>
 
 # Themes
-<ul><li>Main Themes <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li>
+<ul><li>Main Themes: <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li>
 
-<li> Other Colors <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
+<li> Other Colors: <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
    <li>White Themes: <a href="https://addons.mozilla.org/es/firefox/addon/opera-light/"> ⚪🔴 Fuchsia</a> <a href="https://addons.mozilla.org/es/firefox/addon/beautiful-waves/"> ⚪🔵 Waves</a></li></ul>
 
-<p>You can use the <a href="https://addons.mozilla.org/es/firefox/addon/gx-theme-styles">"GX Theme Styles"</a> Extension to a quick change of themes and colores, this extension works for solid themes only and for users that use the extra feature "Main-image". For change the new-tab background image  and its accent-color you should do it manually like before. This extension was created by me.</p>
+<p>You can use the <a href="https://addons.mozilla.org/es/firefox/addon/gx-theme-styles">"GX Theme Styles"</a> Extension to a quick change of themes and colores, this extension works for solid themes only and for users that use the extra feature "Main-image". To change the new-tab background image and its accent-color you should do it manually like before. This extension was created by me.</p>
 
-![Sin título](https://github.com/Godiesc/firefox-gx/assets/22057609/36b9c590-66ce-4877-926c-0c74f9e65a0e)
+![NoTitle](https://github.com/Godiesc/firefox-gx/assets/22057609/36b9c590-66ce-4877-926c-0c74f9e65a0e)
 
 <p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode for your web content.</b></p>
 
@@ -72,7 +72,7 @@
 
 <b><i>Other 'about' pages Wallpaper</i></b>
 <ul>
-   <li><p> For default the wallpaper selected is <code>wallpaper-dark1.png</code> and <code>wallpaper-light1.png</code> In the directory: <code>chrome/newtab</code>, you could rename the image you want with those names and the theme will display them in those pages, you can change the names in the <code>chrome/components/ogx_root-personal.css</code> file in the line <code>35</code> and the line <code>40</code> to the image you want.</p>
+   <li><p> By default the wallpaper selected is <code>wallpaper-dark1.png</code> and <code>wallpaper-light1.png</code> In the directory: <code>chrome/newtab</code>, you could rename the image you want with those names and the theme will display them in those pages, you can change the names in the <code>chrome/components/ogx_root-personal.css</code> file in the line <code>35</code> and the line <code>40</code> to the image you want.</p>
    </li>
 </ul>
 
