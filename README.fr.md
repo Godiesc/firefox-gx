@@ -23,6 +23,13 @@
 
 # Thèmes
 <ul><li>Thèmes principaux : <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li></ul>
+
+<li> Autres couleurs : <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
+   <li>Thèmes clairs : <a href="https://addons.mozilla.org/es/firefox/addon/opera-light/"> ⚪🔴 Fuchsia</a> <a href="https://addons.mozilla.org/es/firefox/addon/beautiful-waves/"> ⚪🔵 Waves</a></li></ul>
+
+<p>Vous pouvez utiliser l'extension <a href="https://addons.mozilla.org/es/firefox/addon/gx-theme-styles">"GX Theme Styles"</a> pour rapidement changer les styles et les couleurs, cette extension ne fonctionne que pour les thèmes solides, et pour les utilisateurs de la fonctionallité "Main-image". Pour changer le fond d'écran du Nouvel onglet et sa couleur d'accent, vous devrez le faire manuellement à l'ancienne. Cette extension est faite maison par l'auteur du thème !</p>
+
+![NoTitle](https://github.com/Godiesc/firefox-gx/assets/22057609/36b9c590-66ce-4877-926c-0c74f9e65a0e)
    
 <p><b>Voici une <a href="https://imgur.com/a/0ZASdRb">"explication vidéo"</a> sur comment alterner entre le mode sombre et clair.</b></p>
 
@@ -54,11 +61,10 @@
 <li>Le fond d'écran et sa luminosité.</li>
 <li>La hauteur des onglets et de la barre d'outils.</li>
 <li>La largeur et l'intitulé du bouton de menu.</li>
-<li>L'intitulé de votre compte remplaçant l'email dans le menu contextuel.</li>
 <li>Le logo et la couleur d'accent des liens de la page d'accueil.</li>
 <li>Afficher ou cacher le logo sur la page d'accueil.</li>
 </ul>
-<p>Chaque variable a une description à sa droite, donc vous saurez ce que vous customiserez sans casser le fichier, penser à sauvegarder une copie de l'original, on sait jamais.</p></li></ul>
+<p>Chaque variable a une description à sa droite, donc vous saurez ce que vous customiserez sans casser le fichier, penser à sauvegarder une copie de l'original, on ne sait jamais :-).</p></li></ul>
 
 <b><i>Fond d'écran de la page d'accueil</i></b>
 <ul>
@@ -82,9 +88,8 @@
 
 # Problèmes connus
 <ul>
-<li>Quand vous utilisez plus qu'une seule image, le thème affichera le mauvais fond d'écran dans l'onglet sélectionné, par exemple le thème alpenglow de Firefox.</li>
-<li>Dans les thèmes avec des images, le fait de déplacer un onglet va afficher le mauvais fond.</li>
-<li>Aucune compatibilité pour les langages lus de droite à gauche.</li>
+<li>Avec les thèmes contenant une image, en déplacant un onglet vous aurez le mauvais fond d'écran temporairement.</li>
+<li>Incompatible avec les languages DàG (se lisant de Droite à Gauche)</li>
 </ul>
 
 # Sujets liés
