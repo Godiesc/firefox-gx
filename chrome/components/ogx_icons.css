@@ -30,7 +30,7 @@
     list-style-image: url("../icons/stop.svg") !important;
 }
 
-/* Eliminar animación boton stop-reload */
+/* Remove animation of stop-reload buttons */
 
 #stop-button .toolbarbutton-animatable-image, #reload-button .toolbarbutton-animatable-image {
     animation-duration: 0ms !important;
@@ -42,7 +42,7 @@
     list-style-image: url("../icons/home.svg") !important;
 }
 
-/* Ícono bookmark */
+/* Bookmark icons  */
 
 #pageAction-panel-bookmark, #star-button {
     list-style-image: url("../icons/bookmark-empty.svg") !important;
@@ -56,7 +56,7 @@
     fill: var(--toolbarbutton-icon-fill) !important;
 }
 
-/* Ícono protección contra rastreo */
+/* Tracking protection icon */
 
 #tracking-protection-icon-container {
     -moz-box-ordinal-group: 2 !important;
@@ -80,13 +80,13 @@
   }
 }
 
-/* Ícono candado */
+/* Lock icon */
 
 #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon, #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
     list-style-image: url("../icons/security.svg") !important;
 }
 
-/* Ícono de aceptar notificaciones */
+/* Accept notifications icon */
 
 .desktop-notification-icon {
     list-style-image: url("../icons/notification.svg") !important;
@@ -98,14 +98,14 @@
     list-style-image: url("../icons/read-mode.svg") !important;
 }
 
-/* ícono de olvidar, clean history on left-sidebar */
+/* 'Forget and delete history' icon on left-sidebar */
 
 #PersonalToolbar #panic-button image {
     list-style-image: url("../icons/cleaner.svg") !important;
     padding: 2px !important;
 }
 
-/* Extension GX Mods */
+/* GX Mods extension */
 
 #gxmods_glacier_dog-BAP{
     list-style-image: url("../icons/edit.svg") !important;
@@ -121,27 +121,27 @@
     list-style-image: url("../icons/firefoxview-open.svg") !important;
 }
 
-/* Ícono borrar marcador  */
+/* 'Delete' bookmark icon  */
 
 #editBookmarkPanelRemoveButton{
     background: url("../icons/delete.svg") no-repeat center/16px !important;
     background-color: var(--input-border-color) !important;
 }
 
-/* Ícono logo-url en paginas seguras de firefox */
+/* Logo-url on Firefox secure pages */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
     list-style-image: url("../icons/foxmenu.svg") !important;
 }
 
-/* Favicon de pagina newtab */
+/* Newtab favicon */
 
 .tab-icon-image[src="chrome://branding/content/icon32.png"] {
     content: url("../icons/foxlogofavicon.svg");
     fill: var(--identity-icon-color, var(--general-color)) !important;
 }
 
-/* separador izquierda y derecha urlbar */
+/* left and right urlbar separator */
 
 #urlbar-background::before {
     background: url("../icons/urlbar-separator.svg") no-repeat left;
@@ -193,6 +193,7 @@
     --uc-tab-copy-icon: url("../icons/tab-copy.svg");
     --uc-tab-unload-icon: url("../icons/tab-unload.svg");
     --uc-tab-multiple-icon: url("../icons/tab-desktop-multiple.svg");
+    --uc-tab-close-duplicate-icon: url("../icons/close-duplicate-tabs.svg");
     --uc-new-tab-icon: url("../icons/new-tab.svg");
     --uc-new-tab-forward-icon: url("../icons/new-tab-forward.svg");
     --uc-new-tab-skip-forward-icon: url("../icons/new-tab-skip-forward.svg");
@@ -952,7 +953,8 @@
   }
 
   #appMenu-report-broken-site-button,
-  #appMenu_help_reportSiteIssue {
+  #appMenu_help_reportSiteIssue,
+  #protections-popup-report-broken-site-button{
     list-style-image: url("chrome://global/skin/icons/lightbulb.svg");
   }
 
@@ -999,6 +1001,10 @@
 
   #allTabsMenu-searchTabs {
     list-style-image: url("chrome://global/skin/icons/search-glass.svg");
+  }
+  
+  #allTabsMenu-closeDuplicateTabs {
+    list-style-image: var(--uc-tab-close-duplicate-icon);
   }
 
   #allTabsMenu-containerTabsButton {
@@ -1307,8 +1313,8 @@
   :not(menu, #ContentSelectDropdown, #context-navigation)
     > #sidebarMenu-popup:is(menupopup):not(panel)
     > menuitem:not(.menuitem-iconic, .bookmark-item, .in-menulist, [checked="true"]) {
-    padding-inline-start: 28px !important;
-    margin-inline-start: var(--arrowpanel-menuitem-margin-inline) !important;
+    padding-inline-start: 32px !important;
+    /*margin-inline-start: var(--arrowpanel-menuitem-margin-inline) !important;/**/
   }
 
 /*@media (not (-moz-bool-pref: "userChrome.icon.disabled")) and (-moz-bool-pref: "userChrome.icon.menu") and (-moz-bool-pref: "userChrome.icon.global_menubar") {
@@ -1597,7 +1603,7 @@
   menupopup:is(#BMB_bookmarksPopup)[placespopup="true"] menu:not(.menu-iconic) > .menu-text,
   #PersonalToolbar menupopup[placespopup="true"] menuitem:not(.menuitem-iconic, [disabled="true"]) > .menu-text,
   #PersonalToolbar menupopup[placespopup="true"] menu:not(.menu-iconic) > .menu-text {
-    padding-inline-start: 10px !important;
+    padding-inline-start: 0px !important;
   }
 
   /** Context Menu - Icons ******************************************************/ /*= tabContextMenu ===========================================================*/
@@ -1728,6 +1734,10 @@
   #sidebartabs_asamuzak_jp-menuitem-_closeTab {
     --menuitem-image: url("chrome://global/skin/icons/close.svg");
   }
+  
+  #context_closeDuplicateTabs {
+          --menuitem-image: var(--uc-tab-close-duplicate-icon);
+        }
 
   #context_closeTabOptions,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_closeMultipleTabs,
@@ -1767,7 +1777,7 @@
   }
 
   .customize-context-moveToPanel {
-    --menuitem-image: url("chrome://browser/skin/pin-12.svg");
+    --menuitem-image: url("../icons/pin-tab.svg");
   }
 
   #toolbar-context-autohide-downloads-button {

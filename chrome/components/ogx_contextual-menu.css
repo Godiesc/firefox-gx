@@ -26,7 +26,7 @@ menugroup > menuitem > hbox > image {
     border-radius: 2px !important;
 }
 
-/* separador de items */
+/* Separator */
 
 #context-sep-navigation { padding-inline: 12px !important; }
 
@@ -44,7 +44,7 @@ menuseparator::before {
     }
 }
 
-/* Márgenes menú y menú desplegable del menú */
+/* 'Menu inside menu' margin */
 
 menupopup:not(#PlacesToolbar) menupopup {
     appearance: none !important;
@@ -52,10 +52,7 @@ menupopup:not(#PlacesToolbar) menupopup {
     margin-inline-start: -10px !important;
 }
 
-#permission-popup menupopup {
-    appearance: none !important;
-    margin-block-start: -3px !important;
-}
+/* 'Menu inside menu' margins opened from the bookmarks-bar */
 
 #PlacesToolbar menupopup menupopup {
     appearance: none !important;
@@ -63,7 +60,14 @@ menupopup:not(#PlacesToolbar) menupopup {
     margin-inline-start: -8px !important;
 }
 
-/* Colores generales */
+/* 'Permission select Box' margins opened from the urlbar icon */
+
+#permission-popup menupopup {
+    appearance: none !important;
+    margin-block-start: -3px !important;
+}
+
+/* General colors */
 
 .menupopup-arrowscrollbox {
     appearance: none !important;
@@ -82,7 +86,7 @@ menupopup > menuitem:not([disabled="true"]), menupopup > menu {
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 
-/* Gradient color to :hover items */
+/* Gradient color when :hover items */
 
 menupopup > menuitem:not([disabled="true"]):hover, menupopup > menu:hover {
     appearance: none !important;
@@ -95,7 +99,7 @@ menupopup > menuitem:is([disabled="true"]):hover {
     background: transparent !important;
 }
 
-/* Necesario para quitar glitch indeseado al mover el mouse rapidamente sobre items de menús */
+/* Necessary rules to remove unwanted glitch when moving the mouse quickly over menu items */
 
 menupopup > menuitem:not([selected="true"]),
 #context-navigation > menuitem:not([selected="true"]),
@@ -110,7 +114,7 @@ menupopup > menu[open="true"] {
     color: var(--arrowpanel-color) !important;
 }
 
-/* Mostrar background-color en el item seleccionado */
+/* Keep background color on selected element */
 
 menupopup > menuitem:is([selected="true"]):not([disabled="false"]) {
     appearance: none !important;
@@ -123,39 +127,18 @@ menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
     background-color: var(--button-active-bgcolor) !important;
 }
 
-/* Makes context navigation buttons appears as normal textual menuitems */
+/* __________________________ Makes context navigation buttons appears as normal textual menuitems __________________________ */
 
 #context-navigation { flex-direction: column !important; }
 
 @media (-moz-bool-pref: "firefoxgx.icon.disabled") {
-    
+
     #context-navigation > menuitem > .menu-iconic-left { display: none !important; }
-    
+
     #context-navigation > menuitem {
         appearance: none !important;
         padding-block: 0.4em !important;
         padding-inline-start: 1em !important;
-        justify-content: flex-start !important;
-        -moz-box-pack: start !important;
-        width: auto !important;
-        border-radius: 0px !important;
-    }
-}
-
-@media not (-moz-bool-pref: "firefoxgx.icon.disabled") {
-    
-    #context-navigation > menuitem > .menu-iconic-left .menu-iconic-icon {
-        appearance: none !important;
-        width: 30px !important;
-        height: 26px !important;
-        padding-block: 0px !important;
-        margin-block: 0px !important;
-        }
-
-    #context-navigation > menuitem {
-        appearance: none !important;
-        padding-block: 0.0em !important;
-        padding-inline-start: 6px !important;
         justify-content: flex-start !important;
         -moz-box-pack: start !important;
         width: auto !important;
@@ -172,19 +155,40 @@ menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
     content: attr(aria-label);
 }
 
-/* #################################### LINUX ####################################### */
+/* 'back-forward-reload-addBookmark' buttons size */
 
-/* Flecha menú contextual desplegable Linux */
+@media not (-moz-bool-pref: "firefoxgx.icon.disabled") {
+
+    #context-navigation > menuitem > .menu-iconic-left .menu-iconic-icon {
+        appearance: none !important;
+        width: 30px !important;
+        height: 26px !important;
+        padding-block: 0px !important;
+        margin-block: 0px !important;
+    }
+
+    #context-navigation > menuitem {
+        appearance: none !important;
+        padding-block: 0.0em !important;
+        padding-inline-start: 6px !important;
+        justify-content: flex-start !important;
+        -moz-box-pack: start !important;
+        width: auto !important;
+        border-radius: 0px !important;
+    }
+}
+
+/* _______________________________________________________________ LINUX _______________________________________________________________ */
 
 @media (-moz-platform: linux) {
     
     @media not (-moz-bool-pref: "firefoxgx.icon.disabled") {
     
-    /* Quita margen indeseado que interfiere con el margen de los íconos */
+    /* Remove unwanted margin that interferes with icon margin */
 
     .menu-text{ margin-inline-start: 0px !important; }
 
-    /* Quitamos doble icono en ciertos items de menu */
+    /* Remove double icon on certain menu items */
 
     :is(#toggle_toolbar-menubar:not([checked="true"]), 
         #show-other-bookmarks_PersonalToolbar:not([checked="true"]),
@@ -204,20 +208,20 @@ menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
             display: none !important;
     }
 
-    /* Alinear iconos de extensiones */    
+    /* Align extension icons */    
 
     .menuitem-iconic:not(#context-navigation>.menuitem-iconic), .menu-iconic:not(#PlacesToolbar){
         padding-inline-start: 12px !important;
     }
 
-    /* Margen derecha iconos marcadores de la barra de menú */
+    /* 'bookmarks items' margin from menubar */
 
     .menu-iconic-left:not(#context-navigation>.menuitem-iconic>.menu-iconic-left) {
         padding-inline-end: 5px !important;
     }
 }
     
-/* Alinear items cuando se deshabilita los íconos */
+/* Align items when icons are disabled */
     
     @media (-moz-bool-pref: "firefoxgx.icon.disabled") {
         #context-navigation > menuitem {
@@ -226,7 +230,7 @@ menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
         }
     }
     
-/* Borde items */
+/* Items */
     
 menupopup {
     --panel-padding: 4px 0px !important;
@@ -236,7 +240,7 @@ menu, menuitem, menucaption {
     border-radius: 0px !important;
 }
     
-/* Flecha derecha */
+/* Arrow */
     
 .menu-right {
         margin-inline-end: 10px !important;

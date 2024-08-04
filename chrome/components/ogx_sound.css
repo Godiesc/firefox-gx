@@ -1,15 +1,15 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-/* Favicon siempre visible */
+/* Favicon always visible */
 
 .tab-icon-image, .tab-throbber { opacity: 1 !important; }
     
-/* Secondary audio label ain't much use with this style. */
+/* Remove audio label */
 
 .tab-secondary-label{ display: none !important; }
 
-/* Reproduciendo */
+/* ________________________________________________________ Playing ________________________________________________________ */
 
 .tab-icon-overlay[soundplaying]:not([pinned]){
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
@@ -23,7 +23,7 @@
     z-index: 1 !important;
     }
 
-/* Reproduciendo hover */
+/* Playing :hover */
 
 tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     /*list-style-image: url("../icons/paused.svg") !important;*/
@@ -34,7 +34,7 @@ tab:not([pinned]) .tab-icon-overlay[soundplaying]:hover {
     opacity: 0.8 !important;
     }
 
-/* Compartiendo microfono y cámara */
+/* Sharing microphone and camera */
 
 .tab-icon-overlay[soundplaying]:not([crashed]):is([sharing]) {
       top: 0px !important; stroke: transparent !important; background-color: transparent !important;  
@@ -46,9 +46,10 @@ tab:hover .tab-icon-overlay:not([crashed],[muted]):is([sharing]) {
       width: 16px !important; 
       height: 16px !important;
     }
+
 tab:hover .tab-icon-image:is([sharing]) {opacity: 1 !important; }
     
-/* ------------------------------------ muteado -----------------------------------*/
+/* ________________________________________________________ Muted ________________________________________________________ */
 
 tab:hover .tab-icon-overlay:not([pinned], :hover):is([muted]), tab:hover .tab-icon-overlay:not(:hover):is([muted][pinned]){
     opacity: 0.7 !important;
@@ -65,7 +66,7 @@ tab:hover .tab-icon-overlay:not([pinned], :hover):is([muted]), tab:hover .tab-ic
     padding: 0 !important;
     }
 
-/* Muteado hover */
+/* Muted :hover */
 
 .tab-icon-overlay:not([pinned])[muted]:hover {
     border-radius: 50% !important;
@@ -74,13 +75,13 @@ tab:hover .tab-icon-overlay:not([pinned], :hover):is([muted]), tab:hover .tab-ic
     opacity: 1 !important;
     }
 
-/* Favicon de pestañas recortado para mostrar mejor el ícono de silenciado */
+/* Tab favicon cropped to better display mute icon */
 
 tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
     mask-image: url("../icons/tab_icon_masks.svg#SoundMask") !important;
     }
 
-/* Audio bloqueado */
+/* Blocked audio */
 
 .tab-icon-overlay:not([pinned]):is([activemedia-blocked]), .tab-icon-overlay:is([pinned]):is([activemedia-blocked]){
     list-style-image: url("../icons/blocked.svg") !important;
@@ -97,7 +98,7 @@ tab:hover .tab-icon-stack:not([crashed]):is([muted], [activemedia-blocked]) :is(
     fill: var(--lwt-tab-text) !important;
     }
 
-/* --------------------- Pinned Tabs ----------------------*/
+/* ________________________________________________________ In pinned Tabs ________________________________________________________ */
 
 .tab-icon-overlay[pinned] { opacity: 0 !important; }
 tab:hover .tab-icon-overlay { opacity: 1 !important; }
@@ -106,7 +107,7 @@ tab:hover .tab-icon-overlay { opacity: 1 !important; }
     mask-image: url("../icons/tab_icon_masks.svg#SoundMask") !important;
     }
     
-/* Reproduciendo pinned */   
+/* Playing 'pinned' */   
 
 .tab-icon-overlay:is([pinned])[soundplaying]{
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
@@ -121,7 +122,7 @@ tab:hover .tab-icon-overlay { opacity: 1 !important; }
     clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%) !important;
     }
 
-/* Reproduciendo :hover pinned */
+/* Playing :hover 'pinned' */
 
 tab:is([pinned]) .tab-icon-overlay[soundplaying]:hover {
     /*list-style-image: url("../icons/muted.svg") !important;*/
@@ -131,7 +132,7 @@ tab:is([pinned]) .tab-icon-overlay[soundplaying]:hover {
     border-radius: 2px !important;
     }
 
-/* Muteado pinned */
+/* Muted 'pinned' */
 
 tab:hover .tab-icon-overlay:is([pinned])[muted] { 
     opacity: 1 !important;
@@ -156,7 +157,7 @@ tab:hover .tab-icon-overlay:is([pinned])[muted] {
     fill-opacity: 0.8 !important;
     }
 
-/* Muteado pinned :hover */
+/* Muted :hover 'pinned' */
 
 tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
@@ -165,11 +166,13 @@ tab:hover .tab-icon-overlay:is([pinned])[muted]:hover {
     fill-opacity: 1 !important;
     }
 
-/* Ocultar ícono [muted] en pestaba <cargando> */
+/* Hide [mute] icon when tab loads */
 
 tab[busy] .tab-icon-overlay:not([pinned]):is([muted]), tab[busy][pinned] .tab-icon-overlay:is([muted]){
     opacity: 0 !important;
     }
+
+/* The 'rhythm animation' only works when you don't use 'tab-shapes' config
 
 tab[soundplaying]:not([pinned]) .tab-background::before{
         content: "" !important; 
@@ -177,8 +180,6 @@ tab[soundplaying]:not([pinned]) .tab-background::before{
         position: absolute !important;
     }
 
-/* Beats animation 
-    
     @media (prefers-color-scheme: dark){
         tab[soundplaying]:not([pinned]) .tab-background::before{
             background: url("../icons/Beats.webp") no-repeat left center !important;

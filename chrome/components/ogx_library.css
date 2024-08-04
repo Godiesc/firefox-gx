@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */
 
-/*---------------------------------library ----------------------------------*/
+/* _________________________________________ library _________________________________________ */
 
 @-moz-document url(chrome://browser/content/places/places.xhtml) , url(chrome://browser/content/webext-panels.xhtml){
     @media (prefers-color-scheme: dark){
@@ -14,7 +14,7 @@
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
         --organizer-color: white !important;
         --organizer-outline-color: var(--general-color) !important; 
-        --organizer-pane-field-border-color: color-mix(in srgb, var(--organizer-toolbar-background) 92%, white) !important; !important;
+        --organizer-pane-field-border-color: color-mix(in srgb, var(--organizer-toolbar-background) 92%, white) !important;
     }}
     @media (prefers-color-scheme: light){
         :root{
@@ -26,18 +26,18 @@
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, black) !important;
         --contrast-color: white !important;
         --organizer-color: black !important;
-        --organizer-pane-field-border-color: color-mix(in srgb, var(--organizer-toolbar-background) 78%, black) !important; !important;
+        --organizer-pane-field-border-color: color-mix(in srgb, var(--organizer-toolbar-background) 78%, black) !important;
     }}
-    /* ---------------- Borde contextual - menu ------------------ */
+    /* ---------------- Contextual menu border ------------------ */
     .menupopup-arrowscrollbox{
         box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
     }
-    /* -------------- Border color to "nombre"-"Etiquetas"-"Dirección" -------------- */
+    /* --------- Border color 'name-Labels-Address' --------- */
     treecol, treecolpicker {
         appearance: none;
         border-color: var(--organizer-border-color) !important; 
 }
-    /*-----------------------Menú principal-------------------------*/
+    /* ---------------------- Main Menu ------------------------- */
     #placesToolbar>toolbarbutton {
         appearance: none !important;
         margin: 2px 2px 2px 2px !important;
@@ -80,7 +80,7 @@
         outline-offset: -1px !important;
         transition-duration: 50ms !important;
     }
-    /*---------------sidebar Izquierda----------------*/
+    /* -------------------- Left sidebar -------------------- */
     #placesList, #places treechildren::-moz-tree-row {
         appearance: none !important;
         color: var(--organizer-color, #eaeaea) !important;
@@ -112,7 +112,7 @@
         appearance: none !important;
         border-right: 1px solid var(--organizer-border-color, #414149) !important;
         }}
-    /*--------------- sidebar derecha----------------*/
+    /* ------------------- Right sidebar /*------------------- */
     #contentView treecol {
         appearance: none !important;
         background: var(--organizer-pane-background) !important;
@@ -138,7 +138,7 @@
         background: var(--organizer-pane-background2) !important;
         color: var(--organizer-color, #eaeaea) !important;
     }
-    /*Fondo inputText al Editar*/
+    /* General 'Edit' background */
     #editBookmarkPanelRows>vbox>input, #editBookmarkPanelRows>vbox>hbox>input {
         appearance: none !important;
         background: color-mix(in srgb, var(--organizer-pane-background2) 60%, var(--contrast-color)) !important;
@@ -150,7 +150,7 @@
         outline-offset: -1px !important;
         border-radius: 3px !important;
     }
-    /*Color "selected" de items*/
+    /* Item "selected" color */
     #places treechildren:not(.autocomplete-treebody)::-moz-tree-row(selected), #placesList>treechildren::-moz-tree-row(selected) {
         appearance: none !important;
         background: var(--button-active-bgcolor, #0060bf)  !important;

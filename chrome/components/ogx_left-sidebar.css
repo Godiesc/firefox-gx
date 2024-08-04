@@ -98,64 +98,64 @@
   }
 }
 
-/* ------------------------------------------------------- My Code to Adapt to GX Style ------------------------------------------------------- */
+/* ______________________________________________________ My code to adapt to the GX style ______________________________________________________ */
     
     :root {
-    --uc-vertical-toolbar-width: var(--my-vertical-toolbar-width) !important;               /* Nuevo tamaño sidebar */
-    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;            /* Nuevo tamaño botón "Menú" */
+    --uc-vertical-toolbar-width: var(--my-vertical-toolbar-width) !important;               /* New sidebar size */
+    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;            /* New size of the 'menu' button */
     }
     
-/* Margen izquierda pestañas cuando se muestra la menu-bar */
+/* Margin to the left of tabs when menu-bar is displayed */
 
     #toolbar-menubar, #toolbar-menubar[autohide="false"]+#TabsToolbar {
         padding-left: var(--padding-left-tab) !important;
     }
     
-/* Mover nav-bar a la derecha */
+/* Move nav-bar to the right */
 
     :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child,
     :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #nav-bar-customization-target toolbarpaletteitem[place="toolbar"]:first-child{
         margin-left: var(--uc-vertical-toolbar-width,0) !important;
     }
 
-/* Posición y estilo de la barra lateral izquierda de marcadores */
+/* Position and style of the left-bookmarks-sidebar */
 
-:root:not([chromehidden~="toolbar"]) #PersonalToolbar {
-    --toolbar-bgcolor: transparent !important;
-    --toolbarbutton-hover-background: transparent !important;
-    --toolbarbutton-active-background: transparent !important;
-    --toolbarbutton-hover-personal: transparent !important;
-    --toolbarbutton-icon-fill: color-mix(in srgb, var(--general-color) 90%, transparent) !important;
-    --toolbarbutton-border-radius: 0px !important;
-    --padding-top-left-sidebar: 96px !important;
-    --padding-bottom-left-sidebar: 101px !important;
-    --height-left-sidebar: calc(100vh - 1px + var(--toolbar-height-personal) + var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px)) !important;
-    
-    height: var(--height-left-sidebar) !important;
-    max-height: var(--height-left-sidebar) !important;
-    background-color: var(--lwt-frame) !important;
-    background-image: inherit !important;
-    background-size: cover !important;
-    
-    /* margen top-bottom de los iconos */
-    padding-top: var(--padding-top-left-sidebar) !important;
-    padding-bottom: var(--padding-bottom-left-sidebar) !important;
-    
-    /* Linea Gradiente */
-    margin-top: calc( -1px - var(--toolbar-height-personal) - var(--tab-height-personal) * 2 - var(--windowed-top-padding, 0px)) !important;
-    border-right: 1px solid transparent !important;
-    border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 1px), 
-                  var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 1px), 
-                  var(--button-active-bgcolor) 42%, transparent 94%) 1 !important;
+    :root:not([chromehidden~="toolbar"]) #PersonalToolbar {
+        --toolbar-bgcolor: transparent !important;
+        --toolbarbutton-hover-background: transparent !important;
+        --toolbarbutton-active-background: transparent !important;
+        --toolbarbutton-hover-personal: transparent !important;
+        --toolbarbutton-icon-fill: color-mix(in srgb, var(--general-color) 90%, transparent) !important;
+        --toolbarbutton-border-radius: 0px !important;
+        --padding-top-left-sidebar: 96px !important;
+        --padding-bottom-left-sidebar: 101px !important;
+        --height-left-sidebar: calc(100vh - 1px + var(--toolbar-height-personal) + var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px)) !important;
+
+        height: var(--height-left-sidebar) !important;
+        max-height: var(--height-left-sidebar) !important;
+        background-color: var(--lwt-frame) !important;
+        background-image: inherit !important;
+        background-size: cover !important;
+
+        /* Top-bottom margins */
+        padding-top: var(--padding-top-left-sidebar) !important;
+        padding-bottom: var(--padding-bottom-left-sidebar) !important;
+
+        /* Gradient line */
+        margin-top: calc( -1px - var(--toolbar-height-personal) - var(--tab-height-personal) * 2 - var(--windowed-top-padding, 0px)) !important;
+        border-right: 1px solid transparent !important;
+        border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 1px), 
+                      var(--general-color) calc(var(--tab-height-personal)*2 + var(--windowed-top-padding, 0px) + 1px), 
+                      var(--button-active-bgcolor) 42%, transparent 94%) 1 !important;
     }
     
-/* Quitar label de items de la barra laterar */
+/* Remove item label from sidebar */
 
     #personal-bookmarks .bookmark-item>.toolbarbutton-text, #import-button label {
         display: none !important;
     }
     
-    /* Quita tambien el espacio despues del ícono - sirve para centrar */
+    /* Also remove the space after the icon - it serves to center */
     #PlacesToolbarItems > .bookmark-item > .toolbarbutton-icon[label]:not([label=""]),                      /* Marcadores */
     #OtherBookmarks.bookmark-item[container] > .toolbarbutton-icon,                                         /* OtrosMarcadores */
     #bookmarks-toolbar-placeholder > .toolbarbutton-icon{                                                   /* MArcadores en customization mode*/
@@ -193,33 +193,33 @@
    /* :hover */
     
     #PersonalToolbar {
-        & .toolbarbutton-1:is(:hover):not(:active,[open]) .toolbarbutton-icon:not(.toolbarbutton-1>image), /* Extensiones */
-        & .toolbarbutton-1:is(:hover):not(:active,[open])>image,                                           /* íconos default */
-        & #PlacesToolbarItems>.bookmark-item:is(:hover,:active):not([open])>.toolbarbutton-icon,           /* Marcadores */
+        & .toolbarbutton-1:is(:hover):not(:active,[open]) .toolbarbutton-icon:not(.toolbarbutton-1>image), /* Extensions */
+        & .toolbarbutton-1:is(:hover):not(:active,[open])>image,                                           /* Default icons */
+        & #PlacesToolbarItems>.bookmark-item:is(:hover,:active):not([open])>.toolbarbutton-icon,           /* Bookmarks */
         & #OtherBookmarks:not(bookmark-item):is(:hover,:active):not([open])>.toolbarbutton-icon{           /* Other bookmarks button */
             transform: scale(1.12) !important;
             transition:  200ms !important;
         }}
     
-    /* Animación clic */
+    /* Clic animation */
     #PersonalToolbar {
-        & .toolbarbutton-1:is(:active, [open]) .toolbarbutton-icon:not(.toolbarbutton-1>image),            /* Extensiones */
-        & .toolbarbutton-1:is(:active,[open])>image,                                                       /* íconos default */
-        & #PlacesToolbarItems>.bookmark-item:is([open]):not(:active)>.toolbarbutton-icon,                  /* Marcadores */
+        & .toolbarbutton-1:is(:active, [open]) .toolbarbutton-icon:not(.toolbarbutton-1>image),            /* Extensions */
+        & .toolbarbutton-1:is(:active,[open])>image,                                                       /* Default icons */
+        & #PlacesToolbarItems>.bookmark-item:is([open]):not(:active)>.toolbarbutton-icon,                  /* Bookmarks */
         & #OtherBookmarks:not(bookmark-item):is([open]):not(:active)>.toolbarbutton-icon{                  /* Other bookmarks button */
             animation: scalezoom ease-in-out 250ms !important;
             transition:  200ms !important;
         }}
 
-/* Tamaño vertical de Items de la barra lateral */
+/* Vertical Size of Sidebar Items */
     
     #PersonalToolbar .toolbarbutton-1,
-    #PersonalToolbar #PlacesToolbarItems>.bookmark-item{                                    /* Botones de marcadores */
+    #PersonalToolbar #PlacesToolbarItems>.bookmark-item{
         margin-block: 10px !important;
         /*background-color: blue !important;/**/
     }
     
-/* Efecto clic botones default y extensiones 
+/* Default buttons click effect and extensions 
     
     @keyframes scale-up-center{
         0%{ background-color: color-mix(in srgb, transparent 82%, var(--lwt-tab-text));
@@ -242,7 +242,13 @@
         animation: scale-up-center 700ms !important;
     }*/
     
-/* Separador usando "espacio flexible" */
+/* Fix bookmarks separator style */
+    
+#PersonalToolbar #PlacesToolbarItems toolbarseparator {
+    border-image: none !important;
+}
+    
+/* Separator using 'flexible space' */
 
     #PersonalToolbar toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], #PersonalToolbar toolbarspring {
         background: var(--general-color) !important;
@@ -254,9 +260,9 @@
         margin-block: 6px !important;
     }
     
-/* ######################################## items en modo "customize toolbar ######################################## */
+/* ____________________________________________ items in "customize toolbar" mode ____________________________________________ */
 
-/* Separador espacio flexible in customize mode */
+/* 'Flexible space' separator in customize mode */
 
     #PersonalToolbar toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"] {
         min-width: calc(var(--my-vertical-toolbar-width) - 20px) !important;
@@ -265,27 +271,26 @@
         margin-inline-start: 10px !important;
     }
 
-/* Quita el contador y bug de espacio flexible, in customize mode */
+/* Removes counter and flexible space bug, in customize mode */
     
     #PersonalToolbar toolbarpaletteitem[place="toolbar"] > toolbarspring,
     #PersonalToolbar toolbarpaletteitem[place="toolbar"] toolbaritem toolbarbutton .toolbarbutton-badge{
         display: none !important;
     }
 
-/* Alinear items in customize mode */
+/* Align items in customize mode */
 
     #PersonalToolbar toolbarpaletteitem[place="toolbar"] {
         justify-content: center !important;
     }
     
-    
-/* ################################################### Extensiones ################################################## */
+/* _________________________________________________________ Extensions _________________________________________________________ */
 
-/* Ocultar contador cuando este es "0" */
+/* Hide counter when it is "0" */
 
 toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity: 0 !important; }
 
-/* Contador de la extension */
+/* Extension counter */
 
 #PersonalToolbar .toolbarbutton-badge {
     background-color: var(--button-hover-bgcolor) !important;
@@ -345,7 +350,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 #PersonalToolbar #treestyletab_piro_sakura_ne_jp-BAP,
 #PersonalToolbar #tabcenter-reborn_ariasuni-BAP{ list-style-image: url(../icons/logo_tree-tabs.svg) !important; }
 
-/* ------------------------ Colored folders for bookmarks ------------------------ */
+/* _______________________________________________ Colored folders for bookmarks _______________________________________________ */
 
 #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+1) > .toolbarbutton-icon {
     list-style-image: url("../icons/folder1.svg") !important;
@@ -383,18 +388,18 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     list-style-image: url("../icons/folder9.svg") !important;
 }
 
-/* Carpeta "Otros Marcadores" */
+/* 'Other Bookmarks' folder */
 
 #OtherBookmarks > .toolbarbutton-icon{
     list-style-image: url("../icons/folder-otherbookmarks.svg") !important;
 }
     
 
-/* ##################################################### Nuevos margenes Botón menú ##################################################### */
+/* __________________________________________________ New hamburger menu margins __________________________________________________ */
   
 @media (-moz-bool-pref:"firefoxgx.menu.disabled") {
     
-    /* margen izquierda pestañas menu deshabilitado */
+    /* margin to the left of tabs when new menu is disabled */
     :root:not([chromehidden~="toolbar"]) #toolbar-menubar, :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="true"]+#TabsToolbar {
         padding-inline-start: var(--padding-left-tab) !important;
     }
@@ -403,13 +408,13 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 @media not (-moz-bool-pref:"firefoxgx.menu.disabled") {
     
 :root {
-    --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 16px) !important;     /* Nuevo margen-left de íconos del -menu- */
-    --margin-right-icons-personal: 8px !important;                                                  /* Nuevo margen-right de íconos del -menu- */
+    --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 16px) !important;     /* New margin-left for menu items */
+    --margin-right-icons-personal: 8px !important;                                                  /* New margin-right for menu items */
     }
     
 @media (-moz-platform: windows), (-moz-platform: linux) {
     
-/* Quitar label -Menu- del menú not [open] */
+/* Remove 'menu' label when is not 'open' */
 
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open])>stack::after {
         content: none !important;
@@ -419,7 +424,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         content: none !important;
     }
 
-/* Hacer el botón más ancho en el menú [open] */
+/* Make button wider when menu is 'open' */
 
     :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack {
         --padding-left-tab: 78px !important;
@@ -446,46 +451,46 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         }
     }
 
-/* Tamaño nuevo botón Menú */
+/* New menu size */
     
     @media (-moz-platform: windows), (-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #PanelUI-menu-button, :root[sizemode="maximized"] #appMenu-popup {
         --tab-height-personal: 40px !important;
     }
 
-/* Botón Menú [open] no muy grande */
+/* Smaller menu size when 'open' */
 
     :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
         padding-top: calc(var(--tab-height-personal) - 10px) !important;
         z-index: 2 !important;
     }
 
-/* Logo más grande */
+/* Bigger logo */
 
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image {
         min-height: 20px !important;
         min-width: 20px !important;
     }
     
-/* Logo alineado */
+/* Aligned logo */
     
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image {
         margin-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
     }
     
-/* Label Menú */
+/* Menu label */
     
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>stack::after {
         padding-inline-start: calc(var(--margin-right-icons-personal) - 2px) !important;
     }
 
-/* Menu :hover */
+/* Menu when 'hover' */
 
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
         background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
     }}
     
-/* Banner de -actualización disponible- */
+/* 'Update available' banner */
     
     .panel-banner-item::before{
         padding-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
@@ -515,7 +520,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     }
 }
 
-/* ########################################### Baner de -actualización disponible- ########################################### */
+/* ___________________________________________________ 'Update available' animation ___________________________________________________ */
 
 @keyframes slide1 { 
     from { transform: rotate(0deg) }
@@ -548,7 +553,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     transition-duration: 0ms !important;
 }
 
-/* Compatibilidad para <tab center reborn> extension */
+/* 'tab center reborn' extension compatibility */
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
     border-right: 1px solid var(--border-contrast-color);
@@ -556,7 +561,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     border-image: none !important;
 }
     
-/* Nueva posición de Paneles [open] de marcadores en left-sidebar */
+/* New position of Open Bookmark Panels in left-sidebar */
     
     #PlacesToolbarItems > .bookmark-item >  menupopup, #OtherBookmarks #OtherBookmarksPopup {
         margin-inline-start: calc(var(--padding-left-tab) - 2px) !important;
@@ -567,7 +572,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         margin-right: calc(var(--padding-left-tab) - 9px) !important;
         margin-top: -39px  !important;
     }
-/* Nueva posición de Paneles [open] de left-sidebar 
+/* New position of Paneles when 'open' from left-sidebar 
     #customizationui-widget-panel {
         margin-right: calc(var(--padding-left-tab) - 9px) !important;
         margin-top: -39px  !important;

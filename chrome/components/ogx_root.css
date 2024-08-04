@@ -14,14 +14,14 @@
   
   --toolbar-bgcolor: var(--lwt-selected-tab-background-color) !important;               /* toolbar */
   
-  /*--toolbar-color: #8e8085 !important;                                                /* ColorLabelMarcadores */
+  /*--toolbar-color: #8e8085 !important;                                                /* Bookmarks label color */
   
   /*--arrowpanel-background: #1c1726 !important;                                        /* popup */
   /*--arrowpanel-color: var(--lwt-tab-text) !important;                                 /* popup_text */  
   --arrowpanel-border-color: transparent !important;                                    /* popup_border */    
   /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);             /* popup_highlight */
   
-  --panel-description-color: var(--general-color) !important;                           /* Color de letras de: correo de la cuenta, y dispositivos conectados"*/
+  --panel-description-color: var(--general-color) !important;                           /* label color: mail, and connected devices */
   --toolbar-field-background-color: transparent !important;                             /* toolbar_field */
   --toolbar-field-color: var(--toolbar-color) !important;                               /* toolbar_field_text */
   --toolbar-field-border-color: transparent !important;                                 /* toolbar_field_border */
@@ -33,54 +33,53 @@
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /* toolbar_field_highlight */
   --lwt-toolbar-field-highlight-text: var(--contrast-color) !important;                 /* toolbar_field_highlight_text */
   
-  --urlbar-box-hover-bgcolor: color-mix(in srgb,                                        /* Fondo :hover de íconos de la urlbar */
+  --urlbar-box-hover-bgcolor: color-mix(in srgb,                                        /* 'hover' background urlbar icons */
     var(--button-bgcolor) 90%, white) !important;
-  --urlbar-box-active-bgcolor: color-mix(in srgb,                                       /* Fondo :active de íconos de la urlbar */
+  --urlbar-box-active-bgcolor: color-mix(in srgb,                                       /* :active background urlbar icons */
     var(--button-bgcolor) 82%, white) !important;
-  --urlbar-icon-border-radius: 2px !important;                                          /* forma iconos urlbar */
+  --urlbar-icon-border-radius: 2px !important;                                          /* shape of url bar icons */
 
   /*--toolbarbutton-icon-fill: #b6b6d2 !important;                                      /* icons */
   /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /* icons_attention */    
   
   --lwt-sidebar-background-color: var(--toolbar-bgcolor) !important;                    /* Sidebar-background */
   
-  --toolbarbutton-inner-padding: 6px !important;                                        /* Toolbar buttons más pequeños */
-  --toolbarbutton-outer-padding: 2px !important;                                        /* Toolbar buttons más espaciados */
-  --toolbarbutton-border-radius: 2px !important;                                        /* forma de los buttons */
+  --toolbarbutton-inner-padding: 6px !important;                                        /* Smaller toolbar buttons */
+  --toolbarbutton-outer-padding: 2px !important;                                        /* More spaced buttons */
+  --toolbarbutton-border-radius: 2px !important;                                        /* Buttons roundness */
   
-  --toolbarseparator-color: color-mix(in srgb,                                          /* Separador en la barra de marcadores */
-    var(--toolbar-bgcolor)84%, var(--lwt-tab-text)) !important;
+  --toolbarseparator-color: var(--toolbarbutton-hover-personal) !important;             /* Bookmarks-bar separator */
   
-  --tab-block-margin: 0px !important;                                                   /* margenes pestañas - change this will break the theme */
-  --margin-top-personal: 0px !important;                                                /* margen top pestañas - variable personal */
+  --tab-block-margin: 0px !important;                                                   /* Tab margins - change this will break the theme */
+  --margin-top-personal: 0px !important;                                                /* Top margin of tabs - variable personal */
   
-  --tab-min-height: var(--tab-height-personal) !important;                              /* tamaño pestañas */
-  --tabs-shadow-size: 0px !important;                                                   /* sombras de pestaña */
-  --tab-border-radius: 0px !important;                                                  /* forma de la pestaña */
+  --tab-min-height: var(--tab-height-personal) !important;                              /* Tab size */
+  --tabs-shadow-size: 0px !important;                                                   /* Tab shadow */
+  --tab-border-radius: 0px !important;                                                  /* Tab roundness */
   
-  --arrowpanel-menuitem-padding: 8px !important;                                        /* menu mas pequeño */
-  --arrowpanel-border-radius: 0px !important;                                           /* forma de los menús */
-  --panel-subview-body-padding: 4px 0px !important;                                     /* Padding menús */
-  --arrowpanel-padding: 1.3em !important;                                               /* Otro padding de menús */
-  --arrowpanel-menuitem-margin: 0 0px !important;                                       /* margenes de menús */
+  --arrowpanel-menuitem-padding: 8px !important;                                        /* Smaller dropdown menus */
+  --arrowpanel-border-radius: 0px !important;                                           /* Menus roundness */
+  --panel-subview-body-padding: 4px 0px !important;                                     /* Menu padding */
+  --arrowpanel-padding: 1.3em !important;                                               /* Another menu padding */
+  --arrowpanel-menuitem-margin: 0 0px !important;                                       /* Menu margins */
   --menu-panel-width-wide: 32em !important;
   
-  --arrowpanel-menuitem-border-radius: 0px !important;                                  /* forma de menuitems :hover */
-  --panel-separator-margin-vertical: 3px !important;                                    /* margen vertical entre los separadores */
-  --panel-separator-margin-horizontal: 8px !important;                                  /* Margen horizontal de los separadores */
+  --arrowpanel-menuitem-border-radius: 0px !important;                                  /* Menuitems 'hover' roundness */
+  --panel-separator-margin-vertical: 3px !important;                                    /* Margin between separators */
+  --panel-separator-margin-horizontal: 8px !important;                                  /* Horizontal margin between separators */
   
   --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
   
-  --urlbar-icon-padding: 4px !important;                                                /* padding de los iconos de la urlbar */
-  --panel-separator-color: var(--general-color) !important;                             /* separadores de menu desplegable de marcadores */
+  --urlbar-icon-padding: 4px !important;                                                /* Urlbar icon padding */
+  --panel-separator-color: var(--general-color) !important;                             /* Bookmarks-bar menu separator color */
   
-  --urlbar-popup-url-color: var(--general-color) !important;                            /* Color urls de sujerencias de búsqueda */
-  --autocomplete-popup-hover-background: var(--button-bgcolor) !important;              /* Color hover de sujerencias de búsqueda */
-  --urlbarView-separator-color: transparent !important;                                 /* color separador urlbar y sugerencias de búsqueda */
-  --urlbarView-result-button-selected-background-color: color-mix(in srgb,              /* Color botones de urlbar [open] */
+  --urlbar-popup-url-color: var(--general-color) !important;                            /* 'Search suggestions' urls color */
+  --autocomplete-popup-hover-background: var(--button-bgcolor) !important;              /* 'Search suggestions' urls 'hover' color */
+  --urlbarView-separator-color: transparent !important;                                 /* Urlbar 'open' - separator color  */
+  --urlbarView-result-button-selected-background-color: color-mix(in srgb,              /* Urlbar 'open' - button on each result */
     var(--button-bgcolor) 94%, white) !important;
   
-  --border-radius-urlbar-personal: 4px;                                                 /* Variable personal para cambiar forma en tab-shapes config */
+  --border-radius-urlbar-personal: 4px;                                                 /* Personal variable to change urlbar buttons roundness with 'tab-shapes' config */
 
   --link-color: var(--general-color) !important;
   --link-color-hover: var(--blue) !important;
@@ -90,11 +89,11 @@
     accent-color: var(--general-color) !important;
   
   --color-accent-primary: var(--button-active-bgcolor) !important;                      /* Radiobutton */
-  --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton :hover */
-  --color-accent-primary-active: var(--general-color) !important;                       /* Radiobutton :active */
+  --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton 'hover' */
+  --color-accent-primary-active: var(--general-color) !important;                       /* Radiobutton 'active' */
 }
 
-/* Dark theme */
+/* _________________________________________________________________ Dark theme _________________________________________________________________ */
 
 @media (prefers-color-scheme: dark){
 :root[brighttext],
@@ -111,26 +110,26 @@
 
   --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 80%, black) !important;                   /* button_background_hover */
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, black) !important;                  /* button_background_active */
-  --toolbarbutton-hover-personal: var(--toolbar-field-focus-background-color) !important;                               /* Button :hover color personal */
+  --toolbarbutton-hover-personal: var(--toolbar-field-focus-background-color) !important;                               /* Button personal color when 'hover' */
   
-  scrollbar-color: #38375580 #18173530 !important;                                                                      /* Colores - Barra de deplazamiento */
-  --shield-icon-personal: url("../icons/shield-dark.svg") !important;                                                   /* Ícono protección contra rastreo */
-  --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* imagen de desenfoque urlbar open */
+  scrollbar-color: #38375580 #18173530 !important;                                                                      /* Scroll bar colors */
+  --shield-icon-personal: url("../icons/shield-dark.svg") !important;                                                   /* Tracking protection icon */
+  --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
   
-  --button-primary-bgcolor: var(--button-active-bgcolor) !important;                                                    /* ColorBotónGuardar */   
-  --button-primary-color: #eaeaea !important;                                                                           /* ColorLetrasBotónGuardar */
+  --button-primary-bgcolor: var(--button-active-bgcolor) !important;                                                    /* Color of the 'Save' button */
+  --button-primary-color: #eaeaea !important;                                                                           /* Font Color of the 'Save' button */
    
-  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;                                               /* ColorBotónGuardar :Hover */
-  --button-primary-active-bgcolor: var(--button-active-bgcolor) !important;                                             /* ColorBotónGuardar :clic */
+  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;                                               /* Color of the 'Save' button 'hover' */
+  --button-primary-active-bgcolor: var(--button-active-bgcolor) !important;                                             /* Color of the 'Save' button 'clic' */
 
-  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)50%, var(--border-contrast-color)) !important;        /* Color input background en Marcadores */
-  --focus-outline-color: var(--general-color) !important;                                                               /* Color borde en InputText Focus */
-  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;           /* Color borde en InputText */
-  --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /* Background of buttons - variable personal */
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)50%, var(--border-contrast-color)) !important;        /* Color of the 'input box' when saving a bookmark */
+  --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when :focused */
+  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--lwt-tab-text)) !important;           /* Border Color of the 'input box' non focused */
+  --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /* Buttons background color - personal variable */
 
 }}
 
-/* White Theme */
+/* _________________________________________________________________ White Theme ________________________________________________________________ */
 
 @media (prefers-color-scheme: light){
 :root:not([lwtheme-brighttext="true"]),
@@ -147,26 +146,26 @@
   
   --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 92%, black) !important;                   /* button_background_hover */
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 84%, black) !important;                  /* button_background_active */
-  --toolbarbutton-hover-personal: color-mix(in srgb, var(--toolbar-bgcolor) 88%, black) !important;                     /* Button :hover color personal */
+  --toolbarbutton-hover-personal: color-mix(in srgb, var(--toolbar-bgcolor) 88%, black) !important;                     /* Button personal color when 'hover' */
 
-  scrollbar-color: #d8d9da var(--toolbar-bgcolor) !important;                                                           /* Colores - Barra de deplazamiento */
-  --shield-icon-personal: url("../icons/shield-light.svg") !important;                                                  /* Ícono protección contra rastreo */
-  --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* imagen de desenfoque urlbar open */
+  scrollbar-color: #d8d9da var(--toolbar-bgcolor) !important;                                                           /* Scroll bar colors */
+  --shield-icon-personal: url("../icons/shield-light.svg") !important;                                                  /* Tracking protection icon */
+  --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
 
-  --button-primary-bgcolor: var(--general-color) !important;                                                            /* ColorBotónGuardar */   
-  --button-primary-color: #eaeaea !important;                                                                           /* ColorLetrasBotónGuardar */
+  --button-primary-bgcolor: var(--general-color) !important;                                                            /* Color of the 'Save' button */
+  --button-primary-color: #eaeaea !important;                                                                           /* Font Color of the 'Save' button */
    
-  --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;                                              /* ColorBotónGuardar :Hover */
-  --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;                                            /* ColorBotónGuardar :clic */
+  --button-primary-hover-bgcolor: var(--button-active-bgcolor) !important;                                              /* Color of the 'Save' button 'hover' */
+  --button-primary-active-bgcolor: var(--button-primary-bgcolor) !important;                                            /* Color of the 'Save' button 'clic' */
 
-  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background) 86%, black) !important;                              /* Color input background en Marcadores */
-  --focus-outline-color: var(--general-color) !important;                                                               /* Color borde en InputText Focus */
-  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 66%, black) !important;                         /* Color borde en InputText */
-  --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /* Background of buttons - variable personal */
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background) 86%, black) !important;                              /* Color of the 'input box' when saving a bookmark */
+  --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when 'focused' */
+  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 66%, black) !important;                         /* Border Color of the 'input box' 'non focused' */
+  --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /* Buttons background color - personal variable */
 
 }}
 
-/* Compatibilidad Parcial para temas que usan "Imagenes" */
+/* __________________________________________________ Partial support for themes using "Images" _________________________________________________ */
 
 @media (prefers-color-scheme: dark){
   :root:is([lwtheme-image],[style*="--lwt-additional-images"]){
@@ -180,7 +179,7 @@
   --toolbarbutton-active-background: var(--contrast-color) !important;                                           /* button_background_active */
   --toolbarbutton-hover-personal: color-mix(in srgb, 
     transparent 85%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;               /* Button :hover color personal */
-  --lwt-background-alignment: right top, left top, right top !important;                                         /* Alineación imagen del tema */
+  --lwt-background-alignment: right top, left top, right top !important;                                         /* Image alignment */
   --chrome-content-separator-color: color-mix(in srgb, 
     var(--toolbar-bgcolor) 84%, var(--contrast-color)) !important;                                               /* toolbar_bottom_separator */
   }
@@ -199,16 +198,16 @@
     var(--toolbar-field-focus-background-color) 94%, var(--lwt-tab-text)) !important;                            /* button_background_active */
   --toolbarbutton-hover-personal: color-mix(in srgb, 
     transparent 85%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;               /* Button :hover color personal */
-  --lwt-background-alignment: right top, left top, right top !important;                                         /* Alineación imagen del tema */
+  --lwt-background-alignment: right top, left top, right top !important;                                         /* Image alignment */
   --chrome-content-separator-color: color-mix(in srgb, 
     var(--toolbar-bgcolor) 90%, var(--lwt-tab-text)) !important;                                                 /* toolbar_bottom_separator */
   }}
 
 :root:is([lwtheme-image]){
-  --lwt-background-alignment: right top !important;                                                              /* Alineación imagen del tema - 1 imagen */
+  --lwt-background-alignment: right top !important;                                                              /* Image alignment when there is only one image */
 }
 
-/* Private Browsing Mode */
+/* ___________________________________________________________ Private Browsing Mode ___________________________________________________________ */
 
 @media (prefers-color-scheme: dark){
   

@@ -31,7 +31,7 @@
         color: var(--general-color) !important;
     }
     
-    /* Keep the same windows control icons in all the themes, includint the themes with images */
+    /* Keep the same windows control icons in all the themes, including the themes with images */
     
     .titlebar-button {
         background-color: transparent !important;
@@ -58,7 +58,7 @@
         list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important
     }
     
-    /* Tamaño de los botones(min-max-close) más grandes en ventana no maximizada */
+    /* Larger buttons (min-max-close) on non-maximized windows */
     
     :root[tabsintitlebar][sizemode="normal"] .titlebar-buttonbox:not(#menubar-items + spacer +.titlebar-buttonbox-container .titlebar-buttonbox) {
         height: calc(var(--tab-height-personal) + var(--windowed-top-padding)) !important;

@@ -1,19 +1,18 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-:root{
-/* --------------------------------- Variables de colores, puedes poner tu color personalizado y utilizarlo --------------------------------- */  
+:root{  /* _____________________________________ Color variables, you can put your custom color and use it _____________________________________ */
+
   --fuchsia: #fa1e4e;  --blue: #4c4cff;    --aqua: #00bfff;        --cyan: #00ffff;        --lightblue: #45a1ff;   --pink: #FF0F7E;        --catppuccino: #f38ba8;
   --purple: #8d35e2;   --green: #05b694;   --aquamarine: #00ffa2;  --lightgreen: #36ff4e;  --yellowbrown: #febd60; --swampautumn: #fdf008;
   --gray: #bfb6d2;     --orange: #ff6c22;  --yellow: #ffe20f;      --red: #ff3230;         --navyblue: #0050cE;    --poison: #cb17cf; 
   
 /*  Accent color -----> UI del navegador.  -----|                       |---- userContent <------------ Accent color
                                                 |                       |     (Add-ons, preferences and newTab pages.)
-                                                v                       v                                                                     */
+                                                v                       v                                                                        */
   --general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--fuchsia));
-}
-/* ------------------------------------------------------ <-Personalizaciones Varias-> ------------------------------------------------------ */
-:root{
+
+/* __________________________________________________________  Various customizations __________________________________________________________ */
                   /* Dark wallpapers */                                               /* Accentcolor for each wallpaper */
   --wallpaper-dark1: url("../newtab/wallpaper-dark1.png") !important;           --general-color-dark1: var(--fuchsia) !important;
   --wallpaper-dark2: url("../newtab/wallpaper-dark2.png") !important;           --general-color-dark2: var(--purple) !important;
@@ -45,30 +44,30 @@
   
 :root{
   
-  --tab-height-personal: 30px ;                                                                 /* Tamaño altura de pestañas - 30px mínimo*/
-  --toolbar-height-personal: 38px ;                                                             /* Toolbar height - 32px mínimo*/
+  --tab-height-personal: 30px ;                                                                 /* Tab height */
+  --toolbar-height-personal: 38px ;                                                             /* Toolbar height */
   
-  --menu-label: "Menu" ;                                                                        /* Label botón -Menú- */
-  --padding-left-tab: 74px ;                                                                    /* Tamaño horizontal botón -Menú- */
+  --menu-label: "Menu" ;                                                                        /* Hamburger menu label */
+  --padding-left-tab: 74px ;                                                                    /* Horizontal size of the hamburger menu button */
   
   --logo-wordmark-visibility: 1 ;                                                               /* :1 visible, :0 invisible ; Logo-wordmark*/
-  --logo-wordmark-display: flex ;                                                               /* :none ->eliminar , :flex ->Mostrar;  Logo-wordmark*/
+  --logo-wordmark-display: flex ;                                                               /* :none ->remove , :flex ->show;  Logo-wordmark*/
   --searchbar-on-off: 1 ;                                                                       /* :1 visible, :0 invisible ; searchbar*/
-  --searchbar-display: flex ;                                                                   /* :none ->eliminar , :flex ->Mostrar; searchbar*/
+  --searchbar-display: flex ;                                                                   /* :none ->remove , :flex ->show; searchbar*/
   --orientation-display: block ;                                                                /* :block -> vertical , :flex -> horizontal ; Logo-wordmark y searchbar*/
   
-  --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;                  /* color - fondo de sitios fijados y barra de búsqueda*/
-  --newtab-pinnedsites-position-top: start ;                                                    /* Posición pinnedsites -> : start ; center ; end */
+  --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;                  /* Background color of pinned sites and search bar*/
+  --newtab-pinnedsites-position-top: start ;                                                    /* Pinned sites position -> :start ; :center ; :end */
   
   --selected-text-background: var(--general-color);                                             /* Selected text background */
    
-  --personal-blur: blur(16px) ;                                                                 /* Utilizado para personalizar userContent.css */
+  --personal-blur: blur(16px) ;                                                                 /* Blur on new tab page elements */
 
 }
 
 @media (-moz-bool-pref:"firefoxgx.left-sidebar") {
   :root{
-  --my-vertical-toolbar-width: 41px ;                                                           /* Ancho de la left-sidebar */
+  --my-vertical-toolbar-width: 41px ;                                                           /* 'left-sidebar' width */
   }}
 
 /* ------------------------------------------------------------ Main Image config ------------------------------------------------------------ */
@@ -87,10 +86,10 @@
   --wallpaper-size: auto auto;                                                                  /* cover-> default ; auto auto -> to <<main-image>> config */
     
   --background-align-y: -69px ;                                                                 /* Alinear new-tab wallpaper to <<main-image>> config 
-                                                                                                  -69px ventana normal; 
-                                                                                                  -97px con Barra de Marcadores;
-                                                                                                  -99px con B.Menu;
-                                                                                                  -127px con B.Marcadores y B.Menu  */
+                                                                                                  -69px normal window; 
+                                                                                                  -97px with bookmarks-bar;
+                                                                                                  -99px with manu-bar;
+                                                                                                  -127px with bookmarks-bar and menu-bar  */
   }
 }
 
@@ -98,9 +97,9 @@
 
 @media (-moz-bool-pref:"firefoxgx.main-image") and (-moz-bool-pref:"firefoxgx.oneline") {  
     :root{
-      --background-align-y: -33px ;                                                             /* Alinear new-tab wallpaper to <<main-image>> config 
-                                                                                                   -33px ventana normal
-                                                                                                   -64px con Barra de Marcadores  */
+      --background-align-y: -33px ;                                                             /* Aligning the new tab wallpaper with the 'main-image' config
+                                                                                                   -33px normal window
+                                                                                                   -64px with bookmarks-bar  */
     }}
 
 /* ------------------------------------------------------ Main Image + tree-tabs config ------------------------------------------------------- */
@@ -108,9 +107,9 @@
 @media (-moz-bool-pref:"firefoxgx.main-image") and (-moz-bool-pref:"firefoxgx.tree-tabs"){  
     :root{
       --extension-width: 48px ;
-      --background-align-y: -39px ;                                                             /* Alinear new-tab wallpaper to <<main-image>> config 
-                                                                                                   -40px ventana normal
-                                                                                                   -66px con Barra de Marcadores  */
+      --background-align-y: -39px ;                                                             /* Aligning the new tab wallpaper with the 'main-image' config
+                                                                                                   -40px normal window
+                                                                                                   -66px with bookmarks-bar  */
     }}
 
 :root{
@@ -121,9 +120,9 @@
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
 
   /*------------------------------Botones hover, clic--------------------------------*/
-  --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /* Color de buttons */
-  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /* Color de botones :hover */
-  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /* color de botones :active */
+  --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /* Button background color */
+  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /* Button background color when 'hover' */
+  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /* Button background color when 'active' */
   }
 
 @media (-moz-platform: linux ){:root{

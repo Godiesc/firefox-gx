@@ -1,87 +1,87 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/firefox-gx */
 
-@media (prefers-color-scheme: dark){:root{ scrollbar-color: #38375580 #18173530 !important; }}      /*Color de la barra de desplazamiento*/
-@media(prefers-color-scheme: light){:root{ scrollbar-color: #d8d9da #f4f2f7!important; }}           /*Color de la barra de desplazamiento*/
-/**{ scrollbar-width: thin !important}*/                                                            /*Barra de desplazamiento delgada*/
+@media (prefers-color-scheme: dark){:root{ scrollbar-color: #38375580 #18173530 !important; }}      /* Scroll bar color */
+@media(prefers-color-scheme: light){:root{ scrollbar-color: #d8d9da #f4f2f7!important; }}           /* Scroll bar color */
+/**{ scrollbar-width: thin !important}*/                                                            /* Smaller Scroll bar */
 
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
    
     @media (prefers-color-scheme: dark){
 
     body {
-    background-image: var(--newtab-wallpaper-dark, "") !important;                            /* Necesario para que el url a la imagen acepte archivos locales*/
-    /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;        /* Image in the newtab searchbox */
-    --contrast-color: black !important;                                                       /* Variable fondo personal de contraste */
-    --border-contrast-color: #09080d !important;                                              /* Variable borde personal de contraste */
+    background-image: var(--newtab-wallpaper-dark, "") !important;                            /* Required for the image url to accept local files */
+    /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;      /* Image in the newtab searchbox */
+    --contrast-color: black !important;                                                       /* Personal background color for contrast */
+    --border-contrast-color: #09080d !important;                                              /* Personal border color for contrast */
         
     --arrowpanel-background-personal: #1c1726 !important;
-    --newtab-fake-background-color: #101019 !important;                                       /* Color fondo general */
+    --newtab-fake-background-color: #101019 !important;                                       /* Fake Newtab Background color */
 
-    --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda*/
-    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* color de fondo al hacer clic al ícono menú 3 puntos*/
+    --newtab-background-color-secondary: transparent !important;                              /* Background color of pinned sites and search box */
+    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* Background color when clicking on the 3 dot menu icon */
 
-    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
+    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color when 'hover' on menu items three dots */
       var(--button-hover-bgcolor) 49%, transparent) !important;
 
     --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
       var(--button-active-bgcolor) 69%, transparent) !important;
 
-    --newtab-border-color: color-mix(in srgb, var(--newtab-fake-background-color) 92%,        /* Color borde menu de 3 puntos y de input-text al editar un sitio*/
+    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* 3-point menu and input-box border color when editing a site*/
         var(--newtab-wordmark-color)) !important;
 
-    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
-    --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
+    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* Main label color */
+    --newtab-text-secondary-color: var(--general-color) !important;                           /* Secondary label color */
 
-    --newtab-overlay-color: color-mix(in srgb, #090909 54%, transparent) !important;          /* fondo al editar sitio, transparente */
+    --newtab-overlay-color: color-mix(in srgb, #090909 54%, transparent) !important;          /* Big background when editing a site, semi-transparent */
 
-    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
+    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* Colors for 'Save' buttons and radiobuttons */
 
-    --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
-      var(--newtab-fake-background-color) 90%, var(--newtab-wordmark-color) ) !important;
+    --newtab-element-secondary-color: color-mix( in srgb,                                     /* Color of inactive elements */
+      var(--newtab-background-color) 90%, var(--newtab-wordmark-color) ) !important;
 
-    --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* color bola de radiobutton */
+    --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* Radiobutton circle color */
 
     }}
     
     @media (prefers-color-scheme: light){
         
     body{
-    background-image: var(--newtab-wallpaper-light, "") !important;                           /* Necesario para que el url a la imagen acepte archivos locales*/
-    /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;        /* Image in the newtab searchbox */
-    --contrast-color: white !important;                                                       /* Variable fondo personal de contraste */
-    --border-contrast-color: #acacac50 !important;                                            /* Variable borde personal de contraste */
+    background-image: var(--newtab-wallpaper-light, "") !important;                           /* Required for the image url to accept local files */
+    /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;      /* Image in the newtab searchbox */
+    --contrast-color: white !important;                                                       /* Personal background color for contrast */
+    --border-contrast-color: #acacac50 !important;                                            /* Personal border color for contrast */
         
     --arrowpanel-background-personal: #f9f9f9 !important;
-    --newtab-fake-background-color: #efeff5 !important;                                       /* Color fondo general */
+    --newtab-fake-background-color: #efeff5 !important;                                       /* Fake newtab background color */
         
-    --newtab-background-color-secondary: transparent !important;                              /* color - fondo de sitios fijados, barra de búsqueda */
-    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* color de fondo al hacer clic al ícono menú 3 puntos */
+    --newtab-background-color-secondary: transparent !important;                              /* Background color of pinned sites and search box */
+    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* Background color when clicking on the 3 dot menu icon */
         
-    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color :hover items del menú tres puntos */
+    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* Color when 'hover' on menu items three dots */
       var(--button-hover-bgcolor) 49%, transparent) !important;
 
-    --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
+    --newtab-element-secondary-active-color: linear-gradient(to right,                        /* color when 'hover' on menu items three dots */
       var(--button-active-bgcolor) 69%, transparent) !important;
         
-    --newtab-border-color: color-mix(in srgb, var(--newtab-fake-background-color) 92%,        /* Color borde menu de 3 puntos y de input-text al editar un sitio */
+    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* 3-point menu and input-box border color when editing a site */
         var(--newtab-wordmark-color)) !important;
         
-    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* label general */
-    --newtab-text-secondary-color: var(--general-color) !important;                           /* Label secundaria */
+    --newtab-text-primary-color: var(--newtab-wordmark-color) !important;                     /* Main label color */
+    --newtab-text-secondary-color: var(--general-color) !important;                           /* Secondary label color */
         
-    --newtab-overlay-color: color-mix(in srgb,                                                /* fondo al editar sitio, transparente */
+    --newtab-overlay-color: color-mix(in srgb,                                                /* Big background when editing a site, semi-transparent */
       var(--arrowpanel-background-personal) 34%, transparent) !important;
         
-    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* color de fondo de Boton "Guardar" y fondo de radiobuttons */
-    --newtab-element-secondary-color: color-mix( in srgb,                                     /* color elementos no activos */
-      var(--newtab-fake-background-color) 86%, var(--newtab-wordmark-color) ) !important;
+    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* Colors for 'Save' buttons and radiobuttons */
+    --newtab-element-secondary-color: color-mix( in srgb,                                     /* Color of inactive elements */
+      var(--newtab-background-color) 86%, var(--newtab-wordmark-color) ) !important;
         
-    --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* color bola de radiobutton */
+    --newtab-primary-element-text-color: var(--arrowpanel-background-personal) !important;    /* Radiobutton circle color */
         
     }}
     
-/* ------------------------------------ Todos los wallpapers ------------------------------------ */
+/* __________________________________________________________ All wallpapers __________________________________________________________ */
     
     /* Dark 1 */
     body:has(#dark-landscape[aria-checked="true"]), 
@@ -157,65 +157,65 @@
         --general-color: var(--general-color-light6) !important;
     }
     
-/* ------------------------------------ Miniaturas de wallpapers ------------------------------------ */
+/* _______________________________________________________ Wallpaper thumbnails _______________________________________________________ */
     
 /* Dark */
     
-.wallpaper-input.dark-landscape { background-image: var(--wallpaper-dark1) !important; }
+#dark-landscape { background-image: var(--wallpaper-dark1) !important; }
     
-.wallpaper-input.dark-panda { background-image: var(--wallpaper-dark2) !important; }
+#dark-panda { background-image: var(--wallpaper-dark2) !important; }
     
-.wallpaper-input.dark-color { background-image: var(--wallpaper-dark3) !important; }
+#dark-color { background-image: var(--wallpaper-dark3) !important; }
     
-.wallpaper-input.dark-sky { background-image: var(--wallpaper-dark4) !important; }
+#dark-sky { background-image: var(--wallpaper-dark4) !important; }
     
-.wallpaper-input.dark-mountain { background-image: var(--wallpaper-dark5) !important; }
+#dark-mountain { background-image: var(--wallpaper-dark5) !important; }
     
-.wallpaper-input.dark-beach { background-image: var(--wallpaper-dark6) !important; }
+#dark-beach { background-image: var(--wallpaper-dark6) !important; }
     
 /* Light */
     
-.wallpaper-input.light-panda { background-image: var(--wallpaper-light1) !important; }
+#light-panda { background-image: var(--wallpaper-light1) !important; }
     
-.wallpaper-input.light-sky { background-image: var(--wallpaper-light2) !important; }
+#light-sky { background-image: var(--wallpaper-light2) !important; }
     
-.wallpaper-input.light-color { background-image: var(--wallpaper-light3) !important; }
+#light-color { background-image: var(--wallpaper-light3) !important; }
     
-.wallpaper-input.light-mountain { background-image: var(--wallpaper-light4) !important; }
+#light-mountain { background-image: var(--wallpaper-light4) !important; }
     
-.wallpaper-input.light-landscape { background-image: var(--wallpaper-light5) !important; }
+#light-landscape { background-image: var(--wallpaper-light5) !important; }
     
-.wallpaper-input.light-beach { background-image: var(--wallpaper-light6) !important; }
+#light-beach { background-image: var(--wallpaper-light6) !important; }
     
     
-/* Color borde :hover wallpapers */
+/* Border color when 'hover' over wallpapers */
     
 .wallpaper-list .wallpaper-input:not(:checked):hover {
   outline: 1px solid #80808080 !important;
 }
     
-/* Color border :hover en wallpaper seleccionado */
+/* Border color when 'hover' over selected wallpaper */
     
 .wallpaper-list .wallpaper-input:checked:hover {
     filter: none !important;
     outline: 2px solid var(--button-active-bgcolor) !important;
 }
     
-/* Elimina creditos de la imagen usada como wallpaper */
+/* Remove credits from the image used as wallpaper */
     
 .wallpaper-attribution { display: none !important; }
     
-/* Eliminar scrollbar */
+/* Remove scrollbar */
     
 *{scrollbar-width: none !important }
 
-/* Color checkbox accesos patrocinados */
+/* Checkbox color for 'sponsored sites' */
     
 .sponsored-checkbox:is(:checked):hover, .sponsored-checkbox:not(:checked):hover{ 
     background-color: var(--button-hover-bgcolor) !important;
     }
 
-/* Color de radio-button en "Personalizar" */
+/* Radiobutton color into "Customize" */
     
 .toggle-button[aria-pressed="true"] {
     background: var(--button-active-bgcolor) !important;
@@ -233,7 +233,7 @@
     opacity: 1 !important;
 }
 
-/* Colores al "editar" un sitio anclado */
+/* Colors when editing a pinned site */
     
 .modal{
     background: var(--newtab-overlay-color) !important;
@@ -258,7 +258,7 @@ input:focus-visible, input:focus-visible{
     border-color: var(--general-color) !important;
     }
     
-/* Fondo y borde del menú de 3 puntos */
+/* 3 dot menu background and border */
     
 .context-menu {
     background-color: var(--arrowpanel-background-personal) !important; border-radius: 0px !important;
@@ -267,7 +267,7 @@ input:focus-visible, input:focus-visible{
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     }
     
-/* linea separadora */
+/* Separator line */
     
 .context-menu .separator{
     margin-block: 2px !important;
@@ -276,7 +276,7 @@ input:focus-visible, input:focus-visible{
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     }
     
-/* Color de borde del boton "Guardar" */
+/* Border color of the 'Save' button */
     
 .actions button:not(.cancel), .actions button:focus:not(.cancel) {
     color: white !important;  
@@ -288,7 +288,7 @@ input:focus-visible, input:focus-visible{
     box-shadow:none !important; 
     }
 
-/* Color de borde del boton "Cancelar" */
+/* Border color of the "Cancel" button */
     
 .actions button:is(.cancel){
     background-color: var(--newtab-element-secondary-color) !important; 
@@ -301,20 +301,20 @@ input:focus-visible, input:focus-visible{
     border-color: #f85149 !important;
     }
 
-/* Botón "Personalizar" */
+/* 'Customize' button */
     
 .icon.icon-settings {
     background-image: url("../icons/edit.svg") !important; 
     }
 .personalize-button {
-    color: color-mix( in srgb, var(--newtab-fake-background-color) 60%, var(--newtab-wordmark-color) ) !important;
+    color: color-mix( in srgb, var(--newtab-background-color) 60%, var(--newtab-wordmark-color) ) !important;
     }
 .personalize-button:hover {
     background-color: var(--newtab-background-color-secondary)!important; 
     fill:var(--newtab-wordmark-color)  !important;
     }
 
-/* Colores del botón "Cerrar" */
+/* Colors of the 'Close' button */
     
 .close-button {
     background-color: var(--newtab-element-secondary-color) !important;
@@ -328,15 +328,29 @@ input:focus-visible, input:focus-visible{
     border-radius: 4px !important;
     }
     
-/*Colores de la sidebar deslizante para Personalizar la NewTab*/
+/* Colors of the sliding sidebar used to customize the NewTab */
     
-    /* Fondo */
+    /* Background */
     
 .customize-menu {
-    background-color: color-mix(in srgb, var(--newtab-fake-background-color) ,var(--newtab-overlay-color)) !important;
+    background-color: color-mix(in srgb, var(--newtab-background-color) ,var(--newtab-overlay-color)) !important;
     color: var(--newtab-wordmark-color) !important;
     backdrop-filter: var(--personal-blur); 
     }
+    
+    /* Fixed 'wallpapers v2' section 
+    
+.wallpaper-list.category {
+    background-color: var(--newtab-background-color) !important;
+    width: 432px !important;
+    height: 100% !important;
+    inset-inline-start: 0px !important;
+    }
+    
+.wallpaper-list{
+    padding: 25px !important;
+    margin-block: 0px !important;
+    }*/
     
     /* Combobox */
     
@@ -352,7 +366,7 @@ input:focus-visible, input:focus-visible{
     color: white !important;
     }
     
-    /* Sombra izquierda de la sidebar */
+    /* Shadow */
     
 .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
     box-shadow: -1px 0 #00000030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
@@ -362,13 +376,13 @@ input:focus-visible, input:focus-visible{
     
 .home-section .divider { border-image: var(--panel-separator-zap-gradient1) 1 !important;}
 
-/* ###################################### Cuadro de búsqueda ###################################### */
+/* ______________________________________________________ Cuadro de búsqueda ______________________________________________________ */
 
-/* Elimina flecha */
+/* Remove arrow */
     
 .search-wrapper .search-button { display: none !important; }
     
-/* Fondo general */
+/* General background */
 
 .search-wrapper{ 
     border-radius: 0px !important;
@@ -421,20 +435,20 @@ input:focus-visible, input:focus-visible{
         clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 90%, 90% 104%, 8.5% 104%, 8.5% 95%, 0 95%);
     }
     
-/* Tamaño del ícono del search-engine */
+/* Search-engine icon size */
     
     .search-wrapper .search-inner-wrapper .search-handoff-button {
         background-size: 30px 30px !important;
         margin-inline-start: -6px !important;
     }
     
-/* Margen izquiera - Buscar con goolgle ... */ 
+/* Margin to the left of - Search with google ... */ 
     
     .search-handoff-button, .fake-editable{
         padding-inline-start: 54px !important;
     }
 
-/* Borde transparente :focus */
+/* Transparent border when 'focus' */
     
     .search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button {
         box-shadow: none !important;
@@ -442,7 +456,7 @@ input:focus-visible, input:focus-visible{
         transition-duration: 0ms !important;
     }
     
-/* Animación input focus */
+/* inputbox animation when 'focus' */
 
     .search-wrapper .fake-editable{
         border-color: transparent !important;
@@ -463,15 +477,15 @@ input:focus-visible, input:focus-visible{
     }
 }
     
-/* Actividad reciente */
+/* Recent activity */
     
 .card-outer .card { 
     outline-offset: -1px !important;
 }
 
-/* --------------------------------------- Sitios anclados ---------------------------------------- */
+/* ________________________ Pinned sites ________________________ */
     
-/* Fondo pequeño de los favICON de los sitios anclados */
+/* Small background of the favICON of the pinned sites */
     
 .top-site-icon{ background-color: transparent !important; }
    
@@ -490,13 +504,13 @@ input:focus-visible, input:focus-visible{
     margin-inline: 10px !important;
     }   
     
-/* Alinear los -sitios anclados- con -Actividad Reciente- */
+/* Align 'Pinned sites' with 'Recent Activity' */
     
 .collapsible-section{
         margin-left: -12px !important;
     }
 
-/* Colores sitios anclados (fondo pequeño) */
+/* Pinned Site Colors (Small Background) */
     
 .top-site-outer .tile {
     border-radius: 6px !important;
@@ -512,13 +526,13 @@ input:focus-visible, input:focus-visible{
     filter: saturate(105%) !important;
     }
 
-/* Colores :hover sitios anclados (fondo más grande) */
+/* Colors when on :hover pinned sites (larger background) */
     
 .top-site-outer, .top-site-outer.active{
     background-color: transparent !important;
     }
     
-/* Colores al pasar el mouse en :hover sobre los sitios anclados y actividad reciente */
+/* Colors when on :hover over 'Pinned sites' and 'Recent Activity' */
     
 .top-site-outer:hover .tile, .card-outer:hover .card{
     /*background-color: color-mix(in srgb, var(--newtab-pinnedsites-background)96%, var(--general-color)) !important;*/
@@ -527,7 +541,7 @@ input:focus-visible, input:focus-visible{
     outline: 1px solid var(--button-hover-bgcolor) !important;
     }
     
-/* Quita el borde que aparece luego de dar clic a un sitio anclado y mover el mouse fuera */
+/* Removes the border that appears after clicking on a pinned site and moving the mouse away */
     
 .top-site-outer:is(:focus-within) .tile, .card-outer:is(.active,:focus-within) .card{
     background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)18%, transparent) , rgba(0,255,0,0) 64.71%),
@@ -540,7 +554,7 @@ input:focus-visible, input:focus-visible{
     text-decoration: underline !important;
     }
   */  
-/* Botón de editar sitio anclado */
+/* 'edit pinned site' button icon */
     
 .top-site-outer .context-menu-button {
     background-image: url("../icons/more.svg") !important;
@@ -560,7 +574,7 @@ input:focus-visible, input:focus-visible{
     }
     
     
-/* -------------------------- Actividad reciente --------------------------- */
+/* _______________________ Recent Activity _______________________ */
     
 .card-outer .card {
     background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)6%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 24.71%),
@@ -569,7 +583,7 @@ input:focus-visible, input:focus-visible{
     filter: saturate(105%) !important;
     border-radius: 6px !important;
     border: 1px solid #50505030 !important;
-}
+    }
     
 .compact-cards .card-outer .card-preview-image-outer { 
     border-radius: 6px 6px 0 0 !important; 
@@ -598,7 +612,7 @@ input:focus-visible, input:focus-visible{
     /*filter: drop-shadow( 0px 1px 0px var(--contrast-color)) !important;*/
     }
     
-/* Ícono de 3 puntos al hacerle hover y clic */
+/* 3 dot icon on 'hover' and 'click' */
     
 .card-outer .context-menu-button, .card-outer .context-menu-button:active, .card-outer .context-menu-button:focus{
     margin-top: 14px !important;
@@ -613,9 +627,9 @@ input:focus-visible, input:focus-visible{
     
 .context-menu-button:hover{
     fill: var(--general-color) !important;
-}
+    }
     
-/* Fondo de <popup> al intentar eliminar un sitio anclado*/
+/* Background of popup message when trying to delete a pinned site */
     
 .modal{
     backdrop-filter: var(--personal-blur) !important;
@@ -638,7 +652,7 @@ body{
     backdrop-filter: var(--brightness-wallpaper) !important;
     }}
     
-/* ------------------------ Logo y Wordmark ------------------------ */
+/* ------------------------ Logo & Wordmark ------------------------ */
     
 .logo{
     background: url("../icons/foxmenu.svg") no-repeat !important;
@@ -669,7 +683,7 @@ main {
     justify-content: var(--newtab-pinnedsites-position-top, center) !important;
     }
     
-/* "Logo-wordmark" y search-box en una sola linea */
+/* 'Wordmark,logo' and 'search box' side by side */
     
 @media screen and (min-width: 1000px){
     
@@ -689,7 +703,7 @@ main {
     
 }
 
-/*---------------------------------- Pagina de Error al Cargar Página ---------------------------------------------*/
+/* __________________________________________ Error Page Loading Page __________________________________________ */
 
 @-moz-document url('about:config'),  url(about:privatebrowsing), regexp("^about:(neterror|certerror).*") , url('about:firefoxview') {
 
@@ -705,7 +719,7 @@ button.primary:hover{
     }
 }
 
-/* ---------------------- Color fondo y letra al seleccionar texto ------------------------- */
+/* __________________________ Background and font color when selecting text on websites __________________________ */
 
 ::selection {
     color: black !important;
@@ -714,7 +728,7 @@ button.primary:hover{
     background: var(--selected-text-background) !important;
 }
 
-/* -------------------------------- #### Private Mode #### ----------------------------------*/
+/* ______________________________________________ Private Browsing _______________________________________________ */
 
 @-moz-document url(about:privatebrowsing) {
     
@@ -770,15 +784,14 @@ body{
     }
 }
 
-/*..........................................Firefox--------------------------------------------
----------------------------------------------view-----------------------------------------------*/
+/* ____________________________________________ Firefox View ____________________________________________ */
 
 @-moz-document regexp("^about:firefoxview.*") /*, regexp("^about:.*") */ {
     
     :root{
-        --fxview-primary-action-background: transparent !important;                     /* Background categoría seleccionada */
-        --fxview-element-background-hover: var(--button-hover-bgcolor) !important;      /* contextual menu :hover item */
-        --fxview-element-background-active: var(--button-active-bgcolor) !important;    /* contextual menu :active item */
+        --fxview-primary-action-background: transparent !important;                     /* background color of the selected category */
+        --fxview-element-background-hover: var(--button-hover-bgcolor) !important;      /* Context menu: color on 'hover' over items */
+        --fxview-element-background-active: var(--button-active-bgcolor) !important;    /* Context menu: color on 'clic' over items */
         --fxview-border: var(--fxview-primary-action-background) !important;
         --fxview-background-color: transparent !important;
         --opaque: color-mix(in srgb, var(--in-content-page-background) 70%, transparent) !important;
@@ -836,7 +849,7 @@ body{
         }
     }
     
-/* ------------- Wallpaper cuando se usa Main-image config ------------- */
+/* _________________________________ Compatibility for aligning wallpaper when used with 'Main-image' config _________________________________ */
     
     @media (-moz-bool-pref:"firefoxgx.main-image") {
 

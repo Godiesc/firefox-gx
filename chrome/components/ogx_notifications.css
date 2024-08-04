@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* -------------------------------- Notifs - warnings - dialogos del navegador ------------------------------- */
+/* -------------------------------- Notifs - warnings - and browser dialogs ------------------------------- */
 
 /* Position */
 
@@ -9,7 +9,7 @@
     --chrome-offset: 78px !important;
 }
 
-/* COlor fondo en temas oscuros */
+/* Background color for dark themes */
 
 @media (prefers-color-scheme: dark){
     :root[dialogroot], :host(dialog) {
@@ -23,13 +23,13 @@
   }
 }
 
-/* Color fondo favicon */
+/* website icon background */
 
 .titleIcon {
   background-color: transparent !important;
 }
 
-/* Fondo tras la notificación */
+/* Background color behind notification */
 
 browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"], #window-modal-dialog::backdrop {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), transparent), 
@@ -37,13 +37,13 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
                       var(--noise-urlbar-personal, var(--noise-urlbar-personal, none)) !important;    
 }
 
-/* Fondo tras la notificación - "about:" pages */
+/* Background color behind notification - "about:" pages */
 
 #window-modal-dialog::backdrop, #main-window[window-modal-open="true"]>body>#browser{
-    background-color: rgba(28, 27, 34, 0.70) !important; 
+    background-color: color-mix(in srgb, var(--toolbarbutton-hover-personal), transparent) !important; 
 }
 
-/* Borde */
+/* Border */
 
 .dialogBox:not(.spotlightBox) {
     box-shadow:  0 0px 0px 1px var(--general-color)  !important;
@@ -53,13 +53,13 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
     outline-offset: 1px !important;
 }
 
-/* Quitar fondo indeseado tras notificación en "about:" pages*/
+/* Remove background color behind notification en "about:" pages*/
 
 #window-modal-dialog > .dialogOverlay[topmost="true"] {
     background: none !important;
 }
 
-/* COlor botones - checkbox - etc */
+/* Buttons - checkbox - etc colors */
 
 @-moz-document url(chrome://global/content/commonDialog.xhtml),
     url("chrome://mozapps/content/handling/permissionDialog.xhtml"),

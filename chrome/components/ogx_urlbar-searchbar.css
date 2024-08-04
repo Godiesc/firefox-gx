@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Barra de busqueda */
+/* Find-bar */
 
 findbar {
     background-color: var(--toolbar-bgcolor) !important;
@@ -24,7 +24,7 @@ findbar {
     color: var(--red) !important;
 }
 
-/* Vizualización correcta del porcentaje de zoom mostrado en la urlbar */
+/* Correct display of zoom percentage shown in the url bar */
 
 #urlbar-zoom-button {
     padding: 0px 4px !important;
@@ -56,7 +56,7 @@ findbar {
     font-size: 1.0em !important;
 }
 
-/* Sugerencias de búsqueda */
+/* Search suggestions */
 
 .urlbarView {
     margin-inline: -11px !important;
@@ -100,7 +100,7 @@ findbar {
     clip-path: circle(50%);
 }
 
-/* Sugerencias enriquecidas */
+/* Rich Suggestions */
 
 .urlbarView-row[rich-suggestion] > .urlbarView-row-inner > .urlbarView-favicon {
     max-height: 16px !important;
@@ -108,7 +108,7 @@ findbar {
     margin-inline: 6px !important;
 }
 
-/* No hacer doble fila url results en cuadro pequeño */
+/* Does not display search suggestions in double row - smaller firefox window */
 
 @media screen and (min-height: 600px) {
   .urlbarView-results[wrap] > .urlbarView-row {
@@ -120,7 +120,7 @@ findbar {
   }
 }
 
-/* Botón 'cambiar a pestaña' */
+/* 'Switch to tab' button */
 
 .urlbarView-row:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) {
   & > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action
@@ -130,7 +130,7 @@ findbar {
   }
 }
 
-/* Botones de -acciones rápidas- urlbar [open] */
+/* 'Quick Action' Buttons urlbar 'open' */
 
 .urlbarView-quickaction-button {
     box-shadow: 0px 0px 1px rgba(128, 128, 142, 0.9) !important;
@@ -145,7 +145,7 @@ findbar {
     margin-block-start: 2px !important;
 }
 
-/* Label "Sugerencias de firefox - Sugerencias de google" */
+/* Label 'Firefox Suggestions - Google Suggestions' */
 
 .urlbarView-row[label] {
     margin-block-start: 26px !important;
@@ -156,7 +156,7 @@ findbar {
     font-weight: bold !important;
 }
 
-/* Tamaño Nav-bar */
+/* Nav-bar height */
 
 #nav-bar { min-height: var(--toolbar-height-personal) !important; }
 
@@ -229,7 +229,7 @@ findbar {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Search-bar */
+/* Search-box - the one next to address-bar */
 
 #searchbar {
     min-height: calc(var(--toolbar-height-personal) - 10px) !important;
@@ -264,7 +264,7 @@ findbar {
     margin-inline-end: 4px !important;
 }
 
-/* Páginas de extensiones */
+/* Extension pages button */
 
 #identity-box[pageproxystate="valid"].extensionPage>.identity-box-button {
     background: transparent !important;
@@ -274,9 +274,9 @@ findbar {
     display: none !important;
 }
 
-/* Páginas seguras de firefox */
+/* Firefox secure pages */
 
-/* Label e ícono */
+/* Label and icon */
 
 #identity-icon-label {
     display: none !important;
@@ -314,9 +314,9 @@ findbar {
     background-color: color-mix(in srgb, var(--button-bgcolor) 72%, white) !important;
 }
 
-/* -----------------> Íconos de la urlbar más pequeños <--------------------- */
+/* ________________________________________________ Smaller url-bar icons ________________________________________________ */
 
-/* Tamaño */
+/* Size */
 
 #tracking-protection-icon, #identity-icon, .sharing-icon, .desktop-notification-icon {
     height: 14px !important;
@@ -329,7 +329,7 @@ findbar {
     padding-inline: 0px !important;
 }
 
-/* box, caja de íconos */
+/* box, icons box */
 
 #identity-icon-box, #identity-permission-box, #notification-popup-box {
     margin-block: 3px 2px !important;
@@ -347,7 +347,7 @@ findbar {
     margin-left: 0px !important;
 }
 
-/* ícono varios permisos */
+/* Various permission icons */
 
 #notification-popup-box .notification-anchor-icon,
 #blocked-permissions-container .blocked-permission-icon{
@@ -356,13 +356,13 @@ findbar {
     width: 19px !important;
 }
 
-/* background-color - Íconos permisos :hover - :active */
+/* background-color - when 'hover' - 'active' */
 
 #notification-popup-box:hover{ background-color: var(--urlbar-box-hover-bgcolor) !important; }
 
 #notification-popup-box[open] { background-color: var(--urlbar-box-active-bgcolor) !important; }
 
-/* ícono de Permitir Notificaciones */
+/* 'Allow Notifications' icon */
 
 .popup-notification-icon[popupid="web-notifications"], .desktop-notification-icon {
     margin-inline: 0px 3px !important;
@@ -373,7 +373,7 @@ findbar {
     height: 19px !important;
 }
 
-/* ícono Portección contra rastreo */
+/* Tracking Protection icon */
 
 #tracking-protection-icon-container {
     margin-block: 3px 2px !important;
@@ -389,7 +389,7 @@ findbar {
     padding: 2px !important;
 }
 
-/* ícono bookmark, vista de lectura, etc */
+/* Bookmark icon, reading view, etc */
 
 .urlbar-page-action {
     width: 21px !important;
@@ -435,14 +435,15 @@ findbar {
     color: var(--contrast-color) !important;
 }
 
-/* Color verde de la descripción de web segura */
+/* Green color of the secure web description */
 
 description#identity-popup-content-owner-label, description#identity-popup-content-owner, description#identity-popup-content-verifier, 
 #identity-popup-securityView-body>button {
-    color: #2cf62c !important
+    color: #2cf62c !important;
+    padding-inline-start: 16px !important;
 }
 
-/* Eliminar ícono de -sitio anclado- en las sugerencias de busqueda */
+/* Remove pinned site icon from search suggestions */
 
 .urlbarView-type-icon {
     display: none !important;

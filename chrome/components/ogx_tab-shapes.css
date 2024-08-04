@@ -3,9 +3,9 @@
 
 @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
 
-/* ############################# Sobreescribir codigo de <ogx_tab-bar.css> ############################# */
+/* __________________________________ overwriting: code from <ogx_tab-bar.css> ___________________________________ */
 
-/* Pestaña activa - ogx-tabs-bar.css */
+/* Selected tab - ogx-tabs-bar.css */
 
 .tab-background{
     clip-path: none !important;
@@ -19,7 +19,7 @@
     display: none !important;
 }
   
-/* Color :hover de las pestañas no seleccionadas */
+/* Color when 'hover' on unselected tabs */
   
 /* used for smooth transition */
 .tabbrowser-tab:not(:hover) > .tab-stack > .tab-background:not([selected], [multiselected]) {
@@ -33,7 +33,7 @@
     transition: background-color 0.2s ease !important;
 }
   
-/* ############################# Newtab button ############################# */
+/* ________________________________________________ Newtab button ________________________________________________ */
 
 @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") or
        (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") or
@@ -57,7 +57,7 @@
         padding-inline-start: calc(var(--tab-height-personal) - 31px + var(--uc-margin-left-newtab)) !important; 
             }}
 
-/* ############################# Sobreescribir - ogx_containers.css ############################# */
+/* _______________________________________ overwriting - ogx_containers.css _______________________________________ */
   
 .tab-context-line {
     width: 18px !important;
@@ -82,13 +82,13 @@ tab:is([pinned]) .tab-context-line {
     bottom: 0 !important;
 }
 
-/* trick para mantener margen left-right de las pestañas */
+/* Trick to maintain margin on the <left> and <right> of the tabs */
   
 .tabbrowser-tab:not(#tabbrowser-tabs[haspinnedtabs]:is([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab):nth-child(1 of :not([hidden])){
     margin-inline-start: calc( 0px - var(--uc-margin-left-right, 0px) + var(--uc-tab-corner-half-size, 4px)) !important; 
   }
   
-/* Margen left de la barra de pestañas cuando está en overflow */
+/* Margin to the left of the tab bar when in overflow */
   
 #tabbrowser-tabs[haspinnedtabs]:is([positionpinnedtabs]){
     margin-inline-start: calc( 4px - var(--uc-margin-left-right) + var(--uc-tab-corner-half-size)) !important;
@@ -98,7 +98,7 @@ tab:is([pinned]) .tab-context-line {
     margin-inline-start: 6px !important;
   }
 
-/* ######################################### Multi Selected Color ######################################### */
+/* _________________________________________________ Multi Selected Color _________________________________________________ */
 
   #TabsToolbar {
     --uc-multiselected-tab-bgcolor: color-mix(in srgb, var(--contrast-color) 46%, var(--general-color, transparent));
@@ -453,20 +453,20 @@ tab:is([pinned]) .tab-context-line {
       }
     }
   }
-/* ####################################################### Compatibilidad con "one-line" config ####################################################### */
+/* ___________________________________________________ Compatibility with "one-line" config ___________________________________________________ */
   
 @media (-moz-bool-pref:"firefoxgx.oneline") {
   
-/* ############################# Sobreescribir codigo de <ogx_tab-shapes.css> + <ogx_oneline.css> ############################# */
+/* ______________ Overwriting code from <ogx_tab-shapes.css> + <ogx_oneline.css> ______________ */
   
-/* Sobreescribir ogx_oneline.css */
+/* Overwriting: ogx_oneline.css */
 
 .tab-background:is([selected]){
     background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
                       var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
   }
   
-/* -------------------------------------------------------------------------------------- */
+/* ____________________________________________________________________________________________ */
   
 .tabbrowser-tab:is([visuallyselected]) .tab-background::before,
 .tabbrowser-tab:is([visuallyselected]) .tab-background::after {      

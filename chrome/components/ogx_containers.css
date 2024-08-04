@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Posición y tamaño linea de contenedor */
+/* Size and position of the container line */
 
 .tab-context-line {
     order: 2 !important;
@@ -12,13 +12,13 @@
     box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
 }
 
-/* Pinned */
+/* In pinned tab */
 
 tab:is([pinned]) .tab-context-line {
     margin-inline-start: 10px !important;
 }
 
-/* Mover la label para hacer espacio para el ícono de sonido y darle una ligera animación */
+/* Move the tab label to make gap for the sound icon and give it a slight animation */
 
 tab[soundplaying] .tab-content .tab-label {
     padding-left: 18px !important;
@@ -31,13 +31,13 @@ tab[muted] .tab-content .tab-label {
     transition-duration: 200ms !important;
 }
 
-/* Eliminar label del contenedor de la urlbar, manteniendo el ícono */
+/* Remove container label in URL bar, keeping the icon */
 
 #userContext-label {
     display: none !important;
 }
 
-/* Color contenedor default */
+/* Default contenedor color */
 
 .identity-color-toolbar {
     --identity-tab-color: color-mix(in srgb, #0c86ee 80%, var(--lwt-tab-text)) !important;
@@ -49,7 +49,7 @@ tab[muted] .tab-content .tab-label {
     --identity-icon-color: color-mix(in srgb, #0c86ee 60%, transparent) !important;
 }
 
-/* Contenedor rojo nuevo color */
+/* New red container color */
 
 .identity-color-red {
     --identity-tab-color: #ff2940 !important;

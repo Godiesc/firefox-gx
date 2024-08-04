@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Borde gradiente menús desplegables */
+/* Gradient border for dropdown menus */
 
 slot {
     --panel-shadow-margin: 2px !important;
@@ -19,7 +19,7 @@ panelview {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 
-/* Margen de varios arrowpanels [Open] */
+/* Margin of some dropdown menus [Open] */
 
 #downloadsPanel, #widget-overflow, #customizationui-widget-panel, #unified-extensions-panel, #notification-popup,
 #identity-popup, #permission-popup, #appMenu-popup,
@@ -37,20 +37,29 @@ addon-install-confirmation-notification {
     margin-inline: 1px !important;
 }
 
-/* Color fondo gradiente :hover por los diferentes items de menús principales */
+/* Gradient background color when :hover over different items in the main menus */
 
-.protections-popup-category:not(#appMenu-popup toolbarbutton):hover, .protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, #protections-popup-show-report-stack:not(#appMenu-popup toolbarbutton):hover > .protections-popup-footer-button:not(#appMenu-popup toolbarbutton), panelview .toolbarbutton-1:not([disabled], [open]:not(#appMenu-popup toolbarbutton)):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open], .subviewbutton-back):is(:hover), .navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover], menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover), .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover) {
+.protections-popup-category:not(#appMenu-popup toolbarbutton,[disabled]):hover, .protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, 
+#protections-popup-show-report-stack:not(#appMenu-popup toolbarbutton):hover > .protections-popup-footer-button:not(#appMenu-popup toolbarbutton), 
+panelview .toolbarbutton-1:not([disabled], [open]:not(#appMenu-popup toolbarbutton)):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open], 
+.subviewbutton-back):is(:hover), .navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover], 
+menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover), 
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover) {
     background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 
-/* Color fondo clic por los diferentes items de menús principales */
+/* Background color when clicking on different items in the main menus */
 
-.protections-popup-category:active, .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button, panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back):is(:active, [open]), .navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]), .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]) {
+.protections-popup-category:active:not([disabled]), .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button, 
+panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back):is(:active, [open]), 
+.navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, 
+menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]), 
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]) {
     background: linear-gradient(to right, var(--button-hover-bgcolor) 80%, transparent) !important;
 }
 
-/* Colores en items deshabilitados*/
+/* Colors on disabled items */
 
 .subviewbutton:is([disabled]), .subviewbutton:where([disabled="true"]):hover {       
     -moz-context-properties: fill;
@@ -58,44 +67,24 @@ addon-install-confirmation-notification {
     fill:  color-mix(in srgb, var(--arrowpanel-color)30%, transparent) !important;
     }
 
-/* Linea gradiente en los menús principales */
+/* Gradient line - separators */
 
 toolbarseparator {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
     margin-inline: 6px !important;
 }
 
-#PlacesToolbarItems toolbarseparator {
-    border-image: none !important;
+#PlacesToolbar menupopup[placespopup] menuseparator {
+    margin-inline: 4px !important;
 }
 
-/* Color label deshabilitado y elementos de: "protección contra rastreo" */
-
-.protections-popup-category.notFound {
-    color: #777 !important;
-}
-
-.panel-info-button:not([disabled]):is([checked], :hover, :active) {
-    background-color: var(--button-hover-bgcolor) !important;
-}
-
-.panel-info-button:not([disabled]):is(:hover) {
-    background-color: var(--button-active-bgcolor) !important;
-}
-
-/* Márgenes protección antirastreo */
-
-#protections-popup-blocking-section-header, #protections-popup-not-blocking-section-header, #protections-popup-not-found-section-header, #protections-popup-tp-switch-section, .protections-popup-category, .protections-popup-footer-button {
-    padding-inline: 16px !important;
-}
-
-/* Color Label 'saber más' */
+/* Label color  'learn more about' */
 
 toolbar .text-link:hover, panel .text-link:hover {
     color: var(--general-color) !important;
 }
 
-/* Panel de descargas */
+/* Downloads dropdown menu */
 
 #downloadsListBox > richlistitem {
     border-radius: 0px !important;
@@ -118,7 +107,7 @@ toolbar .text-link:hover, panel .text-link:hover {
     margin-inline: 10px 6px !important;
 }
 
-/* Color Sidebar */
+/* Sidebar colors */
 
 #sidebar-header {
     background-color: var(--lwt-sidebar-background-color) !important;
@@ -126,41 +115,39 @@ toolbar .text-link:hover, panel .text-link:hover {
     padding: 4px 6px !important;
 }
 
-#sidebar-switcher-target:is(:hover, [open]) {
+#sidebar-header toolbarbutton:is(:hover, [open]) {
+    background-color: var(--toolbarbutton-hover-personal) !important;
     color: var(--general-color) !important;
 }
 
-/*Quitar límite a las 'barras laterales' - sidebar de Firefox */
+/* Remove limit when resizing 'Firefox sidebar' */
 
 #sidebar-box {
     max-width: none !important;
     min-width: 1px !important;
 }
 
-/* Linea Separadora */
+/* Separator line into Firefox Sidebar items */
 
 treechildren::-moz-tree-separator {
     border-bottom: none !important;
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    border-image: linear-gradient(to right, transparent, var(--general-color)) 1 !important;
+    margin-inline-end: 6px !important;
 }
 
-/* menú desplegable boton de la toolbar que muestra todos los marcadores */
+/* Delete: menú desplegable boton de la toolbar que muestra todos los marcadores 
 
 #BMB_bookmarksPopup > .menupopup-arrowscrollbox {
     margin: 0px !important;
     margin-inline-end: 0px !important;
 }
 
-#PlacesToolbar menupopup[placespopup="true"] menuseparator {
-    margin-left: 6px !important;
-    margin-right: 8px !important;
-}
-
 #PlacesToolbar menupopup[placespopup="true"] menuseparator::before {
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
+*/
 
-/* Botón flecha atrás */
+/* 'back' button */
 
 .panel-header > .subviewbutton-back {
     border-radius: 3px !important;
@@ -178,7 +165,7 @@ treechildren::-moz-tree-separator {
     background: var(--button-active-bgcolor) !important;
 }
 
-/* Fondo :hover botones de zoom */
+/* bug fix for Background-color when :hover on zoom buttons */
 
 .PanelUI-subView .toolbaritem-combined-buttons > .subviewbutton:is(:hover, :hover:active) {
     background: transparent !important;

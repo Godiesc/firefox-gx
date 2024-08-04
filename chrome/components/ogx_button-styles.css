@@ -1,17 +1,9 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/*Botones generales*/
+/* General buttons */
 
-/* Information button -ProtecciónAntirastreo- */
-
-.panel-header.panel-header-with-info-button > h1 { margin-inline: var(--arrowpanel-header-info-icon-full-width) !important; }
-
-#protections-popup-info-button{ margin-inline-end: 6px !important; }
-
-/* Radiobutton -ProtecciónAntirastreo- */
-
-.toggle-button{ margin-inline: -6px !important; }
+/* Radiobutton 'Anti-Tracking Protection' */
 
 .toggle-button[aria-pressed="false"] { background: initial !important; }
 
@@ -22,13 +14,13 @@
     border-color: color-mix(in srgb, var(--toogle-border-color), var(--lwt-tab-text)) !important;
 }
 
-/* Botón -Informar problemas con un sitio */
+/* Remove unwanted transition for 'Send' and 'Cancel' buttons from 'Report problems with a site' */
 
-#protections-popup-report-broken-site-button .toolbarbutton-text{
-    padding: 0px !important;
+#report-broken-site-popup-mainView button{
+    transition: none !important;
 }
 
-/*color Rojo de boton "borrar marcador"*/
+/* 'Remove' button colors when editing a site to favorites */
 
 #editBookmarkPanelRemoveButton label{
     display: none !important;
@@ -49,14 +41,14 @@
     fill: white !important;
 }
 
-/*color letras de boton "Guardar" marcador en :hover*/
+/* 'Save' button colors when editing a site to favorites */
 
 #editBookmarkPanelBottomButtons>#editBookmarkPanelDoneButton {   
     color: white !important;
     border-radius: 4px !important;
 }
 
-/*Color del botón menú deplegable*/
+/* Dropdown menu button colors */
 
 panel menulist, panel menulist:not([open]) {
     background-color: var(--input-border-color) !important;
@@ -70,7 +62,7 @@ panel menulist:hover, panel menulist[open] {
     box-shadow: none !important;
 }
 
-/*Color -fondo y borde-(flecha hacia abajo)*/
+/* 'Background and border' color (down arrow) */
 
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
     background-color: var(--input-border-color) !important;
@@ -85,7 +77,7 @@ panel menulist:hover, panel menulist[open] {
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 
-/*Color -fondo y "letras" - menu desplegable*/
+/* Background and Border Color (Dropdown Menu) */
 
 treechildren::-moz-tree-row(selected) {
     background-color: var(--button-active-bgcolor) !important;
@@ -106,13 +98,9 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     border: 1px solid var(--button-bgcolor) !important;
 }
 
-/* Quitar linea gradiente en botones de extensiones puestas en la Barra de herramientas y de pestañas 
+/* ___________________________________________ Nav-bar buttons ___________________________________________ */
 
-:is(#nav-bar,#TabsToolbar, #PersonalToolbar) toolbaritem .toolbarbutton-1 { background-image: none !important; }*/
-
-/* ---------------------------------------------- Nav-bar buttons ---------------------------------------------- */
-
-/* :hover and open=true state styles */
+/* 'hover' and 'open' state styles */
 
 :root:not([lwtheme-image],[style*="--lwt-additional-images"]) {
     #nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) > 
@@ -121,7 +109,7 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     }
 }
 
-/* [open] -Temas con imagenes- */
+/* Buttons in themes with images when 'open' */
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
 #nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) >
@@ -129,7 +117,7 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     fill: var(--general-color) !important;
 }}
 
-/* ---------------------------------------------- bookmarks buttons ---------------------------------------------- */
+/* _________________________________________ bookmarks-bar buttons _________________________________________ */
 
 #PersonalToolbar {
     --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important; 
@@ -142,7 +130,7 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
         --toolbarbutton-active-background: var(--contrast-color) !important; 
 }
 
-/* icono and label [open], :active  */
+/* icon and label when 'open' - 'active' */
 
 #PersonalToolbar .toolbarbutton-1:is([open],:active) ,
 #PersonalToolbar toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"]):is([open],:active) {
@@ -150,27 +138,21 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     fill:  var(--general-color) !important;
 }
 
-/* ---------------------------------------------- Tabs-bar buttons ---------------------------------------------- */
+/* ____________________________________________ Tabs-bar buttons ___________________________________________ */
 
 #TabsToolbar {
     --toolbarbutton-icon-fill: var(--general-color);
-}
-
-#TabsToolbar {
     --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
-}
-
-#TabsToolbar {
     --toolbarbutton-active-background: color-mix(in srgb, var(--toolbarbutton-hover-personal)75%, var(--contrast-color)) !important;
 }
 
-/* [open]  -Temas con imagenes- */
+/* Buttons in themes with images when 'open' */
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #TabsToolbar {
     --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;
 }
 
-/* ----------------------------------------- botón >> Unified extentions ---------------------------------------- */
+/* _______________________________________  Unified extentions button _______________________________________ */
 
 :root{ --uei-icon-size: 18px !important; }
 
@@ -207,7 +189,11 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     border-radius: 3px !important;
 }
 
-/* botón >> ALL tabs */
+/* ALL tabs button */
+
+.all-tabs-item {
+    margin-inline: 0px !important;
+}
 
 .all-tabs-secondary-button{
     margin-inline-end: 4px !important;
@@ -236,9 +222,9 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
     }
 }
 
-/* Arrowpanel de marcador, [open] -Heart icon- */
+/* Bookmark dropdown menu when 'open' -Heart icon- */
 
-/*Color de "highlight" input-text*/
+/* 'highlight' color of input-box */
 
 richlistitem[selected="true"], #editBMPanel_namePicker::selection , #editBMPanel_tagsField::selection{
     background-color: var(--general-color) !important;
@@ -249,7 +235,7 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     color: var(--lwt-tab-text) !important;
 }
 
-/* Separador linea Vertical para tabs-bar, usando "espacio flexible" */
+/* Vertical line separator for tabs-bar using 'flexible space' */
 
 :is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], :is(#TabsToolbar) toolbarspring {
     max-width: 1px !important;
@@ -281,15 +267,15 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
 
 /* ---------------------------------------------- Used for various smooth transition ---------------------------------------------- */
 
-panel :is(menulist, button, toolbarbutton:not([.subviewbutton])):not([open]),       /* Botones dentro de arrowpanels */
+panel :is(menulist, button, toolbarbutton:not([.subviewbutton])):not([open]),       /* buttons inside dropdown menus */
 .titlebar-button,                                                                   /* Window controls */
-.toolbarbutton-1:not(#tabs-newtab-button) .toolbarbutton-icon,                      /* Botones default */
-.toolbarbutton-1 .toolbarbutton-badge-stack,                                        /* Extensiones */
+.toolbarbutton-1:not(#tabs-newtab-button) .toolbarbutton-icon,                      /* Default buttons */
+.toolbarbutton-1 .toolbarbutton-badge-stack,                                        /* Extensions buttons */
 #PersonalToolbar #PlacesToolbarItems>.bookmark-item {                               /* Bookmark items */
     transition: all 0.2s ease !important;
 }
 
-/* Transición del botón de página segura, bookmark y Tracking Protection de la url */
+/* Transition of the secure page button, bookmark and Tracking Protection of the url */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon,
 #pageAction-panel-bookmark[starred], #star-button[starred],
@@ -297,7 +283,7 @@ panel :is(menulist, button, toolbarbutton:not([.subviewbutton])):not([open]),   
     transition: fill 0.2s ease !important;
 }
 
-/* Transición para los demás botones de la url */
+/* Transition for the other buttons in the url */
 
 #urlbar box, #page-action-buttons hbox { 
     transition: background-color 0.2s ease !important;

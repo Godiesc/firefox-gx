@@ -3,7 +3,7 @@
 
 @media (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar") and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
 
-/* ----------------Nuevos margenes Botón menú------------------- */
+/* ---------------- New margins of Menu button ------------------- */
     
 @media not (-moz-bool-pref:"firefoxgx.menu.disabled") {
     
@@ -13,13 +13,13 @@
     --margin-left-icons-personal: 8px !important;                                                               /* Nuevo margen left de íconos del menú */
 }
 
-/* Centrar menu-logo */
+/* Align 'menu and logo' */
 
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button .toolbarbutton-badge-stack {
     padding-left: calc(var(--margin-left-icons-personal) + 2px) !important;
 }
 
-/* color botón Menú para hacer coincidir con la barra de pestañas de <tab-center-reborn> en temas claros */
+/* 'Menu' button color to match <tab-center-reborn> tab-bar in light themes */
 
 @media (prefers-color-scheme: light){
 @media (-moz-platform: windows),(-moz-platform: linux){
@@ -27,7 +27,7 @@
     --lwt-frame: #e9e6ef !important;
     }}}
 
-/* Quitar label -Menu- not [open] */
+/* Remove Menu label when not 'open' */
 
 @media (-moz-platform: windows),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]) > stack::after {
@@ -38,7 +38,7 @@
     content: none !important ;
     }
 
-/* Hacer el botón más ancho en el menú [open] */
+/* Bigger button size when menú is 'open' */
 
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
     --padding-left-tab: 87px !important;
@@ -61,7 +61,7 @@
       --padding-left-tab: 93px !important;
     }}
 
-/* tamaño nuevo botón Menú */
+/* New menu size */
 
 @media (-moz-platform: windows),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PanelUI-menu-button,
@@ -69,27 +69,27 @@
         --tab-height-personal: calc(var(--toolbar-height-personal) + 1px) !important;
     }
 
-/* botón Menú [open] no muy grande */
+/* Smaller menu size when 'open' */
 
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
     padding-top: calc(-10px + var(--tab-height-personal)) !important; 
     z-index: 2 !important;
 }
 
-/* Logo más grande */
+/* Larger logo size */
 
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     min-height: 20px !important;
     min-width:  20px !important;
         }
 
-/* menu :hover */
+/* Menu when 'hover' */
 
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
         }
 
-/* nuevo color botón Menú */
+/* New Menu color */
 
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"])[tabsintitlebar] #PanelUI-menu-button:not([open]){
     background-color: var(--lwt-frame) !important; 
@@ -156,7 +156,8 @@ See the above repository for updates as well as full license text. */
   transform: rotateX(0);
 }
 
-/* imagen en la barra lateral en tema con imágenes */
+/* Image in left-sidebar in themes with images  */
+    
 @media (prefers-color-scheme: dark){
     :root:not([chromehidden~="toolbar"]):is([lwtheme-image], [style*="--lwt-additional-images"]) #PersonalToolbar{
         --toolbar-bgcolor: #10101960 !important;
@@ -175,5 +176,4 @@ See the above repository for updates as well as full license text. */
     background-size: var(--display-theme-with-images) !important; 
     background-position-y: calc(0px - var(--toolbar-height-personal)) !important;
 }
-    
 }

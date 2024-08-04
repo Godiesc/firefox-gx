@@ -3,8 +3,8 @@
 
 @media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")){
     
-/* ######################################## Mantener Window Controls quitando las pestañas #######################################
-  ########### https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css ########### */
+/* _________________________________________________ Keep window controls when removing tab bar _________________________________________________
+   __________________ https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css __________________ */
 
 
 /* Defaults for window controls on RIGHT side of the window */
@@ -69,8 +69,8 @@
   :root[sizemode="fullscreen"] #window-controls{ right: unset }
 }
 
-/* #################################################### OCULTAR TABS-BAR ####################################################
-   ############# https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_toolbar.css  ################### */
+/* ______________________________________________________________ Hide TABS-BAR ______________________________________________________________
+   ________________________ https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_toolbar.css  _________________________ */
 
 :root[tabsintitlebar]{ --uc-toolbar-height: 40px; }
 :root[tabsintitlebar][uidensity="compact"]{ --uc-toolbar-height: 32px }
@@ -114,8 +114,8 @@
   margin-left: var(--uc-window-drag-space-pre,0px)
 }
 
-/* ########################################################## My Code ##########################################################
-   ######################################## Adicional <sobre-escribir> Codigo de Arriba ######################################## */
+/* _________________________________________________________________ My Code _________________________________________________________________
+   ___________________________________________________ Additionally <overwrite> Code Above ___________________________________________________ */
     
 
 :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
@@ -131,7 +131,7 @@
     --uc-toolbar-height: var(--tab-height-personal) !important;
 }
     
-/* Separador <window controls> y demás botones */
+/* Separator between <window controls> and other buttons */
     
 :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-buttonbox::before{
     content: ""; position: absolute !important; align-self: center !important;
@@ -146,7 +146,7 @@
     margin-left: -24px !important;
     }
     
-/* Espacio arrastre maximized - normal window */
+/* Drag space in 'maximized' and 'normal' window */
     
 :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) {
 #nav-bar-overflow-button,
@@ -160,7 +160,7 @@
     margin-inline-end: 60px !important;
     }}
 
-/* ########################### Espacio para los window controls in LINUX ########################### */
+/* __________________________________________________ Space for window controls in LINUX __________________________________________________ */
     
 @media (-moz-gtk-csd-available) {
     
@@ -176,7 +176,7 @@
     --uc-window-control-width-left: 108px !important;
   }
     
-/* Separador <window controls> y demás botones */
+/* Separator between <window controls> and other buttons */
     
 :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-buttonbox:before{
     margin-left: calc(var(--uc-window-control-width-left) - 18px) !important;
@@ -197,7 +197,7 @@
     
 /* ___________________________________________________________________________________________________ */
     
-/* Mis Variables Personales */
+/* My Personal Variables */
     
 :root{
   --windowed-top-padding: 0px !important;
@@ -220,7 +220,7 @@
   --tab-height-personal: calc(0px - var(--windowed-top-padding, 0px)) !important;
 }
     
-/* border-right de la sidebar de pestañas */
+/* Firefox Sidebar: border-right color */
     
 #sidebar-splitter{
   border-color: #50505030 !important;
@@ -233,7 +233,7 @@
     background-color: var(--lwt-frame) !important;  
 }}
     
-/* Mover botón "atrás" más a la derecha */
+/* Move 'back' button further to the right */
     
 :root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child{
     padding-inline-start: 0px !important;
@@ -245,7 +245,7 @@
     margin-left: calc(var(--uc-vertical-toolbar-width,0px) + var(--uc-window-control-width-left, 0px) + 60px) !important;
 }
     
-/* Borde Bottom toolbar */
+/* Toolbar Border Bottom */
     
 #navigator-toolbox { 
     border-bottom: 1px solid var(--lwt-frame) !important;
@@ -253,7 +253,7 @@
   border-bottom: 1px solid color-mix(in srgb, var(--lwt-tab-text)10%, transparent) !important; */
 }
     
-/* WindowsControls */
+/* Windows Controls */
     
 @media (-moz-platform: windows){ .titlebar-min{
     padding-top: 2px !important;
@@ -269,7 +269,7 @@
     background-color: var(--toolbarbutton-hover-background) !important;
     }}
     
-/* Oculta el header de la sidebar cuando se usan extensiones de pestañas verticales */
+/* Hide the sidebar header when using vertical tab extensions */
     
 #sidebar-box:is(
     [sidebarcommand*="tabcenter"],
@@ -279,7 +279,7 @@
     display: none;
 }
     
-/*###################################################*/
+/* ___________________________________________________________________________________________________________ */
 
 :root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
   --uc-window-drag-space-pre: 0px !important; /* Remove pre space */
@@ -287,17 +287,17 @@
 :root:is([tabsintitlebar][sizemode="normal"]) {
   --uc-window-drag-space-post: 1px !important; /* Add post space */
 }
-/* Tamaño vertical de los <window controls> */
+/* <window controls> Vertical size */
 :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
 :root[sizemode="fullscreen"] #window-controls{
     height: var(--uc-toolbar-height) !important;
 }
-/* z-index Devuelto a default por no permitir dar clic a ningun elemento de la interfaz en pantalla completa */
+/* z-index Returned to default for not allowing clicking on any interface element in 'fullscreen' */
 :root[sizemode="fullscreen"] 
 #TabsToolbar > :is(#window-controls,.titlebar-buttonbox-container){
     z-index: initial !important; 
 }
-/* Margen Izquierda de la barra de menú al precionr <alt> */
+/* Margin to the left of the menu bar when pressing <alt> */
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"] #main-menubar{
     margin-left: 1px !important;
     background-color: color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) !important;
@@ -306,19 +306,19 @@
     transparent, color-mix(in srgb, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)50%, var(--contrast-color)) 30px) 20 / 30px !important;
 }
 
-/* ##################################################### Nuevos margenes Botón menú ##################################################### */
+/* _____________________________________________________ New 'menu' button margins _____________________________________________________ */
         
 @media not (-moz-bool-pref:"firefoxgx.menu.disabled") {
     
 @media (-moz-platform: windows), (-moz-platform: linux) {
         
 :root{
-    --uc-vertical-toolbar-width: 41px !important;                                                               /* Nuevo tamaño sidebar */
-    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
-    --margin-left-icons-personal: 5px !important;                                                               /* Nuevo margen left de íconos del menú */
+    --uc-vertical-toolbar-width: 41px !important;                                                        /* New sidebar size */
+    --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                         /* New 'menu' button size */
+    --margin-left-icons-personal: 5px !important;                                                        /* New margin to the left of menu icons */
 }
     
-/* color botón Menú para hacer coincidir con la barra de pestañas de <tab-center-reborn> en temas claros */
+/* New Menu button color to match <tab-center-reborn> tab bar in light themes */
 @media (prefers-color-scheme: light){
 @media (-moz-platform: windows),(-moz-platform: linux){
 :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button  {
@@ -331,7 +331,7 @@
     --lwt-frame: #101019 !important;
     }}}
 */
-/* Quitar label -Menu- del menú not [open] */
+/* Remove 'Menu' label from menu when not 'open' */
 @media (-moz-platform: windows),(-moz-platform: linux){
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]) > stack::after {
     content: none !important ;
@@ -340,7 +340,7 @@
     :root:not([chromehidden~="toolbar"]):is([sizemode="normal"],[sizemode="fullscreen"]) #PanelUI-menu-button:is([open]) > stack::after {
     content: none !important ;
     }}
-/* Hacer el botón más ancho en el menú [open] */
+/* Make button wider when menu is 'open' */
 @media (-moz-platform: windows),(-moz-platform: linux){
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([sizemode="maximized"]) #PanelUI-menu-button[open] > stack{
     --padding-left-tab: 79px !important;
@@ -359,24 +359,24 @@
 :root:is([sizemode="maximized"]) #appMenu-popup{
       --padding-left-tab: 85px !important;
     }}
-/* tamaño nuevo botón Menú */
+/* New Menu Button Size */
 :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PanelUI-menu-button,
 :root[sizemode="maximized"] #appMenu-popup{
     --tab-height-personal: var(--toolbar-height-personal) !important;
     }
-/* botón Menú [open] no muy grande */
+/* Not very big Menu button when open */
 :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
     padding-top: calc(-10px + var(--tab-height-personal)) !important; 
     z-index: 2 !important;
 }
 
-/* Logo más grande */
+/* Bigger logo */
 @media (-moz-platform: windows),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image{
     min-height: 20px !important;
     min-width:  20px !important;
         } }
-/* menu :hover */
+/* Menu when 'hover' */
 @media (-moz-platform: windows),(-moz-platform: linux) {
     :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover > .toolbarbutton-badge-stack{
     background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
@@ -406,7 +406,7 @@
     }
 }
     
-/* #################################################### Tab-center-reborn autohide sidebar #################################################### */
+/* ___________________________________________________ Tab-center-reborn autohide sidebar ___________________________________________________ */
     
 :root {
     /* delay before expanding tabs, set to '0' for no delay */

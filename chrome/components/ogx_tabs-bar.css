@@ -1,19 +1,19 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* "tab_line": "#126e82" */
+/* Selected tab line color */
 
 #tabbrowser-tabs {
     --tab-selected-outline-color: transparent !important;
 }
 
-/* Color bolita de -cargando página- */
+/* Animation color on 'page load' */
 
 #tabbrowser-tabs {
-    --tab-loading-fill: var(--identity-tab-color, var(--general-color)) !important;
+    --tab-loading-fill: var(--general-color) !important;
 }
 
-/* Espacio top en ventana no maximizada */
+/* Top space in non-maximized window */
 
 :root[tabsintitlebar][sizemode="normal"] {
     --windowed-top-padding: 8px;
@@ -23,11 +23,13 @@
     padding-block-start: var(--windowed-top-padding, 0px) !important;
 }
 
-/* ------------------------------------- Pestaña activa ------------------------------------- */
+/* _____________________________________________________________ Selected tab _____________________________________________________________ */
+
+/* Remove the opacity difference on focused and unfocused window */
 
 :root[tabsintitlebar] #titlebar:-moz-window-inactive { opacity: 1 !important; }
 
-/* Necesario  para que la primera pestaña :selected no quede bajo left-sidebar */
+/* Necessary so that the first 'selected' tab does not remain under 'left-sidebar' */
 
 .tabbrowser-tab[selected] { z-index: 1 !important; }
 
@@ -36,6 +38,8 @@
   transition: none !important;
   opacity: 1 !important;
 }
+
+/* New selected tab shape */
 
 .tab-background, .tab-stack::before{ clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px); }
 
@@ -66,7 +70,7 @@
     border-radius: 0px 2px 0px 0px !important;
 }
 
-/* Sombra label de pestañas - quita sombra bajo todas las pestañas */
+/* Remove shadow from tab label - Remove the shadow under all the tabs */
 
 .tab-label { text-shadow: none !important; }
 
@@ -76,15 +80,17 @@
 
 #TabsToolbar{ --tabs-navbar-shadow-size: 0px !important; }
 
-/* Alinea los botones de la tabs-bar */
+/* Vertical alignment of all buttons in the 'tabs-bar' */
 
 #TabsToolbar .toolbarbutton-1 { margin: 0 0 1px !important; }
 
-/* Indispensable para mantener alineado el contenido de las pestañas */
+/* Tab Label Vertical Alignment */
 
 .tab-content { margin-bottom: 1px !important; }
 
-/* ------------------------------------- Gradiente bajo pestañas ------------------------------------- */
+/* ________________________________________________________________________________________________________________________________________ */
+
+/* Gradient under tabs */
 
 #nav-bar:not([tabs-hidden="true"]) { box-shadow: none !important; border-top: none !important; }
 
@@ -99,7 +105,7 @@
     border-image: var(--panel-separator-zap-gradient2) 1 !important;
 }
 
-/* Color :hover de las pestañas no seleccionadas */
+/* Non-selected tab :hover background-color */
 
 @media not (-moz-bool-pref:"firefoxgx.tab-shapes") {
 
@@ -107,7 +113,7 @@
         background-color: transparent !important;
     }
     
-        /* used for smooth transition */
+    /* used for smooth transition */
     .tabbrowser-tab:not(:hover) > .tab-stack:not([selected],[multiselected]) {
         clip-path: polygon(5px 0%, 200% 0%, 0% 200%, 0% 5px);  
         transition: background-color 0.2s ease !important;
@@ -119,7 +125,7 @@
         transition: background-color 0.2s ease !important;
     }
 
-/* Regla para visualizar mejor el seleccionar varias pestañas */
+    /* Rules for better visualization when selecting multiple tabs */
     
     .tabbrowser-tab:is([multiselected]):not([selected]) .tab-stack {
         background: var(--button-hover-bgcolor) !important;
@@ -139,13 +145,13 @@
     }
 }
 
-/* Margen entre pestañas */
+/* Margin between tabs */
 
 .tabbrowser-tab {
     padding-inline: 0px 2px !important;
 }
 
-/* Botón "Open Newtab" */
+/* 'Open Newtab' button */
 
 #tabs-newtab-button, #TabsToolbar #new-tab-button {
     fill: var(--general-color) !important;
@@ -164,7 +170,7 @@
     background: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
 }
 
-/* Medidas menores para scroll de pestañas */
+/* Smaller size of 'tabs scroll' */
 
 #tabbrowser-tabs { --uc-tabs-scrollbutton-border: 0px !important; }
 
@@ -173,19 +179,13 @@
     margin-bottom: 1px !important;
 }
 
-/* botón >> ALL tabs */
-
-.all-tabs-item {
-    margin-inline: 0px !important;
-}
-
-/* Quitar label "Navegación Privada" */
+/* Remove "Private navigation" label */
 
 #private-browsing-indicator-with-label > label {
     display: none !important;
 }
 
-/* Tamaño horizontal pestañas */
+/* Horizontal tab size */
 
 .tabbrowser-tab[fadein]:not([style^="max-width"]) {
     max-width: 200px !important;
@@ -197,13 +197,13 @@
     margin-inline-start: 0px !important;
 }
 
-/* Eliminar espacio de arrastre - izquierda */
+/* Remove left empty space on tabs when window is not maximized */
 
 .titlebar-spacer[type="pre-tabs"] {
     display: none !important
 }
 
-/* Color y posición "dot" de pestaña que necesita atención */
+/* Size and color of the 'dot' when an tab needs attention */
 
 .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
     background-image: radial-gradient(circle, var(--general-color), var(--general-color) 2px, transparent 2px) !important;
@@ -218,7 +218,7 @@
   max-height: var(--tab-height-personal) !important;
 }
 
-/* My code - Borde redondeado barra de menú */
+/* Menu-bar */
 
 #main-menubar>menu{
     background-color: transparent !important;
@@ -243,15 +243,16 @@
     width: -moz-available !important;
 }
 
-/* Firefox view icon */
+/* 'Firefox-view' icon */
 
 toolbar:is(#TabsToolbar) #firefox-view-button {
-    padding-inline: 4px !important;
+    padding-inline-start: 4px !important;
 }
 
 toolbar:is(#TabsToolbar) #firefox-view-button:hover .toolbarbutton-icon {
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+    background-color: var(--toolbarbutton-hover-personal) !important;
     fill: var(--general-color) !important;
+    transition: none !important;
 }
 
 :root:not([privatebrowsingmode="temporary"]) :is(toolbarbutton, toolbarpaletteitem) + #tabbrowser-tabs, 
@@ -264,7 +265,7 @@ toolbar:is(#TabsToolbar) #firefox-view-button .toolbarbutton-icon {
     height: calc(var(--tab-height-personal) - 6px) !important;
     width: calc(var(--tab-height-personal) - 6px) !important;
     padding: 4px !important;
-}
+}   
 
 toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
     outline-color: transparent !important;
@@ -273,7 +274,7 @@ toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutto
     transition: none !important;
 }
 
-toolbar #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
+#firefox-view-button[aria-pressed="true"] .toolbarbutton-icon{
     background: var(--button-hover-bgcolor) !important;
     fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
