@@ -9,7 +9,7 @@ user_pref("browser.tabs.delayHidingAudioPlayingIconMS", 0);
 user_pref("layout.css.backdrop-filter.enabled", true);
 user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
-user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", false);
+user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 
 /*To active container tabs without any extension */
 user_pref("privacy.userContext.enabled", true);
