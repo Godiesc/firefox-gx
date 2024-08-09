@@ -14,20 +14,20 @@
 
 /* __________________________________________________________  Various customizations __________________________________________________________ */
                   /* Dark wallpapers */                                               /* Accentcolor for each wallpaper */
+  
   --wallpaper-dark1: url("../newtab/wallpaper-dark1.png") !important;           --general-color-dark1: var(--fuchsia) !important;
   --wallpaper-dark2: url("../newtab/wallpaper-dark2.png") !important;           --general-color-dark2: var(--purple) !important;
   --wallpaper-dark3: url("../newtab/wallpaper-dark3.png") !important;           --general-color-dark3: var(--blue) !important;
   --wallpaper-dark4: url("../newtab/wallpaper-dark4.png") !important;           --general-color-dark4: var(--swampautumn) !important;
-  --wallpaper-dark5: url("../newtab/wallpaper-dark5.png") !important;           --general-color-dark5: var(--lightgreen) !important;
-  --wallpaper-dark6: url("../newtab/wallpaper-dark6.png") !important;           --general-color-dark6: var(--gray) !important;
+  --wallpaper-dark5: url("../newtab/wallpaper-dark5.png") !important;           --general-color-dark5: var(--gray) !important;
   
                   /* Light wallpapers */                                             /* Accentcolor for each wallpaper */
+  
   --wallpaper-light1: url("../newtab/wallpaper-light1.png") !important;         --general-color-light1: var(--fuchsia) !important;
   --wallpaper-light2: url("../newtab/wallpaper-light2.png") !important;         --general-color-light2: var(--purple) !important;
   --wallpaper-light3: url("../newtab/wallpaper-light3.png") !important;         --general-color-light3: var(--blue) !important;
   --wallpaper-light4: url("../newtab/wallpaper-light4.png") !important;         --general-color-light4: var(--fuchsia) !important;
   --wallpaper-light5: url("../newtab/wallpaper-light5.png") !important;         --general-color-light5: var(--lightgreen) !important;
-  --wallpaper-light6: url("../newtab/wallpaper-light6.png") !important;         --general-color-light6: var(--lightblue) !important;
     }
 
 @media (prefers-color-scheme: dark){ :root{
@@ -118,6 +118,7 @@
   --panel-separator-zap-gradient1: linear-gradient(to left, var(--general-color) , var(--arrowpanel-background)) !important;
   --panel-separator-zap-gradient2: linear-gradient(to right,var(--general-color) 82% , transparent 96%) !important;
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
+  --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) , transparent) !important;
 
   /*------------------------------Botones hover, clic--------------------------------*/
   --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /* Button background color */

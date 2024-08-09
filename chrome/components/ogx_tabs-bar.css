@@ -279,6 +279,21 @@ toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutto
     fill: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
 }
 
+/* Tab Preview */
+
+#tab-preview-panel{
+    margin-top: 1px !important;
+}
+
+.tab-preview-thumbnail-container {
+    width: 280px;
+    width: -moz-available !important;
+    height: 140px;
+    border: 1px solid transparent !important;
+    border-top-style: dotted !important;
+    border-top-color: var(--button-hover-bgcolor) !important;
+}
+
 /* ------------------------ config to MacOS ---------------------------
    ------------- partial compatibility to window Controls ----------*/
 
