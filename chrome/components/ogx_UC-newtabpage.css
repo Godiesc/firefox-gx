@@ -369,19 +369,27 @@
     /* Change animation when it appears */ 
     
     .customize-menu {
-        height: calc(100% - 20px) !important;
-        right: 10px !important;
-        top: 10px !important;
-        bottom: 10px !important;
+        height: calc(100% - 12px) !important;
+        right: 6px !important;
+        top: 6px !important;
+        bottom: 6px !important;
         padding-inline: 0px !important;
         border-radius: 8px !important;
         transform: translateY(-100%) !important;
-      }
+    }
+    
+    .customize-menu.customize-animate-enter, .customize-menu.customize-animate-enter-done{
+        opacity: 1 !important;
+    }
+    
+    .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done {
+        opacity: 0 !important;
+    }
 
-    .customize-menu.customize-animate-enter-done,
-    .customize-menu.customize-animate-enter-active {
+    .customize-menu.customize-animate-enter, .customize-menu.customize-animate-enter-done, 
+    .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done {
         transform: translateY(0%) !important;
-        transition-duration: 200ms, 200ms !important;
+        transition: transform 0ms linear, visibility 100ms, opacity 100ms ease-in-out !important;
     }
     
     /* Background */
