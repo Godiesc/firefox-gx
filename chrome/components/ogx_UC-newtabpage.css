@@ -8,46 +8,50 @@
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
     
     body {
+    /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;            /* Image in the newtab searchbox */
+    --newtab-background-color-secondary: transparent !important;                                    /* Background color of pinned sites and search box */
+    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                          /* Background color when clicking on the 3 dot menu icon */
 
-    /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;      /* Image in the newtab searchbox */
-    --contrast-color: light-dark(#ffffff, #000000) !important;                                /* Personal background color for contrast */
-    --border-contrast-color: light-dark(#acacac50 ,#09080d) !important;                       /* Personal border color for contrast */
-        
-    --arrowpanel-background: light-dark(#f9f9f9, #1c1726) !important;                         /* Background color for 3 dot menu */
-
-    --newtab-background-color-secondary: transparent !important;                              /* Background color of pinned sites and search box */
-    --newtab-element-hover-color: var(--button-active-bgcolor) !important;                    /* Background color when clicking on the 3 dot menu icon */
-
-    --newtab-element-secondary-hover-color: linear-gradient(to right,                         /* color when 'hover' on menu items three dots */
+    --newtab-element-secondary-hover-color: linear-gradient(to right,                               /* color when 'hover' on menu items three dots */
       var(--button-hover-bgcolor) 49%, transparent) !important;
 
-    --newtab-element-secondary-active-color: linear-gradient(to right,                        /* Color clic en items del menú de 3 puntos */
+    --newtab-element-secondary-active-color: linear-gradient(to right,                              /* Color clic en items del menú de 3 puntos */
       var(--button-active-bgcolor) 69%, transparent) !important;
 
-    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,             /* 3-point menu and input-box border color when editing a site*/
+    --newtab-border-color: color-mix(in srgb, var(--newtab-background-color) 92%,                   /* 3-point menu and input-box border color when editing a site*/
         var(--newtab-wordmark-color)) !important;
         
-    --newtab-wordmark-color: light-dark(#20123A, #fbfbfe) !important;
-
-    /*--newtab-text-primary-color: light-dark(#101019, #eaeaea) !important;                   /* Main label color */
-    /*--newtab-text-secondary-color: light-dark(#101019, #eaeaea) !important;                 /* Secondary label color */
-
-    --newtab-overlay-color: color-mix(in srgb, #090909 54%, transparent) !important;          /* Big background when editing a site, semi-transparent */
-
-    --newtab-primary-action-background: var(--button-active-bgcolor) !important;              /* Colors for 'Save' buttons and radiobuttons */
-
-    --newtab-element-secondary-color: color-mix( in srgb,                                     /* Color of inactive elements */
+    --newtab-primary-action-background: var(--button-active-bgcolor) !important;                    /* Colors for 'Save' buttons and radiobuttons */
+        
+    --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;               /* check-box color */
+        
+    --newtab-element-secondary-color: color-mix( in srgb,                                           /* Color of inactive elements */
       var(--newtab-background-color) 85%, var(--newtab-text-primary-color) ) !important;
-
-    --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;         /* check-box color */
+        
+    --newtab-overlay-color: color-mix(in srgb, var(--contrast-color) 46%, transparent) !important;  /* Big background when editing a site, semi-transparent */
     }
     
+    @media (prefers-color-scheme: dark){
+        
+        body {
+            --contrast-color: black !important;                                                     /* Personal background color for contrast */
+            --border-contrast-color: #09080d !important;                                            /* Personal border color for contrast */
+            --arrowpanel-background: #1c1726 !important;                                            /* Background color for 3 dot menu */
+        }}
+    
+    @media (prefers-color-scheme: light){
+        
+        body{
+            --contrast-color: white !important;                                                     /* Personal background color for contrast */
+            --border-contrast-color: #acacac50 !important;                                          /* Personal border color for contrast */
+            --arrowpanel-background : #f9f9f9 !important;                                           /* Background color for 3 dot menu */
 
+        }}
     
 /* _______________________________________________________ Wallpapers _______________________________________________________ */
     
     @media not (-moz-bool-pref:"firefoxgx.main-image"){
-    
+
         /* Dark 1 - Fuchsia */
         #dark-sky,
         #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/e94b1e49-c518-40d6-98e3-dffab6cc370d.avif");'],
@@ -90,7 +94,7 @@
             background-image: var(--wallpaper-light1) !important;
         }
 
-         /* Light 2 - Ultraviolet */
+        /* Light 2 - Ultraviolet */
         #light-landscape,
         #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif");'],
         body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif);"]{
@@ -285,9 +289,9 @@
     /* 3 dot contextual menu */
 
     .context-menu {
-        background-color: light-dark(#1c1726,var(--arrowpanel-background)) !important; 
+        background-color: var(--arrowpanel-background) !important; 
         border-radius: 0px !important;
-        box-shadow: 0px 0px 0 1px light-dark(black, var(--contrast-color)) !important;
+        box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
         border: 1px solid var(--arrowpanel-background) !important;
         border-image: var(--panel-separator-zap-gradient4) 1 !important;
         }
@@ -316,10 +320,11 @@
 
     /* Styles for the 'Cancel' button */
 
-    .actions button:is(.cancel){
+    .actions button:is(.cancel, [data-l10n-id="newtab-topsites-cancel-button"]){
         background-color: var(--newtab-element-secondary-color) !important; 
         border-color: color-mix(in srgb, var(--newtab-element-secondary-color) 90%, var(--newtab-text-primary-color)) !important; /**/
     }
+    
     .actions button:is(.cancel):hover {
         box-shadow:none !important; 
         background-color: #da3633 !important; 
@@ -331,18 +336,17 @@
 
     .icon.icon-settings {
         background-image: url("../icons/edit.svg") !important; 
+        opacity: 0.5 !important;
     }
-    .personalize-button {
-        opacity: 0.3 !important;
-    }
-    .personalize-button:hover {
-        background-color: var(--newtab-background-color-secondary)!important; 
+    
+    .personalize-button:is(:hover, :active) {
+        background-color: var(--newtab-element-hover-color) !important;
         opacity: 1 !important;
-        fill: var(--newtab-text-primary-color) !important;
+        fill: white !important;
     }
+    
     .lightWallpaper .personalize-button:hover{
         color-scheme: light !important;
-        fill: #101019 !important;
     }
 
     /* Colors of the 'Close' button */
@@ -462,12 +466,15 @@
         }
 
         /* Font color when using light wallpaper */
-        .lightWallpaper .search-inner-wrapper input, 
-        .lightWallpaper .search-wrapper input,
-        .lightWallpaper  #newtab-search-text[Keepfocus="true"]{
+        .lightWallpaper :is(.search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"]){
             color-scheme: light !important;
             color: #101019 !important;
-            text-shadow: 1px 0px 6px color-mix(in srgb, var(--contrast-color) 80%, transparent) !important;
+        }
+        
+         /* Font color when using dark wallpaper */
+        .darkWallpaper :is(.search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"]){
+            color-scheme: dark !important;
+            color: #eaeaea !important;
         }
 
         .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
@@ -553,10 +560,9 @@
     /* Label - pinned site */
     .top-site-outer .title  {
         width: 80px !important;
-        font-weight: 501 !important;
+        font-weight: 500 !important;
         font-size: 14px !important;
         margin-top: -40px !important;
-        text-shadow: 1px 0px 6px color-mix(in srgb, var(--contrast-color) 80%, transparent) !important;
         margin-inline: 10px !important;
     }   
     
@@ -596,33 +602,18 @@
       color-scheme: light;
     }
     
+    /* Font color on 'hover' when using dark wallpapers */
+    .darkWallpaper .top-site-outer:is(:hover, :active, .active) {
+      color-scheme: dark;
+    }
+    
     /* Styles when clicking on a pinned site and moving the mouse away */
     .top-site-outer:is(:focus-within) .tile, .card-outer:is(.active,:focus-within) .card{
         background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)18%, transparent) , rgba(0,255,0,0) 64.71%),
                     linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
         outline: 1px solid var(--button-hover-bgcolor) !important;
-        box-shadow: none !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
     }
-
-    /* 3 dot icon */
-    .top-site-outer .context-menu-button {
-        background-image: url("../icons/more.svg") !important;
-        background-color: transparent !important;
-        border-radius: 2px 4px 2px 8px !important;
-        inset-inline-end: 6px !important;
-        margin-block-start: 20px !important;
-        top: 2px !important;
-        transition: opacity 200ms;
-        fill: light-dark(#101019, var(--newtab-text-primary-color)) !important;
-    }
-    
-    /*  3 dot icon on 'hover' and 'click' */
-    .top-site-outer .context-menu-button:is(:hover, :focus) {
-        background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
-        transition: opacity 200ms;
-        fill: var(--general-color) !important;
-    }
-    
     
 /* ____________________________________________________ Recent Activity ____________________________________________________ */
     
@@ -647,8 +638,16 @@
         .card-outer:not(.placeholder) .card-title,
         .card-outer .icon) {
         color-scheme: light !important;
-        color: #000000 !important;
-        text-shadow: 1px 0px 6px color-mix(in srgb, var(--contrast-color) 80%, transparent) !important;
+        color: #454e54 !important;
+    }
+    
+    /* Font color when using a light wallpaper */
+    .darkWallpaper :is(
+        .card-host-name,
+        .card-outer:not(.placeholder) .card-title,
+        .card-outer .icon) {
+        color-scheme: dark !important;
+        color: #eaeaea !important;
     }
 
     /* Underline on 'hover' */
@@ -662,22 +661,35 @@
         opacity: 0.7 !important;
     }
     
-    /* 3 dot icon */    
+/* _______________________________________________________ 3 dot icon ______________________________________________________ */
+    
+    /* 3 dot icon pinned sites */    
     .card-outer .context-menu-button{
         margin-top: 15px !important;
         margin-right: 15px !important;
         background-image: url("../icons/more.svg") !important;
         border-radius: 3px 6px 3px 6px !important;
-        background-color: var(--contrast-color) !important;
-        fill: light-dark(#101019,var(--newtab-text-primary-color)) !important;
         border-color: #50505030 !important;
         transition-delay: 0ms !important;
     }
     
+    /* 3 dot icon recent activity*/
+    .top-site-outer .context-menu-button {
+        background-image: url("../icons/more.svg") !important;
+        background-color: transparent !important;
+        border-radius: 2px 4px 2px 8px !important;
+        inset-inline-end: 6px !important;
+        margin-block-start: 20px !important;
+        top: 2px !important;
+        transition: opacity 200ms;
+    }
+    
     /*  3 dot icon on 'hover' and 'click' */
     .card-outer .context-menu-button:is(:hover,[open], :active),  
-    .card-outer.active .context-menu-button {
+    .card-outer.active .context-menu-button,
+    .top-site-outer .context-menu-button:is(:hover, :focus) {
         background-color: var(--contrast-color) !important;
+        transition: opacity 200ms;
         fill: var(--general-color) !important;
     }
     
