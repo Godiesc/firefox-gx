@@ -366,6 +366,24 @@
     
 /* _______________________________ Colors of the sliding sidebar used to customize the NewTab _______________________________ */
     
+    /* Change animation when it appears */ 
+    
+    .customize-menu {
+        height: calc(100% - 20px) !important;
+        right: 10px !important;
+        top: 10px !important;
+        bottom: 10px !important;
+        padding-inline: 0px !important;
+        border-radius: 8px !important;
+        transform: translateY(-100%) !important;
+      }
+
+    .customize-menu.customize-animate-enter-done,
+    .customize-menu.customize-animate-enter-active {
+        transform: translateY(0%) !important;
+        transition-duration: 200ms, 200ms !important;
+    }
+    
     /* Background */
     
     .customize-menu {
@@ -429,12 +447,15 @@
     /* Shadow */
     
     .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
-        box-shadow: -1px 0 #00000030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+        box-shadow: 0 0 0 1px #50505050, 0 0 4px 0px var(--contrast-color) !important;
     }
     
     /* Separador*/
     
-    .home-section .divider { border-image: var(--panel-separator-zap-gradient4) 1 !important;}
+    .home-section .divider { 
+        border-image: var(--panel-separator-zap-gradient4) 1 !important;
+        margin-inline: 0px !important;
+    }
 
 /* ______________________________________________________ Search box _______________________________________________________ */
 
