@@ -135,17 +135,12 @@ treechildren::-moz-tree-separator {
     margin-inline-end: 6px !important;
 }
 
-/* Delete: menú desplegable boton de la toolbar que muestra todos los marcadores 
+/* 'Monitor' and 'Relay' items from account dropdown menu */
 
-#BMB_bookmarksPopup > .menupopup-arrowscrollbox {
-    margin: 0px !important;
-    margin-inline-end: 0px !important;
+#PanelUI-fxa-cta-menu .fxa-cta-button {
+    margin: var(--space-xsmall) 0px var(--space-xsmall) 0px !important;
+    padding-inline-start: 4px !important;
 }
-
-#PlacesToolbar menupopup[placespopup="true"] menuseparator::before {
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;
-}
-*/
 
 /* 'back' button */
 

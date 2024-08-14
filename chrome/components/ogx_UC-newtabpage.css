@@ -256,6 +256,8 @@
         }
     }
     
+/* __________________________________________________________________________________________________________________________ */
+    
     /* Remove scrollbar */
 
     *{scrollbar-width: none !important }
@@ -337,16 +339,17 @@
     .icon.icon-settings {
         background-image: url("../icons/edit.svg") !important; 
         opacity: 0.5 !important;
+        transition: none !important;
     }
     
     .personalize-button:is(:hover, :active) {
-        background-color: var(--newtab-element-hover-color) !important;
+        background-color: transparent !important;
         opacity: 1 !important;
         fill: white !important;
     }
-    
+
     .lightWallpaper .personalize-button:hover{
-        color-scheme: light !important;
+        fill: black !important;
     }
 
     /* Colors of the 'Close' button */
@@ -375,21 +378,25 @@
         bottom: 6px !important;
         padding-inline: 0px !important;
         border-radius: 8px !important;
-        transform: translateY(-100%) !important;
+        transform: none !important;
+        transition-duration: 0ms !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
     }
     
-    .customize-menu.customize-animate-enter, .customize-menu.customize-animate-enter-done{
+    .customize-menu.customize-animate-enter, .customize-menu.customize-animate-enter-done {
         opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done {
         opacity: 0 !important;
+        visibility: hidden !important;
     }
 
     .customize-menu.customize-animate-enter, .customize-menu.customize-animate-enter-done, 
     .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done {
-        transform: translateY(0%) !important;
-        transition: transform 0ms linear, visibility 100ms, opacity 100ms ease-in-out !important;
+        transition: visibility 300ms, opacity 300ms ease !important;
     }
     
     /* Background */
