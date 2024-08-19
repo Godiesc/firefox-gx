@@ -25,9 +25,9 @@
     height: 100vh;
     max-height: 100vh !important; 
     padding-bottom: 120px !important;
-    padding-inline: 0px !important;                                                           /* Mi edit */    
+    padding-inline: 0px !important;                                                           /* Mi edit */
   }
-  #PersonalToolbar .toolbarbutton-1{
+  #PersonalToolbar .toolbarbutton-1 {
     max-width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                       /* Mi edit - Tamaño horizontal ionos default */
     /*--toolbarbutton-inner-padding: 8px !important;                                          /* Mi edit */
     margin: 0px !important;
@@ -186,31 +186,58 @@
     
     /* animación */
     @keyframes scalezoom{
-        0%{ transform:scale(1.12) }
+        0%{ transform:scale(1.2) }
         50%{ transform:scale(0.7) }
         100%{ transform:scale(1.0) }}
     
-   /* :hover */
+   /* 'hover' Extensions */
+    
+    #PersonalToolbar .toolbarbutton-1:is(:hover):not(:active,[open]) .toolbarbutton-icon:not(.toolbarbutton-1>image),   /* Extensiones */
+    #PersonalToolbar .toolbarbutton-1:is(:hover):not(:active,[open]) .toolbarbutton-badge-stack image {                 /* account icon, download icon, etc */
+        transform: scale(1.2) !important;
+        transition-duration: 200ms !important;
+    }
+    
+    /* Click animation on Extensions */
+    
+    #PersonalToolbar .toolbarbutton-1:is(:active,[open]) .toolbarbutton-icon:not(.toolbarbutton-1:is(:active, [open])>.toolbarbutton-icon),
+    #PersonalToolbar .toolbarbutton-1:is(:active, [open]) .toolbarbutton-badge-stack image{
+        animation: scalezoom linear 250ms !important;
+    }
+    
+    /* 'hover' other icons */
     
     #PersonalToolbar {
-        & .toolbarbutton-1:is(:hover):not(:active,[open]) .toolbarbutton-icon:not(.toolbarbutton-1>image), /* Extensions */
-        & .toolbarbutton-1:is(:hover):not(:active,[open])>image,                                           /* Default icons */
-        & #PlacesToolbarItems>.bookmark-item:is(:hover,:active):not([open])>.toolbarbutton-icon,           /* Bookmarks */
+        & .toolbarbutton-1:is(:hover):not(:active,[open])>image,                                           /* íconos default */
+        & #PlacesToolbarItems>.bookmark-item:is(:hover,:active):not([open])>.toolbarbutton-icon,           /* Marcadores */
         & #OtherBookmarks:not(bookmark-item):is(:hover,:active):not([open])>.toolbarbutton-icon{           /* Other bookmarks button */
-            transform: scale(1.12) !important;
-            transition:  200ms !important;
+            transform: scale(1.2) !important;
+            transition-duration: 200ms !important;
         }}
     
-    /* Clic animation */
+    /* Clic default icons */
+    
     #PersonalToolbar {
-        & .toolbarbutton-1:is(:active, [open]) .toolbarbutton-icon:not(.toolbarbutton-1>image),            /* Extensions */
-        & .toolbarbutton-1:is(:active,[open])>image,                                                       /* Default icons */
-        & #PlacesToolbarItems>.bookmark-item:is([open]):not(:active)>.toolbarbutton-icon,                  /* Bookmarks */
+        & .toolbarbutton-1:is(:active):not([open])>image {                                                 /* íconos default */
+            transform: scale(0.8) !important;
+            transition-duration: 200ms !important;
+        }}
+    
+    #PersonalToolbar {
+        & .toolbarbutton-1:is([open]):not(:active)>image {                                                 /* íconos default */
+            transform: scale(1.0) !important;
+            transition-duration: 200ms !important;
+        }}
+    
+    /* Click animation on bookmarks */
+    
+    #PersonalToolbar {
+        & #PlacesToolbarItems>.bookmark-item:is([open]):not(:active)>.toolbarbutton-icon,                  /* Marcadores */
         & #OtherBookmarks:not(bookmark-item):is([open]):not(:active)>.toolbarbutton-icon{                  /* Other bookmarks button */
             animation: scalezoom ease-in-out 250ms !important;
             transition:  200ms !important;
         }}
-
+    
 /* Vertical Size of Sidebar Items */
     
     #PersonalToolbar .toolbarbutton-1,
