@@ -286,9 +286,8 @@ toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutto
 }
 
 .tab-preview-thumbnail-container {
-    width: 280px;
     width: -moz-available !important;
-    height: 140px;
+    height: 138px !important;
     border: 1px solid transparent !important;
     border-top-style: dotted !important;
     border-top-color: var(--button-hover-bgcolor) !important;

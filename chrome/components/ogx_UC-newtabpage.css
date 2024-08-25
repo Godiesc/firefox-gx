@@ -367,6 +367,26 @@
         border-radius: 4px !important;
     }
     
+    /* Weather */
+    
+    .weatherInfoLink, .weatherButtonContextMenuWrapper {
+        background-color: light-dark(var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background)) !important;
+        backdrop-filter: var(--personal-blur) !important;
+    }
+    
+    .weatherInfoLink, .weatherButtonContextMenuWrapper{
+        outline: 1px solid #50505030 !important;
+        outline-offset: -1px !important;
+    }
+    
+    .weatherButtonContextMenuWrapper{
+        margin-inline-start: -1px !important;
+    }
+    
+    .weatherButtonContextMenuWrapper::after {
+        display: none !important;
+    }
+    
 /* _______________________________ Colors of the sliding sidebar used to customize the NewTab _______________________________ */
     
     /* Change animation when it appears */ 
