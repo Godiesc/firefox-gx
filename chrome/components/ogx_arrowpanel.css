@@ -13,6 +13,15 @@ slot {
     margin-top: 1px !important;
 }
 
+/* Remove unwanted styles applied to the tab bar */
+
+:is(scrollbox[part="scrollbox"]) slot{
+    margin-inline: initial !important;
+    margin-block-end: initial !important;
+    box-shadow: none !important;
+    margin-top: initial !important;
+}
+
 panelview {    
     background-image: var(--noise-urlbar-personal) !important;
     border: 1px solid #0c0a10 !important;
