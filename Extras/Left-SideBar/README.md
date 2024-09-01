@@ -19,11 +19,7 @@ The social extensions used are: <a title="Twitch" href="https://addons.mozilla.o
 <a title="Discord" href="https://addons.mozilla.org/firefox/addon/discord-in-sidebar/"><img src="https://raw.githubusercontent.com/Godiesc/firefox-one/154c3c1f732f88e6fb1504ef8f83db12231411ce/chrome/images/logo_discord.svg" alt="Discord" width="24" height="24" /></a>
 <a title="Ublock" href="https://addons.mozilla.org/firefox/addon/ublock-origin/"><img src="https://raw.githubusercontent.com/Godiesc/firefox-one/154c3c1f732f88e6fb1504ef8f83db12231411ce/chrome/images/logo_ublock.svg" alt="Ublock" width="24" height="24" /></a>
 <a title="Simple tab groups" href="https://addons.mozilla.org/firefox/addon/simple-tab-groups/"><img src="https://addons.mozilla.org/user-media/addon_icons/997/997321-64.png?modified=c1404d14" alt="Panorama Tab Groups" width="24" height="24"/></a>
-<p>PD: I'm the owner of <b>Instagram Chat extension</b>, <b>Spotify extension</b> and <b>WhatsApp extension</b>, The other extensions I used were for testing purposes.</p></br>
-
-><p><b>Notice:</b></br><ul><li>If you use the<a href="https://addons.mozilla.org/firefox/addon/side-view/"> Side View </a>extension you will get the mobile version of the sites in the sidebar, but "facebook messenger" for example won't display the chat for self restrictions, the rest of the extensions works flawless.</li></ul></p>
-
-</br>
+><p>PD: I'm the owner of <b>Instagram Chat extension</b>, <b>Spotify extension</b> and <b>WhatsApp extension</b>, The other extensions I used were for testing purposes.</p>
 
 ## Example of the layout of the interface before the apply of this config
 
