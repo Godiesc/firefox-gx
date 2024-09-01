@@ -2157,6 +2157,26 @@
   #context-take-screenshot {
     --menuitem-image: url("../icons/screenshot-1.svg");
   }
+  
+  #context-ask-chat {
+    --menuitem-image: url("../icons/logo_chatgpt.svg");
+  }
+  
+  #context-ask-chat[data-l10n-args*='Anthropic Claude"}'] {
+    --menuitem-image: url("../icons/logo_anthropic-claude.svg");
+  }
+  
+  #context-ask-chat[data-l10n-args*='Google Gemini"}'] {
+    --menuitem-image: url("../icons/logo_google-gemini.svg");
+  }
+  
+  #context-ask-chat[data-l10n-args*='HuggingChat"}'] {
+    --menuitem-image: url("../icons/logo_hugging-chat.svg");
+  }
+  
+  #context-ask-chat[data-l10n-args*='Mistral"}'] {
+    --menuitem-image: url("../icons/logo_mistral.svg");
+  }
 
   #context-keywordfield {
     --menuitem-image: url("../icons/bookmark-empty.svg");
@@ -2165,6 +2185,10 @@
   #context-searchselect,
   #context-searchselect-private {
     --menuitem-image: url("chrome://global/skin/icons/search-glass.svg");
+  }
+  
+  #context-translate-selection {
+    --menuitem-image: url("../icons/translations.svg");
   }
 
   #frame {
@@ -2203,6 +2227,23 @@
 
   #context-inspect {
     --menuitem-image: url("../icons/command-pick.svg");
+  }
+  
+  :is(#side-view_mozilla_org-menuitem-_open-in-sidebar,
+      #side-view_mozilla_org-menuitem-_open-link-in-sidebar) .menu-iconic-left .menu-iconic-icon{
+    display: none !important;
+  }
+  
+  #side-view_mozilla_org-menuitem-_open-in-sidebar:before,
+  #side-view_mozilla_org-menuitem-_open-link-in-sidebar:before{
+        content: '' !important;
+        width:16px !important;
+        height:16px !important;
+        background: url("../icons/logo_side-view.svg") !important;
+        background-size: 16px 16px !important;
+        border-radius: 4px !important;
+        -moz-context-properties: fill !important;
+        fill: var(--arrowpanel-color, #1245ef) !important;
   }
 
   #context-media-eme-learnmore {

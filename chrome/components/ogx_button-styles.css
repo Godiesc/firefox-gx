@@ -271,7 +271,9 @@ panel :is(menulist, button, toolbarbutton:not([.subviewbutton])):not([open]),   
 .titlebar-button,                                                                   /* Window controls */
 .toolbarbutton-1:not(#tabs-newtab-button) .toolbarbutton-icon,                      /* Default buttons */
 .toolbarbutton-1 .toolbarbutton-badge-stack,                                        /* Extensions buttons */
-#PersonalToolbar #PlacesToolbarItems>.bookmark-item {                               /* Bookmark items */
+#PersonalToolbar #PlacesToolbarItems>.bookmark-item,                                /* Marcadores */
+#PersonalToolbar #PlacesToolbarItems>.bookmark-item .toolbarbutton-icon,            /* Marcadores - used in left-sidebar */
+#PersonalToolbar #OtherBookmarks:not(bookmark-item) .toolbarbutton-icon {           /* Other bookmark folder - used in left-sidebar */
     transition: all 0.2s ease !important;
 }
 
