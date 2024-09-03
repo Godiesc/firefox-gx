@@ -606,3 +606,143 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     }
 */
 }
+
+@media (-moz-bool-pref:"sidebar.verticalTabs") {
+    
+    /* overwrite code from horizontal-tabs */
+    
+    .tab-background { margin-block: 1px !important; }
+    
+    .tab-content { margin-bottom: initial !important; }
+    
+    .tab-content:not([pinned]) { margin-inline: 2px !important; }
+    
+    .tab-background, .tab-stack::before, 
+    .tabbrowser-tab:not(:hover)>.tab-stack:not([selected], [multiselected]), 
+    .tabbrowser-tab:hover>.tab-stack:not([selected], [multiselected]), 
+    .tabbrowser-tab:is([multiselected]):not([selected]) .tab-stack, 
+    #vertical-tabs-newtab-button, 
+    .actions-list moz-button {
+        clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
+    }
+    
+    .tabbrowser-tab {
+        padding-inline: 2px !important;
+        margin-block-end: 2px !important;
+    }
+    
+    /* Remove unwanted background color of pinned tabs */
+    #vertical-pinned-tabs-container .tab-background:not([selected], [multiselected]) {
+        background-color: transparent !important;
+    }
+    
+    /* Newtab button */
+    
+    #vertical-tabs-newtab-button {
+        appearance: none !important;
+        fill: var(--general-color) !important;
+        background-color: transparent !transparent;
+    }
+    
+    #tabbrowser-tabs[orient="vertical"] #newtab-button-container {
+        margin-inline: 6px !important;
+    }
+    
+    sidebar-main:not([expanded]) #tabbrowser-tabs[orient="vertical"] #newtab-button-container {
+        margin-inline: 0px !important;
+    }
+    
+    sidebar-main:not([expanded]) #vertical-tabs-newtab-button {
+        width: 32px !important;
+        height: 32px !important;
+        align-self: center !important;
+        border-radius: 3px !important;
+    }
+    
+    #vertical-tabs-newtab-button:hover {
+        appearance: none !important;
+        background: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+    }
+    
+    /* Remove scrollbar */
+    * {
+        scrollbar-width: none !important
+    }
+    
+    /* tab height */
+    .tab-background {
+        min-height: calc(var(--tab-height-personal) - 6px) !important;
+    }
+    
+    /* Left-Tabs sidebar */
+    .wrapper {
+        min-width: var(--my-vertical-tabs-width) !important;
+        padding-inline: 0px 2px !important;/* trick to center */
+        border-inline-end: 1px solid var(--toolbarbutton-hover-personal) !important;
+    }
+    
+    /* Separators */
+    #tabbrowser-tabs[orient="vertical"]:has(> #tabbrowser-arrowscrollbox[overflowing="true"]), 
+    #tabbrowser-tabs[orient="vertical"] #newtab-button-container[showborder] {
+        border-image: linear-gradient(to right, 
+            transparent 8px, var(--toolbarbutton-hover-personal) 8px, 
+            var(--toolbarbutton-hover-personal) calc(100% - 8px), transparent calc(100% - 8px)) 1 !important;
+    }
+    
+    /* Align of pinned tabs */
+    #tabbrowser-tabs[orient="vertical"] #vertical-pinned-tabs-container {
+        padding-inline: 0px !important;
+        justify-content: center !important;
+    }
+    
+    /* Align of tabs */
+    .tabbrowser-tab {
+        align-self: center !important;
+    }
+    
+    /* Align of tools-and-extensions */
+    .actions-list {
+        align-items: center !important;
+        padding-block-start: 4px !important;
+        fill: var(--general-color) !important;
+    }
+    
+    /* tools-and-extensions with scroll 
+    .tools-and-extensions{
+        overflow-y: auto !important;
+        min-height: 20px !important;
+        max-height: 150px !important;
+        height: auto !important;
+        display: flex !important;
+        box-sizing: border-box !important;
+    }*/
+    
+    /* Separator */
+    .tools-and-extensions{
+        border-top: 1px solid red !important;
+        border-image: linear-gradient(to right, 
+            transparent 8px, var(--toolbarbutton-hover-personal) 8px, 
+            var(--toolbarbutton-hover-personal) calc(100% - 6px), transparent calc(100% - 6px)) 1 !important;
+    }
+    
+    /* Sound icon */
+
+    sidebar-main:not([expanded]) {
+    .tab-icon-overlay[soundplaying]:not([pinned]){
+        top: -5px;  
+        left: 7px !important; 
+        border-radius: 50% !important;
+        height: 14px !important;
+        width: 14px !important;
+        }
+        
+    tab .tab-icon-stack:not([crashed]):is([soundplaying]) :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
+        mask-image: url("../icons/tab_icon_masks.svg#SoundMask") !important;
+    }}
+}
+
+@media not (-moz-bool-pref:"sidebar.verticalTabs") {
+    .wrapper {
+        border-inline-end: 1px solid var(--toolbarbutton-hover-personal) !important;
+    }
+}

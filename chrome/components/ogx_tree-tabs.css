@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")){
+@media ((-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"sidebar.verticalTabs")) and (not ( -moz-bool-pref:"firefoxgx.oneline")){
     
 /* _________________________________________________ Keep window controls when removing tab bar _________________________________________________
    __________________ https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css __________________ */
@@ -159,6 +159,15 @@
 #nav-bar:not([nonemptyoverflow]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):last-child{
     margin-inline-end: 60px !important;
     }}
+    
+/* trick to be able to click from the top edge of the nav-bar */
+    
+    :root:not([chromehidden~="toolbar"]){    
+        #nav-bar-customization-target toolbarbutton,
+        #nav-bar > #nav-bar-overflow-button{
+            margin-top: -6px !important;
+            padding-top: 6px !important;
+        }}
 
 /* __________________________________________________ Space for window controls in LINUX __________________________________________________ */
     

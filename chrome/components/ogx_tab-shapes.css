@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"firefoxgx.tab-shapes") {
+@media (-moz-bool-pref:"firefoxgx.tab-shapes") and (not (-moz-bool-pref:"sidebar.verticalTabs")) {
 
 /* __________________________________ overwriting: code from <ogx_tab-bar.css> ___________________________________ */
 

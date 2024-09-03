@@ -46,7 +46,7 @@
   
   --tab-height-personal: 30px ;                                                                 /* Tab height */
   --toolbar-height-personal: 38px ;                                                             /* Toolbar height */
-  
+  --my-vertical-tabs-width: 51px ;                                                              /* Width of default vertical tabs */
   --menu-label: "Menu" ;                                                                        /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                                    /* Horizontal size of the hamburger menu button */
   
