@@ -9,6 +9,7 @@
     
 :root{
     --uc-vertical-toolbar-width: 48px !important;                                                               /* Nuevo tamaño sidebar */
+    --my-vertical-toolbar-width: var(--uc-vertical-toolbar-width) !important;                                                               /* Nuevo tamaño sidebar */
     --padding-left-tab: calc(var(--uc-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
     --margin-left-icons-personal: 8px !important;                                                               /* Nuevo margen left de íconos del menú */
 }

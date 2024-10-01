@@ -80,9 +80,9 @@
         z-index: 3 !important;
     }
     
-/* left margin of tab-bar*/
+/* left margin of menubar and tabs-bar */
     
-    :root:not([chromehidden~="toolbar"]) #toolbar-menubar, :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="true"]+#TabsToolbar {
+    #toolbar-menubar, #toolbar-menubar[autohide="true"]+#TabsToolbar {
         padding-inline-start: var(--padding-left-tab) !important;
     }
 

@@ -3,155 +3,165 @@
 
 @media (-moz-bool-pref:"firefoxgx.main-image") {
 
-@media (prefers-color-scheme: dark){
-   :root[brighttext],
-   :root[lwt-toolbar-field-focus-brighttext],
-   :root[lwtheme],
-   :root:not([lwtheme]){
-      --toolbar-bgcolor: #0000007d !important;
-      --toolbar-field-background-color: transparent !important;                                                    /* toolbar_field */
-      --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
-      --lwt-selected-tab-background-color: #10101900 !important;                                                   /* tab_selected */
-      --toolbarbutton-hover-background:  color-mix(in srgb, 
-        transparent 90%, color-mix(in srgb, var(--lwt-tab-text)50%, var(--general-color))) !important;             /* button_background_hover */
-      --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
-      --lwt-sidebar-background-color: #101019 !important;                                                          /* Sidebar-background */
-      --chrome-content-separator-color: none !important                                                            /* toolbar_bottom_separator */
+   @media (prefers-color-scheme: dark){
+      :root[brighttext],
+      :root[lwt-toolbar-field-focus-brighttext],
+      :root[lwtheme],
+      :root:not([lwtheme]){
+         --toolbar-bgcolor: #0000007d !important;
+         --toolbar-field-background-color: transparent !important;                                                    /* toolbar_field */
+         --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
+         --lwt-selected-tab-background-color: #10101900 !important;                                                   /* tab_selected */
+         --toolbarbutton-hover-background:  color-mix(in srgb, 
+            transparent 90%, color-mix(in srgb, var(--lwt-tab-text)50%, var(--general-color))) !important;             /* button_background_hover */
+         --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
+         --lwt-sidebar-background-color: #101019 !important;                                                          /* Sidebar-background */
+         --chrome-content-separator-color: none !important                                                            /* toolbar_bottom_separator */
       }}
-   
-@media (prefers-color-scheme: light){
-   :root:not([lwtheme-brighttext="true"]),
-   :root:not([lwt-toolbar-field-focus-brighttext]),
-   :root[lwtheme],
-   :root:not([lwtheme]){
-      --toolbar-bgcolor: #ffffff7d !important;
-      --toolbar-field-background-color: transparent !important;                                                    /* toolbar_field */
-      --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
-      --lwt-selected-tab-background-color: #f9f9f900 !important;                                                   /* tab_selected */
-      --toolbarbutton-hover-background:  color-mix(in srgb, 
-        transparent 90%, color-mix(in srgb, var(--lwt-tab-text)50%, var(--general-color))) !important;             /* button_background_hover */
-      --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
-      --lwt-sidebar-background-color: #f9f9f9 !important;                                                          /* Sidebar-background */
-      --chrome-content-separator-color: none !important;                                                           /* toolbar_bottom_separator */
+
+   @media (prefers-color-scheme: light){
+      :root:not([lwtheme-brighttext="true"]),
+      :root:not([lwt-toolbar-field-focus-brighttext]),
+      :root[lwtheme],
+      :root:not([lwtheme]){
+         --toolbar-bgcolor: #ffffff7d !important;
+         --toolbar-field-background-color: transparent !important;                                                    /* toolbar_field */
+         --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
+         --lwt-selected-tab-background-color: #f9f9f900 !important;                                                   /* tab_selected */
+         --toolbarbutton-hover-background:  color-mix(in srgb, 
+            transparent 90%, color-mix(in srgb, var(--lwt-tab-text)50%, var(--general-color))) !important;             /* button_background_hover */
+         --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
+         --lwt-sidebar-background-color: #f9f9f9 !important;                                                          /* Sidebar-background */
+         --chrome-content-separator-color: none !important;                                                           /* toolbar_bottom_separator */
       }}
-   
-@media (prefers-color-scheme: dark){
-   :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-      --toolbar-bgcolor: #0000007d !important;
-      --lwt-selected-tab-background-color: transparent !important;
+
+   @media (prefers-color-scheme: dark){
+      :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
+         --toolbar-bgcolor: #0000007d !important;
+         --lwt-selected-tab-background-color: transparent !important;
       }}
-   
-@media (prefers-color-scheme: light){
-   :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-      --toolbar-bgcolor: #ffffff7d !important;
-      --lwt-selected-tab-background-color: transparent !important;
+
+   @media (prefers-color-scheme: light){
+      :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
+         --toolbar-bgcolor: #ffffff7d !important;
+         --lwt-selected-tab-background-color: transparent !important;
       }}
-   
-/* New Image */
-   
-:root:not([privatebrowsingmode="temporary"]) {
+
+   /* New Image */
+
+   :root:not([privatebrowsingmode="temporary"]) {
       --lwt-header-image: var(--lwt-main-image) !important;
       --lwt-additional-images: var(--lwt-main-image) !important;
-      }
+   }
 
-/* New image size */
-   
-:root:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
+   /* New image size */
+
+   :root:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
       background-image: var(--lwt-header-image) !important;
       background-size: cover !important;
-      }
-   
-/* We align the background image with the selected tab */
+   }
 
-.tab-background:is([selected]){
-    background-size: cover !important;
-      }
-   
-/* Improved background when moving tab */
-   
- #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack  > .tab-background{
+   /* We align the background image with the selected tab */
+
+   .tab-background:is([selected]){
+      background-size: cover !important;
+   }
+
+   /* Improved background when moving tab */
+
+   #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack  > .tab-background{
       background-size: 100vw 100vh !important;
    }
-   
-/* I override url-bar focus from ogx_urlbar-searchbar.css */
-   
-#urlbar:not([open]):is([focused]) #urlbar-background {
+
+   /* I override url-bar focus from ogx_urlbar-searchbar.css */
+
+   #urlbar:not([open]):is([focused]) #urlbar-background {
       background-color: color-mix(in srgb, var(--general-color) 20%, transparent) !important;
-}
-   
-/* background-color when buttons are 'open' in solid themes - used to match colors in solid and image themes */
-   
-#TabsToolbar, #nav-bar {   
-    --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;
-}
-   
-/* fix for status panel */
+   }
 
-#statuspanel label{
-    background-color: var(--lwt-frame, var(--contrast-color)) !important;
-    border-color: #80808050 !important;
-}
-   
-/* Left-sidebar compatibility */
-   
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+   /* background-color when buttons are 'open' in solid themes - used to match colors in solid and image themes */
 
-:root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
-:root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
-:root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
-   background-position: 0 calc(var(--tab-height-personal) + 0px) !important;
-   background-size: 100vw !important;
-   }}
-   
-/* Tab-shapes compatibility */
+   #TabsToolbar, #nav-bar {   
+      --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--lwt-tab-text)80%, var(--general-color))) !important;
+   }
 
-.tab-background:is([selected]),
-.tabbrowser-tab:is([visuallyselected]) .tab-background::before,
-.tabbrowser-tab:is([visuallyselected]) .tab-background::after,
-#tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
-    background-size: cover !important;
-  }
-   
-/* Left-sidebar + oneline compatibility */
-   
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") and 
-       (-moz-bool-pref:"firefoxgx.oneline"){
+   /* fix for status panel */
 
-   :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
-   :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
-   :root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
-      background-position: 0 calc(var(--tab-height-personal) * 2) !important;
-      background-size: 100vw !important;
-   }}
+   #statuspanel label{
+      background-color: var(--lwt-frame, var(--contrast-color)) !important;
+      border-color: #80808050 !important;
+   }
    
-/* Oneline compatibility */
+   /* Firefox-sidebar revamp compatibility */
 
-@media (-moz-bool-pref:"firefoxgx.oneline") {
-          
-   @media (prefers-color-scheme: dark){
-      :root, :root[lwtheme], :root:not([lwtheme]){
-         --lwt-selected-tab-background-color: #0000007d !important;
-   }}
-  
-   @media (prefers-color-scheme: light){
-      :root, :root[lwtheme], :root:not([lwtheme]){
-         --lwt-selected-tab-background-color: #ffffff7d !important;
-   }}
-   
-   @media screen and (min-width: 1000px){
-      #nav-bar{
-          background-color: transparent !important;
-            }}}
-   
-/* 'Tree-tabs without left-sidebar' compatibility */
-   
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar"){   
-   #PersonalToolbar:not([customizing]),
-   :root:not([chromehidden~="toolbar"]):is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar{
-       background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
-                         var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
-       background-repeat: repeat !important;
-       background-size: cover !important;
-       background-position-y: calc(0px - var(--toolbar-height-personal)) !important;
+   @media (-moz-bool-pref:"sidebar.revamp") {
+
+      :root:not([privatebrowsingmode="temporary"]) #sidebar-main{
+         background-image: linear-gradient(transparent, transparent),
+            var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+         background-size: 100vw !important;
+      }}
+
+   /* Left-sidebar compatibility */
+
+   @media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+
+      :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
+      :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
+      :root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
+         background-position: 0 calc(var(--tab-height-personal) + 0px) !important;
+         background-size: 100vw !important;
+      }}
+
+   /* Tab-shapes compatibility */
+
+   .tab-background:is([selected]),
+   .tabbrowser-tab:is([visuallyselected]) .tab-background::before,
+   .tabbrowser-tab:is([visuallyselected]) .tab-background::after,
+   #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+      background-size: cover !important;
+   }
+
+   /* Left-sidebar + oneline compatibility */
+
+   @media (-moz-bool-pref:"firefoxgx.left-sidebar") and 
+      (-moz-bool-pref:"firefoxgx.oneline"){
+
+         :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
+         :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
+         :root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
+            background-position: 0 calc(var(--tab-height-personal) * 2) !important;
+            background-size: 100vw !important;
          }}
+
+   /* Oneline compatibility */
+
+   @media (-moz-bool-pref:"firefoxgx.oneline") {
+
+      @media (prefers-color-scheme: dark){
+         :root, :root[lwtheme], :root:not([lwtheme]){
+            --lwt-selected-tab-background-color: #0000007d !important;
+         }}
+
+      @media (prefers-color-scheme: light){
+         :root, :root[lwtheme], :root:not([lwtheme]){
+            --lwt-selected-tab-background-color: #ffffff7d !important;
+         }}
+
+      @media screen and (min-width: 1000px){
+         #nav-bar{
+            background-color: transparent !important;
+         }}}
+
+   /* 'Tree-tabs without left-sidebar' compatibility */
+
+   @media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"firefoxgx.autohide-bookmarks-bar"){   
+      #PersonalToolbar:not([customizing]),
+      :root:not([chromehidden~="toolbar"]):is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar{
+         background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
+            var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
+         background-repeat: repeat !important;
+         background-size: cover !important;
+         background-position-y: calc(0px - var(--toolbar-height-personal)) !important;
+      }}
 }

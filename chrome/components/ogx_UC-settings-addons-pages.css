@@ -44,7 +44,7 @@
     
     --in-content-text-color: var(--contrast-color) !important;                                  /* General 'text' color */
     --in-content-page-color: var(--contrast-color) !important;                                  /* Other general 'text' color */
-    
+    --in-content-primary-button-text-color: var(--contrast-color) !important;                   /* Another general 'text' color */
     
     --in-content-box-background-odd: color-mix(in srgb,                                         /* Color distinction between rows in a 'table' and 'search shortcuts' */
       var(--in-content-box-border-color), transparent) !important;     
@@ -76,6 +76,8 @@
     --link-color-hover: var(--blue) !important;                                                 /* Links color on 'hover' */
     --link-color-active: var(--purple) !important;                                              /* Links color on 'active' */
     --link-color-visited: var(--general-color) !important;                                      /* Links color on 'visited' */
+    
+    --background-color-information: light-dark(var(--button-bgcolor), var(--button-bgcolor)) !important;
     
     --gradiente-casual: linear-gradient(to right,                                               /* Personal gradient for 'about:preferences' */
       var(--in-content-box-border-color) 90%, transparent ) !important;
@@ -112,7 +114,7 @@
     url-prefix(about:profiles) , url-prefix(about:debugging), url-prefix(about:welcome){
         
 :root{
-    --opaque: color-mix(in srgb, var(--in-content-page-background) 60%, transparent) !important;
+    --opaque: color-mix(in srgb, var(--in-content-page-background) 50%, transparent) !important;
 }
         
 /* Informative messages */
@@ -376,20 +378,15 @@ search-textbox{
 /* Wallpaper */
 
 body,.sticky-container{
-    --bg: var(--lwt-main-image);
-    background-image: linear-gradient(var(--opaque), var(--opaque)),
-                      linear-gradient(var(--opaque), var(--opaque)), 
-                      var(--bg) !important;
-    background-repeat: repeat !important;
+    --bg: linear-gradient(var(--opaque), var(--opaque)),
+                          var(--lwt-main-image);
+    background-image: var(--bg) !important;
     background-size: cover !important;
     background-attachment: fixed !important;
-    background-position-y: var(--background-align-y) !important;
     }
         
-.sticky-container{
+body, .sticky-container{
     background-image: linear-gradient(var(--opaque), var(--opaque)),
-                      linear-gradient(var(--opaque), var(--opaque)),
-                      linear-gradient(var(--opaque), var(--opaque)),
                       var(--bg) !important;
     }
         
@@ -397,22 +394,34 @@ body,.sticky-container{
         
 @media (-moz-bool-pref:"firefoxgx.main-image") {
     
-#sidebar, .navigation, .sticky-container{
+#sidebar, .navigation, .sticky-container{    
     background-color: transparent !important;
 }
     
 body,.sticky-container{
-    --opaque: color-mix(in srgb, var(--border-contrast-color) 70%, transparent) !important;
-    background-image: linear-gradient(var(--opaque), var(--opaque)),
-                      linear-gradient(var(--opaque), var(--opaque)), 
-                      var(--bg) !important;
+    --opaque: color-mix(in srgb, var(--border-contrast-color), transparent) !important;
+    background-image: var(--bg) !important;
     background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
     background-size: calc(100% + var(--my-vertical-toolbar-width, 0px) + var(--extension-width, 0px)) !important;
     background-attachment: fixed !important;
     background-position-x: right !important;
     background-position-y: var(--background-align-y, 0px) !important;
-    backdrop-filter: var(--brightness-wallpaper) !important;
-    }}
+    }
+    
+body::before/*,.sticky-container::before/**/{
+    
+    --bg: linear-gradient(to bottom, transparent, var(--opaque));
+        position: fixed;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--bg) !important;
+        pointer-events: none;
+    
+    }
+        }
 /* ______________________________________________________________________________ */
 }
 

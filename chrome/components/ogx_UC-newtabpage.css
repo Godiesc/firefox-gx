@@ -1,8 +1,8 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/firefox-gx */
 
-@media (prefers-color-scheme: dark){:root{ scrollbar-color: #38375580 #18173530 !important; }}      /* Scroll bar color */
-@media(prefers-color-scheme: light){:root{ scrollbar-color: #d8d9da #f4f2f7!important; }}           /* Scroll bar color */
+/*@media (prefers-color-scheme: dark){:root{ scrollbar-color: #282736 #10111a !important; }}        /* Scroll bar color */
+/*@media(prefers-color-scheme: light){:root{ scrollbar-color: #d8d9da #f4f2f7 !important; }}        /* Scroll bar color */
 /**{ scrollbar-width: thin !important}*/                                                            /* Smaller Scroll bar */
 
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
@@ -45,7 +45,6 @@
             --contrast-color: white !important;                                                     /* Personal background color for contrast */
             --border-contrast-color: #acacac50 !important;                                          /* Personal border color for contrast */
             --arrowpanel-background : #f9f9f9 !important;                                           /* Background color for 3 dot menu */
-
         }}
     
 /* _______________________________________________________ Wallpapers _______________________________________________________ */
@@ -54,105 +53,105 @@
 
         /* Dark 1 - Fuchsia */
         #dark-sky,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/e94b1e49-c518-40d6-98e3-dffab6cc370d.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/e94b1e49-c518-40d6-98e3-dffab6cc370d.avif);"]{
+        #photographs[style*='e94b1e49-c518-40d6-98e3-dffab6cc370d.avif'],
+        body[style*="e94b1e49-c518-40d6-98e3-dffab6cc370d.avif"]{
             background-image: var(--wallpaper-dark1) !important;
         }
 
         /* Dark 2 - Ultraviolet */
         #dark-mountain,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/af6073d2-cbb2-4e28-b642-3327d14808b2.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/af6073d2-cbb2-4e28-b642-3327d14808b2.avif);"]{
+        #photographs[style*='af6073d2-cbb2-4e28-b642-3327d14808b2.avif'],
+        body[style*="af6073d2-cbb2-4e28-b642-3327d14808b2.avif"]{
             background-image: var(--wallpaper-dark2) !important;
         }
 
         /* Dark 3 - Blue */
         #dark-panda,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/6b8eb3cf-f232-4c7b-a179-afd174555134.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/6b8eb3cf-f232-4c7b-a179-afd174555134.avif);"]{
+        #photographs[style*='6b8eb3cf-f232-4c7b-a179-afd174555134.avif'],
+        body[style*="6b8eb3cf-f232-4c7b-a179-afd174555134.avif"]{
             background-image: var(--wallpaper-dark3) !important;
         }   
 
         /* Dark 4 - Swamp */
         #dark-landscape,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/10e23599-85bc-4660-ae06-7a67befbbcf9.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/10e23599-85bc-4660-ae06-7a67befbbcf9.avif);"]{
+        #photographs[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif'],
+        body[style*="10e23599-85bc-4660-ae06-7a67befbbcf9.avif"]{
             background-image: var(--wallpaper-dark4) !important;
         }
 
         /* Dark 5 - Gray */
         #dark-beach,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/966b18ad-3733-41c4-92f6-c89cdf1381d0.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/966b18ad-3733-41c4-92f6-c89cdf1381d0.avif);"]{
+        #photographs[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif'],
+        body[style*="966b18ad-3733-41c4-92f6-c89cdf1381d0.avif"]{
             background-image: var(--wallpaper-dark5) !important;
         }
 
         /* Light 1 - Fuchsia */
         #light-panda,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif);"]{
+        #photographs[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif'],
+        body[style*="dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif"]{
             background-image: var(--wallpaper-light1) !important;
         }
 
         /* Light 2 - Ultraviolet */
         #light-landscape,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif);"]{
+        #photographs[style*='d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif'],
+        body[style*="d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif"]{
             background-image: var(--wallpaper-light2) !important;
         }
 
         /* Light 3 - BLue */
         #light-mountain,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/5344443f-f427-4029-bc6b-68bc22f83355.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/5344443f-f427-4029-bc6b-68bc22f83355.avif);"]{
+        #photographs[style*='5344443f-f427-4029-bc6b-68bc22f83355.avif'],
+        body[style*="5344443f-f427-4029-bc6b-68bc22f83355.avif"]{
             background-image: var(--wallpaper-light3) !important;
         }
 
         /* Light 4 - Rose */
         #light-sky,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif);"]{
+        #photographs[style*='45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif'],
+        body[style*="45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif"]{
             background-image: var(--wallpaper-light4) !important;
         }
 
         /* Light 5 - Green */
         #light-beach,
-        #photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif");'],
-        body[style*="--newtab-wallpaper-light: url(https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif);"]{
+        #photographs[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif'],
+        body[style*="56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif"]{
             background-image: var(--wallpaper-light5) !important;
         }
     }
     
     /* Accent color for each wallpaper */
     
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/e94b1e49-c518-40d6-98e3-dffab6cc370d.avif");']){
+    :root:has(#photographs[style*='e94b1e49-c518-40d6-98e3-dffab6cc370d.avif"']){
         --general-color: var(--general-color-dark1) !important;    }
 
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/af6073d2-cbb2-4e28-b642-3327d14808b2.avif");']){
+    :root:has(#photographs[style*='af6073d2-cbb2-4e28-b642-3327d14808b2.avif']){
         --general-color: var(--general-color-dark2) !important;    }
     
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/6b8eb3cf-f232-4c7b-a179-afd174555134.avif");']){
+    :root:has(#photographs[style*='6b8eb3cf-f232-4c7b-a179-afd174555134.avif']){
         --general-color: var(--general-color-dark3) !important;    }
 
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/10e23599-85bc-4660-ae06-7a67befbbcf9.avif");']){
+    :root:has(#photographs[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif']){
         --general-color: var(--general-color-dark4) !important;    }
 
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/966b18ad-3733-41c4-92f6-c89cdf1381d0.avif");']){
+    :root:has(#photographs[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif']){
         --general-color: var(--general-color-dark5) !important;    }
 
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif");']){
+    :root:has(#photographs[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif']){
         --general-color: var(--general-color-light1) !important;   }
 
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif");']){
+    :root:has(#photographs[style*='d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif']){
         --general-color: var(--general-color-light2) !important;   }
 
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/5344443f-f427-4029-bc6b-68bc22f83355.avif");']){
+    :root:has(#photographs[style*='5344443f-f427-4029-bc6b-68bc22f83355.avif']){
         --general-color: var(--general-color-light3) !important;   }
 
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif");']){
+    :root:has(#photographs[style*='45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif']){
         --general-color: var(--general-color-light4) !important;   }
 
-    :root:has(#photographs[style='background-image: url("https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/newtab-wallpapers-v2/56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif");']){
+    :root:has(#photographs[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif']){
         --general-color: var(--general-color-light5) !important;   }
     
     /* rearrangement of wallpapers */
@@ -189,12 +188,23 @@
 
     .wallpaper-attribution { display: none !important; }
     
-    /* Wallpaper default brightness and wallpaper para Main-image config */
+    /* Wallpaper default brightness and wallpaper para Main-image config 
     
-    body{ backdrop-filter: var(--brightness-wallpaper) !important; }
+    /* Brighness wallpaper */
+
+    body::before {
+        position: fixed;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: color-mix(in srgb, var(--newtab-background-color), transparent var(--brightness-wallpaper));
+        pointer-events: none;
+    }
 
     @media (-moz-bool-pref:"firefoxgx.main-image") {
-        
+
         body{
             background-image: var(--lwt-main-image, initial) !important;
             background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
@@ -202,30 +212,33 @@
             background-attachment: fixed !important;
             background-position-x: right !important;
             background-position-y: var(--background-align-y, 0px) !important;
-            backdrop-filter: var(--brightness-wallpaper) !important;
+        }
+
+        /* Brighness wallpaper */
+
+        body::before {
+            background-color: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper));
         }
     }
     
 /* _____________________________________________________ Logo & Wordmark ____________________________________________________ */
     
     .logo{
-        background: url("../icons/foxmenu.svg") no-repeat !important;
+        background: url("../icons/foxmenu.svg") no-repeat center !important;
+        background-size: 64px !important;
         -moz-context-properties: fill !important;
         fill: var(--general-color) !important;
-        background-size: cover !important;
-        Opacity: var(--logo-wordmark-visibility) !important;
-        display: var(--logo-wordmark-display) !important;
         transform: scale(0.8) !important;
         }
 
     .wordmark {
-        fill: var(--general-color) !important;
-        Opacity: var(--logo-wordmark-visibility) !important;
-        display: var(--logo-wordmark-display) !important;
+        fill: var(--general-color) !important;        
         }
 
-    .search-wrapper .logo-and-wordmark {
-        margin-bottom: 0px !important;
+    .logo-and-wordmark {
+        Opacity: var(--logo-wordmark-visibility) !important;
+        display: var(--logo-wordmark-display) !important;
+        margin-bottom: 10px !important;
         }
 
     .promo-cta .button {
@@ -240,19 +253,18 @@
 
     @media screen and (min-width: 1000px){
 
-        .wordmark{ 
-            margin-inline-end: 50px !important;  
+        .logo-and-wordmark { 
+            margin-inline: 30px !important;  
         }
         
-        .search-wrapper, .search-inner-wrapper{
+        .search-wrapper {
             display: var(--orientation-display) !important;
-            justify-content: center !important;
         }
         
         .search-inner-wrapper{
             display: var(--searchbar-display) !important;
             height: 52px !important;
-            margin-top: 16px !important;
+            margin-top: 0px !important;
         }
     }
     
@@ -288,35 +300,16 @@
         border-color: var(--general-color) !important;
         }
     
-    /* 3 dot contextual menu */
-
-    .context-menu {
-        background-color: var(--arrowpanel-background) !important; 
-        border-radius: 0px !important;
-        box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
-        border: 1px solid var(--arrowpanel-background) !important;
-        border-image: var(--panel-separator-zap-gradient4) 1 !important;
-        }
-    
-    /* Separator line */
-
-    .context-menu .separator{
-        margin-block: 2px !important;
-        margin-inline: 6px !important;
-        width: -moz-available !important;
-        border-image: var(--panel-separator-zap-gradient4) 1 !important;
-    }
-    
     /* Styles for the 'Save' button */
 
     .actions button:not(.cancel), .actions button:focus:not(.cancel) {
-        color: white !important;  
-        border: transparent !important;
+        color: var(--newtab-wordmark-color) !important;
+        border-color: transparent !important;
         }
     
     .actions button:hover:not(.dismiss) {
         background-color: var(--button-hover-bgcolor) !important; 
-        color: white !important; 
+        color: var(--newtab-wordmark-color) !important; 
         box-shadow:none !important; 
         }
 
@@ -328,10 +321,9 @@
     }
     
     .actions button:is(.cancel):hover {
-        box-shadow:none !important; 
-        background-color: #da3633 !important; 
-        color: #f0f6fc !important; 
-        border-color: #f85149 !important;
+        background-color: #da3633aa !important;
+        color: var(--newtab-wordmark-color) !important;
+        border-color: transparent !important;
     }
 
     /* 'Customize' button */
@@ -345,11 +337,6 @@
     .personalize-button:is(:hover, :active) {
         background-color: transparent !important;
         opacity: 1 !important;
-        fill: white !important;
-    }
-
-    .lightWallpaper .personalize-button:hover{
-        fill: black !important;
     }
 
     /* Colors of the 'Close' button */
@@ -358,13 +345,11 @@
         background-color: var(--newtab-element-secondary-color) !important;
         color: var(--newtab-wordmark-color)  !important;
         border-radius: 4px !important;
-        border-color: transparent !important; 
+        border-color: transparent !important;
     }
     
     .close-button:hover{
-        background-color: var(--button-active-bgcolor) !important;
-        color: white  !important;
-        border-radius: 4px !important;
+        background-color: var(--button-hover-bgcolor) !important;
     }
     
     /* Weather */
@@ -388,35 +373,13 @@
     }
     
 /* _______________________________ Colors of the sliding sidebar used to customize the NewTab _______________________________ */
+       
+    /* Shadow */
     
-    /* Change animation when it appears */ 
-    
-    .customize-menu {
-        height: calc(100% - 12px) !important;
-        right: 6px !important;
-        top: 6px !important;
-        bottom: 6px !important;
-        padding-inline: 0px !important;
-        border-radius: 8px !important;
-        transform: none !important;
-        transition-duration: 0ms !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-    }
-    
-    .customize-menu.customize-animate-enter, .customize-menu.customize-animate-enter-done {
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done {
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    .customize-menu.customize-animate-enter, .customize-menu.customize-animate-enter-done, 
-    .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done {
-        transition: visibility 300ms, opacity 300ms ease !important;
+    .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active,
+    .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done{
+        box-shadow: -1px 0 #50505030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+        transition-duration: 200ms !important;
     }
     
     /* Background */
@@ -479,12 +442,6 @@
         opacity: 1 !important;
     }
     
-    /* Shadow */
-    
-    .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active {
-        box-shadow: 0 0 0 1px #50505050, 0 0 4px 0px var(--contrast-color) !important;
-    }
-    
     /* Separador*/
     
     .home-section .divider { 
@@ -512,25 +469,21 @@
         width: 58% !important;
     }
     
+    /* Font color */
+
+    .search-wrapper input{
+        color: var(--newtab-contextual-text-primary-color) !important;
+        text-shadow: 0px 0px 4px var(--contrast-color) !important;
+    }
+    
     /* Styles for the classic search box */
     
     @media not (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
-
+        
         .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
             box-shadow: none !important;
             outline-color: transparent !important;
-        }
-
-        /* Font color when using light wallpaper */
-        .lightWallpaper :is(.search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"]){
-            color-scheme: light !important;
-            color: #101019 !important;
-        }
-        
-         /* Font color when using dark wallpaper */
-        .darkWallpaper :is(.search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"]){
-            color-scheme: dark !important;
-            color: #eaeaea !important;
+            
         }
 
         .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
@@ -551,7 +504,6 @@
         }
 
         #newtab-search-text[Keepfocus="true"]{
-            color: inherit !important;
             clip-path: polygon(0 0, 200% 0, 200% 84%, 200% 84%, 200% 200%, 0 200%);
             transition-duration: 800ms !important;
         }
@@ -606,26 +558,24 @@
     }
 
 /* _____________________________________________________ Pinned sites ______________________________________________________ */
-    
-    /* Small background of the favICON */
-    .top-site-icon{ background-color: transparent !important; }
 
     /* Pin icon removed */
     .top-site-outer .title span .icon.icon-pin-small { display: none !important; }
 
     /* Label - pinned site */
-    .top-site-outer .title  {
+    :not(.fields-and-preview) .top-site-outer>.top-site-inner>.top-site-button>.title  {
         width: 80px !important;
         font-weight: 500 !important;
         font-size: 14px !important;
         margin-top: -40px !important;
-        margin-inline: 10px !important;
-    }   
-    
-    /* Align 'Pinned sites' with 'Recent Activity' */
-    .collapsible-section{
-            margin-left: -12px !important;
+        margin-inline: 20px 10px !important;
+        text-shadow: 0px 0px 4px var(--contrast-color) !important;
     }
+    
+    /* Fix site label alignment when editing a pinned site */
+    .fields-and-preview .top-site-outer>.top-site-inner>.top-site-button>.title  {
+        margin-inline: 10px 10px !important;
+    }  
 
     /* Pinned Site Colors (Small Background) */
     .top-site-outer .tile {
@@ -641,33 +591,33 @@
         backdrop-filter: var(--personal-blur) !important;
     }
 
-    /* Remove style when on 'hover' over pinned sites (larger background) */    
+    /* Remove style when on 'hover' over pinned sites (larger background) */ 
+    
+    .collapsible-section {
+        padding-block-start: 30px !important;
+    }
+    
+    /* remove unwanted padding of elements */
+    .top-site-outer .top-site-inner > a {
+        padding: 0px !important;
+    }
+    
+    /* size and background color */
     .top-site-outer, .top-site-outer.active{
+        height: 100px !important;
+        border-radius: 0px !important;
         background-color: transparent !important;
     }
     
     /* Styes when on :hover over 'Pinned sites' and 'Recent Activity' */
     .top-site-outer:hover .tile, .card-outer:hover .card{
-        background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)13%, transparent) , rgba(0,255,0,0) 64.71%),
-                    linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
         outline: 1px solid var(--button-hover-bgcolor) !important;
-    }
-    
-    /* Font color on 'hover' when using light wallpapers */
-    .lightWallpaper .top-site-outer:is(:hover, :active, .active) {
-      color-scheme: light;
-    }
-    
-    /* Font color on 'hover' when using dark wallpapers */
-    .darkWallpaper .top-site-outer:is(:hover, :active, .active) {
-      color-scheme: dark;
+        transition: outline 0.2s ease-in-out !important;
     }
     
     /* Styles when clicking on a pinned site and moving the mouse away */
     .top-site-outer:is(:focus-within) .tile, .card-outer:is(.active,:focus-within) .card{
-        background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)18%, transparent) , rgba(0,255,0,0) 64.71%),
-                    linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
-        outline: 1px solid var(--button-hover-bgcolor) !important;
+        outline: 1px solid var(--button-active-bgcolor) !important;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
     }
     
@@ -680,30 +630,13 @@
         backdrop-filter: var(--personal-blur) !important;
         border-radius: 6px !important;
         border: 1px solid #50505030 !important;
+        outline-color: transparent !important;
         outline-offset: -1px !important;
     }
     
     /* Site preview image roundness */
     .card-preview-image-outer { 
         border-radius: 6px 6px 0 0 !important; 
-    }
-    
-    /* Font color when using a light wallpaper */
-    .lightWallpaper :is(
-        .card-host-name,
-        .card-outer:not(.placeholder) .card-title,
-        .card-outer .icon) {
-        color-scheme: light !important;
-        color: #454e54 !important;
-    }
-    
-    /* Font color when using a light wallpaper */
-    .darkWallpaper :is(
-        .card-host-name,
-        .card-outer:not(.placeholder) .card-title,
-        .card-outer .icon) {
-        color-scheme: dark !important;
-        color: #eaeaea !important;
     }
 
     /* Underline on 'hover' */
@@ -717,36 +650,100 @@
         opacity: 0.7 !important;
     }
     
-/* _______________________________________________________ 3 dot icon ______________________________________________________ */
-    
-    /* 3 dot icon pinned sites */    
-    .card-outer .context-menu-button{
-        margin-top: 15px !important;
-        margin-right: 15px !important;
-        background-image: url("../icons/more.svg") !important;
-        border-radius: 3px 6px 3px 6px !important;
-        border-color: #50505030 !important;
-        transition-delay: 0ms !important;
+/* ________________________ Font color when using a light wallpaper ________________________ */
+
+    .lightWallpaper .top-site-outer{
+        --contrast-color: white !important;
     }
     
-    /* 3 dot icon recent activity*/
+    .darkWallpaper .top-site-outer{
+        --contrast-color: black !important;
+    }
+
+    /* Recent Activity text shadow */
+    .ds-highlights .section .section-list .card-outer .card-host-name,
+    .card-outer:not(.placeholder) .card-title {
+        text-shadow: 0px 0px 4px var(--contrast-color) !important;
+    }
+    
+    .lightWallpaper :is(
+    .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
+    .top-site-outer:is(:hover, :active, .active) .title span ) {                      /* 'Activity' label */
+        color: #15141a !important;
+        --contrast-color: white !important;
+    }
+    
+    .darkWallpaper :is(
+    .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
+    .top-site-outer:is(:hover, :active, .active) .title span ) {                      /* 'Activity' label */
+        color: #eaeaea !important;
+        --contrast-color: black !important;
+    }
+    
+    /* Scheme light */                    
+    .lightWallpaper :is(
+    .weatherCard, .personalize-button,                                                                  /* weather - personalize-button */
+    .search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"] ) {       /* Search-box */
+        color-scheme: light !important;
+        --contrast-color: white !important;
+    }
+    
+    /* scheme dark */
+    .darkWallpaper :is(
+    .weatherCard, .personalize-button,                                                                  /* weather - personalize-button */
+    .search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"] ) {       /* Search-box */
+        color-scheme: dark !important;
+        --contrast-color: black !important;
+    }
+    
+/* ___________________________________________ 3 dot contextual menu ___________________________________________ */
+
+    /* 3 dot contextual menu */
+
+    .context-menu {
+        background-color: var(--arrowpanel-background) !important; 
+        border-radius: 0px !important;
+        top: 4px !important;
+        margin-inline-start: 0px !important;
+        box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
+        border: 1px solid var(--arrowpanel-background) !important;
+        border-image: var(--panel-separator-zap-gradient4) 1 !important;
+    }
+
+    /* Separator line */
+
+    .context-menu .separator{
+        margin-block: 2px !important;
+        margin-inline: 6px !important;
+        width: -moz-available !important;
+        border-image: var(--panel-separator-zap-gradient4) 1 !important;
+    }
+    
+    /* 3 dot icon pinned sites*/
     .top-site-outer .context-menu-button {
         background-image: url("../icons/more.svg") !important;
         background-color: transparent !important;
-        border-radius: 2px 4px 2px 8px !important;
-        inset-inline-end: 6px !important;
-        margin-block-start: 20px !important;
-        top: 2px !important;
+        border-radius: 2px 4px !important;
+        margin-inline-end: 10px !important;
+        margin-block-start: 23px !important;
+        margin-inline-start: -10px !important;
         transition: opacity 200ms;
+    }
+    
+    /* 3 dot icon recent activity */    
+    .card-outer .context-menu-button{
+        background-image: url("../icons/more.svg") !important;
+        border-radius: 50% !important;
+        border-color: #50505030 !important;
+        transition-duration: 0.2s !important;
     }
     
     /*  3 dot icon on 'hover' and 'click' */
     .card-outer .context-menu-button:is(:hover,[open], :active),  
     .card-outer.active .context-menu-button,
     .top-site-outer .context-menu-button:is(:hover, :focus) {
-        background-color: var(--contrast-color) !important;
+        background-color: var(--button-bgcolor) !important;
         transition: opacity 200ms;
-        fill: var(--general-color) !important;
     }
     
 /* _________________________________________________________________________________________________________________________ */
@@ -850,11 +847,12 @@
         --fxview-element-background-active: var(--button-active-bgcolor) !important;    /* Context menu: color on 'clic' over items */
         --fxview-border: var(--fxview-primary-action-background) !important;
         --fxview-background-color: transparent !important;
-        --opaque: color-mix(in srgb, var(--in-content-page-background) 70%, transparent) !important;
+        --opaque: color-mix(in srgb, var(--in-content-page-background) 50%, transparent) !important;
     }
     
     @media (prefers-color-scheme: dark) {
         :host, :root {
+            --border-contrast-color: black;
             --newtab-background-color: #14141d !important;
             --newtab-background-color-secondary: rgba(52, 55, 69, 0.7) !important;
             --newtab-primary-action-background: var(--general-color) !important;
@@ -867,6 +865,7 @@
     
     @media (prefers-color-scheme: light){
         :root{
+            --border-contrast-color: white;
             --newtab-background-color: #efeff5 !important;
             --newtab-primary-action-background: var(--general-color) !important;
             --in-content-primary-button-text-color: white !important;
@@ -898,22 +897,41 @@
         transition-duration: 0ms !important;
     }
     
-    .search-container input:focus{
-      &:focus-visible {
-        border: none !important;
-    }}
+    .search-container input:is(:focus, :focus-visible){
+        &:focus-visible {
+            border-color: transparent !important;
+            box-shadow: 0 0 0 2px var(--general-color) !important;
+            outline: none !important;
+        }}
     
 /* Compatibility for aligning wallpaper when used with 'Main-image' config */
     
     @media (-moz-bool-pref:"firefoxgx.main-image") {
 
         body,.sticky-container{
+            --opaque: color-mix(in srgb, var(--border-contrast-color), transparent) !important;
+            --bg: linear-gradient(var(--opaque), var(--opaque)),
+                                  var(--lwt-main-image);
+            background-image: var(--bg) !important;
             background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
             background-size: calc(100% + var(--my-vertical-toolbar-width, 0px) + var(--extension-width, 0px)) !important;
             background-attachment: fixed !important;
             background-position-x: right !important;
             background-position-y: var(--background-align-y, 0px) !important;
             backdrop-filter: none !important;
+        }
+        
+        body::before,.sticky-container::before{
+            --bg: linear-gradient(to bottom, transparent, var(--opaque));
+            position: fixed;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--bg) !important;
+            pointer-events: none;
+            z-index: -1 !important;
         }
     }
 }

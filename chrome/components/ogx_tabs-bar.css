@@ -1,25 +1,13 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Selected tab line color */
-
-#tabbrowser-tabs {
-    --tab-selected-outline-color: transparent !important;
-}
-
-/* Animation color on 'page load' */
-
-#tabbrowser-tabs {
-    --tab-loading-fill: var(--general-color) !important;
-}
-
 /* Top space in non-maximized window */
 
-:root[tabsintitlebar][sizemode="normal"] {
+:root:is([tabsintitlebar][sizemode="normal"]) {
     --windowed-top-padding: 8px;
 }
 
-:root[tabsintitlebar][sizemode="normal"] #TabsToolbar {
+:root:is([tabsintitlebar][sizemode="normal"]):has(#toolbar-menubar[autohide="true"]) #TabsToolbar {
     padding-block-start: var(--windowed-top-padding, 0px) !important;
 }
 
@@ -31,7 +19,7 @@
 
 /* Necessary so that the first 'selected' tab does not remain under 'left-sidebar' */
 
-.tabbrowser-tab[selected] { z-index: 1 !important; }
+.tabbrowser-tab[selected] { z-index: 2 !important; }
 
 #titlebar{
   will-change: unset !important;
@@ -58,7 +46,7 @@
     border-radius: 0px 2px 0px 0px !important;
 }
 
-.tabbrowser-tab[selected] > .tab-stack::before{
+.tabbrowser-tab[visuallyselected] > .tab-stack::before{
     content: "";
     display: flex;
     min-height: inherit;
@@ -86,13 +74,13 @@
 
 /* Tab Label Vertical Alignment */
 
-.tab-content { margin-bottom: 1px !important; }
+:root:is([tabsintitlebar]):not([sizemode="normal"]) .tab-content { margin-block-end: 1px !important; }
 
 /* ________________________________________________________________________________________________________________________________________ */
 
 /* Gradient under tabs */
 
-#nav-bar:not([tabs-hidden="true"]) { box-shadow: none !important; border-top: none !important; }
+#nav-bar:not([tabs-hidden="true"]) { box-shadow: none !important; border-top-width: 0px !important; }
 
 #TabsToolbar::before{
     content: "" !important; position: absolute !important; align-self: end !important;
@@ -215,7 +203,15 @@
 #titlebar{ appearance: none !important; }
 
 .titlebar-buttonbox-container, .tab-close-button, .tab-label-container{
-  max-height: var(--tab-height-personal) !important;
+  max-height: calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px)) !important;
+}
+
+/* Bug fix: tab-label-container makes tabs larger than desired in [sizemode="normal"] */
+
+.tab-label-container {
+  #tabbrowser-tabs:not([secondarytext-unsupported]) & {
+    height: 2.6em !important;
+  }
 }
 
 /* Menu-bar */
@@ -230,11 +226,6 @@
     margin-block-end: 1px !important;
     margin-inline: 1px 5px !important;
 }
-
-@media (-moz-platform: linux) {
-#main-menubar>menu>.menubar-text{
-    margin-inline: -5px !important;
-    }}
 
 #main-menubar>menu:is(:hover,[open])>.menubar-text {
     background-color: var(--button-active-bgcolor) !important;
@@ -291,6 +282,19 @@ toolbar:is(#TabsToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutto
     border: 1px solid transparent !important;
     border-top-style: dotted !important;
     border-top-color: var(--button-hover-bgcolor) !important;
+}
+
+/* _______________________ Configuration for Linux _______________________ */
+
+@media (-moz-platform: linux) {
+    
+    /* Elimina padding indeseado de la barra de menú */
+    toolbar { &[type="menubar"] { padding: 0px !important; }}
+
+    /* less spaced menu items */
+    #main-menubar>menu>.menubar-text{
+        margin-inline: -5px !important;
+    }
 }
 
 /* ------------------------ config to MacOS ---------------------------

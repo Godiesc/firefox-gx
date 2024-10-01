@@ -129,6 +129,16 @@ toolbar .text-link:hover, panel .text-link:hover {
     color: var(--general-color) !important;
 }
 
+/* Spliter style on Linux */
+
+@media (-moz-platform: linux) {
+    .sidebar-splitter {
+        background-color: var(--sidebar-border-color) !important;
+        width: 2px !important;
+        border-color: var(--sidebar-border-color) !important;
+    }
+}
+
 /* Remove limit when resizing 'Firefox sidebar' */
 
 #sidebar-box {

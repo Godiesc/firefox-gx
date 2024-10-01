@@ -11,7 +11,11 @@
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /* frame_inactive */
   
   --lwt-selected-tab-background-color: var(--tab-selected-bgcolor) !important;          /* tab_selected */
+  --tab-selected-outline-color: transparent !important;                                 /* Selected tab border color */
+  --tab-loading-fill: var(--general-color) !important;                                  /* Dot color when page loads */
   
+  --tabs-navbar-separator-color: transparent !important;                                /* Separator between tabs and toolbar */
+
   --toolbar-bgcolor: var(--lwt-selected-tab-background-color) !important;               /* toolbar */
   
   /*--toolbar-color: #8e8085 !important;                                                /* Bookmarks label color */
@@ -91,6 +95,7 @@
   --color-accent-primary: var(--button-active-bgcolor) !important;                      /* Radiobutton */
   --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton 'hover' */
   --color-accent-primary-active: var(--general-color) !important;                       /* Radiobutton 'active' */
+  
 }
 
 /* _________________________________________________________________ Dark theme _________________________________________________________________ */
@@ -251,28 +256,89 @@
 
   }}
 
-/* Sizes for other densities */
+/* ________________________________________ Colors when the theme selected is 'System theme - automatic' _______________________________________ */
+
+@media not (prefers-contrast) {
+  :root:not([lwtheme]) {
+    --toolbox-non-lwt-bgcolor: light-dark(var(--lwt-frame), var(--lwt-frame)) !important;                 /* Frame */
+    --toolbox-non-lwt-bgcolor-inactive: light-dark(var(--lwt-frame), var(--lwt-frame)) !important;        /* Frame inactive */
+    --toolbar-bgcolor: light-dark(#f4f2f7, #131019) !important;                                           /* Toolbar */
+    --arrowpanel-background: light-dark(#f4f2f7, #1c1726) !important;                                     /* Popup */
+    --toolbar-field-focus-background-color: light-dark(#f4f2f7, #251f33) !important;                      /* Urlbar focus */
+    --sidebar-background-color: var(--toolbar-bgcolor) !important;                                        /* Sidebar content background */
+    --toolbarbutton-icon-fill: light-dark(#101019, #bfb6d2) !important;                                   /* Icons */
+    --toolbarbutton-icon-fill-attention: light-dark(#fa1e4e, #fa1e4e) !important;                         /* Accent color */
+  }
+  
+  ::selection {
+    background: var(--selected-text-background) !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* _____________________ Set height of menu-bar, Bookmarks-bar */
+
+/* Set menu-bar height */
+
+:root:has(#toolbar-menubar[autohide="false"]) {
+  --menubar-height-personal: 30px !important;
+}
+
+/* Set bookmarks-bar height */
+
+:root:has(#PersonalToolbar[collapsed="false"]) {
+  --bookmarksbar-height-personal: 28px !important;
+}
+
+#PersonalToolbar {
+  max-height: var(--bookmarksbar-height-personal) !important;
+}
+
+/* _____________________ Sizes for other densities _____________________ */
 
 /* Compact */
 
 :root[uidensity="compact"] {
-    --tab-height-personal: 26px !important;
-    --toolbar-height-personal: 32px !important;
+
+  --tab-height-personal: 26px !important;
+  --toolbar-height-personal: 32px !important;
+  --toolbarbutton-inner-padding: 4px !important;                                        /* Smaller toolbar buttons */
+  --toolbarbutton-outer-padding: 2px !important;                                        /* More spaced buttons */
+
+  & .tab-label-container[pinned] {
+    display: none !important;
+  }
+
+  & .tab-content[pinned] {
+    padding-inline-start: 9px !important;
+  }
+  
+  &:root:has(#PersonalToolbar[collapsed="false"]) {
+  --bookmarksbar-height-personal: 22px !important;
+  }
 }
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
-  :root[uidensity="compact"]{
-  --my-vertical-toolbar-width: 35px !important;
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") {
+  :root[uidensity="compact"] {
+    --my-vertical-toolbar-width: 35px !important;
   }}
 
 /* Touch */
 
 :root[uidensity="touch"] {
-    --tab-height-personal: 36px !important;
-    --toolbar-height-personal: 42px !important;
+  --tab-height-personal: 36px !important;
+  --toolbar-height-personal: 42px !important;
+  --toolbarbutton-inner-padding: 8px !important;                                        /* Smaller toolbar buttons */
+  --toolbarbutton-outer-padding: 4px !important;                                        /* More spaced buttons */
+  
+  &:root:has(#PersonalToolbar[collapsed="false"]) {
+    --bookmarksbar-height-personal: 34px !important;
+  }
 }
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") {
   :root[uidensity="touch"]{
-  --my-vertical-toolbar-width: 47px !important;
+    --my-vertical-toolbar-width: 47px !important;
   }}

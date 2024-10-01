@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"firefoxgx.oneline") {
+@media (-moz-bool-pref:"firefoxgx.oneline") and (not (-moz-bool-pref:"sidebar.verticalTabs")) {
 
 /* ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ IMPORTANT: To only apply one-line config to screen bigger than some px !!!!!!!!!!!!!!!!!!!!!!!!!! */
 
@@ -415,14 +415,12 @@
     --uc-window-control-width: 149px;
   }}
   
-/* Move "back" button further to the right */
-  
-@media (-moz-platform: windows), (-moz-platform: linux) { 
-:root:not([chromehidden~="toolbar"]) #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child,
-:root:is([customizing]) toolbarpaletteitem[place="toolbar"]:first-child{
-    margin-left: var(--uc-vertical-toolbar-width,0) !important;
-}}
-  
+/* Move nav-bar to the right */
+
+:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #nav-bar {
+  padding-inline-start: var(--my-vertical-toolbar-width,0) !important;
+}
+
 /* Modify these to change relative widths or default height */
   
 #navigator-toolbox{
@@ -433,7 +431,7 @@
 /* New variables for new <menu> button size and url size */
   
 :root{
-    --my-vertical-toolbar-width: 35px ;
+    --my-vertical-toolbar-width: 35px ;/**/
     --uc-vertical-toolbar-width: calc(var(--my-vertical-toolbar-width) - 1px);
     --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
     --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
@@ -556,7 +554,7 @@
 }
   
 #PersonalToolbar {
-    padding-block: 2px 2px !important;
+    padding-block: 1px !important;
     background-color: var(--lwt-selected-tab-background-color) !important;
 }
   
@@ -857,7 +855,7 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
   
 /* _______________________________________________ Compatibility for 'left-sidebar' configuration _______________________________________________ */
   
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") or ((-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.verticalTabs"))){
   
   :root{ 
     --my-vertical-toolbar-width: 41px !important;
@@ -894,6 +892,24 @@ toolbar:is(#nav-bar) .toolbarbutton-1{
   }}
   
 /* ____________________________________________________________________________________________________________________________________________ */
+  
+  @media (not (-moz-bool-pref:"firefoxgx.left-sidebar")) and (-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.verticalTabs")) and (-moz-bool-pref:"sidebar.position_start") {
+    
+    :root:not([sizemode="fullscreen"]):has(sidebar-main:not([expanded])) {
+
+        & #sidebar-main {
+      --padding-top-left-sidebar: 50px !important;
+      --padding-bottom-left-sidebar: 84px !important;
+      margin-top: calc( -1px - var(--toolbar-height-personal) - var(--windowed-top-padding, 0px)) !important;
+      border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal) * 1 + var(--windowed-top-padding, 0px) + 1px), 
+                      var(--general-color) calc(var(--tab-height-personal) * 1 + var(--windowed-top-padding, 0px) + 1px), 
+                      var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
+      }}
+    
+    :root:has(#PersonalToolbar[collapsed="false"]) #sidebar-main {
+      margin-top: calc( -29px - var(--toolbar-height-personal) - var(--windowed-top-padding, 0px)) !important;
+    }
+  }
   
   }
 }

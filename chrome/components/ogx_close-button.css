@@ -1,12 +1,6 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"sidebar.verticalTabs"){
-    .tabbrowser-tab:not([pinned]) .tab-close-button{
-        padding: 6px !important;
-    }
-}
-
 :is(#TabsToolbar) .close-icon {
     width: 17px !important;
     height: 17px !important;
@@ -31,4 +25,14 @@
 .tab-close-button:hover {
     background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
     fill: var(--general-color) !important;
+}
+
+@media (-moz-bool-pref:"sidebar.verticalTabs"){
+    .tabbrowser-tab:not([pinned]) .tab-close-button{
+        height: 20px !important;
+        width:  20px !important;
+        padding: 5px !important;
+        margin-inline-end: -4px !important;
+        border-radius: 2px !important;
+    }
 }

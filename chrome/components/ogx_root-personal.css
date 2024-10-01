@@ -33,12 +33,12 @@
 @media (prefers-color-scheme: dark){ :root{
   --lwt-main-image:  url("../newtab/wallpaper-dark1.png") !important;                           /* 'about:' pages wallpaper - dark theme */
   --lwt-private-image:  url("../newtab/private-dark.png") !important;                           /* new-tab private-page image - dark theme */
-  --brightness-wallpaper: brightness(99%);                                                      /* 99% -> default ; 51% -> to <<main-image>> config */ }}
+  --brightness-wallpaper: 100%;                                                                 /* 100% -> default */ }}
   
 @media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../newtab/wallpaper-light1.png") !important;                          /* 'about:' pages wallpaper - white theme*/
-  --lwt-private-image:  url("../newtab/private-light.png") !important;                          /* new-tab private-page image - white theme*/
-  --brightness-wallpaper: brightness(99%);                                                      /* 99% -> default and Main-image config */ }}
+  --lwt-main-image:  url("../newtab/wallpaper-light1.png") !important;                          /* 'about:' pages wallpaper - light theme*/
+  --lwt-private-image:  url("../newtab/private-light.png") !important;                          /* new-tab private-page image - light theme*/
+  --brightness-wallpaper: 100%;                                                                 /* 100% -> default */ }}
 
 :root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }            /* Accent color private mode */
   
@@ -46,15 +46,15 @@
   
   --tab-height-personal: 30px ;                                                                 /* Tab height */
   --toolbar-height-personal: 38px ;                                                             /* Toolbar height */
-  --my-vertical-tabs-width: 51px ;                                                              /* Width of default vertical tabs */
+
   --menu-label: "Menu" ;                                                                        /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                                    /* Horizontal size of the hamburger menu button */
   
-  --logo-wordmark-visibility: 1 ;                                                               /* :1 visible, :0 invisible ; Logo-wordmark*/
   --logo-wordmark-display: flex ;                                                               /* :none ->remove , :flex ->show;  Logo-wordmark*/
-  --searchbar-on-off: 1 ;                                                                       /* :1 visible, :0 invisible ; searchbar*/
   --searchbar-display: flex ;                                                                   /* :none ->remove , :flex ->show; searchbar*/
-  --orientation-display: block ;                                                                /* :block -> vertical , :flex -> horizontal ; Logo-wordmark y searchbar*/
+  --orientation-display: block ;                                                                /* :block -> vertical , :flex -> horizontal ;
+                                                                                                   :none -> delete Logo-wordmark & searchbar*/
+  
   
   --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;                  /* Background color of pinned sites and search bar*/
   --newtab-pinnedsites-position-top: start ;                                                    /* Pinned sites position -> :start ; :center ; :end */
@@ -65,7 +65,7 @@
 
 }
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") {
   :root{
   --my-vertical-toolbar-width: 41px ;                                                           /* 'left-sidebar' width */
   }}
@@ -76,11 +76,11 @@
   
   @media (prefers-color-scheme: dark){ :root{
     --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                         /* new-tab page image - dark team */
-    --brightness-wallpaper: brightness(51%);                                                    /* 100% -> default ; 51% -> to <<main-image>> config */ }}
+    --brightness-wallpaper: 50%;                                                                /* 100% -> default ; 50% -> to <<main-image>> config */ }}
   
   @media (prefers-color-scheme: light){ :root{
     --lwt-main-image:  url("../newtab/main-image-light.png") !important;                        /* new-tab page image - light theme*/
-    --brightness-wallpaper: brightness(100%);                                                   /* 100% -> default and Main-image config */ }}
+    --brightness-wallpaper: 100%;                                                               /* 100% -> default and Main-image config */ }}
   
   :root{  
   --wallpaper-size: auto auto;                                                                  /* cover-> default ; auto auto -> to <<main-image>> config */

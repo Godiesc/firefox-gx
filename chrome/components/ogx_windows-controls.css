@@ -60,7 +60,7 @@
     
     /* Larger buttons (min-max-close) on non-maximized windows */
     
-    :root[tabsintitlebar][sizemode="normal"] .titlebar-buttonbox:not(#menubar-items + spacer +.titlebar-buttonbox-container .titlebar-buttonbox) {
+    :root:is([tabsintitlebar][sizemode="normal"]):has(#toolbar-menubar[autohide="true"]) .titlebar-buttonbox {
         height: calc(var(--tab-height-personal) + var(--windowed-top-padding)) !important;
         margin-top: calc(0px - var(--windowed-top-padding)) !important;
     }
