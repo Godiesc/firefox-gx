@@ -417,8 +417,8 @@
   
 /* Move nav-bar to the right */
 
-:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #nav-bar {
-  padding-inline-start: var(--my-vertical-toolbar-width,0) !important;
+:root:not([chromehidden~="toolbar"]) #nav-bar {
+  margin-inline-start: var(--my-vertical-toolbar-width,0) !important;
 }
 
 /* Modify these to change relative widths or default height */
