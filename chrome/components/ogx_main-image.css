@@ -16,7 +16,7 @@
             transparent 90%, color-mix(in srgb, var(--lwt-tab-text)50%, var(--general-color))) !important;             /* button_background_hover */
          --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
          --lwt-sidebar-background-color: #101019 !important;                                                          /* Sidebar-background */
-         --chrome-content-separator-color: none !important                                                            /* toolbar_bottom_separator */
+         --chrome-content-separator-color: var(--toolbar-bgcolor) !important                                                            /* toolbar_bottom_separator */
       }}
 
    @media (prefers-color-scheme: light){
@@ -32,7 +32,7 @@
             transparent 90%, color-mix(in srgb, var(--lwt-tab-text)50%, var(--general-color))) !important;             /* button_background_hover */
          --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
          --lwt-sidebar-background-color: #f9f9f9 !important;                                                          /* Sidebar-background */
-         --chrome-content-separator-color: none !important;                                                           /* toolbar_bottom_separator */
+         --chrome-content-separator-color: var(--toolbar-bgcolor) !important;                                                           /* toolbar_bottom_separator */
       }}
 
    @media (prefers-color-scheme: dark){

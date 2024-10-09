@@ -74,7 +74,8 @@
 
 /* Tab Label Vertical Alignment */
 
-:root:is([tabsintitlebar]):not([sizemode="normal"]) .tab-content { margin-block-end: 1px !important; }
+:root:is([tabsintitlebar]):not([sizemode="normal"]) #tabbrowser-arrowscrollbox:not([orient="vertical"]) .tab-content { margin-block-end: 1px !important; }
+#tabbrowser-arrowscrollbox:not([orient="vertical"]) .tab-content:not([pinned]) { padding-inline: 7px !important; }
 
 /* ________________________________________________________________________________________________________________________________________ */
 
@@ -95,7 +96,7 @@
 
 /* Non-selected tab :hover background-color */
 
-@media not (-moz-bool-pref:"firefoxgx.tab-shapes") {
+@media (not (-moz-bool-pref:"firefoxgx.tab-shapes")) and (not (-moz-bool-pref:"sidebar.verticalTabs")) {
 
     .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
         background-color: transparent !important;
@@ -135,7 +136,7 @@
 
 /* Margin between tabs */
 
-.tabbrowser-tab {
+#tabbrowser-arrowscrollbox:not([orient="vertical"]) .tabbrowser-tab {
     padding-inline: 0px 2px !important;
 }
 
@@ -194,8 +195,11 @@
 /* Size and color of the 'dot' when an tab needs attention */
 
 .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
-    background-image: radial-gradient(circle, var(--general-color), var(--general-color) 2px, transparent 2px) !important;
-    background-position: center top calc(2px + var(--tabs-navbar-shadow-size)) !important;
+    background-position: center calc(2px + var(--tabs-navbar-shadow-size)) !important;
+}
+
+#vertical-pinned-tabs-container .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+    background-position: center bottom !important;
 }
 
 /* Code to tabs-bar reach lower height that 30px */

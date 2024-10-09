@@ -78,6 +78,7 @@ One button */
   padding-inline: var(--uc-window-drag-space-pre,0px) solid transparent !important;/**/
   /*border-inline-style: solid !important;/**/
   /*border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));/**/
+  margin-inline-start: 0px !important;/* !My edit - remove unganted margin from ogx_left-sidebar */
   /* !My edit -replace for padding */
   padding-inline-start: calc(var(--my-vertical-toolbar-width,0px) + var(--uc-window-drag-space-pre, 0px)) !important;
   padding-inline-end: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) !important;
@@ -130,7 +131,7 @@ One button */
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"]{
   min-height: unset !important;
   height: var(--uc-toolbar-height,0px) !important;
-  position: relative;
+  /*position: relative; /* nav-bar was set to relative too and cause problems */
 }
 
 #toolbar-menubar[autohide="false"]{
@@ -245,16 +246,6 @@ One button */
 
     #urlbar-zoom-button{
         order: -1 !important;
-    }
-
-    /* _______ toolbar_bottom_separator when not using 'Firefox vertical tabs' */
-
-    #navigator-toolbox{
-        border-bottom-color: var(--toolbarbutton-hover-personal) !important;
-    }
-
-    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #navigator-toolbox{
-        border-bottom-color: color-mix(in srgb, var(--lwt-tab-text) 14%, var(--contrast-color)) !important;
     }
 
     /* _______ Border around web content when using 'sidebar.verticalTabs' */
@@ -473,12 +464,12 @@ One button */
         height: 100%;
     }
 
-    #main-window:not([inFullscreen]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
-        margin-left: var(--positionX1);
+    #main-window:not([inFullscreen]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #tabbrowser-tabbox {
+        margin-left: var(--positionX1) !important;
     }
 
-    #main-window[inFullscreen]:not([inDOMFullscreen]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
-        margin-left: var(--fullscreen-sidebar-width);
+    #main-window[inFullscreen]:not([inDOMFullscreen]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #tabbrowser-tabbox {
+        margin-left: var(--fullscreen-sidebar-width) !important;
     }
 
     #main-window[inFullscreen] #sidebar {
@@ -498,5 +489,18 @@ One button */
     [sidebarcommand*="tabcenter"] #sidebar-switcher-target,
     [sidebarcommand*="tabcenter"] #sidebar-close {
         filter: invert(100%);
+    }
+}
+
+/* __________________________ toolbar_bottom_separator when not using 'Firefox vertical tabs' */
+
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not (-moz-bool-pref:"sidebar.verticalTabs")){
+
+    #navigator-toolbox{
+        border-bottom-color: color-mix(in srgb, var(--toolbar-bgcolor) 90%, var(--lwt-tab-text)) !important;
+    }
+
+    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #navigator-toolbox{
+        border-bottom-color: color-mix(in srgb, var(--lwt-tab-text) 14%, var(--contrast-color)) !important;
     }
 }

@@ -91,6 +91,7 @@
   --link-color-visited: var(--purple);
   
     accent-color: var(--general-color) !important;
+  --attention-dot-color: var(--general-color) !important;
   
   --color-accent-primary: var(--button-active-bgcolor) !important;                      /* Radiobutton */
   --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton 'hover' */
@@ -306,14 +307,6 @@
   --toolbar-height-personal: 32px !important;
   --toolbarbutton-inner-padding: 4px !important;                                        /* Smaller toolbar buttons */
   --toolbarbutton-outer-padding: 2px !important;                                        /* More spaced buttons */
-
-  & .tab-label-container[pinned] {
-    display: none !important;
-  }
-
-  & .tab-content[pinned] {
-    padding-inline-start: 9px !important;
-  }
   
   &:root:has(#PersonalToolbar[collapsed="false"]) {
   --bookmarksbar-height-personal: 22px !important;

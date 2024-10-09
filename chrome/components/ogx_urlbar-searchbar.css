@@ -82,7 +82,7 @@ findbar {
 
 /* 'Go' button */
 
-.urlbar-go-button, .search-go-button {
+.urlbar-go-button, .search-go-button, .urlbar-revert-button {
     width: calc(var(--toolbar-height-personal) - 14px) !important;
     height: calc(var(--toolbar-height-personal) - 14px) !important;
 }
