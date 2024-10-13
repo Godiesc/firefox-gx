@@ -439,7 +439,6 @@ findbar {
 
 #tracking-protection-icon {
     margin-inline-start: 1px !important;
-    margin-block-start: 1px !important;
 }
 
 #tracking-protection-icon-container {
@@ -452,7 +451,7 @@ findbar {
     width: 21px !important;
     height: 19px !important;
     margin-inline: 3px 3px !important;
-    padding: 3px !important;
+    padding: 2px 3px !important;
     color: var(--toolbarbutton-icon-fill) !important;
 }
 
@@ -460,9 +459,16 @@ findbar {
     width: 15px !important;
     height: 15px !important;
 }
-    /* Container icon */
+
+/* Container icon */
 #userContext-icons{
-    margin-top: 4px !important;
+    height: 18px !important;
+    width: 18px !important;
+}
+
+/* Container label */
+#userContext-label {
+    display: none !important;
 }
 
 /* Translate button */

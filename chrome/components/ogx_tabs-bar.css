@@ -75,7 +75,7 @@
 /* Tab Label Vertical Alignment */
 
 :root:is([tabsintitlebar]):not([sizemode="normal"]) #tabbrowser-arrowscrollbox:not([orient="vertical"]) .tab-content { margin-block-end: 1px !important; }
-#tabbrowser-arrowscrollbox:not([orient="vertical"]) .tab-content:not([pinned]) { padding-inline: 7px !important; }
+#tabbrowser-arrowscrollbox:not([orient="vertical"]) .tab-content:not([pinned]) { --tab-inline-padding: 8px !important; }
 
 /* ________________________________________________________________________________________________________________________________________ */
 

@@ -1,45 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/firefox-gx */
-
-/* Size and position of the container line */
-
-.tab-context-line {
-    order: 2 !important;
-    width: 14px !important;
-    height: 2px !important;
-    margin-inline: 7px !important;
-    margin-bottom: 3px !important;
-    box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
-}
-
-/* In pinned tab */
-
-tab:is([pinned]) .tab-context-line {
-    margin-inline-start: 10px !important;
-}
-
-/* _____________ Tab container line for vertical tabs _____________ */    
-
-#tabbrowser-tabs[orient="vertical"] .tab-context-line {
-    order: 1 !important;
-    width: 2px !important;
-    height: calc(var(--tab-min-height) - 10px) !important;
-    margin-inline-start: 2px !important;
-    margin-block-end: 5px !important;
-}
-
-/* Move the tab label to make gap for the sound icon and give it a slight animation */
-
-.tab-throbber, .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay, .tab-icon-overlay {
-  #tabbrowser-tabs:is([orient="horizontal"], [orient="vertical"][expanded]) &:not([pinned]) {
-    transition: margin-inline-end 200ms ease-in-out !important;
-    }}
-
-/* Remove container label in URL bar, keeping the icon */
-
-#userContext-label {
-    display: none !important;
-}
+   https://github.com/Godiesc/opera-gx */
 
 /* Default contenedor color */
 
@@ -58,4 +18,74 @@ tab:is([pinned]) .tab-context-line {
 .identity-color-red {
     --identity-tab-color: #ff2940 !important;
     --identity-icon-color: #ff2940 !important;
+}
+
+/* _____________________________________________ Default container style _____________________________________________ */
+
+@media (not (-moz-bool-pref:"firefoxgx.classic-sound-icon")) {
+
+    /* Size and position of the container line */
+
+    .tab-context-line {
+        order: 2 !important;
+        width: 14px !important;
+        height: 2px !important;
+        margin-inline: 8px !important;
+        margin-bottom: 3px !important;
+        box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
+    }
+
+    /* In pinned tab */
+
+    tab:is([pinned]) .tab-context-line {
+        margin-inline-start: 10px !important;
+    }
+
+    /* _____________ Tab container line for vertical tabs */    
+
+    #tabbrowser-tabs[orient="vertical"] .tab-context-line {
+        bottom: 0 !important;
+        width: 2px !important;
+        height: calc(var(--tab-min-height) - 14px) !important;
+        margin-inline-start: 2px !important;
+        margin-block-end: 7px !important;
+    }
+}
+
+/* _____________________________________________ COntainer line when using classic sound icon _____________________________________________ */
+
+@media ((not (-moz-bool-pref:"sidebar.verticalTabs")) or (not (-moz-bool-pref:"firefoxgx.tab-shapes"))) and (-moz-bool-pref:"firefoxgx.classic-sound-icon") {
+    
+    /* Container line in pinned tabs */
+    
+    .tabbrowser-tab .tab-context-line {
+        position: absolute !important; /* Bug fix when using some tab-shapes */
+        bottom: 0 !important;
+        width: 2px !important;
+        min-height: 10px !important;
+        margin-inline-start: 2px !important;
+        margin-block-end: calc(var(--tab-min-height)/2 - 4px) !important;
+    }
+    
+    .tabbrowser-tab[selected] .tab-context-line {
+        min-height: 16px !important;
+        margin-block-end: calc(var(--tab-min-height)/2 - 7px) !important;
+        box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
+        transition: min-height 200ms ease, margin-block 200ms ease !important;
+    }
+    
+    /* Tab label of the same color as the container */
+    
+    .tab-content .tab-label{color: var(--identity-icon-color) !important;}
+    
+    /* _____________ Tab container line for vertical tabs */    
+
+    #tabbrowser-tabs[orient="vertical"] .tab-context-line {
+        position: absolute !important;
+        bottom: 0 !important;
+        width: 2px !important;
+        height: calc(var(--tab-min-height) - 14px) !important;
+        margin-inline-start: 2px !important;
+        margin-block-end: 8px !important;
+    }
 }

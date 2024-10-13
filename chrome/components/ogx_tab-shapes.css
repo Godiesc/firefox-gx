@@ -57,28 +57,75 @@
 
 /* _______________________________________ overwriting - ogx_containers.css _______________________________________ */
   
-.tab-context-line {
-    width: 18px !important;
-    margin-inline-start: var(--uc-margin-left-newtab, 6px) !important;
-    box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
-    transition-duration: 100ms !important;
-    clip-path: none !important;
-}
+  @media (not (-moz-bool-pref:"firefoxgx.classic-sound-icon")) {
+
+    .tab-context-line {
+      width: 18px !important;
+      margin-inline-start: var(--uc-margin-left-newtab, 6px) !important;
+      box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
+      transition-duration: 100ms !important;
+      clip-path: none !important;
+    }
+
+    tab:not([pinned])[selected] .tab-context-line {
+      width: calc(100% - calc(6px + var(--uc-margin-left-newtab))) !important;
+      transition-duration: 200ms !important;
+    }
+
+    /* Pinned */
+
+    tab:is([pinned]) .tab-context-line {
+      position: absolute !important;
+      width: 14px !important;
+      margin-inline: 0px !important;
+      align-self: center !important;
+      bottom: 0 !important;
+    }
+  }
   
-tab:not([pinned])[selected] .tab-context-line {
-    width: calc(100% - calc(6px + var(--uc-margin-left-newtab))) !important;
-    transition-duration: 200ms !important;
-}
-  
-/* Pinned */
-  
-tab:is([pinned]) .tab-context-line {
-    position: absolute !important;
-    width: 14px !important;
-    margin-inline: 0px !important;
-    align-self: center !important;
-    bottom: 0 !important;
-}
+  @media (-moz-bool-pref:"firefoxgx.classic-sound-icon") {
+
+    .tabbrowser-tab:not([pinned]) .tab-context-line {
+      display: none !important;
+    }
+    
+    .tabbrowser-tab:is([pinned]) .tab-label {
+      display: none !important;
+    }
+
+    /* Container line under tab label */
+
+    tab:not([selected]) .tab-content .tab-label {
+      box-shadow: 0 2px 0 0 var(--identity-tab-color) !important;
+      clip-path: polygon(0px 0%, 200% 0%, 200% 200%, 100% 20px, 12px 96%, 0px 11900%, 0px 0px);
+      transition-duration: 0ms !important;
+    }
+
+    tab[selected]  .tab-content .tab-label {
+      box-shadow: 0 2px 0px 0 var(--identity-tab-color) !important;
+      clip-path: polygon(0px 0%, 200% 0%, 200% 200%, 100% 20px, 136px 96%, 0px 11900%, 0px 0px);
+      opacity: 1 !important;
+      transition-duration: 200ms !important;
+    }
+
+    /* Container line in pinned tabs */
+
+    .tabbrowser-tab[pinned] .tab-context-line {
+      position: absolute !important; /* Bug fix when using some tab-shapes */
+      bottom: 0 !important;
+      width: 100% !important;
+      height: 2px !important;
+      min-height: 2px !important;
+      margin-inline-start: unset !important;
+      margin-block-end: calc(var(--tab-min-height)/2 + 11px) !important;
+      justify-content: center !important;
+    }
+
+    .tabbrowser-tab[pinned][selected] .tab-context-line {
+      box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
+      transition: none !important;
+    }
+  }
 
 /* Trick to maintain margin on the <left> and <right> of the tabs */
   
