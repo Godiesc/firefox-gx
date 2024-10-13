@@ -1,6 +1,11 @@
-## How to apply
+¡This configuration makes the tabs to display an animated image when playing sound!
 
-Makes the tabs to display an animated image when playing sound. This config works togetter with the context line of containers, 
-so to apply the config just copy and paste the two files into <code>chrome</code> >> <code>components</code> folder.
+### How to apply
 
-![SoundConfig](https://user-images.githubusercontent.com/22057609/204435351-7be346ad-96fa-4893-8f9c-57433c30c861.gif)
+<ul><li>Create this preference in about:config page.</li>  
+  <table><tr>
+    <td width="320px">firefoxgx.classic-sound-icon</td>
+    <td width="50px">true</td></tr>
+  </table>
+
+https://github.com/user-attachments/assets/f6df23df-974e-4186-b6d0-c344d9a2dbd3
