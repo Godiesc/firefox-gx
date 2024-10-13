@@ -1392,12 +1392,12 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
                 /* Transparent space */
                 transparent 6px , var(--my-content-border-color) 6px,
                 /* Separator line */
-                var(--my-content-border-color) calc(var(--vertical-elements-width) - 4px), transparent calc(var(--vertical-elements-width) - 4px),
+                var(--my-content-border-color) calc(var(--vertical-elements-width) - 5px), transparent calc(var(--vertical-elements-width) - 5px),
                 /* Transparent end space */
                 transparent calc(var(--vertical-elements-width) - 0px),
                 var(--general-color) calc(var(--vertical-elements-width) - 0px),
                 /* Final gradient */
-                var(--general-color)) 1 !important;
+                var(--general-color), transparent) 1 !important;
         }
     }
     
