@@ -44,7 +44,7 @@
             --arrowpanel-background: #f9f9f9d0 !important;
     }}
 
-    .menupopup-arrowscrollbox, popupset, panelview, popupnotification, slot,
+    .menupopup-arrowscrollbox, popupset, panelview, popupnotification, :not(scrollbox[part="scrollbox"]) slot,
     :root:not([chromehidden~="toolbar"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack,
     :root:not([chromehidden~="toolbar"]):is([sizemode="maximized"]) #PanelUI-menu-button[open]>stack::after{
         background-image: linear-gradient(var(--arrowpanel-background, transparent), var(--arrowpanel-background, transparent)), 
