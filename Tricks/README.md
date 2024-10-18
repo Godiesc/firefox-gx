@@ -122,3 +122,34 @@
 </details>
 
 ![ExtensionButtonLeftSidebar](https://user-images.githubusercontent.com/22057609/232178144-499c9c9b-995d-4e9d-9f2b-1356aa34fd84.png)
+
+## Compatibility with [Adaptive Tab Bar Color](https://addons.mozilla.org/en-US/firefox/addon/adaptive-tab-bar-colour/) extension.
+<details><summary>Code Here</summary>
+    
+```
+/* New Accent color */
+
+:root {
+  --my-new-accent-color: lch(from var(--lwt-frame) calc(l + 50) c h) !important;
+  --lwt-toolbarbutton-icon-fill-attention: var(--my-new-accent-color) !important;
+}
+
+/* Reset global variables */
+
+:root,
+:root[lwtheme],
+:root:not([lwtheme]){
+  --lwt-frame: var(--arrowpanel-background) !important;
+  --lwt-selected-tab-background-color: var(--lwt-accent-color) !important;
+  --toolbarbutton-hover-personal: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+}
+
+/* We set the new color directly to the tabs-bar & menu-bar */
+
+#TabsToolbar, #toolbar-menubar{
+  background-color: var(--lwt-frame) !important;
+}
+```
+</details>
+
+https://github.com/user-attachments/assets/c0c91173-77e3-41f9-88d6-59de914a6cab
