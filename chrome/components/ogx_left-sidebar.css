@@ -1545,22 +1545,19 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 
     /* sidebar content */
     #sidebar {
-        border-width: 0px !important;
-        box-shadow: inset 0 1px 0 0 var(--my-content-border-color), 
-             inset -1px 0 0 0 var(--my-content-border-color) !important;
+        border-top: 1px solid var(--my-content-border-color) !important;
+        border-inline-end: 1px solid var(--my-content-border-color) !important;
+        box-shadow: none !important;
     }
     
     /* Sidebar content + web content */
     #sidebar-box[checked="true"] ~ #tabbrowser-tabbox {
-        /*box-shadow: 0 -1px 0 0 var(--my-content-border-color) !important;/**/
         border-top: 1px solid var(--my-content-border-color) !important;/**/
     }
 
     /* Web content border-top in full screen */
     :root:is([sizemode="fullscreen"]) #tabbrowser-tabbox {
-        /*box-shadow: 0 -1px 0 0 var(--my-content-border-color) !important;/**/
-        border-top: 1px solid var(--my-content-border-color) !important;/**/
-        margin-inline-start: 0px !important;
+        border-top: 1px solid var(--my-content-border-color) !important;
     }
 
     /* Border color in themes with images*/
@@ -1583,8 +1580,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
     /* Border around web content */
     #tabbrowser-tabbox {
-        /*box-shadow: 1px -1px 0 0 var(--my-content-border-color) !important;/**/
-        border-top: 1px solid var(--my-content-border-color) !important;/**/
+        border-top: 1px solid var(--my-content-border-color) !important;
     }
     
     /* Sidebar */
@@ -1594,8 +1590,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
     /* Sidebar content */
     #sidebar {
-        box-shadow: inset 1px 1px 0 0 var(--my-content-border-color),
-                     inset 0px 1px 0 0 var(--my-content-border-color) !important;
+        direction: rtl !important;
     }
 }
 
@@ -1606,29 +1601,20 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     &:root:is([sizemode="fullscreen"]) {
         & #sidebar-main {
             border-inline-end: 1px solid var(--my-content-border-color) !important;
-            box-shadow: 1px 0px 0 0 var(--my-content-border-color) !important;
+            /*box-shadow: 1px 0px 0 0 var(--my-content-border-color) !important;/**/
         }
         &:has(sidebar-main:is([expanded])) #sidebar-main {
             border-inline-end: 0px solid var(--my-content-border-color) !important;
             box-shadow: inset -1px 1px 0 0 var(--my-content-border-color) !important;
-        }
-        & #sidebar {
-            box-shadow: inset 0px 1px 0 0 var(--my-content-border-color),
-                         inset 0px -1px 0 0 var(--my-content-border-color),
-                  inset -1px 0px 0 0 var(--my-content-border-color) !important;
-        }
-        & #tabbrowser-tabbox {
-                /*box-shadow: -1px -1px 0 0 var(--my-content-border-color) !important;/**/
         }
     }
 }
 
 @media (-moz-bool-pref:"sidebar.verticalTabs") {
 
-    /* Web conntent */    
+    /* Web content */    
     #tabbrowser-tabbox {
-        /*box-shadow: 0 -1px 0 0 var(--my-content-border-color) !important;/**/
-        border-top: 1px solid var(--my-content-border-color) !important;/**/
+        border-top: 1px solid var(--my-content-border-color) !important;
     }
 }
 
@@ -1640,26 +1626,9 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     #sidebar-main {
         border-inline-end: 1px solid var(--my-content-border-color) !important;
     }
-    
-    #tabbrowser-tabbox {
-        border-top: 1px solid var(--my-content-border-color) !important;/**/
-        /*box-shadow: -1px -1px 0 0 var(--my-content-border-color) !important;/**/
-    }
-    
-    #sidebar-box {
-        box-shadow: inset 1px 1px 0 0 var(--my-content-border-color) !important;
-    }
 }
 
-/* _____________ Added missing border when 'left-sidebar' + sidebar on right */
-
-@media (-moz-bool-pref:"sidebar.revamp")  and (-moz-bool-pref:"firefoxgx.left-sidebar") and (not (-moz-bool-pref:"sidebar.position_start")) {
-    #tabbrowser-tabbox{
-        /*box-shadow: 1px -1px 0 0 var(--my-content-border-color) !important;/**/
-    }    
-}
-
-/* Border top Sidebar expanded - 'left-sidebar' + Sidebar (left or right) */
+/* _____________ Border top Sidebar expanded - 'left-sidebar' + Sidebar (left or right) */
 
 @media (-moz-bool-pref:"sidebar.revamp")  and (-moz-bool-pref:"firefoxgx.left-sidebar") {
     
