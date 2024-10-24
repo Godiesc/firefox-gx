@@ -1532,7 +1532,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     }
 }
 
-/* ______________________________ Borders around sidebars and web content - Sidebar on left - not with left-sidebar ______________________________ 
+/* ______________________________ Borders around sidebars and web content - Sidebar on left - without left-sidebar ______________________________ 
    _______________________________________________________________________________________________________________________________________________ */
 
 @media (-moz-bool-pref: "sidebar.revamp") {
@@ -1556,7 +1556,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     }
 
     /* Web content border-top in full screen */
-    :root:is([sizemode="fullscreen"]) #tabbrowser-tabbox {
+    :root:not([inDOMFullscreen]) #tabbrowser-tabbox {
         border-top: 1px solid var(--my-content-border-color) !important;
     }
 
@@ -1601,7 +1601,6 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     &:root:is([sizemode="fullscreen"]) {
         & #sidebar-main {
             border-inline-end: 1px solid var(--my-content-border-color) !important;
-            /*box-shadow: 1px 0px 0 0 var(--my-content-border-color) !important;/**/
         }
         &:has(sidebar-main:is([expanded])) #sidebar-main {
             border-inline-end: 0px solid var(--my-content-border-color) !important;
@@ -1613,7 +1612,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 @media (-moz-bool-pref:"sidebar.verticalTabs") {
 
     /* Web content */    
-    #tabbrowser-tabbox {
+    :root:not([inDOMFullscreen]) #tabbrowser-tabbox {
         border-top: 1px solid var(--my-content-border-color) !important;
     }
 }
