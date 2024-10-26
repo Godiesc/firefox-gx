@@ -70,20 +70,27 @@
         #photographs[style*='6b8eb3cf-f232-4c7b-a179-afd174555134.avif'],
         body[style*="6b8eb3cf-f232-4c7b-a179-afd174555134.avif"]{
             background-image: var(--wallpaper-dark3) !important;
-        }   
-
-        /* Dark 4 - Swamp */
-        #dark-landscape,
-        #photographs[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif'],
-        body[style*="10e23599-85bc-4660-ae06-7a67befbbcf9.avif"]{
+        }
+        
+        /* Dark 4 - Green */
+        #dark-fox-anniversary,
+        #photographs[style*='d8b71c77-9985-41d2-b98e-51bebc60e595.avif'],
+        body[style*="d8b71c77-9985-41d2-b98e-51bebc60e595.avif"]{
             background-image: var(--wallpaper-dark4) !important;
         }
 
-        /* Dark 5 - Gray */
+        /* Dark 5 - Swamp */
+        #dark-landscape,
+        #photographs[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif'],
+        body[style*="10e23599-85bc-4660-ae06-7a67befbbcf9.avif"]{
+            background-image: var(--wallpaper-dark5) !important;
+        }
+
+        /* Dark 6 - Gray */
         #dark-beach,
         #photographs[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif'],
         body[style*="966b18ad-3733-41c4-92f6-c89cdf1381d0.avif"]{
-            background-image: var(--wallpaper-dark5) !important;
+            background-image: var(--wallpaper-dark6) !important;
         }
 
         /* Light 1 - Fuchsia */
@@ -114,11 +121,18 @@
             background-image: var(--wallpaper-light4) !important;
         }
 
-        /* Light 5 - Green */
+        /* Light 5 - Lightgreen */
         #light-beach,
         #photographs[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif'],
         body[style*="56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif"]{
             background-image: var(--wallpaper-light5) !important;
+        }
+        
+        /* Light 6 - Orange */
+        #light-fox-anniversary,
+        #photographs[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif'],
+        body[style*="a5a041de-9275-4eb5-8f21-a0171c82d388.avif"]{
+            background-image: var(--wallpaper-light6) !important;
         }
     }
     
@@ -132,12 +146,15 @@
     
     :root:has(#photographs[style*='6b8eb3cf-f232-4c7b-a179-afd174555134.avif']){
         --general-color: var(--general-color-dark3) !important;    }
-
-    :root:has(#photographs[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif']){
+    
+    :root:has(#photographs[style*='d8b71c77-9985-41d2-b98e-51bebc60e595.avif']){
         --general-color: var(--general-color-dark4) !important;    }
 
-    :root:has(#photographs[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif']){
+    :root:has(#photographs[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif']){
         --general-color: var(--general-color-dark5) !important;    }
+
+    :root:has(#photographs[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif']){
+        --general-color: var(--general-color-dark6) !important;    }
 
     :root:has(#photographs[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif']){
         --general-color: var(--general-color-light1) !important;   }
@@ -154,18 +171,23 @@
     :root:has(#photographs[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif']){
         --general-color: var(--general-color-light5) !important;   }
     
+    :root:has(#photographs[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif']){
+        --general-color: var(--general-color-light6) !important;   }
+    
     /* rearrangement of wallpapers */
     
-    #dark-sky { order: 1 !important; }    
+    #dark-sky { order: 1 !important; }
     #dark-mountain { order: 2 !important; }
-    #dark-panda { order: 3 !important; }    
-    #dark-landscape { order: 4 !important; }
-    #dark-beach { order: 5 !important; }    
-    #light-panda { order: 6 !important; }    
-    #light-landscape { order: 7 !important; }    
-    #light-mountain { order: 8 !important; }    
-    #light-sky { order: 9 !important; }    
-    #light-beach { order: 10 !important; }
+    #dark-panda { order: 3 !important; }
+    #dark-fox-anniversary { order: 4 !important;}
+    #dark-landscape { order: 5 !important; }
+    #dark-beach { order: 6 !important; }
+    #light-panda { order: 7 !important; }
+    #light-landscape { order: 8 !important; }
+    #light-mountain { order: 9 !important; }
+    #light-sky { order: 10 !important; }
+    #light-beach { order: 11 !important; }
+    #light-fox-anniversary { order: 12 !important;}
         
     /* Border color when 'hover' over wallpapers */
 
@@ -232,7 +254,7 @@
         }
 
     .wordmark {
-        fill: var(--general-color) !important;        
+        fill: var(--general-color) !important;
         }
 
     .logo-and-wordmark {
@@ -343,7 +365,7 @@
 
     .close-button {
         background-color: var(--newtab-element-secondary-color) !important;
-        color: var(--newtab-wordmark-color)  !important;
+        /*color: var(--newtab-wordmark-color)  !important;/**/
         border-radius: 4px !important;
         border-color: transparent !important;
     }
@@ -386,7 +408,7 @@
     
     .customize-menu {
         background-color: color-mix(in srgb, var(--newtab-background-color) ,var(--newtab-overlay-color)) !important;
-        color: var(--newtab-wordmark-color) !important;
+        /*color: var(--newtab-wordmark-color) !important;/**/
         backdrop-filter: var(--personal-blur); 
     }
     
@@ -586,7 +608,7 @@
         padding-top: 12px !important;
         outline: 1px solid #50505030 !important;
         outline-offset: -1px !important;
-        background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)6%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
+        background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
                     linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
         backdrop-filter: var(--personal-blur) !important;
     }
@@ -612,7 +634,7 @@
     /* Styes when on :hover over 'Pinned sites' and 'Recent Activity' */
     .top-site-outer:hover .tile, .card-outer:hover .card{
         outline: 1px solid var(--button-hover-bgcolor) !important;
-        transition: outline 0.2s ease-in-out !important;
+        transition: outline 0.1s ease-in-out !important;
     }
     
     /* Styles when clicking on a pinned site and moving the mouse away */
@@ -669,14 +691,14 @@
     .lightWallpaper :is(
     .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
     .top-site-outer:is(:hover, :active, .active) .title span ) {                      /* 'Activity' label */
-        color: #15141a !important;
+        color: black !important;
         --contrast-color: white !important;
     }
     
     .darkWallpaper :is(
     .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
     .top-site-outer:is(:hover, :active, .active) .title span ) {                      /* 'Activity' label */
-        color: #eaeaea !important;
+        color: white !important;
         --contrast-color: black !important;
     }
     

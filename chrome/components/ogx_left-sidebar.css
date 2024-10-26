@@ -344,6 +344,9 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     width: 17px !important;
 }
     
+/* Gx Theme Styles Extension */
+#PersonalToolbar #gxthemestyles_godie-BAP { list-style-image: url("../icons/logo_gx-theme-styles.svg") !important; }
+    
 /* ChatGPT Extension */
 #PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP,
 #PersonalToolbar #_63ec59d8-ba50-4d88-917e-fb65af892a39_-BAP { list-style-image: url("../icons/logo_chatgpt.svg") !important; }
@@ -1388,7 +1391,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     /* Overwrite code to set '99.7deg' to gradient line to fix a pixel lost */
     :root:not([sizemode="fullscreen"]):has(sidebar-main:is([expanded])) {
         & #sidebar-main {
-            border-image: linear-gradient(99.7deg,
+            border-image: linear-gradient(99.1deg,
                 /* Transparent space */
                 transparent 6px , var(--my-content-border-color) 6px,
                 /* Separator line */
@@ -1427,6 +1430,8 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
             grid-row-start: 1 !important;
             grid-column-start: 1 !important;
         }
+        
+        & .close-icon { opacity:  0 !important; } /* Hide close button in selected tab - for touch density */
     }
     
     /* _____________ New style for 'tools and extensions' buttons */
@@ -1556,7 +1561,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     }
 
     /* Web content border-top in full screen */
-    :root:not([inDOMFullscreen]) #tabbrowser-tabbox {
+    :root:not([inDOMFullscreen])[sizemode="fullscreen"] #tabbrowser-tabbox {
         border-top: 1px solid var(--my-content-border-color) !important;
     }
 
