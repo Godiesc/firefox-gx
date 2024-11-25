@@ -306,6 +306,7 @@
 :root[uidensity="compact"] {
 
   --tab-height-personal: 26px !important;
+  --tabstrip-min-height: var(--tab-height-personal) !important;
   --toolbar-height-personal: 32px !important;
   --toolbarbutton-inner-padding: 4px !important;                                        /* Smaller toolbar buttons */
   --toolbarbutton-outer-padding: 2px !important;                                        /* More spaced buttons */

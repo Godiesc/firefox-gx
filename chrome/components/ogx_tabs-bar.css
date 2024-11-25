@@ -202,8 +202,6 @@
 
 /* Code to tabs-bar reach lower height that 30px */
 
-#titlebar{ appearance: none !important; }
-
 .titlebar-buttonbox-container, .tab-close-button, .tab-label-container{
   max-height: calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px)) !important;
 }

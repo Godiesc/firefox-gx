@@ -167,6 +167,22 @@
             --tab-icon-end-margin: 0px !important;
         }
     }
+    
+    /* Compatibilidad con compact mode */
+    
+    :root[uidensity="compact"] {        
+        & .tab-icon-image{
+            opacity: 1 !important;
+        }
+        
+        & tab[muted]:hover .tab-icon-image{
+            opacity: 1 !important;
+        }
+        
+        & tab[muted]:not(:hover) .tab-icon-overlay{
+            opacity: 0 !important;
+        }
+    }
 
     /* The 'rhythm animation' only works when you don't use 'tab-shapes' config 
 
