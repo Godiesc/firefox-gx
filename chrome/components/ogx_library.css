@@ -132,6 +132,11 @@
         appearance: none !important;
         background: var(--organizer-pane-background) !important;
     }
+    /* Downloads */
+     #downloadsListBox{
+        background-color: var(--organizer-pane-background) !important;
+         border-color: transparent !important;
+    }
     /*--------------Fondo general de Editar--------------------*/
     #detailsPane, #places #downloadsRichListBox, #editBMPanel_keywordRow, #editBMPanel_locationRow, #editBMPanel_tagsRow, #editBMPanel_tagsSelectorRow {
         appearance: none !important;

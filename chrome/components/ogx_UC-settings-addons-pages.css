@@ -47,19 +47,20 @@
     --in-content-primary-button-text-color: var(--contrast-color) !important;                   /* Another general 'text' color */
     
     --in-content-box-background-odd: color-mix(in srgb,                                         /* Color distinction between rows in a 'table' and 'search shortcuts' */
-      var(--in-content-box-border-color), transparent) !important;     
+      var(--in-content-box-border-color)40%, transparent) !important;
     --in-content-box-info-background: var(--in-content-box-background-odd) !important;          /* Background color of the box of items that sync */
     --section-highlight-background-color: var(--in-content-box-info-background) !important;
     
     --in-content-border-color: var(--in-content-box-border-color) !important;                   /* Separator line in configuration */
     --in-content-table-border-color: var(--in-content-box-border-color) !important;             /* table border color */
     
+    --background-color-box: var(--in-content-page-background) !important;                       /* Background color of tables */
     --in-content-table-background: var(--in-content-page-background) !important;                /* Background color of 'about:support' tables */
     
     --card-outline-color: var(--general-color) !important;                                      /* outline color in 'themes' and 'extensions' */
     --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;    /* outline color in 'themes' and 'extensions' on 'hover' */
     
-    --in-content-item-hover: var(--button-active-bgcolor) !important;                           /* Combobox background color on 'hover' */
+    --in-content-item-hover: var(--button-hover-bgcolor) !important;                            /* Combobox background color on 'hover' */
     --in-content-item-hover-text: var(--in-content-text-color) !important;                      /* Combobox text color on 'hover' */
     --in-content-item-selected: var(--general-color) !important;                                /* Combobox background color on 'hover' (arrow keys) */
     --in-content-item-selected-text:  var(--in-content-text-color) !important;                  /* Combobox text color on 'hover' (arrow keys) */

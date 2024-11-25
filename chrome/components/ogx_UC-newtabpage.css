@@ -412,20 +412,6 @@
         backdrop-filter: var(--personal-blur); 
     }
     
-    /* Fixed 'wallpapers v2' section */
-    
-    .wallpaper-list.category {
-        background-color: var(--newtab-background-color) !important;
-        width: 432px !important;
-        height: 100% !important;
-        inset-inline-start: 0px !important;
-    }
-
-    .wallpaper-list{
-        padding: 25px 20px 25px 20px !important;
-        margin-block: 0px !important;
-    }
-    
     /* Combobox */
     
     .home-section .section .selector {
@@ -468,9 +454,30 @@
     
     .home-section .divider { 
         border-image: var(--panel-separator-zap-gradient4) 1 !important;
-        margin-inline: 0px !important;
+    }
+    
+    /* Background blur when open a wallpaper category */
+    
+    .customize-menu:has(.category.wallpaper-list) {
+        & .wallpapers-section ~ *,
+        & .wallpapers-section .category-header,
+        & .wallpapers-section .category-list,
+        & .close-button-wrapper {
+            opacity: 0  !important;
+            transition: opacity 0.2s ease;
+        }
     }
 
+    .customize-menu:not(:has(.category.wallpaper-list)) {
+        & .wallpapers-section ~ *,
+        & .wallpapers-section .category-header,
+        & .wallpapers-section .category-list,
+        & .close-button-wrapper{
+            opacity: 1 !important;
+            transition: opacity 0.3s ease;
+        }
+    }
+    
 /* ______________________________________________________ Search box _______________________________________________________ */
 
     /* Remove arrow */

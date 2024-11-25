@@ -215,7 +215,7 @@ findbar {
 
 /* ____________________________________ Nav-bar height ____________________________________ */
 
-#nav-bar { min-height: var(--toolbar-height-personal) !important; }
+#nav-bar { height: var(--toolbar-height-personal) !important; }
 
 /* Urlbar */
 
@@ -267,6 +267,12 @@ findbar {
     z-index: 5 !important;
 }
 
+/* Necessary for many -Hamburger Menu- and -Left Sidebar- scenarios */
+
+#navigator-toolbox {
+    z-index: unset !important;
+}
+
 /* Brighness when urlbar [open]*/
 
 #nav-bar::after {
@@ -279,10 +285,10 @@ findbar {
     background-color: transparent;
     z-index: 4;
     pointer-events: none;
-    transition: background-color 0.3s ease !important; 
+    transition: background-color 0.3s ease; 
 }
 
-#nav-bar[urlbar-exceeds-toolbar-bounds="true"]::after {
+:root:has(#urlbar[open]) #nav-bar::after {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -435,14 +441,11 @@ findbar {
 #tracking-protection-icon-container {
     margin-block: 3px 2px !important;
     margin-inline: 3px 0px!important;
+    padding: 2px !important;
 }
 
 #tracking-protection-icon {
     margin-inline-start: 1px !important;
-}
-
-#tracking-protection-icon-container {
-    padding: 2px !important;
 }
 
 /* Bookmark icon, reading view, etc */

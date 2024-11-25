@@ -1,12 +1,16 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-:root { --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--lwt-tab-text))80%, transparent); }
+:root {
+    --margin-left-icons-personal: 7px !important;
+    --margin-right-icons-personal: 1px !important;
+    --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--lwt-tab-text))86%, transparent);
+}
 
 /* Menu size when 'open' in non-maximized window */
 
 #appMenu-popup panelview { 
-    width: 26.5em !important; 
+    width: 25.5em !important; 
 }
 
 /* Color of icons and labels */
@@ -20,13 +24,13 @@
 /* Login Button */
 
 #appMenu-fxa-status2:not([fxastatus]) {
-        padding-top: 4px !important;
+    padding-top: 4px !important;
     & > #appMenu-fxa-label2 {
         border-radius: 4px !important;
-}}
-            
+    }}
+
 #appMenu-fxa-status2:not([fxastatus]) #appMenu-fxa-label2:hover {
-            background-color: var(--button-hover-bgcolor) !important;
+    background-color: var(--button-hover-bgcolor) !important;
 }
 
 /* Right margin of the shortcuts Ctrl + */
@@ -46,220 +50,303 @@
 
 @media not (-moz-bool-pref:"firefoxgx.menu.disabled") {
     
-@media (-moz-platform: windows), (-moz-platform: linux) {
-    :root {
-        --margin-left-icons-personal: 8px !important;
-        --margin-right-icons-personal: 6px !important;
+    /* New margin right for the latest button of the navbar */
+    
+    #nav-bar:not([nonemptyoverflow="true"]) #nav-bar-customization-target>:last-child,
+    #nav-bar-overflow-button {
+        padding-inline-end: var(--toolbar-start-end-padding) !important;
     }
     
-/* Position */
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-button {
-        position: fixed;
-        display: flex;
-        top: var(--windowed-top-padding, 0px);
-        left: 0px !important;
-        z-index: 3 !important;
+    /* Remove unwanted separator of account options */
+    #PanelUI-fxa>toolbarseparator{
+        display: none !important;
     }
     
-/* Menu size when 'open' - maximized and non-maximized window*/
+    /*_______________________ Styles for windows and linux */
     
-    :root[sizemode="maximized"]:not([chromehidden~="toolbar"]) #appMenu-popup panelview {
-        width: 28.5em !important;
-    }
-    
-    #appMenu-popup panelview {
-        width: 25.5em !important;
-    }
-    
-/* Hide menu button in "full screen" mode */
-    
-    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"])>body>#browser, 
-    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"])>body>#browser-bottombox,
-    :root:is([chromehidden~="toolbar"], [sizemode="fullscreen"])>body>#customization-container {
-        z-index: 3 !important;
-    }
-    
-/* left margin of menubar and tabs-bar */
-    
-    #toolbar-menubar, #toolbar-menubar[autohide="true"]+#TabsToolbar {
-        padding-inline-start: var(--padding-left-tab) !important;
-    }
-
-/* Menu button size */
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button {
-        padding: var(--margin-top-personal) 0 0 0 !important;
-        max-height: var(--tab-height-personal) !important;
-        min-height: var(--tab-height-personal) !important;
-    }
-    
-/* Menu when 'hover' and 'open' */
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>.toolbarbutton-badge-stack {
-        max-height: var(--tab-height-personal) !important;
-        min-height: var(--tab-height-personal) !important;
-    }
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
-        background-color: var(--toolbarbutton-hover-personal) !important;
-        border-radius: 0px !important;
-    }
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
-        background-image: var(--noise-urlbar-personal) !important;
-        background-color: var(--arrowpanel-background) !important;
-        border-radius: 0px !important;
-        border-color: transparent !important;
-        width: 28.5em !important;
-    }
-
-/* Logo */
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button .toolbarbutton-badge-stack {
-        list-style-image: url("../icons/foxmenu.svg") !important;
-        display: -moz-box !important;
-        max-height: var(--tab-height-personal) !important;
-        min-width: var(--padding-left-tab) !important;
-        max-width: var(--padding-left-tab) !important;
-        -moz-box-pack: center !important;
-        fill: var(--general-color) !important;
-        border: 1px solid transparent !important;
-    }
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button image {
-        margin-top: -1px !important;
-        min-height: 18px !important;
-        min-width: 18px !important;
-        margin-inline-start: 2px !important;
-    }
-    
-/* Menú Label */
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button > stack{
-        display: flex;
-        align-items: center !important;
-        transition: none !important;
-    }
-    
-    :root:not([chromehidden~="toolbar"]) #PanelUI-menu-button>stack::after {
-        width: var(--padding-left-tab) !important;
-        content: var(--menu-label);
-        color: var(--label-color) !important;
-        padding-inline-start: var(--margin-right-icons-personal) !important;
-        padding-block: 6px !important;
-        text-shadow: none !important;
-    }
-    
-/* Empty space for menu label */
-    
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
-        padding-top: calc(-5px + var(--tab-height-personal)) !important;
-    }
-    
-/* Margins used to move up the menu dropdown when is 'open' */
-    
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
-        appearance: none !important;
-        margin-top: calc(-2px - var(--tab-height-personal)) !important;
-        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 4px) 3px,
-                   calc(var(--padding-left-tab) + 4px) calc(var(--tab-height-personal) + 1px), 0 calc(var(--tab-height-personal) + 1px),
-                   0 100%, 100% 100%, 100% 0%);
-        --arrowpanel-menuitem-padding: 6px !important;
-    }
-    
-    :root:is([sizemode="maximized"]):not([tabsintitlebar], [chromehidden~="toolbar"]) #appMenu-popup {
-        margin-top: calc(-1px - var(--tab-height-personal) + var(--tab-block-margin)) !important;
-    }
-    
-/* Separator margins */
-    
-    :root:not([chromehidden~="toolbar"]) #appMenu-popup.cui-widget-panel toolbarseparator {
-        margin-inline-start: 10px !important;
-        --panel-separator-margin-vertical: 2px !important;
-        --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
-    } 
-    
-/* Update notification point */
-    
-    #PanelUI-menu-button[badge-status="update-available"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-    #PanelUI-menu-button[badge-status="update-downloading"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-    #PanelUI-menu-button[badge-status="update-manual"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-    #PanelUI-menu-button[badge-status="update-other-instance"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-    #PanelUI-menu-button[badge-status="update-restart"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-    #PanelUI-menu-button[badge-status="update-unsupported"]>.toolbarbutton-badge-stack>.toolbarbutton-badge {
-        margin: -7px -3px 0px !important;
-        margin-inline-end: -9px !important;
-    }
-
-/* Gradient line over Account label only in maximized window */
-
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-status2 {
-        padding-top: 4px !important;
-        margin-inline-start: var(--margin-left-icons-personal) !important;
-        border-top: 1px solid var(--panel-separator-color) !important;
-        border-image: linear-gradient(to left, transparent 7px,var(--general-color) 7px, 
-                        transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
-                        transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1 !important;
-    }
-    
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-fxa-status2[fxastatus="signedin"] {
-        padding-top: 2px !important;
-        margin-inline-start: 0px !important;
-    }
-    
-/* _________________________________________ Rules for aligning icons in the hamburger menu _________________________________________ */
-    
-/* Margen nuevo solo al menu hamburguesa maximizado */
-    
-:root:not([chromehidden~="toolbar"])[sizemode="maximized"]{
+    @media (-moz-platform: windows), (-moz-platform: linux) {
         
-    #appMenu-popup .subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon,   /* Almost all buttons */
-    #appMenu-zoom-controls2, #appMenu-zoom-controls, #appMenu-popup #synced-tabs-client-0,             
-    #appMenu-popup .subviewbutton.subviewbutton-iconic:not(.subviewbutton-back) image{                                      /* 'Sent to device' button */
-        margin-inline-start: var(--margin-left-icons-personal) !important;
+        /* left margin of menubar and tabs-bar */
+
+        #toolbar-menubar {
+            padding-inline-start: calc(var(--padding-left-tab,0) + 2px) !important;
+        }
+        
+        #toolbar-menubar[autohide="true"]+#TabsToolbar {
+            margin-inline-start: var(--padding-left-tab) !important;
+        }
+
+        :root:not([chromehidden~="toolbar"]) {
+            
+            /* Position */
+            
+            & #PanelUI-button {
+                position: fixed;
+                display: flex;
+                top: var(--windowed-top-padding, 0px);
+                left: 0px !important;
+                z-index: 3 !important;
+            }
+
+            /* Menu size when 'open' - maximized window*/
+            
+            &[sizemode="maximized"] #appMenu-popup panelview {
+                width: 28.5em !important;
+            }
+            
+            /* Hide menu button in "full screen" mode */
+
+            &[sizemode="fullscreen"] {
+                &>body>#browser,
+                &>body>#browser-bottombox,
+                &>body>#customization-container {
+                    z-index: 3 !important;
+                }
+            }
+
+            /* Menu button size */
+
+            & #PanelUI-menu-button {
+                padding: var(--margin-top-personal) 0 0 0 !important;
+            }
+
+            & #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
+                background-color: var(--toolbarbutton-hover-personal) !important;
+                border-radius: 0px !important;
+            }
+
+            & #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
+                background-image: var(--noise-urlbar-personal) !important;
+                background-color: var(--arrowpanel-background) !important;
+                border-radius: 0px !important;
+                border-color: transparent !important;
+                width: 28.5em !important;
+            }
+
+            /* Logo */
+
+            & #PanelUI-menu-button>.toolbarbutton-badge-stack>.toolbarbutton-icon {
+                transform: scale(1.1) !important;
+            }
+
+            & #PanelUI-menu-button .toolbarbutton-badge-stack {
+                list-style-image: url("../icons/foxmenu.svg") !important;
+                display: inline-flex !important;
+                height: var(--tab-height-personal) !important;
+                min-width: var(--padding-left-tab) !important;
+                max-width: var(--padding-left-tab) !important;
+                padding-inline-start: calc(var(--margin-left-icons-personal) + 2px) !important;
+                align-items: center !important;
+                fill: var(--general-color) !important;
+                border: 1px solid transparent !important;
+                transition: none !important;
+            }
+
+            /* Menú Label */
+            
+            & #PanelUI-menu-button .toolbarbutton-badge-stack::after {
+                content: var(--menu-label);
+                font: menu !important;
+                padding-inline-start: calc(var(--margin-right-icons-personal) + 8px) !important;
+                color: var(--label-color) !important;
+                text-shadow: none !important;
+            }
+
+            /* Separator margins */
+
+            & #appMenu-popup.cui-widget-panel toolbarseparator {
+                margin-inline-start: 10px !important;
+                --panel-separator-margin-vertical: 2px !important;
+                --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
+            }        
+
+            /* ___________ Rules for aligning icons in the hamburger menu */
+
+            /* Margen nuevo solo al menu hamburguesa maximizado */
+
+            &[sizemode="maximized"] {
+                #appMenu-popup .subviewbutton:not(.subviewbutton-iconic, .toolbarbutton-text, [checked="true"])> .toolbarbutton-icon,   /* Almost all buttons */
+                #appMenu-zoom-controls2, #appMenu-zoom-controls, #appMenu-popup #synced-tabs-client-0,                                  
+                #appMenu-popup .subviewbutton.subviewbutton-iconic:not(.subviewbutton-back) image{                                      /* 'Sent to device' button */
+                    margin-inline: calc(var(--margin-left-icons-personal) - 4px) var(--margin-right-icons-personal) !important;
+                }
+
+                #appMenu-popup #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2,
+                #appMenu-popup #fxa-manage-account-button,
+                #appMenu-popup #PanelUI-fxa-menu-syncnow-button{
+                    padding-inline: calc(var(--margin-left-icons-personal) + 2px) var(--margin-right-icons-personal) !important;
+                }
+            }
+        }
+
+        /* Update notification point */
+
+        #PanelUI-menu-button[badge-status="update-available"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+        #PanelUI-menu-button[badge-status="update-downloading"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+        #PanelUI-menu-button[badge-status="update-manual"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+        #PanelUI-menu-button[badge-status="update-other-instance"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+        #PanelUI-menu-button[badge-status="update-restart"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
+        #PanelUI-menu-button[badge-status="update-unsupported"]>.toolbarbutton-badge-stack>.toolbarbutton-badge {
+            margin: -7px -3px 0px !important;
+            margin-inline-end: -9px !important;
+        }
     }
     
-    #appMenu-popup #appMenu-fxa-status2 #appMenu-fxa-label2,
-    #appMenu-popup #fxa-manage-account-button,
-    #appMenu-popup #PanelUI-fxa-menu-syncnow-button{
-        padding-inline-start: calc(var(--margin-left-icons-personal) + 6px) !important;
+    /* _______________________ Styles only for windows */
+
+    @media (-moz-platform: windows) {
+
+        :root:not([chromehidden~="toolbar"])[sizemode="maximized"] {
+            
+            /* Empty space for menu label */
+
+            & #appMenu-popup>panelmultiview>box>box>panelview {
+                padding-top: calc(-5px + var(--tab-height-personal)) !important;
+            }
+
+            /* Margins used to move up the menu dropdown when is 'open' */
+
+            & #appMenu-popup {
+                appearance: none !important;
+                margin-top: calc(-2px - var(--tab-height-personal)) !important;
+                clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 3px, calc(var(--padding-left-tab) + 4px) 3px,
+                    calc(var(--padding-left-tab) + 4px) calc(var(--tab-height-personal) + 1px), 0 calc(var(--tab-height-personal) + 1px),
+                    0 100%, 100% 100%, 100% 0%);
+                --arrowpanel-menuitem-padding: 6px !important;
+            }
+
+            &:not([tabsintitlebar]) #appMenu-popup {
+                margin-top: calc(-1px - var(--tab-height-personal) + var(--tab-block-margin)) !important;
+            }
+
+            /* Gradient line over Account label only in maximized window */
+
+            & #appMenu-fxa-status2 {
+                padding-top: 4px !important;
+                margin-inline-start: var(--margin-left-icons-personal) !important;
+                border-top: 1px solid var(--panel-separator-color) !important;
+                border-image: linear-gradient(to left, transparent 7px,var(--general-color) 7px, 
+                    transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
+                    transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1 !important;
+            }
+
+            & #appMenu-fxa-status2[fxastatus="signedin"] {
+                padding-top: 2px !important;
+                margin-inline-start: 0px !important;
+            }
+        }
     }
-  }
 }
 
-/* Smaller menu in linux */
+    
+/* __________________________________________________ Menu disabled and Sidebar is ON __________________________________________________ */
 
-@media (-moz-platform: linux) {
+@media (-moz-bool-pref:"firefoxgx.menu.disabled") and (((-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref: "sidebar.revamp")) and (-moz-bool-pref:"sidebar.position_start")) {
+
     :root {
-        --margin-left-icons-personal: 9px !important;
+        --uc-vertical-toolbar-width: var(--my-vertical-toolbar-width) !important;               /* New sidebar size */
+        --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;            /* New size of the 'menu' button */
+    }
+
+    /* margin to the left of 'menubar-tabsbar-navbar' when new menu is disabled */
+    
+    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) {
+        & #toolbar-menubar{
+            padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
+        }
+        & #toolbar-menubar+#TabsToolbar,
+        & #nav-bar{
+            padding-inline-start: var(--padding-left-tab) !important;
+        }
+    }
+}
+
+/* Hamburger menu when using left-sidebar or Firefox Sidebar */
+
+@media (not (-moz-bool-pref:"firefoxgx.menu.disabled")) and (((-moz-bool-pref: "sidebar.revamp") and (-moz-bool-pref:"sidebar.position_start")) or (-moz-bool-pref:"firefoxgx.left-sidebar")) {
+    
+    :root {
+        --uc-vertical-toolbar-width: var(--my-vertical-toolbar-width) !important;                       /* New sidebar size */
+        --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;                    /* New size of the 'menu' button */
+
+        --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 12px) !important;     /* New margin-left for menu items */
+        --margin-right-icons-personal: 2px !important;                                                  /* New margin-right for menu items */
     }
     
-/* Empty space for menu label */
-    
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup>panelmultiview>box>box>panelview {
-        padding-top: calc(-8px + var(--tab-height-personal)) !important;
+    @media (-moz-platform: windows), (-moz-platform: linux) {
+
+        :root:not([chromehidden~="toolbar"]) {
+            
+            /* Remove 'menu' label when is not 'open' */
+
+            & #PanelUI-menu-button:not([open]) .toolbarbutton-badge-stack::after,
+            &:not([sizemode="maximized"]) #PanelUI-menu-button:is([open]) .toolbarbutton-badge-stack::after {
+                content: none !important;
+            }
+            
+            /* New menu height size */
+            
+            &:not([sizemode="fullscreen"],[customizing]) #PanelUI-menu-button .toolbarbutton-badge-stack {
+                height: var(--toolbar-height-personal) !important;
+            }
+            
+            /* Bigger logo */
+
+            & #PanelUI-menu-button>.toolbarbutton-badge-stack>.toolbarbutton-icon {
+                transform: scale(1.4) !important;
+            }
+            
+            /* Menu button when 'hover' */
+
+            & #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
+                background-color: color-mix(in srgb, var(--general-color) 15%, transparent) !important;
+            }
+        }
+    }
+
+    /* 'Update available' banner */
+
+    .panel-banner-item::before{
+        padding-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
+    }
+
+    @media (-moz-platform: windows) {
+
+        :root:not([chromehidden~="toolbar"]) {
+
+            /* Make button wider when menu is 'open' */
+
+            &:is([sizemode="maximized"]) :is(#PanelUI-menu-button[open], #appMenu-popup) {
+                --padding-left-tab: 74px !important;
+            }
+
+            /* Smaller menu size when 'open' */
+
+            &:is([sizemode="maximized"]) #appMenu-popup>panelmultiview>box>box>panelview {
+                padding-top: calc(var(--tab-height-personal) - 10px) !important;
+            }
+
+            /* New Clip-path sizes */
+
+            &:is([sizemode="maximized"]) #appMenu-popup {
+                --tab-height-personal: var(--toolbar-height-personal) !important;
+                clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 4px, calc(var(--padding-left-tab) + 4px) 4px,
+                    calc(var(--padding-left-tab) + 4px) calc(var(--tab-height-personal) - 4px), 0 calc(var(--tab-height-personal) - 4px),
+                    0 100%, 100% 100%, 100% 0%);
+            }
+        }
     }
     
-/* Margins used to move up the menu dropdown when is 'open' */
-    
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup {
-        margin-top: calc(-2px - var(--tab-height-personal)) !important;
-        clip-path: polygon(0% 0%, 0% 100%, 0% 100%, 0 0px, calc(var(--padding-left-tab) - 1px) 0px,
-                   calc(var(--padding-left-tab) - 1px) calc(var(--tab-height-personal) - 4px), 0 calc(var(--tab-height-personal) - 4px),
-                   0 100%, 100% 100%, 100% 0%);
-        --arrowpanel-menuitem-padding: 5px !important;
+    @media (-moz-platform: linux) {
+
+        :root:not([chromehidden~="toolbar"]) {
+            
+            /* Remove 'menu' label */
+
+            & #PanelUI-menu-button:is([open]) .toolbarbutton-badge-stack::after,
+            &:not([sizemode="maximized"]) #PanelUI-menu-button:is([open]) .toolbarbutton-badge-stack::after {
+                content: none !important;
+            }
+        }
     }
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
-        border-color: var(--general-color) !important;
-        border-bottom-color: transparent !important;
-        box-shadow: 0 1px 0 0 var(--arrowpanel-background), 
-                    0 2px 0 0 var(--general-color) !important;
-    }
-    
-    :root:not([chromehidden~="toolbar"])[sizemode="maximized"] #appMenu-popup panelview {
-        border-image: none !important;
-        border-color: var(--general-color) !important;
-    }
-  }
 }

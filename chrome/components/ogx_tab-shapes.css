@@ -39,6 +39,13 @@
        (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") or
        (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome") {
          
+         :root,
+         :root[lwtheme],
+         :root:not([lwtheme]){
+           --border-radius-urlbar-personal: 14px !important;
+           --urlbar-icon-border-radius: 4px !important;
+         }
+         
     .tab-close-button {clip-path: circle(50%) !important; }
     
     #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){

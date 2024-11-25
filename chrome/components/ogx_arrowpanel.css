@@ -97,10 +97,10 @@ toolbar .text-link:hover, panel .text-link:hover {
 
 #downloadsListBox > richlistitem {
     border-radius: 0px !important;
+    background-image: none !important;
     background-color: transparent !important;
-    padding-inline: 4px 4px !important;
+    padding-inline: 4px 14px !important;
     color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
-    padding-inline-end: 14px !important;
 }
 
 #downloadsListBox > richlistitem:is(:hover) {
@@ -110,6 +110,12 @@ toolbar .text-link:hover, panel .text-link:hover {
 
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
     padding: 0.62em 0.0em 0.62em 0em !important;
+}
+
+.downloadButton:hover{
+    background: var(--button-hover-bgcolor) !important;
+    border-color: transparent !important;
+    border-radius: 4px !important;
 }
 
 #downloadsFooterButtons .button-icon{ 

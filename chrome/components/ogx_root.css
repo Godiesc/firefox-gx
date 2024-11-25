@@ -97,6 +97,8 @@
   --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton 'hover' */
   --color-accent-primary-active: var(--general-color) !important;                       /* Radiobutton 'active' */
   
+  --inactive-titlebar-opacity: 1 !important;                                            /* Opacity unfocused window */
+  
 }
 
 /* _________________________________________________________________ Dark theme _________________________________________________________________ */

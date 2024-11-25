@@ -13,15 +13,11 @@
 
 /* _____________________________________________________________ Selected tab _____________________________________________________________ */
 
-/* Remove the opacity difference on focused and unfocused window */
-
-:root[tabsintitlebar] #titlebar:-moz-window-inactive { opacity: 1 !important; }
-
 /* Necessary so that the first 'selected' tab does not remain under 'left-sidebar' */
 
-.tabbrowser-tab[selected] { z-index: 2 !important; }
+.tabbrowser-tab[selected] { z-index: 1 !important; }
 
-#titlebar{
+#TabsToolbar {
   will-change: unset !important;
   transition: none !important;
   opacity: 1 !important;
@@ -170,13 +166,13 @@
 
 /* Remove "Private navigation" label */
 
-#private-browsing-indicator-with-label > label {
+.private-browsing-indicator-label {
     display: none !important;
 }
 
 /* Horizontal tab size */
 
-.tabbrowser-tab[fadein]:not([style^="max-width"]) {
+#tabbrowser-tabs:not([orient="vertical"]) .tabbrowser-tab[fadein]:not([style^="max-width"]) {
     max-width: 200px !important;
 }
 
@@ -188,8 +184,10 @@
 
 /* Remove left empty space on tabs when window is not maximized */
 
-.titlebar-spacer[type="pre-tabs"] {
-    display: none !important
+@media not (-moz-gtk-csd-reversed-placement) {
+    .titlebar-spacer[type="pre-tabs"] {
+        display: none !important
+    }
 }
 
 /* Size and color of the 'dot' when an tab needs attention */
@@ -199,7 +197,7 @@
 }
 
 #vertical-pinned-tabs-container .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
-    background-position: center bottom !important;
+    background-position: center top !important;
 }
 
 /* Code to tabs-bar reach lower height that 30px */
@@ -219,6 +217,14 @@
 }
 
 /* Menu-bar */
+
+:root {
+    --tabstrip-min-height: var(--menubar-height-personal, 30px) !important;
+}
+
+#main-menubar{
+    height: var(--menubar-height-personal) !important;
+}
 
 #main-menubar>menu{
     background-color: transparent !important;
