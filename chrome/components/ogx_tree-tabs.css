@@ -388,9 +388,7 @@
     /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_sidebar.css */
 
     #sidebar-box:is(
-    [sidebarcommand*="tabcenter"],
-    [sidebarcommand*="treestyletab"],
-    [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]){
+    [sidebarcommand*="tabcenter"]){
         --uc-sidebar-width: 49px;
         --uc-sidebar-hover-width: 250px;
         --uc-autohide-sidebar-delay: 50ms; /* Wait 0.6s before hiding sidebar - !Neccesary to avoid bug when bookmarksbar is enable */
@@ -470,9 +468,7 @@
     @media (-moz-bool-pref:"sidebar.position_start") {
         
         :root:has(#sidebar-box:is(
-        [sidebarcommand*="tabcenter"],
-        [sidebarcommand*="treestyletab"],
-        [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) #sidebar {
+        [sidebarcommand*="tabcenter"])) #sidebar {
             background-color: inherit !important;
             border-inline: 0px solid rgb(80,80,80);
             border-inline-width: 0px 1px;
