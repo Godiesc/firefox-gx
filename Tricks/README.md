@@ -102,21 +102,19 @@
     position: fixed;
     display: flex;
     top: 76px !important;
-    left: inherit !important;
-    z-index: 2 !important;
+    left: 0 !important;
+    z-index: 3 !important;
     fill: var(--general-color) !important;
-    width: calc(var(--uc-vertical-toolbar-width) - 4px) !important;
+    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
 }
 
-:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:hover, 
-:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button[open] {
-    transform: scale(1.12) !important;
-    transition: ease-in-out !important;
+:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:not(:active,[open]):hover .toolbarbutton-icon{
+  transform: scale(1.2) !important;
+  transition-duration: 200ms !important;
 }
 
-:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:active {
+:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:is([open])  {
     transform: scale(1.0) !important;
-    transition-duration: 0ms !important;
 }
 ```
 </details>
