@@ -81,46 +81,6 @@
 
 ![ImageInMenus](https://user-images.githubusercontent.com/22057609/228356808-02b9cb92-ba4b-4769-a870-8b41b638c18f.png)
 
-## Extensions button into the "left-sidebar" - Immovable
-<details><summary>Code Here</summary>
-    
-```
-/* Extensions button into the "left-sidebar" - Immovable */
-
-:root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
-    --padding-top-left-sidebar: 146px !important;
-}
-
-@media (-moz-bool-pref:"firefoxgx.oneline") {
-    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #PersonalToolbar {
-    --padding-top-left-sidebar: 182px !important;
-}}
-
-:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button {
-    --toolbarbutton-hover-background: transparent !important;
-    --toolbarbutton-active-background: transparent !important;
-    position: fixed;
-    display: flex;
-    top: 76px !important;
-    left: 0 !important;
-    z-index: 3 !important;
-    fill: var(--general-color) !important;
-    width: calc(var(--uc-vertical-toolbar-width) - 1px) !important;
-}
-
-:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:not(:active,[open]):hover .toolbarbutton-icon{
-  transform: scale(1.2) !important;
-  transition-duration: 200ms !important;
-}
-
-:root:not([chromehidden~="toolbar"], [sizemode="fullscreen"]) #unified-extensions-button:is([open])  {
-    transform: scale(1.0) !important;
-}
-```
-</details>
-
-![ExtensionButtonLeftSidebar](https://user-images.githubusercontent.com/22057609/232178144-499c9c9b-995d-4e9d-9f2b-1356aa34fd84.png)
-
 ## Compatibility with [Adaptive Tab Bar Color](https://addons.mozilla.org/en-US/firefox/addon/adaptive-tab-bar-colour/) extension.
 <details><summary>Code Here</summary>
     
