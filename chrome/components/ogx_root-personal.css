@@ -44,7 +44,7 @@
   
 :root{
   
-  --tab-height-personal: 30px ;                                                                 /* Tab height */
+  --tab-height-personal: 32px ;                                                                 /* Tab height */
   --toolbar-height-personal: 38px ;                                                             /* Toolbar height */
 
   --menu-label: "Menu" ;                                                                        /* Hamburger menu label */
@@ -65,9 +65,9 @@
 
 }
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"firefoxgx.oneline") {
   :root{
-  --my-vertical-toolbar-width: 41px ;                                                           /* 'left-sidebar' width */
+    --my-vertical-toolbar-width: 41px ;                                                           /* 'left-sidebar' width */
   }}
 
 /* ------------------------------------------------------------ Main Image config ------------------------------------------------------------ */

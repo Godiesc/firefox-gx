@@ -1,5 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 @media not (-moz-bool-pref:"firefoxgx.classic-sound-icon") {
     
@@ -79,7 +79,7 @@
 
                 &:hover{
                     fill: var(--lwt-tab-text) !important;
-                    box-shadow: inset 0 0 0 1px var(--lwt-tab-text), inset 0 0 0 0.1px var(--lwt-tab-text) !important;
+                    box-shadow: inset 0 0 0 1px var(--lwt-tab-text), 0 0 0 0.1px var(--lwt-tab-text), 0 0 1px 1px var(--contrast-color) !important;
                     opacity: 0.9 !important;
                 }
             }
@@ -121,7 +121,7 @@
                     opacity: 0.7 !important;
 
                     &:hover{
-                        opacity: 0.9 !important;
+                        opacity: 1 !important;
                     }
                 }
             }
@@ -273,7 +273,7 @@
                 background-image: var(--my-beats-image) !important;
                 width: 100% !important;
                 background-size: 22px 16px !important;
-                inset-block-start: calc(var(--tab-height-personal)/2 - 6px) !important; 
+                inset-block-start: calc(var(--tab-height-personal)/2 - 7px) !important; 
                 inset-inline-start: -3px !important;
                 opacity: 1 !important;
             }

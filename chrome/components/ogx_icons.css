@@ -65,11 +65,11 @@
 
 .urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
   & not([hasException]) {
-    list-style-image: var(--shield-icon-personal) !important;
+    list-style-image: url("../icons/shield.svg") !important;
     fill: var(--general-color) !important;
   }
   &[active] {
-    list-style-image: var(--shield-icon-personal) !important;
+    list-style-image: url("../icons/shield.svg") !important;
     fill: var(--general-color) !important;
   }}
 
@@ -352,7 +352,7 @@
   :-moz-any(#bookmarks-view, #editBMPanel_folderTree, #placesList, #placeContent)
     treechildren::-moz-tree-image(container, open, queryFolder_menu________) {
     list-style-image: url("../icons/bookmarksMenu-open.svg") !important; /* or bookmarksMenu-open2.svg" */
-  }}
+  }
   @-moz-document url("chrome://browser/content/places/places.xhtml")
   {
     @media not (-moz-bool-pref: "firefoxgx.icon.disabled") {
@@ -609,6 +609,16 @@
   #appMenu-zoom-controls {
     padding-inline-start: 6px !important;
   }
+  
+  /* Update avaliable */
+  
+  .panel-banner-item {
+    background-color: var(--button-hover-bgcolor) !important;
+    &> .toolbarbutton-icon {
+      background-image: url("../icons/foxfill.svg") !important;
+      background-size: 16px !important;
+      order: 0 !important;
+    }}
 
   #appMenu-new-window-button2 {
     list-style-image: url("chrome://browser/skin/window.svg");

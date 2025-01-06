@@ -4,46 +4,31 @@
 /* Gradient border for dropdown menus */
 
 slot {
-    --panel-shadow-margin: 2px !important;
-    margin-inline: 3px !important;
-    margin-block-end: 4px !important;
+    --panel-shadow-margin: var(--removed-panel-shadow-margin, inherit) !important;
+    /* External border color */
     border-color: var(--border-contrast-color) !important;
     /* Borde para anuncios emergentes, por ejemplo al instalar un complemento */
     box-shadow: inset 0px 0 0 1px var(--button-active-bgcolor) !important;
-    margin-top: 1px !important;
 }
 
-/* Remove unwanted styles applied to the tab bar */
+/* Remove unwanted styles applied to the tab bar _^ */
 
 :is(scrollbox[part="scrollbox"]) slot{
-    margin-inline: initial !important;
-    margin-block-end: initial !important;
     box-shadow: none !important;
-    margin-top: initial !important;
 }
 
-panelview {    
+/* Gradient border around arrowpanels */
+
+panelmultiview {
     background-image: var(--noise-urlbar-personal) !important;
     border: 1px solid #0c0a10 !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
 }
 
-/* Margin of some dropdown menus [Open] */
+/* Remove unwanted shadow of some dropdown menus [Open] */
 
-#downloadsPanel, #widget-overflow, #customizationui-widget-panel, #unified-extensions-panel, #notification-popup,
-#identity-popup, #permission-popup, #appMenu-popup,
-#protections-popup, #editBookmarkPanel, #full-page-translations-panel {
-    margin-top: -1px !important;
-    margin-inline: -4px !important;
-}
-
-#BMB_bookmarksPopup {
-    margin-top: -3px !important;
-    margin-inline: -4px !important;
-}
-
-addon-install-confirmation-notification {
-    margin-inline: 1px !important;
+.panel-no-padding[type="arrow"] {
+    margin-inline: -5px !important;
 }
 
 /* Gradient background color when :hover over different items in the main menus */
@@ -137,7 +122,7 @@ toolbar .text-link:hover, panel .text-link:hover {
 
 /* Spliter style on Linux */
 
-@media (-moz-platform: linux) {
+@media (not (-moz-bool-pref:"sidebar.revamp")) and (-moz-platform: linux) {
     .sidebar-splitter {
         background-color: var(--sidebar-border-color) !important;
         width: 2px !important;

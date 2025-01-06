@@ -215,17 +215,22 @@ findbar {
 
 /* ____________________________________ Nav-bar height ____________________________________ */
 
-#nav-bar { height: var(--toolbar-height-personal) !important; }
-
-/* Urlbar */
-
-#urlbar, #urlbar-background{
-    border-radius: var(--border-radius-urlbar-personal) !important;
+#nav-bar {
+    height: var(--toolbar-height-personal) !important;
 }
 
-#urlbar {
-    min-height: calc(var(--toolbar-height-personal) - 10px) !important;
-    /*padding-inline: 10px !important;/**/
+#urlbar-container {
+    --urlbar-container-height: var(--toolbar-height-personal) !important;
+}
+
+#urlbar, #searchbar {
+    --urlbar-height: calc(var(--toolbar-height-personal) - 10px) !important;
+    --urlbar-min-height: calc(var(--toolbar-height-personal) - 10px) !important;
+}
+
+/* Roundness */
+#urlbar, #urlbar-background{
+    border-radius: var(--border-radius-urlbar-personal) !important;
 }
 
 #urlbar:not([open], [focused]) #urlbar-background {
@@ -254,17 +259,12 @@ findbar {
     background-image: var(--noise-urlbar-personal) !important;
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-color: transparent !important;
-    margin-top: 1px !important;
-    animation-duration: 0.4s !important;
-    transition: width 0.4s ease, height 0.4s ease !important;
+    margin-block: 1px !important;
 }
 
 #urlbar-input, #urlbar-scheme {
     padding-left: 6px !important;
-}
-
-#urlbar[open] {
-    z-index: 5 !important;
+    margin-block-start: -2px !important;
 }
 
 /* Necessary for many -Hamburger Menu- and -Left Sidebar- scenarios */
@@ -275,21 +275,82 @@ findbar {
 
 /* Brighness when urlbar [open]*/
 
-#nav-bar::after {
-    position: fixed;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: transparent;
-    z-index: 4;
-    pointer-events: none;
-    transition: background-color 0.3s ease; 
+#urlbar {
+    box-shadow: 0 0 0 100vw transparent;
+    transition: box-shadow 0.3s ease-out !important;
 }
 
-:root:has(#urlbar[open]) #nav-bar::after {
-    background-color: rgba(0, 0, 0, 0.5);
+#urlbar[open] {
+    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease-out !important;
+    border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
+    overflow: hidden !important;
+}
+
+/* Search Engine button */
+
+@media not (-moz-bool-pref: "browser.urlbar.searchModeSwitcher.featureGate") {
+    #urlbar-searchmode-switcher:not(:hover,[open]) {
+        appearance: none;
+        background-color: transparent !important;
+        border-radius: var(--urlbar-icon-border-radius);
+        margin-inline-end: var(--urlbar-icon-padding);
+        padding-inline: var(--urlbar-searchmodeswitcher-spacing);
+    }
+}
+
+#urlbar-searchmode-switcher {
+    appearance: none;
+    margin-block: 2px !important;
+    border-radius: var(--urlbar-icon-border-radius);
+    margin-inline-end: var(--urlbar-icon-padding);
+    padding-inline: var(--urlbar-searchmodeswitcher-spacing);
+    
+    &:hover {
+        background-color: var(--urlbar-box-hover-bgcolor) !important;
+    }
+    &[open] {
+        background-color: var(--urlbar-box-active-bgcolor) !important;
+    }   
+}
+
+#searchmode-switcher-chicklet {
+    height: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
+    align-self: center !important;
+}
+
+#searchmode-switcher-icon {
+    width: 14px !important;
+    height: 14px !important;
+    padding: 0px !important;
+    margin: -3px !important;
+}
+
+#searchmode-switcher-dropmarker {
+    display: none !important;
+}
+
+#urlbar-searchmode-switcher,
+#searchmode-switcher-chicklet {
+  @media (-moz-bool-pref: "browser.urlbar.searchModeSwitcher.featureGate") or (-moz-bool-pref: "browser.urlbar.scotchBonnet.enableOverride") {
+    #urlbar[searchmode] & {
+        display: inline-flex;
+        background-color: var(--urlbar-box-bgcolor) !important;
+    }
+  }
+}
+
+#urlbar-searchmode-switcher:is(:hover,[open])/*,
+#searchmode-switcher-chicklet:hover/**/ {
+  @media (-moz-bool-pref: "browser.urlbar.searchModeSwitcher.featureGate") or (-moz-bool-pref: "browser.urlbar.scotchBonnet.enableOverride") {
+    #urlbar[searchmode] & {
+        display: inline-flex;
+        background-color: var(--urlbar-box-hover-bgcolor) !important;
+        border-radius: 2px !important;
+        padding-inline-end: 5px !important;
+        margin-inline-end: 1px !important;
+    }
+  }
 }
 
 /* Search-box - the one next to address-bar */
@@ -325,6 +386,7 @@ findbar {
     width: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
     height: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
     margin-inline-end: 4px !important;
+    align-self: center !important;
 }
 
 /* Extension pages button */
@@ -346,20 +408,18 @@ findbar {
 }
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
-    -moz-context-properties: fill !important;
-    fill: var(--general-color) !important;
-    width: 15px !important;
-    height: 15px !important;
-    margin-inline: 2px 2px !important;
+    width: 14px !important;
+    height: 14px !important;
+    margin-inline: 3px !important;
 }
 
-#identity-box[pageproxystate="valid"].chromeUI .identity-box-button:is(:hover, [open]) #identity-icon {
-    fill: var(--toolbarbutton-icon-fill) !important;
+#identity-box[pageproxystate="valid"].chromeUI .identity-box-button:not(:hover, [open]) #identity-icon {
+    fill: var(--general-color) !important;
 }
 
 #identity-box[pageproxystate="valid"].notSecureText, #identity-box[pageproxystate="valid"].chromeUI, 
 #identity-box[pageproxystate="valid"].extensionPage, #urlbar-label-box {
-    margin-inline-end: 3px !important;
+    margin-inline-end: 2px !important;
 }
 
 #identity-box[pageproxystate="valid"].notSecureText>.identity-box-button, #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button, 
@@ -395,7 +455,7 @@ findbar {
 /* box, icons box */
 
 #identity-icon-box, #identity-permission-box, #notification-popup-box {
-    margin-block: 3px 2px !important;
+    margin-block: 2px 2px !important;
     margin-inline: 2px !important;
     color: var(--toolbarbutton-icon-fill) !important;
 }
@@ -439,22 +499,18 @@ findbar {
 /* Tracking Protection icon */
 
 #tracking-protection-icon-container {
-    margin-block: 3px 2px !important;
-    margin-inline: 3px 0px!important;
-    padding: 2px !important;
-}
-
-#tracking-protection-icon {
-    margin-inline-start: 1px !important;
+    margin-block: 2px !important;
+    margin-inline: 3px 0px !important;
+    padding: 3px 3px 2px 1px !important;
 }
 
 /* Bookmark icon, reading view, etc */
 
 .urlbar-page-action {
     width: 21px !important;
-    height: 19px !important;
+    height: 20px !important;
     margin-inline: 3px 3px !important;
-    padding: 2px 3px !important;
+    padding: 3px 3px !important;
     color: var(--toolbarbutton-icon-fill) !important;
 }
 

@@ -53,187 +53,14 @@
                 }
             }
         }
-        :root:not([chromehidden~="toolbar"]):has(#toolbar-menubar[autohide="true"]) #nav-bar{
-            /*border-inline: var(--uc-window-drag-space-pre,0px) solid transparent;
-            padding-inline: var(--uc-window-drag-space-pre,0px) solid transparent !important;/**/
-            /*border-inline-style: solid !important;/**/
-            /*border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px));/**/
-            background-color: var(--toolbar-bgcolor) !important;
-            margin-inline-start: 0px !important;/* !My edit - remove unganted margin from ogx_left-sidebar */
-            /* !My edit -replace for padding */
-            padding-inline-start: calc(var(--padding-left-tab,0px) + var(--uc-window-drag-space-pre, 0px)) !important;
-            padding-inline-end: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) !important;
-            background-clip: border-box !important;
-        }
     }
-    
-/* ___________________________________________ Makes menubar appear as overlay in the top left corner ___________________________________________
-   _________________________ https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/hide_tabs_toolbar_v2.css _________________________ */
-
-    /* Makes menubar appear as overlay in the top left corner */
-
-    :root {
-        --tab-height-personal: var(--toolbar-height-personal) !important;     /* My code */
-        --my-content-border-color: var(--toolbarbutton-hover-personal);
-    }
-
-    #toolbar-menubar[autohide="false"] > .titlebar-buttonbox-container,
-    #toolbar-menubar[autohide="false"] > spacer{ display: none; }
-
-    /* Makes menubar appear as overlay in the top left corner */
-
-    #toolbar-menubar{
-        position: fixed;
-        display: flex;
-        top: 0;
-        width: 100vw;/**/
-        height: initial !important;
-        z-index: 10;
-    }
-
-    #toolbar-menubar[autohide="true"][inactive="true"]{ height: 0px !important; }
-
-    #toolbar-menubar > spacer{ flex-grow: 1 }
-    #toolbar-menubar[inactive] > .titlebar-buttonbox-container{ display: none }
-
-    #main-menubar{
-        height: calc(var(--toolbar-height-personal)) !important;
-        background-image: linear-gradient(                                              /* My code v */
-            var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor),var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)),
-            var(--lwt-additional-images,none), var(--lwt-header-image, none);
-        background-attachment: scroll, fixed, fixed;
-        background-position: 0 0, var(--lwt-background-alignment), right top;
-        background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat;
-        background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto;
-        color: var(--arrowpanel-color);
-    }
-
-    #menubar-items{
-        flex-direction: row !important;
-    }
-
-    @media (-moz-gtk-csd-reversed-placement){
-        #toolbar-menubar[autohide="true"]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
-    }
-
-    /* ________________________________ My code - Style when menubar is visible-enable */
-
-    :root:has(#toolbar-menubar[autohide="false"]) {
-        & #toolbar-menubar{
-            position: initial !important;
-            /*display: flex;
-            top: 0;
-            width: 100vw;/**/
-            height: initial !important;
-            z-index: initial;
-            background-image: linear-gradient(                                              /* My code v */
-                var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor),var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)),
-                var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-            background-attachment: scroll, fixed, fixed;
-            background-position: 0 0, var(--lwt-background-alignment), right top;
-            background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat;
-            background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto;
-        }
-    }
-
-    /* Display window controls */
-    #toolbar-menubar[autohide="false"] > .titlebar-buttonbox-container,
-    #toolbar-menubar[autohide="false"] > spacer{ display: flex; }
 }
 
 /* ___________________________________________________________________________________________________________________________________________ 
    ___________________________________________________________________________________________________________________________________________ */
 
-@media (not (-moz-bool-pref:"firefoxgx.tree-tabs")) and (-moz-bool-pref:"sidebar.verticalTabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")){
-    
-    /* _________________________________________________ Keep window controls when removing tab bar _________________________________________________
-    __________________ https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css __________________ */
+@media /*(not (-moz-bool-pref:"firefoxgx.tree-tabs")) and/**/ (-moz-bool-pref:"sidebar.verticalTabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")) {   
 
-    /* !My edit - added presintax ':root:...' */
-    :root:not([chromehidden~="toolbar"]) #nav-bar{
-        background-color: var(--toolbar-bgcolor) !important;
-        margin-inline-start: 0px !important;/* !My edit - remove unganted margin from ogx_left-sidebar */
-        /* !My edit -replace for padding */
-        padding-inline-start: calc(var(--padding-left-tab,0px) + var(--uc-window-drag-space-pre, 0px)) !important;
-        padding-inline-end: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) !important;
-        background-clip: border-box !important;
-    }
-
-    @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"){
-        .titlebar-buttonbox-container{
-            order: -1 !important;
-        }
-        .titlebar-buttonbox{
-            flex-direction: row-reverse;
-        }
-    }
-
-/* ______________________________________________________________ Hide TABS-BAR ______________________________________________________________
-   ________________________ https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/hide_tabs_toolbar.css  _________________________ */
-
-    :root[tabsintitlebar]{ --uc-toolbar-height: var(--toolbar-height-personal); }                       /* !My edit - default 40px */
-    :root[tabsintitlebar][uidensity="compact"]{ --uc-toolbar-height: var(--toolbar-height-personal) }   /* !My edit - default 32px */
-
-
-    :root:not([inFullscreen]) #nav-bar{
-        margin-top: calc(0px - var(--uc-toolbar-height,0px));
-    }
-
-    :root[tabsintitlebar] #toolbar-menubar[autohide="true"]{
-        min-height: unset !important;
-        height: var(--uc-toolbar-height,0px) !important;
-        /*position: relative; /* nav-bar was set to relative too and cause problems */
-    }
-
-    /* Style when menubar is enable-active */
-
-    #toolbar-menubar[autohide="false"] {
-        margin-bottom: var(--uc-toolbar-height,0px);
-    }
-
-    :root[tabsintitlebar] #toolbar-menubar[autohide="true"] #main-menubar{
-        flex-grow: 1;
-        align-items: stretch;
-        background-attachment: scroll, fixed, fixed;
-        background-position: 0 0, var(--lwt-background-alignment), right top;
-        background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat;
-        background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto;
-        padding-right: 20px;
-    }
-    :root[tabsintitlebar] #toolbar-menubar[autohide="true"]:not([inactive]) #main-menubar{
-        background-color: var(--lwt-accent-color);
-        background-image: linear-gradient(var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor),var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)), var(--lwt-additional-images,none), var(--lwt-header-image, none);
-        mask-image: linear-gradient(to left, transparent, black 20px);
-    }
-
-    #toolbar-menubar:not([inactive]){ z-index: 1 !important; }
-    #toolbar-menubar[autohide="true"][inactive] > #menubar-items {
-        opacity: 0;
-        pointer-events: none;
-        margin-left: var(--uc-window-drag-space-pre,0px)
-    }
-    /* Menubar bottom separator gradient line */
-    :root:has(#toolbar-menubar[autohide="false"]) {
-        & #toolbar-menubar::after{
-            content: ""; position: absolute !important; 
-            display: flex;
-            top: calc(var(--menubar-height-personal) - 1px);
-            left: var(--padding-left-tab);
-            width: 60vw;
-            height: initial !important;
-            z-index: initial;                                              /* My code v */
-            border-bottom: 1px solid var(--general-color) !important;
-            border-image: linear-gradient(to right,var(--general-color) 52% , transparent) 1 !important;
-        }
-        
-        & #main-menubar{
-            height: var(--menubar-height-personal);
-        }
-    }
-
-/* _________________________________________________________________ My Code _________________________________________________________________
-   ___________________________________________________ Additionally <overwrite> Code Above ___________________________________________________ */
-    
     /* ¡Necessary for the hamburger button to be above the sidebar */
         
     .browser-titlebar {
@@ -242,32 +69,6 @@
             transition: none !important;
         }
     }
-
-    /* _______ Border around web content when using 'sidebar.verticalTabs' */
-    
-    #appcontent {
-        border-top-color: var(--toolbarbutton-hover-personal) !important;
-    }
-
-    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #appcontent {
-        border-top-color: color-mix(in srgb, var(--toolbarbutton-hover-personal) 60%, var(--contrast-color)) !important;
-    }
-
-    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #sidebar-box[checked="true"] ~ #appcontent {
-        border-top-color: color-mix(in srgb, var(--toolbarbutton-hover-personal) 80%, var(--contrast-color)) !important;
-    }
-
-    /* _______ Menubar, necessary when you don't use the 'left sidebar' or Firefox sidebar */
-    
-    /* Hide menubar in costomization mode */
-    :root[customizing] #wrapper-menubar-items{
-        opacity: 0 !important;
-    }
-    
-    /* Margin to the left of tabs when menu-bar is displayed 
-    #toolbar-menubar{
-        padding-inline-start: calc(var(--my-vertical-toolbar-width,0) + 1px) !important;
-    }*/
 }
 
 /* ______________________________________________ Code for both 'tree-tabs' or 'Firefox vertical tabs' _______________________________________________ */
@@ -285,16 +86,6 @@
     :root:not([lwtheme]){
         /* New background for toolbarbuttons on 'hover' */
         --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
-    }
-    
-    /* _______ Windows Controls */
-
-    @media (-moz-platform: windows) {       
-
-        /* Restore the position of the 'minimize' button to center it */
-        .titlebar-min{
-            padding-top: 2px !important;
-        }
     }
     
     /* Overwrite variable to fix height of buttons */
@@ -340,7 +131,7 @@
     /* _______ Make border top of url dragable */
 
     #urlbar-container {
-        margin-block: 1px 1px !important;
+        margin-block: 1px !important;
     }
 
     #urlbar-container[breakout] {
@@ -362,166 +153,135 @@
     /* Bug fix: Trick to hide urlbar when menu appears (Alt key) */
 
     :root:has(#toolbar-menubar[autohide="true"]) #urlbar {
-        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
     }
 
     :root:has(#toolbar-menubar[autohide="true"][inactive="true"]) {
         & #urlbar {
-            display: initial !important;
+            opacity: 1 !important;
+            pointer-events: all !important;
         }
-    }
-
-/* ___________________________________________________                                    ___________________________________________________
-   ___________________________________________________ Tab-center-reborn autohide sidebar ___________________________________________________
-   ___________________________________________________                                    ___________________________________________________ */
+    }   
     
-    /* Hide the sidebar header when using vertical tab extensions */
-
-    #sidebar-box:is(
-    [sidebarcommand*="tabcenter"],
-    [sidebarcommand*="treestyletab"],
-    [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]) #sidebar-header {
-        visibility: collapse;
-        display: none;
-    }
+    /* Menubar bottom separator gradient line */
     
-    /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_sidebar.css */
-
-    #sidebar-box:is(
-    [sidebarcommand*="tabcenter"]){
-        --uc-sidebar-width: 49px;
-        --uc-sidebar-hover-width: 250px;
-        --uc-autohide-sidebar-delay: 50ms; /* Wait 0.6s before hiding sidebar - !Neccesary to avoid bug when bookmarksbar is enable */
-        --uc-autohide-transition-duration: 115ms;
-        --uc-autohide-transition-type: linear;
-        --browser-area-z-index-sidebar: 3;
-        position: relative;
-        min-width: var(--uc-sidebar-width) !important;
-        width: var(--uc-sidebar-width) !important;
-        max-width: var(--uc-sidebar-width) !important;
-        z-index: var(--browser-area-z-index-sidebar,3);
-    }
-    #sidebar-box[positionend]{ direction: rtl }
-    #sidebar-box[positionend] > *{ direction: ltr }
-
-    #sidebar-box[positionend]:-moz-locale-dir(rtl){ direction: ltr }
-    #sidebar-box[positionend]:-moz-locale-dir(rtl) > *{ direction: rtl }
-
-    #main-window[sizemode="fullscreen"] #sidebar-box{ --uc-sidebar-width: 1px; }
-
-    :root:has(#sidebar-box:is(
-    [sidebarcommand*="tabcenter"],
-    [sidebarcommand*="treestyletab"],
-    [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) #sidebar-splitter{ display: none }
-    
-    /* Behavior when boomarks-bar is enable */
-    
-    @media not (-moz-bool-pref:"firefoxgx.left-sidebar"){
-
-        :root:has(#sidebar-box:is(
-        [sidebarcommand*="tabcenter"],
-        [sidebarcommand*="treestyletab"],
-        [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])):not([sizemode="fullscreen"]) #sidebar {
-            margin-block-start: calc( 0px - var(--bookmarksbar-height-personal, 0px));
+    :root:has(#toolbar-menubar[autohide="false"]) {
+        & #toolbar-menubar::after{
+            content: ""; position: absolute !important; 
+            display: flex;
+            top: calc(var(--menubar-height-personal) - 1px);
+            /*left: var(--padding-left-tab) !important;/**/
+            left: 0 !important;
+            width: 70vw;
+            height: initial !important;
+            z-index: initial;                                              /* My code v */
+            border-bottom: 1px solid var(--general-color) !important;
+            border-image: linear-gradient(to right,var(--general-color) 52% , transparent) 1 !important;
         }
-    }
-
-    #sidebar-header{
-        overflow: hidden;
-        color: var(--chrome-color, inherit) !important;
-        padding-inline: 0 !important;
-    }
-
-    #sidebar-header::before,
-    #sidebar-header::after{
-        content: "";
-        display: flex;
-        padding-left: 8px;
-    }
-
-    #sidebar-header,
-    #sidebar{
-        transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) var(--uc-autohide-sidebar-delay) !important;
-        min-width: var(--uc-sidebar-width) !important;
-        will-change: min-width;
-    }
-    #sidebar-box:hover > #sidebar-header,
-    #sidebar-box:hover > #sidebar{
-        z-index: 10000 !important;
-        min-width: var(--uc-sidebar-hover-width) !important;
-        transition-delay: 0ms !important;
-    }
-
-    .sidebar-panel{
-        background-color: transparent !important;
-        color: var(--newtab-text-primary-color) !important;
-    }
-
-    .sidebar-panel #search-box{
-        -moz-appearance: none !important;
-        background-color: rgba(249,249,250,0.1) !important; 
-        color: inherit !important;
-    }
-
-    /* Add sidebar divider and give it background */
-
-    @media (-moz-bool-pref:"sidebar.position_start") {
         
-        :root:has(#sidebar-box:is(
-        [sidebarcommand*="tabcenter"])) #sidebar {
-            background-color: inherit !important;
-            border-inline: 0px solid rgb(80,80,80);
-            border-inline-width: 0px 1px;
-            border-inline-end: 1px solid var(--toolbar-bgcolor);
-            border-image: linear-gradient(to bottom,
-                var(--general-color) 80%, transparent) 1;
-            box-shadow: 0 -1px 0 0 var(--general-color);
+        & #main-menubar{
+            height: var(--menubar-height-personal);
+        }
+    }
+    
+/* ___________________________________________ Makes menubar appear as overlay in the top left corner ___________________________________________
+   _________________________ https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/hide_tabs_toolbar_v2.css _________________________ */
+
+    /* Makes menubar appear as overlay in the top left corner */
+
+    :root {
+        --my-content-border-color: var(--toolbarbutton-hover-personal);
+    }
+
+    #toolbar-menubar[autohide="false"] > .titlebar-buttonbox-container,
+    #toolbar-menubar[autohide="false"] > spacer{ display: none; }
+
+    /* Makes menubar appear as overlay in the top left corner */
+
+    #toolbar-menubar{
+        position: fixed;
+        display: flex;
+        top: 0;
+        width: 100vw;/**/
+        height: initial !important;
+        z-index: 10;
+    }
+
+    #toolbar-menubar[autohide="true"][inactive="true"]{ height: 0px !important; }
+
+    #toolbar-menubar > spacer{ flex-grow: 1 }
+    #toolbar-menubar[inactive] > .titlebar-buttonbox-container{ display: none }
+
+    /* Makes the menubar clic on top border */
+    #main-menubar{
+            height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;
+    }
+    
+    #toolbar-menubar[autohide="true"] #main-menubar{
+        background-image: linear-gradient(
+            var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor),var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)),
+            var(--lwt-additional-images,none), var(--lwt-header-image, none);
+        background-attachment: scroll, fixed, fixed;
+        background-position: 0 0, var(--lwt-background-alignment), right top;
+        background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat;
+        background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto;
+        color: var(--arrowpanel-color) !important;
+    }
+
+    #menubar-items{
+        flex-direction: row !important;
+    }
+
+    @media (-moz-gtk-csd-reversed-placement){
+        #toolbar-menubar[autohide="true"]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
+    }
+
+    /* ________________________________ My code - Style when menubar is always visible */
+
+    :root:has(#toolbar-menubar[autohide="false"]) {
+        & #toolbar-menubar{
+            position: initial !important;
+            height: initial !important;
+            z-index: initial;
         }
     }
 
-    #sidebar-box:not([positionend]) > :-moz-locale-dir(rtl),
-    #sidebar-box[positionend] > *{
-        border-inline-width: 1px 0px;
-    }
+    /* Display window controls */
+    #toolbar-menubar[autohide="false"] > .titlebar-buttonbox-container,
+    #toolbar-menubar[autohide="false"] > spacer{ display: flex; }
+}
 
-    /* Move statuspanel to the other side when sidebar is hovered so it doesn't get covered by sidebar */
+/* ______________________________________________________________________________________________________________________________________________ */
 
-    #sidebar-box:not([positionend]):hover ~ #tabbrowser-tabbox #statuspanel{
-        inset-inline: auto 0px !important;
-    }
-    #sidebar-box:not([positionend]):hover ~ #tabbrowser-tabbox #statuspanel-label{
-        margin-inline: 0px !important;
-        border-left-style: solid !important; 
+/* __________________________ Bookmarks-bar same color of Nav-bar */
+
+@media (-moz-bool-pref:"sidebar.verticalTabs") and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) and (not (-moz-bool-pref:"firefoxgx.oneline")) {
+    :root:not([chromehidden~="toolbar"]) :is(#PersonalToolbar, #nav-bar) {
+        background-color: var(--toolbar-bgcolor) !important;
     }
 }
 
-@media (not (-moz-bool-pref:"firefoxgx.menu.disabled")) and (((-moz-bool-pref:"sidebar.verticalTabs") and (not (-moz-bool-pref:"sidebar.position_start"))) or (-moz-bool-pref:"firefoxgx.left-sidebar")) {
-    @media (-moz-platform: windows), (-moz-platform: linux) {
+/* __________________________ Nav-bar color when 'Firefox vertical tabs' + 'left-sidebar' */
 
-        :root:not([chromehidden~="toolbar"]) {
-
-            /* New menu height size */
-
-            & #PanelUI-button,
-            & #appMenu-popup {
-                --tab-height-personal: var(--toolbar-height-personal) !important;
-            }
-        }
+@media (-moz-bool-pref:"sidebar.verticalTabs") and (-moz-bool-pref:"firefoxgx.left-sidebar") and (not (-moz-bool-pref:"firefoxgx.oneline")) {
+    :root:not([chromehidden~="toolbar"]) :is(#nav-bar) {
+        background-color: var(--toolbar-bgcolor) !important;
     }
 }
 
-/* New padding top and bottom for 'Left-sidebar' config when using 'tree-tabs' style*/
+/* __________________________ New padding top and bottom for 'Left-sidebar' config when using 'tree-tabs' styles */
 
 @media (-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"sidebar.verticalTabs") {
     :root:not([chromehidden~="toolbar"]) #PersonalToolbar {
-        --padding-top-left-sidebar: 118px !important;
-        --padding-bottom-left-sidebar: 38px !important;
+        --padding-top-left-sidebar: calc(var(--toolbar-height-personal) + var(--tab-height-personal) + var(--menubar-height-personal, 0px) + 15px) !important;
+        --padding-bottom-left-sidebar: calc(var(--menubar-height-personal, 0px) + 10px) !important;
     }
 }
 
 /* __________________________ toolbar_bottom_separator when not using 'Firefox vertical tabs' */
 
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not (-moz-bool-pref:"sidebar.verticalTabs")){
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not (-moz-bool-pref:"sidebar.revamp")){
 
     #navigator-toolbox{
         border-bottom-color: color-mix(in srgb, var(--toolbar-bgcolor) 90%, var(--lwt-tab-text)) !important;

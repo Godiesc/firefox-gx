@@ -13,10 +13,14 @@
     .titlebar-button:hover:not(.titlebar-close) {
         background-color: var(--toolbarbutton-hover-personal) !important;
     }
-    .titlebar-min {
-        padding-block-start: 12px !important;
-        padding-block-end: 0px !important;
+    
+    @media (not (-moz-bool-pref:"firefoxgx.oneline")) and (not (-moz-bool-pref:"firefoxgx.tree-tabs")) and (not (-moz-bool-pref:"sidebar.verticalTabs")) {
+        .titlebar-min {
+            padding-block-start: 12px !important;
+            padding-block-end: 0px !important;
+        }
     }
+    
     .titlebar-min image, .titlebar-max image, .titlebar-close image {
         border-radius: 0 !important;
         height: 14px !important;
@@ -61,7 +65,7 @@
     /* Larger buttons (min-max-close) on non-maximized windows */
     
     :root:is([tabsintitlebar][sizemode="normal"]):has(#toolbar-menubar[autohide="true"]) .titlebar-buttonbox {
-        height: calc(var(--tab-height-personal) + var(--windowed-top-padding)) !important;
+        height: calc(var(--tab-height-personal) - 1px + var(--windowed-top-padding)) !important;
         margin-top: calc(0px - var(--windowed-top-padding)) !important;
     }
 }
@@ -69,34 +73,33 @@
 /* Linux default window control icons */
 
 @media (-moz-platform: linux) {
-        .titlebar-button{
-            list-style-image: none !important;
-            appearance: none !important;
-        }
-        .titlebar-button > .toolbarbutton-icon{
-            appearance: auto !important;
-            background: none !important;
-            width: unset !important;
-            height: unset !important;
-        }
-        .titlebar-button > .toolbarbutton-icon{
-            background: none !important;
-        }
-        .titlebar-min {
-            -moz-default-appearance: -moz-window-button-minimize !important;
-        }
-        .titlebar-max {
-            -moz-default-appearance: -moz-window-button-maximize !important;
-        }
-        .titlebar-restore {
-            -moz-default-appearance: -moz-window-button-restore !important;
-        }
-        .titlebar-close {
-            -moz-default-appearance: -moz-window-button-close !important;
-        }
-        .titlebar-buttonbox {
-            max-height: var(--tab-height-personal) !important;
-        }
+
+    .titlebar-button{
+        list-style-image: none !important;
+        appearance: none !important;
+    }
+    .titlebar-button > .toolbarbutton-icon{
+        appearance: auto !important;
+        background: none !important;
+        width: unset !important;
+        height: unset !important;
+    }
+    .titlebar-min > .toolbarbutton-icon{
+        -moz-default-appearance: -moz-window-button-minimize !important;
+    }
+    .titlebar-max > .toolbarbutton-icon{
+        -moz-default-appearance: -moz-window-button-maximize !important;
+    }
+    .titlebar-restore > .toolbarbutton-icon{
+        -moz-default-appearance: -moz-window-button-restore !important;
+    }
+    .titlebar-close > .toolbarbutton-icon{
+        -moz-default-appearance: -moz-window-button-close !important;
+    }
+    .titlebar-buttonbox {
+        min-height: calc(var(--tab-block-margin-personal) * 2 + var(--tab-height-personal)) !important;
+        max-height: calc(var(--tab-block-margin-personal) * 2 + var(--tab-height-personal)) !important;
+    }
 }
 
 @media (-moz-gtk-csd-reversed-placement) {

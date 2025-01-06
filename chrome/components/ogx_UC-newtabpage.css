@@ -381,6 +381,17 @@
         backdrop-filter: var(--personal-blur) !important;
     }
     
+    .weatherCard:hover {
+        background-color: light-dark(var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background)) !important;
+    }
+    
+    .weatherCard :is(.weatherInfoLink, .weatherButtonContextMenuWrapper):hover {
+        background-color: light-dark(var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background)) !important;
+        backdrop-filter: var(--personal-blur) !important;
+        outline: 1px solid var(--button-hover-bgcolor) !important;
+        box-shadow: inset 0 0 0 1px var(--button-bgcolor) !important;
+    }
+    
     .weatherInfoLink, .weatherButtonContextMenuWrapper{
         outline: 1px solid #50505030 !important;
         outline-offset: -1px !important;
@@ -391,7 +402,13 @@
     }
     
     .weatherButtonContextMenuWrapper::after {
-        display: none !important;
+        background-color: transparent !important;
+    }
+    
+    :root:has(.weatherInfoLink:hover) .weatherButtonContextMenuWrapper::after {
+        background-color: var(--button-hover-bgcolor) !important;
+        top: 0px !important;
+        height: 100% !important;
     }
     
 /* _______________________________ Colors of the sliding sidebar used to customize the NewTab _______________________________ */
@@ -417,7 +434,8 @@
     .home-section .section .selector {
         background-color: var(--newtab-element-secondary-color) !important;
         border-color: transparent !important;
-        border-radius: 4px !important; 
+        border-radius: 4px !important;
+        box-shadow: none !important;
     }
 
     .home-section .section .selector:hover {
@@ -547,17 +565,6 @@
             clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 90%, 90% 104%, 8.5% 104%, 8.5% 95%, 0 95%);
         }
 
-        /* Search-engine icon size */    
-        .search-wrapper .search-inner-wrapper .search-handoff-button {
-            background-size: 30px 30px !important;
-            margin-inline-start: -6px !important;
-        }
-
-        /* Margin to the left of - Search with google ... */     
-        .search-handoff-button, .fake-editable{
-            padding-inline-start: 54px !important;
-        }
-
         /* Transparent border when 'focus' */    
         .search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button {
             box-shadow: none !important;
@@ -583,6 +590,10 @@
             opacity: 1 !important;
             clip-path: polygon(0 0, 100% 0, 100% 72%, 100% 72%, 100% 134%, 0 114%);
             transition-duration: 400ms !important;
+        }
+        
+        .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
+            outline: none !important;
         }
     }
 

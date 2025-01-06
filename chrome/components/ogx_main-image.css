@@ -109,7 +109,6 @@
       :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
       :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
       :root:not([privatebrowsingmode="temporary"]):is([style*="--lwt-additional-images"]) #PersonalToolbar {
-         background-position: 0 calc(var(--tab-height-personal) + 0px) !important;
          background-size: 100vw !important;
       }}
 

@@ -1,5 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /* Default contenedor color */
 
@@ -24,68 +24,42 @@
 
 @media (not (-moz-bool-pref:"firefoxgx.classic-sound-icon")) {
 
-    /* Size and position of the container line */
+    /* Rework en la Linea de Contenedores-BordePestaña */
 
     .tab-context-line {
-        order: 2 !important;
-        width: 14px !important;
-        height: 2px !important;
-        margin-inline: 8px !important;
-        margin-bottom: 3px !important;
-        box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
+        opacity: 0 !important;
     }
 
-    /* In pinned tab */
+    /* Rework en la Linea de Contenedores-BordeFavicon */
 
-    tab:is([pinned]) .tab-context-line {
-        margin-inline-start: 10px !important;
-    }
-
-    /* _____________ Tab container line for vertical tabs */    
-
-    #tabbrowser-tabs[orient="vertical"] .tab-context-line {
-        bottom: 0 !important;
-        width: 2px !important;
-        height: calc(var(--tab-min-height) - 14px) !important;
-        margin-inline-start: 2px !important;
-        margin-block-end: 7px !important;
+    .tabbrowser-tab {
+        & .tab-throbber[busy], .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay {
+            outline: 2px solid var(--identity-icon-color, transparent) !important;
+            outline-offset: 1px !important;
+            border-radius: 1px !important;
+            clip-path: xywh(-1px 0px calc(100% + 2px) calc(100% + 6px) round 0px);
+            transition: clip-path 0.1s ease !important;
+        }
     }
 }
 
-/* _____________________________________________ COntainer line when using classic sound icon _____________________________________________ */
+/* _____________________________________________ Container line when using classic sound icon _____________________________________________ */
 
 @media ((not (-moz-bool-pref:"sidebar.verticalTabs")) or (not (-moz-bool-pref:"firefoxgx.tab-shapes"))) and (-moz-bool-pref:"firefoxgx.classic-sound-icon") {
     
-    /* Container line in pinned tabs */
-    
-    .tabbrowser-tab .tab-context-line {
-        position: absolute !important; /* Bug fix when using some tab-shapes */
-        bottom: 0 !important;
-        width: 2px !important;
-        min-height: 10px !important;
-        margin-inline-start: 2px !important;
-        margin-block-end: calc(var(--tab-min-height)/2 - 4px) !important;
+    .tabbrowser-tab {
+        & .tab-throbber[busy], .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay {
+            outline: 2px solid var(--identity-icon-color, transparent) !important;
+            outline-offset: 1px !important;
+            border-radius: 1px !important;
+            clip-path: xywh(-1px -3px calc(100% + 2px) calc(100% + 3px) round 0px);
+            transition: clip-path 0.1s ease !important;
+        }
     }
-    
-    .tabbrowser-tab[selected] .tab-context-line {
-        min-height: 16px !important;
-        margin-block-end: calc(var(--tab-min-height)/2 - 7px) !important;
-        box-shadow: 0 0px 3px 0 var(--identity-tab-color) !important;
-        transition: min-height 200ms ease, margin-block 200ms ease !important;
-    }
-    
-    /* Tab label of the same color as the container */
-    
-    .tab-content .tab-label{color: var(--identity-icon-color) !important;}
     
     /* _____________ Tab container line for vertical tabs */    
 
     #tabbrowser-tabs[orient="vertical"] .tab-context-line {
-        position: absolute !important;
-        bottom: 0 !important;
-        width: 2px !important;
-        height: calc(var(--tab-min-height) - 14px) !important;
-        margin-inline-start: 2px !important;
-        margin-block-end: 8px !important;
+        display: none !important;
     }
 }

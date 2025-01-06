@@ -157,11 +157,7 @@ treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected
 :root{ --uei-icon-size: 18px !important; }
 
 #unified-extensions-manage-extensions .toolbarbutton-icon{
-    margin-inline-start: 2px !important;
-}
-
-#unified-extensions-manage-extensions .toolbarbutton-text{
-    padding-inline-start: 12px !important;
+    margin-inline: 2px 4px !important;
 }
 
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not(.toolbarbutton-1)[disabled] {
