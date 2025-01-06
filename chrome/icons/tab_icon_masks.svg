@@ -6,7 +6,7 @@
 
 <mask id="SoundMask" x="0" y="0" width="1" height="1" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
     <rect x="0" y="0" width="1" height="1" fill="#ffffff"/>
-    <circle cx="1" cy="0" r="0.5" fill="#000000"/>
+    <circle cx="0.81" cy="0.17" r="0.38" fill="#000000"/>
 </mask>
 
 <!-- PIP Mask -->
