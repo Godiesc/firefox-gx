@@ -4,6 +4,12 @@
     <td width="320px">firefoxgx.tree-tabs</td>
     <td width="50px">true</td></tr>
 </table>
+
+<li>If you want the 'Expand on hover' feature you have to add too this preference in about:config page:</li>
+    <table><tr>
+    <td width="500px">firefoxgx.verticalTabs-expandOnHover</td>
+    <td width="50px">true</td></tr>
+    </table>
 <li>Dependig of the extension you will use for tree-tabs you have different steps to follow:
 <ul><li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/TreeStyle-tabs/Sidebery">Sideberry</a></li>
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/TreeStyle-tabs/Tab-Center-Reborn">Tab-center-reborn</a></li>
