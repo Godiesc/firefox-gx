@@ -47,7 +47,7 @@
   --urlbar-icon-border-radius: 2px !important;                                          /* shape of url bar icons */
 
   /*--toolbarbutton-icon-fill: #b6b6d2 !important;                                      /* icons */
-  /*--lwt-toolbarbutton-icon-fill-attention: var(--general-color) !important;           /* icons_attention */    
+  /*--toolbarbutton-icon-fill-attention: var(--general-color) !important;               /* icons_attention */    
   
   --lwt-sidebar-background-color: var(--toolbar-bgcolor) !important;                    /* Sidebar-background */
   

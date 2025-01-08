@@ -278,7 +278,7 @@
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-wave-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
         
-        --uc-margin-left-right: 4px;
+          --uc-margin-left-right: 4px;
         --uc-margin-left-newtab: 7px;
       }
     }
@@ -305,7 +305,7 @@
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chrome-clipped.svg");
         --uc-tab-corner-size: 12px;
         
-        --uc-margin-left-right: 0px;
+        --uc-margin-left-right: -1px;
         --uc-margin-left-newtab: 7px;
       }
     }
@@ -318,7 +318,7 @@
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-chromeLegacy-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chromeLegacy-clipped.svg");
         
-        --uc-margin-left-right: 7px;
+        --uc-margin-left-right: 6px;
         --uc-margin-left-newtab: 12px;
       }
     }
