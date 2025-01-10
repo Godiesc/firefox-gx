@@ -155,7 +155,7 @@
             #browser-bottombox,
             #main-window > body::after, /* This selector is for compatibility with tabs_below_content.css */
                 #customization-container{
-                    margin-left: var(--my-vertical-toolbar-width,41px) !important;
+                    margin-inline-start: var(--my-vertical-toolbar-width,41px) !important;
             }
         }
         
@@ -176,7 +176,7 @@
             #browser-bottombox,
             #main-window > body::after, /* This selector is for compatibility with tabs_below_content.css */
                 #customization-container{
-                    margin-left: var(--my-vertical-toolbar-width,0) !important;
+                    margin-inline-start: var(--my-vertical-toolbar-width,0) !important;
             }
         }
     }
