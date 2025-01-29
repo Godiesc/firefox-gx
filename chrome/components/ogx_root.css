@@ -58,7 +58,7 @@
   --toolbarseparator-color: var(--toolbarbutton-hover-personal) !important;             /* Bookmarks-bar separator */
   
   --tab-block-margin: 0px !important;                                                   /* Tab margins - change this will break the theme */
-  --margin-top-personal: 0px !important;                                                /* Top margin of tabs - variable personal */
+  --my-tab-margin-top: 0px !important;                                                  /* Top margin of tabs - variable personal */
   
   --tab-min-height: var(--tab-height-personal) !important;                              /* Tab size */
   --tabstrip-min-height: var(--tab-height-personal) !important;                         /* Tab min size */

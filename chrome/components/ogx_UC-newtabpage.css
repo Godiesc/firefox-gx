@@ -138,7 +138,7 @@
     
     /* Accent color for each wallpaper */
     
-    :root:has(#photographs[style*='e94b1e49-c518-40d6-98e3-dffab6cc370d.avif"']){
+    :root:has(#photographs[style*='e94b1e49-c518-40d6-98e3-dffab6cc370d.avif']){
         --general-color: var(--general-color-dark1) !important;    }
 
     :root:has(#photographs[style*='af6073d2-cbb2-4e28-b642-3327d14808b2.avif']){
@@ -174,20 +174,35 @@
     :root:has(#photographs[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif']){
         --general-color: var(--general-color-light6) !important;   }
     
+    /* Accent color indicator over each wallpaper */
+    
+    .wallpaper-input[aria-checked]::after {
+        position: fixed;
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: var(--general-color);
+        border-radius: 2px;
+        margin-block: 5px;
+        margin-inline: 5px;
+        outline: 1px solid #80808080;
+        outline-offset: 1px;
+    }
+    
     /* rearrangement of wallpapers */
     
-    #dark-sky { order: 1 !important; }
-    #dark-mountain { order: 2 !important; }
-    #dark-panda { order: 3 !important; }
-    #dark-fox-anniversary { order: 4 !important;}
-    #dark-landscape { order: 5 !important; }
-    #dark-beach { order: 6 !important; }
-    #light-panda { order: 7 !important; }
-    #light-landscape { order: 8 !important; }
-    #light-mountain { order: 9 !important; }
-    #light-sky { order: 10 !important; }
-    #light-beach { order: 11 !important; }
-    #light-fox-anniversary { order: 12 !important;}
+    #dark-sky {             order: 1 !important;   --general-color: var(--general-color-dark1) !important; }
+    #dark-mountain {        order: 2 !important;   --general-color: var(--general-color-dark2) !important; }
+    #dark-panda {           order: 3 !important;   --general-color: var(--general-color-dark3) !important; }
+    #dark-fox-anniversary { order: 4 !important;   --general-color: var(--general-color-dark4) !important; }
+    #dark-landscape {       order: 5 !important;   --general-color: var(--general-color-dark5) !important; }
+    #dark-beach {           order: 6 !important;   --general-color: var(--general-color-dark6) !important; }
+    #light-panda {          order: 7 !important;   --general-color: var(--general-color-light1) !important; }
+    #light-landscape {      order: 8 !important;   --general-color: var(--general-color-light2) !important; }
+    #light-mountain {       order: 9 !important;   --general-color: var(--general-color-light3) !important; }
+    #light-sky {            order: 10 !important;  --general-color: var(--general-color-light4) !important; }
+    #light-beach {          order: 11 !important;  --general-color: var(--general-color-light5) !important; }
+    #light-fox-anniversary{ order: 12 !important;  --general-color: var(--general-color-light6) !important; }
         
     /* Border color when 'hover' over wallpapers */
 
@@ -196,23 +211,21 @@
     }
     
     /* Border color when 'hover' over selected wallpaper */
+    
+    .wallpaper-list .wallpaper-input {
+        padding: 1px !important;
+    }
 
     .wallpaper-list .wallpaper-input:checked:hover {
         filter: none !important;
         outline-color: var(--button-active-bgcolor) !important;
     }
     
-    .wallpaper-input:checked{
-        padding: 1px !important;
-    }
-    
     /* Remove credits from the image used as wallpaper */
 
     .wallpaper-attribution { display: none !important; }
     
-    /* Wallpaper default brightness and wallpaper para Main-image config 
-    
-    /* Brighness wallpaper */
+    /* Wallpaper default brightness */
 
     body::before {
         position: fixed;
@@ -225,23 +238,7 @@
         pointer-events: none;
     }
 
-    @media (-moz-bool-pref:"firefoxgx.main-image") {
-
-        body{
-            background-image: var(--lwt-main-image, initial) !important;
-            background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
-            background-size: calc(100% + var(--my-vertical-toolbar-width, 0px) + var(--extension-width, 0px)) !important;
-            background-attachment: fixed !important;
-            background-position-x: right !important;
-            background-position-y: var(--background-align-y, 0px) !important;
-        }
-
-        /* Brighness wallpaper */
-
-        body::before {
-            background-color: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper));
-        }
-    }
+    
     
 /* _____________________________________________________ Logo & Wordmark ____________________________________________________ */
     
@@ -372,6 +369,10 @@
     
     .close-button:hover{
         background-color: var(--button-hover-bgcolor) !important;
+    }
+    
+    .close-button-wrapper {
+        position: static !important;
     }
     
     /* Weather */
@@ -513,24 +514,31 @@
         opacity: var(--searchbar-on-off, 1) !important;
         display: var(--searchbar-display, flex) !important;
         box-shadow: 0 2px var(--button-bgcolor) !important;
-        width: 58% !important;
     }
     
     /* Font color */
-
-    .search-wrapper input{
+    
+    .search-wrapper input {
         color: var(--newtab-contextual-text-primary-color) !important;
         text-shadow: 0px 0px 4px var(--contrast-color) !important;
     }
     
+    /* Logo and Search when it get sticky position */
+    
+    @media (height > 700px) {
+        body:not(.inline-onboarding) .fixed-search .search-wrapper {
+            background-color: color-mix(in srgb, var(--border-contrast-color) 90%, transparent) !important;
+            backdrop-filter: blur(5px) !important;
+        }
+    }
+    
     /* Styles for the classic search box */
     
-    @media not (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
+    @media not (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
         
-        .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus{
+        .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus {
             box-shadow: none !important;
             outline-color: transparent !important;
-            
         }
 
         .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
@@ -539,20 +547,31 @@
         }
 
         browser[primary="true"][tabDialogShowing="true"],
-        #main-window[window-modal-open="true"] > body > #browser{
+        #main-window[window-modal-open="true"] > body > #browser {
             filter: blur(10px)
         }
-
-        #newtab-search-text{
-            border-radius: 0px !important;
+        
+        /* Searchbox focus Animation line - included code for RTL language */
+        
+        :root:has(#newtab-search-text) .search-inner-wrapper:after,
+        :root:has(#newtab-search-text) .search-inner-wrapper:dir(rtl):after {
+            content: '' !important; display: flex !important; position: absolute !important;
+            width: 100% !important;
+            height: 2px !important;
+            top: 50px !important;
             box-shadow: 0 2px 0 0 var(--general-color) !important;
-            clip-path: polygon(0 0, 200% 0, 200% 84%, 0% 84%, 0% 200%, 0 200%);
-            transition-duration: 400ms !important;
+            clip-path: xywh(0 0 0% calc(100% + 2px)) !important;
+            transition: clip-path 400ms ease !important;
         }
-
-        #newtab-search-text[Keepfocus="true"]{
-            clip-path: polygon(0 0, 200% 0, 200% 84%, 200% 84%, 200% 200%, 0 200%);
-            transition-duration: 800ms !important;
+        
+        :root:has(#newtab-search-text[Keepfocus="true"]) .search-inner-wrapper:after,
+        :root:has(#newtab-search-text[Keepfocus="true"]) .search-inner-wrapper:dir(rtl):after {
+            clip-path: xywh(0 0 100% calc(100% + 2px)) !important;
+            transition: clip-path 400ms ease !important;
+        }
+        
+        :root:has(#newtab-search-text) .search-inner-wrapper:dir(rtl):after  {
+            clip-path: xywh(100% 100% 0% calc(100% + 2px)) !important;
         }
     }
     
@@ -562,7 +581,7 @@
 
         /* Border button */    
         .search-inner-wrapper{
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 90%, 90% 104%, 8.5% 104%, 8.5% 95%, 0 95%);
+            clip-path: polygon(0 0, 100% 0, 100% 93%, 93% 93%, 93% 104%, 7% 104%, 7% 95%, 0 95%);
         }
 
         /* Transparent border when 'focus' */    
@@ -574,22 +593,28 @@
 
         /* inputbox animation when 'focus' */
 
-        .search-wrapper .fake-editable{
+        .search-wrapper .fake-editable,
+        .search-wrapper:dir(rtl) .fake-editable {
             border-color: transparent !important;
             border-radius: 0px !important;
             box-shadow: 0 2px 0 0 var(--general-color) !important;
             opacity: 1 !important;
-            clip-path: polygon(0 0, 100% 0, 100% 93%, 0% 99%, 0% 114%, 0 114%);
-            transition-duration: 400ms !important;
+            clip-path: xywh(0 0 0% calc(100% + 2px)) !important;
+            transition: clip-path 400ms ease !important;
         }
 
-        .search-wrapper.fake-focus .fake-editable{
+        .search-wrapper.fake-focus .fake-editable,
+        .search-wrapper.fake-focus:dir(rtl) .fake-editable {
             border-color: transparent !important;
             border-radius: 0px !important;
             box-shadow: 0 2px 0 0 var(--general-color) !important;
             opacity: 1 !important;
-            clip-path: polygon(0 0, 100% 0, 100% 72%, 100% 72%, 100% 134%, 0 114%);
-            transition-duration: 400ms !important;
+            clip-path: xywh(0 0 100% calc(100% + 2px)) !important;
+            transition: clip-path 400ms ease !important;
+        }
+        
+        .search-wrapper:dir(rtl) .fake-editable  {
+            clip-path: xywh(100% 100% 10% calc(100% + 2px)) !important;
         }
         
         .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
@@ -598,7 +623,7 @@
     }
 
 /* _____________________________________________________ Pinned sites ______________________________________________________ */
-
+    
     /* Pin icon removed */
     .top-site-outer .title span .icon.icon-pin-small { display: none !important; }
 
@@ -609,29 +634,42 @@
         font-size: 14px !important;
         margin-top: -40px !important;
         margin-inline: 20px 10px !important;
-        text-shadow: 0px 0px 4px var(--contrast-color) !important;
     }
     
     /* Fix site label alignment when editing a pinned site */
     .fields-and-preview .top-site-outer>.top-site-inner>.top-site-button>.title  {
-        margin-inline: 10px 10px !important;
-    }  
+        overflow: hidden !important;
+        text-wrap-mode: nowrap !important;
+        text-overflow: ellipsis ".." !important;
+    }
+    
+    /* Title label just in one line */
+    
+    .top-sites-list .top-site-outer span[dir="auto"] {
+        overflow: hidden !important;
+        text-overflow: ellipsis ".." !important;
+    }
+    
+    .top-sites-list .top-site-outer:hover span[dir="auto"], 
+    .top-sites-list .top-site-outer:focus-within span[dir="auto"] {
+        text-wrap-mode: nowrap !important;
+    }
 
     /* Pinned Site Colors (Small Background) */
     .top-site-outer .tile {
-        border-radius: 6px !important;
+        border-radius: 4px !important;
         width: 100px !important;
         height: 100px !important;
         align-items: start !important;
         padding-top: 12px !important;
-        outline: 1px solid #50505030 !important;
-        outline-offset: -1px !important;
-        background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
-                    linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
+        box-shadow: 0 0 0 1px #50505030 !important;
+        outline-color: transparent !important; /* Used for smooth transition */
+        background-image: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
+                    linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;/**/
         backdrop-filter: var(--personal-blur) !important;
     }
 
-    /* Remove style when on 'hover' over pinned sites (larger background) */ 
+    /* Remove style when on 'hover' over pinned sites (larger background) */
     
     .collapsible-section {
         padding-block-start: 30px !important;
@@ -639,17 +677,16 @@
     
     /* remove unwanted padding of elements */
     .top-site-outer .top-site-inner > a {
-        padding: 0px !important;
+        padding: 6px 0 0 0 !important;
     }
     
     /* size and background color */
-    .top-site-outer, .top-site-outer.active{
-        height: 100px !important;
+    .top-site-outer {
         border-radius: 0px !important;
-        background-color: transparent !important;
+        background-color: transparent !important;/**/
     }
     
-    /* Styes when on :hover over 'Pinned sites' and 'Recent Activity' */
+    /* Styes when on 'hover' over 'Pinned sites' and 'Recent Activity' */
     .top-site-outer:hover .tile, .card-outer:hover .card{
         outline: 1px solid var(--button-hover-bgcolor) !important;
         transition: outline 0.1s ease-in-out !important;
@@ -663,7 +700,6 @@
     
 /* ____________________________________________________ Recent Activity ____________________________________________________ */
     
-    /* General */
     .card-outer .card {
         background: linear-gradient(0deg, color-mix(in srgb, var(--general-color)6%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 24.71%),
                     linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
@@ -688,6 +724,30 @@
     .compact-cards .card-outer .card-context>.card-context-icon {
         fill: var(--newtab-wordmark-color) !important;
         opacity: 0.7 !important;
+    }
+    
+    /* _______ News in new tab page US */
+    
+    :root {
+        /* for radius */
+        --border-radius-large: 4px !important;
+        --border-radius-medium: 4px !important;
+    }
+    
+    .ds-section-grid.ds-card-grid {
+        /*backdrop-filter: var(--personal-blur) !important;
+        background-color: var(--newtab-pinnedsites-background) !important;
+        outline: 1px solid #50505050 !important;/**/
+        margin: 6px 0px 6px -6px !important;
+        padding: 6px !important;
+        border-radius: 18px !important;
+    }
+    
+    .ds-card {
+        backdrop-filter: var(--personal-blur) !important;
+        background-color: var(--newtab-pinnedsites-background) !important;
+        outline: 1px solid #50505050 !important;
+        border-radius: 4px !important;
     }
     
 /* ________________________ Font color when using a light wallpaper ________________________ */
@@ -763,9 +823,9 @@
     .top-site-outer .context-menu-button {
         background-image: url("../icons/more.svg") !important;
         background-color: transparent !important;
-        border-radius: 2px 4px !important;
-        margin-inline-end: 10px !important;
-        margin-block-start: 23px !important;
+        border-radius: 0px 4px !important;
+        margin-inline-end: 7px !important;
+        margin-block-start: 26px !important;
         margin-inline-start: -10px !important;
         transition: opacity 200ms;
     }
@@ -773,30 +833,85 @@
     /* 3 dot icon recent activity */    
     .card-outer .context-menu-button{
         background-image: url("../icons/more.svg") !important;
+        background-color: var(--button-bgcolor) !important;
         border-radius: 50% !important;
         border-color: #50505030 !important;
         transition-duration: 0.2s !important;
+        transition-delay: 0ms !important;
     }
     
     /*  3 dot icon on 'hover' and 'click' */
     .card-outer .context-menu-button:is(:hover,[open], :active),  
     .card-outer.active .context-menu-button,
     .top-site-outer .context-menu-button:is(:hover, :focus) {
-        background-color: var(--button-bgcolor) !important;
+        background-color: var(--general-color) !important;
         transition: opacity 200ms;
     }
     
-/* _________________________________________________________________________________________________________________________ */
-    
-    /* Background of popup message when trying to delete a site */
+    /* Background of popup message when trying to delete a pinned site */
 
-    .modal{
+    .modal {
         backdrop-filter: var(--personal-blur) !important;
         outline: 1px solid var(--contrast-color) !important;
-        }    
+    }
+    
+    /* ________________________________________________ For Main-image configuration ___________________________________________ */
+    
+    @media (-moz-bool-pref:"firefoxgx.main-image") {
+        
+        body {
+            background-image: none !important;
+            background-color: transparent !important;
+            
+            /* Remove unwanted brightness */
+            &::before {
+                display: none !important;
+            }
+        }
+                
+        .weatherInfoLink, .weatherButtonContextMenuWrapper,     /* Weather */
+        .top-site-outer>div>.top-site-button>.tile,             /* Pinned sites */
+        .ds-card,                                               /* News */
+        .card-outer .card {                                     /* Recent activity */
+            
+            background-color: var(--newtab-weather-background-color) !important;
+            /*
+            --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;
+            --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) !important;
+            --newtab-pinnedsites-background2: color-mix(in srgb, var(--general-color) 3%, var(--newtab-pinnedsites-background)) !important;
+            
+            background-image: linear-gradient(0deg, var(--newtab-pinnedsites-background2) , rgba(0,255,0,0) 64.71%),
+                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%),
+                var(--noise-urlbar-personal,none), var(--noise-urlbar-personal, none) !important;
+            background-color: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;/**/
+        }
+        
+        .customize-menu {
+            background-image: url("../icons/urlbar-noise-dark.png") !important;
+        }
+        
+        /* When editing a pinned site */
+        
+        .modalOverlayOuter {
+            --newtab-button-static-hover-background: light-dark(#E0E0E6, #101019e0) !important;
+            background-image: url("../icons/urlbar-noise-dark.png") !important;
+            background-color: var(--newtab-button-static-hover-background) !important;
+        }
+        
+        /* General -Recent activity- */
+
+        .card .card-details {
+            position: relative !important;
+            z-index: 1 !important;
+        }
+
+        .card .card-context {
+            position: fixed !important;
+        }
+    }
 }
 
-/* _______________________________ Background and font color when selecting text on websites _______________________________ */
+/*  _____________ Background and font color when selecting text on websites */
 
 ::selection {
     color: black !important;
@@ -948,30 +1063,44 @@
     
     @media (-moz-bool-pref:"firefoxgx.main-image") {
 
-        body,.sticky-container{
-            --opaque: color-mix(in srgb, var(--border-contrast-color), transparent) !important;
-            --bg: linear-gradient(var(--opaque), var(--opaque)),
-                                  var(--lwt-main-image);
-            background-image: var(--bg) !important;
-            background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
-            background-size: calc(100% + var(--my-vertical-toolbar-width, 0px) + var(--extension-width, 0px)) !important;
-            background-attachment: fixed !important;
-            background-position-x: right !important;
-            background-position-y: var(--background-align-y, 0px) !important;
-            backdrop-filter: none !important;
+        .sticky-container {
+            background-image: none !important;
         }
         
-        body::before,.sticky-container::before{
-            --bg: linear-gradient(to bottom, transparent, var(--opaque));
-            position: fixed;
-            content: "";
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: var(--bg) !important;
-            pointer-events: none;
-            z-index: -1 !important;
+        body {
+            background: transparent !important;
+            overflow-y: hidden !important;
+        }
+        
+        .main-container {
+            width: 100% !important;
+        }
+        
+        #pages {
+            padding: 0px !important;
+        }
+        
+        named-deck>view-recentbrowsing>div {
+            
+            min-width: 100% !important;
+            display: grid;
+        }
+        
+        named-deck {
+            width: 100% !important;
+            display: grid;
+        }
+        
+        .cards-container {
+            height: 66vh !important;
+            overflow: auto;
+            scrollbar-gutter: stable !important;
+            padding-inline: 42px 52px !important;
+        }
+        
+        .sticky-container {
+            margin-inline: 0px !important;
+            padding-inline: 42px 52px !important;
         }
     }
 }

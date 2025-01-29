@@ -36,6 +36,12 @@ menuseparator::before {
     margin-inline: -6px !important;
 }
 
+/* Bug fix: Separator after 'AI menu' causes unwanted scrolling */
+
+:root:not(:has(#context-ask-chat[hidden="true"])) #frame-sep {
+    display: flex !important;
+}
+
 @media (-moz-platform: linux) {
     menuseparator::before {
     appearance: none !important;
@@ -165,6 +171,13 @@ menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
         height: 26px !important;
         padding-block: 0px !important;
         margin-block: 0px !important;
+    }
+    
+    /* For RTL languages */    
+    #context-back:-moz-locale-dir(rtl), 
+    #context-forward:-moz-locale-dir(rtl), 
+    #context-reload:-moz-locale-dir(rtl) {
+        transform: none !important;
     }
 
     #context-navigation > menuitem {

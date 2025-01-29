@@ -13,7 +13,7 @@
         display: flex;
         flex-direction: column;
         top: 100%;
-        left: 0;
+        inset-inline-start: 0;
         width: var(--my-vertical-toolbar-width,0);
         min-width: unset !important;
         /* These create a empty area to the bottom of the toolbar, which is to mask a fact that we don't know exactly how high the toolbar should be */
@@ -21,6 +21,10 @@
         max-height: 100vh !important; 
         padding-bottom: 120px !important;
         padding-inline: 0px !important;                                                           /* Mi edit */
+        background-position-x: left !important;
+    }
+    #PersonalToolbar:dir(rtl) {                                                                   /* Mi add for RTL languages */
+        background-position-x: right !important;
     }
     #PersonalToolbar .toolbarbutton-1 {
         max-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;                       /* Mi edit - Tamaño horizontal ionos default */
@@ -211,7 +215,18 @@
 
 /* ______________________________________________________ My code to adapt to the GX style ______________________________________________________ */
 
-/* Position and style of the left-bookmarks-sidebar */
+    /* Reset size variable when left-sidebar is ON but hidden */
+    
+    :root:has(#PersonalToolbar[collapsed="true"]) {
+        
+        #TabsToolbar::before/*,
+        #PanelUI-button/**/ {
+            --my-vertical-toolbar-width: 0px !important;
+            --vertical-elements-width: 0px !important;
+        }
+    }
+    
+    /* Position and style of the left-bookmarks-sidebar */
 
     :root:not([chromehidden~="toolbar"]) #PersonalToolbar {
         --toolbar-bgcolor: transparent !important;
@@ -240,7 +255,7 @@
 
         /* Gradient line */
         margin-top: calc(0px - var(--space-before-gradient-line) - var(--toolbar-height-personal)) !important;
-        border-right: 1px solid transparent !important;
+        border-inline-end: 1px solid transparent !important;
         border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
                                             var(--general-color) var(--space-before-gradient-line), 
                                             var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
@@ -795,16 +810,10 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 
 @media (((-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"sidebar.verticalTabs")) and (-moz-bool-pref:"sidebar.position_start")) and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
     
-    /* Remove unwanted margin in customization mode 
-    
-    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"])[customizing] #nav-bar {
-        padding-inline-start: 0px !important;
-    }*/
-    
     /* Bookmarks-bar further to the right */
     
     :root:not([chromehidden~="toolbar"],[customizing]) #PersonalToolbar {
-        padding-inline-start: calc(var(--padding-left-tab, 0) + 6px) !important;
+        margin-inline-start: calc(var(--padding-left-tab, 0) + 0px) !important;
     }
 
     /* _____________ Color and background image of 'Sidebar' _____________ */
@@ -812,37 +821,37 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     #sidebar-main {
         background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
                                           var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-        background-position: left top !important;
+        background-position: left calc(0px - var(--menubar-height-personal, 0px)) !important;
         background-repeat: no-repeat !important;
-        background-size: auto 100% !important;
+        background-size: auto calc(100% + var(--menubar-height-personal, 0px)) !important;
         background-attachment: scroll, fixed, fixed !important;
     }
-    
+    /* For RTL languages */
+    #sidebar-main:dir(rtl) {
+        background-position: right top !important;
+    }
+
     :root:has(sidebar-main:is([expanded])) {
-        & #sidebar-main{
-        background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
-                                          var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-        background-position: left calc(-11px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px)) !important;
-        background-size: auto calc(100% + 11px + var(--padding-top-left-sidebar) + var(--bookmarksbar-height-personal, 0px)) !important;
-        background-attachment: scroll, fixed, fixed !important;
-        background-color: transparent !important;
+        & #sidebar-main {
+            background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
+                var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
+            background-position: left calc(-11px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+            background-size: auto calc(100% + 11px + var(--padding-top-left-sidebar) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
+            background-attachment: scroll, fixed, fixed !important;
+            background-color: transparent !important;
+        }
+        /* For RTL languages */
+        & #sidebar-main:dir(rtl) {
+            background-position: right calc(-11px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px)) !important;
         }
     }
-    
-    /* Sidebar border and color in fullscreen  
-    
-    &:root:is([sizemode="fullscreen"]) {
-        & #sidebar-main,
-        &:has(sidebar-main:is([expanded])) #sidebar-main {
-            --lwt-frame: var(--toolbar-bgcolor) !important;
-        }
-    }*/
     
     /* transparency for Sidebar in themes with images */
     
     :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
 
         & #sidebar-main,
+        & #navigator-toolbox::before,
         & #PersonalToolbar::before,
         & #nav-bar::before{
             --lwt-frame: transparent !important;
@@ -852,44 +861,27 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     /* Simulate continuous line before 'nav-bar and bookmarks-bar' when Sidebar is 'expanded' */
     
     :root:not([customizing]):has(sidebar-main:is([expanded])) {
-        & #nav-bar::before,
-        & :has(#PersonalToolbar[collapsed="false"]) #PersonalToolbar::before{
-            content:"";  position: absolute !important; left: 0 !important;
+        & #navigator-toolbox::before {
+            content:"";
+            position: absolute !important; 
+            inset-inline-start: 0 !important;
+            top: -1px !important;
             background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
                 var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-            background-position: left top !important;
-            background-repeat: no-repeat !important;
             background-size: auto 100% !important;
-            background-attachment: scroll, fixed, fixed !important;
-            background-color: transparent !important;
+            background-attachment: fixed !important;
+            width: var(--vertical-elements-width) !important;
+            height: calc(2px + var(--menubar-height-personal, 0px) + var(--tab-height-personal) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
             border-inline-end: 1px solid var(--general-color) !important;
+            border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
+                                            var(--general-color) var(--space-before-gradient-line)) 1 !important;
+            z-index: 1 !important;
         }
-        & #nav-bar::before{
-            width: var(--vertical-elements-width) !important;/**/
-            height: calc(var(--toolbar-height-personal) + 3px) !important;
-            transition-duration: 0ms !important;
-        }
-        & :has(#PersonalToolbar[collapsed="false"]) #PersonalToolbar::before{
-            width: var(--vertical-elements-width) !important;/**/
-            height: calc(var(--bookmarksbar-height-personal) + 2px) !important;
-        }
-    }
-
-    /* Adapt 'Hamburguer Menu' button */
-
-    :root:has(sidebar-main:is([expanded])):not([chromehidden~="toolbar"],[customizing]) {
-        & #PanelUI-menu-button:not([open]){
-            background-color: var(--lwt-frame) !important;
-        }
-        &:is([lwtheme-image],[style*="--lwt-additional-images"]) #PanelUI-menu-button:not([open]){
-            --lwt-frame: transparent !important;
-            background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
-                var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-            background-position: left top !important;
-            background-repeat: no-repeat !important;
-            background-size: auto 100% !important;
-            background-attachment: scroll, fixed, fixed !important;
-            background-color: transparent !important;
+        
+        /* For RTL languages */
+        & :has(#PersonalToolbar[collapsed="false"]) #PersonalToolbar:dir(rtl)::before,
+        & #nav-bar:dir(rtl)::before {
+            background-position: right top !important;
         }
     }
     
@@ -933,7 +925,15 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
             border-block-start: 1px solid red !important;
             /*border-inline-end: 1px solid red !important;/**/
             border-image: linear-gradient(to right, transparent 6px, var(--my-content-border-color) 6px,
-                                     var(--my-content-border-color) calc(var(--my-vertical-toolbar-width) - 6px), transparent calc(var(--my-vertical-toolbar-width) - 6px),
+                var(--my-content-border-color) calc(var(--my-vertical-toolbar-width) - 6px), transparent calc(var(--my-vertical-toolbar-width) - 6px),
+                transparent var(--my-vertical-toolbar-width),
+                var(--general-color) var(--my-vertical-toolbar-width),
+                /* Final gradient */
+                var(--general-color)) 1 !important;
+        }
+        & #sidebar-main:dir(rtl)::before {
+            border-image: linear-gradient(to left, transparent 6px, var(--my-content-border-color) 6px,
+                var(--my-content-border-color) calc(var(--my-vertical-toolbar-width) - 6px), transparent calc(var(--my-vertical-toolbar-width) - 6px),
                 transparent var(--my-vertical-toolbar-width),
                 var(--general-color) var(--my-vertical-toolbar-width),
                 /* Final gradient */
@@ -947,20 +947,12 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 
 @media (-moz-bool-pref:"sidebar.verticalTabs")  and (not ( -moz-bool-pref:"firefoxgx.oneline")) {
     
-    /* Put navbar margin in customization mode 
-    
-    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"])[customizing] #nav-bar {
-            padding-inline-start: var(--vertical-elements-width) !important;
-    }*/
-    
     /* Darker sidebar when using vertical tabs */
 
     :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([lwtheme-image],[style*="--lwt-additional-images"]) {
         & #sidebar-main,
-        &:has(sidebar-main:is([expanded])) #PanelUI-menu-button:not([open]),    /* Hamburguer menu button - when sidebar is expanded */
-        & #PersonalToolbar::before,
-        & #nav-bar::before{
-            --lwt-frame: color-mix(in srgb, var(--toolbar-bgcolor), transparent) !important;
+        &:has(sidebar-main:is([expanded])) #navigator-toolbox::before {
+            --lwt-frame: color-mix(in srgb, var(--toolbar-bgcolor) 25%, transparent) !important;
         }
     }
     
@@ -975,13 +967,13 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
     /* New selected tab shape */
     
-    .tab-background { 
+    .tab-background {
         border-block-end: 1px solid transparent !important;
         border-radius: 0 !important;
         clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
     }
 
-    .tab-stack::before { 
+    .tab-stack::before {
         border-radius: 0 !important;
         clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);   
     }
@@ -1313,7 +1305,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 
     /* Web content border-top in full screen */
     :root:not([inDOMFullscreen])[sizemode="fullscreen"] #tabbrowser-tabbox {
-        border-top: 1px solid var(--my-content-border-color) !important;
+        /*border-top: 1px solid var(--my-content-border-color) !important;/**/
     }
 
     /* Border color in themes with images*/
@@ -1322,8 +1314,8 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         /* Border color around web content */
         & #tabbrowser-tabbox,
         /* Border color around Sidebar & Sidebar content [open] */
-        #sidebar-box[checked="true"] {
-            --my-content-border-color: color-mix(in srgb, var(--toolbar-bgcolor) 90%, var(--lwt-tab-text)) !important;
+        & #sidebar-box[checked="true"] {
+            --my-content-border-color: color-mix(in srgb, var(--toolbar-bgcolor) 90%, var(--lwt-tab-text));
         }
     }
 }
@@ -1333,7 +1325,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 @media (-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.position_start")) {
     
     :root {
-        --my-content-border-color: var(--toolbarbutton-hover-personal) !important;
+        --my-content-border-color: var(--toolbarbutton-hover-personal);
     }
     
     /* Border around web content */

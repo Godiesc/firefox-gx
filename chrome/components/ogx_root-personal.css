@@ -1,19 +1,22 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-:root{  /* _____________________________________ Color variables, you can put your custom color and use it _____________________________________ */
+:root {           /* _______________ Color variables, you can put your custom color and use it _______________ */
 
-  --fuchsia: #fa1e4e;  --blue: #4c4cff;    --aqua: #00bfff;        --cyan: #00ffff;        --lightblue: #45a1ff;   --pink: #FF0F7E;        --catppuccino: #f38ba8;
-  --purple: #8d35e2;   --green: #05b694;   --aquamarine: #00ffa2;  --lightgreen: #36ff4e;  --yellowbrown: #febd60; --swampautumn: #fdf008;
-  --gray: #bfb6d2;     --orange: #ff6c22;  --yellow: #ffe20f;      --red: #ff3230;         --navyblue: #0050cE;    --poison: #cb17cf; 
+  --fuchsia: #fa1e4e;     --blue: #4c4cff;    --aqua: #00bfff;        --cyan: #00ffff;        --lightblue: #45a1ff;   --pink: #FF0F7E;
+  --purple: #8d35e2;      --green: #05b694;   --aquamarine: #00ffa2;  --lightgreen: #36ff4e;  --yellowbrown: #febd60; --swampautumn: #fdf008;
+  --gray: #bfb6d2;        --orange: #ff6c22;  --yellow: #ffe20f;      --red: #ff3230;         --navyblue: #0050cE;    --poison: #cb17cf;
+  --catppuccino: #f38ba8;
   
-/*  Accent color -----> UI del navegador.  -----|                       |---- userContent <------------ Accent color
-                                                |                       |     (Add-ons, preferences and newTab pages.)
-                                                v                       v                                                                        */
+  
+  /* Accent color ----> UI del navegador.  -----|                     |---- userContent <------------ Accent color
+                                                v                     v     (Add-ons, preferences and newTab pages.)                             */
   --general-color: var(--toolbarbutton-icon-fill-attention, var(--fuchsia));
 
-/* __________________________________________________________  Various customizations __________________________________________________________ */
-                  /* Dark wallpapers */                                               /* Accentcolor for each wallpaper */
+  /* _________________________________________________________  Various customizations _________________________________________________________ */
+  
+                  /* Dark wallpapers ---| */                                    /* Accentcolor for each wallpaper ---|
+                                        v                                                                            v                           */
   --wallpaper-dark1: url("../newtab/wallpaper-dark1.png") !important;           --general-color-dark1: var(--fuchsia) !important;
   --wallpaper-dark2: url("../newtab/wallpaper-dark2.png") !important;           --general-color-dark2: var(--purple) !important;
   --wallpaper-dark3: url("../newtab/wallpaper-dark3.png") !important;           --general-color-dark3: var(--blue) !important;
@@ -21,111 +24,109 @@
   --wallpaper-dark5: url("../newtab/wallpaper-dark5.png") !important;           --general-color-dark5: var(--swampautumn) !important;
   --wallpaper-dark6: url("../newtab/wallpaper-dark6.png") !important;           --general-color-dark6: var(--gray) !important;
   
-                  /* Light wallpapers */                                             /* Accentcolor for each wallpaper */
+                  /* light wallpapers ---| */                                    /* Accentcolor for each wallpaper ---|
+                                         v                                                                            v                          */  
   --wallpaper-light1: url("../newtab/wallpaper-light1.png") !important;         --general-color-light1: var(--fuchsia) !important;
   --wallpaper-light2: url("../newtab/wallpaper-light2.png") !important;         --general-color-light2: var(--purple) !important;
   --wallpaper-light3: url("../newtab/wallpaper-light3.png") !important;         --general-color-light3: var(--blue) !important;
   --wallpaper-light4: url("../newtab/wallpaper-light4.png") !important;         --general-color-light4: var(--fuchsia) !important;
   --wallpaper-light5: url("../newtab/wallpaper-light5.png") !important;         --general-color-light5: var(--lightgreen) !important;
   --wallpaper-light6: url("../newtab/wallpaper-light6.png") !important;         --general-color-light6: var(--orange) !important;
-    }
+}
 
-@media (prefers-color-scheme: dark){ :root{
+@media (prefers-color-scheme: dark) { :root {
   --lwt-main-image:  url("../newtab/wallpaper-dark1.png") !important;                           /* 'about:' pages wallpaper - dark theme */
-  --lwt-private-image:  url("../newtab/private-dark.png") !important;                           /* new-tab private-page image - dark theme */
-  --brightness-wallpaper: 100%;                                                                 /* 100% -> default */ }}
-  
-@media (prefers-color-scheme: light){ :root{
-  --lwt-main-image:  url("../newtab/wallpaper-light1.png") !important;                          /* 'about:' pages wallpaper - light theme*/
-  --lwt-private-image:  url("../newtab/private-light.png") !important;                          /* new-tab private-page image - light theme*/
+  --lwt-private-image:  url("../newtab/private-dark.png") !important;                           /* Private New-tab wallpaper - dark theme */
   --brightness-wallpaper: 100%;                                                                 /* 100% -> default */ }}
 
-:root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }            /* Accent color private mode */
+@media (prefers-color-scheme: light) { :root {
+  --lwt-main-image:  url("../newtab/wallpaper-light1.png") !important;                          /* 'about:' pages wallpaper - light theme*/
+  --lwt-private-image:  url("../newtab/private-light.png") !important;                          /* Private New-tab wallpaper - light theme*/
+  --brightness-wallpaper: 100%;                                                                 /* 100% -> default */ }}
+
+:root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }            /* Accent color for private browsing */
   
-:root{
+:root {
   
   --tab-height-personal: 32px ;                                                                 /* Tab height */
   --toolbar-height-personal: 38px ;                                                             /* Toolbar height */
+  
+  --my-group-line-thickness: 1px !important;                                                    /* Tab-group line thickness */
 
   --menu-label: "Menu" ;                                                                        /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                                    /* Horizontal size of the hamburger menu button */
   
-  --logo-wordmark-display: flex ;                                                               /* :none ->remove , :flex ->show;  Logo-wordmark*/
-  --searchbar-display: flex ;                                                                   /* :none ->remove , :flex ->show; searchbar*/
-  --orientation-display: block ;                                                                /* :block -> vertical , :flex -> horizontal ;
-                                                                                                   :none -> delete Logo-wordmark & searchbar*/
+  --logo-wordmark-display: flex ;                                                               /* Logo-wordmark | none -> remove | flex -> show |   */
+  --searchbar-display: flex ;                                                                   /* Searchbox     | none -> remove | flex ->show  |   */
+  --orientation-display: block ;                                                                /* Orientation of 'Logo-wordmark & searchbar'
+                                                                                                   | block -> vertical   | 
+                                                                                                   | flex  -> horizontal |
+                                                                                                   | none  -> remove     |                           */
   
+  --newtab-pinnedsites-background: color-mix(in srgb, black 2%, transparent) ;                  /* Background color of pinned sites and search bar*/
+  --personal-blur: blur(16px) ;                                                                 /* Blur on new tab page elements */
   
-  --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;                  /* Background color of pinned sites and search bar*/
   --newtab-pinnedsites-position-top: start ;                                                    /* Pinned sites position -> :start ; :center ; :end */
   
   --selected-text-background: var(--general-color);                                             /* Selected text background */
-   
-  --personal-blur: blur(16px) ;                                                                 /* Blur on new tab page elements */
 
 }
 
 @media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"firefoxgx.oneline") {
-  :root{
-    --my-vertical-toolbar-width: 41px ;                                                           /* 'left-sidebar' width */
+  :root {
+    --my-vertical-toolbar-width: 41px ;                                                         /* 'left-sidebar' width */
   }}
 
-/* ------------------------------------------------------------ Main Image config ------------------------------------------------------------ */
+/* ________________________________________________ Main Image config ________________________________________________ */
 
 @media (-moz-bool-pref:"firefoxgx.main-image") {
   
-  @media (prefers-color-scheme: dark){ :root{
+  @media (prefers-color-scheme: dark) { :root {
     --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                         /* new-tab page image - dark team */
     --brightness-wallpaper: 50%;                                                                /* 100% -> default ; 50% -> to <<main-image>> config */ }}
   
-  @media (prefers-color-scheme: light){ :root{
+  @media (prefers-color-scheme: light) { :root {
     --lwt-main-image:  url("../newtab/main-image-light.png") !important;                        /* new-tab page image - light theme*/
     --brightness-wallpaper: 100%;                                                               /* 100% -> default and Main-image config */ }}
-  
-  :root{  
-  --wallpaper-size: auto auto;                                                                  /* cover-> default ; auto auto -> to <<main-image>> config */
-    
-  --background-align-y: -69px ;                                                                 /* Alinear new-tab wallpaper to <<main-image>> config 
-                                                                                                  -69px normal window; 
-                                                                                                  -97px with bookmarks-bar;
-                                                                                                  -99px with manu-bar;
-                                                                                                  -127px with bookmarks-bar and menu-bar  */
-  }
 }
 
-/* ------------------------------------------------------ Main Image + One line config ------------------------------------------------------- */
+/* -----------------------------------------------------------------------------------------------------------------------------------------------
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ The following variables were not included for user editing, but are required in this file ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-@media (-moz-bool-pref:"firefoxgx.main-image") and (-moz-bool-pref:"firefoxgx.oneline") {  
-    :root{
-      --background-align-y: -33px ;                                                             /* Aligning the new tab wallpaper with the 'main-image' config
-                                                                                                   -33px normal window
-                                                                                                   -64px with bookmarks-bar  */
-    }}
-
-/* ------------------------------------------------------ Main Image + tree-tabs config ------------------------------------------------------- */
-
-@media (-moz-bool-pref:"firefoxgx.main-image") and (-moz-bool-pref:"firefoxgx.tree-tabs"){  
-    :root{
-      --extension-width: 48px ;
-      --background-align-y: -39px ;                                                             /* Aligning the new tab wallpaper with the 'main-image' config
-                                                                                                   -40px normal window
-                                                                                                   -66px with bookmarks-bar  */
-    }}
-
-:root{
-  /*-----------------------------------Gradientes------------------------------------*/
+:root {  
+  /* ________ Various Gradientes */
+  
   --gradient: var(--general-color) !important;                                     
   --panel-separator-zap-gradient1: linear-gradient(to left, var(--general-color) , var(--arrowpanel-background)) !important;
-  --panel-separator-zap-gradient2: linear-gradient(to right,var(--general-color) 82% , transparent 96%) !important;
+  --panel-separator-zap-gradient2: linear-gradient(to right,var(--general-color) 80% , transparent 94%) !important;
   --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
   --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) , transparent) !important;
+  --panel-separator-zap-gradient5: linear-gradient(to left, transparent 7px,var(--general-color) 7px, 
+                                                   transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
+                                                   transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1 !important;
 
-  /*------------------------------Botones hover, clic--------------------------------*/
+  /* ________ Reverted Gradientes for RTL Languages */
+  
+  &:-moz-locale-dir(rtl) {
+    direction: rtl;
+    --panel-separator-zap-gradient1: linear-gradient(to right, var(--general-color) , var(--arrowpanel-background)) !important;
+    --panel-separator-zap-gradient2: linear-gradient(to left,var(--general-color) 80% , transparent 94%) !important;
+    --panel-separator-zap-gradient3: linear-gradient(to right, var(--general-color) 90.7%, transparent 90.7%) !important;
+    --panel-separator-zap-gradient4: linear-gradient(to right, var(--general-color) , transparent) !important;
+    --panel-separator-zap-gradient5: linear-gradient(to right, transparent 7px,var(--general-color) 7px, 
+                                                     transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
+                                                     transparent calc(100% - var(--margin-left-icons-personal) - 8px)) !important;
+  }
+
+  /* ________________ buttons background color when 'static' - 'hover' - 'click'  ________________ */
+  
   --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /* Button background color */
   --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /* Button background color when 'hover' */
   --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /* Button background color when 'active' */
-  }
+  
+}
 
-@media (-moz-platform: linux ){:root{
+@media (-moz-platform: linux ) { :root {
   --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 92% , transparent 100%) !important;
   }}

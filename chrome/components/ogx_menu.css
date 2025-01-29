@@ -70,16 +70,19 @@
     }
 }
 
-/* -------------------------------------------------- Menu on left-top -------------------------------------------------- 
-   ---------------------------------------------------------------------------------------------------------------------- */
+/* __________________________________________________ Menu on left-top __________________________________________________ 
+   ______________________________________________________________________________________________________________________ */
 
 @media not (-moz-bool-pref:"firefoxgx.menu-disabled") {
     
     /* New margin right for the latest button of the navbar */
     
-    #nav-bar:not([nonemptyoverflow="true"],[customizing]) #nav-bar-customization-target>:last-child,
-    #nav-bar-overflow-button {
-        padding-inline-end: var(--toolbar-start-end-padding) !important;
+    @media not ((-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"sidebar.verticalTabs")) {
+
+        #nav-bar:not([nonemptyoverflow="true"],[customizing]) #nav-bar-customization-target>:last-child,
+        #nav-bar-overflow-button {
+            padding-inline-end: var(--toolbar-start-end-padding) !important;
+        }
     }
     
     /* Remove unwanted separator of account options */
@@ -93,7 +96,7 @@
         
         /* left margin of menubar */
 
-        #toolbar-menubar[autohide="false"] {
+        #toolbar-menubar[autohide="false"]>toolbaritem>menubar {
             padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
         }
         
@@ -132,7 +135,7 @@
             /* Menu button size */
             
             & #PanelUI-menu-button {
-                padding: var(--margin-top-personal) 0 0 0 !important;
+                padding: var(--my-tab-margin-top) 0 0 0 !important;
             }
 
             & #PanelUI-menu-button:not([open]):hover>.toolbarbutton-badge-stack {
@@ -142,10 +145,16 @@
 
             &:not([sizemode="normal"]) #PanelUI-menu-button[open]>.toolbarbutton-badge-stack {
                 background-image: var(--noise-urlbar-personal) !important;
+                background-size: 28.5em auto !important;
                 background-color: var(--arrowpanel-background) !important;
                 border-radius: 0px !important;
                 border-color: transparent !important;
-                width: 28.5em !important;
+                
+                /* Used when menu is open - menu label background */
+                &::after {
+                    background-image: var(--noise-urlbar-personal) !important;
+                    background-color: var(--arrowpanel-background) !important;
+                }
             }
 
             /* Logo */
@@ -160,7 +169,6 @@
                 height: var(--my-menu-button-height) !important;
                 width: var(--my-menu-button-width, var(--padding-left-tab)) !important;
                 fill: var(--general-color) !important;
-                clip-path: polygon(0 0, var(--my-menu-button-width) 0%, var(--my-menu-button-width) 100%, 0% 100%);
                 padding-inline-start: var(--margin-left-icons-personal) !important;
                 align-items: center !important;
                 border: 1px solid transparent !important;
@@ -205,27 +213,19 @@
 
         /* Update notification point */
 
-        #PanelUI-menu-button[badge-status="update-available"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-        #PanelUI-menu-button[badge-status="update-downloading"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-        #PanelUI-menu-button[badge-status="update-manual"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-        #PanelUI-menu-button[badge-status="update-other-instance"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-        #PanelUI-menu-button[badge-status="update-restart"]>.toolbarbutton-badge-stack>.toolbarbutton-badge, 
-        #PanelUI-menu-button[badge-status="update-unsupported"]>.toolbarbutton-badge-stack>.toolbarbutton-badge {
+        #PanelUI-menu-button>.toolbarbutton-badge-stack>.toolbarbutton-badge {
             margin: -7px -3px 0px !important;
             margin-inline-end: -9px !important;
         }
-    }
     
-        /* _______________________ Styles Menu[open] Popup*/
-
-    @media (-moz-platform: windows), (-moz-platform: linux) {
+        /* _______________________ Styles Menu[open] Popup _______________________ */
 
         :root:not([chromehidden~="toolbar"],[sizemode="normal"]){
             
             /* Empty space for menu label */
 
             & #appMenu-popup>panelmultiview>box>box>panelview {
-                padding-top: calc(-6px + var(--my-menu-button-height,30px)) !important;
+                padding-top: calc(-5px + var(--my-menu-button-height,30px)) !important;
             }
 
             /* Margins used to move up the menu dropdown when is 'open' */
@@ -243,6 +243,16 @@
                     var(--my-menu-button-width) calc(var(--my-menu-button-height,30px) - 1px), 0 calc(var(--my-menu-button-height,30px) - 1px),
                     0 100%, 100% 100%, 100% 0%);
             }
+            
+            &:-moz-locale-dir(rtl)  #appMenu-popup {
+                direction: rtl !important;  
+                clip-path: polygon(
+                    0 0, 100% 0, 
+                    100% 4px, calc(100% - var(--my-menu-button-width)) 4px,
+                    calc(100% - var(--my-menu-button-width)) calc(var(--my-menu-button-height,30px) - 1px), 
+                    100% calc(var(--my-menu-button-height,30px) - 1px),
+                    100% 100%, 0 100%);
+            }
 
             &:not([tabsintitlebar]) #appMenu-popup {
                 margin-top: calc(-1px - var(--my-menu-button-height) + var(--tab-block-margin)) !important;
@@ -254,9 +264,7 @@
                 padding-top: 4px !important;
                 margin-inline-start: var(--margin-left-icons-personal) !important;
                 border-top: 1px solid var(--panel-separator-color) !important;
-                border-image: linear-gradient(to left, transparent 7px,var(--general-color) 7px, 
-                    transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
-                    transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1 !important;
+                border-image: var(--panel-separator-zap-gradient5) 1 !important;
             }
 
             & #appMenu-fxa-status2[fxastatus="signedin"] {
@@ -396,7 +404,7 @@
                 &:not([sizemode="normal"]) :is(#PanelUI-menu-button[open], #appMenu-popup) {
                     --my-menu-button-width: calc(var(--padding-left-tab) + 36px) !important;
                 }
-
+                
                 /* Smaller menu size when 'open' */
 
                 &:not([sizemode="normal"]) #appMenu-popup>panelmultiview>box>box>panelview {
@@ -409,6 +417,15 @@
                     clip-path: polygon(0% 0%, 0% 100%, 1% 53%, 0 4px, calc(var(--my-menu-button-width) + 0px) 4px,
                         calc(var(--my-menu-button-width) + 0px) calc(var(--my-menu-button-height) - 2px), 0 calc(var(--my-menu-button-height) - 2px),
                         0 100%, 100% 100%, 100% 0%);
+                }
+                
+                &:not([sizemode="normal"]):-moz-locale-dir(rtl) #appMenu-popup {
+                    clip-path: polygon(
+                        0 0, 100% 0, 
+                        100% 4px, calc(100% - var(--my-menu-button-width)) 4px,
+                        calc(100% - var(--my-menu-button-width)) calc(var(--my-menu-button-height,30px) - 2px), 
+                        100% calc(var(--my-menu-button-height,30px) - 2px),
+                        100% 100%, 0 100%);
                 }
             }
         }
@@ -495,38 +512,15 @@
         }
     }
     
-        
-/* _____________________________________ Menu button position when using Tree-tabs with/without 'Left-Sidebar' _____________________________________
+/* ____________________________________________________________ 'Firefox vertical tabs' ____________________________________________________________
    _________________________________________________________________________________________________________________________________________________ */
     
-    @media (-moz-bool-pref:"firefoxgx.tree-tabs") {
-        
-        @media (-moz-platform: windows), (-moz-platform: linux) {
-            
-            :root:not([chromehidden~="toolbar"]) {
-                
-                & #PanelUI-button,
-                & #appMenu-popup {
-                    --my-menu-button-height: calc(var(--menubar-height-personal, var(--toolbar-height-personal)) - 1px) !important;
-                }
-
-                & #PanelUI-button {
-                    top: calc(0px - var(--menubar-height-personal, 0px)) !important;
-                }
-            }
-        }
-    }
-    
-/* _____________________________________________________ 'Tree-tabs' or 'Firefox vertical tabs' ____________________________________________________
-   _________________________________________________________________________________________________________________________________________________ */
-    
-    @media /*(-moz-bool-pref:"firefoxgx.tree-tabs") or/**/ (-moz-bool-pref:"sidebar.verticalTabs") {
+    @media (-moz-bool-pref:"sidebar.verticalTabs") {
         
         /* Menu space in the nav-bar */
             
         :root:not([chromehidden~="toolbar"]):has(#toolbar-menubar[autohide="true"]) #nav-bar{
             padding-inline-start: calc(var(--padding-left-tab,0px) + var(--uc-window-drag-space-pre, 0px)) !important;
-            /*padding-inline-end: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) !important;/**/
         }
     }
     
@@ -545,8 +539,9 @@
 
                     /* Menu position */
                     
-                    #PanelUI-button  {
+                    #PanelUI-button {
                         top: 0px !important;
+                        --my-vertical-toolbar-width: 0px !important;
                     }
                 }
             }
@@ -616,6 +611,7 @@
 
                         & #PanelUI-button {
                             top: 0px !important;
+                            --my-vertical-toolbar-width: 0px !important;
                         }
                         
                         /* Used for padding top-bottom on 'Left-Sidebar' elements */
@@ -760,7 +756,7 @@
                 [sidebarcommand*="tabcenter"],
                 [sidebarcommand*="treestyletab"],
                 [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) #PersonalToolbar {
-                    margin-inline-start: var(--padding-left-tab) !important;
+                    padding-inline-start: var(--padding-left-tab) !important;
                 }
             }
         }
@@ -814,6 +810,28 @@
 
                 #nav-bar {
                     padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
+                }
+            }
+        }
+    }
+    
+/* _____________________________________ Menu button position when using Tree-tabs with/without 'Left-Sidebar' _____________________________________
+   _________________________________________________________________________________________________________________________________________________ */
+    
+    @media (-moz-bool-pref:"firefoxgx.tree-tabs") {
+        
+        @media (-moz-platform: windows), (-moz-platform: linux) {
+            
+            :root:not([chromehidden~="toolbar"]) {
+                
+                & #PanelUI-button,
+                & #appMenu-popup {
+                    --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;
+                }
+
+                & #PanelUI-button {
+                    top: calc(0px - var(--menubar-height-personal, 0px)) !important;
+                    /*left: 0 !important;/**/
                 }
             }
         }

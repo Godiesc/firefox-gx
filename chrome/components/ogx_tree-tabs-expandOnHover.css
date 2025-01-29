@@ -5,7 +5,9 @@
    ___________________________________________________ 'Tree-tabs' sidebar, expand on 'hover' ___________________________________________________
    ___________________________________________________                                        ___________________________________________________ */
 
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") and ((not (-moz-bool-pref:"firefoxgx.left-sidebar")) or (not (-moz-bool-pref:"sidebar.verticalTabs"))) {
+@media (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") {
+    
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and ((not (-moz-bool-pref:"firefoxgx.left-sidebar")) or (not (-moz-bool-pref:"sidebar.verticalTabs"))) {
     
     /* Hide the sidebar header when using vertical tab extensions */
 
@@ -47,7 +49,7 @@
     
     /* Simulate continuous line before 'nav-bar and bookmarks-bar' when Sidebar is 'expanded' */
     
-    :root:not([customizing]):has(#sidebar-box[checked]:not([positionend]):is(
+    :root:not([customizing],[sizemode="fullscreen"]):has(#sidebar-box[checked]:not([positionend]):is(
     [sidebarcommand*="tabcenter"],
     [sidebarcommand*="treestyletab"],
     [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) {
@@ -133,7 +135,7 @@
 
 /* Sidebar style when 'left-sidebar' isn't enable */
 
-@media (-moz-bool-pref:"sidebar.position_start") and (not (-moz-bool-pref:"sidebar.revamp")) and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) and (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover"){
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"sidebar.position_start") and (not (-moz-bool-pref:"sidebar.revamp")) and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
 
     :root:has(#sidebar-box:is(
     [sidebarcommand*="tabcenter"],
@@ -164,7 +166,7 @@
         /* Separator top tabs */
         & #sidebar-box::before {
             position: relative; content: '';
-            width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
+            width: calc(var(--my-vertical-toolbar-width) - 0px) !important;
             top: calc(-1px - var(--bookmarksbar-height-personal, 0px)) !important;
             background-color: var(--lwt-frame) !important;
             border-block-start: 1px solid transparent !important;/**/
@@ -174,14 +176,14 @@
                 /* Separator line */
                 var(--my-content-border-color) calc(var(--vertical-elements-width) - 6px), transparent calc(var(--vertical-elements-width) - 6px),
                 /* Transparent end space */
-                transparent) 1 !important;
+                transparent calc(var(--vertical-elements-width) - 1px), var(--general-color) calc(var(--my-vertical-toolbar-width) - 2px)) 1 !important;
         }
     }
 }
 
 /* Sidebar style when 'left-sidebar' enabled but hidden */
 
-@media (-moz-bool-pref:"sidebar.position_start") and (not (-moz-bool-pref:"sidebar.revamp"))  and (-moz-bool-pref:"firefoxgx.left-sidebar") and (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") {
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"sidebar.position_start") and (not (-moz-bool-pref:"sidebar.revamp"))  and (-moz-bool-pref:"firefoxgx.left-sidebar") {
 
     :root:has(#sidebar-box:is(
     [sidebarcommand*="tabcenter"],
@@ -244,11 +246,11 @@
 /* ________________________________________________ Firefox Vertical tabs, expand on hover _________________________________________________ 
    _________________________________________________________________________________________________________________________________________ */
 
-@media (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") and (-moz-bool-pref:"sidebar.verticalTabs") {
+@media (-moz-bool-pref:"sidebar.verticalTabs") {
     
     :root {
         --first-last-button-width: 30px !important;
-        --my-expand-sidebar-width: calc(var(--first-last-button-width) + calc(4 * var(--button-size-icon)) + var(--space-xsmall) + calc(var(--first-last-button-width) + 21px));
+        --my-expand-sidebar-width: calc(var(--first-last-button-width) + calc(4 * var(--button-size-icon)) + var(--space-xsmall) + calc(var(--first-last-button-width) - 17px));
         --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
     }
     
@@ -269,10 +271,11 @@
             position: absolute !important;
             width: var(--my-vertical-toolbar-width) !important;
             z-index: 3 !important;
-            height: calc(100% - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+            height: 100% !important;
             transition: width 0.1s ease-in-out !important;
-            background-position: left calc(-2px - var(--menubar-height-personal, 0px) - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px)) !important;
-            background-size: auto calc(100% + 2px + var(--menubar-height-personal, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
+            background-position: left calc(0px - var(--menubar-height-personal, 0px) - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px)) !important;
+            background-size: auto calc(100% + 0px + var(--menubar-height-personal, 0px) + var(--toolbar-height-personal)*2 + var(--bookmarksbar-height-personal, 0px)) !important;
+            overflow: auto !important;
         }
 
         & #sidebar-main:is(:hover){
@@ -305,17 +308,17 @@
     /* The selected pinned tab is visible when the sidebar is collapsed - limited to 3 rows */
     :root:has(sidebar-main:is([expanded])) #sidebar-main:not(:hover) {
         
-        & #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"]:nth-child(-n+15){
+        & #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"]:nth-child(-n+12){
             grid-row-start: 2 !important;
             grid-column-start:1 !important;
         }
         
-        & #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"]:nth-child(-n+10){
+        & #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"]:nth-child(-n+8){
             grid-row-start: 2 !important;
             grid-column-start:1 !important;
         }
 
-        & #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"]:nth-child(-n+5){
+        & #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"]:nth-child(-n+4){
             grid-row-start: 1 !important;
             grid-column-start: 1 !important;
         }
@@ -325,17 +328,26 @@
     
     /* _____________ New style for 'tools and extensions' buttons */
     
-    .actions-list[orientation="horizontal"] {
+    /*.actions-list[orientation="horizontal"] {
         justify-content: start !important;
-    }
+    }/**/
     
     /* Buttons collapsed when not 'hover'  */    
-    .actions-list[orientation="horizontal"]:not(:hover) .expanded-button:not(:last-child){
+    .actions-list[orientation="horizontal"]:not(:hover) .expanded-button:not(:first-child){
         opacity: 0 !important;
+        height: 0px !important;
+        visibility: collapse !important;
+        transition-duration: 0ms !important;
+    }
+    .actions-list[orientation="horizontal"]:hover .expanded-button:not(:first-child){
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: visibility 0.2s ease, opacity 0.2s ease !important;
+        transition-delay: 200ms !important;
     }
 }
 
-@media (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") and (-moz-bool-pref:"sidebar.verticalTabs") and (-moz-bool-pref:"sidebar.position_start") {
+@media (-moz-bool-pref:"sidebar.verticalTabs") and (-moz-bool-pref:"sidebar.position_start") {
     
     /* _________________________________ Expand on hover - sidebar on left */
     
@@ -358,7 +370,7 @@
     }
 }
 
-@media (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") and (-moz-bool-pref:"sidebar.verticalTabs") and ( not (-moz-bool-pref:"sidebar.position_start")) {
+@media (-moz-bool-pref:"sidebar.verticalTabs") and ( not (-moz-bool-pref:"sidebar.position_start")) {
     
     /* _________________________________ Expand on hover - sidebar on right */
 
@@ -391,11 +403,12 @@
 
 /* BUg fix: height of the Sidebar when using Firefox Vertical tabs + left-sidebar config */
 
-@media (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") and (-moz-bool-pref:"sidebar.verticalTabs") and (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media (-moz-bool-pref:"sidebar.verticalTabs") and (-moz-bool-pref:"firefoxgx.left-sidebar") {
     
     :root:has(sidebar-main:is([expanded])) {
         & #sidebar-main {
             height: calc(100% - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
         }
     }
+}
 }

@@ -259,7 +259,7 @@ findbar {
     background-image: var(--noise-urlbar-personal) !important;
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-color: transparent !important;
-    margin-block: 1px !important;
+    margin-block-start: 1px !important;
 }
 
 #urlbar-input, #urlbar-scheme {
@@ -277,12 +277,12 @@ findbar {
 
 #urlbar {
     box-shadow: 0 0 0 100vw transparent;
-    transition: box-shadow 0.3s ease-out !important;
+    transition: box-shadow 250ms ease-out !important;
 }
 
 #urlbar[open] {
     box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.3s ease-out !important;
+    transition: box-shadow 250ms ease-out !important;
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     overflow: hidden !important;
 }
@@ -291,11 +291,7 @@ findbar {
 
 @media not (-moz-bool-pref: "browser.urlbar.searchModeSwitcher.featureGate") {
     #urlbar-searchmode-switcher:not(:hover,[open]) {
-        appearance: none;
         background-color: transparent !important;
-        border-radius: var(--urlbar-icon-border-radius);
-        margin-inline-end: var(--urlbar-icon-padding);
-        padding-inline: var(--urlbar-searchmodeswitcher-spacing);
     }
 }
 
@@ -340,8 +336,7 @@ findbar {
   }
 }
 
-#urlbar-searchmode-switcher:is(:hover,[open])/*,
-#searchmode-switcher-chicklet:hover/**/ {
+#urlbar-searchmode-switcher:is(:hover,[open]) {
   @media (-moz-bool-pref: "browser.urlbar.searchModeSwitcher.featureGate") or (-moz-bool-pref: "browser.urlbar.scotchBonnet.enableOverride") {
     #urlbar[searchmode] & {
         display: inline-flex;
@@ -375,7 +370,7 @@ findbar {
     --arrowpanel-border-radius: var(--uc-slot-radius) !important;
     --arrowpanel-border-color: none !important;
     margin-top: 0px !important;
-    margin-left: -3px !important;
+    margin-inline-start: -3px !important;
 }
 
 #PopupSearchAutoComplete menuseparator{
@@ -462,19 +457,19 @@ findbar {
 
 #permissions-granted-icon, #identity-permission-box[hasPermissions], #blocked-permissions-container>.blocked-permission-icon {
     margin-inline: 2px !important;
-    margin-right: 2px !important;
+    margin-inline-end: 2px !important;
 }
 
 #blocked-permissions-container>.blocked-permission-icon {
     padding: 1px !important;
-    margin-left: 0px !important;
+    margin-inline-start: 0px !important;
 }
 
 /* Various permission icons */
 
 #notification-popup-box .notification-anchor-icon,
 #blocked-permissions-container .blocked-permission-icon{
-    padding: 3px !important;
+    padding: 2px !important;
     height: 19px !important;
     width: 19px !important;
 }
@@ -492,8 +487,8 @@ findbar {
 }
 
 #notification-popup-box {
-    width: 19px !important;
-    height: 19px !important;
+    width: 20px !important;
+    height: 20px !important;
 }
 
 /* Tracking Protection icon */

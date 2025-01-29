@@ -34,11 +34,11 @@
 
     .tabbrowser-tab {
         & .tab-throbber[busy], .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay {
-            outline: 2px solid var(--identity-icon-color, transparent) !important;
-            outline-offset: 1px !important;
-            border-radius: 1px !important;
-            clip-path: xywh(-1px 0px calc(100% + 2px) calc(100% + 6px) round 0px);
-            transition: clip-path 0.1s ease !important;
+                outline: 2px solid var(--identity-icon-color, transparent) !important;
+                outline-offset: 2px !important;
+                border-radius: 1px !important;
+                clip-path: xywh(-2px -4px calc(100% + 4px) calc(100% + 4px) round 0px);
+                transition: clip-path 0.1s ease !important;
         }
     }
 }

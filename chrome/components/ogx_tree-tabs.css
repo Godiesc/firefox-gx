@@ -28,19 +28,16 @@
         :root[sizemode="fullscreen"] #nav-bar > .titlebar-buttonbox-container{
             display: flex !important;
         }
-        :root[tabsintitlebar] #toolbar-menubar:not([autohide="false"]) ~ #nav-bar{
+        :root:is([tabsintitlebar],[customtitlebar]) #toolbar-menubar:not([autohide="false"]) ~ #nav-bar{
             > .titlebar-buttonbox-container{
                 display: flex !important;
             }
             :root[sizemode="normal"] & {
                 > .titlebar-spacer{
-                    display: flex !important;
+                    display: none !important;
                 }
             }
             :root[sizemode="maximized"] & {
-                > .titlebar-spacer[type="post-tabs"]{
-                    display: flex !important;
-                }
                 @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"),
                     (-moz-gtk-csd-reversed-placement),
                     (-moz-platform: macos){
@@ -64,7 +61,7 @@
     /* ¡Necessary for the hamburger button to be above the sidebar */
         
     .browser-titlebar {
-        :root[tabsintitlebar] & {
+        :root & {
             will-change: unset !important;
             transition: none !important;
         }
@@ -88,15 +85,32 @@
         --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
     }
     
+    /* Overwrite code from 'left-sidebar.css' - align image when sidebar is 'expanded' */
+    
+    :root:has(sidebar-main:is([expanded])) {
+        & #sidebar-main {
+            background-position: left calc(1px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+            background-size: auto calc(100% - 1px + var(--padding-top-left-sidebar,0px) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
+        }
+    }
+    
+    :root:not([customizing]):has(sidebar-main:is([expanded])) {
+        & #navigator-toolbox::before {
+            --space-before-gradient-line: var(--menubar-height-personal, 0px) !important;
+            height: calc(2px + var(--menubar-height-personal, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
+        }
+    }
+    
     /* Overwrite variable to fix height of buttons */
     
     .titlebar-buttonbox-container {
-        --tab-height-personal: var(--toolbar-height-personal) !important;
+        --tab-height-personal: calc(var(--toolbar-height-personal) + 1px) !important;
+        margin-inline-start: 42px !important;
     }
 
     /* Separator between <window controls> and other buttons */
 
-    :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]):has(#toolbar-menubar[autohide="true"]) .titlebar-buttonbox::before{
+    :root:not([chromehidden~="toolbar"]):has(#toolbar-menubar[autohide="true"]) .titlebar-buttonbox::before{
         content: ""; position: absolute !important; align-self: center !important;
         background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
         background-size: 6px 16px !important;
@@ -161,27 +175,6 @@
         & #urlbar {
             opacity: 1 !important;
             pointer-events: all !important;
-        }
-    }   
-    
-    /* Menubar bottom separator gradient line */
-    
-    :root:has(#toolbar-menubar[autohide="false"]) {
-        & #toolbar-menubar::after{
-            content: ""; position: absolute !important; 
-            display: flex;
-            top: calc(var(--menubar-height-personal) - 1px);
-            /*left: var(--padding-left-tab) !important;/**/
-            left: 0 !important;
-            width: 70vw;
-            height: initial !important;
-            z-index: initial;                                              /* My code v */
-            border-bottom: 1px solid var(--general-color) !important;
-            border-image: linear-gradient(to right,var(--general-color) 52% , transparent) 1 !important;
-        }
-        
-        & #main-menubar{
-            height: var(--menubar-height-personal);
         }
     }
     
@@ -252,6 +245,37 @@
     #toolbar-menubar[autohide="false"] > spacer{ display: flex; }
 }
 
+/* Gradient line under Menubar when it is active */
+
+@media ((-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"sidebar.verticalTabs")) and (not ( -moz-bool-pref:"firefoxgx.oneline")) {
+    /* Menubar bottom separator gradient line */
+    
+    :root:has(#toolbar-menubar[autohide="false"]) {
+        & #toolbar-menubar::after{
+            content: ""; position: absolute !important; 
+            display: flex;
+            top: calc(var(--menubar-height-personal) - 1px);
+            width: 70vw;
+            height: initial !important;
+            z-index: 0;                                              /* My code v */
+            border-bottom: 1px solid var(--general-color) !important;
+            border-image: linear-gradient(to right,var(--general-color) 52% , transparent) 1 !important;
+        }
+        
+        & #main-menubar{
+            height: var(--menubar-height-personal);
+        }
+    }
+}
+
+@media (-moz-bool-pref:"sidebar.verticalTabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")) {
+    :root:has(#toolbar-menubar[autohide="false"]) {
+        & #toolbar-menubar::after{
+            left: var(--padding-left-tab) !important;/**/
+        }
+    }
+}
+
 /* ______________________________________________________________________________________________________________________________________________ */
 
 /* __________________________ Bookmarks-bar same color of Nav-bar */
@@ -279,15 +303,15 @@
     }
 }
 
-/* __________________________ toolbar_bottom_separator when not using 'Firefox vertical tabs' */
+/* __________________________ toolbar_bottom_separator when not using 'Firefox vertical tabs' 
 
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not (-moz-bool-pref:"sidebar.revamp")){
-
-    #navigator-toolbox{
+@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not (-moz-bool-pref:"sidebar.revamp")) {
+    
+    #navigator-toolbox {
         border-bottom-color: color-mix(in srgb, var(--toolbar-bgcolor) 90%, var(--lwt-tab-text)) !important;
     }
 
-    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #navigator-toolbox{
+    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #navigator-toolbox {
         border-bottom-color: color-mix(in srgb, var(--lwt-tab-text) 14%, var(--contrast-color)) !important;
     }
-}
+}*/

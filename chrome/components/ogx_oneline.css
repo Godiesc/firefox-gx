@@ -5,7 +5,7 @@
 
 /* ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ IMPORTANT: To only apply one-line config to screen bigger than some px !!!!!!!!!!!!!!!!!!!!!!!!!! */
 
-@media screen and (min-width: 1000px){
+@media screen and (min-width: 1000px) {
 
 /* ####################################### Window controls from MrOtherGuy ############################################ */
 
@@ -13,27 +13,27 @@
 
 /* Defaults for window controls on RIGHT side of the window */
 /* Modify these values to match your preferences */
-:root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+:root:is([customtitlebar], [sizemode="fullscreen"]) {
   --uc-window-drag-space-post: 30px; /* right side*/
 }
 
-:root:is([tabsintitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
+:root:is([customtitlebar][sizemode="maximized"], [sizemode="fullscreen"]) {
   --uc-window-drag-space-pre: 0px; /* Remove pre space */
 }
 
 @media  (-moz-platform: windows){
-  :root:is([tabsintitlebar], [sizemode="fullscreen"]) {
+  :root:is([customtitlebar], [sizemode="fullscreen"]) {
     --uc-window-control-width: 105px;
   }
 }
 
 @media (-moz-gtk-csd-available) {
-  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
+  :root:is([customtitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 84px;
   }
 }
 @media (-moz-platform: macos){
-  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
+  :root:is([customtitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 72px;
   }
 }
@@ -138,27 +138,27 @@
     --min-width-url: 23.6vw !important;
   }
 
-/* overwriting: Modify these values to match your preferences */
-  
-:root:is([tabsintitlebar], [sizemode="fullscreen"]) {
-  --uc-window-control-width: 144px;                   /* Space reserved for window controls (Win10) */
-  --uc-window-drag-space-pre: 0px;                    /* left side*/
-  --uc-window-drag-space-post: 0px;                   /* right side*/
-}
+  /* overwriting: Modify these values to match your preferences */
 
-/* overwriting: <window controls> width in linux */
-  
-@media (-moz-gtk-csd-available) {
-  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 108px;
+  :root:is([customtitlebar], [sizemode="fullscreen"]) {
+    --uc-window-control-width: 144px;                   /* Space reserved for window controls (Win10) */
+    --uc-window-drag-space-pre: 0px;                    /* left side*/
+    --uc-window-drag-space-post: 0px;                   /* right side*/
   }
-}
+
+  /* overwriting: <window controls> width in linux */
+
+  @media (-moz-gtk-csd-available) {
+    :root:is([customtitlebar],[sizemode="fullscreen"]) {
+      --uc-window-control-width: 108px;
+    }
+  }
 
 /* New :root preferences to adapt oneline style */
   
-:root,
-:root[lwtheme],
-:root:not([lwtheme]){
+  :root,
+  :root[lwtheme],
+  :root:not([lwtheme]){
     --toolbar-bgcolor: transparent !important;                                            /* toolbar */
     --lwt-sidebar-background-color: #101019 !important;                                   /* Necessary to fix bug in ogx_library.css */
     --toolbar-height-personal: var(--tab-height-personal) !important;                     /* Toolbar height */
@@ -166,20 +166,20 @@
     --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;     /* button_background_hover */
     --toolbarbutton-inner-padding: 8px !important;                                        /* Smaller Toolbar buttons */
     --toolbarbutton-outer-padding: 4px !important;                                        /* More spaced toolbar buttons */
-    --toolbarbutton-border-radius: 2px !important;                                        /* roundness of buttons */
-    --chrome-content-separator-color: none !important;                                    /* toolbar_bottom_separator */
+    --toolbarbutton-border-radius: 2px !important;                                        /* Roundness of buttons */
+    --chrome-content-separator-color: none !important;                                    /* Remove toolbar_bottom_separator - important */
   }
 
   
-@media (prefers-color-scheme: dark){
-  :root:is([lwtheme-image],[style*="--lwt-additional-images"]){
+  @media (prefers-color-scheme: dark){
+    :root:is([lwtheme-image],[style*="--lwt-additional-images"]){
       --lwt-selected-tab-background-color: #101019bf !important;                          /* tab_selected */
-  }}
-  
-@media (prefers-color-scheme: light){
-  :root:is([lwtheme-image],[style*="--lwt-additional-images"]){
+    }}
+
+  @media (prefers-color-scheme: light){
+    :root:is([lwtheme-image],[style*="--lwt-additional-images"]){
       --lwt-selected-tab-background-color: #f9f9f9bf !important;                          /* tab_selected */
-  }}
+    }}
   
 /* _____________________________________________________________ Private Mode _____________________________________________________________ */
   
@@ -258,23 +258,18 @@
   
 /* ________________________________________________________________________________________________________________________________________ */
   
-  /* Move nav-bar to the right */
-  
-  /*overwrite from ogx.left-sidebar.css 
-  :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]),
-  :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden="true"],sidebar-main[hidden]) {
-    & #nav-bar,
-    & #PanelUI-menu-button .toolbarbutton-badge-stack,
-    & #PanelUI-button{
-      --my-vertical-toolbar-width: 34px !important;
-      --padding-left-tab: 34px !important;
+  /* fix */
+
+  :root:not([customizing]):has(sidebar-main:is([expanded])) {
+    #navigator-toolbox::before {
+      z-index: unset !important;
     }
-  }*/
+  }
   
   :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]),
   :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden="true"],sidebar-main[hidden]){
     :is(#nav-bar,#toolbar-menubar) {
-      padding-inline-start: var(--padding-left-tab, 0) !important;
+      margin-inline-start: 0px !important;
     }
   }
    
@@ -346,12 +341,12 @@
   --uc-buttons-width: calc(107px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
   }}
   
-:root:is([tabsintitlebar][sizemode="normal"]) {
+:root:is([customtitlebar][sizemode="normal"]) {
     --uc-window-control-width: 172px;
 }
   
 @media (-moz-gtk-csd-available) {
-:root:is([tabsintitlebar][sizemode="normal"]) {
+:root:is([customtitlebar][sizemode="normal"]) {
     --uc-window-control-width: 149px;
   }}*/
   
@@ -449,9 +444,9 @@
 /* Align the navbar gradient line with selected tab, and trick to vertically center all elements */ 
   
 #nav-bar{
-  padding-inline-start: var(--padding-left-tab) !important;
+    padding-inline-start: var(--padding-left-tab) !important;
     padding-inline-end: var(--uc-window-control-width) !important;
-    margin-top: calc(0px - var(--toolbar-height-personal) - 0px) !important;
+    margin-top: calc(0px - var(--toolbar-height-personal)) !important;
 }
   
 #PersonalToolbar {
@@ -649,11 +644,11 @@
 
     /* Drag space to right when window is <not maximized> */
 
-    :root[tabsintitlebar][sizemode="normal"]:not([sizemode="maximized"]) #navigator-toolbox{
+    :root[customtitlebar][sizemode="normal"]:not([sizemode="maximized"]) #navigator-toolbox{
       --uc-buttons-width: calc(72px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important; 
     }
 
-    :root[tabsintitlebar][sizemode="normal"]:not([sizemode="maximized"]) #nav-bar { 
+    :root[customtitlebar][sizemode="normal"]:not([sizemode="maximized"]) #nav-bar { 
       padding-inline-end: 62px !important; 
     }
     /* */
@@ -661,7 +656,7 @@
       width: 65px !important;
     }
 
-    :root:is([tabsintitlebar][sizemode="maximized"]) #TabsToolbar-customization-target{
+    :root:is([customtitlebar][sizemode="maximized"]) #TabsToolbar-customization-target{
       border-right: 64px solid transparent !important;
     }
 
@@ -752,10 +747,10 @@
     }
   }
 
-/* _______________________________________________ Compatibility for 'left-sidebar' configuration _______________________________________________ */
-  
+  /* _______________________________________________ Compatibility for 'left-sidebar' configuration _______________________________________________ */
+
   /* ______________ 'Left-sidebar' */
-  
+
   @media (-moz-bool-pref:"firefoxgx.left-sidebar") and ((not (-moz-bool-pref:"sidebar.verticalTabs")) or (-moz-bool-pref:"sidebar.revamp")) {
 
     :root{ 
@@ -770,13 +765,27 @@
     }
   }
 
+  /* Remove hamburger-menu when left-sidebar is ON but 'hidden' */
+
+  @media (-moz-bool-pref:"firefoxgx.left-sidebar") and (( (-moz-bool-pref:"sidebar.verticalTabs")) or (-moz-bool-pref:"sidebar.revamp")) {
+
+    :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]),
+    :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden="true"],sidebar-main[hidden]) {
+
+      #PanelUI-menu-button .toolbarbutton-badge-stack,
+      #PanelUI-button{
+        display: none !important;
+      }
+    }
+  }
+
   /* ______________ 'Firefox Revamp'*/
 
   @media ((-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.verticalTabs"))) and (-moz-bool-pref:"sidebar.position_start")
     and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
 
       /* Gradient line */
-      :root:not([sizemode="fullscreen"]):has(sidebar-main:not([expanded])) {
+      :root:has(sidebar-main:not([expanded])) {
         & #sidebar-main {
           --padding-top-left-sidebar: calc(var(--space-before-gradient-line) + var(--menubar-height-personal, 30px)) !important;
           margin-top: calc(0px - var(--space-before-gradient-line) - var(--bookmarksbar-height-personal,0px)) !important;

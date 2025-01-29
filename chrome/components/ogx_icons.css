@@ -64,14 +64,11 @@
 }
 
 .urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
-  & not([hasException]) {
-    list-style-image: url("../icons/shield.svg") !important;
-    fill: var(--general-color) !important;
-  }
   &[active] {
     list-style-image: url("../icons/shield.svg") !important;
     fill: var(--general-color) !important;
-  }}
+  }
+}
 
 .urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container:is(:hover,[open]) > #tracking-protection-icon-box {
   fill: var(--toolbarbutton-icon-fill) !important;
@@ -161,7 +158,7 @@
     height: var(--toolbar-height-personal) !important;
     margin-block-start: calc(5px - var(--toolbar-height-personal)) !important;
     background-size: 16px 16px !important;
-    margin-right: -7px !important;
+    margin-inline-end: -7px !important;
     fill: var(--toolbarbutton-icon-fill) !important;
     -moz-context-properties: fill !important;
     opacity: 0.1 !important;
@@ -1009,6 +1006,10 @@
     list-style-image: url("chrome://global/skin/icons/search-glass.svg");
   }
   
+  #allTabsMenu-syncedTabs {
+    list-style-image: url("chrome://browser/skin/synced-tabs.svg");
+  }
+  
   #allTabsMenu-closeDuplicateTabs {
     list-style-image: var(--uc-tab-close-duplicate-icon);
   }
@@ -1627,6 +1628,15 @@
   #tabcenter-reborn_ariasuni-menuitem-_newTabContextMenuOpenInPrivateWindow {
     --menuitem-image: url("chrome://browser/skin/privateBrowsing.svg");
   }
+  
+  #context_moveTabToGroup {
+      --menuitem-image: url("../icons/add-tab-to-group.svg");
+  }
+  
+  #context_ungroupTab {
+    --menuitem-image: url("../icons/close-duplicate-tabs.svg");
+  }
+  
   #context_reloadTab,
   #context_reloadSelectedTabs,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_reloadTab,
