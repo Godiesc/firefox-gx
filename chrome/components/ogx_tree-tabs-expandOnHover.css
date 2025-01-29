@@ -275,7 +275,7 @@
             transition: width 0.1s ease-in-out !important;
             background-position: left calc(0px - var(--menubar-height-personal, 0px) - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px)) !important;
             background-size: auto calc(100% + 0px + var(--menubar-height-personal, 0px) + var(--toolbar-height-personal)*2 + var(--bookmarksbar-height-personal, 0px)) !important;
-            overflow: auto !important;
+            overflow-x: hidden !important;
         }
 
         & #sidebar-main:is(:hover){
@@ -327,10 +327,6 @@
     }
     
     /* _____________ New style for 'tools and extensions' buttons */
-    
-    /*.actions-list[orientation="horizontal"] {
-        justify-content: start !important;
-    }/**/
     
     /* Buttons collapsed when not 'hover'  */    
     .actions-list[orientation="horizontal"]:not(:hover) .expanded-button:not(:first-child){
