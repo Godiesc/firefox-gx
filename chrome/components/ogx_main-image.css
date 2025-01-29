@@ -343,9 +343,7 @@
             & #sidebar-main {
                background-image: linear-gradient(transparent, var(--toolbar-bgcolor)),
                   var(--lwt-additional-images), var(--lwt-header-image) !important;
-               background-position-y: calc(0px - var(--menubar-height-personal, 0px) - var(--toolbar-height-personal)) !important;
                background-size: 100vw 100vh !important;
-               background-attachment: fixed !important;
             }
          }
 
