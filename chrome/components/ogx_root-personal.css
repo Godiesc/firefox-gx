@@ -75,7 +75,7 @@
 @media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"firefoxgx.oneline") {
   :root {
     --my-vertical-toolbar-width: 41px ;                                                 /* 'left-sidebar' or 'tree-tabs' width */
-    --uc-sidebar-hover-width: 250px ;                                                   /* 'left-sidebar' or 'tree-tabs' expanded width*/
+    --uc-sidebar-hover-width: 232px ;                                                   /* 'left-sidebar' or 'tree-tabs' expanded width*/
   }}
 
 /* ________________________________________________ Main Image config ________________________________________________ */
