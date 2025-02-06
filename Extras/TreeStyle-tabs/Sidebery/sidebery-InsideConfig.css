@@ -1,15 +1,255 @@
-/* ## ##-> To customize the "Sidebery" extension wallpaper <-## ## */
+#root.root {
+    --tabs-border-radius: 4px;
+    --tabs-indent: 12px;
+    --tabs-margin: 0px;
+    --tabs-pinned-width: var(--vertical-elements-width);
 
-.Tab:hover {
-  background-color: var(--button-bgcolor);
+
+    /* Sidebar variables */
+
+    --my-vertical-toolbar-width: 41px !important;
+    --vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px);    
+    --uc-margin-inline: 3px;
 }
-.Tab[data-active] {
-  background-color: var(--button-bgcolor);
-  box-shadow: 0 1px 0 1px var(--general-color);
+
+/* Remove unwanted background color in some elements */
+
+.TabsPanel .bottom-space,
+.TabsPanel .new-tab-btns::after,
+.NavigationBar.-top,
+.PinnedTabsBar {
+    background: transparent;
 }
-.root{
---bg-img: url("https://i.imgur.com/iOl6TWI.png") !important;
---bg-size: cover !important;
-background-image: var(--bg-img) !important;
-background-repeat: no-repeat !important;
+
+/* Remove some elements when sidebar isn't expanded */
+
+body:not(:hover) {
+    .Tab .title { 
+        opacity: 0;
+    }
+    .NavigationBar .nav-item[data-active="false"] {
+        display: none;
+    }
+    .NavigationBar[data-layout="inline"] .main-items .nav-item {
+        transform: none;
+    }
 }
+
+/* __________________ Top horizontal box __________________ */
+
+/* Margins */
+
+.top-horizontal-box {
+    padding-block-start: 2px;
+    padding-inline-start: calc(var(--uc-margin-inline));
+}
+
+/* width */
+
+.NavigationBar.-top {
+    width: calc(var(--uc-sidebar-hover-width) - 6px);
+    box-shadow: none;
+}
+
+.NavigationBar .nav-item[data-active="true"]:not(:hover) {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.112);
+}
+
+/* Sound indicator */
+
+.NavigationBar .nav-item .audio {
+    bottom: 1px;
+    right: 1px;
+    border-radius: 4px;
+    background-color: var(--s-toolbar-bg);
+}
+
+/* __________________ Bottom horizontal box __________________ */
+
+.BottomBar {
+    padding-inline: 0px 10px;
+
+    & .tool-btn {
+        padding-inline-start: calc(var(--vertical-elements-width)/2 - 8px);
+        padding-block-end: 4px;
+    }
+}
+
+/* __________________  Tabs styles __________________ */
+
+/* Remove close button to solve glitch when first 'hover' on tab */
+
+@media (max-width: 100px) {
+    .Tab .close {
+        display: none;
+    }
+}
+
+/* shadow top-bottom when tabs-scroll appears */
+
+.ScrollBox > .top-shadow {
+    top: -11px;
+    left: 3px;
+    width: calc(100% - 7px);
+}
+
+.ScrollBox > .bottom-shadow {
+    left: 3px;
+    width: calc(100% - 7px);
+}
+
+/* __________________  Normal tabs */
+
+.TabsPanel.panel{
+    margin-inline: 0px;
+    padding-inline: 0px;
+}
+
+.TabsPanel.panel>.ScrollBox .Tab {
+    margin-inline: 0 ;
+    padding-inline-start: var(--uc-margin-inline);
+    padding-inline-end: calc(var(--uc-margin-inline) + 1px) !important;
+}
+
+/* Margins to center favicon */
+
+.Tab[data-pin="false"] .fav {
+    margin-inline-start: calc(var(--vertical-elements-width)/2 - 11px);
+}
+
+/* Remove indent tab [0] */
+
+body:not(:hover) #root[data-tabs-tree-lvl-marks="true"] .Tab[data-pin="false"]:not([data-lvl="0"]) .body::after {
+    display: none;
+}
+
+body:hover .ScrollBox .Tab[data-lvl]:not([data-lvl="0"]) {
+    padding-inline: var(--tabs-indent) 4px !important;
+}
+
+/* Separator line above normal tabs */
+
+.TabsPanel.panel>.ScrollBox::before {
+    content:''; display: inline-flex;
+    width: calc(100% - var(--uc-margin-inline)*2 - 1px);
+    height: 1px;
+    margin-block-end: 4px;
+    margin-inline: var(--uc-margin-inline);
+    opacity: 0.14;
+    background: var(--frame-fg);
+}
+
+/* __________________  Pinned tabs */
+
+.PinnedTabsBar {
+    --uc-tabs-pinned-width: calc(var(--my-vertical-toolbar-width) - 3px);
+    min-width: var(--uc-sidebar-hover-width);
+    max-width: var(--uc-sidebar-hover-width);
+    margin-block: 4px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--uc-tabs-pinned-width), var(--uc-tabs-pinned-width))) !important;
+
+    & .Tab {
+        padding-inline: var(--uc-margin-inline);
+    }
+}
+
+/* Pinned selected tab always showed */
+
+body:not(:hover) .PinnedTabsBar .tab-wrapper:has(.Tab[data-active="true"]) {
+    &:nth-child(-n+18) {
+        grid-row-start: 3;
+        grid-column-start: 1;
+    }
+    &:nth-child(-n+12) {
+        grid-row-start: 2;
+        grid-column-start: 1;
+    }
+    &:nth-child(-n+6) {
+        grid-row-start: 1;
+        grid-column-start: 1;
+    }
+}
+
+/* __________________ Newtab button __________________ */
+
+.TabsPanel .new-tab-btns {
+    background-color: transparent;
+    padding: 0px ;
+    margin-inline: 0px;
+    grid-gap: 0;
+
+    &::before {
+        content: ''; display: flex; position: absolute; 
+        top: 0;
+        left: var(--uc-margin-inline);
+        width: calc(100% - var(--uc-margin-inline)*2 - 1px); 
+        height: 100%;
+        border-radius: 4px !important;
+        background-color: var(--s-frame-bg);
+    }
+
+    &:hover::before {
+        background-color: color-mix(in srgb, var(--s-toolbar-bg)90%, var(--s-popup-fg));
+    }
+
+    & .new-tab-btn:hover::before {
+        background-color: transparent;
+    }
+}
+
+/* __________________ Sound icon __________________ */
+
+/* Remove unwanted title margin in tabs with sound */
+
+.Tab .t-box {
+    --audio-btn-offset: 0px;
+}
+
+/* button */
+
+.body:has(.audio) {
+    & .audio {
+        width: 14px;
+        height: 14px;
+        background-color: var(--s-popup-fg);
+        inset-inline-start: 18px;
+        inset-block-start: 2px;
+        border-radius: 50%;
+    }
+}
+
+/* icon */
+
+.Tab .audio-icon,
+.Tab[data-pin="false"][data-active="true"] .audio-icon {
+    fill: var(--toolbar-bg);
+}
+
+/* __________________ Scrollbar a few more to the right __________________ */
+
+.ScrollBox {
+    width: calc(100% + 1px);
+}
+
+/* _______________________ Image in sidebar _______________________  */
+
+/*
+
+.root {
+    background-image: url("https://i.imgur.com/bcEfb0j.png") !important;
+    background-repeat: no-repeat !important;
+}
+
+.Tab {
+    --tabs-activated-bg: color-mix(in srgb, var(--s-popup-bg) 60%, transparent);
+}
+
+.TabsPanel .new-tab-btns {
+
+    &::before {
+        background-color: color-mix(in srgb, var(--s-toolbar-bg)80%, transparent);
+    }
+}
+
+/**/
