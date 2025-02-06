@@ -15,18 +15,17 @@
     [sidebarcommand*="tabcenter"],
     [sidebarcommand*="treestyletab"],
     [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]) {
-        --uc-sidebar-width: 49px;
-        --my-vertical-toolbar-width: var(--uc-sidebar-width) !important;
         --vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
-        --uc-sidebar-hover-width: 250px;
+        /*--uc-sidebar-hover-width: 250px;/**/
         --uc-autohide-sidebar-delay: 50ms; /* Wait 0.6s before hiding sidebar - !Neccesary to avoid bug when bookmarksbar is enable */
         --uc-autohide-transition-duration: 115ms;
         --uc-autohide-transition-type: linear;
         --browser-area-z-index-sidebar: 3;
+        background-color: var(--lwt-frame) !important;
         position: relative;
-        min-width: var(--uc-sidebar-width) !important;
-        width: var(--uc-sidebar-width) !important;
-        max-width: var(--uc-sidebar-width) !important;
+        min-width: var(--my-vertical-toolbar-width) !important;
+        width: var(--my-vertical-toolbar-width) !important;
+        max-width: var(--my-vertical-toolbar-width) !important;
         z-index: var(--browser-area-z-index-sidebar,3);
         
         & #sidebar-header {
@@ -40,7 +39,7 @@
     #sidebar-box[positionend]:-moz-locale-dir(rtl){ direction: ltr }
     #sidebar-box[positionend]:-moz-locale-dir(rtl) > *{ direction: rtl }
 
-    #main-window[sizemode="fullscreen"] #sidebar-box{ --uc-sidebar-width: 1px; }
+    #main-window[sizemode="fullscreen"] #sidebar-box{ --my-vertical-toolbar-width: 1px; }
 
     :root:has(#sidebar-box:is(
     [sidebarcommand*="tabcenter"],
@@ -53,8 +52,8 @@
     [sidebarcommand*="tabcenter"],
     [sidebarcommand*="treestyletab"],
     [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) {
-        --uc-sidebar-width: 49px;
-        --my-vertical-toolbar-width: var(--uc-sidebar-width) !important;
+        /*--uc-sidebar-width: 49px;
+        --my-vertical-toolbar-width: var(--uc-sidebar-width) !important;/**/
         --vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important; 
         & #nav-bar::before,
         & :has(#PersonalToolbar[collapsed="false"]) #PersonalToolbar::before{
@@ -94,7 +93,7 @@
     #sidebar-header,
     #sidebar{
         transition: min-width var(--uc-autohide-transition-duration) var(--uc-autohide-transition-type) var(--uc-autohide-sidebar-delay) !important;
-        min-width: var(--uc-sidebar-width) !important;
+        min-width: var(--my-vertical-toolbar-width) !important;
         will-change: min-width;
     }
     #sidebar-box:hover > #sidebar-header,
@@ -142,7 +141,7 @@
     [sidebarcommand*="treestyletab"],
     [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) #sidebar-box:not(:hover) {
         border-inline-end: 1px solid var(--toolbar-bgcolor) !important;
-        border-image: linear-gradient(to bottom, var(--general-color), transparent) 1 !important;
+        border-image: linear-gradient(to bottom, var(--general-color), transparent 96%) 1 !important;
     }
 
     :root:has(#sidebar-box:is(

@@ -242,6 +242,10 @@
     
 /* _____________________________________________________ Logo & Wordmark ____________________________________________________ */
     
+    .layout-variant-b.has-recommended-stories .logo {
+        background-size: 52px !important;
+    }
+    
     .logo{
         background: url("../icons/foxmenu.svg") no-repeat center !important;
         background-size: 64px !important;
@@ -527,8 +531,8 @@
     
     @media (height > 700px) {
         body:not(.inline-onboarding) .fixed-search .search-wrapper {
-            background-color: color-mix(in srgb, var(--border-contrast-color) 90%, transparent) !important;
-            backdrop-filter: blur(5px) !important;
+            background-color: color-mix(in srgb, var(--newtab-background-color) 90%, transparent) !important;
+            backdrop-filter: var(--personal-blur) !important;
         }
     }
     
@@ -577,12 +581,7 @@
     
     /* Styles for the improved search box */
     
-    @media (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar"){
-
-        /* Border button */    
-        .search-inner-wrapper{
-            clip-path: polygon(0 0, 100% 0, 100% 93%, 93% 93%, 93% 104%, 7% 104%, 7% 95%, 0 95%);
-        }
+    @media (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
 
         /* Transparent border when 'focus' */    
         .search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button {
@@ -624,76 +623,83 @@
 
 /* _____________________________________________________ Pinned sites ______________________________________________________ */
     
-    /* Pin icon removed */
-    .top-site-outer .title span .icon.icon-pin-small { display: none !important; }
+    /* Margin when 'News' are actived */
+    
+    .has-weather.has-search.layout-variant-b.has-recommended-stories.has-sections-grid {
+        .top-sites-list {
+            margin-block-start: 40px !important;
+        }
+    }
+    
+    .top-sites-list {
+        
+        /* Pinned Site Colors (Small Background) */
+        .top-site-outer .tile {
+            border-radius: 4px !important;
+            width: 100px !important;
+            height: 100px !important;
+            align-items: start !important;
+            margin-inline: 0px !important;
+            padding-top: 18px !important;
+            box-shadow: 0 0 0 1px #50505030 !important;
+            outline-color: transparent !important; /* Used for smooth transition */
+            background-image: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
+                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;/**/
+            backdrop-filter: var(--personal-blur) !important;
+        }
 
-    /* Label - pinned site */
-    :not(.fields-and-preview) .top-site-outer>.top-site-inner>.top-site-button>.title  {
-        width: 80px !important;
-        font-weight: 500 !important;
-        font-size: 14px !important;
-        margin-top: -40px !important;
-        margin-inline: 20px 10px !important;
-    }
-    
-    /* Fix site label alignment when editing a pinned site */
-    .fields-and-preview .top-site-outer>.top-site-inner>.top-site-button>.title  {
-        overflow: hidden !important;
-        text-wrap-mode: nowrap !important;
-        text-overflow: ellipsis ".." !important;
-    }
-    
-    /* Title label just in one line */
-    
-    .top-sites-list .top-site-outer span[dir="auto"] {
-        overflow: hidden !important;
-        text-overflow: ellipsis ".." !important;
-    }
-    
-    .top-sites-list .top-site-outer:hover span[dir="auto"], 
-    .top-sites-list .top-site-outer:focus-within span[dir="auto"] {
-        text-wrap-mode: nowrap !important;
-    }
+        /* Pin icon removed */
+        .title.has-icon.pinned .icon.icon-pin-small { 
+            display: none !important; 
+        }
+        
+        /* Label - pinned site */
+        .title {
+            padding-block: 0px !important;
+        }
+        
+        .title-label  {
+            padding: 0px !important;
+            padding-inline: 4px !important;
+            font-size: 14px !important;
+            margin-top: -30px !important;
+        }
 
-    /* Pinned Site Colors (Small Background) */
-    .top-site-outer .tile {
-        border-radius: 4px !important;
-        width: 100px !important;
-        height: 100px !important;
-        align-items: start !important;
-        padding-top: 12px !important;
-        box-shadow: 0 0 0 1px #50505030 !important;
-        outline-color: transparent !important; /* Used for smooth transition */
-        background-image: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
-                    linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;/**/
-        backdrop-filter: var(--personal-blur) !important;
-    }
+        /* Title label just in one line */
+        
+        .top-site-outer:hover .title:not(.sponsored) .title-label {
+            -webkit-line-clamp: unset !important;
+        }
+        
+        .top-site-outer:is(:hover,:focus-within) span[dir="auto"] {
+            text-wrap-mode: nowrap !important;
+        }
+        
+        /* Remove style when on 'hover' over pinned sites (larger background) */
 
-    /* Remove style when on 'hover' over pinned sites (larger background) */
-    
-    .collapsible-section {
-        padding-block-start: 30px !important;
-    }
-    
-    /* remove unwanted padding of elements */
-    .top-site-outer .top-site-inner > a {
-        padding: 6px 0 0 0 !important;
-    }
-    
-    /* size and background color */
-    .top-site-outer {
-        border-radius: 0px !important;
-        background-color: transparent !important;/**/
-    }
-    
-    /* Styes when on 'hover' over 'Pinned sites' and 'Recent Activity' */
-    .top-site-outer:hover .tile, .card-outer:hover .card{
-        outline: 1px solid var(--button-hover-bgcolor) !important;
-        transition: outline 0.1s ease-in-out !important;
+        /* remove unwanted padding of elements */
+        .top-site-outer .top-site-inner > a {
+            padding: 0 !important;
+        }
+
+        /* size and background color */
+        .top-site-outer {
+            margin-inline: 8px !important;
+            margin-block: 0px !important;
+            border-radius: 0px !important;
+            background-color: transparent !important;
+        }
+
+        /* Styes when on 'hover' over 'Pinned sites' and 'Recent Activity' */
+        .top-site-outer:hover .tile, .card-outer:hover .card{
+            outline: 1px solid var(--button-hover-bgcolor) !important;
+            transition: outline 0.1s ease-in-out !important;
+        }
     }
     
     /* Styles when clicking on a pinned site and moving the mouse away */
-    .top-site-outer:is(:focus-within) .tile, .card-outer:is(.active,:focus-within) .card{
+    .top-site-outer:is(:focus-within) .tile, 
+    .card-outer:is(.active,:focus-within) .card{
         outline: 1px solid var(--button-active-bgcolor) !important;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
     }
@@ -768,14 +774,16 @@
     
     .lightWallpaper :is(
     .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
-    .top-site-outer:is(:hover, :active, .active) .title span ) {                      /* 'Activity' label */
+    .top-site-outer:is(:hover, :active, .active) .title span,                         /* 'Activity' label */
+    .ds-card .meta .clamp ) {                                                        /* 'News' */
         color: black !important;
         --contrast-color: white !important;
     }
     
     .darkWallpaper :is(
     .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
-    .top-site-outer:is(:hover, :active, .active) .title span ) {                      /* 'Activity' label */
+    .top-site-outer:is(:hover, :active, .active) .title span,                         /* 'Activity' label */
+    .ds-card .meta .clamp ) {                                                        /* 'News' */
         color: white !important;
         --contrast-color: black !important;
     }
@@ -803,8 +811,7 @@
     .context-menu {
         background-color: var(--arrowpanel-background) !important; 
         border-radius: 0px !important;
-        top: 4px !important;
-        margin-inline-start: 0px !important;
+        top: 0px !important;
         box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
         border: 1px solid var(--arrowpanel-background) !important;
         border-image: var(--panel-separator-zap-gradient4) 1 !important;
@@ -824,8 +831,8 @@
         background-image: url("../icons/more.svg") !important;
         background-color: transparent !important;
         border-radius: 0px 4px !important;
-        margin-inline-end: 7px !important;
-        margin-block-start: 26px !important;
+        margin-inline-end: -6px !important;
+        margin-block-start: 19px !important;
         margin-inline-start: -10px !important;
         transition: opacity 200ms;
     }

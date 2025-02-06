@@ -636,7 +636,6 @@
         [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]))  {
 
             #PanelUI-button, #nav-bar, #PersonalToolbar, #toolbar-menubar {
-                --my-vertical-toolbar-width: 49px !important;                                                               /* Nuevo tamaño sidebar */
                 --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;                                /* Nuevo tamaño botón "Menú" */
                 --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 10px) !important;                 /* New margin-left for menu items */
             }

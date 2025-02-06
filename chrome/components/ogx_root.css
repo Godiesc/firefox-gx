@@ -304,6 +304,7 @@
   max-height: var(--bookmarksbar-height-personal) !important;
 }
 
+
 /* _____________________ Sizes for other densities _____________________ */
 
 /* Compact */
@@ -321,7 +322,7 @@
   }
 }
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"firefoxgx.oneline") {
   :root[uidensity="compact"] {
     --my-vertical-toolbar-width: 35px !important;
   }}
@@ -339,7 +340,7 @@
   }
 }
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") {
+@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"firefoxgx.oneline") {
   :root[uidensity="touch"]{
     --my-vertical-toolbar-width: 47px !important;
   }}

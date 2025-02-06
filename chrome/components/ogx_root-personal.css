@@ -35,46 +35,47 @@
 }
 
 @media (prefers-color-scheme: dark) { :root {
-  --lwt-main-image:  url("../newtab/wallpaper-dark1.png") !important;                           /* 'about:' pages wallpaper - dark theme */
-  --lwt-private-image:  url("../newtab/private-dark.png") !important;                           /* Private New-tab wallpaper - dark theme */
-  --brightness-wallpaper: 100%;                                                                 /* 100% -> default */ }}
+  --lwt-main-image:  url("../newtab/wallpaper-dark1.png") !important;                   /* 'about:' pages wallpaper - dark theme */
+  --lwt-private-image:  url("../newtab/private-dark.png") !important;                   /* Private New-tab wallpaper - dark theme */
+  --brightness-wallpaper: 100%;                                                         /* 100% -> default */ }}
 
 @media (prefers-color-scheme: light) { :root {
-  --lwt-main-image:  url("../newtab/wallpaper-light1.png") !important;                          /* 'about:' pages wallpaper - light theme*/
-  --lwt-private-image:  url("../newtab/private-light.png") !important;                          /* Private New-tab wallpaper - light theme*/
-  --brightness-wallpaper: 100%;                                                                 /* 100% -> default */ }}
+  --lwt-main-image:  url("../newtab/wallpaper-light1.png") !important;                  /* 'about:' pages wallpaper - light theme*/
+  --lwt-private-image:  url("../newtab/private-light.png") !important;                  /* Private New-tab wallpaper - light theme*/
+  --brightness-wallpaper: 100%;                                                         /* 100% -> default */ }}
 
-:root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }            /* Accent color for private browsing */
+:root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }    /* Accent color for private browsing */
   
 :root {
   
-  --tab-height-personal: 32px ;                                                                 /* Tab height */
-  --toolbar-height-personal: 38px ;                                                             /* Toolbar height */
+  --tab-height-personal: 32px ;                                                         /* Tab height */
+  --toolbar-height-personal: 38px ;                                                     /* Toolbar height */
   
-  --my-group-line-thickness: 1px !important;                                                    /* Tab-group line thickness */
+  --my-group-line-thickness: 1px !important;                                            /* Tab-group line thickness */
 
-  --menu-label: "Menu" ;                                                                        /* Hamburger menu label */
-  --padding-left-tab: 74px ;                                                                    /* Horizontal size of the hamburger menu button */
+  --menu-label: "Menu" ;                                                                /* Hamburger menu label */
+  --padding-left-tab: 74px ;                                                            /* Horizontal size of the hamburger menu button */
   
-  --logo-wordmark-display: flex ;                                                               /* Logo-wordmark | none -> remove | flex -> show |   */
-  --searchbar-display: flex ;                                                                   /* Searchbox     | none -> remove | flex ->show  |   */
-  --orientation-display: block ;                                                                /* Orientation of 'Logo-wordmark & searchbar'
-                                                                                                   | block -> vertical   | 
-                                                                                                   | flex  -> horizontal |
-                                                                                                   | none  -> remove     |                           */
+  --logo-wordmark-display: flex ;                                                       /* Logo-wordmark | none -> remove | flex -> show |   */
+  --searchbar-display: flex ;                                                           /* Searchbox     | none -> remove | flex ->show  |   */
+  --orientation-display: block ;                                                        /* Orientation of 'Logo-wordmark & searchbar'
+                                                                                           | block -> vertical   | 
+                                                                                           | flex  -> horizontal |
+                                                                                           | none  -> remove     |                           */
   
-  --newtab-pinnedsites-background: color-mix(in srgb, black 2%, transparent) ;                  /* Background color of pinned sites and search bar*/
-  --personal-blur: blur(16px) ;                                                                 /* Blur on new tab page elements */
+  --newtab-pinnedsites-background: color-mix(in srgb, black 2%, transparent) ;          /* Background color of pinned sites and search bar*/
+  --personal-blur: blur(16px) ;                                                         /* Blur on new tab page elements */
   
-  --newtab-pinnedsites-position-top: start ;                                                    /* Pinned sites position -> :start ; :center ; :end */
+  --newtab-pinnedsites-position-top: start ;                                            /* Pinned sites position -> :start ; :center ; :end */
   
-  --selected-text-background: var(--general-color);                                             /* Selected text background */
+  --selected-text-background: var(--general-color);                                     /* Selected text background */
 
 }
 
 @media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"firefoxgx.oneline") {
   :root {
-    --my-vertical-toolbar-width: 41px ;                                                         /* 'left-sidebar' width */
+    --my-vertical-toolbar-width: 41px ;                                                 /* 'left-sidebar' or 'tree-tabs' width */
+    --uc-sidebar-hover-width: 250px ;                                                   /* 'left-sidebar' or 'tree-tabs' expanded width*/
   }}
 
 /* ________________________________________________ Main Image config ________________________________________________ */
@@ -82,12 +83,12 @@
 @media (-moz-bool-pref:"firefoxgx.main-image") {
   
   @media (prefers-color-scheme: dark) { :root {
-    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                         /* new-tab page image - dark team */
-    --brightness-wallpaper: 50%;                                                                /* 100% -> default ; 50% -> to <<main-image>> config */ }}
+    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                 /* new-tab page image - dark team */
+    --brightness-wallpaper: 50%;                                                        /* 100% -> default ; 50% -> to <<main-image>> config */ }}
   
   @media (prefers-color-scheme: light) { :root {
-    --lwt-main-image:  url("../newtab/main-image-light.png") !important;                        /* new-tab page image - light theme*/
-    --brightness-wallpaper: 100%;                                                               /* 100% -> default and Main-image config */ }}
+    --lwt-main-image:  url("../newtab/main-image-light.png") !important;                /* new-tab page image - light theme*/
+    --brightness-wallpaper: 100%;                                                       /* 100% -> default and Main-image config */ }}
 }
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------
