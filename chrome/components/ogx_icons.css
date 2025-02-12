@@ -1629,6 +1629,7 @@
     --menuitem-image: url("chrome://browser/skin/privateBrowsing.svg");
   }
   
+  #context_moveTabToNewGroup,
   #context_moveTabToGroup {
       --menuitem-image: url("../icons/add-tab-to-group.svg");
   }
@@ -1770,6 +1771,11 @@
   #tabcenter-reborn_ariasuni-menuitem-_contextMenuUndoCloseTab,
   #sidebartabs_asamuzak_jp-menuitem-_undoCloseTab {
     --menuitem-image: url("../icons/undo.svg");
+  }
+  
+  #context_toggleVerticalTabs,
+  #toolbar-context-toggle-vertical-tabs{
+    --menuitem-image: url("../icons/logo_tree-tabs.svg");
   }
 
   #new-tab-button-popup > menuitem[command="Browser:NewUserContextTab"],
