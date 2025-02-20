@@ -226,6 +226,10 @@ body:not(:hover) .PinnedTabsBar .tab-wrapper:has(.Tab[data-active="true"]) {
     fill: var(--toolbar-bg);
 }
 
+.Tab[data-muted="true"]:not(:hover) .audio {
+	opacity: 0;
+}
+
 /* __________________ Scrollbar a few more to the right __________________ */
 
 .ScrollBox {
@@ -236,9 +240,11 @@ body:not(:hover) .PinnedTabsBar .tab-wrapper:has(.Tab[data-active="true"]) {
 
 /*
 
-.root {
-    background-image: url("https://i.imgur.com/bcEfb0j.png") !important;
-    background-repeat: no-repeat !important;
+.root{
+	--bg-img: url("https://i.imgur.com/bcEfb0j.png") !important;
+	--bg-size: cover !important;
+	background-image: var(--bg-img) !important;
+	background-repeat: no-repeat !important;
 }
 
 .Tab {
