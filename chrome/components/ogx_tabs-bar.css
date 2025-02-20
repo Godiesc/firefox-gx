@@ -543,11 +543,14 @@ tab-group:not([collapsed]) .tab-group-label::before {
 /* Size and color of the 'dot' when a tab needs attention */
 
 .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
-    background-position: center calc(2px + var(--tabs-navbar-shadow-size)) !important;
+    background-image: radial-gradient(circle, var(--attention-dot-color), var(--attention-dot-color) 1px, transparent 3px) !important;
+    background-position: center bottom !important;
+    background-size: 8px 8px !important;
 }
 
-#vertical-pinned-tabs-container .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
-    background-position: center top !important;
+.tabbrowser-tab > .tab-stack > .tab-content[titlechanged]:not([selected="true"]) {
+    background-position: center bottom !important;
+    background-size: 8px 8px !important;
 }
 
 /* Menu-bar */

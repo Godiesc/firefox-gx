@@ -101,7 +101,8 @@
   --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton 'hover' */
   --color-accent-primary-active: var(--general-color) !important;                       /* Radiobutton 'active' */
   
-  --inactive-titlebar-opacity: 1 !important;                                            /* Opacity unfocused window */  
+  --inactive-titlebar-opacity: 1 !important;                                            /* Opacity unfocused window */
+  
 }
 
 /* _________________________________________________________________ Dark theme _________________________________________________________________ */
@@ -126,6 +127,7 @@
   scrollbar-color: #38375580 #18173530 !important;                                                                      /* Scroll bar colors */
   
   --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
+  --my-beats-image: url("../icons/Beats.webp") !important;
   
   --button-primary-bgcolor: var(--button-active-bgcolor) !important;                                                    /* Color of the 'Save' button */
   --button-primary-color: #eaeaea !important;                                                                           /* Font Color of the 'Save' button */
@@ -162,6 +164,7 @@
   scrollbar-color: #d8d9da var(--toolbar-bgcolor) !important;                                                           /* Scroll bar colors */
   
   --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
+  --my-beats-image: url("../icons/Beats.gif") !important;
 
   --button-primary-bgcolor: var(--general-color) !important;                                                            /* Color of the 'Save' button */
   --button-primary-color: #eaeaea !important;                                                                           /* Font Color of the 'Save' button */

@@ -97,6 +97,9 @@
          background-color: color-mix(in srgb, var(--contrast-color), var(--toolbar-bgcolor)) !important;
          backdrop-filter: var(--personal-blur) !important;
       }
+      #bookmarksPanel {
+         background-color: transparent !important;
+      }
    }
    
    /* Align tab background image */

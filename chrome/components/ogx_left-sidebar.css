@@ -713,23 +713,31 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         }
     }
     
-    /* Size and Vertical space between icons */    
-    .button-background {
+    /* Size and Vertical space between icons 
+       exception style for sound icons */
+    
+    :not(button:is([aria-label="Mute tab"],[aria-label="Unmute tab"])) .button-background {
         &[type~="icon"]:not(.labelled), &:not(.labelled):has(img) {
             background-color: transparent !important;
             min-width: var(--vertical-elements-width) !important;
-            padding-block: 18px !important;
         }
+    }
+
+    /* fix button inside 'history' */
+    .fxview-tab-row-button {
+        border-radius: 14px !important;
+        --button-outer-padding-block: 2px !important;
+        --button-outer-padding-inline: 0px !important;
     }
     
     /* Zoom on hover */
-    .button-background img, .button-background:before { transition-duration: 200ms !important; }
+    .button-background img, .button-background:before { transition: transform 200ms ease !important; }
     .button-background[type="icon ghost"]:hover img, .button-background[type="icon ghost"]:hover:before {
         transform: scale(1.2) !important;
     }
     
     /* clic */
-    .button-background img, .button-background:before { transition-duration: 200ms !important; }
+    .button-background img, .button-background:before { transition: transform 200ms ease !important; }
     .button-background[type="icon ghost"]:active img, .button-background[type="icon ghost"]:active:before {
         transform: scale(0.8) !important;
     }
@@ -1187,7 +1195,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     }
     
     /* Smooth transition */
-    moz-button[type="icon ghost"]{
+    moz-button[type="icon ghost"] {
         transition: opacity 0.3s ease-in-out !important;
     }
     
