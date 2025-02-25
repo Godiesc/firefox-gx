@@ -41,8 +41,10 @@
     
     &:not([expanded]) {
         & .tab-close-button {
+            width: 14px !important;
+            height: 14px !important;
             background: var(--general-color) !important;
-            padding: 3px !important;
+            padding: 2px !important;
             fill: var(--contrast-color) !important;
             
             &:hover {

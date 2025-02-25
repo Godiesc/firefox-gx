@@ -88,7 +88,7 @@
   
   @media (prefers-color-scheme: light) { :root {
     --lwt-main-image:  url("../newtab/main-image-light.png") !important;                /* new-tab page image - light theme*/
-    --brightness-wallpaper: 100%;                                                       /* 100% -> default and Main-image config */ }}
+    --brightness-wallpaper: 50%;                                                        /* 100% -> default ; 50% -> to <<main-image>> config */ }}
 }
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------

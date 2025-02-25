@@ -468,7 +468,8 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
 
 /* Whatsapp Extension */
 #PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP,
-#PersonalToolbar #chatwappinsidebar_godie-BAP{ list-style-image: url("../icons/logo_whatsapp.svg") !important; }
+#PersonalToolbar #chatwappinsidebar_godie-BAP { list-style-image: url("../icons/logo_whatsapp.svg") !important; }
+moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../icons/logo_whatsapp.svg") !important; }
     
 /* Spotify Extension */
 #PersonalToolbar #sidebarspotyplay_godie-BAP,
@@ -562,18 +563,6 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         margin-right: calc(var(--padding-left-tab) - 9px) !important;
         margin-top: -39px  !important;
     }
-/* New position of Paneles when 'open' from left-sidebar 
-    #customizationui-widget-panel {
-        margin-right: calc(var(--padding-left-tab) - 9px) !important;
-        margin-top: -39px  !important;
-    }
-*/
-    /* Bug fix for MacOS: completely remove left sidebar in full screen 
-    @media (-moz-platform: macos) {
-        :root:is([sizemode="fullscreen"]) #PersonalToolbar{
-            display: none !important;
-        }
-    }*/
 
     /* ______________ Hamburguer Menu button when 'left-sidebar' + 'Firefox Sidebar' are [hidden] with "Ctrl + Shift + B" */
 
@@ -703,6 +692,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
     /* Remove all padding */
     .actions-list {
+        overflow: hidden !important;
         & > moz-button {
                 --button-outer-padding-inline: 0px !important;
                 /*--button-outer-padding-block: 0px !important;/**/
@@ -715,54 +705,91 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
     /* Size and Vertical space between icons 
        exception style for sound icons */
-    
-    :not(button:is([aria-label="Mute tab"],[aria-label="Unmute tab"])) .button-background {
-        &[type~="icon"]:not(.labelled), &:not(.labelled):has(img) {
-            background-color: transparent !important;
-            min-width: var(--vertical-elements-width) !important;
+
+    .actions-list {
+        & > moz-button {
+            --my-min-width: var(--vertical-elements-width) !important;
+            --button-size-icon: 36px !important;
+            --button-background-color-ghost-hover: transparent !important;
+            --button-background-color-ghost-active: transparent !important;
+            --button-background-color-hover: transparent !important;
+            --button-background-color-active: transparent !important;
+            --toolbarbutton-active-background: transparent !important;
+            --button-icon-fill: var(--general-color) !important;
+            --button-icon-stroke: var(--general-color) !important;
+            --my-transform-hover: scale(1.2) !important;
+            --my-transform-active: scale(0.8) !important;
+            --button-border-radius: 0px !important;
         }
     }
 
-    /* fix button inside 'history' */
-    .fxview-tab-row-button {
-        border-radius: 14px !important;
-        --button-outer-padding-block: 2px !important;
-        --button-outer-padding-inline: 0px !important;
-    }
-    
-    /* Zoom on hover */
-    .button-background img, .button-background:before { transition: transform 200ms ease !important; }
-    .button-background[type="icon ghost"]:hover img, .button-background[type="icon ghost"]:hover:before {
-        transform: scale(1.2) !important;
-    }
-    
-    /* clic */
-    .button-background img, .button-background:before { transition: transform 200ms ease !important; }
-    .button-background[type="icon ghost"]:active img, .button-background[type="icon ghost"]:active:before {
-        transform: scale(0.8) !important;
-    }
-    
-    /* Style icon [open] */
-    
-    /* This code evit glitch when clic */
-    .button-background[type="icon ghost"] img{
-        padding: 5px !important;
-        border-radius: 4px !important;
-    }
-    
-    .button-background[type="icon"] img{
-        fill: white !important;
-        background-color: var(--button-hover-bgcolor) !important;/**/
-        padding: 5px !important;
-        border-radius: 4px !important;
-    }
-    
-    /* Roundness of items when Sidebar is expanded */
-    
     .button-background {
-        &[type~="icon"], &[type~="ghost"] {
-            border-radius: 0px !important;
+        min-width: var(--my-min-width) !important;
+    }
+
+    /* Roundness in Sidebar-box */
+    
+    :root {
+        --border-radius-medium: 4px !important;
+    }
+    
+    /* Tool open */
+    
+    .button-background[type="icon"] img {
+        fill: white !important;
+        background-color: var(--button-hover-bgcolor) !important;
+        padding: 5px !important;
+        border-radius: 4px !important;
+    }
+    
+    /* Zoom effect */
+
+    .button-background {
+        & img { transition: transform 200ms ease !important; }
+        
+        &[type="icon ghost"]:hover > img  {
+            transform: var(--my-transform-hover) !important;
         }
+        
+        &[type="icon ghost"]:active > img  {
+            transform: var(--my-transform-active) !important;
+        }
+    }
+
+    /* ______________ Some extensions icons ______________ */
+    
+    /* Whatsapp Extension */
+    moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../icons/logo_whatsapp.svg") !important; }
+    
+    /* Instagram Extension */
+    moz-button[extensionId="SidebarInstaChat@Godie"] { --my-custom-image: url("../icons/logo_instagram.svg") !important; }
+
+    /* Spotify Extension */
+    moz-button[extensionId="SidebarSpotyplay@Godie"] { --my-custom-image: url("../icons/logo_spotify.svg") !important; }
+
+    /* Telegram Extension */
+    moz-button[extensionId="{14390478-b41b-4e29-8307-8a3c714f7783}"] { --my-custom-image: url("../icons/logo_telegram.svg") !important; }
+
+    /* ublock Extension */
+    moz-button[extensionId="uBlock0@raymondhill.net"] { --my-custom-image: url("../icons/logo_ublock.svg") !important; }
+    
+    /* Discord Extension */
+    moz-button[extensionId="{a16c3799-d903-44e3-b044-a032197f5ef8}"] { --my-custom-image: url("../icons/logo_discord.svg") !important; }
+
+    /* Twitter Extension */
+    moz-button[extensionId="{3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1}"] { --my-custom-image: url("../icons/logo_twitter.svg") !important; }
+    
+    /* Bitwarden extension */
+    moz-button[extensionId="{446900e4-71c2-419f-a6a7-df9c091e268b}"] { --my-custom-image: url(../icons/logo_bitwarden.svg) !important; }
+
+    /* Tree-tabs extension */
+    moz-button[extensionId="treestyletab@piro.sakura.ne.jp"],
+    moz-button[extensionId="tabcenter-reborn@ariasuni"] { --my-custom-image: url(../icons/logo_tree-tabs.svg) !important; }
+
+    /* Set extension image */
+    
+    .button-background > img{
+        content: var(--my-custom-image,none);
     }
     
     /* _______________ Styles of Sidebar content [open] _______________ */
@@ -828,11 +855,11 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
     #sidebar-main {
         background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
-                                          var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-        background-position: left calc(0px - var(--menubar-height-personal, 0px)) !important;
-        background-repeat: no-repeat !important;
-        background-size: auto calc(100% + var(--menubar-height-personal, 0px)) !important;
+            var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
+        background-position: left calc(-0px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+        background-size: auto calc(100% + 0px + var(--padding-top-left-sidebar) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
         background-attachment: scroll, fixed, fixed !important;
+        background-color: transparent !important;
     }
     /* For RTL languages */
     #sidebar-main:dir(rtl) {
@@ -868,18 +895,18 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     
     /* Simulate continuous line before 'nav-bar and bookmarks-bar' when Sidebar is 'expanded' */
     
-    :root:not([customizing]):has(sidebar-main:is([expanded])) {
+    :root:not([customizing]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden]))/*:has(sidebar-main:is([expanded]))/**/ {
         & #navigator-toolbox::before {
             content:"";
             position: absolute !important; 
-            inset-inline-start: 0 !important;
-            top: -1px !important;
+            /*inset-inline-start: 0 !important;/**/
+            bottom: -1px !important;
             background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
                 var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
             background-size: auto 100% !important;
             background-attachment: fixed !important;
             width: var(--vertical-elements-width) !important;
-            height: calc(2px + var(--menubar-height-personal, 0px) + var(--tab-height-personal) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
+            height: calc(2px + var(--windowed-top-padding, 0px) + var(--menubar-height-personal, 0px) + var(--tab-height-personal) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
             border-inline-end: 1px solid var(--general-color) !important;
             border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
                                             var(--general-color) var(--space-before-gradient-line)) 1 !important;
@@ -896,26 +923,26 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     /* Sidebar style when isn't expanded */
     
     :root:has(sidebar-main:not([expanded])) {
-        & #sidebar-main {           
-                /* Bakground-color necessary for gradient line color */
-            background-color: var(--lwt-frame) !important;
-                /* Top-bottom margins */
-            padding-top: var(--padding-top-left-sidebar) !important;
-                /* Gradient line */
-            margin-top: calc( -1px - var(--bookmarksbar-height-personal, 0px) - var(--toolbar-height-personal) - 
-                             var(--space-before-gradient-line)) !important;
+        & #sidebar-main {
+                /* Bakground-color necessary for gradient line color 
+            background-color: var(--lwt-frame) !important;*/
+                /* Top-bottom margins 
+            padding-top: var(--padding-top-left-sidebar) !important;*/
+                /* Gradient line 
+            margin-top: calc( -1px - var(--bookmarksbar-height-personal, 0px) - var(--toolbar-height-personal, 0px) - 
+                             var(--space-before-gradient-line)) !important;*/
             border-inline-end: 1px solid red !important;
-            border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
-                                            var(--general-color) var(--space-before-gradient-line), 
+            border-image: linear-gradient(to bottom, transparent 0px, 
+                                            var(--general-color) 0px, 
                                             var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
         }
     }
     
-    :root:has(sidebar-main:is([expanded])) {
+    :root:has(sidebar-main[expanded]) {
         & #sidebar-main {
-            /* Bakground-color necessary for gradient line color */
-            background-color: var(--lwt-frame) !important;
-            border-inline-end: 1px solid transparent !important;
+            /* Bakground-color necessary for gradient line color 
+            background-color: var(--lwt-frame) !important;*/
+            border-inline-end: 1px solid red !important;
             border-image: linear-gradient(to bottom,
                                             var(--general-color), 
                                             var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
@@ -958,9 +985,20 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     /* Darker sidebar when using vertical tabs */
 
     :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([lwtheme-image],[style*="--lwt-additional-images"]) {
+        & #navigator-toolbox::before,
         & #sidebar-main,
         &:has(sidebar-main:is([expanded])) #navigator-toolbox::before {
-            --lwt-frame: color-mix(in srgb, var(--toolbar-bgcolor) 25%, transparent) !important;
+            --lwt-frame: color-mix(in srgb, var(--toolbar-bgcolor) 50%, transparent) !important;
+        }
+    }
+    
+    /* Simulate continuous line before 'nav-bar and bookmarks-bar' of Sidebar */
+    
+    :root:not([customizing]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+        & #navigator-toolbox::before {
+            --space-before-gradient-line: calc(var(--menubar-height-personal, 0px) - 1px) !important;
+            bottom: 0px !important;
+            height: calc(0px + var(--menubar-height-personal, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
         }
     }
     
@@ -1064,7 +1102,7 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
     /* Margin top of the block of tabs */
     
     #vertical-tabs {
-        padding-block-start: 8px !important;
+        padding-block-start: 4px !important;
     }
     
       /* Separator bottom when tabs scroll appears */
@@ -1164,89 +1202,83 @@ toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity:
         }
     }
     
-    /* ______________________________________ Tools and extensions ______________________________________ */
+    /* _______________________________________ Tools and extensions _______________________________________ */
     
-    /* Tools style */    
-    .actions-list[orientation="vertical"] {
-        padding-block: 2px 0px !important;
-        margin-block: 0px 0px !important;
-        overflow-y: hidden !important;
-    }
-
-    /* Tools on 'hover' */    
-    .actions-list[orientation="vertical"]:hover{
+    /* Hide scrollbar */    
+    
+    .actions-list {
         border-top: 1px solid var(--general-color) !important;
         border-image: var(--my-separator-border-style1) 1 !important;
-        opacity: 1 !important;
-        background-color: var(--lwt-frame) !important;
-        transition: opacity 0.2s ease-in-out, background-color 0.4s ease;
+        overflow-y: hidden !important;
+        transition: opacity 0.2s ease-in-out, visibility 0.4s ease, transform 0.4s ease;
     }
     
-    /* Hide the tools except for the last one: 'configuration' . */
+    /* Hide tools except for the last one 'configuration' */
     .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child) {
         opacity: 0 !important;
-        height: 0px !important;
+        transform: translateY(10px) !important;
+        visibility: collapse !important;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
     }
     
-     /* Hide the 'configuration' button when there is an 'active' tool */
-    .wrapper:has(.actions-list moz-button[type="icon"]) .actions-list:not(:hover) moz-button[type="icon ghost"]:is(:last-child) {
+    /* Hide tools except for the last one 'configuration' */
+    .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child) {
+        opacity: 1 !important;
+        /*height: 0px !important;/**/
+        transform: translateY(0px) !important;
+        visibility: visible !important;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
+    }
+    
+    /* Transition for 'configuration' button when other tool is open */
+         
+    .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list:not(:hover) moz-button[type="icon ghost"]:is(:last-child) {
         opacity: 0 !important;
-        height: 0px !important;
+        visibility: collapse !important;
+        transform: translateY(10px) !important;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
     }
     
-    /* Smooth transition */
-    moz-button[type="icon ghost"] {
-        transition: opacity 0.3s ease-in-out !important;
+    .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list:is(:hover) moz-button[type="icon ghost"]:is(:last-child) {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0px) !important;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
     }
-    
-    /* 'Configuration' button in 1rst position when sidebar isn't hover */
-    .actions-list[orientation="vertical"]:not(:hover) moz-button:last-child{
-        background-color: transparent !important;
-        transition: background-color 0ms ease !important;
-        order: -1 !important;
-    }
-    
-    /* shows the active tool */
-    .wrapper:has(.actions-list[orientation="vertical"]:not(:hover)) moz-button[type="icon"] {
-        order: -1 !important;
-    }
-    
+
     /* Keep active tool in latest position */
-    .wrapper:has(.actions-list[orientation="vertical"]:is(:hover)) moz-button[type="icon"]{
+    .actions-list[orientation="vertical"] moz-button[type="icon"] {
         order: 1 !important;
     }
     
     /*__________________ 'Tools and extensions' when sidebar is expanded */
     
-    .tools-and-extensions[orientation="horizontal"] {
-        --first-last-button-width: 30px !important;
-        grid-template-columns: var(--first-last-button-width) repeat(4, calc(var(--button-size-icon) + var(--space-xsmall))) calc(var(--first-last-button-width) + 11px) !important;
+    .actions-list[orientation="horizontal"] {
+        padding-inline: 0px !important;
+        padding-block-end: 0px !important;
     }
     
-    /* 'Configuration' button always in left bottom */
+    .button-background {
+        padding-inline: var(--my-padding-inline) !important;
+    }
     
-    .actions-list[orientation="horizontal"] moz-button:last-child:nth-child(-n+18){
-        grid-row-start: 2 !important;
-        grid-column-start:1 !important;
+    .expanded-button.tools-overflow {
+        --my-padding-inline: calc((var(--button-size-icon) - var(--icon-size-default)) / 2 - var(--border-width) + 2px);
     }
-
-    .actions-list[orientation="horizontal"] moz-button:last-child:nth-child(-n+12){
-        grid-row-start: 2 !important;
-        grid-column-start:1 !important;
-    }
-
-    .actions-list[orientation="horizontal"] moz-button:last-child:nth-child(-n+6){
-        grid-row-start: 1 !important;
-        grid-column-start: 1 !important;
+    
+    /* overwrite fix - tool open when sidebar is expanded */
+    
+    .button-background[type="icon"] img {
+        margin-inline: -5px !important;
     }
     
     /* _________________________________________________________________________________________________________ */
     
-    /* Fix issue when 'tools and extension' and tab scrolling appears */
+    /* Fix issue when 'tools and extension' and tab scrolling appears 
     
     spacer[part="overflow-start-indicator"]{
         display: none !important;
-    }
+    }*/
     
     /* Overwrite: Buttons size the same as the Sidebar to click on border */
     

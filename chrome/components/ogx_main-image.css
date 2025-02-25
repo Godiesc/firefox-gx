@@ -37,13 +37,13 @@
 
    @media (prefers-color-scheme: dark){
       :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-         --toolbar-bgcolor: #0000007f !important;
+         --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;
          --lwt-selected-tab-background-color: transparent !important;
       }}
 
    @media (prefers-color-scheme: light){
       :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-         --toolbar-bgcolor: #ffffff7f !important;
+         --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;
          --lwt-selected-tab-background-color: transparent !important;
       }}
 
@@ -201,12 +201,11 @@
 
          /* Overwrite code from 'left-sidebar' - Remove images when not needed
             'Background-image' & 'background-color' for solid themes & themes with images */
-
-         &:root:has(sidebar-main:not([expanded])) {
-            & #sidebar-main {
-               background-image: none !important;
-               background-color: transparent !important;
-            }
+         
+         &:not([customizing]):not(:has(#sidebar-main[hidden="true"], sidebar-main[hidden])) #navigator-toolbox::before,
+         & #sidebar-main {
+            background-image: none !important;
+            background-color: transparent !important;
          }
 
          &:root:has(sidebar-main:is([expanded])) {
@@ -233,6 +232,7 @@
                & #navigator-toolbox::before,
                & #sidebar-main {
                   background-color: var(--toolbar-bgcolor) !important;
+                  background-position: right calc(0px - var(--menubar-height-personal, 0px) - var(--toolbar-height-personal) - var(--bookmarksbar-height-personak, 0px)) !important;
                }
             }
          }
@@ -263,6 +263,33 @@
                   background-color: var(--toolbar-bgcolor) !important;
                }
             }
+         }
+      }
+   }
+
+   /* ______________________ Vertical tabs ______________________ */
+
+   @media (-moz-bool-pref:"sidebar.verticalTabs") {
+
+      :root:not([chromehidden~="toolbar"]) {
+
+         &:root:has(sidebar-main:is([expanded])) {
+
+            & #navigator-toolbox::before {
+               background-image: none !important;
+            }
+            & #sidebar-main {
+               background-image: linear-gradient(transparent, var(--toolbar-bgcolor)),
+                  var(--lwt-additional-images), var(--lwt-header-image) !important;
+               background-size: 100vw 100vh !important;
+            }
+         }
+
+         /* half fix for tab background image */
+
+         .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
+            background-position: left top !important;
+            background-size: 100vw 100vh !important;
          }
       }
    }
@@ -328,33 +355,6 @@
                max-height: calc(2px + var(--menubar-height-personal, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
                z-index: unset !important;
             }
-         }
-      }
-   }
-   
-      /* ______________________ Vertical tabs */
-   
-   @media (-moz-bool-pref:"sidebar.verticalTabs") {
-      
-      :root:not([chromehidden~="toolbar"]) {
-
-         &:root:has(sidebar-main:is([expanded])) {
-
-            & #navigator-toolbox::before {
-               background-image: none !important;
-            }
-            & #sidebar-main {
-               background-image: linear-gradient(transparent, var(--toolbar-bgcolor)),
-                  var(--lwt-additional-images), var(--lwt-header-image) !important;
-               background-size: 100vw 100vh !important;
-            }
-         }
-
-         /* half fix for tab background image */
-
-         .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
-            background-position: left top !important;
-            background-size: 100vw 100vh !important;
          }
       }
    }
