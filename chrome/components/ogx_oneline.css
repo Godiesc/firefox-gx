@@ -26,12 +26,28 @@
     --uc-window-control-width: 105px;
   }
 }
-
-@media (-moz-gtk-csd-available) {
+/* On linux set width based on number of caption buttons.
+One button */
+@media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
   :root:is([customtitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 84px;
+    --uc-window-control-width: 48px;
   }
 }
+/* Two buttons */
+@media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
+       (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
+       (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+  :root:is([customtitlebar],[sizemode="fullscreen"]) {
+    --uc-window-control-width: 76px;
+  }
+}
+/* Three buttons */
+@media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+  :root:is([customtitlebar],[sizemode="fullscreen"]) {
+    --uc-window-control-width: 104px;
+  }
+}
+  
 @media (-moz-platform: macos){
   :root:is([customtitlebar],[sizemode="fullscreen"]) {
     --uc-window-control-width: 72px;
@@ -139,18 +155,13 @@
   }
 
   /* overwriting: Modify these values to match your preferences */
+  
+  @media  (-moz-platform: windows){
 
-  :root:is([customtitlebar], [sizemode="fullscreen"]) {
-    --uc-window-control-width: 144px;                   /* Space reserved for window controls (Win10) */
-    --uc-window-drag-space-pre: 0px;                    /* left side*/
-    --uc-window-drag-space-post: 0px;                   /* right side*/
-  }
-
-  /* overwriting: <window controls> width in linux */
-
-  @media (-moz-gtk-csd-available) {
-    :root:is([customtitlebar],[sizemode="fullscreen"]) {
-      --uc-window-control-width: 108px;
+    :root:is([customtitlebar], [sizemode="fullscreen"]) {
+      --uc-window-control-width: 144px;                   /* Space reserved for window controls (Win10) */
+      --uc-window-drag-space-pre: 0px;                    /* left side*/
+      --uc-window-drag-space-post: 0px;                   /* right side*/
     }
   }
 
@@ -288,7 +299,7 @@
   
   /* Separator between <window controls> and other buttons */
 
-  :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) .titlebar-buttonbox::before{
+  :root:not([chromehidden~="toolbar"]) .titlebar-buttonbox::before{
     content: ""; position: absolute !important; align-self: center !important;
     background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
     background-size: 6px 16px !important;
@@ -307,7 +318,7 @@
       position: absolute;
       display: flex;
       top: 0 !important;
-      left: calc(100vw - var(--uc-window-control-width) - 66px);
+      left: calc(100vw - var(--uc-window-control-width, 0px) - 66px) !important;
       height: var(--tab-height-personal);
       /*z-index: 12 !important;/**/
   }
@@ -316,18 +327,19 @@
   
 #scrollbutton-up, #scrollbutton-down{ border-block-width: 1px !important; }*/
   
-/* overwriting: reserved space for overflow + menu buttons */
+  /* overwriting: reserved space for overflow + menu buttons */
+
+  #navigator-toolbox{
+    --uc-buttons-width: calc(67px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+  }
   
-#navigator-toolbox{
-  --uc-buttons-width: calc(67px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
-}
-  
-/* overwriting: reserved space for overflow + menu buttons on LINUX */
-  
-@media (-moz-platform: linux) {
-#navigator-toolbox{
-  --uc-buttons-width: calc(66px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
-  }}
+  /* overwriting: reserved space for overflow + menu buttons on LINUX */
+
+  @media (-moz-platform: linux) {
+    #navigator-toolbox{
+      --uc-buttons-width: calc(34px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px)) !important;
+    }
+  }
   
 /* ___________________________ Adds more space to use as drag space in non-maximized window ___________________________ */
   
@@ -386,21 +398,22 @@
     mask-image: linear-gradient(to right,  transparent 0%, #fff 10% 80%, transparent 90%) !important;
 }
   
-/* urlbar when 'focus' and 'open' */
-  
-#urlbar-container, #urlbar-container:not([open],:focus, :focus-within ){
+  /* urlbar when 'focus' and 'open' */
+
+  #urlbar-container, #urlbar-container:not([open],:focus, :focus-within ){
     max-width: var(--min-width-url) !important; 
-}
+  }
   
-#urlbar:focus-within, #urlbar[focused="true"] { 
-    min-width: calc(var(--min-width-url) + 30vw) !important;
+  #urlbar:focus-within, 
+  #urlbar[focused="true"],
+  #urlbar[open] { 
+    min-width: calc(var(--min-width-url) + 340px) !important;
     clip-path: polygon(0px 0%, calc(var(--min-width-url) ) 0%, 0% 999999vw, 0% 0px) !important;
-}
-  
-#urlbar[open]{ 
-    width: calc(var(--min-width-url) + 30vw) !important; 
+  }
+
+  #urlbar[open]{
     clip-path: none !important;
-}
+  }
   
 /* Allows you to make space to move icons in 'customization mode' */
   
@@ -423,23 +436,27 @@
     transform: rotate(90deg);
 }
   
-/* Microphone icon */
-  
-#notification-popup-box[open]  .microphone-icon  {
-  margin-left: -3px !important;
+  /* Microphone icon */
+
+  #notification-popup-box[open]  .microphone-icon  {
+    margin-left: -3px !important;
   }
   
-/* Urlbar icons - show on 'hover' */
-  
-#identity-box>box:not([open])>image, #urlbar-searchmode-switcher:not([open]), #urlbar-zoom-button, .urlbar-page-action:not([open])>image {
+  /* Urlbar icons - show on 'hover' */
+
+  #identity-box>box:not([open])>:is(image, box), 
+  #urlbar-searchmode-switcher:not([open]), 
+  #urlbar-zoom-button, .urlbar-page-action:not([open])>image {
     opacity: 0 !important;
     transition: opacity 250ms ease-in-out !important;
-}
+  }
 
-#urlbar:is([open],:hover,[focused]) :is(#identity-box>box>image, #urlbar-searchmode-switcher, #urlbar-zoom-button, .urlbar-page-action>image) {
+  #urlbar:is([open],:hover,[focused]) :is(#identity-box>box>:is(image, box),
+  #urlbar-searchmode-switcher,
+  #urlbar-zoom-button, .urlbar-page-action>image) {
     opacity: 1 !important;
     transition: opacity 250ms ease-in-out !important;
-}
+  }
   
 /* Align the navbar gradient line with selected tab, and trick to vertically center all elements */ 
   
