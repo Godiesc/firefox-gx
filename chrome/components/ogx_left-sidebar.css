@@ -856,8 +856,8 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     #sidebar-main {
         background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
             var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-        background-position: left calc(-0px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
-        background-size: auto calc(100% + 0px + var(--padding-top-left-sidebar) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
+        background-position: left calc(-11px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+        background-size: auto calc(100% + 11px + var(--padding-top-left-sidebar,0px) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
         background-attachment: scroll, fixed, fixed !important;
         background-color: transparent !important;
     }

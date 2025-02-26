@@ -26,7 +26,7 @@
     position: var(--my-position) !important;
     top: var(--my-top) !important;
     inset-inline-start: var(--my-inset-inline-start) !important;
-    margin-block-end: var(--my-margin-block-end) !important;/**/
+    /*margin-block-end: var(--my-margin-block-end) !important;/**/
     background-image: var(--my-background-image) !important;
     background-size: var(--my-background-size) !important;
     box-shadow: var(--my-box-shadow) !important;
@@ -34,6 +34,7 @@
     fill: var(--my-fill) !important;
     outline: var(--my-outline) !important;
     outline-offset: var(--my-outline-offset) !important;
+    align-items: var(--my-align-items, center) !important;
 }
 
 @media not (-moz-bool-pref:"firefoxgx.classic-sound-icon") {
@@ -67,8 +68,9 @@
     .tab-audio-button:is([soundplaying],[muted]) {
         --button-size-icon-small: 16px !important;
         --button-min-height-small: var(--button-size-icon-small) !important;
-        --my-margin-block-end: 4px !important;
         --button-border-radius: 50% !important;
+        --my-align-items: end !important;
+        height: var(--button-min-height-small) !important;
     }
     
     /* Normal tabs - Playing icon */
