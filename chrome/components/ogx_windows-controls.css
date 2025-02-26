@@ -100,6 +100,29 @@
         min-height: calc(var(--tab-block-margin-personal) * 2 + var(--tab-height-personal)) !important;
         max-height: calc(var(--tab-block-margin-personal) * 2 + var(--tab-height-personal)) !important;
     }
+    
+    /* On linux set width based on number of caption buttons.
+    
+    One button */
+    @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
+        :root:is([customtitlebar]) {
+            --uc-window-control-width: 48px !important;
+        }
+    }
+    /* Two buttons */
+    @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
+        (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
+        (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+            :root:is([customtitlebar],[sizemode="fullscreen"]) {
+                --uc-window-control-width: 76px !important;
+            }
+    }
+    /* Three buttons */
+    @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+        :root:is([customtitlebar],[sizemode="fullscreen"]) {
+            --uc-window-control-width: 104px !important;
+        }
+    }
 }
 
 @media (-moz-gtk-csd-reversed-placement) {

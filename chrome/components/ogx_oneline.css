@@ -27,26 +27,11 @@
   }
 }
 /* On linux set width based on number of caption buttons.
-One button */
-@media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
-  :root:is([customtitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 48px;
-  }
-}
-/* Two buttons */
-@media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
-       (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
-       (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
-  :root:is([customtitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 76px;
-  }
-}
-/* Three buttons */
-@media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
-  :root:is([customtitlebar],[sizemode="fullscreen"]) {
-    --uc-window-control-width: 104px;
-  }
-}
+One button
+Two buttons 
+Three buttons 
+  -> Code added in 'ogx_windows_controls.css' */
+
   
 @media (-moz-platform: macos){
   :root:is([customtitlebar],[sizemode="fullscreen"]) {
@@ -253,11 +238,11 @@ One button */
              background: var(--lwt-selected-tab-background-color) !important;
   }
 
-  /* Smaller url-bar in private windows */
+  /* Smaller url-bar in private windows 
 
   :root:is([privatebrowsingmode="temporary"]) #urlbar-container:not([open],:focus, :focus-within ){
     max-width: calc(var(--min-width-url) - 1vw) !important;
-  }
+  }*/
 
   @media (-moz-gtk-csd-reversed-placement){
     :root:is([privatebrowsingmode="temporary"]) #nav-bar-customization-target {
@@ -798,16 +783,14 @@ One button */
 
   /* ______________ 'Firefox Revamp'*/
 
-  @media ((-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.verticalTabs"))) and (-moz-bool-pref:"sidebar.position_start")
-    and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
+  @media (((-moz-bool-pref: "sidebar.revamp") or (-moz-bool-pref: "sidebar.verticalTabs")) and (-moz-bool-pref: "sidebar.position_start")) and (not (-moz-bool-pref: "firefoxgx.left-sidebar")) {
+    :root:not([customizing]):not(:has(#sidebar-main[hidden="true"], sidebar-main[hidden])) {
 
-      /* Gradient line */
-      :root:has(sidebar-main:not([expanded])) {
-        & #sidebar-main {
-          --padding-top-left-sidebar: calc(var(--space-before-gradient-line) + var(--menubar-height-personal, 30px)) !important;
-          margin-top: calc(0px - var(--space-before-gradient-line) - var(--bookmarksbar-height-personal,0px)) !important;
-        }
+      & #navigator-toolbox::before {
+        --space-before-gradient-line: var(--toolbar-height-personal) !important;
+        height: calc(2px + var(--tab-height-personal) + var(--bookmarksbar-height-personal, 1px)) !important;
       }
+    }
   }
 
   }

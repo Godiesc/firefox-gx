@@ -129,5 +129,5 @@
 }
 
 @media (-moz-platform: linux ) { :root {
-  --panel-separator-zap-gradient2: linear-gradient(to right, color-mix(in srgb, var(--general-color) 80%, var(--toolbar-bgcolor, Field)) 92% , transparent 100%) !important;
+  --panel-separator-zap-gradient2: linear-gradient(to right, var(--general-color) 80% , transparent calc(100% - var(--uc-window-control-width, 0px))) !important;
   }}
