@@ -330,15 +330,15 @@
     /* Buttons collapsed when not 'hover'  */    
     .actions-list[orientation="horizontal"]:not(:hover) .expanded-button:not(:first-child){
         opacity: 0 !important;
-        height: 0px !important;
+        /*height: 0px !important;/**/
         visibility: collapse !important;
-        transition-duration: 0ms !important;
+        transition: visibility 50ms ease, opacity 50ms ease !important;
     }
     .actions-list[orientation="horizontal"]:hover .expanded-button:not(:first-child){
         opacity: 1 !important;
         visibility: visible !important;
-        transition: visibility 0.2s ease, opacity 0.2s ease !important;
-        transition-delay: 200ms !important;
+        transition: visibility 0.2s ease, opacity 0.7s ease !important;
+        transition-delay: 200ms, 200ms !important;
     }
 }
 
@@ -349,7 +349,7 @@
     :root:not([chromehidden~="toolbar"],[inDOMFullscreen]):has(sidebar-main:is([expanded])) {
         
         /* Web content */
-        & #tabbrowser-tabbox{
+        &:has(#sidebar-box[hidden="true"]) #tabbrowser-tabbox{
             margin-inline-start: var(--my-vertical-toolbar-width) !important;
         }
 

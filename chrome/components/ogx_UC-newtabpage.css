@@ -53,125 +53,125 @@
 
         /* Dark 1 - Fuchsia */
         #dark-sky,
-        #photographs[style*='e94b1e49-c518-40d6-98e3-dffab6cc370d.avif'],
-        body[style*="e94b1e49-c518-40d6-98e3-dffab6cc370d.avif"]{
+        body[style*="e94b1e49-c518-40d6-98e3-dffab6cc370d.avif"],
+        body[style*="e94b1e49-c518-40d6-98e3-dffab6cc370d.avif"] #photographs{
             background-image: var(--wallpaper-dark1) !important;
         }
 
         /* Dark 2 - Ultraviolet */
         #dark-mountain,
-        #photographs[style*='af6073d2-cbb2-4e28-b642-3327d14808b2.avif'],
-        body[style*="af6073d2-cbb2-4e28-b642-3327d14808b2.avif"]{
+        body[style*="af6073d2-cbb2-4e28-b642-3327d14808b2.avif"],
+        body[style*="af6073d2-cbb2-4e28-b642-3327d14808b2.avif"] #photographs{
             background-image: var(--wallpaper-dark2) !important;
         }
 
         /* Dark 3 - Blue */
         #dark-panda,
-        #photographs[style*='6b8eb3cf-f232-4c7b-a179-afd174555134.avif'],
-        body[style*="6b8eb3cf-f232-4c7b-a179-afd174555134.avif"]{
+        body[style*="6b8eb3cf-f232-4c7b-a179-afd174555134.avif"],
+        body[style*="6b8eb3cf-f232-4c7b-a179-afd174555134.avif"] #photographs{
             background-image: var(--wallpaper-dark3) !important;
         }
         
         /* Dark 4 - Green */
         #dark-fox-anniversary,
-        #photographs[style*='d8b71c77-9985-41d2-b98e-51bebc60e595.avif'],
-        body[style*="d8b71c77-9985-41d2-b98e-51bebc60e595.avif"]{
+        body[style*='d8b71c77-9985-41d2-b98e-51bebc60e595.avif'],
+        body[style*="d8b71c77-9985-41d2-b98e-51bebc60e595.avif"] #photographs{
             background-image: var(--wallpaper-dark4) !important;
         }
 
         /* Dark 5 - Swamp */
         #dark-landscape,
-        #photographs[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif'],
-        body[style*="10e23599-85bc-4660-ae06-7a67befbbcf9.avif"]{
+        body[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif'],
+        body[style*="10e23599-85bc-4660-ae06-7a67befbbcf9.avif"] #photographs{
             background-image: var(--wallpaper-dark5) !important;
         }
 
         /* Dark 6 - Gray */
         #dark-beach,
-        #photographs[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif'],
-        body[style*="966b18ad-3733-41c4-92f6-c89cdf1381d0.avif"]{
+        body[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif'],
+        body[style*="966b18ad-3733-41c4-92f6-c89cdf1381d0.avif"] #photographs{
             background-image: var(--wallpaper-dark6) !important;
         }
 
         /* Light 1 - Fuchsia */
         #light-panda,
-        #photographs[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif'],
-        body[style*="dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif"]{
+        body[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif'],
+        body[style*="dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif"] #photographs{
             background-image: var(--wallpaper-light1) !important;
         }
 
         /* Light 2 - Ultraviolet */
         #light-landscape,
-        #photographs[style*='d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif'],
-        body[style*="d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif"]{
+        body[style*='d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif'],
+        body[style*="d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif"] #photographs{
             background-image: var(--wallpaper-light2) !important;
         }
 
         /* Light 3 - BLue */
         #light-mountain,
-        #photographs[style*='5344443f-f427-4029-bc6b-68bc22f83355.avif'],
-        body[style*="5344443f-f427-4029-bc6b-68bc22f83355.avif"]{
+        body[style*='5344443f-f427-4029-bc6b-68bc22f83355.avif'],
+        body[style*="5344443f-f427-4029-bc6b-68bc22f83355.avif"] #photographs{
             background-image: var(--wallpaper-light3) !important;
         }
 
         /* Light 4 - Rose */
         #light-sky,
-        #photographs[style*='45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif'],
-        body[style*="45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif"]{
+        body[style*='45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif'],
+        body[style*="45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif"] #photographs{
             background-image: var(--wallpaper-light4) !important;
         }
 
         /* Light 5 - Lightgreen */
         #light-beach,
-        #photographs[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif'],
-        body[style*="56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif"]{
+        body[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif'],
+        body[style*="56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif"] #photographs{
             background-image: var(--wallpaper-light5) !important;
         }
         
         /* Light 6 - Orange */
         #light-fox-anniversary,
-        #photographs[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif'],
-        body[style*="a5a041de-9275-4eb5-8f21-a0171c82d388.avif"]{
+        body[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif'],
+        body[style*="a5a041de-9275-4eb5-8f21-a0171c82d388.avif"] #photographs{
             background-image: var(--wallpaper-light6) !important;
         }
     }
     
     /* Accent color for each wallpaper */
     
-    :root:has(#photographs[style*='e94b1e49-c518-40d6-98e3-dffab6cc370d.avif']){
+    :root:has(body[style*='e94b1e49-c518-40d6-98e3-dffab6cc370d.avif']){
         --general-color: var(--general-color-dark1) !important;    }
 
-    :root:has(#photographs[style*='af6073d2-cbb2-4e28-b642-3327d14808b2.avif']){
+    :root:has(body[style*='af6073d2-cbb2-4e28-b642-3327d14808b2.avif']){
         --general-color: var(--general-color-dark2) !important;    }
     
-    :root:has(#photographs[style*='6b8eb3cf-f232-4c7b-a179-afd174555134.avif']){
+    :root:has(body[style*='6b8eb3cf-f232-4c7b-a179-afd174555134.avif']){
         --general-color: var(--general-color-dark3) !important;    }
     
-    :root:has(#photographs[style*='d8b71c77-9985-41d2-b98e-51bebc60e595.avif']){
+    :root:has(body[style*='d8b71c77-9985-41d2-b98e-51bebc60e595.avif']){
         --general-color: var(--general-color-dark4) !important;    }
 
-    :root:has(#photographs[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif']){
+    :root:has(body[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif']){
         --general-color: var(--general-color-dark5) !important;    }
 
-    :root:has(#photographs[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif']){
+    :root:has(body[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif']){
         --general-color: var(--general-color-dark6) !important;    }
 
-    :root:has(#photographs[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif']){
+    :root:has(body[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif']){
         --general-color: var(--general-color-light1) !important;   }
 
-    :root:has(#photographs[style*='d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif']){
+    :root:has(body[style*='d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif']){
         --general-color: var(--general-color-light2) !important;   }
 
-    :root:has(#photographs[style*='5344443f-f427-4029-bc6b-68bc22f83355.avif']){
+    :root:has(body[style*='5344443f-f427-4029-bc6b-68bc22f83355.avif']){
         --general-color: var(--general-color-light3) !important;   }
 
-    :root:has(#photographs[style*='45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif']){
+    :root:has(body[style*='45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif']){
         --general-color: var(--general-color-light4) !important;   }
 
-    :root:has(#photographs[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif']){
+    :root:has(body[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif']){
         --general-color: var(--general-color-light5) !important;   }
     
-    :root:has(#photographs[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif']){
+    :root:has(body[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif']){
         --general-color: var(--general-color-light6) !important;   }
     
     /* Accent color indicator over each wallpaper */
@@ -237,8 +237,6 @@
         background-color: color-mix(in srgb, var(--newtab-background-color), transparent var(--brightness-wallpaper));
         pointer-events: none;
     }
-
-    
     
 /* _____________________________________________________ Logo & Wordmark ____________________________________________________ */
     

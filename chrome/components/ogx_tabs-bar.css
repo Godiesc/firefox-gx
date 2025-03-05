@@ -359,6 +359,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
         
         .tab-group-label {
             #tabbrowser-tabs[orient="vertical"][expanded] & {
+                min-width: calc(var(--vertical-elements-width) - 16px) !important;
                 height: calc(var(--vertical-elements-width) - 16px) !important;
                 margin-block: 0px 3px !important;
                 padding-block: 3px 0px !important;
@@ -387,7 +388,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
         & .tab-group-label {
             background: transparent !important;
             border-color: transparent !important;
-            outline-color: transparent !important;/**/
+            outline-color: transparent !important;
             min-width: var(--vertical-elements-width) !important;
             text-overflow: '..'  !important;
             margin-block: 0px !important;

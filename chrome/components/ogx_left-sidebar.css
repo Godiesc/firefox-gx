@@ -1207,7 +1207,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     /* Hide scrollbar */    
     
     .actions-list {
-        border-top: 1px solid var(--general-color) !important;
+        /*border-top: 1px solid var(--general-color) !important;/**/
         border-image: var(--my-separator-border-style1) 1 !important;
         overflow-y: hidden !important;
         transition: opacity 0.2s ease-in-out, visibility 0.4s ease, transform 0.4s ease;

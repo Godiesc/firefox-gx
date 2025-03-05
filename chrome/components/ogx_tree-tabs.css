@@ -66,6 +66,12 @@
             transition: none !important;
         }
     }
+    
+    /* Remove unwanted space in navbar */
+
+    #vertical-spacer {
+        display: none !important;
+    }
 }
 
 /* ______________________________________________ Code for both 'tree-tabs' or 'Firefox vertical tabs' _______________________________________________ */

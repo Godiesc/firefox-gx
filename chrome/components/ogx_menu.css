@@ -77,7 +77,7 @@
     
     /* New margin right for the latest button of the navbar */
     
-    @media not -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
+    @media not (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
 
         #nav-bar:not([nonemptyoverflow="true"],[customizing]) #nav-bar-customization-target>:last-child,
         #nav-bar-overflow-button {
