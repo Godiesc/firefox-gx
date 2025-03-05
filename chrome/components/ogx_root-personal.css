@@ -72,7 +72,7 @@
 
 }
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"firefoxgx.oneline") {
+@media -moz-pref("firefoxgx.left-sidebar"), -moz-pref("sidebar.revamp"), -moz-pref("firefoxgx.tree-tabs"), -moz-pref("firefoxgx.oneline") {
   :root {
     --my-vertical-toolbar-width: 41px ;                                                 /* 'left-sidebar' or 'tree-tabs' width */
     --uc-sidebar-hover-width: 232px ;                                                   /* 'left-sidebar' or 'tree-tabs' expanded width*/
@@ -80,7 +80,7 @@
 
 /* ________________________________________________ Main Image config ________________________________________________ */
 
-@media (-moz-bool-pref:"firefoxgx.main-image") {
+@media -moz-pref("firefoxgx.main-image") {
   
   @media (prefers-color-scheme: dark) { :root {
     --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                 /* new-tab page image - dark team */

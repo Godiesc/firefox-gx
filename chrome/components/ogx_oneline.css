@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"firefoxgx.oneline") and (not (-moz-bool-pref:"sidebar.verticalTabs")) {
+@media -moz-pref("firefoxgx.oneline") and (not -moz-pref("sidebar.verticalTabs")) {
 
 /* ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ IMPORTANT: To only apply one-line config to screen bigger than some px !!!!!!!!!!!!!!!!!!!!!!!!!! */
 
@@ -85,7 +85,7 @@ Three buttons
 
 #nav-bar-customization-target{ padding-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-post)); }
 
-@media (-moz-bool-pref:"layout.css.osx-font-smoothing.enabled"){
+@media -moz-pref("layout.css.osx-font-smoothing.enabled"){
   .titlebar-buttonbox-container{ position: fixed; display: blocK; left: 0px; z-index: 3; }
   #nav-bar-customization-target{ padding-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-buttons-width) - var(--uc-window-drag-space-pre)) }
 }
@@ -141,7 +141,7 @@ Three buttons
 
   /* overwriting: Modify these values to match your preferences */
   
-  @media  (-moz-platform: windows){
+  @media (-moz-platform: windows) {
 
     :root:is([customtitlebar], [sizemode="fullscreen"]) {
       --uc-window-control-width: 144px;                   /* Space reserved for window controls (Win10) */
@@ -753,7 +753,7 @@ Three buttons
 
   /* ______________ 'Left-sidebar' */
 
-  @media (-moz-bool-pref:"firefoxgx.left-sidebar") and ((not (-moz-bool-pref:"sidebar.verticalTabs")) or (-moz-bool-pref:"sidebar.revamp")) {
+  @media -moz-pref("firefoxgx.left-sidebar") and ((not -moz-pref("sidebar.verticalTabs")) or (-moz-pref("sidebar.revamp"))) {
 
     :root{ 
       /*--my-vertical-toolbar-width: 41px;/**/
@@ -769,7 +769,7 @@ Three buttons
 
   /* Remove hamburger-menu when left-sidebar is ON but 'hidden' */
 
-  @media (-moz-bool-pref:"firefoxgx.left-sidebar") and (( (-moz-bool-pref:"sidebar.verticalTabs")) or (-moz-bool-pref:"sidebar.revamp")) {
+  @media -moz-pref("firefoxgx.left-sidebar") and (-moz-pref("sidebar.verticalTabs") or (-moz-pref("sidebar.revamp"))) {
 
     :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]),
     :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden="true"],sidebar-main[hidden]) {
@@ -783,7 +783,8 @@ Three buttons
 
   /* ______________ 'Firefox Revamp'*/
 
-  @media (((-moz-bool-pref: "sidebar.revamp") or (-moz-bool-pref: "sidebar.verticalTabs")) and (-moz-bool-pref: "sidebar.position_start")) and (not (-moz-bool-pref: "firefoxgx.left-sidebar")) {
+  @media ((-moz-pref("sidebar.revamp") or (-moz-pref("sidebar.verticalTabs"))) and -moz-pref("sidebar.position_start")) and (not -moz-pref("firefoxgx.left-sidebar")) {
+    
     :root:not([customizing]):not(:has(#sidebar-main[hidden="true"], sidebar-main[hidden])) {
 
       & #navigator-toolbox::before {

@@ -48,7 +48,7 @@
 
 /* __________________________________________________ Menu disabled and Sidebar is ON __________________________________________________ */
 
-@media (-moz-bool-pref:"firefoxgx.menu-disabled") and ((-moz-bool-pref:"firefoxgx.left-sidebar") or ((-moz-bool-pref:"sidebar.revamp") and (-moz-bool-pref:"sidebar.position_start"))) {
+@media -moz-pref("firefoxgx.menu-disabled") and (-moz-pref("firefoxgx.left-sidebar") or (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start"))) {
 
     :root {
         --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;            /* New size of the 'menu' button */
@@ -73,11 +73,11 @@
 /* __________________________________________________ Menu on left-top __________________________________________________ 
    ______________________________________________________________________________________________________________________ */
 
-@media not (-moz-bool-pref:"firefoxgx.menu-disabled") {
+@media not -moz-pref("firefoxgx.menu-disabled") {
     
     /* New margin right for the latest button of the navbar */
     
-    @media not ((-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"sidebar.verticalTabs")) {
+    @media not -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
 
         #nav-bar:not([nonemptyoverflow="true"],[customizing]) #nav-bar-customization-target>:last-child,
         #nav-bar-overflow-button {
@@ -86,7 +86,7 @@
     }
     
     /* Remove unwanted separator of account options */
-    #PanelUI-fxa>toolbarseparator{
+    #PanelUI-fxa>toolbarseparator {
         display: none !important;
     }
     
@@ -290,7 +290,7 @@
     
     /* ___________________________ Menu style when menu-bar is always active ___________________________ */
     
-    @media (not (-moz-bool-pref:"firefoxgx.left-sidebar")) and ((not (-moz-bool-pref:"sidebar.revamp"))) and (not (-moz-bool-pref:"firefoxgx.tree-tabs")) {
+    @media (not -moz-pref("firefoxgx.left-sidebar")) and (not -moz-pref("sidebar.revamp")) and (not -moz-pref("firefoxgx.tree-tabs")) {
 
         @media (-moz-platform: windows), (-moz-platform: linux) {
 
@@ -326,7 +326,7 @@
     
     /* 'Left-sidebar' without 'Firefox Sidebar' */
     
-    @media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+    @media -moz-pref("firefoxgx.left-sidebar") {
         
         :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="false"]),
         :root:not([chromehidden~="toolbar"]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
@@ -345,7 +345,7 @@
     
     /* 'Firefox Sidebar' without 'Left-sidebar' */
     
-    @media (not (-moz-bool-pref:"firefoxgx.left-sidebar")) and ((-moz-bool-pref:"sidebar.revamp") and (-moz-bool-pref:"sidebar.position_start")) {
+    @media (not -moz-pref("firefoxgx.left-sidebar")) and (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) {
         
         :root:not([chromehidden~="toolbar"],[customizing]) {
             
@@ -365,7 +365,7 @@
 /* __________________________________________ Hamburger menu when using 'Left-sidebar' or 'Firefox Sidebar' __________________________________________
    ___________________________________________________________________________________________________________________________________________________ */
 
-    @media (-moz-bool-pref:"firefoxgx.left-sidebar") or ((-moz-bool-pref: "sidebar.revamp") and (-moz-bool-pref:"sidebar.position_start")) or ((-moz-bool-pref: "sidebar.verticalTabs")) {
+    @media -moz-pref("firefoxgx.left-sidebar"), (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")), -moz-pref("sidebar.verticalTabs") {
         
         :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="false"]),
         :root:not([chromehidden~="toolbar"]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])){
@@ -435,7 +435,7 @@
    __________________________________________________________________________________________________________________________________________________ */
    
     
-    @media (-moz-bool-pref:"sidebar.verticalTabs") {
+    @media -moz-pref("sidebar.verticalTabs") {
         
         @media (-moz-platform: windows), (-moz-platform: linux) {
 
@@ -466,7 +466,7 @@
 
         /* 'Left-sidebar' + 'Firefox Vertical tabs' */
 
-        @media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+        @media -moz-pref("firefoxgx.left-sidebar") {
 
             @media (-moz-platform: windows), (-moz-platform: linux) {
 
@@ -490,7 +490,7 @@
         }
         
         
-        @media (not (-moz-bool-pref:"sidebar.position_start")) {
+        @media not -moz-pref("sidebar.position_start") {
             
             @media (-moz-platform: windows), (-moz-platform: linux) {
 
@@ -515,7 +515,7 @@
 /* ____________________________________________________________ 'Firefox vertical tabs' ____________________________________________________________
    _________________________________________________________________________________________________________________________________________________ */
     
-    @media (-moz-bool-pref:"sidebar.verticalTabs") {
+    @media -moz-pref("sidebar.verticalTabs") {
         
         /* Menu space in the nav-bar */
             
@@ -529,7 +529,7 @@
     
     /*___________ Oneline without 'left-sidebar' */
 
-    @media (-moz-bool-pref:"firefoxgx.oneline") and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
+    @media -moz-pref("firefoxgx.oneline") and (not -moz-pref("firefoxgx.left-sidebar")) {
         
         @media screen and (min-width: 1000px){
             
@@ -550,7 +550,7 @@
 
     /*___________ Oneline general styles */
 
-    @media (-moz-bool-pref:"firefoxgx.oneline") {
+    @media -moz-pref("firefoxgx.oneline") {
 
         :root {
             --margin-left-icons-personal: 10px !important;
@@ -599,7 +599,7 @@
 
         /*___________ Oneline with 'left-sidebar' */
 
-        @media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+        @media -moz-pref("firefoxgx.left-sidebar") {
             
             @media screen and (min-width: 1000px) {
 
@@ -628,7 +628,7 @@
 /* ___________________________________________________ Menu when using 'tree-tabs' extensions ____________________________________________________ 
    _______________________________________________________________________________________________________________________________________________ */
     
-    @media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"sidebar.position_start") and (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") and (not (-moz-bool-pref:"sidebar.revamp")) and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
+    @media -moz-pref("firefoxgx.tree-tabs") and -moz-pref("sidebar.position_start") and -moz-pref("firefoxgx.verticalTabs-expandOnHover") and (not -moz-pref("sidebar.revamp")) and (not -moz-pref("firefoxgx.left-sidebar")) {
 
         :root:has(#sidebar-box[checked="true"]:is(
         [sidebarcommand*="tabcenter"],
@@ -749,7 +749,7 @@
                 }
             }
             
-            @media not (-moz-bool-pref:"firefoxgx.left-sidebar") {
+            @media not -moz-pref("firefoxgx.left-sidebar") {
 
                 :root:not([customizing]):has(#sidebar-box[checked="true"]:is(
                 [sidebarcommand*="tabcenter"],
@@ -763,7 +763,7 @@
     
     /*___________ 'Tree-tabs' extensions on right side */
     
-    @media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not (-moz-bool-pref:"sidebar.position_start")) and (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") {
+    @media -moz-pref("firefoxgx.tree-tabs") and (not -moz-pref("sidebar.position_start")) and -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
 
         @media (-moz-platform: windows),(-moz-platform: linux) {
 
@@ -783,7 +783,7 @@
 /* ______________________________________ Menubar left margin when using 'tree-tabs' or 'Firefox Vertical Tabs' _____________________________________
    __________________________________________________________________________________________________________________________________________________ */
 
-    @media ((-moz-bool-pref:"firefoxgx.tree-tabs")  or (-moz-bool-pref:"sidebar.verticalTabs")) {
+    @media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
 
         @media (-moz-platform: windows), (-moz-platform: linux) {
 
@@ -799,7 +799,7 @@
 /* __________________________________________________ 'Nav-bar' left margin when using 'tree-tabs' __________________________________________________
    __________________________________________________________________________________________________________________________________________________ */
 
-    @media (-moz-bool-pref:"firefoxgx.tree-tabs") {
+    @media -moz-pref("firefoxgx.tree-tabs") {
 
         @media (-moz-platform: windows), (-moz-platform: linux) {
 
@@ -817,7 +817,7 @@
 /* _____________________________________ Menu button position when using Tree-tabs with/without 'Left-Sidebar' _____________________________________
    _________________________________________________________________________________________________________________________________________________ */
     
-    @media (-moz-bool-pref:"firefoxgx.tree-tabs") {
+    @media -moz-pref("firefoxgx.tree-tabs") {
         
         @media (-moz-platform: windows), (-moz-platform: linux) {
             

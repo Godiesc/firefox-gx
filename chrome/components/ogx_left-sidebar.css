@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media -moz-pref("firefoxgx.left-sidebar") {
 
     /* _______________________ Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/vertical_bookmarks_toolbar.css ------------------- */
 
@@ -133,7 +133,7 @@
     
     /* ____________ Web content moved right when toolbars are in 'autohide' */
 
-    @media (-moz-bool-pref:"browser.fullscreen.autohide") {
+    @media -moz-pref("browser.fullscreen.autohide") {
         
         /* Width of left-sidebar when #navigator-toolbox 'hidden' */
 
@@ -172,7 +172,7 @@
     
     /*____________ Web content moved right when toolbars are 'not in autohide' */
     
-    @media not (-moz-bool-pref:"browser.fullscreen.autohide") {
+    @media not -moz-pref("browser.fullscreen.autohide") {
         
         :root:not([chromehidden~="toolbar"],[inDOMFullscreen]):has(#PersonalToolbar[collapsed="false"]),
         :root:not([chromehidden~="toolbar"],[inDOMFullscreen]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden]))/**/{
@@ -586,7 +586,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
 /* __________________________________________________ Variables needed in various scenarios __________________________________________________ */
 
-@media (-moz-bool-pref: "sidebar.revamp") or (-moz-bool-pref:"firefoxgx.left-sidebar") or (-moz-bool-pref:"firefoxgx.tree-tabs") {
+@media -moz-pref("sidebar.revamp"), -moz-pref("firefoxgx.left-sidebar"), -moz-pref("firefoxgx.tree-tabs") {
 
     :root {
         --my-content-border-color: var(--toolbarbutton-hover-personal);                         /* Border around web content */
@@ -597,8 +597,8 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     }
 }
 
-@media ((-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.verticalTabs"))) and (-moz-bool-pref:"sidebar.position_start")
-    and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
+@media (-moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.verticalTabs"))) and -moz-pref("sidebar.position_start")
+    and (not -moz-pref("firefoxgx.left-sidebar")) {
     
         :root {
             --space-before-gradient-line: calc(var(--windowed-top-padding, 0px) + var(--menubar-height-personal, 0px) + var(--tab-height-personal)) !important;
@@ -606,7 +606,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
         }
 }
 
-@media (-moz-bool-pref:"sidebar.verticalTabs") and (not ( -moz-bool-pref:"firefoxgx.oneline")) {
+@media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("firefoxgx.oneline")) {
     
     :root {
         /* Overwrite this variables to align background-image without the height of '--tab-height-personal' */        
@@ -623,7 +623,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
 /* ____________________________________________________________ Sidebars on left ______________________________________________________ */
 
-@media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media -moz-pref("firefoxgx.left-sidebar") {
 
     /* Keep padding left of tabs when menubar is always visible */
 
@@ -638,7 +638,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     }
 }
 
-@media (-moz-bool-pref: "sidebar.revamp") and (-moz-bool-pref:"sidebar.position_start") {
+@media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") {
 
     /* Keep padding left of tabs when menubar is always visible */
 
@@ -650,7 +650,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 /* _______________________________________________________ Firefox New Sidebar _______________________________________________________
    ___________________________________________________________________________________________________________________________________ */
 
-@media (-moz-bool-pref:"sidebar.revamp") {
+@media -moz-pref("sidebar.revamp") {
     
     /* _______________ Style of the Sidebar when isn't expanded _______________ */
     
@@ -821,13 +821,13 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
 /* ___________________ Sidebar on left side ____________________ */
     
-@media (-moz-bool-pref:"sidebar.revamp") and (-moz-bool-pref:"sidebar.position_start") {
+@media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") {
     
 }
 
 /* ___________________ Sidebar on right side ___________________ */
 
-@media (-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.position_start")) {
+@media -moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.position_start")) {
     
     /* Color and background image of sidebar */
     
@@ -843,7 +843,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 /* ___________________________ Style for 'Sidebar' or 'Vertical Tabs' in left side - without 'left-sidebar' ___________________________ 
    ____________________________________________________________________________________________________________________________________ */
 
-@media (((-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"sidebar.verticalTabs")) and (-moz-bool-pref:"sidebar.position_start")) and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
+@media (-moz-pref("sidebar.revamp") or -moz-pref("sidebar.verticalTabs")) and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
     
     /* Bookmarks-bar further to the right */
     
@@ -980,7 +980,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 /* _______________________________________________________ Firefox Vertical Tabs _______________________________________________________ 
    _____________________________________________________________________________________________________________________________________ */
 
-@media (-moz-bool-pref:"sidebar.verticalTabs")  and (not ( -moz-bool-pref:"firefoxgx.oneline")) {
+@media -moz-pref("sidebar.verticalTabs")  and (not -moz-pref("firefoxgx.oneline")) {
     
     /* Darker sidebar when using vertical tabs */
 
@@ -1299,7 +1299,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 /* ____________________________ Added missing style when sidebar is on left and using 'left-sidebar' config ________________________
    _________________________________________________________________________________________________________________________________ */
 
-@media (-moz-bool-pref:"sidebar.revamp")  and (-moz-bool-pref:"firefoxgx.left-sidebar") and (-moz-bool-pref:"sidebar.position_start") {
+@media -moz-pref("sidebar.revamp")  and -moz-pref("firefoxgx.left-sidebar") and -moz-pref("sidebar.position_start") {
     
     /* Bug fix - unwanted toolbar bottom border */
     :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #navigator-toolbox {
@@ -1322,7 +1322,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 /* ______________________________ Borders around sidebars and web content - Sidebar on left - without left-sidebar ______________________________ 
    _______________________________________________________________________________________________________________________________________________ */
 
-@media (-moz-bool-pref: "sidebar.revamp") {
+@media -moz-pref("sidebar.revamp") {
     
     /* web content */
     #tabbrowser-tabbox {
@@ -1362,7 +1362,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
 /* _____________ Sidebar on right side */
 
-@media (-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.position_start")) {
+@media -moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.position_start")) {
     
     :root {
         --my-content-border-color: var(--toolbarbutton-hover-personal);
@@ -1384,7 +1384,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     }
 }
 
-@media ((-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"sidebar.verticalTabs")) and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) and (-moz-bool-pref:"sidebar.position_start") {
+@media (-moz-pref("sidebar.revamp") or -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.left-sidebar")) and -moz-pref("sidebar.position_start") {
 
     /* Sidebar border and color in fullscreen  */
     
@@ -1399,7 +1399,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     }
 }
 
-@media (-moz-bool-pref:"sidebar.verticalTabs") {
+@media -moz-pref("sidebar.verticalTabs") {
 
     /* Web content */    
     :root:not([inDOMFullscreen]) #tabbrowser-tabbox {
@@ -1410,7 +1410,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 /* _____________ Added missing border when sidebar is on left and with 'left-sidebar' config */
 
 
-@media (-moz-bool-pref:"sidebar.revamp")  and (-moz-bool-pref:"firefoxgx.left-sidebar") and (-moz-bool-pref:"sidebar.position_start") {
+@media -moz-pref("sidebar.revamp") and -moz-pref("firefoxgx.left-sidebar") and -moz-pref("sidebar.position_start") {
        
     #sidebar-main {
         border-inline-end: 1px solid var(--my-content-border-color) !important;
@@ -1423,7 +1423,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
 /* _____________ Border top Sidebar expanded - 'left-sidebar' + Sidebar (left or right) */
 
-@media (-moz-bool-pref:"sidebar.revamp")  and (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media -moz-pref("sidebar.revamp")  and -moz-pref("firefoxgx.left-sidebar") {
     
     :root:has(sidebar-main:is([expanded])) {
         & #sidebar-main{

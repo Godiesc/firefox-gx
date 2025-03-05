@@ -22,41 +22,26 @@
 
 /* _____________________________________________ Default container style _____________________________________________ */
 
-@media (not (-moz-bool-pref:"firefoxgx.classic-sound-icon")) {
+/* Rework en la Linea de Contenedores-BordePestaña */
 
-    /* Rework en la Linea de Contenedores-BordePestaña */
+.tab-context-line {
+    opacity: 0 !important;
+}
 
-    .tab-context-line {
-        opacity: 0 !important;
-    }
-
-    /* Rework en la Linea de Contenedores-BordeFavicon */
-
-    .tabbrowser-tab {
-        & .tab-throbber[busy], .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay {
-                outline: 2px solid var(--identity-icon-color, transparent) !important;
-                outline-offset: 2px !important;
-                border-radius: 1px !important;
-                clip-path: xywh(-2px -4px calc(100% + 4px) calc(100% + 4px) round 0px);
-                transition: clip-path 0.1s ease !important;
-        }
+.tabbrowser-tab {
+    & .tab-throbber[busy], .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay {
+        outline: 2px solid var(--identity-icon-color, transparent) !important;
+        outline-offset: 2px !important;
+        border-radius: 1px !important;
+        clip-path: xywh(-2px -4px calc(100% + 4px) calc(100% + 4px) round 0px);
+        transition: clip-path 0.1s ease !important;
     }
 }
 
 /* _____________________________________________ Container line when using classic sound icon _____________________________________________ */
 
-@media ((not (-moz-bool-pref:"sidebar.verticalTabs")) or (not (-moz-bool-pref:"firefoxgx.tab-shapes"))) and (-moz-bool-pref:"firefoxgx.classic-sound-icon") {
-    
-    .tabbrowser-tab {
-        & .tab-throbber[busy], .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay {
-            outline: 2px solid var(--identity-icon-color, transparent) !important;
-            outline-offset: 1px !important;
-            border-radius: 1px !important;
-            clip-path: xywh(-1px -3px calc(100% + 2px) calc(100% + 3px) round 0px);
-            transition: clip-path 0.1s ease !important;
-        }
-    }
-    
+@media ((not -moz-pref("sidebar.verticalTabs")) or (not -moz-pref("firefoxgx.tab-shapes"))) and -moz-pref("firefoxgx.classic-sound-icon") {
+
     /* _____________ Tab container line for vertical tabs */    
 
     #tabbrowser-tabs[orient="vertical"] .tab-context-line {

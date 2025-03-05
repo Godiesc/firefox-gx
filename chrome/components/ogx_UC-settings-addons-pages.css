@@ -359,7 +359,7 @@
 
     /* Wallpaper */
 
-    @media not (-moz-bool-pref:"firefoxgx.main-image") {
+    @media not -moz-pref("firefoxgx.main-image") {
 
         body,.sticky-container{
             --bg: linear-gradient(var(--opaque), var(--opaque)), var(--lwt-main-image);
@@ -376,7 +376,7 @@
 
     /* _______________________________________ Wallpaper when using with 'Main-image' config _______________________________________ */
 
-    @media (-moz-bool-pref:"firefoxgx.main-image") {
+    @media -moz-pref("firefoxgx.main-image") {
 
         :root {
             --opaque: color-mix(in srgb, var(--border-contrast-color) 90%, transparent) !important;
@@ -515,7 +515,7 @@
             17px 1px 27px var(--border-contrast-color) !important;
     }
 
-    @media not (-moz-bool-pref:"firefoxgx.main-image") {
+    @media not -moz-pref("firefoxgx.main-image") {
 
         #mainPrefPane{
             padding-top: 20px !important; 

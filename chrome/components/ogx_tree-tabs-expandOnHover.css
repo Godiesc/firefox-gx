@@ -5,9 +5,9 @@
    ___________________________________________________ 'Tree-tabs' sidebar, expand on 'hover' ___________________________________________________
    ___________________________________________________                                        ___________________________________________________ */
 
-@media (-moz-bool-pref:"firefoxgx.verticalTabs-expandOnHover") {
+@media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
     
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and ((not (-moz-bool-pref:"firefoxgx.left-sidebar")) or (not (-moz-bool-pref:"sidebar.verticalTabs"))) {
+@media -moz-pref("firefoxgx.tree-tabs") and ((not -moz-pref("firefoxgx.left-sidebar")) or (not -moz-pref("sidebar.verticalTabs"))) {
     
     /* Hide the sidebar header when using vertical tab extensions */
 
@@ -134,7 +134,7 @@
 
 /* Sidebar style when 'left-sidebar' isn't enable */
 
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"sidebar.position_start") and (not (-moz-bool-pref:"sidebar.revamp")) and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) {
+@media -moz-pref("firefoxgx.tree-tabs") and -moz-pref("sidebar.position_start") and (not -moz-pref("sidebar.revamp")) and (not -moz-pref("firefoxgx.left-sidebar")) {
 
     :root:has(#sidebar-box:is(
     [sidebarcommand*="tabcenter"],
@@ -182,7 +182,7 @@
 
 /* Sidebar style when 'left-sidebar' enabled but hidden */
 
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (-moz-bool-pref:"sidebar.position_start") and (not (-moz-bool-pref:"sidebar.revamp"))  and (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media -moz-pref("firefoxgx.tree-tabs") and -moz-pref("sidebar.position_start") and (not -moz-pref("sidebar.revamp"))  and -moz-pref("firefoxgx.left-sidebar") {
 
     :root:has(#sidebar-box:is(
     [sidebarcommand*="tabcenter"],
@@ -245,7 +245,7 @@
 /* ________________________________________________ Firefox Vertical tabs, expand on hover _________________________________________________ 
    _________________________________________________________________________________________________________________________________________ */
 
-@media (-moz-bool-pref:"sidebar.verticalTabs") {
+@media -moz-pref("sidebar.verticalTabs") {
     
     :root {
         --first-last-button-width: 30px !important;
@@ -342,7 +342,7 @@
     }
 }
 
-@media (-moz-bool-pref:"sidebar.verticalTabs") and (-moz-bool-pref:"sidebar.position_start") {
+@media -moz-pref("sidebar.verticalTabs") and -moz-pref("sidebar.position_start") {
     
     /* _________________________________ Expand on hover - sidebar on left */
     
@@ -365,7 +365,7 @@
     }
 }
 
-@media (-moz-bool-pref:"sidebar.verticalTabs") and ( not (-moz-bool-pref:"sidebar.position_start")) {
+@media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("sidebar.position_start")) {
     
     /* _________________________________ Expand on hover - sidebar on right */
 
@@ -398,7 +398,7 @@
 
 /* BUg fix: height of the Sidebar when using Firefox Vertical tabs + left-sidebar config */
 
-@media (-moz-bool-pref:"sidebar.verticalTabs") and (-moz-bool-pref:"firefoxgx.left-sidebar") {
+@media -moz-pref("sidebar.verticalTabs") and -moz-pref("firefoxgx.left-sidebar") {
     
     :root:has(sidebar-main:is([expanded])) {
         & #sidebar-main {

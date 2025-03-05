@@ -1,5 +1,5 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
-   https://github.com/Godiesc/opera-gx */
+   https://github.com/Godiesc/firefox-gx */
 
 /* Page -> 'Customize the toolbar' */
 
@@ -56,7 +56,7 @@
 
 /* In [customization] - Align overflow arrow with its button when using 'Tree-tabs' */
 
-@media ((-moz-bool-pref:"firefoxgx.tree-tabs") or (-moz-bool-pref:"sidebar.verticalTabs")) {
+@media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
     @media not (-moz-gtk-csd-reversed-placement) {
         #customization-panelWrapper > .panel-arrowbox > .panel-arrow[side="top"] {
             margin-inline-end: calc(158px + var(--customization-panel-padding)) !important;

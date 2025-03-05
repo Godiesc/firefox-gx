@@ -122,11 +122,11 @@ toolbar .text-link:hover, panel .text-link:hover {
 
 /* Spliter style on Linux */
 
-@media (not (-moz-bool-pref:"sidebar.revamp")) and (-moz-platform: linux) {
+@media (not -moz-pref("sidebar.revamp")) and (-moz-platform: linux) {
     .sidebar-splitter {
         background-color: var(--sidebar-border-color) !important;
-        width: 2px !important;
-        border-color: var(--sidebar-border-color) !important;
+        width: 4px !important;
+        border-color: transparent !important;
     }
 }
 

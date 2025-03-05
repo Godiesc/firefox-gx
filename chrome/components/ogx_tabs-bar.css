@@ -19,7 +19,7 @@
 
 /* _____ Vertical alignment of buttons in the 'tabs-bar' _____ */
 
-@media not (-moz-bool-pref:"firefoxgx.oneline") {
+@media not -moz-pref("firefoxgx.oneline") {
     
     /* Default buttons */
     #TabsToolbar .toolbarbutton-1 { 
@@ -188,7 +188,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
 
 /* _________________________________ Styles just for Horizontal tabs _________________________________ */
 
-@media not (-moz-bool-pref: "sidebar.verticalTabs") {
+@media not -moz-pref("sidebar.verticalTabs") {
 
     #tabbrowser-arrowscrollbox[orient="horizontal"] {
         
@@ -345,7 +345,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
 
 /* _________________________________ Group styles just for Vertical tabs _________________________________ */
 
-@media (-moz-bool-pref: "sidebar.verticalTabs") {
+@media -moz-pref("sidebar.verticalTabs") {
     
     #tabbrowser-arrowscrollbox[orient="vertical"] {
         
@@ -488,7 +488,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
 
 /* Fix gradient line in some sitiations */
 
-@media (not (-moz-bool-pref:"firefoxgx.left-sidebar")) and ((-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.position_start"))) {
+@media (not -moz-pref("firefoxgx.left-sidebar")) and (-moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.position_start"))) {
     #TabsToolbar::before {
         --my-vertical-toolbar-width: 0px !important;
         --vertical-elements-width: 0px !important;

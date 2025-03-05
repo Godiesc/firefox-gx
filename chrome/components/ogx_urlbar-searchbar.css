@@ -90,7 +90,7 @@ findbar {
 /* favicons */
 
 .urlbarView-row {
-  @media (-moz-bool-pref: "browser.urlbar.richSuggestions.featureGate") {
+  @media -moz-pref("browser.urlbar.richSuggestions.featureGate") {
     &:not([rich-suggestion]), &[rich-suggestion][icon-size="16"] {
       --urlbarView-icon-margin-start: 16px !important;
       --urlbarView-icon-margin-end: 12px !important;/**/
@@ -289,7 +289,7 @@ findbar {
 
 /* Search Engine button */
 
-@media not (-moz-bool-pref: "browser.urlbar.searchModeSwitcher.featureGate") {
+@media not -moz-pref("browser.urlbar.searchModeSwitcher.featureGate") {
     #urlbar-searchmode-switcher:not(:hover,[open]) {
         background-color: transparent !important;
     }
@@ -328,7 +328,7 @@ findbar {
 
 #urlbar-searchmode-switcher,
 #searchmode-switcher-chicklet {
-  @media (-moz-bool-pref: "browser.urlbar.searchModeSwitcher.featureGate") or (-moz-bool-pref: "browser.urlbar.scotchBonnet.enableOverride") {
+  @media -moz-pref("browser.urlbar.searchModeSwitcher.featureGate"), -moz-pref("browser.urlbar.scotchBonnet.enableOverride") {
     #urlbar[searchmode] & {
         display: inline-flex;
         background-color: var(--urlbar-box-bgcolor) !important;
@@ -337,7 +337,7 @@ findbar {
 }
 
 #urlbar-searchmode-switcher:is(:hover,[open]) {
-  @media (-moz-bool-pref: "browser.urlbar.searchModeSwitcher.featureGate") or (-moz-bool-pref: "browser.urlbar.scotchBonnet.enableOverride") {
+  @media -moz-pref("browser.urlbar.searchModeSwitcher.featureGate"), -moz-pref("browser.urlbar.scotchBonnet.enableOverride") {
     #urlbar[searchmode] & {
         display: inline-flex;
         background-color: var(--urlbar-box-hover-bgcolor) !important;

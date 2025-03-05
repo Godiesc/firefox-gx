@@ -6,7 +6,7 @@
 .tabbrowser-tab {
     &:is([muted], [soundplaying], [activemedia-blocked]) {
         #tabbrowser-tabs[orient="horizontal"] &:not([pinned]) {
-            --tab-min-width: unset !important;
+            min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
         }
     }
 }
@@ -20,13 +20,22 @@
     }
 }
 
+/* Fixed glich when clic mute button */
+
+.tabbrowser-tab {
+    --tab-icon-end-margin: 5px !important;
+
+    &:is([muted], [soundplaying], [activemedia-blocked]) {
+        --tab-icon-end-margin: 2.5px !important;
+    }
+}
+
 /* General style for sound button */
 
 .button-background {
     position: var(--my-position) !important;
     top: var(--my-top) !important;
     inset-inline-start: var(--my-inset-inline-start) !important;
-    /*margin-block-end: var(--my-margin-block-end) !important;/**/
     background-image: var(--my-background-image) !important;
     background-size: var(--my-background-size) !important;
     box-shadow: var(--my-box-shadow) !important;
@@ -37,7 +46,7 @@
     align-items: var(--my-align-items, center) !important;
 }
 
-@media not (-moz-bool-pref:"firefoxgx.classic-sound-icon") {
+@media not -moz-pref("firefoxgx.classic-sound-icon") {
 
     /* tab on hover, and when it is 'muted' or 'media blocked' */
     .tabbrowser-tab:hover {
@@ -52,16 +61,6 @@
     .tab-icon-stack[pinned]:not([crashed]):is([soundplaying]) {
         & :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
             mask-image: url("../icons/tab_icon_masks.svg#SoundMask") !important;
-        }
-    }
-    
-    /* Fixed glich when clic play in a muted tab */
-
-    .tabbrowser-tab {
-        --tab-icon-end-margin: 5px !important;
-
-        &:is([muted], [soundplaying], [activemedia-blocked]) {
-            --tab-icon-end-margin: 2.5px !important;
         }
     }
 
@@ -160,7 +159,7 @@
     
     /* _______________ Sound icon for Vertical tabs _______________ */
 
-    @media (-moz-bool-pref:"sidebar.verticalTabs") {
+    @media -moz-pref("sidebar.verticalTabs") {
 
         .tab-audio-button:is([soundplaying],[muted]) {
             --button-size-icon-small: 14px !important;
@@ -188,17 +187,7 @@
 
 /* ________________________________________________ Classic Sound icon ________________________________________________*/
 
-@media (-moz-bool-pref:"firefoxgx.classic-sound-icon") {
-
-    /* Fixed glich when clic play in a muted tab */
-    
-    .tabbrowser-tab {
-        --tab-icon-end-margin: 6px !important;
-        
-        &:is([muted], [soundplaying], [activemedia-blocked]) {
-            --tab-icon-end-margin: 3px !important;
-        }
-    }
+@media -moz-pref("firefoxgx.classic-sound-icon") {
     
     /* Hide favicon when mute button appears */
     

@@ -6,7 +6,7 @@
     fill: var(--general-color) !important;
 }
 
-@media not (-moz-bool-pref:"sidebar.verticalTabs") {
+@media not -moz-pref("sidebar.verticalTabs") {
     
     .tabbrowser-tab:is(:hover, [selected]):not([pinned]) .tab-close-button { opacity: 1 !important; }
 

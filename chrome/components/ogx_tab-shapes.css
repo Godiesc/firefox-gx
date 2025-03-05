@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"firefoxgx.tab-shapes") and (not (-moz-bool-pref:"sidebar.verticalTabs")) {
+@media -moz-pref("firefoxgx.tab-shapes") and (not -moz-pref("sidebar.verticalTabs")) {
 
   /* ___________________________________ Remove style from: 'ogx_tab-bar.css' ____________________________________ */
 
@@ -17,7 +17,7 @@
     display: none !important;
   }
   
-  @media not (-moz-bool-pref: "sidebar.verticalTabs") {
+  @media not -moz-pref("sidebar.verticalTabs") {
 
     #tabbrowser-arrowscrollbox[orient="horizontal"] {
         
@@ -50,9 +50,9 @@
   
 /* ________________________________________________ various styles ________________________________________________ */
 
-  @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") or
-         (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") or
-         (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome") {
+  @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or
+         -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or
+         -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
 
           :root,
           :root[lwtheme],
@@ -177,11 +177,11 @@
   
 /*____ Used when no shape is selected */
 /*= Selected Tab - Bottom Rounded Corner =====================================*/
-  @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") {
-    @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") {
-      @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome") {
-        @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome_legacy") {
-          @media not (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.edge") {
+  @media not -moz-pref("userChrome.tab.bottom_rounded_corner.wave") {
+    @media not -moz-pref("userChrome.tab.bottom_rounded_corner.australis") {
+      @media not -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
+        @media not -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
+          @media not -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
             #TabsToolbar {
                --uc-tab-corner-rounding: 3px; /* 10px looks about like chromium - 17px looks close to Australis tabs */
               --uc-tab-corner-padding: 0px;
@@ -252,11 +252,11 @@
     }
   }
   @media 
-    (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") or 
-    (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") or 
-    (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
-    (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome") or 
-    (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.edge") {
+    -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or 
+    -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or 
+    -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
+    -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
+    -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
     #TabsToolbar {
       --uc-tab-corner-height: calc(var(--tab-min-height) - 1px);
       --uc-tab-corner-size: calc(var(--uc-tab-corner-height) - 1px);
@@ -264,7 +264,7 @@
       --uc-tab-corner-half-size-reverse: calc(var(--uc-tab-corner-half-size) * -1);
       --uc-tab-corner-bgimage: none;
     }
-    @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") {
+    @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") {
       #TabsToolbar {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-wave1.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-wave1.svg#svgClipPath");
@@ -277,7 +277,7 @@
         --uc-margin-left-newtab: 7px;
       }
     }
-    @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") {
+    @media -moz-pref("userChrome.tab.bottom_rounded_corner.australis") {
       #TabsToolbar {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-australis1.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-australis1.svg#svgClipPath");
@@ -290,7 +290,7 @@
         --uc-margin-left-newtab: 8px;
       }
     }
-    @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome") {
+    @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
       #TabsToolbar {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-chrome1.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-chrome1.svg#svgClipPath");
@@ -304,7 +304,7 @@
         --uc-margin-left-newtab: 7px;
       }
     }
-    @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome_legacy") {
+    @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
       #TabsToolbar {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-chromeLegacy1.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-chromeLegacy1.svg#svgClipPath");
@@ -317,7 +317,7 @@
         --uc-margin-left-newtab: 12px;
       }
     }
-    @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.edge") {
+    @media -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
       #TabsToolbar {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-edge.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-edge.svg#svgClipPath");
@@ -414,7 +414,7 @@
   
   @media (-moz-gtk-csd-available) {
     /* Fill color for GTK */
-    @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
+    @media -moz-pref("firefoxgx.tab-shapes") {
       :root:not([lwtheme="true"]) .tabbrowser-tab {
         --uc-tab-shadow-color: rgba(0, 0, 0, 0.4);
       }
@@ -435,7 +435,7 @@
   
 /* ___________________________________________________ Compatibility with "one-line" config ___________________________________________________ */
   
-  @media (-moz-bool-pref:"firefoxgx.oneline") {
+  @media -moz-pref("firefoxgx.oneline") {
 
     @media screen and (min-width: 1000px) {
       /* ___________________________________ Missed Selected tab background _______________________ */

@@ -352,7 +352,7 @@
   }
   @-moz-document url("chrome://browser/content/places/places.xhtml")
   {
-    @media not (-moz-bool-pref: "firefoxgx.icon.disabled") {
+    @media not -moz-pref("firefoxgx.icon.disabled") {
       /*= Menubar - Icons ==========================================================*/
       #organizeButton,
       #viewMenu,
@@ -398,7 +398,7 @@
     }
   }
 
-@media not (-moz-bool-pref: "firefoxgx.icon.disabled") {
+@media not -moz-pref("firefoxgx.icon.disabled") {
   
   /*= Padding ==================================================================*/
   :root {
@@ -1408,7 +1408,7 @@
     padding-inline: 0 !important; /* Original: padding: var(--panel-padding); --panel-padding-block: 4px; */
   }}
 
-@media not (-moz-bool-pref: "firefoxgx.icon.disabled") {
+@media not -moz-pref("firefoxgx.icon.disabled") {
 
   :root {
     --context-menu-background-padding: 1em;
@@ -2386,7 +2386,7 @@
     --menuitem-image: url("chrome://global/skin/media/pause-fill.svg");
   }}
 
-@media not (-moz-bool-pref: "firefoxgx.icon.disabled") {
+@media not -moz-pref("firefoxgx.icon.disabled") {
 
   .downloadResumeMenuItem {
     --menuitem-image: url("chrome://global/skin/media/play-fill.svg");

@@ -49,7 +49,7 @@
     
 /* _______________________________________________________ Wallpapers _______________________________________________________ */
     
-    @media not (-moz-bool-pref:"firefoxgx.main-image"){
+    @media not -moz-pref("firefoxgx.main-image") {
 
         /* Dark 1 - Fuchsia */
         #dark-sky,
@@ -538,7 +538,7 @@
     
     /* Styles for the classic search box */
     
-    @media not (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
+    @media not -moz-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
         
         .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus {
             box-shadow: none !important;
@@ -581,7 +581,7 @@
     
     /* Styles for the improved search box */
     
-    @media (-moz-bool-pref:"browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
+    @media -moz-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
 
         /* Transparent border when 'focus' */    
         .search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button {
@@ -864,7 +864,7 @@
     
     /* ________________________________________________ For Main-image configuration ___________________________________________ */
     
-    @media (-moz-bool-pref:"firefoxgx.main-image") {
+    @media -moz-pref("firefoxgx.main-image") {
         
         body {
             background-image: none !important;
@@ -1068,7 +1068,7 @@
     
 /* Compatibility for aligning wallpaper when used with 'Main-image' config */
     
-    @media (-moz-bool-pref:"firefoxgx.main-image") {
+    @media -moz-pref("firefoxgx.main-image") {
 
         .sticky-container {
             background-image: none !important;

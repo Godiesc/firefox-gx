@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media (-moz-bool-pref:"firefoxgx.main-image") {
+@media -moz-pref("firefoxgx.main-image") {
 
    @media (prefers-color-scheme: dark){
       :root[brighttext],
@@ -92,7 +92,7 @@
    
    /* Set main image in the sidebar content */ 
    
-   @media (-moz-bool-pref:"sidebar.revamp") {      
+   @media -moz-pref("sidebar.revamp") {      
       #sidebar {
          background-color: color-mix(in srgb, var(--contrast-color), var(--toolbar-bgcolor)) !important;
          backdrop-filter: var(--personal-blur) !important;
@@ -157,7 +157,7 @@
    
    /* ______________________ Left-sidebar compatibility */
 
-   @media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+   @media -moz-pref("firefoxgx.left-sidebar") {
 
       :root:not([privatebrowsingmode="temporary"]) #PersonalToolbar,
       :root:not([privatebrowsingmode="temporary"]):is([lwtheme-image]) #PersonalToolbar, 
@@ -181,7 +181,7 @@
    
    /* ______________________ Firefox-sidebar revamp compatibility */
 
-   @media (-moz-bool-pref:"sidebar.revamp") {
+   @media -moz-pref("sidebar.revamp") {
 
       :root:not([privatebrowsingmode="temporary"],[customizing]) {
 
@@ -219,7 +219,7 @@
          
          /* Other background-color when Sidebar-revamp is on right */
          
-         @media (-moz-bool-pref:"sidebar.revamp") and (not (-moz-bool-pref:"sidebar.position_start")) {
+         @media -moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.position_start")) {
             
             &:root:has(sidebar-main:not([expanded])) {
                & #sidebar-main {
@@ -239,7 +239,7 @@
 
          /* Firefox Revamp + Left-Sidebar */
 
-         @media (-moz-bool-pref:"firefoxgx.left-sidebar") {
+         @media -moz-pref("firefoxgx.left-sidebar") {
 
             &:root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]),
             &:root:not([chromehidden~="toolbar"]):is(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
@@ -269,7 +269,7 @@
 
    /* ______________________ Vertical tabs ______________________ */
 
-   @media (-moz-bool-pref:"sidebar.verticalTabs") {
+   @media -moz-pref("sidebar.verticalTabs") {
 
       :root:not([chromehidden~="toolbar"]) {
 
@@ -296,8 +296,8 @@
    
    /* ______________________ Fix gradient line under tabs-bar and remove unwanted elements */
    
-   @media (not (((-moz-bool-pref:"sidebar.revamp") or (-moz-bool-pref:"sidebar.verticalTabs")) 
-      and (-moz-bool-pref:"sidebar.position_start"))) and (not (-moz-bool-pref:"firefoxgx.left-sidebar")) and (not (-moz-bool-pref:"firefoxgx.tree-tabs"))  {
+   @media (not ((-moz-pref("sidebar.revamp") or -moz-pref("sidebar.verticalTabs")) 
+      and -moz-pref("sidebar.position_start"))) and (not -moz-pref("firefoxgx.left-sidebar")) and (not -moz-pref("firefoxgx.tree-tabs"))  {
 
       #TabsToolbar::before{
          inset-inline-start: 0 !important;
@@ -311,13 +311,13 @@
    
    /* ______________________ Tab-shapes compatibility */
 
-   @media (-moz-bool-pref:"firefoxgx.tab-shapes") {
+   @media -moz-pref("firefoxgx.tab-shapes") {
       
-      @media (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.wave") or 
-             (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.australis") or 
-             (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
-             (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.chrome") or 
-             (-moz-bool-pref:"userChrome.tab.bottom_rounded_corner.edge") {
+      @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or 
+             -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or 
+             -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
+             -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
+             -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
                 
                 .tabbrowser-tab:is([visuallyselected],[multiselected])  .tab-background::before,
                 .tabbrowser-tab:is([visuallyselected],[multiselected])  .tab-background::after {
@@ -328,7 +328,7 @@
    
    /* Oneline compatibility */
 
-   @media (-moz-bool-pref:"firefoxgx.oneline") {
+   @media -moz-pref("firefoxgx.oneline") {
       
       @media screen and (min-width: 1000px) {
 
