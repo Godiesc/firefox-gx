@@ -1,48 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-
-<svg
-   width="12"
-   height="12"
-   fill="context-fill"
-   fill-opacity="context-fill-opacity"
-   version="1.1"
-   id="svg6"
-   sodipodi:docname="paused19.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs10" />
-  <sodipodi:namedview
-     id="namedview8"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:showpageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#505050"
-     showgrid="false"
-     inkscape:zoom="40.988139"
-     inkscape:cx="4.8184671"
-     inkscape:cy="6.0017362"
-     inkscape:window-width="1303"
-     inkscape:window-height="745"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg6" />
+<svg width="12" height="12" fill="context-fill" fill-opacity="context-fill-opacity" xmlns="http://www.w3.org/2000/svg">
   <path
-     d="M 3,2.5946194 C 3.2389366,2.4694069 3.9239654,2.4684001 4.164,2.5919994 4.16152,4.9974 4.159,7.0262037 4.164,9.4077394 3.9240243,9.5315195 3.238876,9.5305124 3,9.4051098 3.0108741,7.0560664 3.0028169,4.533431 3,2.5946194 Z"
-     id="path2"
-     style="stroke-width:0.935379" />
+     d="M 3,2.5946194 C 3.2389366,2.4694069 3.9239654,2.4684001 4.164,2.5919994 4.16152,4.9974 4.159,7.0262037 4.164,9.4077394 3.9240243,9.5315195 3.238876,9.5305124 3,9.4051098 3.0108741,7.0560664 3.0028169,4.533431 3,2.5946194 Z"/>
   <path
-     d="M 7.5,2.5946201 C 7.7389366,2.4694075 8.4239654,2.4684007 8.664,2.5919953 8.66152,4.9973958 8.659,7.0261995 8.664,9.4077352 8.4240243,9.5315198 7.738876,9.5305128 7.5,9.4051104 7.510874,7.0560671 7.50282,4.5334316 7.5,2.5946201 Z"
-     id="path4"
-     style="stroke-width:0.935379" />
+     d="M 7.5,2.5946201 C 7.7389366,2.4694075 8.4239654,2.4684007 8.664,2.5919953 8.66152,4.9973958 8.659,7.0261995 8.664,9.4077352 8.4240243,9.5315198 7.738876,9.5305128 7.5,9.4051104 7.510874,7.0560671 7.50282,4.5334316 7.5,2.5946201 Z" />
 </svg>
