@@ -107,11 +107,21 @@ toolbar .text-link:hover, panel .text-link:hover {
     margin-inline: 10px 6px !important;
 }
 
-/* Sidebar colors */
+/* Sidebar-box */
+
+:root {
+    --my-content-border-color: var(--toolbarbutton-hover-personal) !important;
+    --sidebar-border-color: var(--my-content-border-color) !important;
+}
+
+/* Sidebar content + web content */
+#sidebar-wrapper:has(#sidebar-box[checked="true"]) ~ #tabbrowser-tabbox {
+    border-top: 1px solid var(--my-content-border-color) !important;
+}
 
 #sidebar-header {
     background-color: var(--lwt-sidebar-background-color) !important;
-    border-top: 1px dotted var(--sidebar-border-color) !important;
+    border-top: 1px solid var(--my-content-border-color) !important;
     padding: 4px 6px !important;
 }
 
@@ -135,6 +145,17 @@ toolbar .text-link:hover, panel .text-link:hover {
 #sidebar-box {
     max-width: none !important;
     min-width: 1px !important;
+    margin-inline-start: 0px !important; /* When sidebar is on right side */
+}
+
+/* Splitter width */
+
+@media -moz-pref("sidebar.revamp") {
+    @media (-moz-overlay-scrollbars) {
+        .sidebar-splitter {
+            --splitter-width: 4px !important;
+        }
+    }
 }
 
 /* Separator line into Firefox Sidebar items */

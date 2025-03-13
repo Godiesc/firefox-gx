@@ -7,7 +7,7 @@
     --windowed-top-padding: 8px;
 }
 
-:root:is([customtitlebar][sizemode="normal"]):has(#toolbar-menubar[autohide="true"]) #TabsToolbar {
+:root:is([customtitlebar][sizemode="normal"]) #toolbar-menubar[autohide="true"] ~ #TabsToolbar {
     padding-block-start: var(--windowed-top-padding, 0px) !important;
 }
 
@@ -276,7 +276,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
         & .tabbrowser-tab[selected]:has(+ .tabbrowser-tab[dragover-createGroup]),      /* 'Moving tab' + 'Tabforgroup' */
         & .tabbrowser-tab[dragover-createGroup] + .tabbrowser-tab[selected] {          /* 'tabforgroup' + 'Moving tab' */
 
-            & .tab-background {    
+            & .tab-background {
                 background-image: none !important;
                 background-color: light-dark(var(--dragover-tab-group-color), var(--dragover-tab-group-color)) !important;
                 outline-color: var(--dragover-tab-group-color-pale) !important;
@@ -296,7 +296,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
                 display: none !important;
             }
 
-            & .tab-stack::before{
+            & .tab-stack::before {
                 clip-path: none !important;
                 border-radius: 0px !important;
                 --general-color: light-dark(var(--dragover-tab-group-color-pale), var(--dragover-tab-group-color-pale)) !important;
@@ -361,8 +361,8 @@ tab-group:not([collapsed]) .tab-group-label::before {
             #tabbrowser-tabs[orient="vertical"][expanded] & {
                 min-width: calc(var(--vertical-elements-width) - 16px) !important;
                 height: calc(var(--vertical-elements-width) - 16px) !important;
-                margin-block: 0px 3px !important;
-                padding-block: 3px 0px !important;
+                /*margin-block: 0px 3px !important;/**/
+                padding-block: 2px 0px !important;
             }
         }
         
@@ -372,7 +372,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
             #tabbrowser-tabs & {
                 &::before {
                     inset-inline-start: 0px !important;
-                    inset-block-start: 2px !important;
+                    inset-block: 2px 0px !important;
                 }
             }
         }
@@ -380,7 +380,7 @@ tab-group:not([collapsed]) .tab-group-label::before {
         tab-group {
             #tabbrowser-tabs & {
                 #tabbrowser-tabs[orient="vertical"][expanded] &::before {
-                    inset-block-start: 0px !important;
+                    inset-block: 0px !important;
                 }
             }
         }
@@ -401,11 +401,11 @@ tab-group:not([collapsed]) .tab-group-label::before {
 
             &::before {
                 content: ""; 
-                display: flex;
-                position: absolute;
+                display: block;
+                position: absolute !important;
                 inset-inline-start: 6px;
                 height: calc(var(--vertical-elements-width) - 16px);
-                width: calc(100% - 12px) !important;
+                min-width: calc(100% - 12px) !important;
                 margin-block: 0px !important;
                 padding-block: 0px !important;
                 border-radius: calc(var(--border-radius-urlbar-personal) - 3px);
@@ -481,20 +481,42 @@ tab-group:not([collapsed]) .tab-group-label::before {
     height: 1px !important;
     min-height: 1px !important;
     max-height: 1px !important;
-    inset-inline-start: var(--vertical-elements-width, 0px) !important;
+    inset-inline-start: var(--my-elements-left-margin, 0px) !important;
     width: 100% !important;
     border-block-end: 1px solid var(--general-color) !important;
     border-image: var(--panel-separator-zap-gradient2) 1 !important;
 }
 
-/* Fix gradient line in some sitiations */
+/* Fix gradient line when Sidebar-revamp on left side but hidden 
 
-@media (not -moz-pref("firefoxgx.left-sidebar")) and (-moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.position_start"))) {
+@media (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) {
+    :root[customizing],
+    :root:has(#sidebar-main[hidden="true"],sidebar-main[hidden]) {
+         & #TabsToolbar::before {
+            --my-vertical-toolbar-width: 0px !important;
+            --vertical-elements-width: 0px !important;
+        }
+    }
+}*/
+
+/* Fix gradient line when Sidebar-revamp is on right side 
+
+@media (-moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.position_start"))) {
     #TabsToolbar::before {
         --my-vertical-toolbar-width: 0px !important;
         --vertical-elements-width: 0px !important;
     }
-}
+}*/
+
+/* Fix gradient line Sidebar-revamp + left-sidebar (on left side) 
+
+@media (-moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always'))) and
+       (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) {
+    #TabsToolbar::before {
+        --my-vertical-toolbar-width: 0px !important;
+        --vertical-elements-width: 0px !important;
+    }
+}*/
 
 /* 'Newtab' button */
 

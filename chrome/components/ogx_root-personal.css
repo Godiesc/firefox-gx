@@ -51,7 +51,7 @@
   --tab-height-personal: 32px ;                                                         /* Tab height */
   --toolbar-height-personal: 38px ;                                                     /* Toolbar height */
   
-  --my-group-line-thickness: 1px !important;                                            /* Tab-group line thickness */
+  --my-group-line-thickness: 2px !important;                                            /* Tab-group line thickness */
 
   --menu-label: "Menu" ;                                                                /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                            /* Horizontal size of the hamburger menu button */
@@ -72,18 +72,18 @@
 
 }
 
-@media -moz-pref("firefoxgx.left-sidebar"), -moz-pref("sidebar.revamp"), -moz-pref("firefoxgx.tree-tabs"), -moz-pref("firefoxgx.oneline") {
+@media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always'),
+       -moz-pref("sidebar.revamp"), -moz-pref("firefoxgx.tree-tabs"), -moz-pref("firefoxgx.oneline") {
   :root {
     --my-vertical-toolbar-width: 41px ;                                                 /* 'left-sidebar' or 'tree-tabs' width */
-    --uc-sidebar-hover-width: 232px ;                                                   /* 'left-sidebar' or 'tree-tabs' expanded width*/
+    --uc-sidebar-hover-width: 208px ;                                                   /* Vertical tabs expanded width*/
   }}
 
 /* ________________________________________________ Main Image config ________________________________________________ */
 
-@media -moz-pref("firefoxgx.main-image") {
-  
+@media -moz-pref("firefoxgx.main-image") {  
   @media (prefers-color-scheme: dark) { :root {
-    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                 /* new-tab page image - dark team */
+    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                 /* new-tab page image - dark theme */
     --brightness-wallpaper: 50%;                                                        /* 100% -> default ; 50% -> to <<main-image>> config */ }}
   
   @media (prefers-color-scheme: light) { :root {

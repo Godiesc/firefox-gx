@@ -1,7 +1,39 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media -moz-pref("firefoxgx.left-sidebar") {
+/* _______________________ Warning when using this style without the bookmarks toolbar set to 'Always show' _______________________ */
+
+@media -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always')) {
+
+    /* animación */
+
+    @keyframes messageappeardisappear{
+        0%{ opacity: 1 }
+        80%{ opacity: 1 }
+        100%{ opacity: 0 }}
+
+    /* Message */
+
+    :root:not([chromehidden~="toolbar"],[inFullscreen]) {
+        #tabbrowser-tabbox:before {
+            display: flex;
+            position: absolute;
+            content: 'To show the "Left Sidebar" you need to set your Bookmarks toolbar to: "Always Show" - you can use this shortcut: "Ctrl + Shift + B"';
+            width: 100%;
+            opacity: 0;
+            padding-block: 2px;
+            justify-content: center !important;
+            text-align: center !important;
+            text-shadow: none !important;
+            background-color: var(--general-color);
+            color: var(--contrast-color);
+            z-index: 3;
+            animation: messageappeardisappear linear 9s !important;
+        }
+    }
+}
+
+@media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
 
     /* _______________________ Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/vertical_bookmarks_toolbar.css ------------------- */
 
@@ -78,7 +110,7 @@
         margin-inline: 0 !important;
     }
 
-    :root:not([chromehidden~="toolbar"],[inDOMFullscreen],[sizemode="fullscreen"]):has(#PersonalToolbar[collapsed="false"]) {
+    :root:not([chromehidden~="toolbar"],[inDOMFullscreen],[sizemode="fullscreen"]) {
         &>body>#browser,
         &>body>#browser-bottombox,
         &>body>#customization-container {
@@ -91,50 +123,50 @@
         display: -webkit-box !important;
         -webkit-box-orient: vertical !important;
     }
-    
-/* ______________________________________________________ Keep left-sidebar in 'Fullscreen' ______________________________________________________ */
-    
+
+    /* ______________________________________________________ Keep left-sidebar in 'Fullscreen' ______________________________________________________ */
+
     /* Bookmarks-bar visible */
-    
-    :root[inFullscreen]:not([macOSNativeFullscreen]):not(:has(#PersonalToolbar[collapsed="true"])) toolbar:is(#PersonalToolbar):not([fullscreentoolbar="true"]) {
+
+    :root[inFullscreen]:not([macOSNativeFullscreen]) toolbar:is(#PersonalToolbar):not([fullscreentoolbar="true"]) {
         visibility: visible !important;
     }
-    
+
     /* Shows #navigator-toolbox when 'hover' on left-sidebar */
-    
+
     :root[inFullscreen]:not([macOSNativeFullscreen]):has(#PersonalToolbar:hover) #navigator-toolbox {
         margin-top: 0px !important;
     }
-    
+
     /* Keep left-sidebar visible when some contextual menu appears
-       - Keep navigator-toolbox visible when bookmarks-folder are 'open' */
-    
-     #main-window:has(
-        #appMenu-popup:is([panelopen="true"]),                      /* Hamburger menu open */
-        panel[type="arrow"]:is([panelopen="true"]),                 /* Arrowpanels open */
-        .bookmark-item[open],                                       /* BOokmarks-folder 'open' */
-        #customizationui-widget-panel[panelopen="true"],            /* Extensions panels 'open' */
-        #tabContextMenu[hasbeenopened]:hover,                       /* Some contextual menus ¯v*/
-        #new-tab-button-popup[hasbeenopened]:hover,
-        #toolbar-context-menu[hasbeenopened]:hover,
-        .tab-group-editor-panel[hasbeenopened]:hover) {
-            & #PersonalToolbar {
-                width: var(--my-vertical-toolbar-width) !important;
-                max-width: var(--my-vertical-toolbar-width) !important;
-                opacity: 1 !important;
-                border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
-                                            var(--general-color) var(--space-before-gradient-line), 
-                                            var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
-            }
-            & #navigator-toolbox {
-                margin-top: 0px !important;
-            }
+    - Keep navigator-toolbox visible when bookmarks-folder are 'open' */
+
+    #main-window:has(
+    #appMenu-popup:is([panelopen="true"]),                      /* Hamburger menu open */
+    panel[type="arrow"]:is([panelopen="true"]),                 /* Arrowpanels open */
+    .bookmark-item[open],                                       /* BOokmarks-folder 'open' */
+    #customizationui-widget-panel[panelopen="true"],            /* Extensions panels 'open' */
+    #tabContextMenu[hasbeenopened]:hover,                       /* Some contextual menus ¯v*/
+    #new-tab-button-popup[hasbeenopened]:hover,
+    #toolbar-context-menu[hasbeenopened]:hover,
+    .tab-group-editor-panel[hasbeenopened]:hover) {
+        & #PersonalToolbar {
+            width: var(--my-vertical-toolbar-width) !important;
+            max-width: var(--my-vertical-toolbar-width) !important;
+            opacity: 1 !important;
+            border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
+                var(--general-color) var(--space-before-gradient-line), 
+                var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
+        }
+        & #navigator-toolbox {
+            margin-top: 0px !important;
+        }
     }
-    
+
     /* ____________ Web content moved right when toolbars are in 'autohide' */
 
     @media -moz-pref("browser.fullscreen.autohide") {
-        
+
         /* Width of left-sidebar when #navigator-toolbox 'hidden' */
 
         :root[inFullscreen]:not([macOSNativeFullscreen]):has(#navigator-toolbox:not(:hover)) toolbar:is(#PersonalToolbar):not([fullscreentoolbar="true"]) {
@@ -148,7 +180,7 @@
 
         /* Web content mover right when left-sidebar in visible */
 
-        :root[inFullscreen]:not([macOSNativeFullscreen],[inDOMFullscreen]):has(#PersonalToolbar[collapsed="false"]):has(        
+        :root[inFullscreen]:not([macOSNativeFullscreen],[inDOMFullscreen]):has(        
         #navigator-toolbox[style=""],                                 /* tabs-bar and nav-bar hover */
         #PersonalToolbar:hover,                                       /* Bookmarks-bar 'hover' */
         .bookmark-item[open],                                         /* BOokmarks-folder 'open' */
@@ -162,19 +194,19 @@
                     margin-inline-start: var(--my-vertical-toolbar-width,41px) !important;
             }
         }
-        
+
         /* Allow show Left-sidebar when 'hover' on left of screen */
 
         :root[inFullscreen]:not([macOSNativeFullscreen],[inDOMFullscreen]) toolbar:is(#PersonalToolbar):not([fullscreentoolbar="true"]):not(:hover) {
             z-index: 3 !important;
         }
     }
-    
+
     /*____________ Web content moved right when toolbars are 'not in autohide' */
-    
+
     @media not -moz-pref("browser.fullscreen.autohide") {
-        
-        :root:not([chromehidden~="toolbar"],[inDOMFullscreen]):has(#PersonalToolbar[collapsed="false"]),
+
+        :root:not([chromehidden~="toolbar"],[inDOMFullscreen])/*,
         :root:not([chromehidden~="toolbar"],[inDOMFullscreen]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden]))/**/{
             #browser,
             #browser-bottombox,
@@ -184,48 +216,9 @@
             }
         }
     }
-    
-/* _______________________ Warning when using this style without the bookmarks toolbar set to 'Always show' _______________________ */
-    
-    /* Message */
-    
-    /* animación */
-    @keyframes messageappeardisappear{
-        0%{ opacity: 1 }
-        80%{ opacity: 1 }
-        100%{ opacity: 0 }}
-    
-    :root:has(#PersonalToolbar[collapsed="true"]):not([chromehidden~="toolbar"],[inFullscreen]) {
-        #tabbrowser-tabbox:before {
-            display: flex;
-            position: absolute;
-            content: 'To show the "Left Sidebar" you need to set your Bookmarks toolbar to: "Always Show" - you can use this shortcut: "Ctrl + Shift + B"';
-            width: 100%;
-            opacity: 0;
-            padding-block: 2px;
-            top: 1px;
-            justify-content: center !important;
-            text-align: center !important;
-            background-color: var(--general-color);
-            color: var(--contrast-color);
-            z-index: 3;
-            animation: messageappeardisappear linear 9s !important;
-        }
-    }
 
-/* ______________________________________________________ My code to adapt to the GX style ______________________________________________________ */
+    /* ______________________________________________________ My code to adapt to the GX style ______________________________________________________ */
 
-    /* Reset size variable when left-sidebar is ON but hidden */
-    
-    :root:has(#PersonalToolbar[collapsed="true"]) {
-        
-        #TabsToolbar::before/*,
-        #PanelUI-button/**/ {
-            --my-vertical-toolbar-width: 0px !important;
-            --vertical-elements-width: 0px !important;
-        }
-    }
-    
     /* Position and style of the left-bookmarks-sidebar */
 
     :root:not([chromehidden~="toolbar"]) #PersonalToolbar {
@@ -235,14 +228,14 @@
         --toolbarbutton-hover-personal: transparent !important;
         --toolbarbutton-icon-fill: color-mix(in srgb, var(--general-color) 90%, transparent) !important;
         --toolbarbutton-border-radius: 0px !important;
-        
+
         --height-left-sidebar: calc(100vh + var(--space-before-gradient-line)) !important;
 
         --space-before-gradient-line: calc(var(--windowed-top-padding, 0px) + var(--menubar-height-personal,0px) + var(--tab-height-personal)) !important;
-        
+
         --padding-top-left-sidebar: calc(var(--space-before-gradient-line) + var(--toolbar-height-personal) - var(--menubar-height-personal, 0px) - 10px) !important;
         --padding-bottom-left-sidebar: calc(var(--space-before-gradient-line) + 10px) !important;
-    
+
         height: var(--height-left-sidebar) !important;
         max-height: var(--height-left-sidebar) !important;
         background-color: var(--lwt-frame) !important;
@@ -257,29 +250,29 @@
         margin-top: calc(0px - var(--space-before-gradient-line) - var(--toolbar-height-personal)) !important;
         border-inline-end: 1px solid transparent !important;
         border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
-                                            var(--general-color) var(--space-before-gradient-line), 
-                                            var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
+            var(--general-color) var(--space-before-gradient-line), 
+            var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
     }
-    
-/* Remove items label from sidebar */
+
+    /* Remove items label from sidebar */
 
     #personal-bookmarks .bookmark-item>.toolbarbutton-text, #PersonalToolbar #import-button label {
         display: none !important;
     }
-    
+
     /* Also remove the space after the icon - it serves to center */
     #PlacesToolbarItems > .bookmark-item > .toolbarbutton-icon[label]:not([label=""]),                      /* Marcadores */
     #OtherBookmarks.bookmark-item[container] > .toolbarbutton-icon,                                         /* OtrosMarcadores */
     #bookmarks-toolbar-placeholder > .toolbarbutton-icon{                                                   /* MArcadores en customization mode*/
         margin-inline: 0px !important;
     }
-    
-/* Firefox view icon */ 
-    
+
+    /* Firefox view icon */ 
+
     toolbar:is(#PersonalToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
         border-radius: 4px !important;
     }
-    
+
     #firefox-view-button image {
         list-style-image: url("../icons/firefoxview-close.svg") !important;
     }
@@ -288,44 +281,44 @@
         list-style-image: url("../icons/firefoxview-close.svg") !important;
         transition-duration: 0ms !important;
     }
-    
+
     #firefox-view-button[aria-pressed="true"]:not(:active) .toolbarbutton-icon{
         list-style-image: url("../icons/firefoxview-open.svg") !important;
         transition-duration: 0ms !important;
     }
-    
-/* Smooth transition of bookmark items */
-    
+
+    /* Smooth transition of bookmark items */
+
     #PersonalToolbar #PlacesToolbarItems>.bookmark-item .toolbarbutton-icon,            /* Marcadores - used in left-sidebar */
     #PersonalToolbar #OtherBookmarks:not(bookmark-item) .toolbarbutton-icon {           /* Other bookmark folder - used in left-sidebar */
         transition: all 0.2s ease !important;
     }    
-    
-/* Zoom on :hover items */
-    
+
+    /* Zoom on :hover items */
+
     /* animación */
     @keyframes scalezoom{
         0%{ transform:scale(1.2) }
         50%{ transform:scale(0.7) }
         100%{ transform:scale(1.0) }}
-    
-   /* 'hover' Extensions */
-    
+
+    /* 'hover' Extensions */
+
     #PersonalToolbar .toolbarbutton-1:is(:hover):not(:active,[open]) .toolbarbutton-icon:not(.toolbarbutton-1>image),   /* Extensiones */
     #PersonalToolbar .toolbarbutton-1:is(:hover):not(:active,[open]) .toolbarbutton-badge-stack image {                 /* account icon, download icon, etc */
         transform: scale(1.2) !important;
         transition-duration: 200ms !important;
     }
-    
+
     /* Click animation on Extensions */
-    
+
     #PersonalToolbar .toolbarbutton-1:is(:active,[open]) .toolbarbutton-icon:not(.toolbarbutton-1:is(:active, [open])>.toolbarbutton-icon),
     #PersonalToolbar .toolbarbutton-1:is(:active, [open]) .toolbarbutton-badge-stack image{
         animation: scalezoom linear 250ms !important;
     }
-    
+
     /* 'hover' other icons */
-    
+
     #PersonalToolbar {
         & .toolbarbutton-1:is(:hover):not(:active,[open])>image,                                           /* íconos default */
         & #PlacesToolbarItems>.bookmark-item:is(:hover,:active):not([open])>.toolbarbutton-icon,           /* Marcadores */
@@ -333,68 +326,68 @@
             transform: scale(1.2) !important;
             transition-duration: 200ms !important;
         }}
-    
+
     /* Clic default icons */
-    
+
     #PersonalToolbar {
         & .toolbarbutton-1:is(:active):not([open])>image {                                                 /* íconos default */
             transform: scale(0.8) !important;
             transition-duration: 200ms !important;
         }}
-    
+
     #PersonalToolbar {
         & .toolbarbutton-1:is([open]):not(:active)>image {                                                 /* íconos default */
             transform: scale(1.0) !important;
             transition-duration: 200ms !important;
         }}
-    
+
     /* Click animation on bookmarks */
-    
+
     #PersonalToolbar {
         & #PlacesToolbarItems>.bookmark-item:is([open]):not(:active)>.toolbarbutton-icon,                  /* Marcadores */
         & #OtherBookmarks:not(bookmark-item):is([open]):not(:active)>.toolbarbutton-icon{                  /* Other bookmarks button */
             animation: scalezoom ease-in-out 250ms !important;
             transition:  200ms !important;
         }}
-    
-/* Vertical Size of Sidebar Items */
-    
+
+    /* Vertical Size of Sidebar Items */
+
     #PersonalToolbar .toolbarbutton-1,
     #PersonalToolbar #PlacesToolbarItems>.bookmark-item{
         margin-block: 10px !important;
         /*background-color: blue !important;/**/
     }
-    
-/* Default buttons click effect and extensions 
-    
+
+    /* Default buttons click effect and extensions 
+
     @keyframes scale-up-center{
-        0%{ background-color: color-mix(in srgb, transparent 82%, var(--lwt-tab-text));
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;} 
-       60%{ background-color: color-mix(in srgb, transparent 90%, var(--lwt-tab-text));
-            border-radius: 10%;
-            width: calc(var(--my-vertical-toolbar-width) + 0px);
-            height: 32px;}
-      100%{ background-color: transparent;
-            border-radius: 0%;
-            width: calc(var(--my-vertical-toolbar-width) + 20px);}}
-    
+    0%{ background-color: color-mix(in srgb, transparent 82%, var(--lwt-tab-text));
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;} 
+    60%{ background-color: color-mix(in srgb, transparent 90%, var(--lwt-tab-text));
+    border-radius: 10%;
+    width: calc(var(--my-vertical-toolbar-width) + 0px);
+    height: 32px;}
+    100%{ background-color: transparent;
+    border-radius: 0%;
+    width: calc(var(--my-vertical-toolbar-width) + 20px);}}
+
     #PersonalToolbar .toolbarbutton-1:is([open])::after{
-        content: "";  display: -moz-box;  position: absolute !important;
-        align-self: center !important;
-        background-color: transparent;
-        border-radius: 0px;
-        animation: scale-up-center 700ms !important;
-    }*/
-    
-/* Fix bookmarks separator style */
-    
-#PersonalToolbar #PlacesToolbarItems toolbarseparator {
-    border-image: none !important;
-}
-    
-/* Separator using 'flexible space' */
+    content: "";  display: -moz-box;  position: absolute !important;
+    align-self: center !important;
+    background-color: transparent;
+    border-radius: 0px;
+    animation: scale-up-center 700ms !important;
+}*/
+
+    /* Fix bookmarks separator style */
+
+    #PersonalToolbar #PlacesToolbarItems toolbarseparator {
+        border-image: none !important;
+    }
+
+    /* Separator using 'flexible space' */
 
     #PersonalToolbar toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], #PersonalToolbar toolbarspring {
         background: var(--general-color) !important;
@@ -405,10 +398,10 @@
         margin-inline: 14px !important;
         margin-block: 6px !important;
     }
-    
-/* ____________________________________________ items in "customize toolbar" mode ____________________________________________ */
 
-/* 'Flexible space' separator in customize mode */
+    /* ____________________________________________ items in "customize toolbar" mode ____________________________________________ */
+
+    /* 'Flexible space' separator in customize mode */
 
     #PersonalToolbar toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"] {
         min-width: calc(var(--my-vertical-toolbar-width) - 20px) !important;
@@ -417,165 +410,168 @@
         margin-inline-start: 10px !important;
     }
 
-/* Removes counter and flexible space bug, in customize mode */
-    
+    /* Removes counter and flexible space bug, in customize mode */
+
     #PersonalToolbar toolbarpaletteitem[place="toolbar"] > toolbarspring,
     #PersonalToolbar toolbarpaletteitem[place="toolbar"] toolbaritem toolbarbutton .toolbarbutton-badge{
         display: none !important;
     }
 
-/* Align items in customize mode */
+    /* Align items in customize mode */
 
     #PersonalToolbar toolbarpaletteitem[place="toolbar"] {
         justify-content: center !important;
     }
-    
-/* _________________________________________________________ Extensions _________________________________________________________ */
 
-/* Hide counter when it is "0" */
+    /* _________________________________________________________ Extensions _________________________________________________________ */
 
-toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity: 0 !important; }
+    /* Hide counter when it is "0" */
 
-/* Extension counter */
+    toolbaritem toolbarbutton[badge="0"]:not(:hover) .toolbarbutton-badge { opacity: 0 !important; }
 
-#PersonalToolbar .toolbarbutton-badge {
-    background-color: var(--button-hover-bgcolor) !important;
-    color: white !important;
-    margin-inline-end: -9px !important;
-    margin-block-end: -4px !important;
-    min-width: auto !important;
-    max-width: auto !important;
-    align-self: end !important;
-}
-    
-#PersonalToolbar toolbaritem>toolbarbutton>.toolbarbutton-badge-stack>.toolbarbutton-icon {
-    height: 17px !important;
-    width: 17px !important;
-}
-    
-/* Gx Theme Styles Extension */
-#PersonalToolbar #gxthemestyles_godie-BAP { list-style-image: url("../icons/logo_gx-theme-styles.svg") !important; }
-    
-/* ChatGPT Extension */
-#PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP,
-#PersonalToolbar #_63ec59d8-ba50-4d88-917e-fb65af892a39_-BAP { list-style-image: url("../icons/logo_chatgpt.svg") !important; }
+    /* Extension counter */
 
-/* Twitch Extension */
-#PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP { list-style-image: url("../icons/logo_twitch.svg") !important; }
+    #PersonalToolbar .toolbarbutton-badge {
+        background-color: var(--button-hover-bgcolor) !important;
+        color: white !important;
+        margin-inline-end: -9px !important;
+        margin-block-end: -4px !important;
+        min-width: auto !important;
+        max-width: auto !important;
+        align-self: end !important;
+    }
 
-/* Messenger Extension */
-#PersonalToolbar #xrst_vardakis_gmail_com-BAP { list-style-image:url("../icons/logo_messenger.svg") !important; }
+    #PersonalToolbar toolbaritem>toolbarbutton>.toolbarbutton-badge-stack>.toolbarbutton-icon {
+        height: 17px !important;
+        width: 17px !important;
+    }
 
-/* Whatsapp Extension */
-#PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP,
-#PersonalToolbar #chatwappinsidebar_godie-BAP { list-style-image: url("../icons/logo_whatsapp.svg") !important; }
-moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../icons/logo_whatsapp.svg") !important; }
-    
-/* Spotify Extension */
-#PersonalToolbar #sidebarspotyplay_godie-BAP,
-#PersonalToolbar #_1d0f1bc6-5e9c-4450-aef5-75cefb44660f_-BAP { list-style-image: url("../icons/logo_spotify.svg") !important; }
+    /* Gx Theme Styles Extension */
+    #PersonalToolbar #gxthemestyles_godie-BAP { list-style-image: url("../icons/logo_gx-theme-styles.svg") !important; }
 
-/* Telegram Extension */
-#PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{ list-style-image: url("../icons/logo_telegram.svg") !important; }
+    /* ChatGPT Extension */
+    #PersonalToolbar #_87f371f2-66bd-4535-a920-c696f2669122_-BAP,
+    #PersonalToolbar #_63ec59d8-ba50-4d88-917e-fb65af892a39_-BAP { list-style-image: url("../icons/logo_chatgpt.svg") !important; }
 
-/* ublock Extension */
-#PersonalToolbar #ublock0_raymondhill_net-BAP{ list-style-image: url("../icons/logo_ublock.svg") !important; }
+    /* Twitch Extension */
+    #PersonalToolbar #_d3d2a327-1ae0-4fd6-b732-0844d0b7fd4c_-BAP { list-style-image: url("../icons/logo_twitch.svg") !important; }
 
-/* Tab-group Extension */
-#PersonalToolbar #panorama-tab-groups_example_com-BAP{ list-style-image: url("../icons/logo_grouptabs.svg") !important; }
+    /* Messenger Extension */
+    #PersonalToolbar #xrst_vardakis_gmail_com-BAP { list-style-image:url("../icons/logo_messenger.svg") !important; }
 
-/* Discord Extension */
-#PersonalToolbar #_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP{ list-style-image: url("../icons/logo_discord.svg") !important; }
+    /* Whatsapp Extension */
+    #PersonalToolbar #_34a257f3-adfe-460d-b6ca-7dd18d18506b_-BAP,
+    #PersonalToolbar #chatwappinsidebar_godie-BAP { list-style-image: url("../icons/logo_whatsapp.svg") !important; }
+    moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../icons/logo_whatsapp.svg") !important; }
 
-/* Twitter Extension */
-#PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{ list-style-image: url("../icons/logo_twitter.svg") !important; }
-    
-/* Simple Translate extension */
-#PersonalToolbar #simple-translate_sienori-BAP { list-style-image: url("../icons/translations.svg") !important; }
-    
-/* Bitwarden extension */
-#PersonalToolbar #_446900e4-71c2-419f-a6a7-df9c091e268b_-BAP { list-style-image: url(../icons/logo_bitwarden.svg) !important; }
-    
-/* Tree-tabs extension */
-#PersonalToolbar #treestyletab_piro_sakura_ne_jp-BAP,
-#PersonalToolbar #tabcenter-reborn_ariasuni-BAP{ list-style-image: url(../icons/logo_tree-tabs.svg) !important; }
+    /* Spotify Extension */
+    #PersonalToolbar #sidebarspotyplay_godie-BAP,
+    #PersonalToolbar #_1d0f1bc6-5e9c-4450-aef5-75cefb44660f_-BAP { list-style-image: url("../icons/logo_spotify.svg") !important; }
 
-/* _______________________________________________ Colored folders for bookmarks _______________________________________________ */
+    /* Telegram Extension */
+    #PersonalToolbar #_14390478-b41b-4e29-8307-8a3c714f7783_-BAP{ list-style-image: url("../icons/logo_telegram.svg") !important; }
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+1) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder1.svg") !important;
-}
+    /* ublock Extension */
+    #PersonalToolbar #ublock0_raymondhill_net-BAP{ list-style-image: url("../icons/logo_ublock.svg") !important; }
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+2) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder2.svg") !important;
-}
+    /* Tab-group Extension */
+    #PersonalToolbar #panorama-tab-groups_example_com-BAP{ list-style-image: url("../icons/logo_grouptabs.svg") !important; }
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+3) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder3.svg") !important;
-}
+    /* Discord Extension */
+    #PersonalToolbar #_a16c3799-d903-44e3-b044-a032197f5ef8_-BAP{ list-style-image: url("../icons/logo_discord.svg") !important; }
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+4) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder4.svg") !important;
-}
+    /* Twitter Extension */
+    #PersonalToolbar #_3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1_-BAP{ list-style-image: url("../icons/logo_twitter.svg") !important; }
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+5) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder5.svg") !important;
-}
+    /* Simple Translate extension */
+    #PersonalToolbar #simple-translate_sienori-BAP { list-style-image: url("../icons/translations.svg") !important; }
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+6) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder6.svg") !important;
-}
+    /* Bitwarden extension */
+    #PersonalToolbar #_446900e4-71c2-419f-a6a7-df9c091e268b_-BAP { list-style-image: url(../icons/logo_bitwarden.svg) !important; }
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+7) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder7.svg") !important;
-}
+    /* Tree-tabs extension */
+    #PersonalToolbar #treestyletab_piro_sakura_ne_jp-BAP,
+    #PersonalToolbar #tabcenter-reborn_ariasuni-BAP{ list-style-image: url(../icons/logo_tree-tabs.svg) !important; }
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+8) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder8.svg") !important;
-}
+    /* _______________________________________________ Colored folders for bookmarks _______________________________________________ */
 
-#PlacesToolbarItems > .bookmark-item:nth-of-type(9n+9) > .toolbarbutton-icon {
-    list-style-image: url("../icons/folder9.svg") !important;
-}
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+1) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder1.svg") !important;
+    }
 
-/* 'Other Bookmarks' folder */
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+2) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder2.svg") !important;
+    }
 
-#OtherBookmarks > .toolbarbutton-icon{
-    list-style-image: url("../icons/folder-otherbookmarks.svg") !important;
-}
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+3) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder3.svg") !important;
+    }
 
-/* 'tab center reborn' extension compatibility */
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+4) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder4.svg") !important;
+    }
 
-#sidebar {
-    border-inline-end: 1px solid var(--my-content-border-color) !important;
-    box-shadow: none !important;
-    border-image: none !important;
-}
-    
-/* New position of Open Bookmark Panels in left-sidebar */
-    
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+5) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder5.svg") !important;
+    }
+
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+6) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder6.svg") !important;
+    }
+
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+7) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder7.svg") !important;
+    }
+
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+8) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder8.svg") !important;
+    }
+
+    #PlacesToolbarItems > .bookmark-item:nth-of-type(9n+9) > .toolbarbutton-icon {
+        list-style-image: url("../icons/folder9.svg") !important;
+    }
+
+    /* 'Other Bookmarks' folder */
+
+    #OtherBookmarks > .toolbarbutton-icon{
+        list-style-image: url("../icons/folder-otherbookmarks.svg") !important;
+    }
+
+    /* 'tab center reborn' extension compatibility */
+
+    #sidebar {
+        border-inline-end: 1px solid var(--my-content-border-color) !important;
+        box-shadow: none !important;
+        border-image: none !important;
+    }
+
+    /* New position of Open Bookmark Panels in left-sidebar */
+
     #PlacesToolbarItems > .bookmark-item >  menupopup, #OtherBookmarks #OtherBookmarksPopup {
         margin-inline-start: calc(var(--padding-left-tab) - 2px) !important;
-        margin-top: -56px  !important;
+        margin-top: -32px  !important;
     }
 
     #PersonalToolbar>toolbarbutton>menupopup {
         margin-right: calc(var(--padding-left-tab) - 9px) !important;
         margin-top: -39px  !important;
     }
+}
 
-    /* ______________ Hamburguer Menu button when 'left-sidebar' + 'Firefox Sidebar' are [hidden] with "Ctrl + Shift + B" */
+@media -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always')) {
+    
+     /* ______________ Hamburguer Menu button when 'left-sidebar' + 'Firefox Sidebar' are [hidden] with "Ctrl + Shift + B" 
 
-    :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+    :root:not([chromehidden~="toolbar"]) {
         & :not(#PanelUI-button, #PanelUI-menu-button .toolbarbutton-badge-stack) {
             --my-menu-button-height: calc(var(--tab-height-personal) - 1px) !important;
-            --my-vertical-toolbar-width: 0px !important;  /* Hide 'Firefox Sidebar' too */
+            --my-vertical-toolbar-width: 0px !important;
         }
-    }
+    }*/
     
     /* Remove unwanted 'left-sidebar' space when it is hidden */
     
-    :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]) {
+    :root:not([chromehidden~="toolbar"]) {
         & #PersonalToolbar {
             --my-vertical-toolbar-width: 0px !important;
             --padding-left-tab: 0px !important; 
@@ -589,7 +585,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 @media -moz-pref("sidebar.revamp"), -moz-pref("firefoxgx.left-sidebar"), -moz-pref("firefoxgx.tree-tabs") {
 
     :root {
-        --my-content-border-color: var(--toolbarbutton-hover-personal);                         /* Border around web content */
+        --my-content-border-color: var(--toolbarbutton-hover-personal, red) !important;              /* Border around web content */
         --vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;     /* With of sidebar elements */
         
         --my-margin-inline-outer-tab: 3px;                                                      /* Tab margin inline */
@@ -623,20 +619,6 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
 /* ____________________________________________________________ Sidebars on left ______________________________________________________ */
 
-@media -moz-pref("firefoxgx.left-sidebar") {
-
-    /* Keep padding left of tabs when menubar is always visible */
-
-    #toolbar-menubar[autohide="false"]+#TabsToolbar {
-        padding-inline-start: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
-    }
-
-    /* Keep padding left of tabs when menubar is always visible */
-
-    :root:has(#PersonalToolbar[collapsed="true"]) #toolbar-menubar[autohide="false"]+#TabsToolbar {
-        padding-inline-start: 0px !important;
-    }
-}
 
 @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") {
 
@@ -647,33 +629,24 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     }
 }
 
+
+/* Bookmarks-bar further to the right */
+
+@media (-moz-pref("sidebar.revamp") or -moz-pref("sidebar.verticalTabs")) and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
+    
+    :root:not([chromehidden~="toolbar"],[customizing]):not(:has(#sidebar-main[hidden="true"])) {
+        --my-sidebar-left-margin: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
+    }
+}
+
+:root:not([chromehidden~="toolbar"],[customizing]) #PersonalToolbar {
+    margin-inline-start: var(--my-sidebar-left-margin, 0px) !important;  
+}
+
 /* _______________________________________________________ Firefox New Sidebar _______________________________________________________
    ___________________________________________________________________________________________________________________________________ */
 
 @media -moz-pref("sidebar.revamp") {
-    
-    /* _______________ Style of the Sidebar when isn't expanded _______________ */
-    
-    :root:has(sidebar-main:not([expanded])) {
-
-        /* Width of the Sidebar elements when isn't expanded */
-
-        /* External container */
-        & #sidebar-main {
-            width: var(--my-vertical-toolbar-width) !important;
-        }
-
-        /* Internal container */
-        & .wrapper, 
-        & sidebar-main  {
-            min-width: var(--vertical-elements-width) !important;
-        }
-
-        /* Tools-and-extensions */
-        & .actions-list {
-            max-width: var(--vertical-elements-width) !important;
-        }
-    }
     
     .wrapper {
         background-color: transparent !important;
@@ -682,7 +655,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
         padding: 0px !important;
     }
     
-    .actions-list{
+    .actions-list {
         appearance: none !important;
         min-width: var(--vertical-elements-width) !important;
         padding-inline: 0px !important;
@@ -844,12 +817,6 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
    ____________________________________________________________________________________________________________________________________ */
 
 @media (-moz-pref("sidebar.revamp") or -moz-pref("sidebar.verticalTabs")) and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
-    
-    /* Bookmarks-bar further to the right */
-    
-    :root:not([chromehidden~="toolbar"],[customizing]) #PersonalToolbar {
-        margin-inline-start: calc(var(--padding-left-tab, 0) + 0px) !important;
-    }
 
     /* _____________ Color and background image of 'Sidebar' _____________ */
     
@@ -865,21 +832,6 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     #sidebar-main:dir(rtl) {
         background-position: right top !important;
     }
-
-    :root:has(sidebar-main:is([expanded])) {
-        & #sidebar-main {
-            background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
-                var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-            background-position: left calc(-11px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
-            background-size: auto calc(100% + 11px + var(--padding-top-left-sidebar) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
-            background-attachment: scroll, fixed, fixed !important;
-            background-color: transparent !important;
-        }
-        /* For RTL languages */
-        & #sidebar-main:dir(rtl) {
-            background-position: right calc(-11px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px)) !important;
-        }
-    }
     
     /* transparency for Sidebar in themes with images */
     
@@ -887,7 +839,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
         & #sidebar-main,
         & #navigator-toolbox::before,
-        & #PersonalToolbar::before,
+        /*& #PersonalToolbar::before,/**/
         & #nav-bar::before{
             --lwt-frame: transparent !important;
         }
@@ -895,85 +847,42 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     
     /* Simulate continuous line before 'nav-bar and bookmarks-bar' when Sidebar is 'expanded' */
     
-    :root:not([customizing]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden]))/*:has(sidebar-main:is([expanded]))/**/ {
+    :root:not([customizing]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+        --my-border-inline-end: 1px solid var(--general-color) !important;
+    }
+    
+    :root:not([customizing]) {
         & #navigator-toolbox::before {
             content:"";
-            position: absolute !important; 
-            /*inset-inline-start: 0 !important;/**/
+            position: absolute !important;
             bottom: -1px !important;
             background-image: linear-gradient(var(--lwt-frame, transparent), var(--lwt-frame, transparent)), 
                 var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
             background-size: auto 100% !important;
             background-attachment: fixed !important;
-            width: var(--vertical-elements-width) !important;
-            height: calc(2px + var(--windowed-top-padding, 0px) + var(--menubar-height-personal, 0px) + var(--tab-height-personal) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
-            border-inline-end: 1px solid var(--general-color) !important;
+            width: var(--my-elements-left-margin, 0px) !important;
+            height: calc(2px + var(--windowed-top-padding, 0px) + var(--menubar-height-personal, 0px) + 
+                var(--tab-height-personal) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
+            border-inline-end: var(--my-border-inline-end) !important;
             border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
                                             var(--general-color) var(--space-before-gradient-line)) 1 !important;
             z-index: 1 !important;
         }
         
         /* For RTL languages */
-        & :has(#PersonalToolbar[collapsed="false"]) #PersonalToolbar:dir(rtl)::before,
-        & #nav-bar:dir(rtl)::before {
+        & #navigator-toolbox:dir(rtl)::before {
             background-position: right top !important;
         }
     }
     
-    /* Sidebar style when isn't expanded */
-    
-    :root:has(sidebar-main:not([expanded])) {
-        & #sidebar-main {
-                /* Bakground-color necessary for gradient line color 
-            background-color: var(--lwt-frame) !important;*/
-                /* Top-bottom margins 
-            padding-top: var(--padding-top-left-sidebar) !important;*/
-                /* Gradient line 
-            margin-top: calc( -1px - var(--bookmarksbar-height-personal, 0px) - var(--toolbar-height-personal, 0px) - 
-                             var(--space-before-gradient-line)) !important;*/
-            border-inline-end: 1px solid red !important;
-            border-image: linear-gradient(to bottom, transparent 0px, 
-                                            var(--general-color) 0px, 
-                                            var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
-        }
-    }
-    
-    :root:has(sidebar-main[expanded]) {
-        & #sidebar-main {
-            /* Bakground-color necessary for gradient line color 
-            background-color: var(--lwt-frame) !important;*/
-            border-inline-end: 1px solid red !important;
-            border-image: linear-gradient(to bottom,
-                                            var(--general-color), 
-                                            var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
-        }
-    }
-    
-    /* Separator and Expand Gradient line when Sidebar is 'expanded' */
+    /* Sidebar border style */
 
-    :root:has(sidebar-main:is([expanded])) {
-        & #sidebar-main::before {
-            position: absolute; content: '';
-            width: -moz-available !important;
-            /* Bakground-color necessary for gradient line color 
-            background-color: var(--lwt-frame) !important;*/
-            border-block-start: 1px solid red !important;
-            /*border-inline-end: 1px solid red !important;/**/
-            border-image: linear-gradient(to right, transparent 6px, var(--my-content-border-color) 6px,
-                var(--my-content-border-color) calc(var(--my-vertical-toolbar-width) - 6px), transparent calc(var(--my-vertical-toolbar-width) - 6px),
-                transparent var(--my-vertical-toolbar-width),
-                var(--general-color) var(--my-vertical-toolbar-width),
-                /* Final gradient */
-                var(--general-color)) 1 !important;
-        }
-        & #sidebar-main:dir(rtl)::before {
-            border-image: linear-gradient(to left, transparent 6px, var(--my-content-border-color) 6px,
-                var(--my-content-border-color) calc(var(--my-vertical-toolbar-width) - 6px), transparent calc(var(--my-vertical-toolbar-width) - 6px),
-                transparent var(--my-vertical-toolbar-width),
-                var(--general-color) var(--my-vertical-toolbar-width),
-                /* Final gradient */
-                var(--general-color)) 1 !important;
-        }
+    #sidebar-main {
+        box-shadow: 0 -1px var(--general-color) !important;
+        border-inline-end: 1px solid red !important;
+        border-image: linear-gradient(to bottom,
+            var(--general-color), 
+            var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
     }
 }
 
@@ -986,15 +895,15 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
     :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([lwtheme-image],[style*="--lwt-additional-images"]) {
         & #navigator-toolbox::before,
-        & #sidebar-main,
-        &:has(sidebar-main:is([expanded])) #navigator-toolbox::before {
+        & #sidebar-main/*,
+        &:has(sidebar-main:is([expanded])) #navigator-toolbox::before/**/ {
             --lwt-frame: color-mix(in srgb, var(--toolbar-bgcolor) 50%, transparent) !important;
         }
     }
     
-    /* Simulate continuous line before 'nav-bar and bookmarks-bar' of Sidebar */
+    /* Simulate continuous line before 'nav-bar and bookmarks-bar' */
     
-    :root:not([customizing]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+    :root:not([customizing]) {
         & #navigator-toolbox::before {
             --space-before-gradient-line: calc(var(--menubar-height-personal, 0px) - 1px) !important;
             bottom: 0px !important;
@@ -1056,8 +965,20 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     #tabbrowser-tabs[orient="vertical"] {
         /* Used for pinned tabs */
         --tab-collapsed-width: var(--vertical-elements-width) !important;
-        /* used for normal tabs */
-        min-width: var(--vertical-elements-width) !important;
+        /* used for normal tabs 
+        min-width: var(--vertical-elements-width) !important;*/
+        width: var(--vertical-elements-width) !important;
+    }
+    
+    #tabbrowser-tabs[orient="vertical"] {
+        --tab-min-width: var(--vertical-elements-width) !important;
+        --tab-inline-padding: 0px !important;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        grid-gap: var(--space-small);
+        padding: 0;
     }
 
     /* Width of tabs when sidebar isn't expanded */
@@ -1093,11 +1014,6 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     }
     
     /* _____________ Various separators _____________ */
-
-    /* Separator after pinned tabs */    
-    #vertical-pinned-tabs-container-separator {
-        display: none !important;
-    }
     
     /* Margin top of the block of tabs */
     
@@ -1115,14 +1031,17 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
         }
     }
     
-    /* Tabs top separador when sidebar isn't expanded */
-    :root:has(sidebar-main:not([expanded])) {
-        & #sidebar-main::before{
-            position: absolute; content: '';
-            width: var(--my-vertical-toolbar-width);
-            border-block-start: 1px solid red !important;
-            border-image: var(--my-separator-border-style1) 1 !important;
-        }
+    /* Tabs top separador - 'sidebar-main' on left */
+    #sidebar-main::before{
+        position: absolute; content: '';
+        width: var(--vertical-elements-width);
+        border-block-start: 1px solid red !important;
+        border-image: var(--my-separator-border-style1) 1;
+    }
+    
+    /* Tabs top separador - 'sidebar-main' on right */
+    #sidebar-main[positionend]::before{
+        width: -moz-available !important;
     }
     
     #vertical-pinned-tabs-container-separator {
@@ -1273,20 +1192,6 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     }
     
     /* _________________________________________________________________________________________________________ */
-    
-    /* Fix issue when 'tools and extension' and tab scrolling appears 
-    
-    spacer[part="overflow-start-indicator"]{
-        display: none !important;
-    }*/
-    
-    /* Overwrite: Buttons size the same as the Sidebar to click on border */
-    
-    .button-background {
-      &[type~="icon"]:not(.labelled), &:not(.labelled):has(img) {
-        padding-block: 0px !important;
-        }
-    }
       
     /* _____________ Tab Preview _____________ */
 
@@ -1300,14 +1205,6 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
    _________________________________________________________________________________________________________________________________ */
 
 @media -moz-pref("sidebar.revamp")  and -moz-pref("firefoxgx.left-sidebar") and -moz-pref("sidebar.position_start") {
-    
-    /* Bug fix - unwanted toolbar bottom border */
-    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]) #navigator-toolbox {
-        border-image: linear-gradient(to right, 
-            transparent var(--vertical-elements-width), 
-            var(--general-color) var(--vertical-elements-width) , 
-            var(--toolbar-bgcolor) var(--vertical-elements-width)) 1 !important;
-    }
 
     #sidebar-main {
         background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
@@ -1326,7 +1223,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     
     /* web content */
     #tabbrowser-tabbox {
-        outline: none !important;
+        outline-color: transparent !important;
         box-shadow: none !important;
         border-radius: 0px !important;
     }
@@ -1339,8 +1236,8 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     }
     
     /* Sidebar content + web content */
-    #sidebar-box[checked="true"] ~ #tabbrowser-tabbox {
-        border-top: 1px solid var(--my-content-border-color) !important;/**/
+    #sidebar-wrapper:has(#sidebar-box[checked="true"]) ~ #tabbrowser-tabbox {
+        border-top: 1px solid var(--my-content-border-color) !important;
     }
 
     /* Web content border-top in full screen */
@@ -1355,7 +1252,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
         & #tabbrowser-tabbox,
         /* Border color around Sidebar & Sidebar content [open] */
         & #sidebar-box[checked="true"] {
-            --my-content-border-color: color-mix(in srgb, var(--toolbar-bgcolor) 90%, var(--lwt-tab-text));
+            --my-content-border-color: color-mix(in srgb, var(--contrast-color) 82%, var(--lwt-tab-text));
         }
     }
 }
@@ -1364,16 +1261,12 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 
 @media -moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.position_start")) {
     
-    :root {
-        --my-content-border-color: var(--toolbarbutton-hover-personal);
-    }
-    
     /* Border around web content */
     #tabbrowser-tabbox {
         border-block-start: 1px solid var(--my-content-border-color) !important;
     }
     
-    /* Sidebar */
+    /* #sidebar-main */
     #sidebar-main {
         border-inline-start: 1px solid var(--my-content-border-color) !important;
     }
@@ -1381,6 +1274,16 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
     /* Sidebar content */
     #sidebar {
         direction: rtl !important;
+    }
+    
+    @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
+        /* #sidebar-main */
+        :root:has(sidebar-main[expanded]) {
+            #sidebar-main {
+                border-inline-start: none !important;
+                margin-inline-end: -1px !important;
+            }
+        }
     }
 }
 
@@ -1424,7 +1327,7 @@ moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../i
 /* _____________ Border top Sidebar expanded - 'left-sidebar' + Sidebar (left or right) */
 
 @media -moz-pref("sidebar.revamp")  and -moz-pref("firefoxgx.left-sidebar") {
-    
+
     :root:has(sidebar-main:is([expanded])) {
         & #sidebar-main{
             box-shadow: inset 0 1px 0 0 var(--my-content-border-color) !important;

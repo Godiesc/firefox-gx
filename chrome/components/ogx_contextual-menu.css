@@ -36,12 +36,6 @@ menuseparator::before {
     margin-inline: -6px !important;
 }
 
-/* Bug fix: Separator after 'AI menu' causes unwanted scrolling */
-
-:root:not(:has(#context-ask-chat[hidden="true"])) #frame-sep {
-    display: flex !important;
-}
-
 @media (-moz-platform: linux) {
     menuseparator::before {
     appearance: none !important;
@@ -49,6 +43,14 @@ menuseparator::before {
     margin-inline: 6px !important;
     }
 }
+
+/* Bug fix: Separator after 'AI menu' causes unwanted scrolling */
+
+:root:has(#context-ask-chat[hidden="false"]) { 
+    --context-ask-chat-display: flex 
+}
+
+#frame-sep { display: var(--context-ask-chat-display) !important; }
 
 /* 'Menu inside menu' margin */
 

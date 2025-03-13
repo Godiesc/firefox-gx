@@ -3,10 +3,23 @@
 
 /* Remove unwanted extra tab width */
 
-.tabbrowser-tab {
-    &:is([muted], [soundplaying], [activemedia-blocked]) {
-        #tabbrowser-tabs[orient="horizontal"] &:not([pinned]) {
-            min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
+#tabbrowser-arrowscrollbox[orient="horizontal"] {
+
+    &>tab-group {
+        &:not([collapsed]) > .tabbrowser-tab {
+            &:is([muted], [soundplaying], [activemedia-blocked]) {
+                #tabbrowser-tabs[orient="horizontal"] &:not([pinned]) {
+                    min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
+                }
+            }
+        }
+    }
+    
+    &>.tabbrowser-tab {
+        &:is([muted], [soundplaying], [activemedia-blocked]) {
+            #tabbrowser-tabs[orient="horizontal"] &:not([pinned]) {
+                min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
+            }
         }
     }
 }
@@ -30,6 +43,12 @@
     }
 }
 
+/* Hide sound button when tab is pending or loading */
+
+.tabbrowser-tab:is([pending],[busy]):hover .tab-audio-button {
+    opacity: 0 !important;
+}
+
 /* General style for sound button */
 
 .button-background {
@@ -48,8 +67,8 @@
 
 @media not -moz-pref("firefoxgx.classic-sound-icon") {
 
-    /* tab on hover, and when it is 'muted' or 'media blocked' */
-    .tabbrowser-tab:hover {
+    /* Favicon trimmed on tab 'hover' when it is 'muted' or 'media blocked' */
+    .tabbrowser-tab:not([pending]):hover {
         & .tab-icon-stack:not([crashed]):is([muted],[activemedia-blocked]) {
             & :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
                 mask-image: url("../icons/tab_icon_masks.svg#SoundMask") !important;
@@ -57,14 +76,14 @@
         }
     }
 
-    /* In 'pinned' tabs when sound playing */
+    /*  Favicon trimmed in 'pinned' tabs when sound playing */
     .tab-icon-stack[pinned]:not([crashed]):is([soundplaying]) {
         & :is(.tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay) {
             mask-image: url("../icons/tab_icon_masks.svg#SoundMask") !important;
         }
     }
 
-    .tab-audio-button:is([soundplaying],[muted]) {
+    .tab-audio-button:is([soundplaying],[muted],[activemedia-blocked]) {
         --button-size-icon-small: 16px !important;
         --button-min-height-small: var(--button-size-icon-small) !important;
         --button-border-radius: 50% !important;
@@ -93,7 +112,7 @@
     
     /* Normal tabs - Muted icon */
     
-    .tab-audio-button[muted] {
+    .tab-audio-button:is([muted],[activemedia-blocked]) {
         --my-position: absolute !important;
         --my-top: calc(var(--tab-height-personal)/2 - 14px) !important;
         --my-inset-inline-start: 14px !important;
@@ -111,6 +130,10 @@
             --my-fill: var(--lwt-tab-text) !important;
             --my-opacity: 1 !important;
         }
+    }
+    
+    .tab-audio-button:is([activemedia-blocked]) {
+        --my-background-image: url("../icons/blocked.svg") !important;
     }
     
     /* Pinned tabs */
@@ -140,7 +163,7 @@
                 }
             }
             
-            &[muted] {
+            &:is([muted],[activemedia-blocked]) {
                 list-style-image: url("../icons/paused.svg") !important;
                 background-color: transparent !important;
                 padding: 4px !important;
@@ -154,6 +177,10 @@
                     list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
                 }
             }
+            
+            &:is([activemedia-blocked]) {
+                list-style-image: url("../icons/blocked.svg") !important;
+            }
         }
     }
     
@@ -161,7 +188,7 @@
 
     @media -moz-pref("sidebar.verticalTabs") {
 
-        .tab-audio-button:is([soundplaying],[muted]) {
+        .tab-audio-button:is([soundplaying],[muted],[activemedia-blocked]) {
             --button-size-icon-small: 14px !important;
             --button-min-height-small: var(--button-size-icon-small) !important;
             --my-position: absolute !important;
@@ -170,7 +197,7 @@
             --my-background-size: 8px !important;
         }
         
-        .tab-audio-button[muted] {
+        .tab-audio-button:is([muted],[activemedia-blocked]) {
             --button-size-icon-small: 16px !important;
             --my-background-size: 8px !important;
             --my-top: calc(var(--tab-height-personal)/2 - 14px) !important;
@@ -204,7 +231,7 @@
     
     /* Shared styles for mute and play button */
     
-    .tab-audio-button:is([soundplaying],[muted]) {
+    .tab-audio-button:is([soundplaying],[muted],[activemedia-blocked]) {
         --my-position: absolute !important;
     }
 
@@ -234,7 +261,7 @@
     
     /* Normal tabs - Muted icon */
     
-    .tab-audio-button[muted] {
+    .tab-audio-button:is([muted],[activemedia-blocked]) {
         --button-size-icon-small: 18px !important;
         --button-min-height-small: 18px !important;
         --my-background-image: url("chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg") !important;
@@ -266,7 +293,7 @@
 
         /* Normal tabs - Muted icon */
 
-        .tab-audio-button[muted] {
+        .tab-audio-button:is([muted],[activemedia-blocked]) {
             --my-inset-inline-start: 11px !important;
 
             &:hover {         
@@ -304,7 +331,7 @@
             }
 
             &[soundplaying]:is(:hover),
-            &[muted] {
+            &:is([muted],[activemedia-blocked]) {
                 height: 18px !important;
                 width: 18px !important;
                 padding: 3px !important;
@@ -317,7 +344,7 @@
                 fill: var(--contrast-color) !important;
             }
             
-            &[muted] {
+            &:is([muted],[activemedia-blocked]) {
                 background-color: transparent !important;
 
                 &:hover {
@@ -359,12 +386,5 @@
                 }
             }
         }
-    }
-
-    /* Hide [mute] icon when tab loads */
-
-    .tabbrowser-tab[busy]:hover .tab-icon-overlay:not([pinned]), 
-    .tabbrowser-tab[busy][pinned]:hover .tab-icon-overlay {
-        opacity: 0 !important;
     }
 }

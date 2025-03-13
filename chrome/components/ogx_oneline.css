@@ -253,21 +253,6 @@ Three buttons
   }
   
 /* ________________________________________________________________________________________________________________________________________ */
-  
-  /* fix */
-
-  :root:not([customizing]):has(sidebar-main:is([expanded])) {
-    #navigator-toolbox::before {
-      z-index: unset !important;
-    }
-  }
-  
-  :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]),
-  :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden="true"],sidebar-main[hidden]){
-    :is(#nav-bar,#toolbar-menubar) {
-      margin-inline-start: 0px !important;
-    }
-  }
    
   /* overwriting: ogx_tabs-bar */
 
@@ -606,22 +591,22 @@ Three buttons
     #toolbar-menubar[autohide="true"]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
   }
 
-  /* Bug fix: Trick to hide urlbar when menu appears (Alt key) */
-  
+  /* Bug fix: Trick to hide urlbar when menu appears */
+
   /* (Alt key) */
-  :root:has(#toolbar-menubar[autohide="true"]) #urlbar {
+
+  #toolbar-menubar[autohide="true"] ~ #nav-bar #urlbar {
     opacity: 0 !important;
     pointer-events: none !important;
   }
 
-  :root:has(#toolbar-menubar[autohide="true"][inactive="true"]) {
-    & #urlbar {
-      opacity: 1 !important;
-      pointer-events: all !important;
-    }
+  #toolbar-menubar[autohide="true"][inactive] ~ #nav-bar #urlbar {
+    opacity: 1 !important;
+    pointer-events: all !important;
   }
 
   /* Menu Always active */
+
   :root:not([sizemode="fullscreen"]):has(#toolbar-menubar[autohide="false"]) #urlbar:not([open],[focused]) {
     opacity: 0 !important;
     pointer-events: none !important;
@@ -756,7 +741,6 @@ Three buttons
   @media -moz-pref("firefoxgx.left-sidebar") and ((not -moz-pref("sidebar.verticalTabs")) or (-moz-pref("sidebar.revamp"))) {
 
     :root{ 
-      /*--my-vertical-toolbar-width: 41px;/**/
       --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;
       --vertical-elements-width: var(--padding-left-tab) !important;
     }
@@ -767,31 +751,15 @@ Three buttons
     }
   }
 
-  /* Remove hamburger-menu when left-sidebar is ON but 'hidden' */
-
-  @media -moz-pref("firefoxgx.left-sidebar") and (-moz-pref("sidebar.verticalTabs") or (-moz-pref("sidebar.revamp"))) {
-
-    :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="true"]),
-    :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden="true"],sidebar-main[hidden]) {
-
-      #PanelUI-menu-button .toolbarbutton-badge-stack,
-      #PanelUI-button{
-        display: none !important;
-      }
-    }
-  }
-
   /* ______________ 'Firefox Revamp'*/
 
-  @media ((-moz-pref("sidebar.revamp") or (-moz-pref("sidebar.verticalTabs"))) and -moz-pref("sidebar.position_start")) and (not -moz-pref("firefoxgx.left-sidebar")) {
+  @media ((-moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.verticalTabs"))) and -moz-pref("sidebar.position_start")) and (not -moz-pref("firefoxgx.left-sidebar")) {
     
-    :root:not([customizing]):not(:has(#sidebar-main[hidden="true"], sidebar-main[hidden])) {
-
+    :root:not([customizing]) {
       & #navigator-toolbox::before {
-        --space-before-gradient-line: var(--toolbar-height-personal) !important;
-        height: calc(2px + var(--tab-height-personal) + var(--bookmarksbar-height-personal, 1px)) !important;
+        bottom: 0 !important;
+        height: calc(1px + var(--windowed-top-padding, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 1px)) !important;
       }
-    }
   }
 
   }

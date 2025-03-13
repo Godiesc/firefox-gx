@@ -91,20 +91,11 @@
         --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
     }
     
-    /* Overwrite code from 'left-sidebar.css' - align image when sidebar is 'expanded' */
+    /* Overwrite code from 'left-sidebar.css' - align image of sidebar-revamp */
     
-    :root:has(sidebar-main:is([expanded])) {
-        & #sidebar-main {
-            background-position: left calc(1px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
-            background-size: auto calc(100% - 1px + var(--padding-top-left-sidebar,0px) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
-        }
-    }
-    
-    :root:not([customizing]):has(sidebar-main:is([expanded])) {
-        & #navigator-toolbox::before {
-            --space-before-gradient-line: var(--menubar-height-personal, 0px) !important;
-            height: calc(2px + var(--menubar-height-personal, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
-        }
+    #sidebar-main {
+        background-position: left calc(1px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+        background-size: auto calc(100% - 1px + var(--padding-top-left-sidebar,0px) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
     }
     
     /* Overwrite variable to fix height of buttons */
@@ -116,7 +107,7 @@
 
     /* Separator between <window controls> and other buttons */
 
-    :root:not([chromehidden~="toolbar"]):has(#toolbar-menubar[autohide="true"]) .titlebar-buttonbox::before{
+    :root:not([chromehidden~="toolbar"]) #nav-bar>.titlebar-buttonbox-container::before{
         content: ""; position: absolute !important; align-self: center !important;
         background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
         background-size: 6px 16px !important;
@@ -134,7 +125,7 @@
     @media -moz-pref("userchrome.force-window-controls-on-left.enabled"),
        (-moz-gtk-csd-reversed-placement),
        (-moz-platform: macos){
-           :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]):has(#toolbar-menubar[autohide="true"]) .titlebar-buttonbox::before{
+           :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) #nav-bar>.titlebar-buttonbox-container::before{
                margin-inline-start: calc(106px) !important;
            }
     }
@@ -172,16 +163,14 @@
     
     /* Bug fix: Trick to hide urlbar when menu appears (Alt key) */
 
-    :root:has(#toolbar-menubar[autohide="true"]) #urlbar {
+    #toolbar-menubar[autohide="true"] ~ #nav-bar #urlbar {
         opacity: 0 !important;
         pointer-events: none !important;
     }
 
-    :root:has(#toolbar-menubar[autohide="true"][inactive="true"]) {
-        & #urlbar {
-            opacity: 1 !important;
-            pointer-events: all !important;
-        }
+    #toolbar-menubar[autohide="true"][inactive] ~ #nav-bar #urlbar {
+        opacity: 1 !important;
+        pointer-events: all !important;
     }
     
 /* ___________________________________________ Makes menubar appear as overlay in the top left corner ___________________________________________
@@ -214,7 +203,8 @@
 
     /* Makes the menubar clic on top border */
     #main-menubar{
-            height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;
+        height: calc(var(--menubar-height-personal, var(--toolbar-height-personal)) - 2px) !important;
+        align-self: start !important;
     }
     
     #toolbar-menubar[autohide="true"] #main-menubar{
@@ -238,12 +228,10 @@
 
     /* ________________________________ My code - Style when menubar is always visible */
 
-    :root:has(#toolbar-menubar[autohide="false"]) {
-        & #toolbar-menubar{
-            position: initial !important;
-            height: initial !important;
-            z-index: initial;
-        }
+    #toolbar-menubar[autohide="false"] {
+        position: initial !important;
+        height: initial !important;
+        z-index: initial;
     }
 
     /* Display window controls */
@@ -254,16 +242,15 @@
 /* Gradient line under Menubar when it is active */
 
 @media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.oneline")) {
-    /* Menubar bottom separator gradient line */
     
-    :root:has(#toolbar-menubar[autohide="false"]) {
-        & #toolbar-menubar::after{
+    #toolbar-menubar[autohide="false"] {
+        &::after{
             content: ""; position: absolute !important; 
             display: flex;
             top: calc(var(--menubar-height-personal) - 1px);
             width: 70vw;
             height: initial !important;
-            z-index: 0;                                              /* My code v */
+            z-index: 0;
             border-bottom: 1px solid var(--general-color) !important;
             border-image: linear-gradient(to right,var(--general-color) 52% , transparent) 1 !important;
         }
@@ -275,8 +262,8 @@
 }
 
 @media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("firefoxgx.oneline")) {
-    :root:has(#toolbar-menubar[autohide="false"]) {
-        & #toolbar-menubar::after{
+    #toolbar-menubar[autohide="false"] {
+        &::after{
             left: var(--padding-left-tab) !important;/**/
         }
     }
