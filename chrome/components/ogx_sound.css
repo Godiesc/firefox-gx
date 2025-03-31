@@ -45,8 +45,9 @@
 
 /* Hide sound button when tab is pending or loading */
 
-.tabbrowser-tab:is([pending],[busy]):hover .tab-audio-button {
+.tabbrowser-tab:is([pending],[busy]):hover :is(.tab-audio-button, .tab-icon-overlay) {
     opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 /* General style for sound button */
@@ -57,7 +58,7 @@
     inset-inline-start: var(--my-inset-inline-start) !important;
     background-image: var(--my-background-image) !important;
     background-size: var(--my-background-size) !important;
-    box-shadow: var(--my-box-shadow) !important;
+    /*box-shadow: var(--my-box-shadow) !important;/**/
     opacity: var(--my-opacity) !important;
     fill: var(--my-fill) !important;
     outline: var(--my-outline) !important;
@@ -101,7 +102,7 @@
         --my-background-size: 10px !important;
         --my-outline: 1px solid var(--general-color) !important;
         --my-outline-offset: -2px !important;
-        --my-box-shadow: inset 0 0 0 1px var(--general-color) !important;
+        /*--my-box-shadow: inset 0 0 0 1px var(--general-color) !important;/**/
         --my-fill: var(--general-color)  !important;
         
         &:hover {
@@ -184,7 +185,7 @@
         }
     }
     
-    /* _______________ Sound icon for Vertical tabs _______________ */
+    /* _______________ Sound icon for Vertical tabs - sidebar 'expanded' _______________ */
 
     @media -moz-pref("sidebar.verticalTabs") {
 
@@ -199,7 +200,6 @@
         
         .tab-audio-button:is([muted],[activemedia-blocked]) {
             --button-size-icon-small: 16px !important;
-            --my-background-size: 8px !important;
             --my-top: calc(var(--tab-height-personal)/2 - 14px) !important;
             --my-inset-inline-start: 18px !important;
         }
@@ -218,11 +218,15 @@
     
     /* Hide favicon when mute button appears */
     
-    :root:has(.tab-audio-button[soundplaying]:hover) .tabbrowser-tab:hover .tab-icon-image,             /* Mute */
-    :root:has(.tabbrowser-tab:hover .tab-audio-button[muted]) .tabbrowser-tab:hover .tab-icon-image {   /* unMute */
-        opacity: 0 !important;
+    :root:has(.tab-audio-button[soundplaying]:hover),
+    :root:has(.tabbrowser-tab:hover .tab-audio-button:is([muted],[activemedia-blocked])) { 
+        .tabbrowser-tab:not([pending],[busy]):hover {
+            .tab-icon-image {
+                opacity: 0 !important;
+            }
+        }
     }
-    
+
     /* General style for sound button */
     
     .button-background {

@@ -873,23 +873,6 @@
                 display: none !important;
             }
         }
-                
-        .weatherInfoLink, .weatherButtonContextMenuWrapper,     /* Weather */
-        .top-site-outer>div>.top-site-button>.tile,             /* Pinned sites */
-        .ds-card,                                               /* News */
-        .card-outer .card {                                     /* Recent activity */
-            
-            background-color: var(--newtab-weather-background-color) !important;
-            /*
-            --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;
-            --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) !important;
-            --newtab-pinnedsites-background2: color-mix(in srgb, var(--general-color) 3%, var(--newtab-pinnedsites-background)) !important;
-            
-            background-image: linear-gradient(0deg, var(--newtab-pinnedsites-background2) , rgba(0,255,0,0) 64.71%),
-                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%),
-                var(--noise-urlbar-personal,none), var(--noise-urlbar-personal, none) !important;
-            background-color: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;/**/
-        }
         
         .customize-menu {
             background-image: url("../icons/urlbar-noise-dark.png") !important;

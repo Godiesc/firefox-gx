@@ -76,7 +76,7 @@
        -moz-pref("sidebar.revamp"), -moz-pref("firefoxgx.tree-tabs"), -moz-pref("firefoxgx.oneline") {
   :root {
     --my-vertical-toolbar-width: 41px ;                                                 /* 'left-sidebar' or 'tree-tabs' width */
-    --uc-sidebar-hover-width: 208px ;                                                   /* Vertical tabs expanded width*/
+    --uc-sidebar-hover-width: 200px ;                                                   /* Vertical tabs expanded width*/
   }}
 
 /* ________________________________________________ Main Image config ________________________________________________ */
@@ -122,6 +122,7 @@
 
   /* ________________ buttons background color when 'static' - 'hover' - 'click'  ________________ */
   
+  --button-smaller-bgcolor: color-mix(in srgb, var(--general-color) 25%, transparent);
   --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /* Button background color */
   --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /* Button background color when 'hover' */
   --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /* Button background color when 'active' */

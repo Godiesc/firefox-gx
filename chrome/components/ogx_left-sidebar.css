@@ -586,7 +586,7 @@
 
     :root {
         --my-content-border-color: var(--toolbarbutton-hover-personal, red) !important;              /* Border around web content */
-        --vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;     /* With of sidebar elements */
+        --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;     /* With of sidebar elements */
         
         --my-margin-inline-outer-tab: 3px;                                                      /* Tab margin inline */
         --my-margin-inline-inner-tab: calc(var(--my-margin-inline-outer-tab) + 1px);            /* Tab margin inline */
@@ -650,14 +650,14 @@
     
     .wrapper {
         background-color: transparent !important;
-        min-width: var(--vertical-elements-width) !important;
+        min-width: var(--my-vertical-elements-width) !important;
         margin-inline: 0px !important;
         padding: 0px !important;
     }
     
     .actions-list {
         appearance: none !important;
-        min-width: var(--vertical-elements-width) !important;
+        min-width: var(--my-vertical-elements-width) !important;
         padding-inline: 0px !important;
     }
 
@@ -681,7 +681,7 @@
 
     .actions-list {
         & > moz-button {
-            --my-min-width: var(--vertical-elements-width) !important;
+            --my-min-width: var(--my-vertical-elements-width) !important;
             --button-size-icon: 36px !important;
             --button-background-color-ghost-hover: transparent !important;
             --button-background-color-ghost-active: transparent !important;
@@ -706,13 +706,13 @@
         --border-radius-medium: 4px !important;
     }
     
-    /* Tool open */
+    /* Tool 'open' */
     
     .button-background[type="icon"] img {
         fill: white !important;
         background-color: var(--button-hover-bgcolor) !important;
-        padding: 5px !important;
-        border-radius: 4px !important;
+        box-shadow: 0 0 0 5px var(--button-hover-bgcolor) !important;
+        border-radius: 0.1px !important;
     }
     
     /* Zoom effect */
@@ -789,6 +789,117 @@
     .search-container input:focus-visible {
         outline: 1px solid var(--general-color) !important;
         border-color: var(--general-color) !important;
+    }
+    
+    /* _______________________________ Autohide tools-and-extensions when Vertical tabs are enable _______________________________ 
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    
+    @media -moz-pref("sidebar.verticalTabs")  and (not -moz-pref("firefoxgx.oneline")) {
+
+        /* Hide tools except for the last one 'configuration' */
+        .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child),
+        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child) {
+            opacity: 0 !important;
+            transform: translateY(10px) !important;
+            visibility: collapse !important;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
+        }
+
+        /* Hide tools except for the last one 'configuration' */
+        .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child),
+        .actions-list[orientation="horizontal"]:is(:hover) moz-button[type="icon ghost"]:not(:first-child) {
+            opacity: 1 !important;
+            transform: translateY(0px) !important;
+            visibility: visible !important;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
+        }
+
+        /* Transition for 'configuration' button when other tool is open */
+
+        .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list:not(:hover) moz-button[type="icon ghost"]:is(:last-child),
+        .wrapper:has(.actions-list[orientation="horizontal"] moz-button[type="icon"]) .actions-list:not(:hover) moz-button[type="icon ghost"]:is(:first-child){
+            opacity: 0 !important;
+            visibility: collapse !important;
+            transform: translateY(10px) !important;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
+        }
+
+        .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list:is(:hover) moz-button[type="icon ghost"]:is(:last-child),
+        .wrapper:has(.actions-list[orientation="horizontal"] moz-button[type="icon"]) .actions-list:is(:hover) moz-button[type="icon ghost"]:is(:first-child) {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0px) !important;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
+        }
+
+        /* Active tool always in the last position */
+
+        moz-button[type="icon"] {
+            .actions-list[orientation="vertical"] & {
+                order: 1 !important;
+            }
+
+            .actions-list[orientation="horizontal"] & {
+                order: -1 !important;
+            }
+        }
+
+        /*__________________ 'Tools and extensions' when sidebar is expanded */
+
+        .actions-list[orientation="horizontal"] {
+            padding-block-end: 0px !important;
+            gap: 0px !important; /* important - Remove unwanted margin, 5+ icons*/
+        }
+        
+        sidebar-main {
+            --my-flex-direction: column;
+            --my-button-outer-padding-block-end: 0px;
+        }
+        sidebar-main[expanded] {
+            --my-flex-direction: row-reverse;
+            --my-button-outer-padding-block-end: 2px;
+        }
+
+        .button-background.labelled > label {
+            display: none !important;
+        }
+
+        /* Makes the vertical tools display horizontal when sidebar is 'expanded' */
+
+        .actions-list[orientation="vertical"] {
+            /* Makes icons show horizonal */
+            flex-direction: var(--my-flex-direction) !important;
+            flex-wrap: wrap;
+            justify-content: flex-end !important;
+            
+            
+
+            & > moz-button:not(.tools-overflow) {
+                /* Makes icons show horizonal */
+                width: unset !important;
+                --my-padding-inline: calc((var(--button-size-icon) - var(--icon-size-default)) / 2 - var(--border-width) + 3px);
+                --button-outer-padding-block-start: 0px !important;
+                --button-outer-padding-block-end: var(--my-button-outer-padding-block-end) !important;
+            }
+        }
+
+        .expanded-button.tools-overflow {
+            --my-padding-inline: calc((var(--button-size-icon) - var(--icon-size-default)) / 2 - var(--border-width) + 3px);
+        }
+        
+        button > .button-background {
+            padding-inline: var(--my-padding-inline, 0px) !important;
+            border-inline-width: 0px !important; /* important - Remove unwanted margin, 5- icons */
+        }
+
+        /* Transition delay when sidebar has 'Expand-on-hover' feature */
+
+        @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
+
+            .actions-list moz-button[type="icon ghost"] {
+                transition-delay: var(--uc-tabs-hide-animation-duration) !important;
+            }
+        }
     }
 }
 
@@ -895,8 +1006,7 @@
 
     :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):is([lwtheme-image],[style*="--lwt-additional-images"]) {
         & #navigator-toolbox::before,
-        & #sidebar-main/*,
-        &:has(sidebar-main:is([expanded])) #navigator-toolbox::before/**/ {
+        & #sidebar-main {
             --lwt-frame: color-mix(in srgb, var(--toolbar-bgcolor) 50%, transparent) !important;
         }
     }
@@ -911,10 +1021,10 @@
         }
     }
     
-    /* New height of tab */
+    /* Space between tabs */
     #tabbrowser-tabs[orient="vertical"] {
         & .tabbrowser-tab {
-            padding-block-end: 1px !important; /* Space between tabs */
+            padding-block-end: 0px !important;
         }
     }
     
@@ -922,94 +1032,68 @@
     
     /* New selected tab shape */
     
-    .tab-background {
-        border-block-end: 1px solid transparent !important;
-        border-radius: 0 !important;
-        clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
-    }
-
-    .tab-stack::before {
-        border-radius: 0 !important;
-        clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);   
+     .tabbrowser-tab,
+    tab-group .tabbrowser-tab {
+        --my-tab-background-clip: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
+        --my-tab-stack-clip: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
     }
     
-    /* ___________ Tab 'hover' background-color */
+    .tab-background {
+        border-block-end: 1px solid transparent !important;
+    }
+    
+    /* ___________ Smaller pinned tab when sidebar is expanded */
+    
+    :root:has(sidebar-main:is([expanded])) #tabbrowser-tabs #vertical-pinned-tabs-container {
+        grid-template-columns: repeat(auto-fit, minmax(var(--my-vertical-elements-width), var(--my-vertical-elements-width))) !important;
+    }
+    
+    /*  Pinned tab 'hover' background */
     
     #vertical-pinned-tabs-container {
         & .tab-background {
             .tabbrowser-tab:is(:hover) > .tab-stack > &:not([selected], [multiselected]) {
-                background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+                background-color: var(--button-smaller-bgcolor) !important;
             }
         }
     }
     
-    .tabbrowser-tab:not([selected],[multiselected],[visuallyselected])> .tab-stack .tab-background,
-    .tabbrowser-tab[multiselected]:not([selected]) .tab-background {
-        clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
-    }
-    
     /* Padding to the tab-stack to keep righ-click on tab border */
+    
     .tabbrowser-tab[visuallyselected] > .tab-stack::before{
         margin-inline: var(--my-margin-inline-inner-tab) !important;
         border-radius: 0px !important;
     }
     
-    /* Remove unwanted background-color of pinned tabs */
+    /* Remove unwanted pinned tabs background */
     
     #vertical-pinned-tabs-container .tab-background:not([selected], [multiselected]) {
         background-color: transparent !important;
     }
     
-    /* Tabs container width */
+    /* Tabs width */
 
     #tabbrowser-tabs[orient="vertical"] {
-        /* Used for pinned tabs */
-        --tab-collapsed-width: var(--vertical-elements-width) !important;
-        /* used for normal tabs 
-        min-width: var(--vertical-elements-width) !important;*/
-        width: var(--vertical-elements-width) !important;
-    }
-    
-    #tabbrowser-tabs[orient="vertical"] {
-        --tab-min-width: var(--vertical-elements-width) !important;
-        --tab-inline-padding: 0px !important;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-        align-content: flex-start;
-        grid-gap: var(--space-small);
-        padding: 0;
-    }
+        
+        /* Tabs container width */
+        --tab-collapsed-width: var(--my-vertical-elements-width) !important;    /* For pinned tabs */
+        width: var(--my-vertical-elements-width) !important;                    /* For normal tabs */
 
-    /* Width of tabs when sidebar isn't expanded */
-    
-    #tabbrowser-tabs[orient="vertical"] {
+        /* Width of tabs when sidebar isn't expanded */
         .tab-background {
-            --tab-collapsed-background-width: calc(var(--vertical-elements-width) - var(--my-margin-inline-inner-tab)*2) !important;
             margin-inline: var(--my-margin-inline-inner-tab) !important;
-            min-width: calc(var(--vertical-elements-width) - var(--my-margin-inline-inner-tab)*2) !important;
         }
     }
-    
-    /* Center .tab-content */
 
-    #tabbrowser-tabs[orient="vertical"] {
-        & .tab-content {
-            --tab-inline-padding: calc(var(--vertical-elements-width)/2 - 8px) !important;
-        }
-    }
-    
-    /* Center tabs when Sidebar is expanded */
-    
-    sidebar-main[expanded] > #vertical-tabs > #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab {
-        max-width: 100% !important;
-    }
-    
-    /* Remove unwanted margin of pinned tabs when Sidebar is expanded */
+    /* Remove unwanted margin of pinned tabs */
     
     #tabbrowser-tabs[orient="vertical"] {
         & #vertical-pinned-tabs-container {
             padding-inline: 0px 0px !important;
+            
+            .tabbrowser-tab {
+                padding-block: 0px !important;
+            }
         }
     }
     
@@ -1018,32 +1102,30 @@
     /* Margin top of the block of tabs */
     
     #vertical-tabs {
-        padding-block-start: 4px !important;
+        padding-block-start: 7px !important;
     }
     
       /* Separator bottom when tabs scroll appears */
     #tabbrowser-tabs[orient="vertical"] {
         &[overflow]::after {
-            content: "";
-            border-bottom: var(--tabstrip-inner-border);
             margin-inline: 0px !important;
             border-image: var(--my-separator-border-style1) 1 !important;
         }
     }
-    
+
     /* Tabs top separador - 'sidebar-main' on left */
     #sidebar-main::before{
         position: absolute; content: '';
-        width: var(--vertical-elements-width);
+        width: var(--my-vertical-elements-width);
         border-block-start: 1px solid red !important;
         border-image: var(--my-separator-border-style1) 1;
     }
-    
+
     /* Tabs top separador - 'sidebar-main' on right */
     #sidebar-main[positionend]::before{
         width: -moz-available !important;
     }
-    
+
     #vertical-pinned-tabs-container-separator {
         #tabbrowser-tabs:not([expanded]) #vertical-pinned-tabs-container:not(:empty) > &, #vertical-pinned-tabs-container:not(:empty) + & {
             margin-inline: 0px !important;
@@ -1051,152 +1133,84 @@
             border-image: var(--my-separator-border-style1) 1 !important;
         }
     }
-    
-    /* _____________ New Tab button _____________ */
+
+    /* _______________________________________ New Tab button _______________________________________ */
 
     /* Width when sidebar isn't expanded */    
     #tabbrowser-tabs:not([expanded]) {
-        & #tabbrowser-arrowscrollbox[orient="vertical"] > #tabbrowser-arrowscrollbox-periphery > #tabs-newtab-button,
+        & #tabs-newtab-button,
         & #vertical-tabs-newtab-button{
             &:not([expanded]) {
-                width: var(--vertical-elements-width) !important;
+                width: var(--my-vertical-elements-width) !important;
             }
         }
     }
 
     /* style */    
-    #tabs-newtab-button .toolbarbutton-icon,
-    #vertical-tabs-newtab-button .toolbarbutton-icon{
-        height: 20px !important;
-        width: 20px !important;
-        padding: 2px !important;
-        border-radius: 2px !important;
-    }
-
-    /* Container */
-    #tabbrowser-arrowscrollbox[orient="vertical"] > #tabbrowser-arrowscrollbox-periphery > #tabs-newtab-button,
+    #tabs-newtab-button,
     #vertical-tabs-newtab-button {
-        fill: var(--general-color) !important;
-        border-radius: 0px !important;
         margin-inline: 0px !important;
-    }
+        border-radius: 0px !important;
+        fill: var(--general-color) !important;
 
-    /* on 'hover' */
-    #tabbrowser-arrowscrollbox[orient="vertical"] > #tabbrowser-arrowscrollbox-periphery > #tabs-newtab-button:hover,
-    #vertical-tabs-newtab-button:hover {
-        background-color: transparent !important;
-    }
-
-    #vertical-tabs-newtab-button:hover .toolbarbutton-icon{
-        background: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
-        border-radius: 2px !important;
+        &:hover {
+            background-color: transparent !important;
+            
+            & .toolbarbutton-icon{
+                background: var(--button-smaller-bgcolor) !important;
+                outline: 2px solid var(--button-smaller-bgcolor) !important;
+                border-radius: 1px !important;
+                transition-duration: 0ms !important;
+            }
+        }
     }
     
-    /* _____________ 'Newtab' button style when Sidebar is expanded _____________ */
+    /* _____________ 'Newtab' button style when Sidebar is expanded */
     
     sidebar-main:is([expanded]) {
         & #tabs-newtab-button,
         & #vertical-tabs-newtab-button {
-            padding-inline: calc(var(--vertical-elements-width) / 2 - 16px) !important;
+            padding-inline: calc(var(--my-vertical-elements-width) / 2 - 16px) !important;
+            border-radius: 0px !important;
+            
+            &:hover .toolbarbutton-icon {
+                outline: none !important;
+            }
 
             & .toolbarbutton-icon {
-                width: 26px !important; 
+                width: 27px !important; 
                 height: 24px !important;
                 padding-inline-start: 8px !important;
-                padding-block: 4px !important;
-                border-radius: 3px 0px 0px 3px !important;
+                padding-block: 4px 4px !important;
                 transition: none !important;
+                border-radius: 3px 0 0 3px !important;
             }
 
             & .toolbarbutton-text {
                 align-content: center !important;
                 height: 24px !important;
-                padding-inline-start: 6px !important;
+                padding-inline-start: 2px !important;
                 border-radius: 0px 3px 3px 0px !important;
             }
 
             &:hover .toolbarbutton-text  {
-                background: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+                background: var(--button-smaller-bgcolor) !important;
+            }
+        }
+        
+        /* Reset newtab button size when tabs overflow */
+        & #vertical-tabs-newtab-button {
+            & .toolbarbutton-icon {
+                width: initial !important;
+                padding-inline-end: 4px !important;
             }
         }
     }
-    
-    /* _______________________________________ Tools and extensions _______________________________________ */
-    
-    /* Hide scrollbar */    
-    
-    .actions-list {
-        /*border-top: 1px solid var(--general-color) !important;/**/
-        border-image: var(--my-separator-border-style1) 1 !important;
-        overflow-y: hidden !important;
-        transition: opacity 0.2s ease-in-out, visibility 0.4s ease, transform 0.4s ease;
-    }
-    
-    /* Hide tools except for the last one 'configuration' */
-    .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child) {
-        opacity: 0 !important;
-        transform: translateY(10px) !important;
-        visibility: collapse !important;
-        transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
-    }
-    
-    /* Hide tools except for the last one 'configuration' */
-    .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child) {
-        opacity: 1 !important;
-        /*height: 0px !important;/**/
-        transform: translateY(0px) !important;
-        visibility: visible !important;
-        transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
-    }
-    
-    /* Transition for 'configuration' button when other tool is open */
-         
-    .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list:not(:hover) moz-button[type="icon ghost"]:is(:last-child) {
-        opacity: 0 !important;
-        visibility: collapse !important;
-        transform: translateY(10px) !important;
-        transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
-    }
-    
-    .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list:is(:hover) moz-button[type="icon ghost"]:is(:last-child) {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translateY(0px) !important;
-        transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
-    }
-
-    /* Keep active tool in latest position */
-    .actions-list[orientation="vertical"] moz-button[type="icon"] {
-        order: 1 !important;
-    }
-    
-    /*__________________ 'Tools and extensions' when sidebar is expanded */
-    
-    .actions-list[orientation="horizontal"] {
-        padding-inline: 0px !important;
-        padding-block-end: 0px !important;
-    }
-    
-    .button-background {
-        padding-inline: var(--my-padding-inline) !important;
-    }
-    
-    .expanded-button.tools-overflow {
-        --my-padding-inline: calc((var(--button-size-icon) - var(--icon-size-default)) / 2 - var(--border-width) + 2px);
-    }
-    
-    /* overwrite fix - tool open when sidebar is expanded */
-    
-    .button-background[type="icon"] img {
-        margin-inline: -5px !important;
-    }
-    
-    /* _________________________________________________________________________________________________________ */
       
     /* _____________ Tab Preview _____________ */
 
     #tab-preview-panel {
-        margin-block-start: -6px !important;
+        margin-block-start: -4px !important;
         margin-inline-start: 0px !important;
     }
 }

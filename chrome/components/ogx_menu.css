@@ -441,7 +441,7 @@
             :root:not([chromehidden~="toolbar"]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])){
 
                 --my-menu-button-height: var(--toolbar-height-personal) !important;                                 /* New Menu height */
-                --padding-left-tab: var(--vertical-elements-width) !important;                                      /* Menu with smaller */
+                --padding-left-tab: var(--my-vertical-elements-width) !important;                                      /* Menu with smaller */
                 --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 10px) !important;         /* New margin-left for menu items */
                 --margin-right-icons-personal: 2px !important;
             }

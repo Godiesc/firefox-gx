@@ -94,7 +94,7 @@
    
    @media -moz-pref("sidebar.revamp") {      
       #sidebar {
-         background-color: color-mix(in srgb, var(--contrast-color), var(--toolbar-bgcolor)) !important;
+         background-color: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;
          backdrop-filter: var(--personal-blur) !important;
       }
       #bookmarksPanel {

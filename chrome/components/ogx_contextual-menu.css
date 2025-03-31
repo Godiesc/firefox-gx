@@ -46,11 +46,11 @@ menuseparator::before {
 
 /* Bug fix: Separator after 'AI menu' causes unwanted scrolling */
 
-:root:has(#context-ask-chat[hidden="false"]) { 
-    --context-ask-chat-display: flex 
+:root:has(#context-ask-chat[hidden="true"]) { 
+    --context-ask-chat-display: none; 
 }
 
-#frame-sep { display: var(--context-ask-chat-display) !important; }
+#context-ask-chat + #frame-sep { display: var(--context-ask-chat-display, flex) !important; }
 
 /* 'Menu inside menu' margin */
 

@@ -79,7 +79,7 @@
   --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
   
   --urlbar-icon-padding: 4px !important;                                                /* Urlbar icon padding */
-  --panel-separator-color: var(--general-color) !important;                             /* Bookmarks-bar menu separator color */
+  /*--panel-separator-color: var(--general-color) !important;                           /* Bookmarks-bar menu separator color */
   
   --urlbar-popup-url-color: var(--general-color) !important;                            /* 'Search suggestions' urls color */
   --autocomplete-popup-hover-background: var(--button-bgcolor) !important;              /* 'Search suggestions' urls 'hover' color */

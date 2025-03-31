@@ -7,7 +7,7 @@
 }
 
 .tab-close-button {
-        list-style-image: url('../icons/close.svg') !important;
+    list-style-image: url('../icons/close.svg') !important;
 }
 
 @media not -moz-pref("sidebar.verticalTabs") {
@@ -37,18 +37,14 @@
 }
 
 #tabbrowser-tabs[orient="vertical"] {
-    
-    &:is([selected]):not(:hover) {
-        opacity: 0 !important;
-    }
-    
     &:not([expanded]) {
         & .tab-close-button {
-            width: 14px !important;
-            height: 14px !important;
+            width: 12px !important;
+            height: 12px !important;
             background: var(--general-color) !important;
-            padding: 3px !important;
+            padding: 2px !important;
             fill: var(--contrast-color) !important;
+            top: -2px !important;
             
             &:hover {
                 background: var(--lwt-tab-text) !important;
