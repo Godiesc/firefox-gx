@@ -173,7 +173,7 @@
                var(--lwt-additional-images), var(--lwt-header-image) !important;
             background-size: 100vw 100vh !important;
             background-attachment: fixed !important;
-            width: var(--vertical-elements-width) !important;
+            width: var(--my-vertical-elements-width) !important;
             height: calc(var(--toolbar-height-personal) + 1px) !important;
          }
       }

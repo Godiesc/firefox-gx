@@ -742,7 +742,7 @@ Three buttons
 
     :root{ 
       --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;
-      --vertical-elements-width: var(--padding-left-tab) !important;
+      --my-vertical-elements-width: var(--padding-left-tab) !important;
     }
 
     /* Gradient line */
