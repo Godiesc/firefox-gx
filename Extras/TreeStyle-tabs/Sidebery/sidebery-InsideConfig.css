@@ -2,13 +2,13 @@
     --tabs-border-radius: 4px;
     --tabs-indent: 12px;
     --tabs-margin: 0px;
-    --tabs-pinned-width: var(--vertical-elements-width);
+    --tabs-pinned-width: var(--my-vertical-elements-width);
 
 
     /* Sidebar variables */
 
     --my-vertical-toolbar-width: 41px !important;
-    --vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px);    
+    --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px);    
     --uc-margin-inline: 3px;
 }
 
@@ -70,7 +70,7 @@ body:not(:hover) {
     padding-inline: 0px 10px;
 
     & .tool-btn {
-        padding-inline-start: calc(var(--vertical-elements-width)/2 - 8px);
+        padding-inline-start: calc(var(--my-vertical-elements-width)/2 - 8px);
         padding-block-end: 4px;
     }
 }
@@ -114,7 +114,7 @@ body:not(:hover) {
 /* Margins to center favicon */
 
 .Tab[data-pin="false"] .fav {
-    margin-inline-start: calc(var(--vertical-elements-width)/2 - 11px);
+    margin-inline-start: calc(var(--my-vertical-elements-width)/2 - 11px);
 }
 
 /* Remove indent tab [0] */
@@ -143,8 +143,8 @@ body:hover .ScrollBox .Tab[data-lvl]:not([data-lvl="0"]) {
 
 .PinnedTabsBar {
     --uc-tabs-pinned-width: calc(var(--my-vertical-toolbar-width) - 3px);
-    min-width: var(--uc-sidebar-hover-width);
-    max-width: var(--uc-sidebar-hover-width);
+    min-width: calc(var(--uc-sidebar-hover-width) * var(--my-vertical-elements-width));
+    max-width: calc(var(--uc-sidebar-hover-width) * var(--my-vertical-elements-width));
     margin-block: 4px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--uc-tabs-pinned-width), var(--uc-tabs-pinned-width))) !important;
@@ -157,15 +157,15 @@ body:hover .ScrollBox .Tab[data-lvl]:not([data-lvl="0"]) {
 /* Pinned selected tab always showed */
 
 body:not(:hover) .PinnedTabsBar .tab-wrapper:has(.Tab[data-active="true"]) {
-    &:nth-child(-n+18) {
+    &:nth-child(-n+15) {
         grid-row-start: 3;
         grid-column-start: 1;
     }
-    &:nth-child(-n+12) {
+    &:nth-child(-n+10) {
         grid-row-start: 2;
         grid-column-start: 1;
     }
-    &:nth-child(-n+6) {
+    &:nth-child(-n+5) {
         grid-row-start: 1;
         grid-column-start: 1;
     }
