@@ -754,13 +754,13 @@ Three buttons
   /* ______________ 'Firefox Revamp'*/
 
   @media ((-moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.verticalTabs"))) and -moz-pref("sidebar.position_start")) and (not -moz-pref("firefoxgx.left-sidebar")) {
-    
+
     :root:not([customizing]) {
       & #navigator-toolbox::before {
         bottom: 0 !important;
         height: calc(1px + var(--windowed-top-padding, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 1px)) !important;
       }
+    }
   }
-
-  }
+}
 }

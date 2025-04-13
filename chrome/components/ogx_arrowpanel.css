@@ -17,6 +17,12 @@ slot {
     box-shadow: none !important;
 }
 
+/* Remove unwanted styles applied to the sidebar configuration _^ */
+
+.nested {
+    box-shadow: none !important;
+}
+
 /* Gradient border around arrowpanels */
 
 panelmultiview {
@@ -145,7 +151,6 @@ toolbar .text-link:hover, panel .text-link:hover {
 #sidebar-box {
     max-width: none !important;
     min-width: 1px !important;
-    margin-inline-start: 0px !important; /* When sidebar is on right side */
 }
 
 /* Splitter width */
@@ -155,6 +160,9 @@ toolbar .text-link:hover, panel .text-link:hover {
         .sidebar-splitter {
             --splitter-width: 4px !important;
         }
+    }
+    #sidebar-box[sidebar-positionend] {
+        margin-inline-start: 0px !important; /* When sidebar is on right side */
     }
 }
 
@@ -168,8 +176,8 @@ treechildren::-moz-tree-separator {
 
 /* 'Monitor' and 'Relay' items from account dropdown menu */
 
-#PanelUI-fxa-cta-menu .fxa-cta-button {
-    margin: var(--space-xsmall) 0px var(--space-xsmall) 0px !important;
+#PanelUI-fxa-menu .fxa-cta-button {
+    margin-inline: 0 !important;
     padding-inline-start: 4px !important;
 }
 

@@ -1,7 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media -moz-pref("firefoxgx.tree-tabs") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.oneline"))) {
+@media -moz-pref("firefoxgx.tree-tabs") and ((not -moz-pref("sidebar.verticalTabs")) /*and (not -moz-pref("firefoxgx.oneline"))/**/) {
     
 /* __________________________________________________________ For Tree-tabs extensions __________________________________________________________
    _________________________ https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/hide_tabs_toolbar_v2.css _________________________ */
@@ -56,7 +56,7 @@
 /* ___________________________________________________________________________________________________________________________________________ 
    ___________________________________________________________________________________________________________________________________________ */
 
-@media /*(not (-moz-bool-pref:"firefoxgx.tree-tabs")) and/**/ -moz-pref("sidebar.verticalTabs") and (not -moz-pref("firefoxgx.oneline")) {   
+@media /*(not (-moz-bool-pref:"firefoxgx.tree-tabs")) and/**/ -moz-pref("sidebar.verticalTabs") /*and (not -moz-pref("firefoxgx.oneline")) /**/{   
 
     /* ¡Necessary for the hamburger button to be above the sidebar */
         
@@ -76,7 +76,7 @@
 
 /* ______________________________________________ Code for both 'tree-tabs' or 'Firefox vertical tabs' _______________________________________________ */
 
-@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.oneline")) {
+@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) /*and (not -moz-pref("firefoxgx.oneline"))/**/ {
     
     /* My Personal Variables */
 
@@ -96,6 +96,10 @@
     #sidebar-main {
         background-position: left calc(1px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
         background-size: auto calc(100% - 1px + var(--padding-top-left-sidebar,0px) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
+        
+        &[sidebar-positionend] {
+            background-position-x: right !important;
+        }
     }
     
     /* Overwrite variable to fix height of buttons */
@@ -241,49 +245,23 @@
 
 /* Gradient line under Menubar when it is active */
 
-@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.oneline")) {
+@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) /*and (not -moz-pref("firefoxgx.oneline"))/**/ {
     
     #toolbar-menubar[autohide="false"] {
         &::after{
             content: ""; position: absolute !important; 
             display: flex;
             top: calc(var(--menubar-height-personal) - 1px);
-            width: 70vw;
+            width: 100%;
             height: initial !important;
             z-index: 0;
             border-bottom: 1px solid var(--general-color) !important;
-            border-image: linear-gradient(to right,var(--general-color) 52% , transparent) 1 !important;
+            border-image: linear-gradient(to right,var(--general-color) 40%, transparent 90%) 1 !important;
         }
         
         & #main-menubar{
             height: var(--menubar-height-personal);
         }
-    }
-}
-
-@media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("firefoxgx.oneline")) {
-    #toolbar-menubar[autohide="false"] {
-        &::after{
-            left: var(--padding-left-tab) !important;/**/
-        }
-    }
-}
-
-/* ______________________________________________________________________________________________________________________________________________ */
-
-/* __________________________ Bookmarks-bar same color of Nav-bar */
-
-@media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("firefoxgx.left-sidebar")) and (not -moz-pref("firefoxgx.oneline")) {
-    :root:not([chromehidden~="toolbar"]) :is(#PersonalToolbar, #nav-bar) {
-        background-color: var(--toolbar-bgcolor) !important;
-    }
-}
-
-/* __________________________ Nav-bar color when 'Firefox vertical tabs' + 'left-sidebar' */
-
-@media -moz-pref("sidebar.verticalTabs") and -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("firefoxgx.oneline")) {
-    :root:not([chromehidden~="toolbar"]) :is(#nav-bar) {
-        background-color: var(--toolbar-bgcolor) !important;
     }
 }
 
@@ -294,17 +272,10 @@
         --padding-top-left-sidebar: calc(var(--toolbar-height-personal) + var(--tab-height-personal) + var(--menubar-height-personal, 0px) + 15px) !important;
         --padding-bottom-left-sidebar: calc(var(--menubar-height-personal, 0px) + 10px) !important;
     }
-}
 
-/* __________________________ toolbar_bottom_separator when not using 'Firefox vertical tabs' 
-
-@media (-moz-bool-pref:"firefoxgx.tree-tabs") and (not (-moz-bool-pref:"sidebar.revamp")) {
+    /* Nav-bar & boolmarks-bar background color */
     
-    #navigator-toolbox {
-        border-bottom-color: color-mix(in srgb, var(--toolbar-bgcolor) 90%, var(--lwt-tab-text)) !important;
+    .browser-toolbar:not(#toolbar-menubar) {
+        background-color: color-mix(in srgb, var(--toolbar-bgcolor) 100%, transparent) !important;
     }
-
-    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #navigator-toolbox {
-        border-bottom-color: color-mix(in srgb, var(--lwt-tab-text) 14%, var(--contrast-color)) !important;
-    }
-}*/
+}

@@ -245,22 +245,24 @@
     }
     
     .logo{
-        background: url("../icons/foxmenu.svg") no-repeat center !important;
-        background-size: 64px !important;
+        background: url("../icons/foxlogonewtab.svg") no-repeat center !important;
+        background-size: 100% 100% !important;
         -moz-context-properties: fill !important;
         fill: var(--general-color) !important;
-        transform: scale(0.8) !important;
+        transform: scale(1) !important;
         }
 
     .wordmark {
         fill: var(--general-color) !important;
         }
 
-    .logo-and-wordmark {
-        Opacity: var(--logo-wordmark-visibility) !important;
-        display: var(--logo-wordmark-display) !important;
-        margin-bottom: 10px !important;
+    @media (height < 700px) {
+        body:not(.inline-onboarding) .fixed-search .search-wrapper .logo-and-wordmark {
+            Opacity: var(--logo-wordmark-visibility) !important;
+            display: var(--logo-wordmark-display) !important;
+            margin-bottom: 10px !important;
         }
+    }
 
     .promo-cta .button {
         color: #cacaca !important; 
@@ -665,11 +667,11 @@
 
         /* Title label just in one line */
         
-        .top-site-outer:hover .title:not(.sponsored) .title-label {
+        .top-site-outer .title:not(.sponsored) .title-label {
             -webkit-line-clamp: unset !important;
         }
         
-        .top-site-outer:is(:hover,:focus-within) span[dir="auto"] {
+        .top-site-outer span[dir="auto"] {
             text-wrap-mode: nowrap !important;
         }
         

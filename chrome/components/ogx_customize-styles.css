@@ -59,7 +59,7 @@
 @media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
     @media not (-moz-gtk-csd-reversed-placement) {
         #customization-panelWrapper > .panel-arrowbox > .panel-arrow[side="top"] {
-            margin-inline-end: calc(158px + var(--customization-panel-padding)) !important;
+            margin-inline-end: calc(154px + var(--customization-panel-padding)) !important;
         }
     }
 }

@@ -233,6 +233,24 @@
          }
       }
       
+      /* When using default 'expand-on-hover' */
+      
+      :root[sidebar-expand-on-hover] {
+         #sidebar-main {
+            background-image: linear-gradient(transparent, transparent),
+               var(--lwt-additional-images), var(--lwt-header-image) !important;
+            background-color: transparent !important;
+         }
+         #navigator-toolbox::before {
+            
+         }
+      }
+      
+      /* Remove unwanted background 'menubar' always active */
+      #toolbar-menubar[autohide="false"] {
+         background-color: transparent !important;
+      }
+      
       /* Put image in sidebar when expand-on-hover */
       
       @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {

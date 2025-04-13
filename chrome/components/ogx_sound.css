@@ -185,7 +185,7 @@
         }
     }
     
-    /* _______________ Sound icon for Vertical tabs - sidebar 'expanded' _______________ */
+    /* Sound icon for Vertical tabs - sidebar 'expanded' */
 
     @media -moz-pref("sidebar.verticalTabs") {
 
@@ -212,7 +212,8 @@
     }
 }
 
-/* ________________________________________________ Classic Sound icon ________________________________________________*/
+/* _____________________________________________________ Classic Sound icon _____________________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @media -moz-pref("firefoxgx.classic-sound-icon") {
     
@@ -389,6 +390,56 @@
                     inset-inline-end: -2px !important;
                 }
             }
+        }
+    }
+}
+
+/* ______________________________________ Sound icon when using default 'expand-on-hover' _______________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+.tab-icon-overlay {
+    @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+        #tabbrowser-tabs[orient="vertical"][expanded] &:not([crashed]) {
+            &:is([soundplaying],[muted],[activemedia-blocked]) {
+                height: 12px !important;
+                width: 12px !important;
+                background: transparent !important;
+                list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
+                outline: 1px solid var(--general-color) !important;
+                outline-offset: -1px !important;
+                box-shadow: inset 0 0 0 1px var(--general-color) !important;
+                fill: var(--general-color)  !important;
+                inset-inline-end: -8px !important;
+                top: -4px !important;
+
+                &:hover {
+                    outline: 1px solid var(--lwt-tab-text) !important;
+                    fill: var(--lwt-tab-text) !important;
+                }
+            }
+            &:is([muted],[activemedia-blocked]) {
+                list-style-image: url("../icons/paused.svg") !important;
+                background: transparent !important;
+                fill: var(--lwt-tab-text) !important;
+                outline-color: var(--lwt-tab-text) !important;
+                box-shadow: none !important;
+
+                &:hover {
+                    list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
+                }
+            }
+            
+            &:is([activemedia-blocked]) {
+                list-style-image: url("../icons/blocked.svg") !important;
+            }
+        }
+    }
+}
+
+.tab-throbber, .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay, .tab-icon-overlay {
+    @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+        #tabbrowser-tabs[orient="vertical"][expanded] /*.tabbrowser-tab:not([pinned])/**/ & {
+            margin-inline-end: 6px !important;
         }
     }
 }

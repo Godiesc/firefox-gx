@@ -196,8 +196,7 @@
   --lwt-background-alignment: right top, left top, right top !important;                                         /* Image alignment */
   --chrome-content-separator-color: color-mix(in srgb, 
     var(--toolbar-bgcolor) 84%, var(--contrast-color)) !important;                                               /* toolbar_bottom_separator */
-  }
-}
+  }}
 
 @media (prefers-color-scheme: light){
   :root:is([lwtheme-image],[style*="--lwt-additional-images"]){
@@ -314,7 +313,7 @@
 
 :root[uidensity="compact"] {
 
-  --tab-height-personal: 26px !important;
+  --tab-height-personal: 28px !important;
   --tabstrip-min-height: var(--tab-height-personal) !important;
   --toolbar-height-personal: 32px !important;
   --toolbarbutton-inner-padding: 4px !important;                                        /* Smaller toolbar buttons */
@@ -327,13 +326,14 @@
 
 @media -moz-pref("firefoxgx.left-sidebar"), -moz-pref("sidebar.revamp"), -moz-pref("firefoxgx.tree-tabs"), -moz-pref("firefoxgx.oneline") {
   :root[uidensity="compact"] {
-    --my-vertical-toolbar-width: 35px !important;
+    --my-vertical-toolbar-width: 37px !important;
   }}
 
 /* Touch */
 
 :root[uidensity="touch"] {
-  --tab-height-personal: 36px !important;
+  --tab-height-personal: 38px !important;
+  --tabstrip-min-height: var(--tab-height-personal) !important;
   --toolbar-height-personal: 42px !important;
   --toolbarbutton-inner-padding: 8px !important;                                        /* Smaller toolbar buttons */
   --toolbarbutton-outer-padding: 4px !important;                                        /* More spaced buttons */

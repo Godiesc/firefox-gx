@@ -231,6 +231,13 @@ richlistitem, #editBMPanel_namePicker , #editBMPanel_tagsField{
     color: var(--lwt-tab-text) !important;
 }
 
+/* Show keyword box when bookmark a website */
+
+.editBMPanel_locationRow, .editBMPanel_keywordRow{
+    visibility: visible !important;
+    display: block !important;
+}
+
 /* Vertical line separator for tabs-bar using 'flexible space' */
 
 :is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], :is(#TabsToolbar) toolbarspring {

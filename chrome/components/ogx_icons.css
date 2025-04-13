@@ -128,7 +128,7 @@
 /* Logo-url on Firefox secure pages */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
-    list-style-image: url("../icons/foxmenu.svg") !important;
+    list-style-image: url("../icons/foxfill.svg") !important;
 }
 
 /* Newtab favicon */
@@ -1663,6 +1663,11 @@
   #sidebartabs_asamuzak_jp-menuitem-_muteTab[label="Unmute Tab"] {
     --menuitem-image: url("chrome://global/skin/media/audio.svg");
   }
+  
+  #context_unloadTab {
+    --menuitem-image: url("../icons/unload-tab.svg");
+  }
+  
   #context_pinTab,
   #context_pinSelectedTabs,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_pinTab,

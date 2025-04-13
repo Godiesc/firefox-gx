@@ -246,34 +246,37 @@
 
     /* ___________ Background and border color of elements in about:addons */
     
-    /* Addons enabled */
+    /* Addons */
+    
+    .addon.card {
+        transition: outline 150ms, box-shadow 150ms !important;
+    }
+    
+    addon-card:not([expanded]) > .addon.card:hover {
+        & .addon-name-link {
+            color: inherit !important;
+            text-decoration: underline currentColor !important;
+            text-underline-offset: 2px !important;
+        }
+    }
 
     .card[active="true"] {
-        background-color: color-mix(in srgb, var(--in-content-box-background) 96%, var(--contrast-color)) !important;
+        background-color: color-mix(in srgb, var(--in-content-box-background) 98%, var(--contrast-color)) !important;
         outline-color: transparent !important;
-    }
 
-    addon-card:not([expanded="true"]) .card[active="true"]:not(:hover) {
-        box-shadow: 0 0 0 1px var(--in-content-border-color) !important;
-    }
-    
-    /* addons disabled */
-    
-    .card, 
-    .card[active="false"] {
-        outline: 1px solid var(--in-content-box-border-color) !important;
+        &:hover {
+            border-color: var(--general-color) !important;
+            outline: 1px solid var(--general-color) !important;
+        }
     }
 
     .card[active="false"]:hover {
-        outline-color: gray !important;
-        box-shadow: none !important;
+        --border-color-card: color-mix(in srgb, currentColor 20%, transparent) !important;
     }
-        
+
     addon-card[expanded] .addon.card {
         margin-top: 24px !important;
         outline-color: var(--general-color) !important;
-        outline-width: 2px !important;
-        outline-offset: 1px !important;
     }
         
         /* Category Sidebar */
@@ -281,13 +284,13 @@
         .navigation, 
         #sidebar {
             box-shadow: inset -1px 0 0 0 var(--in-content-box-border-color), 
-                1px 77px 27px var(--border-contrast-color) !important;
+                1px 77px 17px var(--border-contrast-color) !important;
         }
         
         .navigation:dir(rtl), 
         #sidebar:dir(rtl) {
             box-shadow: inset 1px 0 0 0 var(--in-content-box-border-color), 
-                1px 77px 27px var(--border-contrast-color) !important;
+                1px 77px 17px var(--border-contrast-color) !important;
         }
 
     /* Search-box in 'about:preferences' */
@@ -378,7 +381,8 @@
 
     @media -moz-pref("firefoxgx.main-image") {
 
-        :root {
+        :root, 
+        body {  /* used for other 'about' pages */
             --opaque: color-mix(in srgb, var(--border-contrast-color) 90%, transparent) !important;
             background-color: transparent !important;
         }
@@ -458,7 +462,7 @@
         grid-template-rows: 1 !important;
         grid-template-columns: auto  auto !important;
         box-shadow: 0 1px 0 0 var(--in-content-box-border-color), 
-                27px 1px 27px var(--border-contrast-color) !important;
+                17px 1px 17px var(--border-contrast-color) !important;
 
         /* Left part */            
         & .main-heading {
@@ -487,7 +491,7 @@
     
     .sticky-container:dir(rtl) {
         box-shadow: 0 1px 0 0 var(--in-content-box-border-color), 
-            -27px -1px 27px var(--border-contrast-color) !important;
+            -17px -1px 17px var(--border-contrast-color) !important;
     }
 
     /* Stycky head Style in small width resolution */
@@ -531,12 +535,12 @@
             margin-inline-start: -78px !important;
             border-block-end: 1px solid transparent !important;
             border-image: var(--gradiente-casual) 1 !important;
-            box-shadow: -17px 1px 27px var(--border-contrast-color) !important;
+            box-shadow: -17px 1px 17px var(--border-contrast-color) !important;
         }
         
         .sticky-container:dir(rtl) {
             border-image: var(--gradiente-casual-rtl) 1 !important;
-            box-shadow: 17px 1px 27px var(--border-contrast-color) !important;
+            box-shadow: 17px 1px 17px var(--border-contrast-color) !important;
         }
     }
 }

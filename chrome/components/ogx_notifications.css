@@ -1,7 +1,8 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* -------------------------------- Notifs - warnings - and browser dialogs ------------------------------- */
+/* _____________________________________________ Notifs - warnings - and browser dialogs ______________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 /* Position */
 
@@ -92,6 +93,9 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
 
 /* HTML5 dark mode web notifs */
 
+/* ____________________________________________________ HTML5 dark mode web notifs ____________________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
 @-moz-document url("chrome://global/content/alerts/alert.xhtml") {
     @media (prefers-color-scheme: dark){
     #alertBox {
@@ -129,4 +133,52 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
         border-radius: 4px !important;
     }
     }
+}
+
+/* ____________________________________________ Information - Warnings above the web page _____________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+@media -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always')),
+    -moz-pref("firefoxgx.oneline") and (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
+
+    /* animación */
+
+    @keyframes messageappeardisappear{
+        0%{ opacity: 1 }
+        80%{ opacity: 1 }
+        100%{ opacity: 0 }}
+
+    /* Warning when using Left-sidebar style without the bookmarks toolbar set to 'Always show' */
+
+    :root:not([chromehidden~="toolbar"],[inFullscreen]) {
+        #tabbrowser-tabbox:before {
+            display: flex;
+            position: absolute;
+            top: 0 !important;
+            content: 'To show the "Left Sidebar" you need to set your Bookmarks toolbar to: "Always Show" - you can use this shortcut: "Ctrl + Shift + B"';
+            width: 100%;
+            opacity: 0;
+            padding-block: 2px;
+            justify-content: center !important;
+            text-align: center !important;
+            text-shadow: none !important;
+            font-size: 1.05em !important;
+            font-weight: 501 !important;
+            background-color: var(--general-color);
+            color: var(--contrast-color);
+            z-index: 3;
+            animation: messageappeardisappear linear 9s !important;
+        }
+    }
+     
+     /* Warning when using 'Oneline' configuration and 'Vertical-tabs' */
+    
+     @media -moz-pref("firefoxgx.oneline") and (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
+         :root:not([chromehidden~="toolbar"],[inFullscreen]) {
+             #tabbrowser-tabbox:before {
+                 background-color: var(--red) !important;
+                 content: '❌ "One-line" configuration is not compatible with "Vertical-tabs", so just keep one enabled.';
+             }
+         }
+     }
 }

@@ -117,7 +117,7 @@
                 display: flex;
                 top: calc(0px - var(--tab-height-personal) - var(--menubar-height-personal, 0px)) !important;
                 inset-inline-start: 0 !important; /* not left for RTL languages */
-                z-index: 4 !important;
+                z-index: 5 !important;
             }
             
             /* Hamburger menu smaller when menubar is always active 
