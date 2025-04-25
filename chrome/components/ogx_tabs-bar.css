@@ -516,6 +516,11 @@ tab-group>.tabbrowser-tab:not([multiselected])>.tab-stack>.tab-content .tab-labe
     background-size: 8px 8px !important;
 }
 
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:not([pinned]) > .tab-stack > .tab-content[titlechanged]:not([selected]) {
+    background-position-y: bottom 2px !important;
+    background-position-x: calc(var(--my-vertical-elements-width)/2 - 2px) !important;
+}
+
 /* _______________________ New Tab button _______________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #tabbrowser-tabs {
@@ -525,7 +530,7 @@ tab-group>.tabbrowser-tab:not([multiselected])>.tab-stack>.tab-content .tab-labe
         --toolbarbutton-hover-background: transparent !important;
         --toolbarbutton-active-background: transparent !important;
         --toolbarbutton-inner-padding: calc((var(--tab-min-height) - 20px) / 2) !important;
-        padding-inline: 0px !important;
+        padding-inline: var(--uc-margin-left-newtab, 0px) !important;
         
         &::before {
             content: ''; position: absolute; 
@@ -569,7 +574,8 @@ sidebar-main:is([expanded]) {
     #tabbrowser-tabs[orient="vertical"] {
         & #tabs-newtab-button,
         & #vertical-tabs-newtab-button {
-            padding-inline-start: 12px !important;
+            --tab-icon-end-margin: 5.5px !important;
+            padding-inline-start: calc(var(--my-vertical-elements-width)/2 - 8px) !important;
             border-radius: 0px !important;
 
             &::before {
@@ -577,8 +583,8 @@ sidebar-main:is([expanded]) {
                 width: calc(100% - 8px) !important;
             }
 
-            & .toolbarbutton-text  {
-                padding-inline-start: 6px !important;
+            & .toolbarbutton-text {
+                mask: linear-gradient(to right, #e66465 calc(100% -  26px), #00000000 calc(100% - var(--my-vertical-elements-width)/2 + 8px)) !important;
             }
         }
     }

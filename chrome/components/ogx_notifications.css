@@ -139,8 +139,9 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @media -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always')),
-    -moz-pref("firefoxgx.oneline") and (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
-
+    -moz-pref("firefoxgx.oneline") and (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")),
+-moz-pref("firefoxgx.verticalTabs-expandOnHover") and -moz-pref("sidebar.visibility", 'expand-on-hover') {
+    
     /* animación */
 
     @keyframes messageappeardisappear{
@@ -178,6 +179,17 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
              #tabbrowser-tabbox:before {
                  background-color: var(--red) !important;
                  content: '❌ "One-line" configuration is not compatible with "Vertical-tabs", so just keep one enabled.';
+             }
+         }
+     }
+    
+    /* Warning when using the both features 'expand-on-hover' */
+    
+    @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") and -moz-pref("sidebar.visibility", 'expand-on-hover') {
+         :root:not([chromehidden~="toolbar"],[inFullscreen]) {
+             #tabbrowser-tabbox:before {
+                 background-color: var(--red) !important;
+                 content: '❌ "Please keep only one "expand on hover" feature enabled, do not use both at the same time. ';
              }
          }
      }

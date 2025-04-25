@@ -73,7 +73,7 @@
    /* Set the main image to all body */
    
    #main-window {
-      background-image: var(--lwt-header-image) !important;
+      background-image: var(--lwt-main-image) !important;
       background-size: 100% 100vh !important;
    }
    

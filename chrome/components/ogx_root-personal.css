@@ -9,9 +9,9 @@
   --catppuccino: #f38ba8;
   
   
-  /* Accent color ----> UI del navegador.  -----|                     |---- userContent <------------ Accent color
-                                                v                     v     (Add-ons, preferences and newTab pages.)                             */
-  --general-color: var(--toolbarbutton-icon-fill-attention, var(--fuchsia));
+  /* Accent color ----> UI del navegador.  -----|        Newtab Accent color |                      |--- userContent <------------ Accent color
+                                                v                            v                      v    (Some 'about:' pages)                   */
+  --general-color: var(--toolbarbutton-icon-fill-attention, var(--newtab-text-primary-color, var(--fuchsia)));
 
   /* _________________________________________________________  Various customizations _________________________________________________________ */
   
@@ -56,17 +56,14 @@
   --menu-label: "Menu" ;                                                                /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                            /* Horizontal size of the hamburger menu button */
   
-  --logo-wordmark-display: flex ;                                                       /* Logo-wordmark | none -> remove | flex -> show |   */
-  --searchbar-display: flex ;                                                           /* Searchbox     | none -> remove | flex ->show  |   */
+  --logo-wordmark-display: flex ;                                                       /* Logo-wordmark | none -> remove | flex -> show |  */
   --orientation-display: block ;                                                        /* Orientation of 'Logo-wordmark & searchbar'
-                                                                                           | block -> vertical   | 
-                                                                                           | flex  -> horizontal |
-                                                                                           | none  -> remove     |                           */
+                                                                                           block -> vertical | flex -> horizontal | none -> remove | */
   
-  --newtab-pinnedsites-background: color-mix(in srgb, black 2%, transparent) ;          /* Background color of pinned sites and search bar*/
+  --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;          /* Background color of pinned sites and search bar  */
   --personal-blur: blur(16px) ;                                                         /* Blur on new tab page elements */
   
-  --newtab-pinnedsites-position-top: start ;                                            /* Pinned sites position -> :start ; :center ; :end */
+  --newtab-pinnedsites-position-top: center ;                                           /* Pinned sites position -> :start | :center | :end | */
   
   --selected-text-background: var(--general-color);                                     /* Selected text background */
 

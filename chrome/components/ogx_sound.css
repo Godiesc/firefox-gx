@@ -36,10 +36,10 @@
 /* Fixed glich when clic mute button */
 
 .tabbrowser-tab {
-    --tab-icon-end-margin: 5px !important;
+    --tab-icon-end-margin: 5.5px !important;
 
     &:is([muted], [soundplaying], [activemedia-blocked]) {
-        --tab-icon-end-margin: 2.5px !important;
+        --tab-icon-end-margin: 2.75px !important;
     }
 }
 
@@ -194,14 +194,14 @@
             --button-min-height-small: var(--button-size-icon-small) !important;
             --my-position: absolute !important;
             --my-top: calc(var(--tab-height-personal)/2 - 13px) !important;
-            --my-inset-inline-start: 19px !important;
+            --my-inset-inline-start: calc(var(--my-vertical-elements-width)/2 - 1px) !important;
             --my-background-size: 8px !important;
         }
         
         .tab-audio-button:is([muted],[activemedia-blocked]) {
             --button-size-icon-small: 16px !important;
             --my-top: calc(var(--tab-height-personal)/2 - 14px) !important;
-            --my-inset-inline-start: 18px !important;
+            --my-inset-inline-start: calc(var(--my-vertical-elements-width)/2 - 2px) !important;
         }
         
         /* Hide favicon corner for 'playing' button */
@@ -439,7 +439,7 @@
 .tab-throbber, .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay, .tab-icon-overlay {
     @media -moz-pref("sidebar.visibility", "expand-on-hover") {
         #tabbrowser-tabs[orient="vertical"][expanded] /*.tabbrowser-tab:not([pinned])/**/ & {
-            margin-inline-end: 6px !important;
+            margin-inline-end: 5.5px !important;
         }
     }
 }

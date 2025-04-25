@@ -207,8 +207,9 @@
 
     /* Makes the menubar clic on top border */
     #main-menubar{
-        height: calc(var(--menubar-height-personal, var(--toolbar-height-personal)) - 2px) !important;
+        height: calc(var(--menubar-height-personal, var(--toolbar-height-personal)) - 0px) !important;
         align-self: start !important;
+        box-shadow: inset 0 -1px 0 0 var(--my-content-border-color) !important;
     }
     
     #toolbar-menubar[autohide="true"] #main-menubar{

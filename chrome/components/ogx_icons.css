@@ -140,35 +140,37 @@
 
 /* left and right urlbar separator */
 
+#urlbar-background::before,
+#urlbar-background::after {
+    content: ""; display: block; position: relative;
+    background: url("../icons/urlbar-separator.svg");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position-y: center;
+    fill: var(--toolbarbutton-icon-fill);
+    -moz-context-properties: fill;
+    opacity: 0.2;
+    transition-duration: 400ms;
+    height: calc(-2px + var(--toolbar-height-personal) - var(--urlbar-padding-block)*2);
+}
+
 #urlbar-background::before {
-    background: url("../icons/urlbar-separator.svg") no-repeat left;
-    content: ""; display: block;
-    height: calc(var(--toolbar-height-personal) - 10px) !important;
-    background-size: 16px 16px !important;
-    margin-inline-start: -7px !important;
-    -moz-context-properties: fill !important;
-    fill: var(--toolbarbutton-icon-fill) !important;
-    opacity: 0.1 !important;
-    transition-duration: 400ms !important;
+    background-position-x: left;
+    inset-inline-start: -7px;
 }
 
 #urlbar-background::after {
-    background: url("../icons/urlbar-separator.svg") no-repeat right;
-    content: ""; display: block;
-    height: var(--toolbar-height-personal) !important;
-    margin-block-start: calc(5px - var(--toolbar-height-personal)) !important;
-    background-size: 16px 16px !important;
-    margin-inline-end: -7px !important;
-    fill: var(--toolbarbutton-icon-fill) !important;
-    -moz-context-properties: fill !important;
-    opacity: 0.1 !important;
-    transition-duration: 400ms !important;
+    background-position-x: right;
+    top: calc(10px - var(--toolbar-height-personal));
+    inset-inline-end: -7px;
 }
 
-#urlbar:is([open], [focused], :hover) #urlbar-background::before,
-#urlbar:is([open], [focused], :hover) #urlbar-background::after{
-    opacity: 0 !important;
-    transition-duration: 400ms !important;
+#urlbar:is([open], [focused], :hover) {
+    #urlbar-background::before,
+    #urlbar-background::after {
+        opacity: 0 !important;
+        transition-duration: 400ms !important;
+    }
 }
 
 /* ________________________________________________________________________________________________________________________________

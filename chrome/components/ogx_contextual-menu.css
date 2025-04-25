@@ -1,11 +1,11 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
+/* Menu padding */
+
 menupopup {
     --panel-padding: 4px 0px !important;
 }
-
-/* Menú contextual */
 
 menupopup > menuitem, menupopup > menu {
     appearance: none !important;
@@ -19,48 +19,37 @@ menupopup > menuitem, menupopup > menu {
     padding: 0 6px !important;
 }
 
-/* context menu top buttons radius */
-
-menugroup > menuitem > hbox > image {
-    appearance: none !important;
-    border-radius: 2px !important;
-}
-
 /* Separator */
 
 #context-sep-navigation { padding-inline: 12px !important; }
 
-menuseparator::before {
+menupopup:not(.in-menulist)  menuseparator::before {
     appearance: none !important;
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    border-image: var(--panel-separator-zap-gradient4) 1 !important;
     margin-inline: -6px !important;
 }
 
 @media (-moz-platform: linux) {
-    menuseparator::before {
+    menupopup:not(.in-menulist) menuseparator::before {
     appearance: none !important;
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    border-image: var(--panel-separator-zap-gradient4) 1 !important;
     margin-inline: 6px !important;
     }
 }
 
 /* Bug fix: Separator after 'AI menu' causes unwanted scrolling */
 
-:root:has(#context-ask-chat[hidden="true"]) { 
-    --context-ask-chat-display: none; 
+:root:not(:has(#context-ask-chat[hidden="true"])) #frame-sep {
+    display: flex !important;
 }
 
-#context-ask-chat + #frame-sep { display: var(--context-ask-chat-display, flex) !important; }
-
-/* 'Menu inside menu' margin */
+/* Menu and 'Menu inside menu' margin */
 
 menupopup:not(#PlacesToolbar) menupopup {
     appearance: none !important;
-    margin-block-start: -9px !important;
+    margin-block-start: -6px !important;
     margin-inline-start: -10px !important;
 }
-
-/* 'Menu inside menu' margins opened from the bookmarks-bar */
 
 #PlacesToolbar menupopup menupopup {
     appearance: none !important;
@@ -68,71 +57,82 @@ menupopup:not(#PlacesToolbar) menupopup {
     margin-inline-start: -8px !important;
 }
 
-/* 'Permission select Box' margins opened from the urlbar icon */
-
-#permission-popup menupopup {
+/*#permission-popup menupopup {
     appearance: none !important;
     margin-block-start: -3px !important;
+}/**/
+
+/* General Styles */
+
+menupopup:not(.in-menulist), 
+panel:not(.in-menulist,.panel-no-padding) {
+    --panel-shadow-margin: 1px !important;  /* 1px to draw the external border */
+    --panel-border-radius: 0px !important;  /* Roundness */
 }
 
-/* General colors */
-
-.menupopup-arrowscrollbox {
-    appearance: none !important;
-    background-image: var(--noise-urlbar-personal, none) !important;
-    background-color: var(--arrowpanel-background, Menu) !important; 
-    box-shadow: 0px 0px 0 1px var(--border-contrast-color, #09080d) !important;
-    color: var(--arrowpanel-color, #ffffff) !important;
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;
-    border-radius: 0px !important;
+/* Border image */
+.menupopup-arrowscrollbox{
+    border-image: var(--my-border-image) !important;
+    background-image: var(--my-background-image) !important;
 }
 
-/* Font color in Contextual menus */
+menupopup:not(.in-menulist) {    
+    --panel-background: var(--arrowpanel-background) !important;
+    --panel-shadow: 0 0 0 1px var(--border-contrast-color) !important;
+    --my-border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    --my-background-image: var(--noise-urlbar-personal) !important;
 
-menupopup > menuitem:not([disabled="true"]), menupopup > menu {
-    appearance: none !important;
-    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
-}
+    /* Font color in Contextual menus */
 
-/* Gradient color when :hover items */
+    &> menuitem:not([disabled="true"]),
+        &> menu {
+            appearance: none !important;
+            color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+    }
 
-menupopup > menuitem:not([disabled="true"]):hover, menupopup > menu:hover {
-    appearance: none !important;
-    background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
-    color: var(--arrowpanel-color, #ffffff) !important;
-}
+    /* Color to 'hover' items */
 
-menupopup > menuitem:is([disabled="true"]):hover {
-    appearance: none !important;
-    background: transparent !important;
-}
+    &> menuitem:not([disabled="true"]):is(:hover,[_moz-menuactive]),
+        &> menu:is(:hover,[_moz-menuactive]) {
+            appearance: none !important;
+            background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
+            color: var(--arrowpanel-color, #ffffff) !important;
+    }
 
-/* Necessary rules to remove unwanted glitch when moving the mouse quickly over menu items */
+    &> menuitem:is([disabled="true"]):hover {
+        appearance: none !important;
+        background: transparent !important;
+    }
 
-menupopup > menuitem:not([selected="true"]),
-#context-navigation > menuitem:not([selected="true"]),
-menupopup > menu {
-    appearance: none !important;
-    background-color: transparent !important;
-}
+    /* Necesario para quitar glitch indeseado al mover el mouse sobre items inhabilitados */
 
-menupopup > menu[open="true"] {
-    appearance: none !important;
-    background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
-    color: var(--arrowpanel-color) !important;
-}
+    &> menuitem:is([disabled="true"]),
+        &> menu:is([disabled="true"]) {
+            appearance: none !important;
+            background-color: transparent !important;
+    }
+    
+    /* color the fondo para items seleccionados con las teclas de dirección */
 
-/* Keep background color on selected element */
+    & menu:where([_moz-menuactive="true"]:not([disabled="true"])),
+    & menuitem:where([_moz-menuactive="true"]:not([disabled="true"])) {
+            appearance: none !important;
+            background-color: var(--button-active-bgcolor) !important;
+    }
+    
+    
+    /* Mostrar background-color en el item seleccionado */
 
-menupopup > menuitem:is([selected="true"]):not([disabled="false"]) {
-    appearance: none !important;
-    background-color: var(--button-hover-bgcolor) !important;
-    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
-}
+    &> menuitem:is([selected="true"]):not([disabled="false"]) {
+        appearance: none !important;
+        background-color: var(--button-hover-bgcolor) !important;
+        color: #ffffff !important;
+    }
 
-menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
-    appearance: none !important;
-    background-color: var(--button-active-bgcolor) !important;
+    &> menuitem:is([selected="true"]):hover:not([disabled="false"]) {
+        appearance: none !important;
+        background-color: var(--button-active-bgcolor) !important;
+    }
 }
 
 /* __________________________ Makes context navigation buttons appears as normal textual menuitems __________________________ */
@@ -154,9 +154,14 @@ menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
     }
 }
 
-#context-navigation > menuitem[_moz-menuactive="true"]:not([disabled]) {
-    background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
-    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+#context-navigation > menuitem[_moz-menuactive="true"] {
+    &:not([disabled]) {
+        background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
+        color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+    }
+    &:is([disabled]) {
+        background: transparent !important;
+    }
 }
 
 #context-navigation > menuitem::after {
@@ -193,19 +198,20 @@ menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
     }
 }
 
-/* _______________________________________________________________ LINUX _______________________________________________________________ */
+/* _______________________________________________________________ LINUX _______________________________________________________________ 
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @media (-moz-platform: linux) {
-    
+
     @media not -moz-pref("firefoxgx.icon.disabled") {
-    
-    /* Remove unwanted margin that interferes with icon margin */
 
-    .menu-text{ margin-inline-start: 0px !important; }
+        /* Remove unwanted margin that interferes with icon margin */
 
-    /* Remove double icon on certain menu items */
+        .menu-text{ margin-inline-start: 0px !important; }
 
-    :is(#toggle_toolbar-menubar:not([checked="true"]), 
+        /* Remove double icon on certain menu items */
+
+        :is(#toggle_toolbar-menubar:not([checked="true"]), 
         #show-other-bookmarks_PersonalToolbar:not([checked="true"]),
         #spell-check-enabled:not([checked="true"]),
         #goOfflineMenuitem,
@@ -221,42 +227,43 @@ menupopup > menuitem:is([selected="true"]):hover:not([disabled="false"]) {
         #toggle_zoom,
         .unified-extensions-context-menu-pin-to-toolbar) .menu-iconic-left{
             display: none !important;
+        }
+
+        /* Align extension icons */    
+
+        .menuitem-iconic:not(#context-navigation>.menuitem-iconic), .menu-iconic:not(#PlacesToolbar){
+            padding-inline-start: 12px !important;
+        }
+
+        /* 'bookmarks items' margin from menubar */
+
+        .menu-iconic-left:not(#context-navigation>.menuitem-iconic>.menu-iconic-left) {
+            padding-inline-end: 5px !important;
+        }
     }
 
-    /* Align extension icons */    
+    /* Align items when icons are disabled */
 
-    .menuitem-iconic:not(#context-navigation>.menuitem-iconic), .menu-iconic:not(#PlacesToolbar){
-        padding-inline-start: 12px !important;
-    }
-
-    /* 'bookmarks items' margin from menubar */
-
-    .menu-iconic-left:not(#context-navigation>.menuitem-iconic>.menu-iconic-left) {
-        padding-inline-end: 5px !important;
-    }
-}
-    
-/* Align items when icons are disabled */
-    
     @media -moz-pref("firefoxgx.icon.disabled") {
         #context-navigation > menuitem {
             padding-inline-start: 28px !important;
             padding-block: 4px !important;
         }
     }
-    
-/* Items */
-    
-menupopup {
-    --panel-padding: 4px 0px !important;
-}
-    
-menu, menuitem, menucaption {
-    border-radius: 0px !important;
-}
-    
-/* Arrow */
-    
-.menu-right {
+
+    /* Items */
+
+    menupopup {
+        --panel-padding: 4px 0px !important;
+    }
+
+    menu, menuitem, menucaption {
+        border-radius: 0px !important;
+    }
+
+    /* Arrow */
+
+    .menu-right {
         margin-inline-end: 10px !important;
-}}
+    }
+}

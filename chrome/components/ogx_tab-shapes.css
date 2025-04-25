@@ -52,25 +52,28 @@
 /* ________________________________________________ various styles ________________________________________________ */
 
   @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or
-         -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or
-         -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
+    -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or
+    -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
 
-          :root,
-          :root[lwtheme],
-          :root:not([lwtheme]){
-            --border-radius-urlbar-personal: 14px !important;
-            --urlbar-icon-border-radius: 4px !important;
-          }
+      :root,
+      :root[lwtheme],
+      :root:not([lwtheme]){
+        --border-radius-urlbar-personal: 14px !important;
+        --urlbar-icon-border-radius: 4px !important;
+      }
 
-          .tab-close-button {
-            clip-path: circle(50%) !important; 
-            padding: 5px !important;
-            border-radius: 0px !important;
-          }
-
-          #TabsToolbar #tabs-newtab-button image:not(.menu-iconic-icon), #TabsToolbar #new-tab-button image:not(.menu-iconic-icon){
-            border-radius: 50% !important;
-          }
+      .tab-close-button {
+        clip-path: circle(50%) !important;
+        padding: 5px !important;
+        border-radius: 0px !important;
+      }
+      #tabs-newtab-button, 
+      #new-tab-button,
+      #vertical-tabs-newtab-button {
+        &::before {
+          border-radius: 50% !important;
+        }
+      }
   }
 
   /* Newtab button */
@@ -275,7 +278,7 @@
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
         
         --uc-margin-left-right: 4px;
-        --uc-margin-left-newtab: 7px;
+        --uc-margin-left-newtab: 3px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.australis") {
@@ -288,7 +291,7 @@
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-australis-clipped.svg");
         
         --uc-margin-left-right: 1px;
-        --uc-margin-left-newtab: 8px;
+        --uc-margin-left-newtab: 4px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
@@ -302,7 +305,7 @@
         --uc-tab-corner-size: 12px;
         
         --uc-margin-left-right: -1px;
-        --uc-margin-left-newtab: 7px;
+        --uc-margin-left-newtab: 3px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
@@ -315,7 +318,7 @@
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chromeLegacy-clipped.svg");
         
         --uc-margin-left-right: 6px;
-        --uc-margin-left-newtab: 12px;
+        --uc-margin-left-newtab: 8px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
@@ -329,7 +332,7 @@
         --uc-tab-corner-size: 12px;
         
         --uc-margin-left-right: 2px;
-        --uc-margin-left-newtab: 8px;
+        --uc-margin-left-newtab: 4px;
       }
     }
       .tabbrowser-tab {

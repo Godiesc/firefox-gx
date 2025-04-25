@@ -341,8 +341,8 @@
             & .close-icon,
             & #tabs-newtab-button .toolbarbutton-text,
             & #vertical-tabs-newtab-button .toolbarbutton-text {
-                opacity:  0 !important; 
-                transition-delay: var(--uc-tabs-hide-animation-delay) !important;
+                opacity: 0 !important;
+                transition: visibility 0ms ease 0.2s !important;
             }
         }
         
@@ -359,7 +359,7 @@
             #sidebar-main::before{
                 position: fixed; content: '';
                 inset-block-start: -1px !important;
-                border-block-start: 1px solid red !important;
+                border-block-start: 1px solid var(--general-color) !important;
                 border-image: linear-gradient(to right, transparent var(--my-vertical-toolbar-width),
                     var(--general-color) var(--my-vertical-toolbar-width),
                     var(--general-color) 100%) 1 !important;
@@ -399,12 +399,6 @@
     }
 
     @media -moz-pref("sidebar.visibility", "expand-on-hover") {
-
-        /* Hide tools except for the last one 'configuration' */
-        .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child),
-        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child) {
-            transition: opacity 0.2s ease-in-out, visibility 0ms ease, transform 0.4s ease !important;
-        }
 
         /* Remove tab-label from pinned sites 
 
@@ -462,4 +456,13 @@
     }
     }*/
     }
+}
+
+@media -moz-pref("firefoxgx.verticalTabs-expandOnHover"), -moz-pref("sidebar.visibility", "expand-on-hover") {
+
+        /* Hide tools except for the last one 'configuration' */
+        .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child),
+        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child) {
+            transition: opacity 0.2s ease-in-out, visibility 0ms ease, transform 0.4s ease !important;
+        }
 }
