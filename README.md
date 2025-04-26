@@ -16,7 +16,7 @@
    <li>Restart the browser. </li>
 </ol>
 
-<ul><li><p><b> To find out the location of your profile directory go to <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport-to-reach-the-profile-folder"> about:support</a> or about:profiles.</b></p></li></ul>
+<ul><li><p><b> To find out the location of your profile directory go to <a href="https://github.com/Godiesc/firefox-gx?tab=readme-ov-file#example-of-aboutsupport-to-reach-the-profile-folder"> about:support</a> or about:profiles.</b></p></li></ul>
 </br>
 
 > <p>⚠ Notice:</p>The latest code updated in the repository (code > download zip) may work well only on beta or nightly versions.</p>
