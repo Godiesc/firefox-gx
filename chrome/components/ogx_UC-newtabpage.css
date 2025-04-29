@@ -5,7 +5,8 @@
     
     body {
         /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;            /* Image in the newtab searchbox */
-        --newtab-background-color-secondary: var(--newtab-pinnedsites-background) !important;           /* Background color of pinned sites and search box */
+        --newtab-background-color-secondary: var(--newtab-pinnedsites-background) !important;           /* Background color of search box, recent activity, news */
+        --newtab-background-card: var(--newtab-pinnedsites-background) !important;                      /* Background color of pinned sites */
         --newtab-element-hover-color: var(--button-active-bgcolor) !important;                          /* Background color when clicking on the 3 dot menu icon */
 
         --newtab-element-secondary-color: color-mix(in srgb, Field 90%, FieldText ) !important;         /* background of buttons */      
@@ -611,11 +612,10 @@
     .layout-variant-a, .layout-variant-b {
         & .top-site-outer {
             margin-block: 0px !important;
-            margin-inline: 8px !important;
 
             /* Size favicon */
             & .tile .icon-wrapper {
-                --size-item-large: 48px !important;
+                --size-item-large: 40px !important;
             }
             
             /* Size favicon when their size is smaller */
@@ -646,7 +646,7 @@
         }
 
         /* Pin icon removed */
-        .title.has-icon.pinned .icon.icon-pin-small { 
+        .tile .icon.icon-pin-small { 
             display: none !important; 
         }
         
@@ -781,9 +781,9 @@
     .top-site-outer .context-menu-button {
         background-image: url("../icons/more.svg") !important;
         background-color: transparent !important;
-        border-radius: 0px var(--border-radius-medium) !important;
+        border-radius: 0px calc(var(--border-radius-medium) - 1px) !important;
         inset-block-start: 0px !important;
-        inset-inline-end: -2px !important;
+        inset-inline-end: 10px !important;
         transition: opacity 100ms;
         
         &:hover {
