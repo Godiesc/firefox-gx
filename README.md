@@ -50,6 +50,7 @@
 <p><b>Here a <a href="https://imgur.com/a/0ZASdRb">"Video Explanation"</a> to how switch into light and dark mode for your web content.</b></p>
 
 # Extras
+
 <p>Into the "Extras" folder you will find the next features.</p>
 <ul><li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/OneLine"><b>OneLine</b></a> - The tabs-bar will be next to the navbar.</li>
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/Tab-Shapes"><b>Tab Shapes</b></a> - Give the tabs other style.</li>
@@ -61,6 +62,8 @@
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension</b></a> - Enables the possibility to play or pause tabs with a click on the sound icon.</li>
 <li><a href="https://addons.mozilla.org/firefox/addon/gx-mods/">Gx-mods</a> Extension<img src="https://addons.mozilla.org/user-media/addon_icons/2818/2818515-64.png?modified=8aba879b" width="18" height="18" /> - Simulate the Opera-GX sound effects in FIrefox. [non-associated developer].</li>
 </ul>
+
+> <p>You can disable icons in context menus by creating and setting this preference to true on the <b>about:config</b> page: <code>firefoxgx.icon.disabled</code></p>
 
 # Customize
 
