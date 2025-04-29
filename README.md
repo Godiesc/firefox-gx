@@ -59,6 +59,7 @@
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/Classic-Sound-icon"><b>Classic-Sound-icon</b></a> - The tabs with sound will show a rhythm image.</li>
 <li><a href="https://github.com/MemeMan404/GX-NewTab-using-NightTab"><b>Night tab extension</b></a> - Simple OperaGX style Newtab using the Nighttab extension. [external partner]</li>
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/Play-Pause"><b>Play/Pause icon button extension</b></a> - Enables the possibility to play or pause tabs with a click on the sound icon.</li>
+<li><a href="https://addons.mozilla.org/firefox/addon/gx-mods/">Gx-mods</a> Extension<img src="https://addons.mozilla.org/user-media/addon_icons/2818/2818515-64.png?modified=8aba879b" width="18" height="18" /> - Simulate the Opera-GX sound effects in FIrefox. [non-associated developer].</li>
 </ul>
 
 # Customize
