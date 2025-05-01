@@ -214,7 +214,7 @@
   }
 
   @supports selector(:has(a)) {
-    :root:has(#sidebar-box[positionend="true"]) {
+    :root:has(#sidebar-box[sidebar-positionend]) {
       --uc-sidebar-icon: url("chrome://browser/skin/sidebars-right.svg");
       --uc-sidebar-icon-reverse: url("chrome://browser/skin/sidebars.svg");
     }
@@ -1502,7 +1502,7 @@
     > menupopup:not(.in-menulist)
     > menu:not(.menu-iconic, .in-menulist, [checked="true"]),
   #blockedPopupDontShowMessage {
-    padding-inline-end: 0px !important;
+    padding-inline-end: 8px !important;
   }
   /* text position */
   :not(menu, #ContentSelectDropdown, #context-navigation) > menupopup:not(.in-menulist) > menuitem > .menu-text,
@@ -2260,9 +2260,11 @@
     --menuitem-image: url("../icons/command-pick.svg");
   }
   
-  :is(#side-view_mozilla_org-menuitem-_open-in-sidebar,
-      #side-view_mozilla_org-menuitem-_open-link-in-sidebar) .menu-iconic-left .menu-iconic-icon{
-    display: none !important;
+  /* 'Side view' extension */
+  
+  :is(#side-view_mozilla_org-menuitem-_open-in-sidebar .menu-icon,
+      #side-view_mozilla_org-menuitem-_open-link-in-sidebar .menu-icon) {
+    width: 0px !important;
   }
   
   #side-view_mozilla_org-menuitem-_open-in-sidebar:before,

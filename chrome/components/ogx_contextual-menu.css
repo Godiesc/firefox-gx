@@ -141,11 +141,11 @@ menupopup:not(.in-menulist) {
 
 @media -moz-pref("firefoxgx.icon.disabled") {
 
-    #context-navigation > menuitem > .menu-iconic-left { display: none !important; }
+    #context-navigation > .menuitem-iconic > .menu-icon { display: none !important; }
 
     #context-navigation > menuitem {
         appearance: none !important;
-        padding-block: 0.4em !important;
+        padding-block: 0.   4em !important;
         padding-inline-start: 1em !important;
         justify-content: flex-start !important;
         -moz-box-pack: start !important;
@@ -172,7 +172,7 @@ menupopup:not(.in-menulist) {
 
 @media not -moz-pref("firefoxgx.icon.disabled") {
 
-    #context-navigation > menuitem > .menu-iconic-left .menu-iconic-icon {
+    #context-navigation > .menuitem-iconic > .menu-icon {
         appearance: none !important;
         width: 30px !important;
         height: 26px !important;
@@ -225,7 +225,7 @@ menupopup:not(.in-menulist) {
         #menu_historySidebar,
         #menu_tabsSidebar,
         #toggle_zoom,
-        .unified-extensions-context-menu-pin-to-toolbar) .menu-iconic-left{
+        .unified-extensions-context-menu-pin-to-toolbar) .menu-icon {
             display: none !important;
         }
 
@@ -237,7 +237,7 @@ menupopup:not(.in-menulist) {
 
         /* 'bookmarks items' margin from menubar */
 
-        .menu-iconic-left:not(#context-navigation>.menuitem-iconic>.menu-iconic-left) {
+        ..menu-icon:not(#context-navigation>.menuitem-iconic>.menu-icon) {
             padding-inline-end: 5px !important;
         }
     }

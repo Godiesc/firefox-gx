@@ -403,7 +403,7 @@
             &:is([soundplaying],[muted],[activemedia-blocked]) {
                 height: 12px !important;
                 width: 12px !important;
-                background: transparent !important;
+                background: color-mix(in srgb, var(--contrast-color), transparent) !important;
                 list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
                 outline: 1px solid var(--general-color) !important;
                 outline-offset: -1px !important;

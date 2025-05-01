@@ -602,12 +602,18 @@ sidebar-main:is([expanded]) {
     background-color: transparent !important;
 }
 
-#main-menubar>menu>.menubar-text{
-    padding: 2px 8px 2px 8px !important;
+@media (-moz-platform: windows) {
+    menubar > menu {
+        padding: 0px 2px 2px !important;
+    }
+}
+
+#main-menubar>menu>.menu-text{
+    padding: 2px 4px !important;
     margin-inline: 0px !important;
 }
 
-#main-menubar>menu:is(:hover,[open])>.menubar-text {
+#main-menubar>menu:is(:hover,[open])>.menu-text {
     background-color: var(--button-active-bgcolor) !important;
     color: white !important;
     border-radius: 2px !important;
@@ -678,7 +684,7 @@ toolbar:is(#TabsToolbar, #nav-bar, #PersonalToolbar) #firefox-view-button[aria-p
     toolbar { &[type="menubar"] { padding: 0px !important; }}
 
     /* less spaced menu items */
-    #main-menubar>menu>.menubar-text{
+    #main-menubar>menu>.menu-text{
         margin-inline: -5px !important;
     }
 }

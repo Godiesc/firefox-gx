@@ -1013,7 +1013,10 @@
             --space-before-gradient-line: calc(var(--menubar-height-personal, 0px) - 1px) !important;
             bottom: 0px !important;
             height: calc(0px + var(--menubar-height-personal, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
-            z-index: 4 !important; /* works when using default 'expand-on-hover' */
+            z-index: 5 !important; /* works when using default 'expand-on-hover' */
+        }        
+         & #navigator-toolbox::after {
+            z-index: 5 !important; /* works when using default 'expand-on-hover' */
         }
     }
     
