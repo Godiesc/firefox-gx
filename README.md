@@ -104,6 +104,7 @@
 <li>MacOS (Tested partially) ❌✔ - <a href="https://i.imgur.com/Y6V0dwr.png"> Preview</a></li>
    <ul><li>Base theme ✔</li>
        <li>Left-sidebar ✔</li>
+       <li>Tab-shapes ✔</li>
        <li>Other Extra features ❌</li>
    </ul>
 </ul>
