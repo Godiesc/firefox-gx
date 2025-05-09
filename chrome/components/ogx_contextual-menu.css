@@ -172,12 +172,18 @@ menupopup:not(.in-menulist) {
 
 @media not -moz-pref("firefoxgx.icon.disabled") {
 
-    #context-navigation > .menuitem-iconic > .menu-icon {
+    #context-navigation > .menuitem-iconic {
+        & .menu-icon {
         appearance: none !important;
         width: 30px !important;
         height: 26px !important;
         padding-block: 0px !important;
         margin-block: 0px !important;
+        }
+        
+        &:not([disabled]) {
+            color: var(--arrowpanel-color, var(--lwt-tab-text)) !important; /* used when font color isn't white/black */
+        }
     }
     
     /* For RTL languages */    
@@ -204,6 +210,10 @@ menupopup:not(.in-menulist) {
 @media (-moz-platform: linux) {
 
     @media not -moz-pref("firefoxgx.icon.disabled") {
+        
+        :not(#context-navigation) menuitem:not([type="radio"],[type="checkbox"],.menuitem-with-favicon, .menuitem-iconic) > .menu-icon {
+            display: none !important;
+        }
 
         /* Remove unwanted margin that interferes with icon margin */
 
@@ -211,11 +221,21 @@ menupopup:not(.in-menulist) {
 
         /* Remove double icon on certain menu items */
 
-        :is(#toggle_toolbar-menubar:not([checked="true"]), 
+        :is(
+        #toggle_toolbar-menubar:not([checked="true"]),
+        #toggle_PersonalToolbar,
         #show-other-bookmarks_PersonalToolbar:not([checked="true"]),
+        #context-sendpagetodevice,
+        #context-ask-chat,
         #spell-check-enabled:not([checked="true"]),
+        #spell-dictionaries,
         #goOfflineMenuitem,
-        #fullScreenItem,
+        #browserToolsMenu,
+        #historyUndoMenu,
+        #historyUndoWindowMenu,
+        #toolbar-context-full-screen-autohide[checked="false"],
+        #menu_newUserContext,
+        #menu_viewPopup>menu,
         #menu_devToolbox,
         #menu_responsiveUI,
         #menu_eyedropper,
@@ -225,7 +245,8 @@ menupopup:not(.in-menulist) {
         #menu_historySidebar,
         #menu_tabsSidebar,
         #toggle_zoom,
-        .unified-extensions-context-menu-pin-to-toolbar) .menu-icon {
+        .unified-extensions-context-menu-pin-to-toolbar
+        ) > .menu-icon {
             display: none !important;
         }
 

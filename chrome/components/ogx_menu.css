@@ -235,7 +235,6 @@
                 --removed-panel-shadow-margin: 0px !important;
                 --arrowpanel-menuitem-padding: 6px !important;
                 appearance: none !important;
-                margin-top: calc(0px - var(--my-menu-button-height, 30px)) !important;
                 margin-inline: 0px !important;
                 clip-path: polygon(
                     0% 0%, 0% 100%, 
@@ -255,7 +254,7 @@
             }
 
             &:not([tabsintitlebar]) #appMenu-popup {
-                margin-top: calc(-1px - var(--my-menu-button-height) + var(--tab-block-margin)) !important;
+                margin-top: calc(0px - var(--my-menu-button-height) + var(--tab-block-margin)) !important;
             }
 
             /* Gradient line over Account label only in maximized window */
@@ -284,7 +283,6 @@
     @media (-moz-platform: linux) {
         #appMenu-popup {
             --panel-shadow-margin: 0px !important;
-            --panel-padding-block: 0px !important;
         }
     }
     
