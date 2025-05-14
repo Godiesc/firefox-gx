@@ -397,65 +397,6 @@
             }            
         }
     }
-
-    @media -moz-pref("sidebar.visibility", "expand-on-hover") {
-
-        /* Remove tab-label from pinned sites 
-
-        #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[pinned] .tab-label-container {
-        display: none !important;
-    }
-
-        #vertical-pinned-tabs-container {
-        --my-flex-direction: row;
-        --my-display: grid;
-    }
-
-        #tabbrowser-arrowscrollbox[orient="vertical"], .menupopup-arrowscrollbox {
-        --my-flex-direction: column;
-        --my-display: flex;
-    }
-
-        slot[part="items-wrapper"] {
-        display: var(--my-display) !important;
-    }
-
-        #vertical-pinned-tabs-container {
-        --my-flex-wrap: wrap;
-        min-width: calc(var(--uc-sidebar-hover-width) * var(--my-vertical-elements-width)) !important;
-    }*/
-        /*
-        #sidebar-main:not(:hover) #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"] {
-        grid-column-start: 1 !important;
-        grid-row-start: foo-start !important;
-    }/**/
-
-        /* The selected pinned tab is visible when the sidebar is collapsed - limited to 3 rows 
-
-        :root {
-        --calc0: :nth-child(-n+var(--uc-sidebar-hover-width));
-        --calc1: :nth-child(-n+var(--uc-sidebar-hover-width) * 2);
-        --calc2: :nth-child(-n+var(--uc-sidebar-hover-width) * 3);
-    }
-
-        #sidebar-main:not(:hover) #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"] {
-
-        &:nth-child(-n+9){
-        grid-row-start: 3 !important;
-        grid-column-start:1 !important;
-    }
-
-        &:nth-child(-n+6){
-        grid-row-start: 2 !important;
-        grid-column-start:1 !important;
-    }
-
-        &:nth-child(-n+3){
-        grid-row-start: 1 !important;
-        grid-column-start: 1 !important;
-    }
-    }*/
-    }
 }
 
 @media -moz-pref("firefoxgx.verticalTabs-expandOnHover"), -moz-pref("sidebar.visibility", "expand-on-hover") {

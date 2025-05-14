@@ -517,7 +517,7 @@
     /* New position of Open Bookmark Panels in left-sidebar */
 
     #PlacesToolbarItems > .bookmark-item >  menupopup, #OtherBookmarks #OtherBookmarksPopup {
-        margin-inline-start: calc(var(--padding-left-tab) - 2px) !important;
+        margin-inline-start: var(--my-vertical-toolbar-width) !important;
         margin-top: -32px  !important;
     }
 

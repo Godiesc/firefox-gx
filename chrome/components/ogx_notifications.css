@@ -155,9 +155,8 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
         #tabbrowser-tabbox:before {
             display: flex;
             position: absolute;
-            top: 0 !important;
             content: 'To show the "Left Sidebar" you need to set your Bookmarks toolbar to: "Always Show" - you can use this shortcut: "Ctrl + Shift + B"';
-            width: 100%;
+            width: calc(100% - 4px);
             opacity: 0;
             padding-block: 2px;
             justify-content: center !important;
@@ -166,6 +165,7 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
             font-size: 1.05em !important;
             font-weight: 501 !important;
             background-color: var(--general-color);
+            border: 2px solid var(--contrast-color);
             color: var(--contrast-color);
             z-index: 3;
             animation: messageappeardisappear linear 9s !important;

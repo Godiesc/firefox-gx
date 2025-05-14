@@ -43,24 +43,13 @@ menupopup:not(.in-menulist)  menuseparator::before {
     display: flex !important;
 }
 
-/* Menu and 'Menu inside menu' margin */
+/* 'Menu inside menu' margin */
 
-menupopup:not(#PlacesToolbar) menupopup {
+menupopup menupopup {
     appearance: none !important;
     margin-block-start: -6px !important;
-    margin-inline-start: -10px !important;
-}
-
-#PlacesToolbar menupopup menupopup {
-    appearance: none !important;
-    margin-block-start: -9px !important;
     margin-inline-start: -8px !important;
 }
-
-/*#permission-popup menupopup {
-    appearance: none !important;
-    margin-block-start: -3px !important;
-}/**/
 
 /* General Styles */
 
@@ -145,7 +134,7 @@ menupopup:not(.in-menulist) {
 
     #context-navigation > menuitem {
         appearance: none !important;
-        padding-block: 0.   4em !important;
+        padding-block: 0.4em !important;
         padding-inline-start: 1em !important;
         justify-content: flex-start !important;
         -moz-box-pack: start !important;

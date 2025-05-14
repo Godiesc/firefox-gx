@@ -274,9 +274,9 @@
         --padding-bottom-left-sidebar: calc(var(--menubar-height-personal, 0px) + 10px) !important;
     }
 
-    /* Nav-bar & boolmarks-bar background color */
+    /* 'Nav-bar - boolmarks-bar - Sidebar-main' background color */
     
-    .browser-toolbar:not(#toolbar-menubar) {
+    .browser-toolbar:not(#toolbar-menubar), #sidebar-main {
         background-color: color-mix(in srgb, var(--toolbar-bgcolor) 100%, transparent) !important;
     }
 }

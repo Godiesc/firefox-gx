@@ -671,7 +671,7 @@ toolbar:is(#TabsToolbar, #nav-bar, #PersonalToolbar) #firefox-view-button[aria-p
 @media -moz-pref("sidebar.verticalTabs") {
     #tab-preview-panel {
         margin-block-start: -4px !important;
-        margin-inline-start: 1px !important;
+        margin-inline-start: 0px !important;
     }
 }
 

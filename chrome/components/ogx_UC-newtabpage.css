@@ -656,10 +656,11 @@
         }
         
         .title-label  {
-            padding: 0px !important;
-            padding-inline: 8px  !important;
+            padding-inline: 8px !important;
             font-size: 14px !important;
-            margin-top: -30px !important;
+            min-height: 1lh !important;
+            margin-block-start: -30px !important;
+            align-content: center !important;
         }
 
         /* Title label just in one line */
