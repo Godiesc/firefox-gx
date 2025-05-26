@@ -4,6 +4,13 @@
 /* _________________________________________ library _________________________________________ */
 
 @-moz-document url(chrome://browser/content/places/places.xhtml) , url(chrome://browser/content/webext-panels.xhtml){
+    
+    @media not (prefers-contrast) {
+        :root:not([lwtheme]) {
+            --toolbarbutton-icon-fill-attention: unset !important;  /* Remove color used for accent color */
+        }
+    }
+
     @media (prefers-color-scheme: dark){
         :root{
         --arrowpanel-background: #1c1726 !important;
