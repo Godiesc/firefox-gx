@@ -17,7 +17,7 @@
 @import url('components/ogx_close-button.css');
 @import url('components/ogx_button-styles.css');
 @import url('components/ogx_library.css');
-@import url('components/ogx_menu.css');
+@import url('components/ogx_hamburger-menu.css');
 @import url('components/ogx_icons.css');
 
 /* ############## Extra Files ###############  */
@@ -28,6 +28,7 @@
 @import url('components/ogx_tree-tabs.css');
 @import url('components/ogx_tree-tabs-expandOnHover.css');
 @import url('components/ogx_main-image.css');
+@import url('components/ogx_optional-features.css');
 
 /* ############# Your Personal File ##############  */
 
