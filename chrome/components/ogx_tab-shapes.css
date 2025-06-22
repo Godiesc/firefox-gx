@@ -153,7 +153,8 @@
     background-attachment: scroll, fixed, fixed !important;
     background-color: transparent !important;
     background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-                    var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
+                                      var(--lwt-additional-images,none), var(--lwt-header-image, none),
+                      linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field))!important;
     background-position: 0 0, var(--lwt-background-alignment), right top !important;
     background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
     background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
@@ -381,7 +382,8 @@
         & .tab-background::before,
         & .tab-background::after {
           background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-            var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
+                                            var(--lwt-additional-images,none), var(--lwt-header-image, none),
+                            linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field))!important;
           background-position: 0 0, var(--lwt-background-alignment), right top !important;
           background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
           background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
@@ -404,7 +406,7 @@
       & .tab-background::before,
       & .tab-background::after {
         top: -1px !important;
-        transition: fill 0.2s ease !important;
+        /*transition: fill 0.2s ease !important;/**/
       }
     }
   }
@@ -434,24 +436,6 @@
       */
       --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-non-lwt-bgcolor), var(--toolbar-non-lwt-bgcolor));
       fill: rgba(255, 255, 255, 0.075);
-    }
-  }
-  
-/* ___________________________________________________ Compatibility with "one-line" config ___________________________________________________ */
-  
-  @media -moz-pref("firefoxgx.oneline") {
-
-    @media screen and (min-width: 1000px) {
-      /* ___________________________________ Missed Selected tab background _______________________ */
-
-      .tabbrowser-tab:is([selected]) {
-        & .tab-background,
-        & .tab-background::before,
-        & .tab-background::after {      
-          background-image: linear-gradient(var(--lwt-selected-tab-background-color, transparent), var(--lwt-selected-tab-background-color, transparent)), 
-            var(--lwt-additional-images,none), var(--lwt-header-image, none) !important;
-        }
-      }
     }
   }
 }

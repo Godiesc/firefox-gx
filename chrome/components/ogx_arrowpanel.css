@@ -1,40 +1,61 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Gradient border for dropdown menus */
+/* Arrowpanel, popup menus & panels styles */
 
-slot {
-    --panel-shadow-margin: var(--removed-panel-shadow-margin, inherit) !important;
-    /* External border color */
-    border-color: var(--border-contrast-color) !important;
-    /* Borde para anuncios emergentes, por ejemplo al instalar un complemento */
-    box-shadow: inset 0px 0 0 1px var(--button-active-bgcolor) !important;
+:is(menupopup, panel):where([type="arrow"]) {
+    --my-background-image-popup: radial-gradient( 100% 91.38% at 50% 99.62%,
+                           color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
+                           var(--arrowpanel-background));
+    --panel-background: var(--my-background-image-popup), var(--noise-urlbar-personal),
+                        var(--noise-urlbar-personal) , var(--arrowpanel-background) !important;
+    --panel-border-color: var(--arrowpanel-border-color) !important;
 }
 
-/* Remove unwanted styles applied to the tab bar _^ */
-
-:is(scrollbox[part="scrollbox"]) slot{
-    box-shadow: none !important;
+panel {
+    --panel-shadow: 0 0 0 1px var(--contrast-color) !important;
+    
+    @media (prefers-color-scheme: light) {
+        --contrast-color: var(--border-contrast-color) !important;
+    }
 }
 
-/* Remove unwanted styles applied to the sidebar configuration _^ */
+/* Remove unwanted style for radiobutton */
 
-.nested {
-    box-shadow: none !important;
+.toggle-button {
+    --toggle-dot-background-color-on-pressed: var(--arrowpanel-background) !important;
 }
 
-/* Gradient border around arrowpanels */
-
-panelmultiview {
-    background-image: var(--noise-urlbar-personal) !important;
-    border: 1px solid #0c0a10 !important;
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;
-}
-
-/* Remove unwanted shadow of some dropdown menus [Open] */
+/* Alignment of popups [Open] */
 
 .panel-no-padding[type="arrow"] {
-    margin-inline: -5px !important;
+    margin-block: calc(-1 * var(--panel-shadow-margin) + 1px) !important;
+    margin-inline: -4px !important;
+}
+
+/* Gradient border around popups -&- border color in popups like bookmark */
+
+:is(menupopup, panel):where([type="arrow"]) {
+    position: relative;  /* Needed for round gradient border ¯¯v */
+}
+
+:is(menupopup, panel):where([type="arrow"])::after {
+    content: "";
+    position: absolute;
+    inset: calc(var(--panel-shadow-margin) + 0px);
+    border-radius: var(--arrowpanel-border-radius);
+    padding: 1px;
+    background-position: center center !important;
+    background: radial-gradient(ellipse at center, var(--button-hover-bgcolor), transparent);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none !important;
+}
+
+/* Margin bottom last item of popups */
+
+.panel-subview-footer-button {
+    --arrowpanel-menuitem-margin-inline: 4px !important;
 }
 
 /* Gradient background color when :hover over different items in the main menus */
@@ -44,9 +65,10 @@ panelmultiview {
 panelview .toolbarbutton-1:not([disabled], [open]:not(#appMenu-popup toolbarbutton)):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open], 
 .subviewbutton-back):is(:hover), .navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover], 
 menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover), 
-.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover) {
-    background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
-    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover),
+#downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover {
+    background: var(--panel-separator-zap-gradient3) !important;
+    color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
 }
 
 /* Background color when clicking on different items in the main menus */
@@ -55,22 +77,23 @@ menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .t
 panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back):is(:active, [open]), 
 .navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, 
 menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]), 
-.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]) {
-    background: linear-gradient(to right, var(--button-hover-bgcolor) 80%, transparent) !important;
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]),
+#downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:active {
+    background: var(--panel-separator-zap-gradient4) !important;
 }
 
 /* Colors on disabled items */
 
 .subviewbutton:is([disabled]), .subviewbutton:where([disabled="true"]):hover {       
     -moz-context-properties: fill;
-    color: color-mix(in srgb, var(--arrowpanel-color)30%, transparent) !important;
-    fill:  color-mix(in srgb, var(--arrowpanel-color)30%, transparent) !important;
-    }
+    color: color-mix(in srgb, var(--arrowpanel-color)70%, transparent) !important;
+    fill:  color-mix(in srgb, var(--arrowpanel-color)70%, transparent) !important;
+}
 
 /* Gradient line - separators */
 
 toolbarseparator {
-    border-image: var(--panel-separator-zap-gradient1) 1 !important;
+    border-image: var(--panel-separator-zap-gradient2) 1 !important;
     margin-inline: 6px !important;
 }
 
@@ -84,65 +107,64 @@ toolbar .text-link:hover, panel .text-link:hover {
     color: var(--general-color) !important;
 }
 
-/* Downloads dropdown menu */
+/* Separator line into Firefox Sidebar items */
 
-#downloadsListBox > richlistitem {
-    border-radius: 0px !important;
-    background-image: none !important;
-    background-color: transparent !important;
-    padding-inline: 4px 14px !important;
-    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+treechildren::-moz-tree-separator {
+    border-bottom: none !important;
 }
 
-#downloadsListBox > richlistitem:is(:hover) {
-    background: linear-gradient(to right, var(--button-bgcolor) 70%, transparent) !important;
-    color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+/* 'Monitor' and 'Relay' items from account dropdown menu */
+
+#PanelUI-fxa-menu .fxa-cta-button {
+    margin-inline: 0 !important;
+    padding-inline-start: var(--margin-left-icons-personal, 0px) !important;
 }
 
-#downloadsPanel-blockedSubview, #downloadsPanel-mainView {
-    padding: 0.62em 0.0em 0.62em 0em !important;
+/* 'back' button */
+
+.panel-header {
+    --button-background-color-ghost-hover: var(--button-hover-bgcolor) !important;
+    --button-background-color-ghost-active: var(--button-active-bgcolor) !important;
+    --arrowpanel-menuitem-border-radius: 3px !important;
+    --arrowpanel-header-back-icon-padding: 6px 6px 6px 4px !important; 
 }
 
-.downloadButton:hover{
-    background: var(--button-hover-bgcolor) !important;
-    border-color: transparent !important;
-    border-radius: 4px !important;
+/* bug fix for Background-color when :hover on zoom buttons */
+
+.PanelUI-subView .toolbaritem-combined-buttons > .subviewbutton:is(:hover, :hover:active):not([disabled]) {
+    background: transparent !important;
 }
 
-#downloadsFooterButtons .button-icon{ 
-    margin-inline: 10px 6px !important;
+/* _____________________ Sidebar-box ____________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+.sidebar-panel[lwt-sidebar] {
+    --lwt-sidebar-background-color: transparent !important;
 }
 
-/* Sidebar-box */
+/*
+@media not (-moz-pref("firefoxgx.verticalTabs-expandOnHover") and -moz-pref("firefoxgx.tree-tabs")) {
+   #sidebar {
+        background-color: var(--toolbar-bgcolor) !important;
+    }
+}/**/
 
-:root {
-    --my-content-border-color: var(--toolbarbutton-hover-personal) !important;
-    --sidebar-border-color: var(--my-content-border-color) !important;
-}
+/* Apply background but not in tree-tabs extension to solve bug 'gradient-line don't display' */
 
-/* Sidebar content + web content */
-#sidebar-wrapper:has(#sidebar-box[checked="true"]) ~ #tabbrowser-tabbox {
-    border-top: 1px solid var(--my-content-border-color) !important;
+:root:has(#sidebar-box:not(
+[sidebarcommand*="tabcenter"],
+[sidebarcommand*="treestyletab"],
+[sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) #sidebar {
+    background-color: var(--toolbar-bgcolor) !important;
 }
 
 #sidebar-header {
     background-color: var(--lwt-sidebar-background-color) !important;
-    border-top: 1px solid var(--my-content-border-color) !important;
+    box-shadow: 0px -1px 0 0 var(--my-content-border-color) !important;
     padding: 4px 6px !important;
-}
 
-#sidebar-header toolbarbutton:is(:hover, [open]) {
-    background-color: var(--toolbarbutton-hover-personal) !important;
-    color: var(--general-color) !important;
-}
-
-/* Spliter style on Linux */
-
-@media (not -moz-pref("sidebar.revamp")) and (-moz-platform: linux) {
-    .sidebar-splitter {
-        background-color: var(--sidebar-border-color) !important;
-        width: 4px !important;
-        border-color: transparent !important;
+    & toolbarbutton:is(:hover, [open]) {
+        background-color: var(--toolbarbutton-hover-personal) !important;
     }
 }
 
@@ -151,9 +173,27 @@ toolbar .text-link:hover, panel .text-link:hover {
 #sidebar-box {
     max-width: none !important;
     min-width: 1px !important;
+
+    /* Add border top to web content when sidebar is 'open' */
+    &[checked="true"] ~ #tabbrowser-tabbox {
+        box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+    }
 }
 
-/* Splitter width */
+/* Splitter */
+
+.sidebar-splitter {
+    @media -moz-pref("sidebar.revamp") or (not (-moz-platform: linux)) {
+        --sidebar-border-color: transparent !important;
+    }
+    
+    /* Spliter style on Linux */
+    @media (not -moz-pref("sidebar.revamp")) and (-moz-platform: linux) {
+        background-color: var(--sidebar-border-color) !important;
+        min-width: 1px !important;
+        border-width: 0px !important;
+    }
+}
 
 @media -moz-pref("sidebar.revamp") {
     @media (-moz-overlay-scrollbars) {
@@ -161,46 +201,9 @@ toolbar .text-link:hover, panel .text-link:hover {
             --splitter-width: 4px !important;
         }
     }
+    
+    /* Remove unwanted margin when sidebar-box is on right */
     #sidebar-box[sidebar-positionend] {
-        margin-inline-start: 0px !important; /* When sidebar is on right side */
+        margin-inline-start: 0px !important;
     }
-}
-
-/* Separator line into Firefox Sidebar items */
-
-treechildren::-moz-tree-separator {
-    border-bottom: none !important;
-    border-image: linear-gradient(to right, transparent, var(--general-color)) 1 !important;
-    margin-inline-end: 6px !important;
-}
-
-/* 'Monitor' and 'Relay' items from account dropdown menu */
-
-#PanelUI-fxa-menu .fxa-cta-button {
-    margin-inline: 0 !important;
-    padding-inline-start: 4px !important;
-}
-
-/* 'back' button */
-
-.panel-header > .subviewbutton-back {
-    border-radius: 3px !important;
-}
-
-.panel-header > .subviewbutton-back image {
-    margin-inline-start: -2px !important;
-}
-
-.panel-header > .subviewbutton-back:hover {
-    background: var(--button-hover-bgcolor) !important;
-}
-
-.panel-header > .subviewbutton-back:active {
-    background: var(--button-active-bgcolor) !important;
-}
-
-/* bug fix for Background-color when :hover on zoom buttons */
-
-.PanelUI-subView .toolbaritem-combined-buttons > .subviewbutton:is(:hover, :hover:active) {
-    background: transparent !important;
 }

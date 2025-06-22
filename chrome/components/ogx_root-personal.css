@@ -13,9 +13,9 @@
                                                 v                            v                      v    (Some 'about:' pages)                   */
   --general-color: var(--toolbarbutton-icon-fill-attention, var(--newtab-text-primary-color, var(--fuchsia)));
 
-  /* _________________________________________________________  Various customizations _________________________________________________________ */
+  /* __________________________________________________________ Various customizations _________________________________________________________ */
   
-                  /* Dark wallpapers ---| */                                    /* Accentcolor for each wallpaper ---|
+                  /* Dark wallpapers ¯¯¯| */                                    /* Accentcolor for each wallpaper ¯¯¯|
                                         v                                                                            v                           */
   --wallpaper-dark1: url("../newtab/wallpaper-dark1.png") !important;           --general-color-dark1: var(--fuchsia) !important;
   --wallpaper-dark2: url("../newtab/wallpaper-dark2.png") !important;           --general-color-dark2: var(--purple) !important;
@@ -24,7 +24,7 @@
   --wallpaper-dark5: url("../newtab/wallpaper-dark5.png") !important;           --general-color-dark5: var(--swampautumn) !important;
   --wallpaper-dark6: url("../newtab/wallpaper-dark6.png") !important;           --general-color-dark6: var(--gray) !important;
   
-                  /* light wallpapers ---| */                                    /* Accentcolor for each wallpaper ---|
+                  /* light wallpapers ¯¯¯| */                                    /* Accentcolor for each wallpaper ¯¯¯|
                                          v                                                                            v                          */  
   --wallpaper-light1: url("../newtab/wallpaper-light1.png") !important;         --general-color-light1: var(--fuchsia) !important;
   --wallpaper-light2: url("../newtab/wallpaper-light2.png") !important;         --general-color-light2: var(--purple) !important;
@@ -35,13 +35,15 @@
 }
 
 @media (prefers-color-scheme: dark) { :root {
-  --lwt-main-image:  url("../newtab/wallpaper-dark1.png") !important;                   /* 'about:' pages wallpaper - dark theme */
-  --lwt-private-image:  url("../newtab/private-dark.png") !important;                   /* Private New-tab wallpaper - dark theme */
+  --lwt-main-image: url("../newtab/about-page-dark.png") !important;                    /* 'about:' pages wallpaper - solid dark theme */
+  --lwt-private-image: url("../newtab/private-dark.png") !important;                    /* Private New-tab wallpaper - dark theme */
+  --brightness-toolbar: 30%;                                                            /* Themes with images - dark filter to navbar - bookmarksbar */
   --brightness-wallpaper: 100%;                                                         /* 100% -> default */ }}
 
 @media (prefers-color-scheme: light) { :root {
-  --lwt-main-image:  url("../newtab/wallpaper-light1.png") !important;                  /* 'about:' pages wallpaper - light theme*/
-  --lwt-private-image:  url("../newtab/private-light.png") !important;                  /* Private New-tab wallpaper - light theme*/
+  --lwt-main-image: url("../newtab/about-page-light.png") !important;                   /* 'about:' pages wallpaper - solid light theme*/
+  --lwt-private-image: url("../newtab/private-light.png") !important;                   /* Private New-tab wallpaper - light theme*/
+  --brightness-toolbar: 30%;                                                            /* Themes with images - light filter to navbar - bookmarksbar */
   --brightness-wallpaper: 100%;                                                         /* 100% -> default */ }}
 
 :root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }    /* Accent color for private browsing */
@@ -49,6 +51,7 @@
 :root {
   
   --tab-height-personal: 32px ;                                                         /* Tab height */
+  --tab-min-width-personal: 22px ;                                                      /* Tab min width | default -> :76px */
   --toolbar-height-personal: 38px ;                                                     /* Toolbar height */
   
   --my-group-line-thickness: 2px !important;                                            /* Tab-group line thickness */
@@ -63,7 +66,7 @@
   --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;          /* Background color of pinned sites and search bar  */
   --personal-blur: blur(16px) ;                                                         /* Blur on new tab page elements */
   
-  --newtab-pinnedsites-position-top: center ;                                           /* Pinned sites position -> :start | :center | :end | */
+  --newtab-pinnedsites-position-top: start ;                                            /* Pinned sites position -> :start | :center | :end | */
   
   --selected-text-background: var(--general-color);                                     /* Selected text background */
 
@@ -76,16 +79,17 @@
     --uc-sidebar-hover-width: 5 ;                                                       /* 'Expanded' - Sidebar width x 5 */
   }}
 
-/* ________________________________________________ Main Image config ________________________________________________ */
+/* -----------------------------------------------------------------------------------------------------------------------------------------------
+/* ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ Main Image config ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @media -moz-pref("firefoxgx.main-image") {  
   @media (prefers-color-scheme: dark) { :root {
     --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                 /* new-tab page image - dark theme */
-    --brightness-wallpaper: 50%;                                                        /* 100% -> default ; 50% -> to <<main-image>> config */ }}
+    --brightness-wallpaper: 50%;                                                        /* Black filter | no filter -> 100% */ }}
   
   @media (prefers-color-scheme: light) { :root {
     --lwt-main-image:  url("../newtab/main-image-light.png") !important;                /* new-tab page image - light theme*/
-    --brightness-wallpaper: 50%;                                                        /* 100% -> default ; 50% -> to <<main-image>> config */ }}
+    --brightness-wallpaper: 50%;                                                        /* White filter | no filter -> 100% */ }}
 }
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -95,26 +99,25 @@
 :root {  
   /* ________ Various Gradientes */
   
-  --gradient: var(--general-color) !important;                                     
-  --panel-separator-zap-gradient1: linear-gradient(to left, var(--general-color) , var(--arrowpanel-background)) !important;
-  --panel-separator-zap-gradient2: linear-gradient(to right,var(--general-color) 80% , transparent 94%) !important;
-  --panel-separator-zap-gradient3: linear-gradient(to left, var(--general-color) 90.7%, transparent 90.7%) !important;
-  --panel-separator-zap-gradient4: linear-gradient(to left, var(--general-color) , transparent) !important;
-  --panel-separator-zap-gradient5: linear-gradient(to left, transparent 7px,var(--general-color) 7px, 
+  --panel-separator-zap-gradient1: linear-gradient(to right,var(--general-color) 80% , transparent calc(94% - var(--my-elements-left-margin,0px)));
+  --panel-separator-zap-gradient2: linear-gradient(to left, var(--button-hover-bgcolor) , transparent);
+  --panel-separator-zap-gradient3: linear-gradient(to right, var(--button-bgcolor) 49%, transparent);
+  --panel-separator-zap-gradient4: linear-gradient(to right, var(--button-hover-bgcolor) 80%, transparent);
+  --panel-separator-zap-gradient5: linear-gradient(to left, transparent 7px,var(--button-hover-bgcolor) 7px, 
                                                    transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
-                                                   transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1 !important;
+                                                   transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1;
 
   /* ________ Reverted Gradientes for RTL Languages */
   
   &:-moz-locale-dir(rtl) {
     direction: rtl;
-    --panel-separator-zap-gradient1: linear-gradient(to right, var(--general-color) , var(--arrowpanel-background)) !important;
-    --panel-separator-zap-gradient2: linear-gradient(to left,var(--general-color) 80% , transparent 94%) !important;
-    --panel-separator-zap-gradient3: linear-gradient(to right, var(--general-color) 90.7%, transparent 90.7%) !important;
-    --panel-separator-zap-gradient4: linear-gradient(to right, var(--general-color) , transparent) !important;
-    --panel-separator-zap-gradient5: linear-gradient(to right, transparent 7px,var(--general-color) 7px, 
+    --panel-separator-zap-gradient1: linear-gradient(to left,var(--general-color) 80% , transparent calc(94% - var(--my-elements-left-margin,0px)));
+    --panel-separator-zap-gradient2: linear-gradient(to right, var(--button-hover-bgcolor) , transparent);
+    --panel-separator-zap-gradient3: linear-gradient(to left, var(--button-bgcolor) 49%, transparent);
+    --panel-separator-zap-gradient4: linear-gradient(to left, var(--button-hover-bgcolor) 80%, transparent);
+    --panel-separator-zap-gradient5: linear-gradient(to right, transparent 7px,var(--button-hover-bgcolor) 7px, 
                                                      transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
-                                                     transparent calc(100% - var(--margin-left-icons-personal) - 8px)) !important;
+                                                     transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1;
   }
 
   /* ________________ buttons background color when 'static' - 'hover' - 'click'  ________________ */
@@ -127,5 +130,5 @@
 }
 
 @media (-moz-platform: linux ) { :root {
-  --panel-separator-zap-gradient2: linear-gradient(to right, var(--general-color) 80% , transparent calc(100% - var(--uc-window-control-width, 0px))) !important;
+  --panel-separator-zap-gradient1: linear-gradient(to right, var(--general-color) 80% , transparent calc(100% - var(--uc-window-control-width, 0px))) !important;
   }}

@@ -3,18 +3,21 @@
 
 /* Page -> 'Customize the toolbar' */
 
-#customization-container {color: var(--lwt-text-color) !important; background-color: var(--arrowpanel-background, var(--toolbar-bgcolor)) !important;} 
+#customization-container {
+    background-color: var(--arrowpanel-background, var(--toolbar-bgcolor)) !important;
+    color: var(--lwt-text-color) !important;
+} 
 
 #customization-footer .footer-button:not(#customization-done-button,:hover,:active,[open]) {
     appearance: none !important;
     background-color: var(--input-border-color) !important;
     border-color: var(--input-border-color) !important;
-    color: var(--lwt-tab-text) !important;
+    color: var(--tab-selected-textcolor) !important;
 }
 
 #customization-done-button {
     appearance: none !important;
-    color: var(--lwt-tab-text) !important;
+    color: var(--tab-selected-textcolor) !important;
     border-color: var(--button-hover-bgcolor) !important;
     background-color: var(--button-hover-bgcolor) !important;
     padding: 2px 24px !important;
@@ -30,7 +33,7 @@
     & .footer-button:is([open]),
     & #customization-done-button:is(:active, :hover):not([disabled]) {
         appearance: none !important;
-        color: var(--lwt-tab-text) !important;
+        color: var(--tab-selected-textcolor) !important;
         background-color: var(--button-active-bgcolor) !important;
         border-color: var(--button-active-bgcolor) !important;
     }
@@ -38,20 +41,22 @@
 
 /* Overflow panel    */
 
-.panel-arrowcontent {
-    border-color: var(--arrowpanel-background) !important;
-    box-shadow: 0px 0px 0px 1px var(--input-border-color) !important; 
+#customization-panel-container {
+    --customization-panel-padding: 5px !important;
 }
 
-#customization-panel-container {
-    --customization-panel-padding: 6px !important;
+#customization-panelWrapper {
+    & > .panel-arrowcontent {
+        @media not (-moz-platform: macos) {
+            border-radius: var(--arrowpanel-border-radius) !important;
+        }
+    }
 }
 
 #customization-panelWrapper > .panel-arrowbox > .panel-arrow[side="top"] {
     /* This variable used for oneline config ¯v */
-    margin-inline-end: calc(calc(var(--uc-window-control-width, 0px) - 2px) + var(--customization-panel-padding)) !important;
-    filter: drop-shadow(-1px -0.5px 0px var(--input-border-color))
-            drop-shadow(0.5px -1px 0px var(--input-border-color));
+    margin-inline-end: calc(var(--uc-window-control-width, 8px) - 6px + var(--customization-panel-padding)) !important;
+    filter: drop-shadow(0px -1px 0px var(--input-border-color));
 }
 
 /* In [customization] - Align overflow arrow with its button when using 'Tree-tabs' */
@@ -59,7 +64,7 @@
 @media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
     @media not (-moz-gtk-csd-reversed-placement) {
         #customization-panelWrapper > .panel-arrowbox > .panel-arrow[side="top"] {
-            margin-inline-end: calc(154px + var(--customization-panel-padding)) !important;
+            margin-inline-end: calc(var(--uc-window-control-width, 162px) - 6px + var(--customization-panel-padding)) !important;
         }
     }
 }

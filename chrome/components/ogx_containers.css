@@ -4,8 +4,8 @@
 /* Default contenedor color */
 
 .identity-color-toolbar {
-    --identity-tab-color: color-mix(in srgb, #0c86ee 80%, var(--lwt-tab-text)) !important;
-    --identity-icon-color: color-mix(in srgb, #0c86ee 80%, var(--lwt-tab-text)) !important;
+    --identity-tab-color: color-mix(in srgb, #0c86ee 80%, var(--tab-selected-textcolor)) !important;
+    --identity-icon-color: color-mix(in srgb, #0c86ee 80%, var(--tab-selected-textcolor)) !important;
 }
 
 .identity-color-toolbar:-moz-window-inactive {

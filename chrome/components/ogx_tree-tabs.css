@@ -91,21 +91,10 @@
         --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
     }
     
-    /* Overwrite code from 'left-sidebar.css' - align image of sidebar-revamp */
-    
-    #sidebar-main {
-        background-position: left calc(1px - var(--padding-top-left-sidebar,0px) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
-        background-size: auto calc(100% - 1px + var(--padding-top-left-sidebar,0px) + var(--bookmarksbar-height-personal, 0px) + var(--menubar-height-personal, 0px)) !important;
-        
-        &[sidebar-positionend] {
-            background-position-x: right !important;
-        }
-    }
-    
     /* Overwrite variable to fix height of buttons */
     
     .titlebar-buttonbox-container {
-        --tab-height-personal: calc(var(--toolbar-height-personal) + 1px) !important;
+        --tab-height-personal: var(--toolbar-height-personal) !important;
         margin-inline-start: 42px !important;
     }
 
@@ -209,15 +198,17 @@
     #main-menubar{
         height: calc(var(--menubar-height-personal, var(--toolbar-height-personal)) - 0px) !important;
         align-self: start !important;
-        box-shadow: inset 0 -1px 0 0 var(--my-content-border-color) !important;
+        /*box-shadow: inset 0 -1px 0 0 var(--my-content-border-color) !important;/**/
     }
     
     #toolbar-menubar[autohide="true"] #main-menubar{
         background-image: linear-gradient(
             var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor),var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)),
-            var(--lwt-additional-images,none), var(--lwt-header-image, none);
+            var(--lwt-additional-images,none), var(--lwt-header-image, none),
+            linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field));
         background-attachment: scroll, fixed, fixed;
         background-position: 0 0, var(--lwt-background-alignment), right top;
+        background-position-y: top !important;
         background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat;
         background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto;
         color: var(--arrowpanel-color) !important;
@@ -257,7 +248,11 @@
             height: initial !important;
             z-index: 0;
             border-bottom: 1px solid var(--general-color) !important;
-            border-image: linear-gradient(to right,var(--general-color) 40%, transparent 90%) 1 !important;
+            border-image: linear-gradient(to right, transparent var(--my-elements-left-magin,0px), var(--general-color)  var(--my-elements-left-magin,0px), transparent 90%) 1 !important;
+            
+            @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") {
+                inset-inline-start: var(--my-elements-left-margin) !important;
+            }
         }
         
         & #main-menubar{
@@ -266,17 +261,20 @@
     }
 }
 
-/* __________________________ New padding top and bottom for 'Left-sidebar' config when using 'tree-tabs' styles */
+/* __________________________ Toolbars new background __________________________ */
 
-@media -moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs") {
-    :root:not([chromehidden~="toolbar"]) #PersonalToolbar {
-        --padding-top-left-sidebar: calc(var(--toolbar-height-personal) + var(--tab-height-personal) + var(--menubar-height-personal, 0px) + 15px) !important;
-        --padding-bottom-left-sidebar: calc(var(--menubar-height-personal, 0px) + 10px) !important;
-    }
+@media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
 
     /* 'Nav-bar - boolmarks-bar - Sidebar-main' background color */
-    
-    .browser-toolbar:not(#toolbar-menubar), #sidebar-main {
-        background-color: color-mix(in srgb, var(--toolbar-bgcolor) 100%, transparent) !important;
+
+    .browser-toolbar:not(#toolbar-menubar) {
+        background-color: var(--toolbar-bgcolor) !important;
+    }
+
+    @media not -moz-pref("firefoxgx.left-sidebar") {
+
+        #sidebar-main:not([sidebar-positionend]), #navigator-toolbox::before {
+            /*background-color: color-mix(in srgb, var(--toolbar-bgcolor) 75%, transparent) !important;/**/
+        }
     }
 }

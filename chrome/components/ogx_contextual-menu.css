@@ -25,15 +25,11 @@ menupopup > menuitem, menupopup > menu {
 
 menupopup:not(.in-menulist)  menuseparator::before {
     appearance: none !important;
-    border-image: var(--panel-separator-zap-gradient4) 1 !important;
+    border-image: var(--panel-separator-zap-gradient2) 1 !important;
     margin-inline: -6px !important;
-}
 
-@media (-moz-platform: linux) {
-    menupopup:not(.in-menulist) menuseparator::before {
-    appearance: none !important;
-    border-image: var(--panel-separator-zap-gradient4) 1 !important;
-    margin-inline: 6px !important;
+    @media (-moz-platform: linux) {
+        margin-inline: 6px !important;
     }
 }
 
@@ -56,27 +52,37 @@ menupopup menupopup {
 menupopup:not(.in-menulist), 
 panel:not(.in-menulist,.panel-no-padding) {
     --panel-shadow-margin: 1px !important;  /* 1px to draw the external border */
-    --panel-border-radius: 0px !important;  /* Roundness */
+    --panel-border-radius: var(--arrowpanel-border-radius) !important;  /* Roundness */
+    --panel-border-color: var(--arrowpanel-border-color) !important;
 }
 
-/* Border image */
-.menupopup-arrowscrollbox{
-    border-image: var(--my-border-image) !important;
-    background-image: var(--my-background-image) !important;
+.menupopup-arrowscrollbox {
+    border-image: var(--my-border-image, none) !important;
+    background-image: var(--my-background-scroll, var(--my-background-image1, Field)) !important;
+    background-repeat: var(--my-background-repeat) !important;
+    background-size: var(--my-background-size) !important;
+    background-position: var(--my-background-position) !important;
+    background-color: var(--my-background-color, Field) !important;
 }
 
-menupopup:not(.in-menulist) {    
+menupopup:not(.in-menulist) {
     --panel-background: var(--arrowpanel-background) !important;
     --panel-shadow: 0 0 0 1px var(--border-contrast-color) !important;
-    --my-border-image: var(--panel-separator-zap-gradient1) 1 !important;
-    --my-background-image: var(--noise-urlbar-personal) !important;
+    --my-background-image1:                                                         /* Soft gradient background - needs to be 1 */
+        radial-gradient( 100% 91.38% at 50% 99.62%,
+        color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
+        var(--arrowpanel-background)) !important;
+    --my-background-repeat: no-repeat !important;
+    --my-background-size: auto auto !important;
+    --my-background-position: center center;
+    --my-background-color: var(--arrowpanel-background) !important;
 
     /* Font color in Contextual menus */
 
     &> menuitem:not([disabled="true"]),
         &> menu {
             appearance: none !important;
-            color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+            color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
     }
 
     /* Color to 'hover' items */
@@ -84,7 +90,7 @@ menupopup:not(.in-menulist) {
     &> menuitem:not([disabled="true"]):is(:hover,[_moz-menuactive]),
         &> menu:is(:hover,[_moz-menuactive]) {
             appearance: none !important;
-            background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
+            background: var(--panel-separator-zap-gradient3) !important;
             color: var(--arrowpanel-color, #ffffff) !important;
     }
 
@@ -145,8 +151,8 @@ menupopup:not(.in-menulist) {
 
 #context-navigation > menuitem[_moz-menuactive="true"] {
     &:not([disabled]) {
-        background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
-        color: var(--arrowpanel-color, var(--lwt-tab-text)) !important;
+        background: var(--panel-separator-zap-gradient3) !important;
+        color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
     }
     &:is([disabled]) {
         background: transparent !important;
@@ -171,7 +177,7 @@ menupopup:not(.in-menulist) {
         }
         
         &:not([disabled]) {
-            color: var(--arrowpanel-color, var(--lwt-tab-text)) !important; /* used when font color isn't white/black */
+            color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important; /* used when font color isn't white/black */
         }
     }
     
@@ -200,7 +206,7 @@ menupopup:not(.in-menulist) {
 
     @media not -moz-pref("firefoxgx.icon.disabled") {
         
-        :not(#context-navigation) menuitem:not([type="radio"],[type="checkbox"],.menuitem-with-favicon, .menuitem-iconic) > .menu-icon {
+        /*:not(#context-navigation) menuitem:not([type="radio"],[type="checkbox"],.menuitem-with-favicon, .menuitem-iconic) > .menu-icon {
             display: none !important;
         }
 
@@ -208,7 +214,7 @@ menupopup:not(.in-menulist) {
 
         .menu-text{ margin-inline-start: 0px !important; }
 
-        /* Remove double icon on certain menu items */
+        /* Remove double icon on certain menu items 
 
         :is(
         #toggle_toolbar-menubar:not([checked="true"]),
@@ -237,7 +243,7 @@ menupopup:not(.in-menulist) {
         .unified-extensions-context-menu-pin-to-toolbar
         ) > .menu-icon {
             display: none !important;
-        }
+        }*/
 
         /* Align extension icons */    
 
@@ -256,7 +262,8 @@ menupopup:not(.in-menulist) {
 
     @media -moz-pref("firefoxgx.icon.disabled") {
         #context-navigation > menuitem {
-            padding-inline-start: 28px !important;
+            /*padding-inline-start: 28px !important;/**/
+            padding-inline: 8px !important;
             padding-block: 4px !important;
         }
     }
@@ -269,11 +276,5 @@ menupopup:not(.in-menulist) {
 
     menu, menuitem, menucaption {
         border-radius: 0px !important;
-    }
-
-    /* Arrow */
-
-    .menu-right {
-        margin-inline-end: 10px !important;
     }
 }

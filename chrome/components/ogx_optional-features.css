@@ -1,0 +1,288 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/firefox-gx */
+
+/* ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ Solid background ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+/* Non image in the 'left-sidebar + tabsbar + menubar' in themes that use images */
+
+@media -moz-pref("firefoxgx.solid-background") {
+  
+  /* Without sidebars */
+  @media (not -moz-pref("firefoxgx.left-sidebar")) and (not -moz-pref("sidebar.revamp")) {
+    :is(#TabsToolbar, #toolbar-menubar) {
+      background-image: none !important;
+      background-color: var(--lwt-accent-color, Field) !important;
+    }
+  }
+
+  /* With 'left-sidebar' only */
+  @media -moz-pref("firefoxgx.left-sidebar") /*and (not -moz-pref("sidebar.revamp"))/**/ {
+    :root:not([customizing]) #navigator-toolbox::before,
+    :is(#PersonalToolbar, #TabsToolbar, #toolbar-menubar) {
+      background-image: none !important;
+      background-color: var(--lwt-accent-color, Field) !important;
+    }
+  }
+
+  /* With 'sidebar-revamp' only */
+  @media -moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.left-sidebar")) {
+    #sidebar-main,
+    :root:not([customizing]) #navigator-toolbox::before,
+    :is(#TabsToolbar, #toolbar-menubar){
+      background-image: none !important;
+      background-color: var(--lwt-accent-color) !important;
+    }
+  }
+
+  /* Vertical-tabs Without 'left-sidebar' */
+  @media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("firefoxgx.left-sidebar")) {
+    #sidebar-main, :root[sidebar-expand-on-hover] #sidebar-main,
+    :root:not([customizing]) #navigator-toolbox::before,
+    :is(#TabsToolbar, #toolbar-menubar[autohide="false"]){
+      background-image: none !important;
+      background-color: var(--lwt-accent-color) !important;
+    }
+  }
+  
+  /* With both sidebars */
+  @media -moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.verticalTabs")) and -moz-pref("firefoxgx.left-sidebar") {
+    :is(#PersonalToolbar, #TabsToolbar, #toolbar-menubar),
+    #navigator-toolbox::before {
+      background-image: none !important;
+      background-color: var(--lwt-accent-color) !important;
+    }
+  }
+
+  /* 'Vertical-tabs' + 'Left-sidebar' */
+  @media -moz-pref("sidebar.verticalTabs") and -moz-pref("firefoxgx.left-sidebar") {
+    :is(#PersonalToolbar, #toolbar-menubar[autohide="false"]) {
+      background-image: none !important;
+      background-color: var(--lwt-accent-color) !important;
+    }
+  }
+}
+
+/* ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ Image in menus ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+@media -moz-pref("firefoxgx.image-in-menus") {
+
+  :root:not([style*="--lwt-additional-images"],[lwtheme-image]) {
+    :is(menupopup, panel):where([type="arrow"]),
+    menupopup:not(.in-menulist) {
+      --lwt-header-image: url("../newtab/menu-image.png") !important;
+      --lwt-additional-images: var(--lwt-header-image) !important;
+    }
+  }
+  
+  menupopup:not(.in-menulist),
+  .panel-no-padding[type="arrow"] {
+    @media (prefers-color-scheme: dark) {
+      --arrowpanel-background: #101019d0 !important;
+    }
+    @media (prefers-color-scheme: light) {
+      --arrowpanel-background: #f9f9f9d0 !important;
+    }
+  }
+  
+  .panel-no-padding[type="arrow"] panelmultiview,
+  #editBookmarkPanel box,
+  #editBookmarkPanel vbox {
+    --my-background-image-popup: linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)),
+                                 var(--lwt-header-image,none), var(--lwt-additional-images, none),
+                                 linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;    
+    background-image: var(--my-background-image-popup) !important;
+    background-size: auto 100vh !important;
+  }
+  
+  menupopup:not(.in-menulist) {
+    --my-background-image1: linear-gradient(var(--arrowpanel-background), var(--arrowpanel-background)),
+                            var(--lwt-additional-images,none), var(--lwt-header-image, none),
+                            linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;
+    --my-background-position: left top !important;
+    --my-background-repeat: no-repeat !important;
+    --my-background-size: auto 100vh !important;
+  }
+
+  @media -moz-pref("firefoxgx.main-image") {
+    @media (prefers-color-scheme: dark){
+      :root:not([style*="--lwt-additional-images"],[lwtheme-image]) {
+        :is(menupopup, panel):where([type="arrow"]),
+        menupopup:not(.in-menulist) {
+          --lwt-header-image: url("../newtab/main-image-dark.png") !important;
+          --lwt-additional-images: var(--lwt-header-image) !important;
+        }
+      }
+    }
+
+    @media (prefers-color-scheme: light){
+      :root:not([style*="--lwt-additional-images"],[lwtheme-image]) {
+        :is(menupopup, panel):where([type="arrow"]),
+        menupopup:not(.in-menulist) {
+          --lwt-header-image: url("../newtab/main-image-light.png") !important;
+          --lwt-additional-images: var(--lwt-header-image) !important;
+        }
+      }
+    }
+  }
+}
+
+/* ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ Arrow in menus ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+@media -moz-pref("firefoxgx.arrow-in-menus") {
+
+  /* Add a Panelarrow to all popups */
+
+  :root {
+    --my-margin-top-popups: 10px !important;
+    --my-margin-inline-popups: -11px !important;
+  }
+
+  
+  :is(menupopup, panel):where([type="arrow"]):not(#appMenu-popup, #tab-preview-panel)::after {
+    z-index: 0 !important;
+    top: calc(var(--my-margin-top-popups, -4px) + 4px) !important;
+  }
+
+  /* Margin tabsbar popups */
+
+  .panel-no-padding[type="arrow"]:not(#appMenu-popup) {
+    /*--panel-shadow-margin: 0px !important;/**/
+    padding-block-start: var(--my-margin-top-popups) !important;
+    margin-inline: var(--my-margin-inline-popups) !important;
+  }
+
+  /* Panelarrow */
+
+  .panel-no-padding[type="arrow"]:not(#appMenu-popup)::before {
+    content: ''; position: absolute;
+    top: calc(var(--my-margin-top-popups) - 4px);  
+    inset-inline-start: calc(var(--toolbarbutton-inner-padding) + 2px);
+    width: 34px; height: 9px;
+    background-size: 34px 9px;
+    background-image: url("../icons/panelarrow-menu.svg");
+    -moz-context-properties: fill, stroke;
+    fill: var(--arrowpanel-background);
+    stroke: var(--arrowpanel-border-color);
+    filter: drop-shadow(0px -1px 0px var(--contrast-color));
+    z-index: 1;
+  }
+
+  /*  Popups in Tabsbar  */
+
+  .panel-no-padding[type="arrow"] {
+    :root:has(#TabsToolbar-customization-target toolbarbutton[open]) & {
+      margin-inline: -13px !important;
+      
+      @media -moz-pref("firefoxgx.oneline") {
+        margin-inline: -11px !important;
+      }
+    }
+
+    :root:has(toolbarbutton[open] ~ #tabbrowser-tabs) & ,                              /* Buttons on left of tabsbar */
+    :root:has(toolbaritem>box>toolbarbutton[open] ~ #tabbrowser-tabs) & {              /* Buttons on left of tabsbar (Extensions) */
+      &::before{
+        inset-inline-start: calc(var(--toolbarbutton-inner-padding) + 2px);
+      }
+    }
+    :root:has(#tabbrowser-tabs ~ toolbarbutton[open]:not(#firefox-view-button)) &,     /* Buttons on right of tabsbar */
+    :root:has(#tabbrowser-tabs ~ toolbaritem toolbarbutton[open]) & {                  /* Buttons on right of tabsbar (Extensions) */
+      &::before{
+        inset-inline-start: unset !important;
+        inset-inline-end: calc(var(--toolbarbutton-inner-padding) + 2px);
+        
+        @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
+          stroke: var(--general-color) !important;
+        }
+      }
+    }
+  }
+
+  /* Popups in Navbar */
+
+  .panel-no-padding[type="arrow"] {
+    :root:has(#nav-bar-customization-target ~ .toolbarbutton-1[open]) & ,              /* Unmovable right icon '>>' */
+    :root:has(#urlbar-container ~ toolbarbutton[open]:not(#firefox-view-button)) & ,   /* Movable right icon */
+    :root:has(#urlbar-container ~ toolbaritem toolbarbutton[open]) & {                 /* Movable right icon extensions */
+      &::before {
+        inset-inline-start: unset !important;
+        inset-inline-end: calc(var(--toolbarbutton-inner-padding) + 2px) !important;
+        
+        /* Arrow + gradientBorder in menus */
+        @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
+         stroke: var(--general-color) !important;
+        }
+      }
+    }
+  }
+
+  /* Popups in Urlbox */
+
+  .panel-no-padding[type="arrow"] {  
+    :root:has(#urlbar-container box[open="true"]) & ,          /* Url buttons */
+    :root:has(#page-action-buttons>hbox[open]) & {             /* Page-action-buttons */
+      margin-inline: -14px !important;
+    }
+
+    :root:has(#tracking-protection-icon-container[open]) & {  /* Shield */
+      &::before {
+        inset-inline-start: unset !important;
+        inset-inline-end: calc(var(--toolbarbutton-inner-padding) + 2px) !important;
+        
+        @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
+          stroke: var(--general-color) !important;
+        }
+      }
+    }
+
+    :root:has(#page-action-buttons>hbox[open]) & {            /* urlbar-page-action */
+      &::before {
+        inset-inline-start: unset !important;
+        inset-inline-end: calc(var(--toolbarbutton-inner-padding) + 2px) !important;
+        
+        @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
+          stroke: var(--general-color) !important;
+        }
+      }
+    }
+  }
+}
+
+/* ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ Gradient border in menus ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+@media -moz-pref("firefoxgx.gradientBorder-in-menus") /*and (not -moz-pref("firefoxgx.arrow-in-menus"))/**/ {
+  
+  :root,
+  :root[lwtheme],
+  :root:not([lwtheme]) {
+    --arrowpanel-border-radius: 0px !important;
+    --panel-separator-zap-gradient2: linear-gradient(to right, transparent, var(--general-color)) !important;
+  }
+  
+  /* Hamburger menu */
+  
+  :root:not([chromehidden~="toolbar"],[sizemode="normal"]) {
+    & #appMenu-popup {
+      --arrowpanel-border-radius: 0px !important;
+    }
+  }
+  
+  /* Context menus */
+
+  menupopup:not(.in-menulist) {
+    --my-border-image: var(--panel-separator-zap-gradient2) 1 !important;
+  }
+  
+  /* Arrowpanels */
+  
+  :is(menupopup, panel):where([type="arrow"]) {
+    --arrowpanel-border-color: transparent !important;
+  }
+  
+  :is(menupopup, panel):where([type="arrow"])::after {
+    background: var(--panel-separator-zap-gradient2);
+  }
+}

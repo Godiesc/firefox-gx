@@ -7,14 +7,13 @@
 
     .titlebar-button {
         color: var(--general-color) !important;
-        padding-inline-start: 13px !important;
-        padding-inline-end: 13px !important;
+        padding-inline: 13px !important;
     }
     .titlebar-button:hover:not(.titlebar-close) {
         background-color: var(--toolbarbutton-hover-personal) !important;
     }
     
-    @media (not (-moz-bool-pref:"firefoxgx.oneline")) and (not (-moz-bool-pref:"firefoxgx.tree-tabs")) and (not (-moz-bool-pref:"sidebar.verticalTabs")) {
+    @media (not -moz-pref("firefoxgx.oneline")) and (not -moz-pref("firefoxgx.tree-tabs")) and (not -moz-pref("sidebar.verticalTabs")) {
         .titlebar-min {
             padding-block-start: 12px !important;
             padding-block-end: 0px !important;
@@ -78,12 +77,12 @@
         list-style-image: none !important;
         appearance: none !important;
     }
-    .titlebar-button > .toolbarbutton-icon{
+    /*.titlebar-button > .toolbarbutton-icon{
         appearance: auto !important;
         background: none !important;
         width: unset !important;
         height: unset !important;
-    }
+    }/**/
     .titlebar-min > .toolbarbutton-icon{
         -moz-default-appearance: -moz-window-button-minimize !important;
     }
@@ -106,7 +105,7 @@
     One button */
     @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
         :root:is([customtitlebar]) {
-            --uc-window-control-width: 48px !important;
+            --uc-window-control-width: 56px !important;
         }
     }
     /* Two buttons */
@@ -114,13 +113,13 @@
         (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
         (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
             :root:is([customtitlebar],[sizemode="fullscreen"]) {
-                --uc-window-control-width: 76px !important;
+                --uc-window-control-width: 86px !important;
             }
     }
     /* Three buttons */
     @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
         :root:is([customtitlebar],[sizemode="fullscreen"]) {
-            --uc-window-control-width: 104px !important;
+            --uc-window-control-width: 118px !important;
         }
     }
 }

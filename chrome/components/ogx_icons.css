@@ -36,7 +36,7 @@
     animation-duration: 0ms !important;
 }
 
-/* home button*/
+/* home button */
 
 #home-button image {
     list-style-image: url("../icons/home.svg") !important;
@@ -49,7 +49,7 @@
 }
 
 #pageAction-panel-bookmark[starred], #star-button[starred] {
-    list-style-image: url("../icons/bookmark.svg") !important;
+    list-style-image: url("../icons/bookmark-fill.svg") !important;
 }
 
 #pageAction-panel-bookmark[starred]:hover, #star-button-box:is(:hover, [open]) #star-button[starred] {
@@ -120,9 +120,9 @@
 
 /* 'Delete' bookmark icon  */
 
-#editBookmarkPanelRemoveButton{
-    background: url("../icons/delete.svg") no-repeat center/16px !important;
-    background-color: var(--input-border-color) !important;
+#editBookmarkPanelRemoveButton>hbox>.button-icon {
+    list-style-image: url("../icons/delete.svg") !important;
+    width: 16px;
 }
 
 /* Logo-url on Firefox secure pages */
@@ -134,7 +134,7 @@
 /* Newtab favicon */
 
 .tab-icon-image[src="chrome://branding/content/icon32.png"] {
-    content: url("../icons/foxlogofavicon.svg");
+    content: url("../icons/newtab-favicon.svg");
     fill: var(--identity-icon-color, var(--general-color)) !important;
 }
 
@@ -156,20 +156,32 @@
 
 #urlbar-background::before {
     background-position-x: left;
-    inset-inline-start: -7px;
+    inset-inline-start: -8px;
+  
+    /* This directionality flipper for RTL languages */
+    direction: ltr;
+    &:is([positionend],[sidebar-positionend]):not(:-moz-locale-dir(rtl)){
+        direction: rtl;
+    }
 }
 
 #urlbar-background::after {
     background-position-x: right;
     top: calc(10px - var(--toolbar-height-personal));
-    inset-inline-end: -7px;
+    inset-inline-end: -8px;
+  
+    /* This directionality flipper for RTL languages */
+    direction: ltr;
+    &:is([positionend],[sidebar-positionend]):not(:-moz-locale-dir(rtl)){
+        direction: rtl;
+    }
 }
 
 #urlbar:is([open], [focused], :hover) {
     #urlbar-background::before,
     #urlbar-background::after {
-        opacity: 0 !important;
-        transition-duration: 400ms !important;
+        opacity: 0;
+        transition-duration: 400ms;
     }
 }
 
@@ -522,7 +534,7 @@
   #appMenu-proton-update-banner::before,
   #downloadsHistory .button-icon,
   .subviewbutton:not(#appMenu-proton-update-banner) > image {
-    fill: currentColor !important;
+    fill: var(--identity-icon-color, currentColor) !important;
     fill-opacity: var(--toolbarbutton-icon-fill-opacity) !important;
     -moz-context-properties: fill, fill-opacity, stroke !important;
   }
@@ -606,7 +618,7 @@
   }
   #appMenu-zoom-controls2,
   #appMenu-zoom-controls {
-    padding-inline-start: 6px !important;
+    padding-inline-start: calc(var(--margin-left-icons-personal) - 2px) !important;
   }
   
   /* Update avaliable */
@@ -642,6 +654,11 @@
   #appMenu-passwords-button {
     list-style-image: url("chrome://browser/skin/login.svg");
   }
+  
+  #appMenu-unified-extensions-button {
+    list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
+  }
+  
   #appMenu-extensions-themes-button {
     list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
   }
@@ -801,7 +818,7 @@
     padding-inline-start: var(--arrowpanel-menublank-padding) !important;
   }
 
-  #PanelUI-fxa-menu::before {
+  /*#PanelUI-fxa-menu::before {
     content: "";
     display: flex;
     display: -moz-box;
@@ -809,7 +826,7 @@
     margin: var(--panel-separator-margin);
     padding: 0;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
-  }
+  }/**/
 
   #PanelUI-fxa-menu > :first-child {
     order: -1;
@@ -1161,7 +1178,7 @@
     appearance: none !important;
   }
   /* Icon */
-  /*#main-menubar > menu::before,/**/
+  /*#main-menubar > menu::before,/*
   :not(menu, #ContentSelectDropdown)
     > menupopup:not(.in-menulist)
     > menuitem:not(.menuitem-iconic, .bookmark-item, .in-menulist, [checked="true"])::before,
@@ -1196,7 +1213,7 @@
     menu:not(.menu-iconic, .in-menulist, [checked="true"]):before,
   menupopup:is(#organizeButtonPopup, #maintenanceButtonPopup)
     > menuitem:not(.menuitem-iconic, .bookmark-item, .in-menulist, [checked="true"]):before,
-  menupopup:is(#viewMenuPopup, #maintenanceButtonPopup) > menu:not(.menu-iconic, .in-menulist, [checked="true"]):before,
+  menupopup:is(#viewMenuPopup, #maintenanceButtonPopup) > menu:not(.menu-iconic, .in-menulist, [checked="true"]):before,/**/
   menupopup:is(
       #context_sendTabToDevicePopupMenu,
       #context-sendpagetodevice-popup,
@@ -1466,8 +1483,8 @@
   #BMB_viewBookmarksToolbar,
   #sidebarMenu-popup:is(menupopup),
   #context_openANewTab.tabmix-newtab-menu-icon {
-    padding-inline-start: 12px !important;
-    margin-left: 0 !important;
+    /*padding-inline-start: 12px !important;
+    margin-left: 0 !important;/**/
   }
   .menupopup-arrowscrollbox {
     padding-inline: 0 !important; /* Original: padding: var(--panel-padding); --panel-padding-block: 4px; */
@@ -1502,7 +1519,7 @@
     > menupopup:not(.in-menulist)
     > menu:not(.menu-iconic, .in-menulist, [checked="true"]),
   #blockedPopupDontShowMessage {
-    padding-inline-end: 8px !important;
+    /*padding-inline-end: 10px !important;/**/
   }
   /* text position */
   :not(menu, #ContentSelectDropdown, #context-navigation) > menupopup:not(.in-menulist) > menuitem > .menu-text,
@@ -1608,13 +1625,14 @@
   }
   #PersonalToolbar menupopup[placespopup="true"] menuitem:not(.menuitem-iconic, [disabled="true"]),
   #PersonalToolbar menupopup[placespopup="true"] menu:not(.menu-iconic) {
-    padding-inline-start: 0px !important;
+    padding-inline-start: 8px !important;
   }
   menupopup:is(#BMB_bookmarksPopup)[placespopup="true"] menuitem:not(.menuitem-iconic, [disabled="true"]) > .menu-text,
   menupopup:is(#BMB_bookmarksPopup)[placespopup="true"] menu:not(.menu-iconic) > .menu-text,
   #PersonalToolbar menupopup[placespopup="true"] menuitem:not(.menuitem-iconic, [disabled="true"]) > .menu-text,
   #PersonalToolbar menupopup[placespopup="true"] menu:not(.menu-iconic) > .menu-text {
     padding-inline-start: 0px !important;
+    margin-inline-start: 0px !important;
   }
 
   /** Context Menu - Icons ******************************************************/ /*= tabContextMenu ===========================================================*/
@@ -3352,5 +3370,58 @@
   }
   #uninstall-ssb-contextmenu {
     --menuitem-image: url("../icons/pwa-remove.svg");
+  }
+  
+  /* bug fix - remove duplicated icon and fill color icon */
+  
+  /* Enable the icon space in all items */
+  
+  .menu-icon {
+    menuitem:not(.menuitem-iconic, [image]) > &, menu:not(.menu-iconic) > & {
+      -moz-context-properties: fill, stroke;
+      display: revert !important;
+      fill: var(--arrowpanel-color) !important;
+      stroke: var(--arrowpanel-color) !important;
+    }
+  }
+  
+  /* Icons fill color */
+  
+  menupopup[needsgutter] {
+    @media (-moz-platform: linux) or (-moz-platform: windows) {
+      & > :is(menu, menuitem) {
+        &> .menu-icon {
+          -moz-context-properties: fill, stroke;
+          fill: var(--arrowpanel-color) !important;
+          stroke: var(--arrowpanel-color) !important;
+        }
+
+        &:where([disabled="true"]) > .menu-icon {
+          fill: var(--text-color-disabled) !important;
+          stroke: var(--text-color-disabled) !important;
+        }
+      }
+    }
+  }
+  
+  /* Remove icons of main menubar (file, edit...) */
+  
+  #main-menubar>menu, 
+  /*:not(#permission-popup-menulist)/**/ .in-menulist menuitem {   /* Remove unwanted icon space in combobox (ejm: audio permission) */
+    & > .menu-icon {
+      display: none !important;
+    }
+  }
+  
+  /* Remove unwanted space in context menu item 'Send page to device' */
+  
+  menupopup:is(
+      #context_sendTabToDevicePopupMenu,
+      #context-sendpagetodevice-popup,
+      #context-sendlinktodevice-popup,
+      #frame > menupopup
+    )
+  > menuitem>.menu-icon {
+    display: none !important;
   }
 }

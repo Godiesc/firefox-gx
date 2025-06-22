@@ -3,7 +3,7 @@
 
 /* _________________________________________ library _________________________________________ */
 
-@-moz-document url(chrome://browser/content/places/places.xhtml) , url(chrome://browser/content/webext-panels.xhtml){
+@-moz-document url(chrome://browser/content/places/places.xhtml) , url(chrome://browser/content/webext-panels.xhtml) {
     
     @media not (prefers-contrast) {
         :root:not([lwtheme]) {

@@ -34,6 +34,7 @@
             --contrast-color: black;                                                     /* Personal background color for contrast */
             --border-contrast-color: #09080d;                                            /* Personal border color for contrast */
             --arrowpanel-background: #1c1726;                                            /* Background color for 3 dot menu */
+            --arrowpanel-border-color: #302b3a;
         }}
 
     @media (prefers-color-scheme: light){
@@ -296,17 +297,17 @@
     /* ______________________________________________________ Various Changes ________________________________________________________ 
        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     
-    /* Remove scrollbar */
+    /* Remove scrollbar 
 
-    *{scrollbar-width: none !important }
+    *{scrollbar-width: none !important }*/
 
     /* Colors when editing a pinned site or When deleting a pinned site */
 
     .modal {
+        --newtab-border-color: var(--arrowpanel-border-color) !important;
         background: var(--newtab-overlay-color) !important;
-        border-image: var(--panel-separator-zap-gradient4) 1 !important;
         outline: 1px solid var(--contrast-color) !important;
-        border-radius: 0 !important;
+        border-radius: var(--border-radius-medium) !important;
         backdrop-filter: var(--personal-blur) !important;
     }
 
@@ -315,7 +316,7 @@
     }
 
     .topsite-form .actions {
-        border-image: var(--panel-separator-zap-gradient4) 1 !important;
+        border-image: var(--panel-separator-zap-gradient2) 1 !important;
     }
 
     input[type="text"], input[type="search"] {
@@ -409,7 +410,7 @@
     
     .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active,
     .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done{
-        box-shadow: -1px 0 #50505030, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+        box-shadow: -1px 0 #50505050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
         transition-duration: 200ms !important;
     }
     
@@ -455,7 +456,7 @@
     /* Separador*/
     
     .home-section .divider { 
-        border-image: var(--panel-separator-zap-gradient4) 1 !important;
+        border-image: var(--panel-separator-zap-gradient2) 1 !important;
     }
     
     /* Background blur when open a wallpaper category */
@@ -507,9 +508,18 @@
     
     @media (height > 700px) {
         body:not(.inline-onboarding) .fixed-search .search-wrapper {
-            background-color: var(--newtab-pinnedsites-background) !important;
-            backdrop-filter:blur(50px) !important;
+            --my-image-background-blur: color-mix(in srgb, var(--contrast-color), transparent) !important;
+            --my-solid-background-blur: color-mix(in srgb, var(--newtab-background-color), transparent) !important;
+            background-image: linear-gradient(
+                var(--my-image-background-blur), var(--my-image-background-blur)),
+                var(--newtab-wallpaper, none),
+                linear-gradient(var(--my-solid-background-blur, transparent), var(--my-solid-background-blur, transparent))!important;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            backdrop-filter: var(--personal-blur) !important;
             border-color: Field !important;
+            box-shadow: 0 2px 6px 0 black !important;
         }
     }
     
@@ -612,6 +622,7 @@
     .layout-variant-a, .layout-variant-b {
         & .top-site-outer {
             margin-block: 0px !important;
+            margin-block-end: 12px !important;
 
             /* Size favicon */
             & .tile .icon-wrapper {
@@ -782,7 +793,9 @@
     .top-site-outer .context-menu-button {
         background-image: url("../icons/more.svg") !important;
         background-color: transparent !important;
-        border-radius: 0px calc(var(--border-radius-medium) - 1px) !important;
+        border-radius: calc(var(--border-radius-medium) - 1px) !important;
+        border-start-start-radius: 0px !important;
+        border-end-end-radius: 0px !important;
         inset-block-start: 0px !important;
         inset-inline-end: 10px !important;
         transition: opacity 100ms;
@@ -810,16 +823,16 @@
 
     .context-menu {
         background-color: var(--arrowpanel-background) !important; 
-        border-radius: 0px !important;
+        border-radius: 4px !important;
         top: 0px !important;
         box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
-        border: 1px solid var(--arrowpanel-background) !important;
-        border-image: var(--panel-separator-zap-gradient4) 1 !important;
+        border: 1px solid var(--arrowpanel-border-color) !important;
+        
 
         & .separator {
             margin-inline: 6px !important;
             width: -moz-available !important;
-            border-image: var(--panel-separator-zap-gradient4) 1 !important;
+            border-image: var(--panel-separator-zap-gradient2) 1 !important;
         }
 
         /* 'hover' on items */
@@ -949,6 +962,38 @@
             position: fixed !important;
         }
     }
+    
+    /* Theme image go below in newtab page */
+
+    @media -moz-pref("browser.tabs.allow_transparent_browser") {    
+        body {
+            background-color: transparent !important;
+        }
+
+        .customize-menu {
+            background-image: url("../icons/urlbar-noise-light.png") !important;
+            background-color: var(--newtab-background-color) !important;
+        }
+
+        /* When editing a pinned site */
+
+        .modalOverlayOuter {
+            --newtab-button-static-hover-background: light-dark(#E0E0E6, #101019e0) !important;
+            background-image: url("../icons/urlbar-noise-dark.png") !important;
+            background-color: var(--newtab-button-static-hover-background) !important;
+        }
+
+        /* General -Recent activity- */
+
+        .card .card-details {
+            position: relative !important;
+            z-index: 1 !important;
+        }
+
+        .card .card-context {
+            position: fixed !important;
+        }
+    }
 }
 
 /* _____________ Background and font color when selecting text on websites _____________ 
@@ -974,7 +1019,6 @@
         --newtab-search-icon: url("chrome://global/skin/icons/indicator-private-browsing.svg") !important;
         background: var(--lwt-private-image) no-repeat right top fixed !important;
         background-size: cover !important;
-        background-position-y: var(--background-align-y) !important;
         backdrop-filter: var(--brightness-wallpaper) !important;
     }
 

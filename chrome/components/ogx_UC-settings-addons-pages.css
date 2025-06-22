@@ -359,10 +359,63 @@
         background-image: none !important;
         background-color: transparent !important;
     }
+    
+    /* _________ New layout of sticky and main content _________ */
 
-    /* Wallpaper */
+    /* 'About:preferences' page */
 
-    @media not -moz-pref("firefoxgx.main-image") {
+    /* Remove unwanted margin from right section */
+    .main-content {
+        padding-inline: 0px !important;
+    }
+
+    .pane-container{
+        width: max(100%, var(--page-main-content-width)) !important;
+        display: grid !important;
+        overflow-x: hidden !important;
+
+        & #mainPrefPane {
+            padding-top: 20px !important; 
+            padding-inline-start: 60px !important;
+            padding-inline-end: calc(100% - var(--page-main-content-width)) !important;
+            overflow-x: hidden !important;
+        }
+    }
+    /* 'About:addons' page */
+
+    #content {
+        max-height: 100vh;
+        display: grid !important;
+        grid-template-rows: auto auto 1fr;
+        --in-content-page-background: transparent;
+    }
+
+    #main {
+        overflow: auto;
+        max-width: 100% !important;
+        scrollbar-gutter: stable !important;
+
+        & addon-card[expanded="true"],
+        & addon-list,
+        &>recommended-themes-section>recommended-addon-list,
+        & recommended-extensions-section {
+            --page-main-content-width: calc(100% + 28px + 4px) !important;
+            display: block !important;
+            max-width: calc(100% - var(--in-content-sidebar-width) - var(--main-margin-start, 0px)) !important;
+            padding-inline-start: 4px !important;
+        }
+
+        & discovery-pane {
+            --page-main-content-width: calc(100% + var(--main-margin-start) + 4px) !important;
+            display: block !important;
+            max-width: calc(100% - var(--in-content-sidebar-width) - var(--main-margin-start)) !important;
+            padding-inline-start: 4px !important;
+        }
+    }
+
+    /* Background without transparent browser */
+
+    @media not -moz-pref("firefoxgx.main-image"), not -moz-pref("browser.tabs.allow_transparent_browser") {
 
         body,.sticky-container{
             --bg: linear-gradient(var(--opaque), var(--opaque)), var(--lwt-main-image);
@@ -371,82 +424,22 @@
             background-attachment: fixed !important;
         }
 
-        body, .sticky-container{
+        body, .sticky-container {
             background-image: linear-gradient(var(--opaque), var(--opaque)),
                 var(--bg) !important;
         }
     }
-
-    /* _______________________________________ Wallpaper when using with 'Main-image' config _______________________________________ */
-
-    @media -moz-pref("firefoxgx.main-image") {
-
+    
+    /* Background When using transparent browser */
+    
+    @media -moz-pref("browser.tabs.allow_transparent_browser") {
+        
         :root, 
-        body {  /* used for other 'about' pages */
-            --opaque: color-mix(in srgb, var(--border-contrast-color) 90%, transparent) !important;
+        body,
+        .sticky-container {  /* used for other 'about' pages */
+            --opaque: transparent !important;
+            background-image: none !important;
             background-color: transparent !important;
-        }
-
-        /* _________ About:preferences page */
-
-        /* Remove unwanted margin from right section */
-        .main-content {
-            padding-inline: 0px !important;
-        }
-
-        .pane-container{
-            width: max(100%, var(--page-main-content-width)) !important;
-            display: grid !important;
-            overflow-x: hidden !important;
-
-            & #mainPrefPane {
-                padding-top: 20px !important; 
-                padding-inline-start: 60px !important;
-                padding-inline-end: calc(100% - var(--page-main-content-width)) !important;
-                overflow-x: hidden !important;
-            }
-        }
-        /* _________ About:addons page */
-
-        #content {
-            max-height: 100vh;
-            display: grid !important;
-            grid-template-rows: auto auto 1fr;
-            --in-content-page-background: transparent;
-        }
-
-        #main {
-            overflow: auto;
-            max-width: 100% !important;
-            scrollbar-gutter: stable !important;
-
-            & addon-card[expanded="true"],
-            & addon-list,
-            &>recommended-themes-section>recommended-addon-list,
-            & recommended-extensions-section {
-                --page-main-content-width: calc(100% + 28px + 4px) !important;
-                display: block !important;
-                max-width: calc(100% - var(--in-content-sidebar-width) - var(--main-margin-start, 0px)) !important;
-                padding-inline-start: 4px !important;
-            }
-
-            & discovery-pane {
-                --page-main-content-width: calc(100% + var(--main-margin-start) + 4px) !important;
-                display: block !important;
-                max-width: calc(100% - var(--in-content-sidebar-width) - var(--main-margin-start)) !important;
-                padding-inline-start: 4px !important;
-            }
-        }
-
-        /* Brightness wallpaper */
-        body::before{
-            --bg: linear-gradient(to bottom, transparent, var(--opaque));
-            position: fixed; content: ""; top: 0; left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: var(--bg);
-            pointer-events: none;
-            z-index: -1;
         }
     }
 }
@@ -526,9 +519,11 @@
             width: 100% !important; 
         }
 
+        /*
         .pane-container {
-            margin-inline-start: 50px !important; margin-inline-end: 50px !important;
-        }
+            margin-inline-start: 50px !important; 
+            margin-inline-end: 50px !important;
+        }/**/
 
         .sticky-container {
             width: 125% !important;

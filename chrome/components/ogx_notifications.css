@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark){
     :root[dialogroot], :host(dialog) {
-        --arrowpanel-background: #101019 !important;   
+        --arrowpanel-background: #101019 !important;
         --in-content-page-background: var(--arrowpanel-background) !important;
     }}
 
@@ -57,7 +57,7 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
 /* Remove background color behind notification en "about:" pages*/
 
 #window-modal-dialog > .dialogOverlay[topmost="true"] {
-    background: none !important;
+    background: transparent !important;
 }
 
 /* Buttons - checkbox - etc colors */
@@ -68,12 +68,14 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
 {
     #commonDialogWindow,
     #commonDialogWindow * {
+        
+    --toolbarbutton-icon-fill-attention: var(--newtab-text-primary-color) !important;
     --in-content-link-color: var(--button-active-bgcolor) !important;
     --in-content-link-color-hover: var(--general-color) !important;
     --in-content-link-color-active: var(--button-active-bgcolor) !important;
         
     --in-content-primary-button-background: var(--button-active-bgcolor) !important;
-    --in-content-primary-button-background-hover: var(--general-color) !important;
+    --in-content-primary-button-background-hover: var(--button-hover-bgcolor) !important;
     --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;
     --in-content-primary-button-text-color: white !important;
         
@@ -155,20 +157,22 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
         #tabbrowser-tabbox:before {
             display: flex;
             position: absolute;
-            content: 'To show the "Left Sidebar" you need to set your Bookmarks toolbar to: "Always Show" - you can use this shortcut: "Ctrl + Shift + B"';
-            width: calc(100% - 4px);
+            content: 'To show the "Left Sidebar" you need to set your Bookmarks toolbar to: "Always Show" - You can use this shortcut: "Ctrl + Shift + B"';
+            width: contain;
             opacity: 0;
             padding-block: 2px;
-            justify-content: center !important;
-            text-align: center !important;
-            text-shadow: none !important;
-            font-size: 1.05em !important;
-            font-weight: 501 !important;
+            padding-inline: 5px;
+            align-self: center !important;
+            justify-content: center;
+            text-align: center;
+            text-shadow: none;
+            font-size: 1.05em;
+            font-weight: 501;
             background-color: var(--general-color);
-            border: 2px solid var(--contrast-color);
             color: var(--contrast-color);
+            box-shadow: inset 0 0 0 1px var(--tab-selected-textcolor), inset 0 0 0 2px var(--contrast-color);
             z-index: 3;
-            animation: messageappeardisappear linear 9s !important;
+            animation: messageappeardisappear linear 9s;
         }
     }
      
@@ -193,4 +197,27 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
              }
          }
      }
+}
+
+/* Infobar displayed under navbar */
+
+#notifications-toolbar  {
+    position: fixed !important;
+    top: calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
+    
+    inset-inline-end: 0 !important;
+    background-color: var(--arrowpanel-background) !important;
+    z-index: 3 !important;
+    
+    @media -moz-pref("firefoxgx.oneline"), -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
+        top: calc(var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
+    }
+    
+    &  .infobar.animated {
+        background-color: var(--arrowpanel-background) !important;
+        border-color: transparent !important;
+        outline: 1px solid var(--general-color) !important;
+        outline-offset: 1px;
+        border-radius: 2px !important;
+    }
 }
