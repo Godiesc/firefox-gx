@@ -34,7 +34,7 @@
             --contrast-color: black;                                                     /* Personal background color for contrast */
             --border-contrast-color: #09080d;                                            /* Personal border color for contrast */
             --arrowpanel-background: #1c1726;                                            /* Background color for 3 dot menu */
-            --arrowpanel-border-color: #302b3a;
+            --arrowpanel-border-color: #302b3a;                                          /* border color for 3 dot menu */
         }}
 
     @media (prefers-color-scheme: light){
@@ -43,6 +43,7 @@
             --contrast-color: white;                                                     /* Personal background color for contrast */
             --border-contrast-color: #acacac50;                                          /* Personal border color for contrast */
             --arrowpanel-background : #f9f9f9;                                           /* Background color for 3 dot menu */
+            --arrowpanel-border-color: #302b3a60;                                        /* border color for 3 dot menu */
         }}
     
     /* __________________________________________________________ Wallpapers _________________________________________________________ 
