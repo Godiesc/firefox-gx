@@ -65,6 +65,17 @@
 
 > <p>You can disable icons in context menus by creating and setting this preference to true on the <b>about:config</b> page: <code>firefoxgx.icon.disabled</code></p>
 
+# Tricks
+
+<p>Into the "Tricks" section you will find the next features.</p>
+<ul>
+   <li><b><a href="https://github.com/Godiesc/firefox-gx/tree/main/Tricks#solid-background-in-themes-that-use-images">Solid background</a></b> - Useful in themes that use images and have bad contrast.</li>
+   <li><b><a href="https://github.com/Godiesc/firefox-gx/tree/main/Tricks#image-in-menus-contextual-menu-and-arrowpanel-menus">Image in menus</a></b> - Display an image in all menus.</li>
+   <li><b><a href="https://github.com/Godiesc/firefox-gx/tree/main/Tricks#arrow-in-popup-menus">Arrow in popup menus</a></b> - Add an arrow in popup menus pointing the button active.</li>
+   <li><b><a href="https://github.com/Godiesc/firefox-gx/tree/main/Tricks#gradient-border-in-menus">Gradient border in menus</a></b> - Border of menus will display a gradient.</li>
+   <li><b><a href="https://github.com/Godiesc/firefox-gx/tree/main/Tricks#compatibility-with-adaptive-tab-bar-color-extension">Compatibilidad con 'Adaptive-tab-bar-color-extension'</a></b> - Small code to add in <code>ogx_tricks.css</code> file.</li>
+</ul>
+
 # Customize
 
 <b><i>Various customizations</i></b>
@@ -73,6 +84,7 @@
 <ul>
 <li>Wallpaper and its brightness.</li>
 <li>Height of the tabs and toolbar.</li>
+<li>Min-width of horizontal tabs</li>
 <li>The width and label of the menu button.</li>
 <li>Hide or show the firefox logo in the new-tab page.</li>
 </ul>
@@ -85,7 +97,7 @@
 
 <b><i>Other 'about' pages Wallpaper</i></b>
 <ul>
-   <li><p> By default the wallpaper selected is <code>wallpaper-dark1.png</code> and <code>wallpaper-light1.png</code> In the directory: <code>chrome/newtab</code>, you could rename the image you want with those names and the theme will display them in those pages, you can change the names in the <code>chrome/components/ogx_root-personal.css</code> file in the line <code>38</code> and the line <code>43</code> to the image you want.</p>
+   <li><p> By default the wallpaper selected is <code>about-page-dark.png</code> and <code>about-page-light.png</code> In the directory: <code>chrome/newtab</code>, you could rename the image you want with those names and the theme will display them in those pages, you can change the names in the <code>chrome/components/ogx_root-personal.css</code> file in the line <code>38</code> and the line <code>44</code> to the image you want.</p>
    </li>
 </ul>
 
