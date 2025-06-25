@@ -24,12 +24,12 @@
 
 /* blur effect to the bottom */
 
-body:not([xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"])::before {
+body::before {
     content: ''; display: flex; position: fixed;
     width: 100%;
     height: 100%;
     backdrop-filter: var(--my-backdrop-filter, blur(40px));
-    mask: var(--my-mask, linear-gradient(to bottom, transparent, black calc(var(--tab-height-personal) + var(--toolbar-height-personal) + 130px)));
+    mask: linear-gradient(to bottom, transparent, black calc(var(--tab-height-personal) + var(--toolbar-height-personal) + 130px));
     z-index: -1 !important; /* Revamp + 'Sidebar history' in sidebar was behind this trick */
 }
 
@@ -345,7 +345,7 @@ tab-group {
         }
     }
     
-    /* Group label when disabled default 'expand-on-hover' */
+    /* Group label */
     
     .tab-group-label {
 
@@ -687,7 +687,7 @@ tab-group>.tabbrowser-tab:not([multiselected])>.tab-stack>.tab-content .tab-labe
 
         &::before {
             min-height: calc(var(--tab-collapsed-background-width) - 8px);
-            width: calc(var(--tab-collapsed-background-width) - 0px);
+            width: calc(var(--tab-collapsed-background-width) - 8px);
         }
     }
 }
@@ -702,8 +702,8 @@ sidebar-main:is([expanded]) {
             border-radius: 0px !important;
 
             &::before {
-                inset-inline-start: 4px !important;
-                width: calc(100% - 8px) !important;
+                inset-inline-start: 8px !important;
+                width: calc(100% - 16px) !important;
             }
 
             & .toolbarbutton-text {

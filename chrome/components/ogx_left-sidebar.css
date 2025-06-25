@@ -548,8 +548,8 @@
         --my-margin-inline-outer-tab: calc(var(--my-margin-inline-inner-tab) + 1px);                        /* Tab margin inline - group tabs */
         --my-separator-border-style: linear-gradient(to right, transparent 4px, var(--general-color) 4px, 
                                      var(--general-color) calc(100% - 4px), transparent calc(100% - 4px));
-        --my-separator-border-style1:linear-gradient(to right, transparent 10px, var(--my-content-border-color) 10px,
-                                     var(--my-content-border-color) calc(100% - 10px), transparent calc(100% - 10px)) 1;
+        --my-separator-border-style1:linear-gradient(to right, transparent 9px, var(--my-content-border-color) 9px,
+                                     var(--my-content-border-color) calc(100% - 9px), transparent calc(100% - 9px)) 1;
     }
 }
 
@@ -734,11 +734,27 @@
     
     @media -moz-pref("sidebar.verticalTabs") {
         
-        .actions-list {
-            padding-inline: 0 !important;
+        /* Code to hide 'overflow of tools' button */
+
+        .tools-and-extensions.actions-list {
+            height: auto !important;
         }
 
+        .tools-and-extensions.actions-list.overflow-button {
+            display: none !important;
+        }
+        
+        /* Remove unwanted padding when 'expanded' */
+        
+        .actions-list[orientation="horizontal"] {
+            gap: 0px !important;
+            padding-inline: 0px !important;
+            padding-block-end: 0px !important;
+            margin-block-start: 0px !important;
+        }
+        
         /* Hide tools except for the last one 'configuration' */
+        
         .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child),
         .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child) {
             opacity: 0 !important;
@@ -748,6 +764,7 @@
         }
 
         /* Hide tools except for the last one 'configuration' */
+        
         .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child),
         .actions-list[orientation="horizontal"]:is(:hover) moz-button[type="icon ghost"]:not(:first-child) {
             opacity: 1 !important;
@@ -755,89 +772,32 @@
             visibility: visible !important;
             transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
         }
-
-        /* Transition for 'configuration' button when other tool is open */
-
-        .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list:not(:hover) moz-button[type="icon ghost"]:is(:last-child),
-        .wrapper:has(.actions-list[orientation="horizontal"] moz-button[type="icon"]) .actions-list:not(:hover) moz-button[type="icon ghost"]:is(:first-child){
-            opacity: 0 !important;
-            visibility: collapse !important;
-            transform: translateY(10px) !important;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
-        }
-
-        .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list:is(:hover) moz-button[type="icon ghost"]:is(:last-child),
-        .wrapper:has(.actions-list[orientation="horizontal"] moz-button[type="icon"]) .actions-list:is(:hover) moz-button[type="icon ghost"]:is(:first-child) {
-            opacity: 1 !important;
-            visibility: visible !important;
-            transform: translateY(0px) !important;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
-        }
-
-        /* Active tool always in the last position */
-
-        moz-button[type="icon"] {
-            .actions-list[orientation="vertical"] & {
-                order: 1 !important;
-            }
-
-            .actions-list[orientation="horizontal"] & {
-                order: -1 !important;
-            }
-        }
-
-        /*__________________ 'Tools and extensions' when sidebar is expanded */
-
-        .actions-list[orientation="horizontal"] {
-            padding-block-end: 0px !important;
-            gap: 0px !important; /* important - Remove unwanted margin, 5+ icons*/
+        
+        /* 'Customize sidebar' button in the latest position */
+        
+        .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list moz-button[type="icon ghost"]:is(:last-child) {
+            order: 2 !important;
         }
         
-        sidebar-main {
-            --my-flex-direction: column;
-            --my-button-outer-padding-block-end: 0px;
-        }
-        sidebar-main[expanded] {
-            --my-flex-direction: row-reverse;
-            --my-button-outer-padding-block-end: 2px;
-        }
-
-        .button-background.labelled > label {
-            display: none !important;
-        }
-
-        /* Makes the vertical tools display horizontal when sidebar is 'expanded' */
-
-        .actions-list[orientation="vertical"] {
-            /* Makes icons show horizonal */
-            flex-direction: var(--my-flex-direction) !important;
-            flex-wrap: wrap;
-            justify-content: flex-end !important;
-
-            & > moz-button:not(.tools-overflow) {
-                /* Makes icons show horizonal */
-                width: unset !important;
-                --my-padding-inline: calc((var(--button-size-icon) - var(--icon-size-default)) / 2 - var(--border-width) + 3px);
-                --button-outer-padding-block-start: 0px !important;
-                --button-outer-padding-block-end: var(--my-button-outer-padding-block-end) !important;
-            }
-        }
-
-        .expanded-button.tools-overflow {
-            --my-padding-inline: calc(var(--my-vertical-elements-width)/2 - 8px);
+        /* Active tool always in the penultimate position when 'collapsed' */
+        
+        .actions-list moz-button[type="icon"] {
+            order: 1 !important;
         }
         
-        button > .button-background {
-            padding-inline: var(--my-padding-inline, 0px) !important;
-            border-inline-width: 0px !important; /* important - Remove unwanted margin, 5- icons */
+        /* Active tool always in the same position when 'expanded' */
+        
+        .actions-list[orientation="horizontal"] moz-button[type="icon"] {
+            order: -1 !important;
         }
+        
+        /* When using default 'expand-on-hover' */
 
-        /* Transition delay when sidebar has 'Expand-on-hover' feature */
-
-        @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
-
-            .actions-list moz-button[type="icon ghost"] {
-                transition-delay: var(--uc-tabs-hide-animation-duration) !important;
+        @media -moz-pref("sidebar.visibility", 'expand-on-hover') {
+            
+            /* Transition retarded to hide tools when is collapsed */
+            .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child) {
+                transition: opacity 0.2s ease-in-out 0.3s, visibility 0.2s ease 0.3s, transform 0.4s ease 0.3s;
             }
         }
     }
@@ -920,7 +880,7 @@
 
     #tabbrowser-tabs[orient="vertical"] {
         --tab-height-with-margin-padding: var(--tab-min-height) !important;                     /* Remove unwanted tab extra height for pinned tabs */
-        & :is(#vertical-pinned-tabs-container, #pinned-tabs-container) .tabbrowser-tab {        /* Pinned tabs - added nightly change */
+        & #pinned-tabs-container .tabbrowser-tab {                                              /* Pinned tabs */
             padding-block: 0px !important;
         }
 
@@ -972,7 +932,7 @@
 
     /* Remove unwanted pinned tabs background */
 
-    #vertical-pinned-tabs-container, #pinned-tabs-container {   /* Added nightly change */
+    #pinned-tabs-container {
         & .tab-background {
             .tabbrowser-tab:not(:hover) > .tab-stack > &:not([selected], [multiselected]) {
                 background-color: transparent !important;
@@ -1000,7 +960,6 @@
     #tabbrowser-tabs[orient="vertical"] {
         
         --tab-collapsed-width: var(--my-vertical-elements-width) !important;    /* For pinned tabs */
-        /*width: var(--my-vertical-elements-width) !important;                    /* For normal tabs */
         
         .tab-background {
             margin-inline: var(--my-margin-inline-inner-tab) !important;
@@ -1012,7 +971,7 @@
         
         /* Less space below group label */
         .tab-group-label-container {
-            padding-block-end: var(--space-xxsmall) !important;
+            padding-block-end: var(--space-xsmall) !important;
         }
         
         /* Collapsed */
@@ -1148,9 +1107,22 @@
     
     #tabbrowser-tabs[orient="vertical"] {
         &[overflow]::after {
+            /*opacity: 0 !important;/**/
             margin-inline: 0px !important;
             border-image: var(--my-separator-border-style1) !important;
         }
+    }
+    
+    /* Separator top of tools */
+    
+    #sidebar-tools-and-extensions-splitter {
+        border-block-width: 0px !important;
+        background-color: transparent !important;
+        pointer-events: none !important;
+        /*border-block-start-width: 0px !important;
+        background-color: transparent !important;
+        border-image: var(--my-separator-border-style1) !important;
+        margin-inline: 0px !important;/**/
     }
 
     /* Tabs top separador - 'sidebar-main' on right */

@@ -265,18 +265,25 @@ findbar {
     z-index: unset !important;
 }
 
-/* Brighness when urlbar [open]*/
+/* Dark filter when urlbar is [open] */
 
-#urlbar {
-    box-shadow: 0 0 0 100vw transparent;
-    transition: box-shadow 250ms ease-out !important;
-}
+@keyframes urlCloseOpen {
+        0%{ box-shadow: 0 0 0 100vw transparent }
+        100%{ box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5) }}
+
+@keyframes urlOpenClose {
+        0%{ box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5) }
+        99%{ box-shadow: 0 0 0 100vw transparent }
+        100%{ box-shadow: none }}
 
 #urlbar[open] {
-    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
-    transition: box-shadow 250ms ease-out !important;
+    animation: urlCloseOpen ease-in 250ms forwards;
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     overflow: hidden !important;
+}
+
+#urlbar {
+    animation: urlOpenClose ease-out 250ms forwards;
 }
 
 /* Search Engine button */
