@@ -24,13 +24,15 @@
 
 /* blur effect to the bottom */
 
-body::before {
-    content: ''; display: flex; position: fixed;
+:root:is([lwtheme-image],[style*="--lwt-additional-images"]) body::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    backdrop-filter: var(--my-backdrop-filter, blur(40px));
-    mask: linear-gradient(to bottom, transparent, black calc(var(--tab-height-personal) + var(--toolbar-height-personal) + 130px));
-    z-index: -1 !important; /* Revamp + 'Sidebar history' in sidebar was behind this trick */
+    height: calc(100% - 5px - var(--tab-height-personal) - var(--tab-block-margin)*2 - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px));
+    background: linear-gradient(to top, var(--lwt-accent-color) calc(83% + var(--bookmarksbar-height-personal, 0px)), transparent 99%);
+    z-index: -1 !important;
 }
 
 /* Remove unnecessary background to show the theme image */
