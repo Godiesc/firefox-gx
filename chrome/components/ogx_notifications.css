@@ -204,10 +204,13 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
 #notifications-toolbar  {
     position: fixed !important;
     top: calc(var(--tab-height-personal) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
-    
-    inset-inline-end: 0 !important;
     background-color: var(--arrowpanel-background) !important;
     z-index: 3 !important;
+    align-self: center !important;
+    
+    @media -moz-pref("firefoxgx.left-sidebar") {
+        --bookmarksbar-height-personal: 0px !important;
+    }
     
     @media -moz-pref("firefoxgx.oneline"), -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
         top: calc(var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 0px)) !important;
