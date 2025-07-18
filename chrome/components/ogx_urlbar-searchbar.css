@@ -27,9 +27,9 @@ findbar {
 /* "popup_highlight" ---> 1.- keyboard highlight ;  2.-mouse highlight */
 
 .urlbarView-row[selected], .urlbarView-row[row-selectable]:not([selected]):hover {
-    --urlbar-popup-url-color: var(--toolbar-field-focus-color) !important; 
-    background-color: var(--autocomplete-popup-hover-background) !important;
     --link-color: var(--tab-selected-textcolor) !important;
+    background-color: var(--autocomplete-popup-hover-background) !important;
+    color: currentColor !important;
     border-radius: 0px !important;
 }
 
@@ -221,8 +221,15 @@ findbar {
 }
 
 /* Roundness */
-#urlbar, #urlbar-background{
-    border-radius: var(--border-radius-urlbar-personal) !important;
+
+#urlbar, #urlbar-background {
+    --toolbarbutton-border-radius: var(--border-radius-urlbar-personal) !important;
+    border-radius: var(--toolbarbutton-border-radius) !important;
+}
+
+#urlbar[open], #urlbar[open] #urlbar-background {
+    --toolbarbutton-border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
+    border-radius: var(--toolbarbutton-border-radius) !important;
 }
 
 #urlbar:not([open], [focused]) #urlbar-background {
@@ -267,23 +274,15 @@ findbar {
 
 /* Dark filter when urlbar is [open] */
 
-@keyframes urlCloseOpen {
-        0%{ box-shadow: 0 0 0 100vw transparent }
-        100%{ box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5) }}
-
-@keyframes urlOpenClose {
-        0%{ box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5) }
-        99%{ box-shadow: 0 0 0 100vw transparent }
-        100%{ box-shadow: none }}
-
-#urlbar[open] {
-    animation: urlCloseOpen ease-in 250ms forwards;
-    border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
-    overflow: hidden !important;
+#urlbar {
+    box-shadow: 0 0 0 100vw transparent;
+    transition: box-shadow 250ms ease-out !important;
 }
 
-#urlbar {
-    animation: urlOpenClose ease-out 250ms forwards;
+#urlbar[open] {
+    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+    transition: box-shadow 250ms ease-out !important;
+    overflow: hidden !important;
 }
 
 /* Search Engine button */
@@ -292,6 +291,10 @@ findbar {
     #urlbar-searchmode-switcher:not(:hover,[open]) {
         background-color: transparent !important;
     }
+}
+
+#searchmode-switcher-icon {
+    list-style-image: url("chrome://global/skin/icons/search-glass.svg") !important;
 }
 
 #urlbar-searchmode-switcher {

@@ -195,9 +195,13 @@ button {
     opacity: 1 !important;
 }
 
-#unified-extensions-panel .unified-extensions-item{
-    padding-block: 0 !important;
-    margin-block: 0px !important;
+#unified-extensions-panel {
+    --menu-panel-width-wide: 30em !important; /* Keep the second line in 1 line 'Spanish languaje' */
+    
+    .unified-extensions-item {
+        padding-block: 0 !important;
+        margin-block: 0px !important;
+    }
 }
 
 .unified-extensions-item-action-button.panel-no-padding.webextension-browser-action.subviewbutton.subviewbutton-iconic{

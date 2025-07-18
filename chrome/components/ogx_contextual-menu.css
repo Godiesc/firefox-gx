@@ -35,7 +35,7 @@ menupopup:not(.in-menulist)  menuseparator::before {
 
 /* Bug fix: Separator after 'AI menu' causes unwanted scrolling */
 
-:root:not(:has(#context-ask-chat[hidden="true"])) #frame-sep {
+#context-ask-chat:not([hidden="true"]) ~ #frame-sep {
     display: flex !important;
 }
 

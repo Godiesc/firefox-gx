@@ -556,7 +556,7 @@
 /* ____________________________________________________________ Sidebars on left ______________________________________________________ */
 
 
-@media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") {
+@media (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) and (not -moz-pref("firefoxgx.menu-disabled")) {
 
     /* Keep padding left of tabs when menubar is always visible */
 
@@ -585,10 +585,10 @@
         
         &[checked] {
             list-style-image: url("chrome://browser/skin/sidebar-collapsed.svg") !important;
-        }
-        
-        &:hover .toolbarbutton-icon {
-            background-color: var(--toolbarbutton-hover-personal) !important;
+            
+            &:hover {
+                --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
+            }
         }
     }
     
@@ -795,9 +795,14 @@
 
         @media -moz-pref("sidebar.visibility", 'expand-on-hover') {
             
-            /* Transition retarded to hide tools when is collapsed */
+            /* Transition delayed to hide tools when expanding */
             .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child) {
-                transition: opacity 0.2s ease-in-out 0.3s, visibility 0.2s ease 0.3s, transform 0.4s ease 0.3s;
+                transition-delay: 0.3s, 0.2s, 0.3s !important;
+            }
+            
+            /* Transition duration removed to hide tools  instantly on collapse */
+            .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child) {
+                transition-duration: 0ms !important;
             }
         }
     }
@@ -1210,15 +1215,15 @@
     }
 }
 
-@media -moz-pref("firefoxgx.tree-tabs") and -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
+@media -moz-pref("firefoxgx.tree-tabs") {
     #sidebar-box:is(
-        [sidebarcommand*="tabcenter"],
-        [sidebarcommand*="treestyletab"],
-        [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]) {
-        /*box-shadow: 0 -1px var(--my-content-border-color) !important;/**/
-        
+    [sidebarcommand*="tabcenter"],
+    [sidebarcommand*="treestyletab"],
+    [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]) {
+
         /* Sidebar content 'open' + web content 
         &[checked="true"] ~ #tabbrowser-tabbox {
             box-shadow: none !important;
         }/**/
+    }
 }

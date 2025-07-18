@@ -3,7 +3,7 @@
 
 /* Remove navigator-toolbox image */
 
-:root:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
+#navigator-toolbox {
     background-image: none !important;
     background-color: transparent !important;
 }
@@ -30,8 +30,8 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 5px - var(--tab-height-personal) - var(--tab-block-margin)*2 - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px));
-    background: linear-gradient(to top, var(--lwt-accent-color) calc(83% + var(--bookmarksbar-height-personal, 0px)), transparent 99%);
+    height: 100%;
+    background: linear-gradient(to top, var(--lwt-accent-color) calc(100% - 200px), transparent calc(100% - var(--tab-height-personal)));
     z-index: -1 !important;
 }
 
@@ -619,7 +619,6 @@ tab-group>.tabbrowser-tab:not([multiselected])>.tab-stack>.tab-content .tab-labe
 
 /* ___________ Reduce spacing between pinned and regular tabs */
 
-#tabbrowser-tabs[haspinnedtabs]:not([orient="vertical"],[positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])),
 #pinned-tabs-container[orient="horizontal"] {
     margin-inline-start: 0px !important;
     margin-inline-end: 0px !important;

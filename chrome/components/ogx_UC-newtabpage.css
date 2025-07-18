@@ -365,13 +365,11 @@
     /* 'Customize' button */
     
     .personalize-button {
-        img {content: url("../icons/edit.svg") !important; }
+        img {content: url("../icons/edit.svg") !important;  }
         
         &:hover {
             background-color: var(--newtab-element-secondary-hover-color) !important;
-        }
-        &:active {
-            background-color: var(--newtab-element-secondary-active-color) !important;
+            backdrop-filter: var(--personal-blur) !important;
         }
     }
 
@@ -842,8 +840,7 @@
         }
     }
     
-    /* ______________________________________ Font color when using a light/dark wallpaper _______________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    /* ________________________ Font color when using a light wallpaper ________________________ */
 
     .lightWallpaper .top-site-outer{
         --contrast-color: white !important;
@@ -853,50 +850,42 @@
         --contrast-color: black !important;
     }
 
-    /* Font text shadow */
-    .weatherTemperature, .weatherCity,                                                                  /* Weather */
-    .search-inner-wrapper>input,                                                                        /* Searchbox */
-    .top-site-outer .title,                                                                             /* Pinned sites */
-    .ds-highlights .section .section-list .card-outer .card-host-name,                                  /* Recent Activity line 1*/
-    .card-outer:not(.placeholder) .card-title,                                                          /* Recent activity line 2*/
-    .source.clamp, .ds-card-link:not(:hover) .title.clamp {                                             /* News */
-        text-shadow: 0px 0px 4px Field !important;
+    /* Recent Activity text shadow */
+    .ds-highlights .section .section-list .card-outer .card-host-name,
+    .card-outer:not(.placeholder) .card-title {
+        text-shadow: 0px 0px 4px var(--contrast-color) !important;
     }
     
     .lightWallpaper :is(
-    .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,                      /* 'Pinned' label */
-    .top-site-outer:is(:hover, :active, .active) .title span,                                           /* 'Activity' label */
-    .ds-card .meta .clamp ) {                                                                           /* 'News' */
+    .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
+    .top-site-outer:is(:hover, :active, .active) .title span,                         /* 'Activity' label */
+     .ds-card .meta .clamp ) {                                                        /* 'News' */             
         color: black !important;
         --contrast-color: white !important;
     }
     
     .darkWallpaper :is(
-    .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,                      /* 'Pinned' label */
-    .top-site-outer:is(:hover, :active, .active) .title span,                                           /* 'Activity' label */
-    .ds-card .meta .clamp ) {                                                                           /* 'News' */
+    .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
+    .top-site-outer:is(:hover, :active, .active) .title span,                         /* 'Activity' label */
+     .ds-card .meta .clamp ) {                                                        /* 'News' */
         color: white !important;
         --contrast-color: black !important;
     }
     
     /* Scheme light */                    
     .lightWallpaper :is(
-    .context-menu,                                                                                      /* 3 dot contextual menu */
     .weatherCard, .personalize-button,                                                                  /* weather - personalize-button */
     .search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"] ) {       /* Search-box */
         color-scheme: light !important;
         --contrast-color: white !important;
-        --arrowpanel-background: #f9f9f9 !important;
     }
     
     /* scheme dark */
     .darkWallpaper :is(
-    .context-menu,                                                                                      /* 3 dot contextual menu */
     .weatherCard, .personalize-button,                                                                  /* weather - personalize-button */
     .search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"] ) {       /* Search-box */
         color-scheme: dark !important;
         --contrast-color: black !important;
-        --arrowpanel-background: #1c1726;
     }
     
     /* ___________________________________________________ Newtab Fonts color ____________________________________________________ 
@@ -1067,17 +1056,16 @@
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @-moz-document regexp("^about:firefoxview.*") {
-
+    
     :root{
         --fxview-primary-action-background: transparent !important;                     /* background color of the selected category */
         --fxview-element-background-hover: var(--button-hover-bgcolor) !important;      /* Context menu: color on 'hover' over items */
         --fxview-element-background-active: var(--button-active-bgcolor) !important;    /* Context menu: color on 'clic' over items */
         --fxview-border: var(--fxview-primary-action-background) !important;
         --fxview-background-color: transparent !important;
-        --fxview-text-primary-color: var(--in-content-page-color) !important;           /* Font color */
         --opaque: color-mix(in srgb, var(--in-content-page-background) 50%, transparent) !important;
     }
-
+    
     @media (prefers-color-scheme: dark) {
         :host, :root {
             --border-contrast-color: black;
@@ -1090,7 +1078,7 @@
             --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;
         }
     }
-
+    
     @media (prefers-color-scheme: light){
         :root{
             --border-contrast-color: white;
@@ -1102,78 +1090,60 @@
             --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;
         }
     }
-
-    body, .sticky-container{
-        --bg: var(--lwt-main-image);
-        background-image: linear-gradient(var(--opaque), var(--opaque)),
-            linear-gradient(var(--opaque), var(--opaque)), 
-            var(--bg) !important;
-        background-repeat: repeat !important;
-        background-size: cover !important;
-        background-attachment: fixed !important;
-        background-position-y: var(--background-align-y) !important;
-        backdrop-filter: var(--brightness-wallpaper) !important;
-    }
-
+    
     .sticky-container{
         margin-block-end: 10px !important;
-        box-shadow: 0 4px 10px var(--in-content-page-background) !important;
+        box-shadow: 6px 4px 6px var(--in-content-page-background) !important;
         clip-path: polygon(0 0, 100% 0, 100% calc(100% + 10px), 0 calc(100% + 10px));
     }
-
+    
     button[selected] {
         transition-duration: 0ms !important;
     }
-
+    
     .search-container input:is(:focus, :focus-visible){
         &:focus-visible {
             border-color: transparent !important;
             box-shadow: 0 0 0 2px var(--general-color) !important;
             outline: none !important;
-        }}
+        }
+    }
+    
+    /* New style of elements */
+    
+    body {
+        background: transparent !important;
+        overflow-y: hidden !important;
+    }
 
-    /* Compatibility for aligning wallpaper when used with 'Main-image' config */
+    .main-container {
+        width: 100% !important;
+    }
 
-    @media -moz-pref("firefoxgx.main-image") {
+    #pages {
+        padding: 0px !important;
+    }
 
-        .sticky-container {
-            background-image: none !important;
-        }
-        
-        body {
-            background: transparent !important;
-            overflow-y: hidden !important;
-        }
-        
-        .main-container {
-            width: 100% !important;
-        }
-        
-        #pages {
-            padding: 0px !important;
-        }
-        
-        named-deck>view-recentbrowsing>div {
-            
-            min-width: 100% !important;
-            display: grid;
-        }
-        
-        named-deck {
-            width: 100% !important;
-            display: grid;
-        }
-        
-        .cards-container {
-            height: 66vh !important;
-            overflow: auto;
-            scrollbar-gutter: stable !important;
-            padding-inline: 42px 52px !important;
-        }
-        
-        .sticky-container {
-            margin-inline: 0px !important;
-            padding-inline: 42px 52px !important;
-        }
+    named-deck>view-recentbrowsing>div {
+
+        min-width: 100% !important;
+        display: grid;
+    }
+
+    named-deck {
+        width: 100% !important;
+        display: grid;
+    }
+
+    .cards-container {
+        height: 66vh !important;
+        overflow: auto;
+        scrollbar-gutter: stable !important;
+        padding-inline: 42px 52px !important;
+    }
+
+    .sticky-container {
+        margin-inline: 0px !important;
+        padding-inline: 42px 52px !important;
     }
 }

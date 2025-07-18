@@ -145,7 +145,7 @@
     content: ""; display: block; position: relative;
     background: url("../icons/urlbar-separator.svg");
     background-repeat: no-repeat;
-    background-size: 16px 16px;
+    background-size: 6px 16px;
     background-position-y: center;
     fill: var(--toolbarbutton-icon-fill);
     -moz-context-properties: fill;
@@ -156,7 +156,7 @@
 
 #urlbar-background::before {
     background-position-x: left;
-    inset-inline-start: -8px;
+    inset-inline-start: -3px;
   
     /* This directionality flipper for RTL languages */
     direction: ltr;
@@ -168,7 +168,7 @@
 #urlbar-background::after {
     background-position-x: right;
     top: calc(10px - var(--toolbar-height-personal));
-    inset-inline-end: -8px;
+    inset-inline-end: -2px;
   
     /* This directionality flipper for RTL languages */
     direction: ltr;
@@ -366,7 +366,7 @@
   }
   @-moz-document url("chrome://browser/content/places/places.xhtml")
   {
-    @media not -moz-pref("firefoxgx.icon.disabled") {
+    @media not -moz-pref("firefoxone.icon.disabled") {
       /*= Menubar - Icons ==========================================================*/
       #organizeButton,
       #viewMenu,
@@ -412,7 +412,7 @@
     }
   }
 
-@media not -moz-pref("firefoxgx.icon.disabled") {
+@media not -moz-pref("firefoxone.icon.disabled") {
   
   /*= Padding ==================================================================*/
   :root {
@@ -1139,7 +1139,9 @@
   #sidebar-switcher-tabs:is(menuitem) {
     --menuitem-image: url("../icons/synced-tabs.svg");
   }
-
+  #sidebar-switcher-genai-chat:is(menuitem) {
+    --menuitem-image: url("../icons/logo_anthropic-claude.svg");
+  }
   #sidebar-reverse-position.subviewbutton {
     list-style-image: var(--uc-sidebar-icon-reverse);
   }
@@ -1213,13 +1215,13 @@
     menu:not(.menu-iconic, .in-menulist, [checked="true"]):before,
   menupopup:is(#organizeButtonPopup, #maintenanceButtonPopup)
     > menuitem:not(.menuitem-iconic, .bookmark-item, .in-menulist, [checked="true"]):before,
-  menupopup:is(#viewMenuPopup, #maintenanceButtonPopup) > menu:not(.menu-iconic, .in-menulist, [checked="true"]):before,/**/
+  menupopup:is(#viewMenuPopup, #maintenanceButtonPopup) > menu:not(.menu-iconic, .in-menulist, [checked="true"]):before,
   menupopup:is(
       #context_sendTabToDevicePopupMenu,
       #context-sendpagetodevice-popup,
       #context-sendlinktodevice-popup,
       #frame > menupopup
-    )
+    )/**/
     > menuitem:before,
   .openintabs-menuitem:before,
   #blockedPopupDontShowMessage:before,
@@ -1272,7 +1274,7 @@
 
   :root {
     --uc-menu-background-position: left;
-    --context-menu-background-padding-default: 5px;
+    --context-menu-background-padding-default: 2px;
     --context-menu-background-padding: var(--context-menu-background-padding-default);
   }
   :root:-moz-locale-dir(rtl) {
@@ -1330,19 +1332,19 @@
   #BMB_viewBookmarksToolbar,
   #sidebarMenu-popup:is(menupopup),
   #context_openANewTab.tabmix-newtab-menu-icon {
-    /*background-position: var(--uc-menu-background-position) var(--context-menu-background-padding) center !important;/**/
-    padding-inline-start: var(--context-menu-background-padding) !important;
+    /*background-position: var(--uc-menu-background-position) var(--context-menu-background-padding) center !important;
+    padding-inline-start: 4px !important;/**/
   }
 
   #sidebarMenu-popup:is(menupopup):not(panel) {
-    --context-menu-background-padding: var(--context-menu-background-padding-default);
+    /*--context-menu-background-padding: var(--context-menu-background-padding-default);/**/
     padding-inline-start: 0 !important;
   }
   :not(menu, #ContentSelectDropdown, #context-navigation)
     > #sidebarMenu-popup:is(menupopup):not(panel)
     > menuitem:not(.menuitem-iconic, .bookmark-item, .in-menulist, [checked="true"]) {
-    padding-inline-start: 32px !important;
-    /*margin-inline-start: var(--arrowpanel-menuitem-margin-inline) !important;/**/
+    /*padding-inline-start: 32px !important;
+    margin-inline-start: var(--arrowpanel-menuitem-margin-inline) !important;/**/
   }
 
 /*@media (not (-moz-bool-pref: "userChrome.icon.disabled")) and (-moz-bool-pref: "userChrome.icon.menu") and (-moz-bool-pref: "userChrome.icon.global_menubar") {
@@ -1420,14 +1422,14 @@
   #BMB_viewBookmarksToolbar,
   #sidebarMenu-popup:is(menupopup),
   #context_openANewTab.tabmix-newtab-menu-icon {
-    /*padding-inline-start: var(--menu-background-padding-default) !important;/**/
-    margin-left: 0 !important;
+    /*padding-inline-start: var(--menu-background-padding-default) !important;
+    margin-inline: 4px !important;/**/
   }
   .menupopup-arrowscrollbox {
-    padding-inline: 0 !important; /* Original: padding: var(--panel-padding); --panel-padding-block: 4px; */
+    /*padding-inline: 0 !important; /* Original: padding: var(--panel-padding); --panel-padding-block: 4px; */
   }}
 
-@media not -moz-pref("firefoxgx.icon.disabled") {
+@media not -moz-pref("firefoxone.icon.disabled") {
 
   :root {
     --context-menu-background-padding: 1em;
@@ -1487,7 +1489,7 @@
     margin-left: 0 !important;/**/
   }
   .menupopup-arrowscrollbox {
-    padding-inline: 0 !important; /* Original: padding: var(--panel-padding); --panel-padding-block: 4px; */
+    /*padding-inline: 0 !important; /* Original: padding: var(--panel-padding); --panel-padding-block: 4px; */
   }
 
   :root {
@@ -1524,12 +1526,12 @@
   /* text position */
   :not(menu, #ContentSelectDropdown, #context-navigation) > menupopup:not(.in-menulist) > menuitem > .menu-text,
   :not(menu, #ContentSelectDropdown, #context-navigation) > menupopup:not(.in-menulist) > menu > .menu-text {
-    padding-inline-start: 0px !important;
-    margin-inline-start: 0px !important;
+    /*padding-inline-start: 0px !important;
+    margin-inline-start: 0px !important;/**/
   }
   /* Checkbox menuitem, None iconic menu */
   :not(menu, #ContentSelectDropdown, #context-navigation) > menupopup:not(.in-menulist) > menuitem[type="checkbox"] {
-    padding-inline-start: 12px !important;
+    /*padding-inline-start: 4px !important;/**/
   }
   /* Global Menu */
 
@@ -1564,7 +1566,7 @@
 
   menupopup menupopup[emptyplacesresult] .menu-text,
   #PersonalToolbar menupopup[emptyplacesresult] .menu-text {
-    margin-inline-start: 0 !important;
+    /*margin-inline-start: 0 !important;/**/
   }
 
   #BMB_bookmarksPopup,
@@ -1578,8 +1580,8 @@
   #PersonalToolbar menupopup[placespopup="true"] menuitem:not(.menuitem-iconic, [disabled="true"]),
   #PersonalToolbar menupopup[placespopup="true"] menu:not(.menu-iconic) {
     /*margin-inline: var(--arrowpanel-menuitem-margin-inline) !important;/**/
-    padding-inline-start: var(--bookmark-menu-icon-text-padding) !important;
-    /*background-position: var(--uc-menu-background-position) var(--bookmark-menu-icon-background-padding) center !important;/**/
+    /*padding-inline-start: var(--bookmark-menu-icon-text-padding) !important;
+    background-position: var(--uc-menu-background-position) var(--bookmark-menu-icon-background-padding) center !important;/**/
   }
 
   /* Global Menu */
@@ -1603,7 +1605,7 @@
   menupopup:is(#BMB_bookmarksPopup)[placespopup="true"] menu:not(.menu-iconic),
   #PersonalToolbar menupopup[placespopup="true"] menuitem:not(.menuitem-iconic, [disabled="true"]),
   #PersonalToolbar menupopup[placespopup="true"] menu:not(.menu-iconic) {
-    margin-inline: 0px 10px !important;
+    /*margin-inline: 0px 10px !important;/**/
   }
 
   menupopup:is(#BMB_bookmarksPopup)[placespopup="true"] menuitem:not(.menuitem-iconic, [disabled="true"]) .menu-text,
@@ -1652,6 +1654,11 @@
   #context_moveTabToNewGroup,
   #context_moveTabToGroup {
       --menuitem-image: url("../icons/add-tab-to-group.svg");
+  }
+  
+  #context_moveTabToGroupNewGroup>.menu-icon {
+    list-style-image: url("chrome://global/skin/icons/plus.svg");
+    margin-block: 0px !important;
   }
   
   #context_ungroupTab {
@@ -1799,7 +1806,7 @@
   }
   
   #context_toggleVerticalTabs,
-  #toolbar-context-toggle-vertical-tabs{
+  #toolbar-context-toggle-vertical-tabs {
     --menuitem-image: url("../icons/logo_tree-tabs.svg");
   }
 
@@ -1823,6 +1830,10 @@
 
   .customize-context-reportExtension {
     --menuitem-image: url("../icons/send.svg");
+  }
+  
+  #toolbar-context-customize-sidebar>.menu-icon {
+    list-style-image: url("chrome://global/skin/icons/settings.svg");
   }
 
   .customize-context-moveToPanel {
@@ -2413,7 +2424,7 @@
     --menuitem-image: url("chrome://global/skin/media/pause-fill.svg");
   }}
 
-@media not -moz-pref("firefoxgx.icon.disabled") {
+@media not -moz-pref("firefoxone.icon.disabled") {
 
   .downloadResumeMenuItem {
     --menuitem-image: url("chrome://global/skin/media/play-fill.svg");

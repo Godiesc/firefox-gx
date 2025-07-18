@@ -325,7 +325,7 @@
 
         /* Size and width */
         
-        :root:has(sidebar-main:is([expanded])) #tabbrowser-tabs[orient="vertical"] #vertical-pinned-tabs-container {
+        :root:has(sidebar-main:is([expanded])) #tabbrowser-tabs[orient="vertical"] #pinned-tabs-container {
             min-width: var(--my-expand-sidebar-width) !important;
         }
         
@@ -339,7 +339,7 @@
 
         /* The selected pinned tab is visible when the sidebar is collapsed - limited to 3 rows */
 
-        :root:has(sidebar-main:is([expanded])) #sidebar-main:not(:hover) #vertical-pinned-tabs-container .tabbrowser-tab[selected="true"] {
+        :root:has(sidebar-main:is([expanded])) #sidebar-main:not(:hover) #pinned-tabs-container .tabbrowser-tab[selected="true"] {
 
             &:nth-child(-n+15){
                 grid-row-start: 3 !important;
@@ -418,14 +418,11 @@
                 }
             }            
         }
-    }
-}
-
-@media -moz-pref("firefoxgx.verticalTabs-expandOnHover"), -moz-pref("sidebar.visibility", "expand-on-hover") {
-
-        /* Hide tools except for the last one 'configuration' */
-        .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child),
-        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child) {
-            transition: opacity 0.2s ease-in-out, visibility 0ms ease, transform 0.4s ease !important;
+        
+        /* Fix 'tools' transition to remove unwanted display when not need it */
+        
+        .actions-list[orientation="horizontal"]:is(:hover) moz-button[type="icon ghost"]:not(:first-child) {
+            transition-delay: 0.2s !important;
         }
+    }
 }

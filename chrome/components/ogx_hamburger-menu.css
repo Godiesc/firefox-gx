@@ -54,26 +54,45 @@
     background: var(--button-active-bgcolor) !important;
 }
 
-/* __________________________________________________ Menu disabled and Sidebar is ON __________________________________________________ */
+/* __________________________________________________ Menu 'disabled' and Sidebar is ON __________________________________________________ */
 
-@media -moz-pref("firefoxgx.menu-disabled") and (-moz-pref("firefoxgx.left-sidebar") or (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start"))) {
+@media -moz-pref("firefoxgx.menu-disabled") {
+    @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
 
-    :root {
-        --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;            /* New size of the 'menu' button */
-    }
-
-    /* margin to the left of 'menubar-tabsbar-navbar' when new menu is disabled */
-
-    :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="false"]),
-    :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
-        & #toolbar-menubar{
-            padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
+        :root {
+            --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;            /* New size of the 'menu' button */
+            --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
+            --my-elements-left-margin: var(--my-vertical-elements-width) !important;
         }
-        & #TabsToolbar {
-            padding-inline-start: var(--padding-left-tab) !important;
-        }        
-        & #nav-bar{
-            padding-inline-start: var(--my-vertical-toolbar-width) !important;
+
+        /* margin to the left of 'menubar-tabsbar-navbar' when new menu is disabled */
+
+        :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="false"]) {
+            & #toolbar-menubar{
+                padding-inline-start: var(--padding-left-tab) !important;
+            }
+            & #TabsToolbar {
+                padding-inline-start: var(--padding-left-tab) !important;
+            }        
+            & #nav-bar{
+                margin-inline-start: var(--my-vertical-toolbar-width) !important;
+            }
+        }
+    }
+    
+    @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
+        
+        :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+            --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
+            --my-elements-left-margin: var(--my-vertical-elements-width) !important;
+        }
+        
+        #toolbar-menubar{
+            padding-inline-start: var(--my-elements-left-margin, 0px) !important;
+        }
+        
+        & #TabsToolbar, #nav-bar {
+            margin-inline-start: var(--my-elements-left-margin, 0px) !important;
         }
     }
 }
