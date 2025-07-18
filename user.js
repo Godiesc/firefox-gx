@@ -3,13 +3,10 @@
 
 /* Default rules */
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("svg.context-properties.content.enabled", true); 
-user_pref("layout.css.color-mix.enabled", true);
+user_pref("svg.context-properties.content.enabled", true);
 user_pref("browser.tabs.delayHidingAudioPlayingIconMS", 0);
-user_pref("layout.css.backdrop-filter.enabled", true);
 user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
-user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", true);
-user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
+user_pref("browser.tabs.allow_transparent_browser", true);
 
 /*To active container tabs without any extension */
 user_pref("privacy.userContext.enabled", true);
