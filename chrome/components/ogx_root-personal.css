@@ -54,7 +54,7 @@
   --tab-min-width-personal: 22px ;                                                      /* Tab min width | default -> :76px */
   --toolbar-height-personal: 38px ;                                                     /* Toolbar height */
   
-  --my-group-line-thickness: 2px !important;                                            /* Tab-group line thickness */
+  --my-group-line-thickness: 1px !important;                                            /* Tab-group line thickness */
 
   --menu-label: "Menu" ;                                                                /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                            /* Horizontal size of the hamburger menu button */

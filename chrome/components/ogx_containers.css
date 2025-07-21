@@ -1,28 +1,8 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Default contenedor color */
-
-.identity-color-toolbar {
-    --identity-tab-color: color-mix(in srgb, #0c86ee 80%, var(--tab-selected-textcolor)) !important;
-    --identity-icon-color: color-mix(in srgb, #0c86ee 80%, var(--tab-selected-textcolor)) !important;
-}
-
-.identity-color-toolbar:-moz-window-inactive {
-    --identity-tab-color: #0c86ee !important;
-    --identity-icon-color: color-mix(in srgb, #0c86ee 60%, transparent) !important;
-}
-
-/* New red container color */
-
-.identity-color-red {
-    --identity-tab-color: #ff2940 !important;
-    --identity-icon-color: #ff2940 !important;
-}
-
-/* _____________________________________________ Default container style _____________________________________________ */
-
-/* Rework en la Linea de Contenedores-BordePestaña */
+/* _________________________________________ New style for container line _________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 .tab-context-line {
     opacity: 0 !important;
@@ -38,13 +18,211 @@
     }
 }
 
-/* _____________________________________________ Container line when using classic sound icon _____________________________________________ */
+/* Eliminar label del contenedor de la urlbar, manteniendo el ícono */
 
-@media ((not -moz-pref("sidebar.verticalTabs")) or (not -moz-pref("firefoxgx.tab-shapes"))) and -moz-pref("firefoxgx.classic-sound-icon") {
+#userContext-label {
+    display: none !important;
+}
 
-    /* _____________ Tab container line for vertical tabs */    
+/* Default container color */
 
-    #tabbrowser-tabs[orient="vertical"] .tab-context-line {
-        display: none !important;
+.identity-color-toolbar {
+    --identity-tab-color: #0c86ee !important;
+    --identity-icon-color: #0c86ee !important;
+}
+
+/* ______________________________________________ Tabs groups styles ______________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    
+/* Styles when creating a group by dragging a tab 
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+/* 'Moving tab' style when create a group */
+
+.tab-background {
+    #tabbrowser-tabs[movingtab-createGroup] & {
+        &:is([selected], [multiselected]) {
+            outline-width: 3px !important;
+            outline-offset: -3px !important;
+            clip-path: none !important;
+            border-radius: 0px !important; /* For 'Vertical tabs' */
+        }
+    }
+}
+
+/* 'Static tab' when creating a group */
+
+.tabbrowser-tab[dragover-createGroup] {            
+    & .tab-background {
+        outline-color: transparent !important;
+        z-index: 3 !important;
+        border-radius: 0px !important;
+        clip-path: none !important;
+    }
+
+    .tab-content { z-index: 4 !important; }
+}
+
+/* Replace group label border color */
+
+tab-group[collapsed] > .tab-group-label-container > .tab-group-label {
+    outline-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+}
+        
+.tab-group-label {
+    
+    border-radius: calc(var(--border-radius-urlbar-personal) - 3px) !important;
+
+    /* Label 'hover' effect */    
+    &:hover {
+        opacity: 0.8;
+    }
+
+    /* Trick to clic on border */
+    
+    &::after {
+        -moz-window-dragging: no-drag;
+        content: ""; position: absolute;
+        inset-block-start: 0px;
+        inset-inline-start: 0px;
+    }
+
+    /* Click on border 'Horizontal tabs' */
+    #tabbrowser-arrowscrollbox[orient="horizontal"] & {
+        &::after {
+            width: calc(100% - 3px);
+            height: calc(var(--tab-block-margin) + var(--tab-height-personal));
+        }
+    }
+
+    /* Click on border 'Vertical tabs' */
+    #tabbrowser-arrowscrollbox[orient="vertical"] & {
+        &::after {
+            background-color: #ff000050 !important;
+            width: 100%;
+            height: calc(var(--tab-height-personal) - 7px);
+            z-index: 1 !important;
+        }
+    }
+}
+
+.tab-group-label-container {
+    
+    /* Center align group label */
+    #tabbrowser-arrowscrollbox[orient="horizontal"] & {
+        padding-block: calc(var(--tab-block-margin) - 2px) calc(var(--tab-block-margin) + 2px) !important;
+    }
+}
+
+/* _____________________________________ Tabs groups styles for Horizontal tabs _____________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+#tabbrowser-arrowscrollbox[orient="horizontal"] {
+    
+    /* Remove default Line under tab  */    
+    .tab-group-line {
+        opacity: 0 !important;
+    }
+    
+    /* Replace default group label height */
+    .tab-group-label {
+        line-height: calc(var(--tab-group-label-height) + 2px) !important;
+        min-height: calc(var(--tab-group-label-height) + 2px) !important;
+    }
+    
+    /* Smaller tab height */
+    tab-group {
+        
+        /* Distance of the line below label from the toolbar */
+        --tab-group-line-toolbar-border-distance: 3px !important;
+
+        & .tabbrowser-tab {
+            height: calc(var(--tab-height-personal) - 3px) !important;
+            
+            /* Group Line under each tab  */
+            &:not([multiselected]) {
+                box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+            }
+        }
+
+        & .tab-background {
+            min-height: calc(var(--tab-height-personal) - 4px) !important;
+        }
+
+        & .tab-content {
+            margin-block-end: -2px !important;
+        }
+    }
+}
+
+/* _____________________________________ Tabs groups styles for Vertical tabs _____________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+@media -moz-pref("sidebar.verticalTabs") {
+    
+    #tabbrowser-tabs[orient="vertical"] tab-group:not([collapsed]) > .tab-group-label-container::after, /* Line in label - sidebar collapsed */
+    #tabbrowser-tabs[orient="vertical"] .tab-group-line {                                               /* Line before each tab - sidebar collapsed */
+        inset-inline-start: 1px !important;
+    }
+    
+    /* Group label */
+    
+    .tab-group-label {
+        
+        /* First letter always capitalized */
+        &::first-letter {
+           text-transform: capitalize !important;
+        }
+        
+        /* Center label in all densities */
+        margin-inline: calc(var(--tab-collapsed-width) /2 - 12px) !important;
+        
+        
+        /* Group label when sidebar is expanded  
+           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+        
+        /* When sidebar expanded - Align the group label with the same collapsed position */
+        #tabbrowser-tabs[orient="vertical"][expanded] & {
+            padding-inline-start: 8px !important;
+            width: 100% !important;
+            text-align: start !important;
+        }
+    }
+    
+    .tab-group-label-container {
+        #tabbrowser-tabs[orient="vertical"][expanded] & {
+            /*padding-inline: calc(var(--tab-collapsed-width) /2 - 12px) !important;          /* Align label and keep it center in both 'expand-on-hover' */
+        }
+    }
+    
+    #tabbrowser-tabs[orient="vertical"][expanded] {
+        
+        /* Remove unwanted margin in group tabs */
+        & tab-group > :is(.tab-group-label-container, .tabbrowser-tab),
+        &[movingtab][movingtab-addToGroup]:not([movingtab-createGroup], [movingtab-ungroup]) .tabbrowser-tab:is(:active, [multiselected]) {
+            margin-inline-start: 0px !important;
+        }
+        
+        /* Align group line */
+        .tab-group-line {
+            inset-inline-start: var(--tab-group-line-toolbar-border-distance) !important;
+        }
+    }
+    
+    /* Continuous group line when group & sidebar are expanded */
+
+    .tab-group-label-container:has(.tab-group-label[aria-expanded="true"]) {
+        #tabbrowser-tabs[orient="vertical"][expanded] & {
+            &::before {
+                -moz-window-dragging: no-drag;
+                content: "";
+                position: absolute;
+                inset-block-start: 0px;
+                inset-inline-start: var(--tab-group-line-toolbar-border-distance);
+                width: 100%;
+                height: 100%;
+                border-inline-start: var(--my-group-line-thickness) solid light-dark(var(--tab-group-color, initial), var(--tab-group-color-invert, initial));
+            }
+        }
     }
 }

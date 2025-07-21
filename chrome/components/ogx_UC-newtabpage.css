@@ -1057,7 +1057,8 @@
 
 @-moz-document regexp("^about:firefoxview.*") {
     
-    :root{
+    :root {
+        --newtab-text-primary-color: unset !important;
         --fxview-primary-action-background: transparent !important;                     /* background color of the selected category */
         --fxview-element-background-hover: var(--button-hover-bgcolor) !important;      /* Context menu: color on 'hover' over items */
         --fxview-element-background-active: var(--button-active-bgcolor) !important;    /* Context menu: color on 'clic' over items */
@@ -1101,7 +1102,7 @@
         transition-duration: 0ms !important;
     }
     
-    .search-container input:is(:focus, :focus-visible){
+    .search-container input:is(:focus, :focus-visible) {
         &:focus-visible {
             border-color: transparent !important;
             box-shadow: 0 0 0 2px var(--general-color) !important;
@@ -1145,5 +1146,23 @@
     .sticky-container {
         margin-inline: 0px !important;
         padding-inline: 42px 52px !important;
+    }
+    
+    /* Search-box */
+    #input {
+        &[type="search"] {
+            border-color: color-mix(in srgb, var(--in-content-box-border-color) 80%, var(--in-content-text-color)) !important; 
+            border-radius: 16px !important;
+
+            &:hover {
+                border-color: var(--general-color) !important;
+                outline: 0px solid var(--general-color) !important;
+            }
+            
+            &:focus-visible {
+                border-color: var(--general-color) !important;
+                outline: 1px solid var(--general-color) !important;
+            }
+        }
     }
 }

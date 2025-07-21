@@ -7,58 +7,26 @@
 
     .titlebar-button {
         color: var(--general-color) !important;
-        padding-inline: 13px !important;
-    }
-    .titlebar-button:hover:not(.titlebar-close) {
-        background-color: var(--toolbarbutton-hover-personal) !important;
+        padding-inline: 15px !important;
     }
     
     @media (not -moz-pref("firefoxgx.oneline")) and (not -moz-pref("firefoxgx.tree-tabs")) and (not -moz-pref("sidebar.verticalTabs")) {
         .titlebar-min {
-            padding-block-start: 12px !important;
+            padding-block-start: 10px !important;
             padding-block-end: 0px !important;
         }
     }
     
-    .titlebar-min image, .titlebar-max image, .titlebar-close image {
-        border-radius: 0 !important;
-        height: 14px !important;
-        width: 14px !important;
-    }
-    .titlebar-restore image {
-        height: 14px !important;
-        width: 13px !important;
-    }
-    :root:is([lwtheme-image], [style*="--lwt-additional-images"]) .titlebar-button:hover:not(.titlebar-close) {
+    .titlebar-button:hover:not(.titlebar-close) {
         background-color: var(--toolbarbutton-hover-personal) !important;
         color: var(--general-color) !important;
     }
     
     /* Keep the same windows control icons in all the themes, including the themes with images */
     
-    .titlebar-button {
-        background-color: transparent !important;
-        -moz-context-properties: stroke !important;
-        stroke: currentColor !important;
-    }
-    .titlebar-button:hover {
-        background-color: hsla(0, 0%, 100%, .32) !important
-    }
     .titlebar-close:hover {
         background-color: hsl(355, 86%, 49%) !important;
         color: white !important;
-    }
-    .titlebar-close {
-        list-style-image: url(chrome://browser/skin/window-controls/close.svg) !important
-    }
-    .titlebar-min {
-        list-style-image: url(chrome://browser/skin/window-controls/minimize.svg) !important
-    }
-    .titlebar-max {
-        list-style-image: url(chrome://browser/skin/window-controls/maximize.svg) !important
-    }
-    .titlebar-restore {
-        list-style-image: url(chrome://browser/skin/window-controls/restore.svg) !important
     }
     
     /* Larger buttons (min-max-close) on non-maximized windows */

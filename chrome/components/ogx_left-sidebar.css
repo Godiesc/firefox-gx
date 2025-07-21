@@ -578,20 +578,6 @@
 
 @media -moz-pref("sidebar.revamp") {
     
-    /* Delete style when 'sidebar' button change to 'active' */
-    
-    #sidebar-button {
-        --toolbarbutton-active-background: transparent !important;
-        
-        &[checked] {
-            list-style-image: url("chrome://browser/skin/sidebar-collapsed.svg") !important;
-            
-            &:hover {
-                --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
-            }
-        }
-    }
-    
     /* Remove margins to get the same size as the 'sidebar' width */
     
     .actions-list {

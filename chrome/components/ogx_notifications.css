@@ -140,7 +140,7 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
 /* ____________________________________________ Information - Warnings above the web page _____________________________________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-@media -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always')),
+@media -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always')) and (not -moz-pref("firefoxgx.oneline")),
     -moz-pref("firefoxgx.oneline") and (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")),
 -moz-pref("firefoxgx.verticalTabs-expandOnHover") and -moz-pref("sidebar.visibility", 'expand-on-hover') {
     
@@ -157,7 +157,7 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
         #tabbrowser-tabbox:before {
             display: flex;
             position: absolute;
-            content: 'To show the "Left Sidebar" you need to set your Bookmarks toolbar to: "Always Show" - You can use this shortcut: "Ctrl + Shift + B"';
+            content: 'Use this shortcut: < Ctrl + Shift + B > to show/hide the "Left Sidebar"';
             width: contain;
             opacity: 0;
             padding-block: 2px;
@@ -172,7 +172,7 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
             color: var(--contrast-color);
             box-shadow: inset 0 0 0 1px var(--tab-selected-textcolor), inset 0 0 0 2px var(--contrast-color);
             z-index: 3;
-            animation: messageappeardisappear linear 9s;
+            animation: messageappeardisappear linear 5s;
         }
     }
      

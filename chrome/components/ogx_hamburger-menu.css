@@ -425,7 +425,7 @@
 
     /*___________ Oneline general styles */
 
-    @media -moz-pref("firefoxgx.oneline") {
+    @media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {
 
         :root {
             --margin-left-icons-personal: 6px !important;

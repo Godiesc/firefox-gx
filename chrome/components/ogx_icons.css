@@ -83,12 +83,6 @@
     list-style-image: url("../icons/security.svg") !important;
 }
 
-/* Accept notifications icon */
-
-.desktop-notification-icon {
-    list-style-image: url("../icons/notification.svg") !important;
-}
-
 /* reader mode */
 
 #reader-mode-button>.urlbar-icon {

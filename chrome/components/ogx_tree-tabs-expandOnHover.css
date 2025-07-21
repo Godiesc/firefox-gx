@@ -5,7 +5,7 @@
    ___________________________________________________ 'Tree-tabs' sidebar, expand on 'hover' ___________________________________________________
    ___________________________________________________                                        ___________________________________________________ */
 
-@media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
+@media -moz-pref("firefoxgx.verticalTabs-expandOnHover") and (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
 
     @media -moz-pref("firefoxgx.tree-tabs") and ((not -moz-pref("firefoxgx.left-sidebar")) or (not -moz-pref("sidebar.verticalTabs"))) {
 
@@ -18,7 +18,7 @@
             --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
             /*--uc-sidebar-hover-width: 250px;/**/
             --uc-autohide-sidebar-delay: 50ms; /* Wait 0.6s before hiding sidebar - !Neccesary to avoid bug when bookmarksbar is enable */
-            --uc-autohide-transition-duration: 115ms;
+            --uc-autohide-transition-duration: 200ms;
             --uc-autohide-transition-type: linear;
             --browser-area-z-index-sidebar: 4;
             background-color: var(--lwt-accent-color) !important;
@@ -121,7 +121,7 @@
             
             /* Border inline when sidebar is not 'hover' */
             #sidebar-box {
-                border-inline-end: 10px solid var(--my-content-border-color) !important;
+                border-inline-end: 1px solid var(--my-content-border-color) !important;
                 border-image: linear-gradient(to bottom, var(--general-color), transparent 96%) 1 !important;
                 
                 &[sidebar-positionend] {

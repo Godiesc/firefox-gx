@@ -96,7 +96,6 @@
     tab-group & {
         /*--my-tab-background-clip: polygon(7px 0, calc(101% - 8px) 0, 101% 8px, 100% 100%, 0 100%, 0 7px);
         --my-tab-stack-clip: polygon(5px 0, calc(101% - 6px) 0, 103% 10px, 101% 101%, 0 100%, 0 5px);/**/
-        --my-tab-group-background: color-mix(in srgb, var(--tab-group-color) 10%, var(--toolbar-bgcolor));
     }
 }
 
@@ -110,7 +109,7 @@
 
 .tabbrowser-tab[visuallyselected] .tab-background {
     --my-background-color: transparent;
-    background-image: linear-gradient(var(--my-tab-group-background,var(--toolbar-bgcolor)), var(--my-tab-group-background,var(--toolbar-bgcolor))),
+    background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
                       var(--lwt-header-image, none), var(--lwt-additional-images,none),
                       linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
     background-position: 0 0, right top , var(--lwt-background-alignment) !important;
@@ -133,36 +132,6 @@
     background: light-dark(var(--tab-group-color, var(--general-color)), var(--tab-group-color-invert, var(--general-color))) !important;
 }
 
-/* ___________ General tab-groups variables */
-
-tab-group {
-    --tab-group-line-thickness: var(--my-group-line-thickness) !important;                                  /* Tab-group line width */
-    --general-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;          /* Tab accent color the same of group */
-    --my-hover-dark-group-color: color-mix(in srgb, var(--tab-group-color) 80%, var(--tab-selected-textcolor));       /* 'hover' on group label - dark */
-    --my-hover-light-group-color: color-mix(in srgb, var(--tab-group-color-invert), transparent);           /* 'hover' on group label - light */
-}
-
-/* Horizontal Tab into a group */
-
-#tabbrowser-arrowscrollbox[orient="horizontal"] {
-
-    & tab-group {
-        
-        & .tabbrowser-tab {
-            background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 5%, transparent) !important;/**/
-            height: calc(var(--tab-height-personal) - 3px) !important;
-        }
-
-        & .tab-background {
-            min-height: calc(var(--tab-height-personal) - 3px) !important;
-        }
-
-        & .tab-content {
-            margin-block-end: -3px !important;
-        }
-    }
-}
-
 /* Vertical Tab into a group */
 
 #tabbrowser-arrowscrollbox[orient="vertical"] {
@@ -178,278 +147,38 @@ tab-group {
 }
 
 /* ___________________________________________ Group styles just for horizontal tabs __________________________________________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-@media not -moz-pref("sidebar.verticalTabs") {
+#tabbrowser-arrowscrollbox[orient="horizontal"] {
 
-    #tabbrowser-arrowscrollbox[orient="horizontal"] {
-        
-        /* Margin between tabs */
-        &>.tabbrowser-tab {
-            padding-inline: 0 2px !important;
-        }
-
-        /* Margin between tabs inside a group */
-        &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-child) {
-            padding-inline: 0 2px !important;   
-        }
-        
-        /* Margin last tab of group */
-        &>tab-group:not([collapsed])>.tabbrowser-tab:is(:last-child) {
-            padding-inline: 0 !important;
-            margin-inline-end: 2px !important;
-        }
-        
-        /* _____________________ Group name _____________________ */
-        
-        .tab-group-label {
-            line-height: calc(var(--tab-group-label-height) - 2px) !important;
-            /*min-height: calc(var(--tab-group-label-height) - 0px) !important;/**/
-            border-radius: calc(var(--border-radius-urlbar-personal) - 3px) !important;
-            
-            &:not([aria-expanded="true"]):hover {
-                background-color: light-dark(var(--my-hover-light-group-color), var(--my-hover-dark-group-color)) !important;
-            }
-            
-            /* Trick to clic on border */
-            
-            &::after {
-                -moz-window-dragging: no-drag;
-                content: "";
-                position: absolute;
-                inset-block-start: 0px;
-                inset-inline-start: 0px;
-                width: calc(100% - 3px);
-                height: 8px;
-            }
-        }
-        
-        /* _____________________________________________________________ */
-        
-        /* Horizontal tab size for ungrouped tabs */
-        
-        &>.tabbrowser-tab[fadein]:not([style^="max-width"]) {
-            max-width: 200px !important;
-        }
-        
-        /* Horizontal tab size for grouped tabs */
-        
-        &>tab-group:not([collapsed]) .tabbrowser-tab[fadein]:not([style^="max-width"]) {
-            max-width: 200px !important;
-        }
-
-        & .tab-content {
-            margin-block-end: calc(1px - var(--my-tab-margin-top)) !important;
-        }
-
-        /* ____________________________ Styles when creating a group by dragging a tab ____________________________ */
-        
-        & .tabbrowser-tab[selected]:has(+ .tabbrowser-tab[dragover-createGroup]) {     /* 'Moving tab' + 'Tabforgroup' */
-            & .tab-background  {
-                border-inline-end-width: 0px !important;
-            }
-        }
-        
-        & .tabbrowser-tab[dragover-createGroup] + .tabbrowser-tab[selected] {          /* 'tabforgroup' + 'Moving tab' */
-            & .tab-background  {
-                border-inline-start-width: 0px !important;
-            }
-        }
-
-        & .tabbrowser-tab[selected]:has(+ .tabbrowser-tab[dragover-createGroup]),      /* 'Moving tab' + 'Tabforgroup' */
-        & .tabbrowser-tab[dragover-createGroup] + .tabbrowser-tab[selected] {          /* 'tabforgroup' + 'Moving tab' */
-
-            & .tab-background {
-                background-image: none !important;
-                background-color: light-dark(var(--dragover-tab-group-color), var(--dragover-tab-group-color)) !important;
-                outline-color: var(--dragover-tab-group-color-pale) !important;
-                outline-width: 1px !important;
-                outline-offset: -4px !important;
-                border-radius: 0px !important;
-                clip-path: none !important;
-                box-shadow: inset 0 -1px 0 0 light-dark(var(--dragover-tab-group-color-pale), var(--dragover-tab-group-color-pale)),
-                    0 -1px 0 0 light-dark(var(--dragover-tab-group-color-pale), var(--dragover-tab-group-color-pale)) !important;
-                filter: none !important;            /* Used for 'tab-shapes' config */
-                margin-inline: 0px !important;
-            }
-            
-            /* For 'Tab-shapes' - remove form */
-            & .tab-background::before,
-            & .tab-background::after {
-                display: none !important;
-            }
-
-            & .tab-stack::before {
-                clip-path: none !important;
-                border-radius: 0px !important;
-                --general-color: light-dark(var(--dragover-tab-group-color-pale), var(--dragover-tab-group-color-pale)) !important;
-            }
-        }
-
-        & .tabbrowser-tab[dragover-createGroup] {
-            & .tab-background{
-                outline-width: 1px !important;
-                clip-path: none !important;
-            }
-        }
+    /* Horizontal tab size */        
+    &>.tabbrowser-tab[fadein]:not([style^="max-width"]),
+    &>tab-group:not([collapsed]) .tabbrowser-tab[fadein]:not([style^="max-width"]) {
+        max-width: 200px !important;
     }
 
-    /* __________________________________ Tab group line __________________________________*/
-    
-    /* Line under tab  */
-
-    .tab-group-line {
-        display: none !important;
-    }
-    
-    /* Line below group label */
-
-    .tab-group-label-container {
-        tab-group:not([collapsed]) > &::after {
-            inset: auto 0px 3px !important;
-        }
+    /* Margin between tabs */
+    &>.tabbrowser-tab,
+    &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-child) {
+        padding-inline: 0 2px !important;
     }
 
-    tab-group .tabbrowser-tab:not([multiselected]) {
-        box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
-    }
-
-    /* 'Tabs with group' background color when moving a tab */
-
-    :root:has(#tabbrowser-tabs[movingtab]) {
-        tab-group .tabbrowser-tab:not([selected]) {
-            --moving-tab-background: color-mix(in srgb, var(--tab-group-color-invert) 16%, transparent);
-            /*clip-path: var(--my-tab-stack-clip);/**/
-            background-image: none !important;
-            background-color: light-dark(var(--tab-group-color), var(--moving-tab-background)) !important;
-        }
-    }
-}
-
-/* ____________________________________________ Group styles just for Vertical tabs ___________________________________________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-@media -moz-pref("sidebar.verticalTabs") {
-    
-    /* Group line in label - sidebar collapsed */
-    
-    .tab-group-label-container {
-        #tabbrowser-tabs[orient="vertical"] tab-group:not([collapsed]) > &::after {
-            inset-inline: 1px !important;
-        }
-    }
-    
-    /* Line before each tab - sidebar collapsed */
-
-    .tab-group-line {
-        #tabbrowser-tabs[orient="vertical"] & {
-            inset-inline-start: 1px !important;
-        }
-    }
-    
-    /* Group label */
-    
-    .tab-group-label {
-
-        #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
-            line-height: calc(var(--tab-group-label-height) - 4px) !important; /* makes the height the same when expand*/
-            margin-inline: calc(var(--tab-collapsed-background-width) /2 - 8px) !important;
-            min-height: 24px !important;
-        }
-
-        #tabbrowser-tabs[orient="vertical"][expanded] & {
-            padding-block: 0px !important;
-            min-height: 24px !important;
-            min-width: calc(24px - 8px) !important;
-            align-content: center !important;
-            text-overflow: '' !important;
-        }
-    }
-    
-    /* Group label when using default 'expand-on-hover' */
-
-    @media -moz-pref("sidebar.visibility", "expand-on-hover") {
-
-        /* Used for alignt label when expand-collapse sidebar */
-        .tab-group-label {            
-             #tabbrowser-tabs[orient="vertical"]:is([expanded]) & {
-                 padding-inline: calc(var(--my-vertical-elements-width)/2 - 12px) !important;
-            }
-        }
-    }
-
-    .tab-group-label-container {
-        margin-inline-start: 0px !important;
-    }
-
-    .tab-group-label {
-        
-        /* 'hover' label background */
-        &:not([aria-expanded="true"]):hover {
-            background-color: light-dark(transparent,color-mix(in srgb, var(--tab-group-color) 80%, var(--tab-selected-textcolor))) !important;
-        }
-        
-        /* First letter always capitalized */
-        &::first-letter {
-           text-transform: capitalize !important; 
-        }
-
-        /* Trick to clic on border */
-        &::after {
-            -moz-window-dragging: no-drag;
-            content: "";
-            position: absolute;
-            inset-block-start: 0px;
-            inset-inline-start: 0px;
-            width: 100%;
-            height: calc(var(--tab-height-personal) - 7px);
-            z-index: 1 !important;
-        }
-    }
-
-    /* Align */
-    .tab-group-label {
-        #tabbrowser-tabs[orient="vertical"][expanded] & {
-            margin-inline: 8px !important;
-        }
-    }
-
-    /* Continuous group line when group & sidebar are expanded */
-
-    .tab-group-label-container:has(.tab-group-label[aria-expanded="true"]) {
-        #tabbrowser-tabs[orient="vertical"][expanded] & {
-            &::before {
-                -moz-window-dragging: no-drag;
-                content: "";
-                position: absolute;
-                inset-block-start: 0px;
-                inset-inline-start: 1px;
-                width: 100%;
-                height: 100%;
-                border-inline-start: var(--my-group-line-thickness) solid light-dark(var(--tab-group-color, initial), var(--tab-group-color-invert, initial));
-            }
-        }
+    /* Margin last tab of group */
+    &>tab-group:not([collapsed])>.tabbrowser-tab:is(:last-child) {
+        padding-inline: 0 !important;
+        margin-inline-end: 2px !important;
     }
 }
 
 /* ___________________________________________________________ Various Styles ___________________________________________________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-/* Remove unwanted extra tab width */
+/* Remove unwanted extra tab width
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 #tabbrowser-arrowscrollbox[orient="horizontal"] {
-
-    &>tab-group {
-        &:not([collapsed]) > .tabbrowser-tab {
-            &:is([muted], [soundplaying], [activemedia-blocked]) {
-                #tabbrowser-tabs[orient="horizontal"] &:not([pinned]) {
-                    min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
-                }
-            }
-        }
-    }
-    
-    &>.tabbrowser-tab {
+    &>.tabbrowser-tab,
+    &>tab-group:not([collapsed]) > .tabbrowser-tab {
         &:is([muted], [soundplaying], [activemedia-blocked]) {
             #tabbrowser-tabs[orient="horizontal"] &:not([pinned]) {
                 min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
@@ -458,18 +187,21 @@ tab-group {
     }
 }
 
+/* Bug fix - Overwrite default tab size in 'density:touch' */
+
 #tabbrowser-tabs {
     &[orient="horizontal"] {
-        :root[uidensity="touch"] & .tabbrowser-tab:not([pinned]) {
-             min-width: max(var(--tab-min-width-pref, var(--tab-min-width)), var(--tab-width-personal)) !important;
+        :root[uidensity="touch"] & :not(tab-group)>.tabbrowser-tab[fadein]:not([pinned]),
+        :root[uidensity="touch"] & tab-group:not([collapsed]) > .tabbrowser-tab {
+            min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
         }
     }
 }
 
-/* Smaller tab width */
+/* Tab width reach a smaller size
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 .tabbrowser-tab {
-    
     &:not([pinned])[fadein] {
         #tabbrowser-tabs[orient="horizontal"] & {
             container-name: smaller-tab;  /* used too in ogx_sound.css */
@@ -482,24 +214,23 @@ tab-group {
 @media not -moz-pref("sidebar.verticalTabs") {
 
     @container smaller-tab (width < 48px) {
-        .tabbrowser-tab {
-            &:not([pinned])[fadein] {
-                #tabbrowser-tabs[orient="horizontal"] & {
-                    
-                    .tab-close-button,
-                    .tab-label-container {
-                        display: none !important;
-                    }
-                    
-                    .tab-content {
-                        --tab-inline-padding: 0px !important;
-                        --tab-icon-end-margin: 0px !important;
-                    }
-
-                    .tab-icon-stack {
-                        margin-inline: auto !important;
-                    }
-                }
+        #tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab:not([pinned])[fadein] {
+            
+            /* Remove unwanted elements */
+            .tab-close-button,
+            .tab-label-container {
+                display: none !important;
+            }
+            
+            /* Remove unwanted margins */
+            .tab-content {
+                --tab-inline-padding: 0px !important;
+                --tab-icon-end-margin: 0px !important;
+            }
+            
+            /* Centered favicon */
+            .tab-icon-stack {
+                margin-inline: auto !important;
             }
         }
     }
@@ -620,8 +351,7 @@ tab-group>.tabbrowser-tab:not([multiselected])>.tab-stack>.tab-content .tab-labe
 /* ___________ Reduce spacing between pinned and regular tabs */
 
 #pinned-tabs-container[orient="horizontal"] {
-    margin-inline-start: 0px !important;
-    margin-inline-end: 0px !important;
+    margin-inline-end: 2px !important;
 }
 
 /* ___________ Remove left empty space on tabs when window is not maximized */
@@ -647,25 +377,22 @@ tab-group>.tabbrowser-tab:not([multiselected])>.tab-stack>.tab-content .tab-labe
 
 /* _______________________ New Tab button _______________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#tabbrowser-tabs {
-    #tabs-newtab-button, 
-    #new-tab-button,
-    #vertical-tabs-newtab-button {
-        --toolbarbutton-hover-background: transparent !important;
-        --toolbarbutton-active-background: transparent !important;
-        --toolbarbutton-inner-padding: calc((var(--tab-min-height) - 18px) / 2) !important;
-        padding-inline: var(--uc-margin-left-newtab, 0px) !important;
-        
-        &::before {
-            content: ''; position: absolute; 
-            min-height: calc(var(--tab-height-personal) - 8px);
-            width: calc(var(--tab-height-personal) - 8px);
-            border-radius: 3px;
-        }
-        
-        &:hover::before {
-            background-color: var(--button-smaller-bgcolor) !important;
-        }
+#tabbrowser-tabs :is(#tabs-newtab-button, #vertical-tabs-newtab-button),
+#new-tab-button {
+    --toolbarbutton-hover-background: transparent !important;
+    --toolbarbutton-active-background: transparent !important;
+    --toolbarbutton-inner-padding: calc((var(--tab-min-height) - 18px) / 2) !important;
+    padding-inline: var(--uc-margin-left-newtab, 0px) !important;
+
+    &::before {
+        content: ''; position: absolute; 
+        min-height: calc(var(--tab-height-personal) - 8px);
+        width: calc(var(--tab-height-personal) - 8px);
+        border-radius: var(--border-radius-urlbar-personal);
+    }
+
+    &:hover::before {
+        background-color: var(--button-smaller-bgcolor) !important;
     }
 }
 

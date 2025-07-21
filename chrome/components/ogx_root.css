@@ -1,9 +1,7 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-:root,
-:root[lwtheme],
-:root:not([lwtheme]) {
+:root {
   
   /*--lwt-accent-color: #09080d !important;                                             /* frame */
   /*--toolbox-textcolor: var(--tab-selected-textcolor) !important;                      /* tab_background_text */
@@ -128,10 +126,7 @@
 /* _________________________________________________________________ Dark theme _________________________________________________________________ */
 
 @media (prefers-color-scheme: dark) {
-:root[brighttext],
-:root[lwt-toolbar-field-focus-brighttext],
-:root[lwtheme],
-:root:not([lwtheme]){
+:root {
   
   --contrast-color: #000000 !important;
   --border-contrast-color: color-mix(in srgb, var(--arrowpanel-background) 40%, var(--contrast-color)) !important;      /* Used in context-menu and arrowpanels*/
@@ -167,10 +162,7 @@
 /* _________________________________________________________________ White Theme ________________________________________________________________ */
 
 @media (prefers-color-scheme: light) {
-:root:not([lwtheme-brighttext="true"]),
-:root:not([lwt-toolbar-field-focus-brighttext]),
-:root[lwtheme],
-:root:not([lwtheme]) {
+:root {
   
   --contrast-color: #f9f9f9 !important;
   --border-contrast-color: #acacac30 !important;                                                                        /* Used in context-menu and arrowpanels*/
@@ -201,6 +193,19 @@
   --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /* Buttons background color - personal variable */
 
 }}
+
+/* ___________ Tabs groups ___________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+:root {
+  tab-group {
+    --general-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;      /* General color becomes the group accent color */
+    --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
+    --tab-loading-fill: var(--tab-selected-outline-color) !important;                                   /* Dot color when page loads */
+    
+    /*--my-hover-dark-group-color: color-mix(in srgb, var(--tab-group-color) 80%, var(--tab-selected-textcolor));       /* 'hover' on group label - dark */
+    /*--my-hover-light-group-color: color-mix(in srgb, var(--tab-group-color-invert), transparent);           /* 'hover' on group label - light */
+  }
+}
 
 /* __________________________________________________ Partial support for themes using "Images" _________________________________________________ */
 

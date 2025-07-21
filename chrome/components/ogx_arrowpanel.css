@@ -138,16 +138,8 @@ treechildren::-moz-tree-separator {
 /* _____________________ Sidebar-box ____________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-.sidebar-panel[lwt-sidebar] {
-    --lwt-sidebar-background-color: transparent !important;
-}
-
-/*
-@media not (-moz-pref("firefoxgx.verticalTabs-expandOnHover") and -moz-pref("firefoxgx.tree-tabs")) {
-   #sidebar {
-        background-color: var(--toolbar-bgcolor) !important;
-    }
-}/**/
+/* remove unwanted background color - tested without 'revamp' in 'synced tabs' with a theme with images */
+:root { background-color: transparent !important; }
 
 /* Apply background but not in tree-tabs extension to solve bug 'gradient-line don't display' */
 

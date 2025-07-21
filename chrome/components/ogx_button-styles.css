@@ -38,9 +38,39 @@ panel menulist {
     }
 }
 
+/* Searchbox in Sidebar 'bookmarks-history-sync' */
+
+/* First-second variable used for '--general-color' unset to follow the next variable for that accent color */
+
+@-moz-document regexp("^chrome://browser/content/places.*"), url(chrome://browser/content/webext-panels.xhtml),
+    url(chrome://browser/content/syncedtabs/sidebar.xhtml), regexp("^chrome://browser/content/sidebar.*") {
+    
+    :root { 
+        --toolbarbutton-icon-fill-attention: unset !important; 
+        --newtab-text-primary-color: unset !important;
+        }
+}
+
+/* sync-tabs sidebar searchbox */
+
+#input {
+    &[type="search"] {
+        --input-text-background-color: color-mix(in srgb, Field, transparent) !important;
+        border-color: #80808080 !important;
+        &:focus {
+            --toolbarbutton-icon-fill-attention: unset !important;
+            outline: 1px solid var(--general-color) !important;
+            border-color: var(--general-color) !important;
+        }
+    }
+}
+
 /* Background and Border Color in items (Dropdown Menu) */
 
+/* Style tested in sidebar-bookmarks, clic in the arrow | can't convine with the next line for unknow reason */
+treechildren::-moz-tree-row(current, focus),
 treechildren::-moz-tree-row(selected) {
+    background-color: var(--button-hover-bgcolor) !important;
     outline-color: transparent !important;
 }
 
@@ -48,7 +78,9 @@ treechildren::-moz-tree-row(selected) {
     background-color: var(--button-active-bgcolor) !important;
 }
 
-treechildren::-moz-tree-image(selected), treechildren::-moz-tree-twisty(selected), treechildren::-moz-tree-cell-text(selected) {
+treechildren::-moz-tree-image(selected), 
+treechildren::-moz-tree-twisty(selected), 
+treechildren::-moz-tree-cell-text(selected) {
     color: currentColor !important;
 }
 
@@ -288,6 +320,22 @@ button {
     color: currentColor !important;
     border-color: var(--toolbarbutton-hover-personal) !important;
     border-radius: 0px !important;
+}
+
+/* Delete style when 'sidebar' button change to 'active' */
+
+#sidebar-button {
+    --toolbarbutton-active-background: transparent !important;
+
+    &[checked] {
+        @media -moz-pref("sidebar.revamp") {
+            list-style-image: url("chrome://browser/skin/sidebar-collapsed.svg") !important;
+        }
+
+        &:hover {
+            --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
+        }
+    }
 }
 
 /* ---------------------------------------------- Used for various smooth transition ---------------------------------------------- */
