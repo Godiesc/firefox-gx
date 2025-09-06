@@ -64,13 +64,12 @@
     #PersonalToolbar > toolbaritem{
         justify-content: center;
     }
-    #PersonalToolbar #PlacesToolbarItems > toolbarseparator{
-        height: 7px;
-        max-width: var(--my-vertical-toolbar-width) !important;                                             /* My code */
-        margin-inline: 14px !important;                                                                     /* My code */
+    #PersonalToolbar #PlacesToolbarItems > toolbarseparator::before {
+        height: 1px !important;
+        width: var(--my-vertical-toolbar-width) !important;                                                 /* My code */
+        margin-inline: 10px !important;                                                                     /* My code */
         background-color: var(--general-color) !important;                                                  /* My edit */
-        background-clip: padding-box;
-        border-block: 3px solid transparent !important;
+        border-block: 0px solid transparent !important;
     }
 
     #PersonalToolbar #PlacesToolbarItems > .bookmark-item{
@@ -220,22 +219,24 @@
 
     /* Firefox view icon */ 
 
-    toolbar:is(#PersonalToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
-        border-radius: 4px !important;
-    }
+    toolbar:is(#PersonalToolbar) { 
+        #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
+            border-radius: 4px !important;
+        }
 
-    #firefox-view-button image {
-        list-style-image: url("../icons/firefoxview-close.svg") !important;
-    }
+        #firefox-view-button image {
+            list-style-image: url("../icons/firefoxview-close.svg") !important;
+        }
 
-    #firefox-view-button[aria-pressed="false"]:active .toolbarbutton-icon{
-        list-style-image: url("../icons/firefoxview-close.svg") !important;
-        transition-duration: 0ms !important;
-    }
+        #firefox-view-button[aria-pressed="false"]:active .toolbarbutton-icon{
+            list-style-image: url("../icons/firefoxview-close.svg") !important;
+            transition-duration: 0ms !important;
+        }
 
-    #firefox-view-button[aria-pressed="true"]:not(:active) .toolbarbutton-icon{
-        list-style-image: url("../icons/firefoxview-open.svg") !important;
-        transition-duration: 0ms !important;
+        #firefox-view-button[aria-pressed="true"]:not(:active) .toolbarbutton-icon{
+            list-style-image: url("../icons/firefoxview-open.svg") !important;
+            transition-duration: 0ms !important;
+        }
     }
 
     /* Smooth transition of bookmark items */
@@ -526,13 +527,13 @@
 @media -moz-pref("sidebar.revamp") {
     
     /* Create continuous line just when sidebar is not hidden */
-    :root:not([customizing]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+    :root:not([customizing]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
         --my-border-inline-end: 1px solid var(--general-color) !important;
     }
     
     /* Left-sidebar on but hidden + sidebar-revamp showed */
     @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'never') {
-        :root:not([customizing]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+        :root:not([customizing]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
         --my-border-inline-end: none !important;
         }
     }
@@ -560,7 +561,7 @@
 
     /* Keep padding left of tabs when menubar is always visible */
 
-    :root:not([sizemode="fullscreen"]) #toolbar-menubar[autohide="false"]+#TabsToolbar {
+    :root:not([sizemode="fullscreen"]) #toolbar-menubar:not([autohide])+#TabsToolbar {
         padding-inline-start: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
     }
 }
@@ -708,7 +709,7 @@
     /* Tree-tabs extension */
     moz-button[extensionId="treestyletab@piro.sakura.ne.jp"],
     moz-button[extensionId="tabcenter-reborn@ariasuni"] { --my-custom-image: url(../icons/logo_tree-tabs.svg) !important; }
-
+    
     /* Set extension image */
     
     .button-background > img{
@@ -894,7 +895,7 @@
     /* New selected tab shape */
     .tabbrowser-tab,
     tab-group .tabbrowser-tab {
-        --my-tab-background-clip: polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
+        --my-tab-background-clip: polygon(5.5px 0, calc(100% - 5.5px) 0, 100% 5.5px, 100% calc(100% - 5.5px), calc(100% - 5.5px) 100%, 5.5px 100%, 0 calc(100% - 5.5px), 0 5.5px);
         --my-tab-stack-clip: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
     }
     
@@ -1110,10 +1111,6 @@
         border-block-width: 0px !important;
         background-color: transparent !important;
         pointer-events: none !important;
-        /*border-block-start-width: 0px !important;
-        background-color: transparent !important;
-        border-image: var(--my-separator-border-style1) !important;
-        margin-inline: 0px !important;/**/
     }
 
     /* Tabs top separador - 'sidebar-main' on right */
@@ -1152,17 +1149,17 @@
         box-shadow: 0 -1px var(--my-content-border-color) !important;
         
         /* Sidebar content 'open' + web content */
-        &[checked="true"] ~ #tabbrowser-tabbox {
+        &[checked] ~ #tabbrowser-tabbox {
             box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
         }
         
         /* Sidebar content 'open' on right */
-        &[checked="true"][sidebar-positionend] {
+        &[checked][sidebar-positionend] {
             box-shadow: calc(1px * var(--rtl-variable, 1)) -1px 0 0 var(--my-content-border-color) !important;
         }
         
         /* Sidebar content 'open' on right + web content */
-        &[checked="true"][sidebar-positionend] ~ #tabbrowser-tabbox {
+        &[checked][sidebar-positionend] ~ #tabbrowser-tabbox {
             box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
         }
     }
@@ -1208,7 +1205,7 @@
     [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]) {
 
         /* Sidebar content 'open' + web content 
-        &[checked="true"] ~ #tabbrowser-tabbox {
+        &[checked] ~ #tabbrowser-tabbox {
             box-shadow: none !important;
         }/**/
     }

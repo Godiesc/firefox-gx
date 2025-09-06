@@ -67,7 +67,7 @@
 
         /* margin to the left of 'menubar-tabsbar-navbar' when new menu is disabled */
 
-        :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar[collapsed="false"]) {
+        :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar:not([collapsed])) {
             & #toolbar-menubar{
                 padding-inline-start: var(--padding-left-tab) !important;
             }
@@ -75,14 +75,14 @@
                 padding-inline-start: var(--padding-left-tab) !important;
             }        
             & #nav-bar{
-                margin-inline-start: var(--my-vertical-toolbar-width) !important;
+                margin-inline-start: var(--my-vertical-elements-width) !important;
             }
         }
     }
     
     @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
         
-        :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+        :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
             --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
             --my-elements-left-margin: var(--my-vertical-elements-width) !important;
         }
@@ -112,13 +112,13 @@
 
         /* When extension button is hidden from toolbar / overflow empty */
         :root:has(#appMenu-unified-extensions-button[hidden]) 
-        #nav-bar:not([nonemptyoverflow="true"], [customizing]) 
+        #nav-bar:not([nonemptyoverflow], [customizing]) 
         #nav-bar-customization-target > :last-child {
             padding-inline-end: var(--toolbar-start-end-padding) !important;
         }
 
         :root:has(#appMenu-unified-extensions-button:not([hidden])) 
-        #nav-bar:not([nonemptyoverflow="true"], [customizing]) 
+        #nav-bar:not([nonemptyoverflow], [customizing]) 
         #nav-bar-customization-target {
             padding-inline-end: var(--toolbar-start-end-padding) !important;
         }
@@ -130,7 +130,7 @@
 
         @media (-moz-platform: windows), (-moz-platform: linux) {
 
-            :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):has(#toolbar-menubar[autohide="false"]) {
+            :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):has(#toolbar-menubar:not([autohide])) {
 
                 & #PanelUI-button, 
                 & #appMenu-popup {
@@ -163,14 +163,14 @@
         
         /* left margin of menubar */
 
-        #toolbar-menubar[autohide="false"]>toolbaritem>menubar {
+        #toolbar-menubar:not([autohide])>toolbaritem>menubar {
             padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
         }
         
         /* left margin of tabs-bar */
         
-        #toolbar-menubar[autohide="true"]+#TabsToolbar,
-        :root:is([sizemode="fullscreen"]) #toolbar-menubar[autohide="false"]+#TabsToolbar {
+        #toolbar-menubar[autohide]+#TabsToolbar,
+        :root:is([sizemode="fullscreen"]) #toolbar-menubar:not([autohide])+#TabsToolbar {
             padding-inline-start: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
         }
 
@@ -355,7 +355,7 @@
         
         /* Move tabsbar to the right */
         
-        #toolbar-menubar[autohide="false"]+#TabsToolbar {
+        #toolbar-menubar:not([autohide])+#TabsToolbar {
             padding-inline-start: var(--my-elements-left-margin, 0px) !important;
         }
         
@@ -370,7 +370,7 @@
     
     @media (not -moz-pref("firefoxgx.left-sidebar")) and (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) {
         
-        :root:not([chromehidden~="toolbar"],[customizing]):not(:has(#sidebar-main[hidden="true"],sidebar-main[hidden])) {
+        :root:not([chromehidden~="toolbar"],[customizing]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
             --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;     /* New Menu height */
             --my-elements-left-margin: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
         }
@@ -443,7 +443,7 @@
 
                 /* left margin of menubar */
 
-                #toolbar-menubar[autohide="true"] {
+                #toolbar-menubar[autohide] {
                     padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
                     padding-top: var(--windowed-top-padding, 0px) !important;
                 }
@@ -480,7 +480,7 @@
             :root:not([chromehidden~="toolbar"]) {
                 
                 /* Menubar margin left */
-                #toolbar-menubar[autohide="true"]>toolbaritem>menubar {
+                #toolbar-menubar[autohide]>toolbaritem>menubar {
                     margin-inline-start: calc(var(--my-vertical-toolbar-width) + 2px) !important;
                 }
 
@@ -497,9 +497,9 @@
             
             /* Vertical-tabs hidden */
             
-            :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden="true"],sidebar-main[hidden]) {
+            :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden],sidebar-main[hidden]) {
                 
-                #toolbar-menubar[autohide="true"] ~ #nav-bar {
+                #toolbar-menubar[autohide] ~ #nav-bar {
                     padding-inline-start: var(--my-vertical-elements-width) !important;
                     
                     @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
@@ -525,7 +525,7 @@
                     :root:not([chromehidden~="toolbar"]) {
                         
                         /* Navbar left-margin */
-                        #toolbar-menubar[autohide="true"] ~ #nav-bar {
+                        #toolbar-menubar[autohide] ~ #nav-bar {
                             margin-inline-start: 0 !important;
                             padding-inline-start: var(--padding-left-tab) !important;
                         }
@@ -550,7 +550,7 @@
         
         /* Menu space in the nav-bar */
             
-        :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="true"] ~ #nav-bar {
+        :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide] ~ #nav-bar {
             --my-elements-left-margin: calc(var(--padding-left-tab,0px) + var(--uc-window-drag-space-pre, 0px)) !important;
         }
         
@@ -590,7 +590,7 @@
                 --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;     /* New Menu height */
 
                 /* Menubar on auto-hide */
-                #toolbar-menubar[autohide="true"] {
+                #toolbar-menubar[autohide] {
                     padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
                     
                     /* navbar margin when menu is on auto-hide */
@@ -662,7 +662,7 @@
                     }
                     
                     /* Menubar when is always active */
-                    #toolbar-menubar[autohide="false"] {
+                    #toolbar-menubar:not([autohide]) {
 
                         /* navbar margin when menu is always visible */
                         & ~ #nav-bar {

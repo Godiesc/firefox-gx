@@ -227,7 +227,7 @@
         :root:has(#sidebar-box:is(
         [sidebarcommand*="tabcenter"],
         [sidebarcommand*="treestyletab"],
-        [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])):has(#PersonalToolbar[collapsed="false"]) {
+        [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])):has(#PersonalToolbar:not([collapsed])) {
             & #sidebar {
                 background-color: var(--lwt-accent-color) !important;
                 margin-block-start: 0px;
@@ -339,7 +339,7 @@
 
         /* The selected pinned tab is visible when the sidebar is collapsed - limited to 3 rows */
 
-        :root:has(sidebar-main:is([expanded])) #sidebar-main:not(:hover) #pinned-tabs-container .tabbrowser-tab[selected="true"] {
+        :root:has(sidebar-main:is([expanded])) #sidebar-main:not(:hover) #pinned-tabs-container .tabbrowser-tab[selected] {
 
             &:nth-child(-n+15){
                 grid-row-start: 3 !important;

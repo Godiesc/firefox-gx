@@ -134,46 +134,40 @@
 
 /* left and right urlbar separator */
 
-#urlbar-background::before,
-#urlbar-background::after {
-    content: ""; display: block; position: relative;
-    background: url("../icons/urlbar-separator.svg");
-    background-repeat: no-repeat;
-    background-size: 6px 16px;
-    background-position-y: center;
-    fill: var(--toolbarbutton-icon-fill);
-    -moz-context-properties: fill;
-    opacity: 0.2;
-    transition-duration: 400ms;
-    height: calc(-2px + var(--toolbar-height-personal) - var(--urlbar-padding-block)*2);
+.urlbar-background::before,
+.urlbar-background::after {
+  content: ""; display: block; position: relative;
+  background: url("../icons/urlbar-separator.svg");
+  background-repeat: no-repeat;
+  background-size: 6px 16px;
+  background-position-y: center;
+  fill: var(--toolbarbutton-icon-fill);
+  -moz-context-properties: fill;
+  opacity: 0.2;
+  transition-duration: 400ms;
+  height: calc(-2px + var(--toolbar-height-personal) - var(--urlbar-padding-block)*2);
+
+  /* This directionality flipper for RTL languages */
+  direction: ltr;
+  &:is([positionend],[sidebar-positionend]):not(:-moz-locale-dir(rtl)){
+    direction: rtl;
+  }
 }
 
-#urlbar-background::before {
+.urlbar-background::before {
     background-position-x: left;
     inset-inline-start: -3px;
-  
-    /* This directionality flipper for RTL languages */
-    direction: ltr;
-    &:is([positionend],[sidebar-positionend]):not(:-moz-locale-dir(rtl)){
-        direction: rtl;
-    }
 }
 
-#urlbar-background::after {
+.urlbar-background::after {
     background-position-x: right;
     top: calc(10px - var(--toolbar-height-personal));
     inset-inline-end: -2px;
-  
-    /* This directionality flipper for RTL languages */
-    direction: ltr;
-    &:is([positionend],[sidebar-positionend]):not(:-moz-locale-dir(rtl)){
-        direction: rtl;
-    }
 }
 
-#urlbar:is([open], [focused], :hover) {
-    #urlbar-background::before,
-    #urlbar-background::after {
+.urlbar:is([open], [focused], :hover) {
+    .urlbar-background::before,
+    .urlbar-background::after {
         opacity: 0;
         transition-duration: 400ms;
     }
@@ -236,7 +230,7 @@
   }
 
   /*= Standard Folder - More Visible ===========================================*/
-  /* on Toolbar and Menus
+  /* on Toolbar and Menus*/
   :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
     .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer]),
   :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
@@ -245,14 +239,14 @@
   #editBMPanel_folderMenuList .folder-icon:not([id]),
   .downloadIconShow > .button-box > .button-icon {
     list-style-image: var(--uc-folder-icon) !important;
-  } */
-  /* Standard Folder - Open 
+  } 
+  /* Standard Folder - Open */
   :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
     .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
   :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
     treechildren::-moz-tree-image(title, container, open) {
     list-style-image: url("../icons/folder-open.svg") !important;
-  }*/
+  }
   /*= Other Folder - Inbox Icon ================================================*/
   /* on Menus */
   #PlacesToolbar #OtherBookmarks,
@@ -358,53 +352,51 @@
     treechildren::-moz-tree-image(container, open, queryFolder_menu________) {
     list-style-image: url("../icons/bookmarksMenu-open.svg") !important; /* or bookmarksMenu-open2.svg" */
   }
-  @-moz-document url("chrome://browser/content/places/places.xhtml")
-  {
-    @media not -moz-pref("firefoxone.icon.disabled") {
-      /*= Menubar - Icons ==========================================================*/
-      #organizeButton,
-      #viewMenu,
-      #maintenanceButton,
-      #back-button,
-      #forward-button,
-      #clearDownloadsButton {
-        fill: currentColor !important;
-        -moz-context-properties: fill, fill-opacity, stroke !important;
-      }
-      /* Add */
-      #organizeButton {
-        list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
-      }
-      #viewMenu {
-        list-style-image: url("../icons/sort.svg") !important;
-      }
-      #maintenanceButton {
-        list-style-image: url("../icons/import-export.svg") !important;
-      }
-      #clearDownloadsButton {
-        list-style-image: url("chrome://global/skin/icons/delete.svg") !important;
-      }
-      #clearDownloadsButton > .toolbarbutton-icon {
-        display: inline-flex !important;
-        display: -moz-inline-box !important;
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-inline-start: 0;
-        margin-inline-end: 2px;
-      }
-      /* Replace */
-      #back-button {
-        list-style-image: url("chrome://browser/skin/back.svg") !important;
-      }
-      #forward-button {
-        list-style-image: url("chrome://browser/skin/forward.svg") !important;
-      }
-      #back-button:-moz-locale-dir(rtl) > .toolbarbutton-icon,
-      #forward-button:-moz-locale-dir(rtl) > .toolbarbutton-icon {
-        transform: scaleX(-1) !important;
-      }
+
+@-moz-document url("chrome://browser/content/places/places.xhtml") {
+  @media not -moz-pref("firefoxone.icon.disabled") {
+    /*= Menubar - Icons ==========================================================*/
+    #organizeButton,
+    #viewMenu,
+    #maintenanceButton,
+    #back-button,
+    #forward-button,
+    #clearDownloadsButton {
+      fill: currentColor !important;
+      -moz-context-properties: fill, fill-opacity, stroke !important;
+    }
+    #organizeButton {
+      --menuitem-image: url("chrome://global/skin/icons/settings.svg") !important;
+    }
+    #viewMenu {
+      --menuitem-image: url("../icons/sort.svg") !important;
+    }
+    #maintenanceButton {
+      --menuitem-image: url("../icons/import-export.svg") !important;
+    }
+    #clearDownloadsButton {
+      --menuitem-image: url("chrome://global/skin/icons/delete.svg") !important;
+    }
+    #clearDownloadsButton > .toolbarbutton-icon {
+      display: inline-flex !important;
+      display: -moz-inline-box !important;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-inline-start: 0;
+      margin-inline-end: 2px;
+    }
+    #back-button {
+      --menuitem-image: url("chrome://browser/skin/back.svg") !important;
+    }
+    #forward-button {
+      --menuitem-image: url("chrome://browser/skin/forward.svg") !important;
+    }
+    #back-button:-moz-locale-dir(rtl) > .toolbarbutton-icon,
+    #forward-button:-moz-locale-dir(rtl) > .toolbarbutton-icon {
+      transform: scaleX(-1) !important;
     }
   }
+}
 
 @media not -moz-pref("firefoxone.icon.disabled") {
   
@@ -1259,11 +1251,15 @@
 
   :not(menu, #ContentSelectDropdown)
     > menupopup:not(.in-menulist)
-    > menuitem:not(.menuitem-iconic, .bookmark-item, .in-menulist, [checked="true"]),
+    > menuitem:not(.menuitem-iconic, .bookmark-item, .in-menulist, [checked="true"]) > .menu-icon,
   :not(menu, #ContentSelectDropdown)
     > menupopup:not(.in-menulist)
-    > menu:not(.menu-iconic, .in-menulist, [checked="true"]) {
-    list-style-image: var(--menuitem-image, url("../icons/blank.svg")) !important;
+    > menu:not(.menu-iconic, .in-menulist, [checked="true"]) > .menu-icon {
+      content: var(--menuitem-image, url("../icons/blank.svg")) !important;
+      visibility: inherit !important;
+      -moz-context-properties: fill, fill-opacity !important;
+      fill: currentColor !important;
+      fill-opacity: var(--menu-arrow-opacity) !important;
   }
 
   :root {
@@ -1541,7 +1537,7 @@
       #menu_HelpPopup,
       #usercssloader-menupopup
     )
-    menuitem:not(.menuitem-iconic, .bookmark-item),
+    menuitem:not(.menuitem-iconic, .bookmark-item) .menu-icon,
   menupopup:is(
       #menu_FilePopup,
       #menu_EditPopup,
@@ -1554,8 +1550,9 @@
       #menu_HelpPopup,
       #usercssloader-menupopup
     )
-    menu:not(.menu-iconic) {
-    list-style-image: var(--menuitem-image, url("../icons/blank.svg")) !important;
+    menu:not(.menu-iconic) .menu-icon {
+      content: var(--menuitem-image, url("../icons/blank.svg")) !important;
+      
   }
 
   menupopup menupopup[emptyplacesresult] .menu-text,
@@ -1694,7 +1691,7 @@
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_pinTab,
   #tabcenter-reborn_ariasuni-menuitem-_contextMenuPinTab,
   #sidebartabs_asamuzak_jp-menuitem-_pinTab {
-    --menuitem-image: url("../icons/pin-tab.svg");
+    --menuitem-image: url("../icons/unpin-tab.svg");
   }
   #context_unpinTab,
   #context_unpinSelectedTabs,
@@ -1827,11 +1824,11 @@
   }
   
   #toolbar-context-customize-sidebar>.menu-icon {
-    list-style-image: url("chrome://global/skin/icons/settings.svg");
+    --menuitem-image: url("chrome://global/skin/icons/settings.svg");
   }
 
   .customize-context-moveToPanel {
-    --menuitem-image: url("../icons/pin-tab.svg");
+    --menuitem-image: url("../icons/unpin-tab.svg");
   }
 
   #toolbar-context-autohide-downloads-button {
@@ -2212,22 +2209,27 @@
     --menuitem-image: url("../icons/screenshot-1.svg");
   }
   
+  #context_askChat,
   #context-ask-chat {
     --menuitem-image: url("../icons/logo_chatgpt.svg");
   }
   
+  #context_askChat[data-l10n-args*='Anthropic Claude"}'],
   #context-ask-chat[data-l10n-args*='Anthropic Claude"}'] {
     --menuitem-image: url("../icons/logo_anthropic-claude.svg");
   }
   
+  #context_askChat[data-l10n-args*='Google Gemini"}'],
   #context-ask-chat[data-l10n-args*='Google Gemini"}'] {
     --menuitem-image: url("../icons/logo_google-gemini.svg");
   }
   
+  #context_askChat[data-l10n-args*='HuggingChat"}'],
   #context-ask-chat[data-l10n-args*='HuggingChat"}'] {
     --menuitem-image: url("../icons/logo_hugging-chat.svg");
   }
   
+  #context_askChat[data-l10n-args*='Mistral"}'],
   #context-ask-chat[data-l10n-args*='Mistral"}'] {
     --menuitem-image: url("../icons/logo_mistral.svg");
   }
@@ -2305,21 +2307,34 @@
   #context-media-eme-learnmore {
     /* iconic */
   }
+  
+  /* Bug fix: display the new context menu 'first icons' setted below */
+  .menu-icon {
+    menuitem:where(.menuitem-iconic, [image]) > &, menu:where(.menu-iconic) > & {
+      &:where(:not([srcset])) {
+        content: var(--menuitem-icon) !important;
+      }
+    }
+  }
 
   #context-back {
-    list-style-image: url("../icons/back.svg") !important;
+    --menuitem-icon: url("../icons/back.svg") !important;
   }
+  
   #context-forward {
-    list-style-image: url("../icons/forward.svg") !important;
+    --menuitem-icon: url("../icons/forward.svg") !important;
   }
+  
   #context-reload {
-    list-style-image: url("../icons/reload.svg") !important;
+    --menuitem-icon: url("../icons/reload.svg") !important;
   }
+  
   #context-stop {
-    list-style-image: url("chrome://global/skin/icons/close.svg") !important;
+    --menuitem-icon: url("chrome://global/skin/icons/close.svg") !important;
   }
+  
   #context-bookmarkpage {
-    list-style-image: url("../icons/bookmark-empty.svg") !important;
+    --menuitem-icon: url("../icons/bookmark-empty.svg") !important;
   }
 
   #context-showonlythisframe {
@@ -2825,8 +2840,11 @@
 
 
   /*= main-menubar =============================================================*/
-  #file-menu {
-    --menuitem-image: url("../icons/mail-inbox-all.svg");
+  #file-menu>.menu-icon {
+    background: url("../icons/mail-inbox-all.svg") !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
   }
   #edit-menu {
     --menuitem-image: url("chrome://global/skin/icons/edit.svg");
@@ -3382,11 +3400,15 @@
   /* Enable the icon space in all items */
   
   .menu-icon {
-    menuitem:not(.menuitem-iconic, [image]) > &, menu:not(.menu-iconic) > & {
-      -moz-context-properties: fill, stroke;
-      display: revert !important;
-      fill: var(--arrowpanel-color) !important;
-      stroke: var(--arrowpanel-color) !important;
+    menuitem:not(.menuitem-iconic, [image]) > &,
+      menu:not(.menu-iconic) > & {
+        display: revert !important;
+        /* Tested in menubar icons */
+        visibility: visible !important;
+        -moz-context-properties: fill, stroke !important;
+        fill: var(--arrowpanel-color) !important;
+        stroke: var(--arrowpanel-color) !important;/**/
+
     }
   }
   
@@ -3396,37 +3418,49 @@
     @media (-moz-platform: linux) or (-moz-platform: windows) {
       & > :is(menu, menuitem) {
         &> .menu-icon {
-          -moz-context-properties: fill, stroke;
+          /*-moz-context-properties: fill, stroke;
           fill: var(--arrowpanel-color) !important;
-          stroke: var(--arrowpanel-color) !important;
+          stroke: var(--arrowpanel-color) !important;/**/
         }
 
-        &:where([disabled="true"]) > .menu-icon {
-          fill: var(--text-color-disabled) !important;
-          stroke: var(--text-color-disabled) !important;
+        &:where([disabled]) > .menu-icon {
+          /*fill: var(--text-color-disabled) !important;
+          stroke: var(--text-color-disabled) !important;/**/
         }
       }
     }
   }
   
-  /* Remove icons of main menubar (file, edit...) */
+  /* 'Remove' icon space */
   
-  #main-menubar>menu, 
-  /*:not(#permission-popup-menulist)/**/ .in-menulist menuitem {   /* Remove unwanted icon space in combobox (ejm: audio permission) */
+  #main-menubar>menu,                           /* Menubar icons */
+  .in-menulist menuitem {                       /* Audio permission */
     & > .menu-icon {
       display: none !important;
     }
   }
   
+  menuitem:not(.menuitem-iconic, [checked="true"]) {   /* Ejm. Bookmarksbar options 'always show, never show, etc' or 'Check spelling' */
+    & > .menu-icon {
+      visibility: hidden !important;
+    }
+  }
+  
+  menuitem[value="undefined"] {                 /* Ejm. Ask chatgpt submenu */
+    & > .menu-icon {
+      visibility: collapse !important;
+    }
+  }
+  
+  /* Show 'menubar' icons */
+  
+  #toolbar-menubar menuitem .menu-icon {
+    visibility: visible !important;
+  }
+  
   /* Remove unwanted space in context menu item 'Send page to device' */
   
-  menupopup:is(
-      #context_sendTabToDevicePopupMenu,
-      #context-sendpagetodevice-popup,
-      #context-sendlinktodevice-popup,
-      #frame > menupopup
-    )
-  > menuitem>.menu-icon {
+ #context-sendlinktodevice > menupopup > menuitem > .menu-icon[aria-hidden="true"] {
     display: none !important;
   }
 }

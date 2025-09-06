@@ -55,7 +55,7 @@
       --lwt-additional-images: var(--lwt-main-image) !important;
       
       & #tabbrowser-tabbox,
-      & #sidebar-box[checked="true"] {
+      & #sidebar-box[checked] {
          --my-content-border-color: color-mix(in srgb, var(--toolbar-bgcolor) 80%, var(--tab-selected-textcolor)) !important;  /* Border around web content */
       }
    }
@@ -187,7 +187,7 @@
                
                /* When left-sidebar is on but hidden */
                
-               &:has(#PersonalToolbar[collapsed="false"]) #sidebar-main {
+               &:has(#PersonalToolbar:not([collapsed])) #sidebar-main {
                   background-position-x: calc(0px - var(--my-vertical-toolbar-width, 0px)) !important;
                   
                   &[positionend] {

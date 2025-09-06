@@ -39,7 +39,7 @@
   @media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("firefoxgx.left-sidebar")) {
     #sidebar-main, :root[sidebar-expand-on-hover] #sidebar-main,
     :root:not([customizing]) #navigator-toolbox::before,
-    :is(#TabsToolbar, #toolbar-menubar[autohide="false"]){
+    :is(#TabsToolbar, #toolbar-menubar:not([autohide])){
       background-image: none !important;
       background-color: var(--lwt-accent-color) !important;
     }
@@ -56,7 +56,7 @@
 
   /* 'Vertical-tabs' + 'Left-sidebar' */
   @media -moz-pref("sidebar.verticalTabs") and -moz-pref("firefoxgx.left-sidebar") {
-    :is(#PersonalToolbar, #toolbar-menubar[autohide="false"]) {
+    :is(#PersonalToolbar, #toolbar-menubar:not([autohide])) {
       background-image: none !important;
       background-color: var(--lwt-accent-color) !important;
     }
@@ -221,7 +221,7 @@
   /* Popups in Urlbox */
 
   .panel-no-padding[type="arrow"] {  
-    :root:has(#urlbar-container box[open="true"]) & ,          /* Url buttons */
+    :root:has(#urlbar-container box[open]) & ,          /* Url buttons */
     :root:has(#page-action-buttons>hbox[open]) & {             /* Page-action-buttons */
       margin-inline: -14px !important;
     }

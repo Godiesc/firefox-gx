@@ -39,7 +39,7 @@
   /* _____________ Group name style _____________ */
   
   /* Bug-fix: Collapsed group tabs invisible to solve it */
-  tab-group:is([collapsed]) .tabbrowser-tab {
+  tab-group:is([collapsed]) .tabbrowser-tab:not([selected]) {
     opacity: 0 !important; 
     pointer-events: none !important;
   }
@@ -67,6 +67,11 @@
       toolbar toolbarbutton:not(toolbarbutton.bookmark-item, .subviewbutton)>image,
       toolbar toolbarbutton:not(#PanelUI-menu-button) .toolbarbutton-badge-stack {
         clip-path: circle(50%) !important;
+        @media -moz-pref("firefoxgx.left-sidebar") {
+          #PersonalToolbar & {
+            clip-path: none !important;
+          }
+        }
       }
       
       /* Bookmarks items */
@@ -96,7 +101,7 @@
   }
   
   #tabbrowser-tabs>#pinned-tabs-container>.tabbrowser-tab:last-child {
-    margin-inline-end: calc(0px - var(--uc-margin-left-right, 0px) + var(--uc-tab-corner-half-size, 4px)) !important;
+    padding-inline-end: calc(0px - var(--uc-margin-left-right, 0px) + var(--uc-tab-corner-half-size, 4px)) !important;
   }
 
 /* _________________________________________________ Multi Selected Color _________________________________________________ */

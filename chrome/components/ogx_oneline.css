@@ -180,7 +180,7 @@
   }
   
   #urlbar:focus-within, 
-  #urlbar[focused="true"],
+  #urlbar[focused],
   #urlbar[open] { 
     min-width: calc(var(--min-width-url) + 340px) !important;
     clip-path: polygon(0px 0%, var(--min-width-url) 0%, 0% 999999vw, 0% 0px) !important;
@@ -266,7 +266,7 @@
   /* 'hover' and 'open' button styles 'navbar' */
 
   :root:not([lwtheme-image],[style*="--lwt-additional-images"]) {
-    #nav-bar .toolbarbutton-1:is(:hover):not([open="true"],[disabled="true"]) {
+    #nav-bar .toolbarbutton-1:is(:hover):not([open],[disabled]) {
       --toolbarbutton-icon-fill: var(--general-color) !important;
     }
   }
@@ -275,7 +275,7 @@
 
   :root:is([lwtheme-image],[style*="--lwt-additional-images"]),
   :root:not([lwtheme-image],[style*="--lwt-additional-images"]){
-    #nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) {
+    #nav-bar .toolbarbutton-1:is([open]):not([disabled]) {
       --toolbarbutton-icon-fill: var(--toolbar-color) !important;
     }
   }
@@ -294,13 +294,13 @@
   
   /* Display 'window controls' when menu bar is always active */
   
-  :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar[autohide="false"] + #TabsToolbar > .titlebar-buttonbox-container {
+  :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar:not([autohide]) + #TabsToolbar > .titlebar-buttonbox-container {
     display: flex !important;
   }
   
   /* Padding top tabsbar [normal] when menubar is always visible */
   
-  :root:has(#toolbar-menubar[autohide="false"]) #TabsToolbar {
+  :root:has(#toolbar-menubar:not([autohide])) #TabsToolbar {
     padding-block-start: var(--windowed-top-padding, 0px) !important;
   }
 
@@ -315,7 +315,7 @@
   
   /* When menubar is always active */
   
-  #toolbar-menubar[autohide="false"] {
+  #toolbar-menubar:not([autohide]) {
     position: fixed;
     display: flex;
     top: 0px;
@@ -330,7 +330,7 @@
     }
   }
 
-  #toolbar-menubar[autohide="true"][inactive="true"]{ height: 0px !important; }
+  #toolbar-menubar[autohide][inactive]{ height: 0px !important; }
 
   /*#toolbar-menubar > spacer{ flex-grow: 1 }/**/
   #toolbar-menubar[inactive] > .titlebar-buttonbox-container{ display: none }
@@ -349,31 +349,31 @@
   }
 
   @media (-moz-gtk-csd-reversed-placement) {
-    #toolbar-menubar[autohide="true"]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
+    #toolbar-menubar[autohide]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
   }
 
   /* Bug fix: Trick to hide urlbar when menu appears */
 
   /* 'Alt key' */
 
-  #toolbar-menubar[autohide="true"] ~ #nav-bar #urlbar {
+  #toolbar-menubar[autohide] ~ #nav-bar #urlbar {
     opacity: 0 !important;
     pointer-events: none !important;
   }
 
-  #toolbar-menubar[autohide="true"][inactive] ~ #nav-bar #urlbar {
+  #toolbar-menubar[autohide][inactive] ~ #nav-bar #urlbar {
     opacity: 1 !important;
     pointer-events: all !important;
   }
 
   /* Menu 'Always active' */
 
-  :root:not([sizemode="fullscreen"]):has(#toolbar-menubar[autohide="false"]) #urlbar:not([open],[focused]) {
+  :root:not([sizemode="fullscreen"]):has(#toolbar-menubar:not([autohide])) #urlbar:not([open],[focused]) {
     opacity: 0 !important;
     pointer-events: none !important;
   }
 
-  :root:not([sizemode="fullscreen"]):has(#toolbar-menubar[autohide="true"][inactive="true"]) {
+  :root:not([sizemode="fullscreen"]):has(#toolbar-menubar[autohide][inactive]) {
     & #urlbar {
       opacity: 1 !important;
     }
@@ -424,17 +424,17 @@
     }
     
     /* Remove left margin of menu bar when is always active */
-    :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="false"]{
+    :root:not([chromehidden~="toolbar"]) #toolbar-menubar:not([autohide]) {
       padding-inline-start: 0px !important;
     }
     
-    :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide="false"]+#TabsToolbar {
+    :root:not([chromehidden~="toolbar"]) #toolbar-menubar:not([autohide])+#TabsToolbar {
       padding-inline-start: var(--uc-vertical-toolbar-width,0px) !important;
     }
     
     /* Remove spaces when menu bar is always active */
     
-    :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar[autohide="false"] + #TabsToolbar > :is(.titlebar-buttonbox-container, .titlebar-spacer) {
+    :root:not([chromehidden~="menubar"], [inFullscreen]) #toolbar-menubar:not([autohide]) + #TabsToolbar > :is(.titlebar-buttonbox-container, .titlebar-spacer) {
       display: none !important;
     }
 

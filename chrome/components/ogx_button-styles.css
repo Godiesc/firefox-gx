@@ -92,16 +92,16 @@ treechildren::-moz-tree-cell-text(selected) {
 
 /* Bookmark dropdown menu when 'open' -Heart icon- */
 
-/* 'highlight' color of input-box */
+/* 'highlight' color of input-box 
 
-richlistitem[selected="true"], 
+richlistitem[selected], 
 #editBMPanel_namePicker,
 #editBMPanel_locationField,
 #editBMPanel_tagsField {
     &::selection {
         color: var(--contrast-color) !important;
     }
-}
+}*/
 
 /* Show keyword box when bookmark a website */
 
@@ -153,7 +153,7 @@ button {
 /* 'hover' and 'open' button styles */
 
 :root:not([lwtheme-image],[style*="--lwt-additional-images"]) {
-    #nav-bar .toolbarbutton-1:is(:hover,[open="true"]):not([disabled="true"]) {
+    #nav-bar .toolbarbutton-1:is([open="true"]):not([disabled="true"]) {
         --toolbarbutton-icon-fill: var(--general-color) !important;
     }
 }

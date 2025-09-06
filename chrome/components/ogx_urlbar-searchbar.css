@@ -222,22 +222,22 @@ findbar {
 
 /* Roundness */
 
-#urlbar, #urlbar-background {
+#urlbar, .urlbar-background {
     --toolbarbutton-border-radius: var(--border-radius-urlbar-personal) !important;
     border-radius: var(--toolbarbutton-border-radius) !important;
 }
 
-#urlbar[open], #urlbar[open] #urlbar-background {
+#urlbar[open], #urlbar[open] .urlbar-background {
     --toolbarbutton-border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-radius: var(--toolbarbutton-border-radius) !important;
 }
 
-#urlbar:not([open], [focused]) #urlbar-background {
+#urlbar:not([open], [focused]) .urlbar-background {
     transition: ease-in 150ms !important;
     transition-delay: 80ms !important;
 }
 
-#urlbar:not([open], [focused]):hover #urlbar-background {
+#urlbar:not([open], [focused]):hover .urlbar-background {
     background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     border-color: transparent !important;
     transition: linear 150ms !important;
@@ -245,16 +245,16 @@ findbar {
 }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) 
-    #urlbar:not([open]):is([focused]) #urlbar-background {
+    #urlbar:not([open]):is([focused]) .urlbar-background {
         background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
 }
 
-#urlbar[focused] #urlbar-background {
+#urlbar[focused] .urlbar-background {
     box-shadow: none !important;
     transition: background-color 0.4s ease !important;
 }
 
-#urlbar[open] #urlbar-background {
+#urlbar[open] .urlbar-background {
     background-image: var(--noise-urlbar-personal) !important;
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-color: transparent !important;
@@ -293,7 +293,7 @@ findbar {
     }
 }
 
-#searchmode-switcher-icon {
+.searchmode-switcher-icon {
     list-style-image: url("chrome://global/skin/icons/search-glass.svg") !important;
 }
 
@@ -306,22 +306,22 @@ findbar {
     &[open] { background-color: var(--urlbar-box-active-bgcolor) !important; }   
 }
 
-#searchmode-switcher-popup {
+.searchmode-switcher-popup {
   & > menuitem {
     margin-inline: var(--arrowpanel-menuitem-margin) !important;
   }
 }
 
-#searchmode-switcher-dropmarker {
+.searchmode-switcher-dropmarker {
     display: none !important;
 }
 
-#searchmode-switcher-chicklet {
+.searchmode-switcher-chicklet {
     height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
     align-self: center !important;
 }
 
-#searchmode-switcher-icon {
+.searchmode-switcher-icon {
     padding: 0px !important;
     margin: -2px !important;
 }
@@ -452,7 +452,7 @@ findbar {
 
 /* Show only the permision (blocked, allow...) icon */
 
-#identity-permission-box:has(.blocked-permission-icon[showing="true"]) {
+#identity-permission-box:has(.blocked-permission-icon[showing]) {
     &> image {
         display: none !important;
     }
@@ -461,12 +461,12 @@ findbar {
 
 /* Translate button */
 
-#translations-button[translationsactive="true"]{
+#translations-button[translationsactive]{
     width: initial !important;
     border-radius: var(--urlbar-icon-border-radius) !important;
 }
 
-#translations-button[translationsactive="true"] {
+#translations-button[translationsactive] {
     --toolbarbutton-icon-fill-attention: var(--toolbar-color) !important;
     &:not(:hover,[open]) .urlbar-icon{
         display: none !important;

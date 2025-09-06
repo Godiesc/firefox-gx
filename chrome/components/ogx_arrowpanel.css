@@ -93,8 +93,9 @@ menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .
 /* Gradient line - separators */
 
 toolbarseparator {
-    border-image: var(--panel-separator-zap-gradient2) 1 !important;
-    margin-inline: 6px !important;
+    &::before {
+        border-image: var(--panel-separator-zap-gradient2) 1 !important;
+    }
 }
 
 #PlacesToolbar menupopup[placespopup] menuseparator {
@@ -192,6 +193,27 @@ treechildren::-moz-tree-separator {
         .sidebar-splitter {
             --splitter-width: 4px !important;
         }
+    }
+    
+    /* Bug fix - remove unwanted space of splitter */
+    #sidebar-main[style*="order: 1;"] ~ splitter[style*="order: 4"] {
+        @media not (-moz-platform: linux) {
+            margin-inline-start: calc(-1 * var(--splitter-width)) !important;
+        }
+    }
+    /*/**/
+    splitter[style*="order: 2"] {
+        @media not (-moz-platform: linux) {
+            margin-inline-start: calc(-1 * var(--splitter-width)) !important;
+        }
+    }
+    
+    #sidebar-box[checked]:not([sidebar-positionend]) +splitter+#tabbrowser-tabbox {
+        margin-inline-start: -6px !important;
+    }
+    
+    #sidebar-box[sidebar-positionend] +splitter {
+        margin-inline-end: -6px !important;
     }
     
     /* Remove unwanted margin when sidebar-box is on right */

@@ -1,8 +1,19 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/firefox-gx */
 
+window, dialog, .dialogBox {
+    --background-color-canvas: var(--in-content-page-background) !important;                    /* Background-color */
+    
+    --button-background-color-primary: var(--button-active-bgcolor) !important;                 /* Background-primary color */
+    --button-text-color-primary: var(--in-content-primary-button-text-color);                   /* Label primary button */
+    --button-background-color-primary-hover: var(--general-color) !important;                   /* Background-primary color on 'hover' */
+    --button-text-color-primary-hover: var(--in-content-primary-button-text-color);             /* Label primary color on 'hover' */
+    
+    --button-background-color: var(--in-content-box-border-color) !important;                   /* Button color */
+}
+
 @media (prefers-color-scheme: dark) {
-    window, dialog {
+    window, dialog, .dialogBox {
 
         --color-accent-primary: var(--general-color) !important;
         --in-content-page-background: #1a1a24 !important;
@@ -13,14 +24,10 @@
 
         --in-content-box-background: #1f1f30  !important;
         --in-content-box-border-color: #4d4d68  !important;
-
-        --in-content-button-background: var(--in-content-box-border-color) !important;          /* Button color */
-        --in-content-button-background-hover: var(--general-color) !important;                  /* Button color on 'hover' */
-        --in-content-button-background-active: var(--button-hover-bgcolor) !important;          /* Button color on 'click' */
     }}
 
 @media (prefers-color-scheme: light) {
-    window, dialog {
+    window, dialog, .dialogBox {
         --color-accent-primary: var(--general-color) !important;
         --in-content-page-background: #f9f9f9 !important;
         --in-content-primary-button-background: var(--general-color) !important;
@@ -30,14 +37,11 @@
 
         --in-content-box-background: #bababa  !important;
         --in-content-box-border-color: #aeaeae  !important;
-
-        --in-content-button-background: var(--in-content-box-border-color) !important;          /* Button color */
-        --in-content-button-background-hover: var(--button-active-bgcolor) !important;          /* Button color on 'hover' */
-        --in-content-button-background-active: var(--button-hover-bgcolor) !important;          /* Button color on 'click' */
+        
         --in-content-button-text-color: black !important;
     }}
 
-:root { 
+:root {
     --toolbarbutton-icon-fill-attention: unset !important;                                      /* Remove unwanted accent color */
     --color-accent-primary: var(--general-color) !important;                                    /* Main Accent color */
     --color-accent-primary-hover: var(--button-hover-personal) !important;
@@ -68,14 +72,17 @@
     --in-content-item-selected: var(--general-color) !important;                                /* Combobox background color on 'hover' (arrow keys) */
     --in-content-item-selected-text:  var(--in-content-text-color) !important;                  /* Combobox text color on 'hover' (arrow keys) */
 
-    --in-content-button-background: var(--in-content-border-color) !important;                  /* Button color */
-    --in-content-button-background-hover: var(--button-hover-bgcolor) !important;               /* Button color on 'hover' */
-    --in-content-button-background-active: var(--button-active-bgcolor) !important;             /* Button color on 'click' */
-    --in-content-button-border-color-hover: var(--button-bgcolor) !important;                   /* Button border color on 'hover' */
+    --button-background-color: var(--in-content-border-color) !important;                       /* Button color */
+    --button-background-color-hover: var(--button-hover-bgcolor) !important;                    /* Button color on 'hover' */
+    --button-background-color-active: var(--button-active-bgcolor) !important;                  /* Button color on 'active' */
+    
+    --button-border-color-hover: var(--button-bgcolor) !important;                              /* Button border color on 'hover' */
 
-    --in-content-primary-button-background: var(--general-color) !important;                    /* Primary button color */
-    --in-content-primary-button-background-hover: var(--button-hover-bgcolor) !important;       /* Primary button color on 'hover' */
-    --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;     /* Primary button color on 'active' */
+    --button-background-color-primary: var(--button-hover-bgcolor) !important;                 /* Primary button background */
+    --button-background-color-primary-hover: var(--button-active-bgcolor) !important;                   /* Primary button background on 'hover' */
+    --button-background-color-primary-active: var(--button-hover-bgcolor) !important;          /* Primary button background on 'active' */
+    
+    --button-text-color-primary: var(--in-content-text-color) !important;
 
     --link-color: var(--general-color) !important;                                              /* Links color */
     --link-color-hover: var(--blue) !important;                                                 /* Links color on 'hover' */
@@ -144,7 +151,7 @@
     /* button when 'open' - Menu background */
     
     panel-list {
-        background: var(--in-content-button-background) !important;
+        background: var(--button-background-color) !important;
     }
         
     /* Toggle button */

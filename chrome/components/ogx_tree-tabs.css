@@ -28,7 +28,7 @@
         :root[sizemode="fullscreen"] #nav-bar > .titlebar-buttonbox-container{
             display: flex !important;
         }
-        :root:is([tabsintitlebar],[customtitlebar]) #toolbar-menubar:not([autohide="false"]) ~ #nav-bar{
+        :root:is([tabsintitlebar],[customtitlebar]) #toolbar-menubar[autohide] ~ #nav-bar{
             > .titlebar-buttonbox-container{
                 display: flex !important;
             }
@@ -156,12 +156,12 @@
     
     /* Bug fix: Trick to hide urlbar when menu appears (Alt key) */
 
-    #toolbar-menubar[autohide="true"] ~ #nav-bar #urlbar {
+    #toolbar-menubar[autohide] ~ #nav-bar #urlbar {
         opacity: 0 !important;
         pointer-events: none !important;
     }
 
-    #toolbar-menubar[autohide="true"][inactive] ~ #nav-bar #urlbar {
+    #toolbar-menubar[autohide][inactive] ~ #nav-bar #urlbar {
         opacity: 1 !important;
         pointer-events: all !important;
     }
@@ -175,8 +175,8 @@
         --my-content-border-color: var(--toolbarbutton-hover-personal);
     }
 
-    #toolbar-menubar[autohide="false"] > .titlebar-buttonbox-container,
-    #toolbar-menubar[autohide="false"] > spacer{ display: none; }
+    #toolbar-menubar:not([autohide]) > .titlebar-buttonbox-container,
+    #toolbar-menubar:not([autohide]) > spacer{ display: none; }
 
     /* Makes menubar appear as overlay in the top left corner */
 
@@ -189,7 +189,7 @@
         z-index: 10;
     }
 
-    #toolbar-menubar[autohide="true"][inactive="true"]{ height: 0px !important; }
+    #toolbar-menubar[autohide][inactive]{ height: 0px !important; }
 
     #toolbar-menubar > spacer{ flex-grow: 1 }
     #toolbar-menubar[inactive] > .titlebar-buttonbox-container{ display: none }
@@ -201,7 +201,7 @@
         /*box-shadow: inset 0 -1px 0 0 var(--my-content-border-color) !important;/**/
     }
     
-    #toolbar-menubar[autohide="true"] #main-menubar{
+    #toolbar-menubar[autohide] #main-menubar{
         background-image: linear-gradient(
             var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor),var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)),
             var(--lwt-additional-images,none), var(--lwt-header-image, none),
@@ -211,7 +211,8 @@
         background-position-y: top !important;
         background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat;
         background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto;
-        color: var(--arrowpanel-color) !important;
+        /* Not set 'color' - tested it in 'APNG-Kakashi Hatake' theme */
+        box-shadow: inset 0 -1px var(--my-content-border-color) !important;
     }
 
     #menubar-items{
@@ -219,27 +220,27 @@
     }
 
     @media (-moz-gtk-csd-reversed-placement){
-        #toolbar-menubar[autohide="true"]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
+        #toolbar-menubar[autohide]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
     }
 
     /* ________________________________ My code - Style when menubar is always visible */
 
-    #toolbar-menubar[autohide="false"] {
+    #toolbar-menubar:not([autohide]) {
         position: initial !important;
         height: initial !important;
         z-index: initial;
     }
 
     /* Display window controls */
-    #toolbar-menubar[autohide="false"] > .titlebar-buttonbox-container,
-    #toolbar-menubar[autohide="false"] > spacer{ display: flex; }
+    #toolbar-menubar:not([autohide]) > .titlebar-buttonbox-container,
+    #toolbar-menubar:not([autohide]) > spacer{ display: flex; }
 }
 
 /* Gradient line under Menubar when it is active */
 
 @media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) /*and (not -moz-pref("firefoxgx.oneline"))/**/ {
     
-    #toolbar-menubar[autohide="false"] {
+    #toolbar-menubar:not([autohide]) {
         &::after{
             content: ""; position: absolute !important; 
             display: flex;

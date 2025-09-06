@@ -31,7 +31,7 @@
     
     /* Larger buttons (min-max-close) on non-maximized windows */
     
-    :root:has(#toolbar-menubar[autohide="true"]) .titlebar-buttonbox {
+    :root:has(#toolbar-menubar[autohide]) .titlebar-buttonbox {
         height: calc(var(--tab-height-personal) - 1px + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top)) !important;
         margin-top: calc(0px - var(--windowed-top-padding,0px)) !important;
     }

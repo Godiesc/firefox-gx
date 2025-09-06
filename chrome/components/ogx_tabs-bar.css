@@ -74,7 +74,6 @@
         --my-background-size: 100vw 100vh !important;                               
         --lwt-background-tiling: no-repeat !important;
         --lwt-background-alignment: right top !important;
-        --my-background-color: red !important;
     }
 }
 
@@ -108,7 +107,6 @@
 }
 
 .tabbrowser-tab[visuallyselected] .tab-background {
-    --my-background-color: transparent;
     background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
                       var(--lwt-header-image, none), var(--lwt-additional-images,none),
                       linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
@@ -132,39 +130,25 @@
     background: light-dark(var(--tab-group-color, var(--general-color)), var(--tab-group-color-invert, var(--general-color))) !important;
 }
 
-/* Vertical Tab into a group */
-
-#tabbrowser-arrowscrollbox[orient="vertical"] {
-
-    tab-group {
-        
-        /* Tab accent color the same of group */
-        & .tabbrowser-tab {
-            background-color: color-mix(in srgb, light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 5%, transparent) !important;/**/
-            --general-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
-        }
-    }
-}
-
 /* ___________________________________________ Group styles just for horizontal tabs __________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 #tabbrowser-arrowscrollbox[orient="horizontal"] {
 
-    /* Horizontal tab size */        
+    /* Horizontal tab size 
     &>.tabbrowser-tab[fadein]:not([style^="max-width"]),
     &>tab-group:not([collapsed]) .tabbrowser-tab[fadein]:not([style^="max-width"]) {
         max-width: 200px !important;
-    }
+    }*/
 
     /* Margin between tabs */
     &>.tabbrowser-tab,
-    &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-child) {
+    &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-of-type) {
         padding-inline: 0 2px !important;
     }
 
     /* Margin last tab of group */
-    &>tab-group:not([collapsed])>.tabbrowser-tab:is(:last-child) {
+    &>tab-group:not([collapsed])>.tabbrowser-tab:is(:last-of-type) {
         padding-inline: 0 !important;
         margin-inline-end: 2px !important;
     }
@@ -173,14 +157,46 @@
 /* ___________________________________________________________ Various Styles ___________________________________________________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-/* Remove unwanted extra tab width
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Tab width reach a smaller size
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+#tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab:not([pinned])[fadein] {
+    --tab-min-width-pref: calc(var(--tab-min-width-personal) + 8px + var(--uc-tab-corner-size, 0px)/4) !important;
+    container-name: smaller-tab;  /* used too in ogx_sound.css */
+    container-type: inline-size;
+}
+
+@container smaller-tab (width < 48px) {
+    #tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab:not([pinned])[fadein] {
+
+        /* Remove unwanted elements */
+        .tab-close-button,
+        .tab-label-container {
+            display: none !important;
+        }
+
+        /* Remove unwanted margins */
+        .tab-content {
+            --tab-inline-padding: 0px !important;
+            --tab-icon-end-margin: 0px !important;
+        }
+
+        /* Centered favicon */
+        .tab-icon-stack {
+            margin-inline: auto !important;
+        }
+    }
+}
+
+/* Remove unwanted extra sound-tab width
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 #tabbrowser-arrowscrollbox[orient="horizontal"] {
     &>.tabbrowser-tab,
-    &>tab-group:not([collapsed]) > .tabbrowser-tab {
+    &>tab-group:not([collapsed]) > .tabbrowser-tab,
+    &>tab-group[collapsed] > .tabbrowser-tab[selected] {
         &:is([muted], [soundplaying], [activemedia-blocked]) {
-            #tabbrowser-tabs[orient="horizontal"] &:not([pinned]) {
+            &:not([pinned]) {
                 min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
             }
         }
@@ -189,50 +205,10 @@
 
 /* Bug fix - Overwrite default tab size in 'density:touch' */
 
-#tabbrowser-tabs {
-    &[orient="horizontal"] {
-        :root[uidensity="touch"] & :not(tab-group)>.tabbrowser-tab[fadein]:not([pinned]),
-        :root[uidensity="touch"] & tab-group:not([collapsed]) > .tabbrowser-tab {
-            min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
-        }
-    }
-}
-
-/* Tab width reach a smaller size
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-.tabbrowser-tab {
-    &:not([pinned])[fadein] {
-        #tabbrowser-tabs[orient="horizontal"] & {
-            container-name: smaller-tab;  /* used too in ogx_sound.css */
-            container-type: inline-size;
-            --tab-min-width-pref: calc(var(--tab-min-width-personal) + 8px + var(--uc-tab-corner-size, 0px)/4) !important;
-        }
-    }
-}
-
-@media not -moz-pref("sidebar.verticalTabs") {
-
-    @container smaller-tab (width < 48px) {
-        #tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab:not([pinned])[fadein] {
-            
-            /* Remove unwanted elements */
-            .tab-close-button,
-            .tab-label-container {
-                display: none !important;
-            }
-            
-            /* Remove unwanted margins */
-            .tab-content {
-                --tab-inline-padding: 0px !important;
-                --tab-icon-end-margin: 0px !important;
-            }
-            
-            /* Centered favicon */
-            .tab-icon-stack {
-                margin-inline: auto !important;
-            }
-        }
+#tabbrowser-tabs[orient="horizontal"] {
+    :root[uidensity="touch"] & :not(tab-group)>.tabbrowser-tab[fadein]:not([pinned]),
+    :root[uidensity="touch"] & tab-group:not([collapsed]) > .tabbrowser-tab {
+        min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;
     }
 }
 
@@ -285,7 +261,7 @@
     --windowed-top-padding: 8px;
 }
 
-:root:is([customtitlebar][sizemode="normal"]) #toolbar-menubar[autohide="true"] ~ #TabsToolbar {
+:root:is([customtitlebar][sizemode="normal"]) #toolbar-menubar[autohide] ~ #TabsToolbar {
     padding-block-start: var(--windowed-top-padding, 0px) !important;
 }
 
@@ -364,7 +340,7 @@ tab-group>.tabbrowser-tab:not([multiselected])>.tab-stack>.tab-content .tab-labe
 
 /* ___________ Size and color of the 'dot' when a tab needs attention */
 
-.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]) {
     background-image: radial-gradient(circle, var(--attention-dot-color), var(--attention-dot-color) 2px, transparent 2px) !important;
     background-position: center bottom !important;
     background-size: 8px 8px !important;

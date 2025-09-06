@@ -3,6 +3,8 @@
 
 :root {
   
+  --my-content-border-color: var(--toolbarbutton-hover-personal) !important;            /* Border color for web content is some situations */
+  
   /*--lwt-accent-color: #09080d !important;                                             /* frame */
   /*--toolbox-textcolor: var(--tab-selected-textcolor) !important;                      /* tab_background_text */
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /* frame_inactive */
@@ -34,7 +36,7 @@
   
   /*--toolbar-field-focus-background-color: color-mix(in srgb, 
   var(--general-color) 4%, #2e273ffb) !important;                                       /* toolbar_field_focus */
-  --toolbar-field-focus-color: var(--tab-selected-textcolor) !important;                          /* toolbar_field_text_focus */
+  --toolbar-field-focus-color: var(--tab-selected-textcolor) !important;                /* toolbar_field_text_focus */
   --toolbar-field-focus-border-color: transparent !important;                           /* toolbar_field_border_focus */
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /* toolbar_field_highlight */
   --lwt-toolbar-field-highlight-text: var(--contrast-color) !important;                 /* toolbar_field_highlight_text */
@@ -79,8 +81,7 @@
   --arrowpanel-menuitem-border-radius: 0px !important;                                  /* Menuitems 'hover' roundness */
   --panel-separator-margin-vertical: 4px !important;                                    /* Margin between separators */
   --panel-separator-margin-horizontal: 8px !important;                                  /* Horizontal margin between separators */
-  
-  --panel-separator-margin: var(--panel-separator-margin-vertical) var(--panel-separator-margin-horizontal) !important;
+  --panel-separator-padding-horizontal: 6px !important;                                 /* Horizontal padding between separators */
   
   /*--panel-separator-color: var(--general-color) !important;                           /* Bookmarks-bar menu separator color */
   
@@ -92,30 +93,23 @@
   
   --border-radius-urlbar-personal: 4px;                                                 /* Personal variable to change urlbar buttons roundness with 'tab-shapes' config */
 
-  --link-color: var(--general-color) !important;
-  --link-color-hover: var(--blue) !important;
-  --link-color-active: var(--purple);
-  --link-color-visited: var(--purple);
+  --link-color: var(--general-color) !important;                                        /* Links color */
+  --link-color-hover: var(--button-active-bgcolor) !important;                          /* Links 'hover' color */
+  --link-color-active: var(--purple);                                                   /* Links 'click' color */
+  --link-color-visited: var(--purple);                                                  /* Link 'visited' color */
   
-    accent-color: var(--general-color) !important;
-  --attention-dot-color: var(--general-color) !important;
+  --attention-dot-color: var(--general-color) !important;                               /* Dot below favicon */
   
-  --color-accent-primary: var(--button-active-bgcolor) !important;                      /* Radiobutton */
-  --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton 'hover' */
-  --color-accent-primary-active: var(--general-color) !important;                       /* Radiobutton 'active' */
-  
-  /*--button-background-color: var(--input-border-color) !important;                    /* Not primary Button background */
-  --button-background-color-hover: color-mix(in srgb, 
-    var(--button-background-color) 90%, var(--arrowpanel-color)) !important;            /* Not primary Button background 'hover' */
+  --color-accent-primary: var(--button-active-bgcolor) !important;                      /* Radiobutton and more */
+  --color-accent-primary-hover: var(--button-hover-bgcolor) !important;                 /* Radiobutton and more 'hover' */
+  --color-accent-primary-active: var(--general-color) !important;                       /* Radiobutton and more 'active' */
   
   --button-text-color-primary: var(--arrowpanel-color) !important;                      /* Button label color */
   --button-text-color-primary-hover: var(--arrowpanel-color) !important;                /* Buttons label color 'hover' */
   
   --inactive-titlebar-opacity: 1 !important;                                            /* Opacity unfocused window */
   
-  --tab-overflow-clip-margin: 0px !important;                                           /* Remove unwanted space before first tab - nightly */
-  
-  --my-content-border-color: var(--toolbarbutton-hover-personal) !important;
+  --tab-overflow-clip-margin: 0px !important;                                           /* Remove unwanted space between pinned tabs */
   
   /* Variable used for RTL languajes */
   &:dir(rtl) {
@@ -133,9 +127,14 @@
 
   --tab-selected-textcolor: #ffffff !important;                                                                         /* tab_text */
 
-  --toolbarbutton-hover-background: var(--button-smaller-bgcolor) !important;                                           /* button_background_hover */
-  --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 80%, black) !important;                   /* button_background_hover */
-  --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, black) !important;                  /* button_background_active */  
+  /*--toolbarbutton-hover-background: var(--button-smaller-bgcolor) !important;                                           /* button_background_hover */
+  /*--toolbarbutton-hover-background: color-mix(in srgb, 
+    color-mix(in srgb, var(--toolbar-bgcolor), var(--tab-selected-textcolor)5%), var(--general-color) 10%) !important;                   /* button_background_hover */
+  /*--toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 50%, black) !important;                  /* button_background_active */
+  --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
+  /*--toolbarbutton-active-background: color-mix(in srgb, 
+    color-mix(in srgb, var(--toolbar-bgcolor), var(--tab-selected-textcolor)10%), var(--general-color) 5%) !important;                   /* button_background_hover */
+  --toolbarbutton-active-background: var(--contrast-color) !important;
   --toolbarbutton-hover-personal: var(--toolbar-field-focus-background-color) !important;                               /* Button personal color when 'hover' */
   
   --arrowpanel-border-color: color-mix(in srgb, 
@@ -145,12 +144,6 @@
   
   --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
   --my-beats-image: url("../icons/Beats.webp") !important;
-  
-  --button-primary-bgcolor: var(--button-active-bgcolor) !important;                                                    /* Color of the 'Save' button */
-  --button-primary-color: #eaeaea !important;                                                                           /* Font Color of the 'Save' button */
-   
-  --button-primary-hover-bgcolor: var(--button-hover-bgcolor) !important;                                               /* Color of the 'Save' button 'hover' */
-  --button-primary-active-bgcolor: var(--button-active-bgcolor) !important;                                             /* Color of the 'Save' button 'clic' */
 
   --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)50%, var(--border-contrast-color)) !important;        /* Color of the 'input box' when saving a bookmark */
   --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when :focused */
@@ -201,6 +194,8 @@
     --general-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;      /* General color becomes the group accent color */
     --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
     --tab-loading-fill: var(--tab-selected-outline-color) !important;                                   /* Dot color when page loads */
+    --tab-group-bgcolor: color-mix(in srgb, 
+      light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 8%, transparent) !important;   /* Group Background */
     
     /*--my-hover-dark-group-color: color-mix(in srgb, var(--tab-group-color) 80%, var(--tab-selected-textcolor));       /* 'hover' on group label - dark */
     /*--my-hover-light-group-color: color-mix(in srgb, var(--tab-group-color-invert), transparent);           /* 'hover' on group label - light */
@@ -300,13 +295,13 @@
 
 /* Set menu-bar height */
 
-:root:not([sizemode="fullscreen"]):has(#toolbar-menubar[autohide="false"]) {
+:root:not([sizemode="fullscreen"]):has(#toolbar-menubar:not([autohide])) {
   --menubar-height-personal: 30px !important;
 }
 
 /* Set bookmarks-bar height */
 
-:root:not([sizemode="fullscreen"]):has(#PersonalToolbar[collapsed="false"]) {
+:root:not([sizemode="fullscreen"]):has(#PersonalToolbar:not([collapsed])) {
   --bookmarksbar-height-personal: 28px !important;
 }
 
@@ -327,7 +322,7 @@
   --toolbarbutton-inner-padding: 4px !important;                                        /* Smaller toolbar buttons */
   --toolbarbutton-outer-padding: 2px !important;                                        /* More spaced buttons */
   
-  &:root:has(#PersonalToolbar[collapsed="false"]) {
+  &:root:has(#PersonalToolbar:not([collapsed])) {
   --bookmarksbar-height-personal: 22px !important;
   }
 }
@@ -346,7 +341,7 @@
   --toolbarbutton-inner-padding: 8px !important;                                        /* Smaller toolbar buttons */
   --toolbarbutton-outer-padding: 4px !important;                                        /* More spaced buttons */
   
-  &:root:has(#PersonalToolbar[collapsed="false"]) {
+  &:root:has(#PersonalToolbar:not([collapsed])) {
     --bookmarksbar-height-personal: 34px !important;
   }
 }
