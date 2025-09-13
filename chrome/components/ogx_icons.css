@@ -354,7 +354,7 @@
   }
 
 @-moz-document url("chrome://browser/content/places/places.xhtml") {
-  @media not -moz-pref("firefoxone.icon.disabled") {
+  @media not -moz-pref("firefoxgx.icon.disabled") {
     /*= Menubar - Icons ==========================================================*/
     #organizeButton,
     #viewMenu,
@@ -398,7 +398,7 @@
   }
 }
 
-@media not -moz-pref("firefoxone.icon.disabled") {
+@media not -moz-pref("firefoxgx.icon.disabled") {
   
   /*= Padding ==================================================================*/
   :root {
@@ -1214,10 +1214,10 @@
   #BMB_viewBookmarksToolbar:before,
   #sidebarMenu-popup:is(menupopup):before,
   #context_openANewTab.tabmix-newtab-menu-icon::before {
-		content: "";
-		display: block;
-		width: 16px;
-		height: 16px;
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
     /* Color */
     -moz-context-properties: fill, fill-opacity, stroke !important;
     fill: currentColor !important;
@@ -1419,7 +1419,7 @@
     /*padding-inline: 0 !important; /* Original: padding: var(--panel-padding); --panel-padding-block: 4px; */
   }}
 
-@media not -moz-pref("firefoxone.icon.disabled") {
+@media not -moz-pref("firefoxgx.icon.disabled") {
 
   :root {
     --context-menu-background-padding: 1em;
@@ -2433,7 +2433,7 @@
     --menuitem-image: url("chrome://global/skin/media/pause-fill.svg");
   }}
 
-@media not -moz-pref("firefoxone.icon.disabled") {
+@media not -moz-pref("firefoxgx.icon.disabled") {
 
   .downloadResumeMenuItem {
     --menuitem-image: url("chrome://global/skin/media/play-fill.svg");
