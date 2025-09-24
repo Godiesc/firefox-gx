@@ -189,6 +189,13 @@ treechildren::-moz-tree-separator {
 }
 
 @media -moz-pref("sidebar.revamp") {
+    
+    /* Remove extra margin of sidebar header */
+    #sidebar-panel-header {
+        margin-block: 0px !important;
+        padding-block: 0px !important;
+    }
+    
     @media (-moz-overlay-scrollbars) {
         .sidebar-splitter {
             --splitter-width: 4px !important;
