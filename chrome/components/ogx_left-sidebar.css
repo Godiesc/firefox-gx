@@ -721,7 +721,21 @@
     
     @media -moz-pref("sidebar.verticalTabs") {
         
-        /* Code to hide 'overflow of tools' button */
+        /* Rules to show all the tools without 'overflow button' */
+        .buttons-wrapper {
+            height: auto !important;
+            min-height: unset !important;
+            overflow: unset !important;
+            padding-block: 0px !important;
+        }
+        
+        /* Remove unwanted margin when 'expand-on-hover' */
+        
+        .tools-and-extensions[orientation="horizontal"] {
+            /*--space-xxsmall: 0px !important;/**/
+        }
+        
+        /* Code to hide 'overflow' button */
 
         .tools-and-extensions.actions-list {
             height: auto !important;
@@ -734,7 +748,7 @@
         /* Remove unwanted padding when 'expanded' */
         
         .actions-list[orientation="horizontal"] {
-            gap: 0px !important;
+            /*gap: 0px !important;*/
             padding-inline: 0px !important;
             padding-block-end: 0px !important;
             margin-block-start: 0px !important;
@@ -743,7 +757,7 @@
         /* Hide tools except for the last one 'configuration' */
         
         .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child),
-        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child) {
+        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child)/**/ {
             opacity: 0 !important;
             transform: translateY(10px) !important;
             visibility: collapse !important;
@@ -753,11 +767,18 @@
         /* Hide tools except for the last one 'configuration' */
         
         .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child),
-        .actions-list[orientation="horizontal"]:is(:hover) moz-button[type="icon ghost"]:not(:first-child) {
+        .actions-list[orientation="horizontal"]:is(:hover) moz-button[type="icon ghost"]:not(:first-child)/**/ {
             opacity: 1 !important;
             transform: translateY(0px) !important;
             visibility: visible !important;
             transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
+        }
+        
+        .tools-and-extensions[orientation="horizontal"] {
+                &[overflowing="true"] {
+                    flex-wrap: wrap !important;
+                    height: auto !important;
+            }
         }
         
         /* 'Customize sidebar' button in the latest position */

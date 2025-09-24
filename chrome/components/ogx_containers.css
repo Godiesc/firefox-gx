@@ -86,14 +86,21 @@ tab-group {
 
 /* Replace group label border color */
 
-tab-group[collapsed] > .tab-group-label-container:not(:hover) > .tab-group-label {
+tab-group[collapsed] > .tab-group-label-container:not(:hover) .tab-group-label {
     outline-color: var(--tab-group-line-color) !important;
 }
-
+/*
 .tab-group-label-container {
   #tabbrowser-tabs[orient="vertical"] tab-group:is(:not([collapsed]), [hasactivetab]) > &::after {
       inset-inline-start: var(--tab-group-line-toolbar-border-distance) !important;
     }
+}/**/
+
+/* Remove group 'hover' background */
+
+.tab-group-label-hover-highlight {
+      --tab-hover-background-color: transparent !important;
+    margin-inline: 0px !important;
 }
 
 /* Align tab group counter when group collapsed with a 'selected' tab on */
@@ -105,10 +112,16 @@ tab-group[collapsed] > .tab-group-label-container:not(:hover) > .tab-group-label
         #tabbrowser-tabs[expanded] & {
             margin-inline-start: 0px !important;
         }
-        
-        #tabbrowser-tabs[orient="vertical"] &::after {
-            inset-inline: var(--tab-group-line-toolbar-border-distance) auto !important;
+
+        &::after {
+            inset-inline-start: var(--tab-group-line-toolbar-border-distance) !important;
         }
+    }
+}
+
+.tab-group-overflow-count {
+  #tabbrowser-tabs[orient="vertical"] & {
+      margin-inline: 0px !important;
     }
 }
         
@@ -156,6 +169,10 @@ tab-group[collapsed] > .tab-group-label-container:not(:hover) > .tab-group-label
     #tabbrowser-arrowscrollbox[orient="horizontal"] & {
         padding-block: calc(var(--tab-block-margin) - 2px) calc(var(--tab-block-margin) + 2px) !important;
     }
+}
+
+#tabbrowser-tabs[orient="vertical"] tab-group[collapsed][hasactivetab]:not([movingtabgroup]) > .tab-group-label-container::after {
+            inset-inline: var(--tab-group-line-toolbar-border-distance) auto !important;
 }
 
 /* _____________________________________ Tabs groups styles for Horizontal tabs _____________________________________
