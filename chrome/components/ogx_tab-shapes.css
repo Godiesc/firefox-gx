@@ -33,7 +33,7 @@
   
   /* Space between pinned tabs and regular tabs */
   #pinned-tabs-container[orient="horizontal"] {
-    margin-inline-end: calc(0px - var(--uc-tab-corner-half-size, 4px)) !important;
+    margin-inline-end: calc(0px - var(--uc-tab-corner-half-size)/2) !important;
   }
 
   /* _____________ Group name style _____________ */
@@ -149,65 +149,43 @@
     --uc-tab-shadow-color: var( --general-color, var(--lwt-tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9)))  );
     --uc-tab-shadow-color-bundle: var(--general-color, var(--lwt-tab-line-color, rgba(128, 128, 142, 0.9)));
   }
-  .tabbrowser-tab:is([selected],[multiselected]) .tab-background {
+  .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
     box-shadow: none !important;
     filter: drop-shadow(-1px -0.5px 0px var(--general-color, transparent))
       drop-shadow(1px -0.5px 0px var(--general-color, transparent));
-    /* This next rule set is needed for Fx 120, otherwise themes with translucent tabs would seem to have extra border separating them from toolbar below. */
-    background-attachment: scroll, fixed, fixed !important;
-    background-color: transparent !important;
-    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-                                      var(--lwt-additional-images,none), var(--lwt-header-image, none),
-                      linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field))!important;
-    background-position: 0 0, var(--lwt-background-alignment), right top !important;
-    background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
-    background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
-    transition: filter 0s ease !important;
-    transition-delay: 10ms !important;
   }
   
-  .tabbrowser-tab:not([visuallyselected],[multiselected]) .tab-background {
-    filter: drop-shadow(-1px -0.5px 0px transparent)
-      drop-shadow(1px -0.5px 0px transparent);
-    transition: filter 0s ease !important;
-    transition-delay: 10ms !important;
-  }
-    
-/* Background when multiselecting tabs */
-  .tabbrowser-tab:is([multiselected]) .tab-background {
-    --toolbar-bgcolor: light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color, var(--general-color))) !important;
-  }
-  
-  .tabbrowser-tab:is([multiselected]):not([selected]) .tab-background {
+  /* multiselected tabs border */
+  .tabbrowser-tab:is([multiselected]):not([visuallyselected]) .tab-background {
     border-block-start-color: light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color, var(--general-color))) !important;
     filter: drop-shadow(-1px -0.5px 0px light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color, var(--general-color))))
       drop-shadow(1px -0.5px 0px light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color, var(--general-color))));
   }
   
-/*____ Used when no shape is selected */
-/*= Selected Tab - Bottom Rounded Corner =====================================*/
+  /*____ Used when no shape is selected */
+  /*= Selected Tab - Bottom Rounded Corner =====================================*/
   @media not -moz-pref("userChrome.tab.bottom_rounded_corner.wave") {
     @media not -moz-pref("userChrome.tab.bottom_rounded_corner.australis") {
       @media not -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
         @media not -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
           @media not -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
             #TabsToolbar {
-               --uc-tab-corner-rounding: 3px; /* 10px looks about like chromium - 17px looks close to Australis tabs */
+              --uc-tab-corner-rounding: 3px; /* 10px looks about like chromium - 17px looks close to Australis tabs */
               --uc-tab-corner-padding: 0px;
               --uc-tab-corner-position: calc(var(--uc-tab-corner-padding) - var(--uc-tab-corner-rounding));
               --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left.svg");
               --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right.svg");
-              --uc-margin-left-newtab: 7px;
+              --uc-margin-left-newtab: 3px;
             }
-            
-            .tab-background { border-radius: 5px 5px 0 0 !important; }       /* My edit */
+
+            .tab-background { border-radius: 6px 6px 0 0 !important; }       /* My edit */
 
             .tab-background {
               .tabbrowser-tab > .tab-stack > &:not([selected],[multiselected],[visuallyselected]) {
-                border-radius: 5px 5px 0 0 !important;
+                border-radius: 6px 6px 0 0 !important;
               }
             }
-            
+
             .tabbrowser-tab .tab-background::before,
             .tabbrowser-tab .tab-background::after {
               /* Box */
@@ -228,19 +206,19 @@
               background-repeat: no-repeat;
               background-position-y: bottom;
             }
-            
+
             .tabbrowser-tab .tab-background {
               &::before {
                 left: var(--uc-tab-corner-position);
                 background-image: var(--uc-tab-corner-left-side-svg);
               }
-              
+
               &::after {
                 right: var(--uc-tab-corner-position);
                 background-image: var(--uc-tab-corner-right-side-svg);
               }
             }
-            
+
             .tabbrowser-tab[visuallyselected] .tab-background::before,
             .tabbrowser-tab[visuallyselected] .tab-background::after {
               fill: var(--uc-tab-corner-bgimage, var(--toolbar-bgcolor));
@@ -250,7 +228,7 @@
             .tabbrowser-tab[multiselected] .tab-background::after {
               fill: var(--uc-tab-corner-bgimage, var(--toolbar-bgcolor));
             }
-            
+
             /* Gives space for 'left' & 'right' image */
             .tabbrowser-tab {
               overflow-clip-margin: var(--uc-tab-corner-rounding) !important;
@@ -260,6 +238,7 @@
       }
     }
   }
+  
   @media 
     -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or 
     -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or 
@@ -339,7 +318,7 @@
         --uc-margin-left-right: 2px;
         --uc-margin-left-newtab: 4px;
       }
-    }
+      }
       .tabbrowser-tab {
         overflow-clip-margin: var(--uc-tab-corner-half-size) !important;
       }
@@ -348,58 +327,43 @@
         position: relative;
       }
 
-    .tabbrowser-tab .tab-background::before,
-    .tabbrowser-tab .tab-background::after {
-      /* Box */
-      content: "";
-      display: block;
-      position: absolute;
-      z-index: -1;
-      top: 0px;
-      /* Shape */
-      width: var(--uc-tab-corner-size);
-      height: var(--uc-tab-corner-height);
-      /* Color */
-      fill: transparent;
-      -moz-context-properties: fill;
-      /* Image */
-      background-size: cover, auto auto;
-      background-repeat: repeat;
-      background-position: top, right top;
-      background-attachment: scroll, fixed;
-      transition-duration: 0ms !important;
-    }
-    .tabbrowser-tab .tab-background::before {
-      right: 100%;
-      background-image: var(--uc-tab-corner-left-side-svg), var(--uc-tab-corner-bgimage);
-      clip-path: var(--uc-tab-corner-left-side-clipPath);
-    }
-    .tabbrowser-tab .tab-background::after {
-      left: 100%;
-      background-image: var(--uc-tab-corner-right-side-svg), var(--uc-tab-corner-bgimage);
-      clip-path: var(--uc-tab-corner-right-side-clipPath);
-    }
-      
-      /* Tab selected background image - themes with more than one image */
-      
+      .tabbrowser-tab .tab-background::before,
+      .tabbrowser-tab .tab-background::after {
+        /* Box */
+        content: "";
+        position: absolute;
+        top: 0px;
+        /* Size */
+        width: var(--uc-tab-corner-size);
+        height: var(--uc-tab-corner-height);
+        /* Color */
+        fill: transparent;
+        -moz-context-properties: fill;
+      }
+      .tabbrowser-tab .tab-background::before {
+        inset-inline-end: 100%;
+        background-image: var(--uc-tab-corner-left-side-svg);
+        clip-path: var(--uc-tab-corner-left-side-clipPath);
+      }
+      .tabbrowser-tab .tab-background::after {
+        inset-inline-start: 100%;
+        background-image: var(--uc-tab-corner-right-side-svg);
+        clip-path: var(--uc-tab-corner-right-side-clipPath);
+      }
+
+      /* Shape 'pseudo-elements' background image in 'selected' tab */
+
       .tabbrowser-tab:is([visuallyselected]) {
         & .tab-background::before,
         & .tab-background::after {
-          background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-                                            var(--lwt-additional-images,none), var(--lwt-header-image, none),
-                            linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field))!important;
-          background-position: 0 0, var(--lwt-background-alignment), right top !important;
-          background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
-          background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
-          background-attachment: scroll, fixed, fixed !important;
+          background-image: inherit !important;
+          background-position: inherit !important;
+          background-position-y: inherit !important;
+          background-repeat: inherit !important;
+          background-size: inherit !important;
+          background-attachment: inherit !important;
         }
       }
-  }
-  
-  .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
-    --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-      linear-gradient(transparent, transparent), 
-      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
   }
   
   /* used for smooth transition 'hover' on tab */
@@ -415,10 +379,12 @@
     }
   }
   
+  /* 'hover' 'pseudo-elements' tab background color */
+  
   .tabbrowser-tab:not([visuallyselected],[multiselected],[selected]):hover {
     & .tab-background::before,
     & .tab-background::after {
-      fill: color-mix(in srgb, var(--general-color) 25%, transparent) !important; /* My edit */
+      fill: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     }
   }
   
