@@ -248,7 +248,7 @@
     @media -moz-pref("sidebar.verticalTabs") {
 
         :root {
-            --my-expand-sidebar-width: calc(var(--uc-sidebar-hover-width) * var(--my-vertical-elements-width));
+            --my-expand-sidebar-width: calc(var(--uc-sidebar-hover-width) * var(--my-vertical-elements-width) + 7px);
             --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
         }
 
