@@ -80,7 +80,7 @@ window, dialog, .dialogBox {
     --button-border-color-hover: var(--button-bgcolor) !important;                              /* Button border color on 'hover' */
 
     --button-background-color-primary: var(--button-hover-bgcolor) !important;                  /* Primary button background */
-    --button-background-color-primary-hover: var(--button-active-bgcolor) !important;                   /* Primary button background on 'hover' */
+    --button-background-color-primary-hover: var(--button-active-bgcolor) !important;           /* Primary button background on 'hover' */
     --button-background-color-primary-active: var(--button-hover-bgcolor) !important;           /* Primary button background on 'active' */
     
     --button-text-color-primary: var(--in-content-text-color) !important;
@@ -158,6 +158,7 @@ window, dialog, .dialogBox {
     /* Toggle button */
 
     .toggle-button[aria-pressed="true"]:enabled {
+        --toggle-dot-background-color-on-pressed: var(--background-color-box) !important;
         background: var(--button-active-bgcolor) !important;
     }
 
