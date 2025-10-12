@@ -35,9 +35,11 @@ menupopup:not(.in-menulist)  menuseparator::before {
 
 /* Bug fix: Separator after 'AI menu' causes unwanted scrolling */
 
-#context-ask-chat,
-#context-ask-chat + #frame-sep {
-    display: flex !important;
+@media -moz-pref("browser.ml.chat.menu") {
+    #context-ask-chat,
+    #context-ask-chat + #frame-sep {
+        display: flex !important;
+    }
 }
 
 /* 'Menu inside menu' margin */
