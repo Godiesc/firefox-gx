@@ -24,15 +24,16 @@
 
 /* blur effect to the bottom */
 
-:root:is([lwtheme-image],[style*="--lwt-additional-images"]) body::after {
+#main-window>body:before {
     content: "";
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, var(--lwt-accent-color) calc(100% - 200px), transparent calc(100% - var(--tab-height-personal)));
+    width: 100vw;
+    height: 100vh;
+    background: var(--my-main-gradient-background) !important;
     z-index: -1 !important;
+    pointer-events: none !important;
 }
 
 /* Remove unnecessary background to show the theme image */
@@ -66,14 +67,10 @@
     .tab-icon-image[src="chrome://global/skin/icons/developer.svg"],
     .tab-icon-image[src="chrome://global/skin/icons/performance.svg"])) {
         
-        --my-accent-color: color-mix(in srgb, var(--arrowpanel-background) 50%, var(--contrast-color)) !important;
-        --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;
-        
-        --my-backdrop-filter: blur(0px);                                            /* Remove blur-mask effect */
-        --lwt-header-image: var(--lwt-main-image) !important;                       /* Image into selected-tab  */
-        --my-background-size: 100vw 100vh !important;                               
-        --lwt-background-tiling: no-repeat !important;
-        --lwt-background-alignment: right top !important;
+        --my-main-gradient-background: transparent !important;
+        --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent calc(var(--brightness-wallpaper) - 20%)) !important;
+        --lwt-header-image: var(--lwt-main-image) !important;
+        --my-background-size: 100vw 100vh !important;
     }
 }
 

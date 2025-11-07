@@ -67,7 +67,7 @@
 
         /* margin to the left of 'menubar-tabsbar-navbar' when new menu is disabled */
 
-        :root:not([chromehidden~="toolbar"]):has(#PersonalToolbar:not([collapsed])) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]):has(#PersonalToolbar:not([collapsed])) {
             & #toolbar-menubar{
                 padding-inline-start: var(--padding-left-tab) !important;
             }
@@ -82,7 +82,7 @@
     
     @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
         
-        :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[sizemode="fullscreen"]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
             --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
             --my-elements-left-margin: var(--my-vertical-elements-width) !important;
         }
@@ -130,7 +130,7 @@
 
         @media (-moz-platform: windows), (-moz-platform: linux) {
 
-            :root:not([chromehidden~="toolbar"],[sizemode="fullscreen"]):has(#toolbar-menubar:not([autohide])) {
+            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[sizemode="fullscreen"]):has(#toolbar-menubar:not([autohide])) {
 
                 & #PanelUI-button, 
                 & #appMenu-popup {
@@ -174,7 +174,7 @@
             padding-inline-start: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
         }
 
-        :root:not([chromehidden~="toolbar"]) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
             
             /* Menu button style and margins */
             
@@ -248,7 +248,7 @@
     
         /* _______________________ Styles Menu[open] Popup _______________________ */
 
-        :root:not([chromehidden~="toolbar"],[sizemode="normal"]) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[sizemode="normal"]) {
             
             /* Space for 'logo + menuLabel' inside popup */
 
@@ -331,7 +331,7 @@
     /* Remove unwanted margin of menupopup just in linux */
     
     @media (-moz-platform: linux) {
-        :root:not([chromehidden~="toolbar"],[sizemode="normal"]) { 
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[sizemode="normal"]) { 
             & #appMenu-popup {
                 --removed-panel-shadow-margin: 0px !important;
             }
@@ -345,7 +345,7 @@
 
     @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
 
-        :root:not([chromehidden~="toolbar"]) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
             
             /* New Menu height */
             
@@ -370,7 +370,7 @@
     
     @media (not -moz-pref("firefoxgx.left-sidebar")) and (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) {
         
-        :root:not([chromehidden~="toolbar"],[customizing]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[customizing]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
             --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;     /* New Menu height */
             --my-elements-left-margin: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
         }
@@ -389,7 +389,7 @@
            (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")),
            (-moz-pref("sidebar.verticalTabs") and -moz-pref("sidebar.position_start")) {
         
-        :root:not([chromehidden~="toolbar"]) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
             --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;                        /* New size of the 'menu' button */
             --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 14px) !important;         /* New margin-left for menu items */
             --margin-right-icons-personal: 2px !important;                                                      /* New margin-right for menu items */
@@ -397,7 +397,7 @@
         
         @media (-moz-platform: windows), (-moz-platform: linux) {
 
-            :root:not([chromehidden~="toolbar"]) {
+            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
                 
                 /* Menu button when 'hover' */
 
@@ -448,7 +448,7 @@
                     padding-top: var(--windowed-top-padding, 0px) !important;
                 }
 
-                :root:not([chromehidden~="toolbar"]) {
+                :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
 
                    /* position when: [normal] + small window width */
 
@@ -470,14 +470,14 @@
         
         @media (-moz-platform: windows), (-moz-platform: linux) {
             
-            :root:not([chromehidden~="toolbar"]) {
+            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
 
                 --my-menu-button-height: var(--toolbar-height-personal) !important;                                 /* New Menu height */
                 --padding-left-tab: var(--my-vertical-elements-width) !important;                                   /* Menu with smaller */
                 --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 14px) !important;         /* New margin-left for menu items */
             }
 
-            :root:not([chromehidden~="toolbar"]) {
+            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
                 
                 /* Menubar margin left */
                 #toolbar-menubar[autohide]>toolbaritem>menubar {
@@ -497,7 +497,7 @@
             
             /* Vertical-tabs hidden */
             
-            :root:not([chromehidden~="toolbar"]):has(#sidebar-main[hidden],sidebar-main[hidden]) {
+            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]):has(#sidebar-main[hidden],sidebar-main[hidden]) {
                 
                 #toolbar-menubar[autohide] ~ #nav-bar {
                     padding-inline-start: var(--my-vertical-elements-width) !important;
@@ -522,7 +522,7 @@
                 
                 @media not -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
                     
-                    :root:not([chromehidden~="toolbar"]) {
+                    :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
                         
                         /* Navbar left-margin */
                         #toolbar-menubar[autohide] ~ #nav-bar {
@@ -544,13 +544,13 @@
     
     @media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("sidebar.position_start")) {
         
-        :root:not([chromehidden~="toolbar"]) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
             --my-menu-button-height: var(--toolbar-height-personal) !important;                                 /* New Menu height */
         }
         
         /* Menu space in the nav-bar */
             
-        :root:not([chromehidden~="toolbar"]) #toolbar-menubar[autohide] ~ #nav-bar {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) #toolbar-menubar[autohide] ~ #nav-bar {
             --my-elements-left-margin: calc(var(--padding-left-tab,0px) + var(--uc-window-drag-space-pre, 0px)) !important;
         }
         
@@ -565,7 +565,7 @@
         }
         
         @media (-moz-platform: windows), (-moz-platform: linux) {
-            :root:not([chromehidden~="toolbar"]) {
+            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
                 
                 /* Menu button display into nav-bar */
                 #PanelUI-button {
@@ -585,7 +585,7 @@
 
         @media (-moz-platform: windows), (-moz-platform: linux) {
 
-            :root:not([chromehidden~="toolbar"]) {
+            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
 
                 --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;     /* New Menu height */
 

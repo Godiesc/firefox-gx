@@ -53,11 +53,6 @@
    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
       --lwt-header-image: var(--lwt-main-image) !important;
       --lwt-additional-images: var(--lwt-main-image) !important;
-      
-      & #tabbrowser-tabbox,
-      & #sidebar-box[checked] {
-         --my-content-border-color: color-mix(in srgb, var(--toolbar-bgcolor) 80%, var(--tab-selected-textcolor)) !important;  /* Border around web content */
-      }
    }
    
    /* Set the main image to all body */
@@ -67,22 +62,25 @@
    }
    
    /* blur effect 
-   body::before {
+   body::after {
       content: '';
       display: flex;
       position: fixed;
       width: 100%;
       height: 100%;
       backdrop-filter: blur(34px);
+      z-index: -1;
       mask: radial-gradient(ellipse at center, #e66465, #00000020),
          radial-gradient(ellipse at bottom, #4d9f0c, transparent
          );
    }*/
-   
-   body::after {
+
+   /* Remove main gradient background */
+
+   #main-window>body:before {
       display: none !important;
    }
-   
+
    /* Align tab-background image */
 
    .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {

@@ -11,7 +11,7 @@
     }
     
     @media (not -moz-pref("firefoxgx.oneline")) and (not -moz-pref("firefoxgx.tree-tabs")) and (not -moz-pref("sidebar.verticalTabs")) {
-        .titlebar-min {
+        :root:not([chromehidden*="menubar"]) .titlebar-min {
             padding-block-start: 10px !important;
             padding-block-end: 0px !important;
         }
@@ -31,9 +31,15 @@
     
     /* Larger buttons (min-max-close) on non-maximized windows */
     
-    :root:has(#toolbar-menubar[autohide]) .titlebar-buttonbox {
+    :root:not([chromehidden*="menubar"]):has(#toolbar-menubar[autohide]) .titlebar-buttonbox {
         height: calc(var(--tab-height-personal) - 1px + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top)) !important;
         margin-top: calc(0px - var(--windowed-top-padding,0px)) !important;
+    }
+    
+    :root[chromehidden*="menubar"] {
+        .titlebar-buttonbox {
+            height: var(--toolbar-height-personal) !important;
+        }
     }
 }
 

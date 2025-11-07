@@ -367,10 +367,16 @@
     .personalize-button {
         img {content: url("../icons/edit.svg") !important;  }
         
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: var(--newtab-element-secondary-hover-color) !important;
             backdrop-filter: var(--personal-blur) !important;
         }
+    }
+    
+    /* Keep personalize button collapse after close customize menu (slider) */
+    .personalize-button.personalize-animate-enter.personalize-animate-enter-active {
+        display: none !important;
     }
 
     /* Colors of the 'Close' button */

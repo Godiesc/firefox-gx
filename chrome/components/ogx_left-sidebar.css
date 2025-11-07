@@ -77,7 +77,7 @@
         margin-inline: 0 !important;
     }
 
-    :root:not([chromehidden~="toolbar"],[inDOMFullscreen],[sizemode="fullscreen"]) {
+    :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"], [inDOMFullscreen],[sizemode="fullscreen"]) {
         &>body>#browser,
         &>body>#browser-bottombox,
         &>body>#customization-container {
@@ -501,7 +501,7 @@
         --space-before-gradient-line: calc(var(--windowed-top-padding, 0px) + var(--menubar-height-personal,0px) + var(--tab-height-personal)) !important;
     }
 
-    #navigator-toolbox::before {
+    :root:not([chromehidden*="menubar"]) #navigator-toolbox::before {
         content:"";
         position: absolute;
         bottom: 0px;
@@ -681,6 +681,9 @@
     
     /* ___________________ Some extensions icons ____________________
        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    
+    /* Gx Theme Styles Extension */
+    moz-button[extensionId="GXThemeStyles@Godie"] { --my-custom-image: url("../icons/logo_gx-theme-styles.svg") !important; }
 
     /* Whatsapp Extension */
     moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-custom-image: url("../icons/logo_whatsapp.svg") !important; }
@@ -1230,4 +1233,20 @@
             box-shadow: none !important;
         }/**/
     }
+}
+
+/* Add border top of web content and remove it in some 'about:' pages */
+:root:has(.tabbrowser-tab[selected][label="Firefox View"]),
+:root:has(.tabbrowser-tab[selected] :is(
+.tab-icon-image[src="chrome://mozapps/skin/extensions/extension.svg"],
+.tab-icon-image[src="chrome://global/skin/icons/settings.svg"],
+.tab-icon-image[src="chrome://global/skin/icons/developer.svg"],
+.tab-icon-image[src="chrome://branding/content/icon32.png"],
+.tab-icon-image[src="chrome://global/skin/icons/performance.svg"])){
+
+    --my-content-border-color: transparent !important;                                    /* Border color for web content is some situations */
+}
+
+#tabbrowser-tabbox {
+    box-shadow: 0 -1px var(--my-content-border-color) !important;
 }

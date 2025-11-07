@@ -2,7 +2,7 @@
    https://github.com/Godiesc/firefox-gx */
 
 window, dialog, .dialogBox {
-    --background-color-canvas: var(--background-color-canvas) !important;                       /* Background-color */
+    --background-color-canvas: var(--in-content-page-background) !important;                    /* Background-color */
     
     --button-background-color-primary: var(--button-active-bgcolor) !important;                 /* Background-primary color */
     --button-text-color-primary: var(--in-content-primary-button-text-color);                   /* Label primary button */
@@ -16,7 +16,7 @@ window, dialog, .dialogBox {
     window, dialog, .dialogBox {
 
         --color-accent-primary: var(--general-color) !important;
-        --background-color-canvas: #1a1a24 !important;
+        --in-content-page-background: #1a1a24 !important;
         --in-content-primary-button-background: var(--general-color) !important;
         --in-content-primary-button-text-color: white !important;
         --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;  /* Radiobutton background color on 'hover' */
@@ -29,7 +29,7 @@ window, dialog, .dialogBox {
 @media (prefers-color-scheme: light) {
     window, dialog, .dialogBox {
         --color-accent-primary: var(--general-color) !important;
-        --background-color-canvas: #f9f9f9 !important;
+        --in-content-page-background: #f9f9f9 !important;
         --in-content-primary-button-background: var(--general-color) !important;
         --in-content-primary-button-text-color: white !important;
         --in-content-primary-button-background-hover: var(--button-active-bgcolor) !important;  /* Radiobutton background color on 'hover' */
@@ -53,8 +53,7 @@ window, dialog, .dialogBox {
 
     --in-content-box-background-odd: color-mix(in srgb,                                         
         var(--in-content-box-border-color), transparent) !important;
-    --table-row-background-color-alternate: color-mix(in srgb, 
-        var(--background-color-canvas) 95%, var(--in-content-text-color)) !important;           /* Color distinction between rows in a 'table' and 'search shortcuts' */
+    --table-row-background-color-alternate: var(--in-content-page-background) !important;       /* Color distinction between rows in a 'table' and 'search shortcuts' */
     
     --in-content-box-info-background: var(--in-content-box-background-odd) !important;          /* Background color of the box of items that sync */
     --section-highlight-background-color: var(--in-content-box-info-background) !important;
@@ -63,7 +62,7 @@ window, dialog, .dialogBox {
     --in-content-table-border-color: var(--in-content-box-border-color) !important;             /* table border color */
 
     --background-color-box: var(--in-content-box-background) !important;                        /* Background color of tables */
-    --in-content-table-background: var(--background-color-canvas) !important;                   /* Background color of 'about:support' tables */
+    --in-content-table-background: var(--in-content-page-background) !important;                /* Background color of 'about:support' tables */
 
     --card-outline-color: var(--general-color) !important;                                      /* outline color in 'themes' and 'extensions' */
     --card-shadow-hover: var(--card-shadow), 0 0 0 5px var(--card-outline-color) !important;    /* outline color in 'themes' and 'extensions' on 'hover' */
@@ -79,9 +78,9 @@ window, dialog, .dialogBox {
     
     --button-border-color-hover: var(--button-bgcolor) !important;                              /* Button border color on 'hover' */
 
-    --button-background-color-primary: var(--button-hover-bgcolor) !important;                  /* Primary button background */
-    --button-background-color-primary-hover: var(--button-active-bgcolor) !important;           /* Primary button background on 'hover' */
-    --button-background-color-primary-active: var(--button-hover-bgcolor) !important;           /* Primary button background on 'active' */
+    --button-background-color-primary: var(--button-hover-bgcolor) !important;                 /* Primary button background */
+    --button-background-color-primary-hover: var(--button-active-bgcolor) !important;                   /* Primary button background on 'hover' */
+    --button-background-color-primary-active: var(--button-hover-bgcolor) !important;          /* Primary button background on 'active' */
     
     --button-text-color-primary: var(--in-content-text-color) !important;
 
@@ -105,35 +104,38 @@ window, dialog, .dialogBox {
     :root {
         --contrast-color: #ffffff !important;                                                   /* Contrast background color */
         --border-contrast-color: #000000 !important;                                            /* Contrast border color */
-        --background-color-canvas: #121018 !important;                                          /* Bakground color */
+        --in-content-page-background: #121018 !important;                                       /* Bakground color */
+        --background-color-canvas: #090911 !important;                                          /* 'about:' background */
 
         --in-content-box-background: #15151e !important;                                        /* Color of textboxes and background of drop-down menus */
         --in-content-box-border-color: #272b37 !important;                                      /* Textbox border color */
     }
     
     /* Pop-up window background in 'settings' */
-    .dialogBox { --background-color-canvas: #1a1a24 !important; }
+    .dialogBox { --in-content-page-background: #1a1a24 !important; }
 }
 
 @media (prefers-color-scheme: light) {
     :root{
         --contrast-color: #000000 !important;                                                   /* Contrast background color */
         --border-contrast-color: #ffffff !important;                                            /* Contrast border color */
-        --background-color-canvas: #f9f9f9 !important;                                          /* Bakground color */
+        --in-content-page-background: #f9f9f9 !important;                                       /* Bakground color */
+        --background-color-canvas: #f0f0f0 !important;                                          /* 'about:' background */
 
         --in-content-box-background: #f9f9fb !important;                                        /* Color of textboxes and background of drop-down menus */
         --in-content-box-border-color: #d4cfe7 !important;                                      /* Textbox border color */
     }
 
     /* Pop-up window background in 'settings' */
-    .dialogBox {--background-color-canvas: #f9f9f9 !important;}
+    .dialogBox {--in-content-page-background: #f9f9f9 !important;}
 }
 
 /* _____________________________________ Various colors of the 'Add-ons' and 'Preferences' interface _____________________________________ */
 
-@-moz-document url-prefix(about:preferences), url-prefix(about:addons), url-prefix(about:support), url-prefix(about:profiles) , url-prefix(about:debugging), url-prefix(about:welcome) {
+@-moz-document url-prefix(about:preferences), url-prefix(about:settings), url-prefix(about:addons), 
+    url-prefix(about:support), url-prefix(about:profiles) , url-prefix(about:debugging), url-prefix(about:welcome) {
         
-    :root { --opaque: color-mix(in srgb, var(--background-color-canvas) 50%, transparent) !important; }
+    :root { --opaque: color-mix(in srgb, var(--in-content-page-background) 50%, transparent) !important; }
 
     /* Informative messages */
 
@@ -394,7 +396,7 @@ window, dialog, .dialogBox {
         max-height: 100vh;
         display: grid !important;
         grid-template-rows: auto auto 1fr;
-        --background-color-canvas: transparent;
+        --in-content-page-background: transparent;
     }
 
     #main {
