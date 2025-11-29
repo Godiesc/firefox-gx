@@ -1242,7 +1242,7 @@
 .tab-icon-image[src="chrome://global/skin/icons/settings.svg"],
 .tab-icon-image[src="chrome://global/skin/icons/developer.svg"],
 .tab-icon-image[src="chrome://branding/content/icon32.png"],
-.tab-icon-image[src="chrome://global/skin/icons/performance.svg"])){
+.tab-icon-image[src="chrome://global/skin/icons/performance.svg"])) #tabbrowser-tabbox {
 
     --my-content-border-color: transparent !important;                                    /* Border color for web content is some situations */
 }

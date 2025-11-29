@@ -431,7 +431,7 @@
     
     .customize-menu {
         background-color: color-mix(in srgb, var(--my-opaque-bgcolor), Field) !important;
-        backdrop-filter: var(--personal-blur); 
+        backdrop-filter: var(--personal-blur);
     }
     
     /* Combobox */
@@ -965,10 +965,15 @@
         body {
             background-color: transparent !important;
         }
+        
+        /* Slider background */
+        .customize-menu-animate-wrapper {
+            background-color: var(--newtab-background-color) !important;
+        }
 
         .customize-menu {
             background-image: url("../icons/urlbar-noise-light.png") !important;
-            background-color: var(--newtab-background-color) !important;
+            background-color: transparent !important;
         }
 
         /* When editing a pinned site */
