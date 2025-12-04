@@ -466,7 +466,7 @@ sidebar-main:is([expanded]) {
 
 toolbar:is(#TabsToolbar, #nav-bar, #PersonalToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
         background: var(--button-bgcolor) !important;
-        fill: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
+        fill: var(--arrowpanel-color, var(--my-font-color)) !important;
         transition: none !important;
 }
 

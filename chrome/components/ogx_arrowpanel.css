@@ -68,7 +68,7 @@ menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .t
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover),
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover {
     background: var(--panel-separator-zap-gradient3) !important;
-    color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
+    color: var(--arrowpanel-color, var(--my-font-color)) !important;
 }
 
 /* Background color when clicking on different items in the main menus */
@@ -183,7 +183,7 @@ treechildren::-moz-tree-separator {
     /* Spliter style on Linux */
     @media (not -moz-pref("sidebar.revamp")) and (-moz-platform: linux) {
         background-color: var(--sidebar-border-color) !important;
-        min-width: 1px !important;
+        width: 0px !important;
         border-width: 0px !important;
     }
 }
@@ -204,27 +204,25 @@ treechildren::-moz-tree-separator {
     
     /* Bug fix - remove unwanted space of splitter */
     #sidebar-main[style*="order: 1;"] ~ splitter[style*="order: 4"] {
-        @media not (-moz-platform: linux) {
             margin-inline-start: calc(-1 * var(--splitter-width)) !important;
-        }
     }
     /*/**/
     splitter[style*="order: 2"] {
-        @media not (-moz-platform: linux) {
-            margin-inline-start: calc(-1 * var(--splitter-width)) !important;
-        }
+        margin-inline-start: calc(-1 * var(--splitter-width)) !important;
     }
     
-    #sidebar-box[checked]:not([sidebar-positionend]) +splitter+#tabbrowser-tabbox {
+    #sidebar-box[checked]:not([sidebar-positionend]) ~ #tabbrowser-tabbox {
         margin-inline-start: -6px !important;
+        box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
     }
     
-    #sidebar-box[sidebar-positionend] +splitter {
+    #sidebar-box[sidebar-positionend] + splitter {
         margin-inline-end: -6px !important;
     }
     
-    /* Remove unwanted margin when sidebar-box is on right */
+    /* Remove unwanted margin of sidebar-box when is on right */
     #sidebar-box[sidebar-positionend] {
-        margin-inline-start: 0px !important;
+        /*margin-inline-start: 0px !important;/**/
+        margin-inline-end: -3px !important;
     }
 }

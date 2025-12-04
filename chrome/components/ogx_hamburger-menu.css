@@ -1,10 +1,10 @@
-/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/firefox-gx */
 
 :root {
     --margin-left-icons-personal: 10px !important;
     --margin-right-icons-personal: 1px !important;/**/
-    --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--tab-selected-textcolor))86%, transparent);
+    --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--my-font-color))86%, transparent);
     --my-menu-button-height: calc(var(--menubar-height-personal, var(--tab-height-personal)) - 1px) !important;
 }
 

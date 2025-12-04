@@ -79,7 +79,7 @@
     One button */
     @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
         :root:is([customtitlebar]) {
-            --uc-window-control-width: 56px !important;
+            --uc-window-control-width: 74px !important;
         }
     }
     /* Two buttons */
@@ -87,13 +87,13 @@
         (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
         (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
             :root:is([customtitlebar],[sizemode="fullscreen"]) {
-                --uc-window-control-width: 86px !important;
+                --uc-window-control-width: 100px !important;
             }
     }
     /* Three buttons */
     @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
         :root:is([customtitlebar],[sizemode="fullscreen"]) {
-            --uc-window-control-width: 118px !important;
+            --uc-window-control-width: 128px !important;
         }
     }
 }

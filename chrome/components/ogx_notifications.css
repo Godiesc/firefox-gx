@@ -170,7 +170,7 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
             font-weight: 501;
             background-color: var(--general-color);
             color: var(--contrast-color);
-            box-shadow: inset 0 0 0 1px var(--tab-selected-textcolor), inset 0 0 0 2px var(--contrast-color);
+            box-shadow: inset 0 0 0 1px var(--my-font-color), inset 0 0 0 2px var(--contrast-color);
             z-index: 3;
             animation: messageappeardisappear linear 5s;
         }

@@ -90,7 +90,7 @@
         --my-fill: var(--general-color)  !important;
         
         &:hover {
-            --my-fill: var(--tab-selected-textcolor) !important;
+            --my-fill: var(--my-font-color) !important;
         }
     }
     
@@ -101,19 +101,19 @@
         --button-background-color-ghost: transparent !important;
         --button-background-color-ghost-hover: transparent !important;
         --button-background-color-ghost-active: transparent !important;
-        --my-fill: var(--tab-selected-textcolor)  !important;
+        --my-fill: var(--my-font-color)  !important;
         --my-opacity: 0.8 !important;
         
         &:hover {
             --my-background-sound-image: url("../icons/sound-muted-hover.svg") !important;
-            --my-fill: var(--tab-selected-textcolor) !important;
+            --my-fill: var(--my-font-color) !important;
             --my-opacity: 1 !important;
         }
     }
     
     .tab-audio-button:is([activemedia-blocked]) {
         --my-background-sound-image: url("../icons/sound-blocked.svg") !important;
-        --my-fill: var(--tab-selected-textcolor)  !important;
+        --my-fill: var(--my-font-color)  !important;
     }
     
     /* ¯¯¯¯¯¯¯¯ New margins when tab width get smaller ¯¯¯¯¯¯¯¯ */
@@ -144,7 +144,7 @@
                 fill: var(--general-color)  !important;
                 
                 &:hover {
-                    fill: var(--tab-selected-textcolor) !important;
+                    fill: var(--my-font-color) !important;
                 }
             }
             
@@ -153,7 +153,7 @@
                 background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
                 
                 &:hover {
-                    fill: var(--tab-selected-textcolor) !important;
+                    fill: var(--my-font-color) !important;
                     list-style-image: url("../icons/sound-muted-hover.svg") !important;
                 }
             }
@@ -187,7 +187,7 @@
                     top: -5px !important;
                     
                     &:hover {
-                        fill: var(--tab-selected-textcolor) !important;
+                        fill: var(--my-font-color) !important;
                     }
                 }
 
@@ -273,14 +273,14 @@
         --my-background-sound-image: url("chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg") !important;
         --my-background-color: var(--button-background-color-hover) !important;
         --my-background-position: center !important;
-        --my-fill: var(--tab-selected-textcolor) !important;
+        --my-fill: var(--my-font-color) !important;
         --my-top: calc(var(--tab-height-personal)/2 - 9px) !important;
         --my-inset-inline-start: 7px !important;
         --my-opacity: 0.8 !important;
 
         &:hover {         
             --my-background-color: var(--button-hover-bgcolor) !important;
-            --my-fill: var(--tab-selected-textcolor) !important;
+            --my-fill: var(--my-font-color) !important;
             --my-opacity: 1 !important;
         }
     }
@@ -320,7 +320,7 @@
 
             &:hover {         
                 --my-background-color: var(--button-hover-bgcolor) !important;
-                --my-fill: var(--tab-selected-textcolor) !important;
+                --my-fill: var(--my-font-color) !important;
                 --my-opacity: 1 !important;
             }
         }
@@ -371,7 +371,7 @@
 
                 &:hover {
                     background-color: var(--button-background-color-hover) !important;
-                    fill: var(--tab-selected-textcolor) !important;
+                    fill: var(--my-font-color) !important;
                 }
             }
         }
@@ -416,7 +416,7 @@
 
                     &:hover {
                         background-color: var(--button-background-color-hover) !important;
-                        fill: var(--tab-selected-textcolor) !important;
+                        fill: var(--my-font-color) !important;
                     }
                 }
             }

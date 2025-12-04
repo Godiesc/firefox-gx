@@ -83,7 +83,7 @@
             top: -1px !important;
             
             &:hover {
-                background: var(--tab-selected-textcolor) !important;
+                background: var(--my-font-color) !important;
                 fill: var(--contrast-color) !important;
             }
         }

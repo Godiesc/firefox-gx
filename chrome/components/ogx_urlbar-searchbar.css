@@ -5,7 +5,7 @@
 
 findbar {
     background-color: var(--toolbar-bgcolor) !important;
-    color: var(--tab-selected-textcolor) !important;
+    color: var(--my-font-color) !important;
     border-color: var(--input-border-color) !important;
 }
 
@@ -27,7 +27,7 @@ findbar {
 /* "popup_highlight" ---> 1.- keyboard highlight ;  2.-mouse highlight */
 
 .urlbarView-row[selected], .urlbarView-row[row-selectable]:not([selected]):hover {
-    --link-color: var(--tab-selected-textcolor) !important;
+    --link-color: var(--my-font-color) !important;
     background-color: var(--autocomplete-popup-hover-background) !important;
     color: currentColor !important;
     border-radius: 0px !important;

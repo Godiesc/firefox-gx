@@ -59,6 +59,10 @@
   .toolbar-items{
     margin-inline-start: calc(var(--navbarWidth));
     margin-inline-end: calc(var(--uc-window-control-width, 22px) - var(--uc-buttons-width) + 44px) !important;
+    
+    @media (-moz-platform: linux) and (not (-moz-gtk-csd-reversed-placement)) {
+      margin-inline-end: calc(var(--uc-window-control-width, 22px) - var(--uc-buttons-width) + 64px) !important;
+    }
   }
   
   /* Makes tabsbar items clicleable */

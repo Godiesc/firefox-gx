@@ -12,12 +12,12 @@
     appearance: none !important;
     background-color: var(--input-border-color) !important;
     border-color: var(--input-border-color) !important;
-    color: var(--tab-selected-textcolor) !important;
+    color: var(--my-font-color) !important;
 }
 
 #customization-done-button {
     appearance: none !important;
-    color: var(--tab-selected-textcolor) !important;
+    color: var(--my-font-color) !important;
     border-color: var(--button-hover-bgcolor) !important;
     background-color: var(--button-hover-bgcolor) !important;
     padding: 2px 24px !important;
@@ -33,7 +33,7 @@
     & .footer-button:is([open]),
     & #customization-done-button:is(:active, :hover):not([disabled]) {
         appearance: none !important;
-        color: var(--tab-selected-textcolor) !important;
+        color: var(--my-font-color) !important;
         background-color: var(--button-active-bgcolor) !important;
         border-color: var(--button-active-bgcolor) !important;
     }
@@ -55,8 +55,12 @@
 
 #customization-panelWrapper > .panel-arrowbox > .panel-arrow[side="top"] {
     /* This variable used for oneline config ¯v */
-    margin-inline-end: calc(var(--uc-window-control-width, 8px) - 6px + var(--customization-panel-padding)) !important;
+    margin-inline-end: calc(2px + var(--customization-panel-padding)) !important;
     filter: drop-shadow(0px -1px 0px var(--input-border-color));
+
+    @media -moz-pref("firefoxgx.oneline") {
+        margin-inline-end: calc(var(--uc-window-control-width, 8px) - 6px + var(--customization-panel-padding)) !important;
+    }
 }
 
 /* In [customization] - Align overflow arrow with its button when using 'Tree-tabs' */

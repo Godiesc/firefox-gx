@@ -7,7 +7,7 @@ panel menulist {
     &:hover, 
     &[open] {
         background-color: var(--button-hover-bgcolor) !important;
-        color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
+        color: var(--arrowpanel-color, var(--my-font-color)) !important;
         box-shadow: none !important;
     }
 }
@@ -255,7 +255,7 @@ button {
 /* Second label del botón de extensiones */
 
 #unified-extensions-area toolbaritem:hover .unified-extensions-item-message-deck label{
-    color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
+    color: var(--arrowpanel-color, var(--my-font-color)) !important;
 }
 
 @media (-moz-platform: linux) {

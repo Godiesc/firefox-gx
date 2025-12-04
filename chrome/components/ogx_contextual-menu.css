@@ -85,7 +85,7 @@ menupopup:not(.in-menulist) {
     &> menuitem:not([disabled]),
         &> menu {
             appearance: none !important;
-            color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
+            color: var(--arrowpanel-color, var(--my-font-color)) !important;
     }
 
     /* Color to 'hover' items */
@@ -154,7 +154,7 @@ menupopup:not(.in-menulist) {
 #context-navigation > menuitem[_moz-menuactive="true"] {
     &:not([disabled]) {
         background: var(--panel-separator-zap-gradient3) !important;
-        color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important;
+        color: var(--arrowpanel-color, var(--my-font-color)) !important;
     }
     &:is([disabled]) {
         background: transparent !important;
@@ -179,7 +179,7 @@ menupopup:not(.in-menulist) {
         }
         
         &:not([disabled]) {
-            color: var(--arrowpanel-color, var(--tab-selected-textcolor)) !important; /* used when font color isn't white/black */
+            color: var(--arrowpanel-color, var(--my-font-color)) !important; /* used when font color isn't white/black */
         }
     }
     

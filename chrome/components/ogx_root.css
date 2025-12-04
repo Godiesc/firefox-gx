@@ -8,9 +8,9 @@
     calc(100% - 200px), transparent calc(100% - var(--tab-height-personal)));
 
   /*--lwt-accent-color: #09080d !important;                                             /* frame */
-  /*--toolbox-textcolor: var(--tab-selected-textcolor) !important;                      /* tab_background_text */
+  /*--toolbox-textcolor: var(--my-font-color) !important;                               /* tab_background_text */
   --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;               /* frame_inactive */
-  /*--toolbox-textcolor-inactive: var(--tab-selected-textcolor) !important;             /* tab_background_text */
+  /*--toolbox-textcolor-inactive: var(--my-font-color) !important;                      /* tab_background_text */
   /*--lwt-text-color: inherit !important;                                               /* tab_background_text - general focus & unfocus window */
 
   /*--lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;             /* tab-selected background color */
@@ -22,13 +22,13 @@
   --tabs-navbar-separator-color: transparent !important;                                /* Separator between tabs and toolbar */
 
   /*--toolbar-bgcolor: var(--lwt-selected-tab-background-color, red) !important;        /* toolbar background */
-  --toolbar-color: var(--toolbarbutton-icon-fill) !important;                           /* toolbar label color */
+  /*--toolbar-color: var(--toolbarbutton-icon-fill) !important;                         /* toolbar label color */
   --chrome-content-separator-color: none !important;                                    /* toolbar_bottom_separator */
 
   /*--arrowpanel-background: #1c1726 !important;                                        /* popup */
-  /*--arrowpanel-color: var(--tab-selected-textcolor) !important;                       /* popup_text */  
+  /*--arrowpanel-color: var(--my-font-color) !important;                       /* popup_text */
   /*--arrowpanel-border-color: color-mix(in srgb, 
-  var(--arrowpanel-background) 90%, var(--tab-selected-textcolor)) !important;        /* popup_border */
+  var(--arrowpanel-background) 90%, var(--my-font-color)) !important;        /* popup_border */
   /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);             /* popup_highlight */
 
   --panel-description-color: var(--general-color) !important;                           /* label color: mail, and connected devices */
@@ -38,7 +38,7 @@
 
   /*--toolbar-field-focus-background-color: color-mix(in srgb, 
   var(--general-color) 4%, #2e273ffb) !important;                                       /* toolbar_field_focus */
-  --toolbar-field-focus-color: var(--tab-selected-textcolor) !important;                /* toolbar_field_text_focus */
+  --toolbar-field-focus-color: var(--my-font-color) !important;                /* toolbar_field_text_focus */
   --toolbar-field-focus-border-color: transparent !important;                           /* toolbar_field_border_focus */
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /* toolbar_field_highlight */
   --lwt-toolbar-field-highlight-text: var(--contrast-color) !important;                 /* toolbar_field_highlight_text */
@@ -129,14 +129,14 @@
   --contrast-color: #000000 !important;
   --border-contrast-color: color-mix(in srgb, var(--arrowpanel-background) 40%, var(--contrast-color)) !important;      /* Used in context-menu and arrowpanels*/
 
-  --tab-selected-textcolor: #ffffff !important;                                                                         /* tab_text */
+  --my-font-color: #ffffff !important;                                                                         /* tab_text */
   
   --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
   --toolbarbutton-active-background: var(--contrast-color) !important;
   --toolbarbutton-hover-personal: var(--toolbar-field-focus-background-color) !important;                               /* Button personal color when 'hover' */
   
   --arrowpanel-border-color: color-mix(in srgb, 
-    var(--arrowpanel-background) 90%, var(--tab-selected-textcolor)) !important;                                        /* popup_border */
+    var(--arrowpanel-background) 90%, var(--my-font-color)) !important;                                        /* popup_border */
   
   scrollbar-color: #38375580 #18173530 !important;                                                                      /* Scroll bar colors */
   
@@ -145,7 +145,7 @@
 
   --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)50%, var(--border-contrast-color)) !important;        /* Color of the 'input box' when saving a bookmark */
   --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when :focused */
-  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--tab-selected-textcolor)) !important; /* Border Color of the 'input box' not focused */
+  --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--my-font-color)) !important; /* Border Color of the 'input box' not focused */
   --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /* Buttons background color - personal variable */
 
 }}
@@ -158,14 +158,14 @@
   --contrast-color: #f9f9f9 !important;
   --border-contrast-color: #acacac30 !important;                                                                        /* Used in context-menu and arrowpanels*/
   
-  --tab-selected-textcolor: #101019 !important;                                                                         /* tab_text */
+  --my-font-color: #101019 !important;                                                                         /* tab_text */
   
   --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 92%, black) !important;                   /* button_background_hover */
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 84%, black) !important;                  /* button_background_active */
   --toolbarbutton-hover-personal: color-mix(in srgb, var(--toolbar-bgcolor) 88%, black) !important;                     /* Button personal color when 'hover' */
   
   --arrowpanel-border-color: color-mix(in srgb, 
-    var(--arrowpanel-background) 80%, var(--tab-selected-textcolor)) !important;                                        /* popup_border */
+    var(--arrowpanel-background) 80%, var(--my-font-color)) !important;                                        /* popup_border */
 
   scrollbar-color: #d8d9da var(--toolbar-bgcolor) !important;                                                           /* Scroll bar colors */
   
@@ -195,7 +195,7 @@
     --tab-group-bgcolor: color-mix(in srgb, 
       light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 8%, transparent) !important;   /* Group Background */
     
-    /*--my-hover-dark-group-color: color-mix(in srgb, var(--tab-group-color) 80%, var(--tab-selected-textcolor));       /* 'hover' on group label - dark */
+    /*--my-hover-dark-group-color: color-mix(in srgb, var(--tab-group-color) 80%, var(--my-font-color));       /* 'hover' on group label - dark */
     /*--my-hover-light-group-color: color-mix(in srgb, var(--tab-group-color-invert), transparent);           /* 'hover' on group label - light */
   }
 }
@@ -214,7 +214,7 @@
     --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 9%, #2e273ffb) !important;          /* toolbar_field_focus */
     --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;                                   /* button_background_hover */
     --toolbarbutton-hover-personal: color-mix(in srgb, 
-      transparent 85%, color-mix(in srgb, var(--tab-selected-textcolor)60%, var(--contrast-color))) !important;         /* Button :hover color personal */
+      transparent 85%, color-mix(in srgb, var(--my-font-color)60%, var(--contrast-color))) !important;         /* Button :hover color personal */
   }}
 
 @media (prefers-color-scheme: light) {
@@ -224,9 +224,9 @@
     --toolbarbutton-hover-background: color-mix(in srgb, 
       var(--toolbar-field-focus-background-color) 100%, transparent) !important;                                        /* button_background_hover */
     --toolbarbutton-active-background: color-mix(in srgb, 
-      var(--toolbar-field-focus-background-color) 94%, var(--tab-selected-textcolor)) !important;                       /* button_background_active */
+      var(--toolbar-field-focus-background-color) 94%, var(--my-font-color)) !important;                       /* button_background_active */
     --toolbarbutton-hover-personal: color-mix(in srgb, 
-      transparent 85%, color-mix(in srgb, var(--tab-selected-textcolor)80%, var(--general-color))) !important;          /* Button :hover color personal */
+      transparent 85%, color-mix(in srgb, var(--my-font-color)80%, var(--general-color))) !important;          /* Button :hover color personal */
   }}
 
 /* ___________________________________________________________ Private Browsing Mode ___________________________________________________________ */
