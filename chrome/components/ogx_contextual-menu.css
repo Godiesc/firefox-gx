@@ -21,15 +21,16 @@ menupopup > menuitem, menupopup > menu {
 
 /* Separator */
 
-#context-sep-navigation { padding-inline: 12px !important; }
+menupopup:not(.in-menulist)  menuseparator {
+    padding-inline: 6px !important;
+    
+    &::before {
+        appearance: none !important;
+        border-image: var(--panel-separator-zap-gradient2) 1 !important;
 
-menupopup:not(.in-menulist)  menuseparator::before {
-    appearance: none !important;
-    border-image: var(--panel-separator-zap-gradient2) 1 !important;
-    margin-inline: -6px !important;
-
-    @media (-moz-platform: linux) {
-        margin-inline: 6px !important;
+        @media (-moz-platform: linux) {
+            margin-inline: 6px !important;
+        }
     }
 }
 

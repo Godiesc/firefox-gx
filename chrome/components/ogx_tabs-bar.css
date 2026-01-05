@@ -22,7 +22,7 @@
     background-size:var(--my-background-size, auto) !important;
 }
 
-/* blur effect to the bottom */
+/* Gradient effect to the bottom */
 
 #main-window>body:before {
     content: "";
@@ -38,8 +38,9 @@
 
 /* Remove unnecessary background to show the theme image */
 
-#browser {
+#browser, .browserContainer {
     background-color: transparent !important;
+    box-shadow: none !important; /* Remove unwanted shadow when using 'revamp' */
 }
 
 /* Sidebar-box background the same as the web content  */
