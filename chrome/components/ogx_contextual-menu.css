@@ -83,55 +83,60 @@ menupopup:not(.in-menulist) {
 
     /* Font color in Contextual menus */
 
-    &> menuitem:not([disabled]),
-        &> menu {
+    &> menuitem,
+    &> menu {
+        &:not([disabled]) {
             appearance: none !important;
             color: var(--arrowpanel-color, var(--my-font-color)) !important;
+        }
     }
 
     /* Color to 'hover' items */
 
-    &> menuitem:not([disabled]):is(:hover,[_moz-menuactive]),
-        &> menu:is(:hover,[_moz-menuactive]) {
-            appearance: none !important;
-            background: var(--panel-separator-zap-gradient3) !important;
-            color: var(--arrowpanel-color, #ffffff) !important;
-    }
-
-    &> menuitem:is([disabled]):hover {
-        appearance: none !important;
-        background: transparent !important;
-    }
-
-    /* Necesario para quitar glitch indeseado al mover el mouse sobre items inhabilitados - example textbox context menu */
-
-    &> menuitem:is([disabled]),
-        &> menu:is([disabled]) {
-            appearance: none !important;
-            background-color: transparent !important;
+    &> menu,
+    &> menuitem {
+        &:where([_moz-menuactive]) {
+            &:not([disabled="true"]) {
+                background: var(--panel-separator-zap-gradient3) !important;
+            }
+            &:is([disabled="true"]) {
+                background: linear-gradient(to right, color-mix(in srgb, currentcolor 20%, transparent), transparent) !important;
+            }
+        }
     }
     
-    /* color the fondo para items seleccionados con las teclas de dirección 
-
-    & menu:where([_moz-menuactive]:not([disabled])),
-    & menuitem:where([_moz-menuactive]:not([disabled])) {
-            appearance: none !important;
-            background-color: var(--button-active-bgcolor) !important;
-    }*/
+    /* Gradient border */
     
-    /* Mostrar background-color en el item seleccionado 
-
-    &> menuitem:is([selected]):not([disabled="false"]) {
-        appearance: none !important;
-        background-color: var(--button-hover-bgcolor) !important;
-        color: #ffffff !important;
+    @media not -moz-pref("firefoxgx.gradientBorder-in-menus") {
+        /*&::before,/**/
+        &::after {
+            --my-arrowpanel-gradient: radial-gradient(ellipse at center, var(--button-bgcolor), transparent);
+            content: "";
+            position: absolute;
+            inset: 1px;
+            padding: 1px;
+            border-radius: var(--arrowpanel-border-radius);
+            background: repeat var(--identity-icon-color, var(--my-arrowpanel-gradient)) !important;
+            background-repeat: no-repeat !important;
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            pointer-events: none !important;
+        }
     }
-
-    &> menuitem:is([selected="true"]):hover:not([disabled="false"]) {
-        appearance: none !important;
-        background-color: var(--button-active-bgcolor) !important;
-    }*/
 }
+
+/* Mostrar background-color en el item seleccionado 
+
+menuitem:is([selected]):not([disabled="false"]) {
+    appearance: none !important;
+    background-color: var(--button-hover-bgcolor) !important;
+    color: #ffffff !important;
+}
+
+menuitem:is([selected="true"]):hover:not([disabled="false"]) {
+    appearance: none !important;
+    background-color: var(--button-active-bgcolor) !important;
+}*/
 
 /* __________________________ Makes context navigation buttons appears as normal textual menuitems __________________________ */
 
@@ -158,7 +163,7 @@ menupopup:not(.in-menulist) {
         color: var(--arrowpanel-color, var(--my-font-color)) !important;
     }
     &:is([disabled]) {
-        background: transparent !important;
+        background: linear-gradient(to right, color-mix(in srgb, currentcolor 20%, transparent), transparent) !important;
     }
 }
 

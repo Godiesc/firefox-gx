@@ -191,7 +191,7 @@ window, dialog, .dialogBox {
 
         &> .category {
             background-color: transparent !important;
-            color: color-mix(in srgb, var(--in-content-text-color)76%, transparent) !important;
+            color: color-mix(in srgb, var(--in-content-text-color) 76%, transparent) !important;
             font-weight: 600 !important;
             font-size: 0.9em !important;
             text-decoration: 1px underline transparent !important;
@@ -447,7 +447,7 @@ window, dialog, .dialogBox {
     
     @media -moz-pref("browser.tabs.allow_transparent_browser") {
         
-        :root, 
+        :root,
         body,
         .sticky-container {  /* used for other 'about' pages */
             --opaque: transparent !important;

@@ -13,7 +13,7 @@
          --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
          --lwt-selected-tab-background-color: #10101900 !important;                                                   /* tab_selected */
          --toolbarbutton-hover-background:  color-mix(in srgb, 
-            transparent 90%, color-mix(in srgb, var(--my-font-color)50%, var(--general-color))) !important;            /* button_background_hover */
+            transparent 90%, color-mix(in srgb, var(--my-font-color) 50%, var(--general-color))) !important;            /* button_background_hover */
          --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
          /*--lwt-sidebar-background-color: #101019 !important;                                                          /* Sidebar-background */
          /*--chrome-content-separator-color: var(--toolbar-bgcolor) !important                                          /* toolbar_bottom_separator */
@@ -29,7 +29,7 @@
          --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
          --lwt-selected-tab-background-color: #f9f9f900 !important;                                                   /* tab_selected */
          --toolbarbutton-hover-background:  color-mix(in srgb, 
-            transparent 90%, color-mix(in srgb, var(--my-font-color)50%, var(--general-color))) !important;  /* button_background_hover */
+            transparent 90%, color-mix(in srgb, var(--my-font-color) 50%, var(--general-color))) !important;  /* button_background_hover */
          --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
          /*--lwt-sidebar-background-color: #f9f9f9 !important;                                                          /* Sidebar-background */
          /*--chrome-content-separator-color: var(--toolbar-bgcolor) !important;                                         /* toolbar_bottom_separator */
@@ -102,7 +102,7 @@
    /* background-color when buttons are 'open' in solid themes - used to match colors in solid and image themes */
 
    #TabsToolbar, #nav-bar {   
-      --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--my-font-color)80%, var(--general-color))) !important;
+      --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--my-font-color) 80%, var(--general-color))) !important;
    }
 
    /* fix for status panel - findbar */

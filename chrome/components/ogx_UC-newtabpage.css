@@ -544,6 +544,12 @@
     
     @media not -moz-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
         
+        .search-handoff-button { box-shadow: none !important; }
+        
+        .search-handoff-button {
+            border-color: transparent !important;
+        }
+        
         .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus {
             box-shadow: none !important;
             outline-color: transparent !important;

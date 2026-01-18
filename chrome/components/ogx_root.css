@@ -143,7 +143,7 @@
   --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
   --my-beats-image: url("../icons/Beats.webp") !important;
 
-  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background)50%, var(--border-contrast-color)) !important;        /* Color of the 'input box' when saving a bookmark */
+  --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background) 50%, var(--border-contrast-color)) !important;        /* Color of the 'input box' when saving a bookmark */
   --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when :focused */
   --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 88%, var(--my-font-color)) !important; /* Border Color of the 'input box' not focused */
   --Button-background-personal: color-mix(in srgb, var(--arrowpanel-background) 82%, var(--general-color)) !important;  /* Buttons background color - personal variable */
@@ -214,7 +214,7 @@
     --toolbar-field-focus-background-color: color-mix(in srgb, var(--general-color) 9%, #2e273ffb) !important;          /* toolbar_field_focus */
     --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;                                   /* button_background_hover */
     --toolbarbutton-hover-personal: color-mix(in srgb, 
-      transparent 85%, color-mix(in srgb, var(--my-font-color)60%, var(--contrast-color))) !important;         /* Button :hover color personal */
+      transparent 85%, color-mix(in srgb, var(--my-font-color) 60%, var(--contrast-color))) !important;                 /* Button :hover color personal */
   }}
 
 @media (prefers-color-scheme: light) {
@@ -224,9 +224,9 @@
     --toolbarbutton-hover-background: color-mix(in srgb, 
       var(--toolbar-field-focus-background-color) 100%, transparent) !important;                                        /* button_background_hover */
     --toolbarbutton-active-background: color-mix(in srgb, 
-      var(--toolbar-field-focus-background-color) 94%, var(--my-font-color)) !important;                       /* button_background_active */
+      var(--toolbar-field-focus-background-color) 94%, var(--my-font-color)) !important;                                /* button_background_active */
     --toolbarbutton-hover-personal: color-mix(in srgb, 
-      transparent 85%, color-mix(in srgb, var(--my-font-color)80%, var(--general-color))) !important;          /* Button :hover color personal */
+      transparent 85%, color-mix(in srgb, var(--my-font-color) 80%, var(--general-color))) !important;                  /* Button :hover color personal */
   }}
 
 /* ___________________________________________________________ Private Browsing Mode ___________________________________________________________ */
