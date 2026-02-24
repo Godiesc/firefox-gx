@@ -38,11 +38,11 @@ panel {
 :is(menupopup, panel):where([type="arrow"]) {
     position: relative;  /* Needed for round gradient border ¯¯v */
 }
-
-:is(menupopup, panel):where([type="arrow"])::after {
+                   /* not: Firefox info messages */
+:is(menupopup, panel):not([#feature-callout]):where([type="arrow"])::after {
     content: "";
     position: absolute;
-    inset: calc(var(--panel-shadow-margin) + 0px);
+    inset: var(--panel-shadow-margin);
     border-radius: var(--arrowpanel-border-radius);
     padding: 1px;
     background-position: center center !important;

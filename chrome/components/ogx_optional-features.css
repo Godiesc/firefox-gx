@@ -140,25 +140,30 @@
     --my-margin-inline-popups: -11px !important;
   }
 
-  
-  :is(menupopup, panel):where([type="arrow"]):not(#appMenu-popup, #tab-preview-panel)::after {
+                     /* not: Hamburger-menu, tab preview, tabgroup preview panel, contextual menu in group button, menu in customization mode */
+  :is(menupopup, panel):not(
+  #appMenu-popup, #tab-preview-panel, #tabgroup-preview-panel, .tab-group-editor-panel, 
+  #customization-uidensity-menu, #feature-callout, #chat-shortcuts-options-panel
+  ):where([type="arrow"])::after {
     z-index: 0 !important;
     top: calc(var(--my-margin-top-popups, -4px) + 4px) !important;
   }
 
   /* Margin tabsbar popups */
 
-  .panel-no-padding[type="arrow"]:not(#appMenu-popup) {
+  .panel-no-padding[type="arrow"]:not(#appMenu-popup, #feature-callout, #chat-shortcuts-options-panel) {
     /*--panel-shadow-margin: 0px !important;/**/
     padding-block-start: var(--my-margin-top-popups) !important;
     margin-inline: var(--my-margin-inline-popups) !important;
   }
 
   /* Panelarrow */
-
-  .panel-no-padding[type="arrow"]:not(#appMenu-popup)::before {
+                               /* not: hamburger menu, link preview popup, translation popup, IA popup */
+  .panel-no-padding[type="arrow"]:not(
+  #appMenu-popup, #link-preview-panel, 
+  #select-translations-panel, #selection-shortcut-action-panel/*, #feature-callout/**/, #chat-shortcuts-options-panel)::before {
     content: ''; position: absolute;
-    top: calc(var(--my-margin-top-popups) - 4px);  
+    top: calc(var(--my-margin-top-popups) - 4px);
     inset-inline-start: calc(var(--toolbarbutton-inner-padding) + 2px);
     width: 34px; height: 9px;
     background-size: 34px 9px;
@@ -172,7 +177,7 @@
 
   /*  Popups in Tabsbar  */
 
-  .panel-no-padding[type="arrow"] {
+  .panel-no-padding[type="arrow"]:not(#feature-callout) {                               /* not: firefox info messages */
     :root:has(#TabsToolbar-customization-target toolbarbutton[open]) & {
       margin-inline: -13px !important;
       

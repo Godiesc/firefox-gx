@@ -50,188 +50,284 @@
        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     
     @media not -moz-pref("firefoxgx.main-image") {
-
-        /* Dark 1 - Fuchsia */
-        #dark-sky,
-        body[style*="e94b1e49-c518-40d6-98e3-dffab6cc370d.avif"],
-        body[style*="e94b1e49-c518-40d6-98e3-dffab6cc370d.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-dark1) !important;
+        
+        /* Set default 'photographs' main category preview wallpaper */
+        
+        #photographs {
             background-image: var(--wallpaper-dark1) !important;
         }
+        
+        /* Replace 'Photographs' category label */
+        
+        #photographs ~ label,
+        .arrow-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] {
+            font-size: 0 !important;
 
-        /* Dark 2 - Ultraviolet */
-        #dark-mountain,
-        body[style*="af6073d2-cbb2-4e28-b642-3327d14808b2.avif"],
-        body[style*="af6073d2-cbb2-4e28-b642-3327d14808b2.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-dark2) !important;
-            background-image: var(--wallpaper-dark2) !important;
-        }
-
-        /* Dark 3 - Blue */
-        #dark-panda,
-        body[style*="6b8eb3cf-f232-4c7b-a179-afd174555134.avif"],
-        body[style*="6b8eb3cf-f232-4c7b-a179-afd174555134.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-dark3) !important;
-            background-image: var(--wallpaper-dark3) !important;
+            &::after {
+                content: 'Firefox GX';
+                font-size: var(--font-size-small);
+            }
         }
         
+        .arrow-button[data-l10n-id="newtab-wallpaper-category-title-photographs"]::after {
+            font-size: var(--font-size-root) !important;
+        }
+        
+        /* Rearrangement of wallpapers + Replace 'Photographs' preview wallpapers with Firefox-GX wallpapers */
+        
+        #dark-sky {              order: 1 !important;  background-image: var(--wallpaper-dark1) !important;  --general-color: var(--general-color-dark1) !important; }
+        #starry-canyon {         order: 2 !important;  background-image: var(--wallpaper-dark2) !important;  --general-color: var(--general-color-dark2) !important; }
+        #dark-mountain {         order: 3 !important;  background-image: var(--wallpaper-dark3) !important;  --general-color: var(--general-color-dark3) !important; }
+        #dark-panda {            order: 4 !important;  background-image: var(--wallpaper-dark4) !important;  --general-color: var(--general-color-dark4) !important; }
+        #dark-fox-anniversary {  order: 5 !important;  background-image: var(--wallpaper-dark5) !important;  --general-color: var(--general-color-dark5) !important; }
+        #dark-beach {            order: 6 !important;  background-image: var(--wallpaper-dark6) !important;  --general-color: var(--general-color-dark6) !important; }
+        #palm-trees {            order: 7 !important;  background-image: var(--wallpaper-dark7) !important;  --general-color: var(--general-color-dark7) !important; }
+        #suspension-bridge {     order: 8 !important;  background-image: var(--wallpaper-dark8) !important;  --general-color: var(--general-color-dark8) !important; }
+        #dark-landscape {        order: 9 !important;  background-image: var(--wallpaper-dark9) !important;  --general-color: var(--general-color-dark9) !important; }
+        #hot-air-balloons {      order: 10 !important; background-image: var(--wallpaper-light1) !important; --general-color: var(--general-color-light1) !important; }
+        #light-panda {           order: 11 !important; background-image: var(--wallpaper-light2) !important; --general-color: var(--general-color-light2) !important; }
+        #light-fox-anniversary { order: 12 !important; background-image: var(--wallpaper-light3) !important; --general-color: var(--general-color-light3) !important; }
+        #blue-flowers {          order: 13 !important; background-image: var(--wallpaper-light4) !important; --general-color: var(--general-color-light4) !important; }
+        #light-landscape {       order: 14 !important; background-image: var(--wallpaper-light5) !important; --general-color: var(--general-color-light5) !important; }
+        #sand-dunes {            order: 15 !important; background-image: var(--wallpaper-light6) !important; --general-color: var(--general-color-light6) !important; }
+        #light-mountain {        order: 16 !important; background-image: var(--wallpaper-light7) !important; --general-color: var(--general-color-light7) !important; }
+        #light-sky {             order: 17 !important; background-image: var(--wallpaper-light8) !important; --general-color: var(--general-color-light8) !important; }
+        #light-beach {           order: 18 !important; background-image: var(--wallpaper-light9) !important; --general-color: var(--general-color-light9) !important; }
+        
+        /* Apply New wallpapers 
+           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+        
+        /* Dark 1 - Fuchsia */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
+            :root { --newtab-text-primary-color: var(--general-color-dark1) !important; }
+            body,
+            #photographs,
+            #dark-sky {
+                --newtab-wallpaper: var(--wallpaper-dark1) !important;
+                background-image: var(--wallpaper-dark1) !important;
+            }
+        }
+        
+        /* Dark 2 - ultraviolet */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
+            :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
+            body,#photographs,
+            #starry-canyon {
+                --newtab-wallpaper: var(--wallpaper-dark2) !important;
+                background-image: var(--wallpaper-dark2) !important;
+            }
+        }
+        
+
+        /* Dark 3 - Blue */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
+            :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
+            body,
+            #photographs,
+            #dark-mountain {
+                --newtab-wallpaper: var(--wallpaper-dark3) !important;
+                background-image: var(--wallpaper-dark3) !important;
+            }
+        }
+
         /* Dark 4 - Green */
-        #dark-fox-anniversary,
-        body[style*='d8b71c77-9985-41d2-b98e-51bebc60e595.avif'],
-        body[style*="d8b71c77-9985-41d2-b98e-51bebc60e595.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-dark4) !important;
-            background-image: var(--wallpaper-dark4) !important;
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
+            :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
+            body,
+            #photographs,
+            #dark-panda {
+                --newtab-wallpaper: var(--wallpaper-dark4) !important;
+                background-image: var(--wallpaper-dark4) !important;
+            }
         }
-
+        
         /* Dark 5 - Swamp */
-        #dark-landscape,
-        body[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif'],
-        body[style*="10e23599-85bc-4660-ae06-7a67befbbcf9.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-dark5) !important;
-            background-image: var(--wallpaper-dark5) !important;
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
+            :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
+            body,
+            #photographs,
+            #dark-fox-anniversary {
+                --newtab-wallpaper: var(--wallpaper-dark5) !important;
+                background-image: var(--wallpaper-dark5) !important;
+            }
         }
 
-        /* Dark 6 - Gray */
-        #dark-beach,
-        body[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif'],
-        body[style*="966b18ad-3733-41c4-92f6-c89cdf1381d0.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-dark6) !important;
-            background-image: var(--wallpaper-dark6) !important;
+        /* Dark 6 - Cheaterman */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
+            :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
+            body,
+            #photographs,
+            #dark-beach {
+                --newtab-wallpaper: var(--wallpaper-dark6) !important;
+                background-image: var(--wallpaper-dark6) !important;
+            }
         }
-
+        
+        /* Dark 7 - Gray */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
+            :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
+            body,
+            #photographs,
+            #palm-trees {
+                --newtab-wallpaper: var(--wallpaper-dark7) !important;
+                background-image: var(--wallpaper-dark7) !important;
+            }
+        }
+        
+        /* Dark 8 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
+            :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
+            body,
+            #photographs,
+            #suspension-bridge {
+                --newtab-wallpaper: var(--wallpaper-dark8) !important;
+                background-image: var(--wallpaper-dark8) !important;
+            }
+        }
+        
+        /* Dark 8 - Catppuccino */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
+            :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
+            body,
+            #photographs,
+            #dark-landscape {
+                --newtab-wallpaper: var(--wallpaper-dark9) !important;
+                background-image: var(--wallpaper-dark9) !important;
+            }
+        }
+        
         /* Light 1 - Fuchsia */
-        #light-panda,
-        body[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif'],
-        body[style*="dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-light1) !important;
-            background-image: var(--wallpaper-light1) !important;
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
+            :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
+            body,
+            #photographs,
+            #hot-air-balloons {
+                --newtab-wallpaper: var(--wallpaper-light1) !important;
+                background-image: var(--wallpaper-light1) !important;
+            }
         }
-
+        
         /* Light 2 - Ultraviolet */
-        #light-landscape,
-        body[style*='d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif'],
-        body[style*="d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-light2) !important;
-            background-image: var(--wallpaper-light2) !important;
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
+            :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
+            body,
+            #photographs,
+            #light-panda {
+                --newtab-wallpaper: var(--wallpaper-light2) !important;
+                background-image: var(--wallpaper-light2) !important;
+            }
         }
 
         /* Light 3 - BLue */
-        #light-mountain,
-        body[style*='5344443f-f427-4029-bc6b-68bc22f83355.avif'],
-        body[style*="5344443f-f427-4029-bc6b-68bc22f83355.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-light3) !important;
-            background-image: var(--wallpaper-light3) !important;
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
+            :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
+            body,
+            #photographs,
+            #light-fox-anniversary {
+                --newtab-wallpaper: var(--wallpaper-light3) !important;
+                background-image: var(--wallpaper-light3) !important;
+            }
         }
 
         /* Light 4 - Rose */
-        #light-sky,
-        body[style*='45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif'],
-        body[style*="45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-light4) !important;
-            background-image: var(--wallpaper-light4) !important;
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
+            :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
+            body,
+            #photographs,
+            #blue-flowers {
+                --newtab-wallpaper: var(--wallpaper-light4) !important;
+                background-image: var(--wallpaper-light4) !important;
+            }
         }
 
         /* Light 5 - Lightgreen */
-        #light-beach,
-        body[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif'],
-        body[style*="56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-light5) !important;
-            background-image: var(--wallpaper-light5) !important;
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
+            :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
+            body,
+            #photographs,
+            #light-landscape {
+                --newtab-wallpaper: var(--wallpaper-light5) !important;
+                background-image: var(--wallpaper-light5) !important;
+            }
         }
         
         /* Light 6 - Orange */
-        #light-fox-anniversary,
-        body[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif'],
-        body[style*="a5a041de-9275-4eb5-8f21-a0171c82d388.avif"] #photographs {
-            --newtab-wallpaper: var(--wallpaper-light6) !important;
-            background-image: var(--wallpaper-light6) !important;
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
+            :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
+            body,
+            #photographs,
+            #sand-dunes {
+                --newtab-wallpaper: var(--wallpaper-light6) !important;
+                background-image: var(--wallpaper-light6) !important;
+            }
+        }
+        
+        /* Light 7 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
+            :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
+            body,
+            #photographs,
+            #light-mountain {
+                --newtab-wallpaper: var(--wallpaper-light7) !important;
+                background-image: var(--wallpaper-light7) !important;
+            }
+        }
+        
+        /* Light 8 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
+            :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
+            body,
+            #photographs,
+            #light-sky {
+                --newtab-wallpaper: var(--wallpaper-light8) !important;
+                background-image: var(--wallpaper-light8) !important;
+            }
+        }
+        
+        /* Light 9 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+            :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
+            body,
+            #photographs,
+            #light-beach {
+                --newtab-wallpaper: var(--wallpaper-light9) !important;
+                background-image: var(--wallpaper-light9) !important;
+            }
         }
     }
-    
-    /* Accent color for each wallpaper */
-    
-    :root:has(body[style*='e94b1e49-c518-40d6-98e3-dffab6cc370d.avif']){
-        --newtab-text-primary-color: var(--general-color-dark1) !important;    }
-
-    :root:has(body[style*='af6073d2-cbb2-4e28-b642-3327d14808b2.avif']){
-        --newtab-text-primary-color: var(--general-color-dark2) !important;    }
-    
-    :root:has(body[style*='6b8eb3cf-f232-4c7b-a179-afd174555134.avif']){
-        --newtab-text-primary-color: var(--general-color-dark3) !important;    }
-    
-    :root:has(body[style*='d8b71c77-9985-41d2-b98e-51bebc60e595.avif']){
-        --newtab-text-primary-color: var(--general-color-dark4) !important;    }
-
-    :root:has(body[style*='10e23599-85bc-4660-ae06-7a67befbbcf9.avif']){
-        --newtab-text-primary-color: var(--general-color-dark5) !important;    }
-
-    :root:has(body[style*='966b18ad-3733-41c4-92f6-c89cdf1381d0.avif']){
-        --newtab-text-primary-color: var(--general-color-dark6) !important;    }
-
-    :root:has(body[style*='dfd3762e-f77d-4b6e-ac75-32eb2549ef40.avif']){
-        --newtab-text-primary-color: var(--general-color-light1) !important;   }
-
-    :root:has(body[style*='d9289c5b-8c78-4b27-b5d8-afe7285ce7d1.avif']){
-        --newtab-text-primary-color: var(--general-color-light2) !important;   }
-
-    :root:has(body[style*='5344443f-f427-4029-bc6b-68bc22f83355.avif']){
-        --newtab-text-primary-color: var(--general-color-light3) !important;   }
-
-    :root:has(body[style*='45ecab20-ffb9-47b4-94ff-07a5f8b9f53f.avif']){
-        --newtab-text-primary-color: var(--general-color-light4) !important;   }
-
-    :root:has(body[style*='56a7f3ae-70cc-45f2-82ec-1d39acdd3b8d.avif']){
-        --newtab-text-primary-color: var(--general-color-light5) !important;   }
-    
-    :root:has(body[style*='a5a041de-9275-4eb5-8f21-a0171c82d388.avif']){
-        --newtab-text-primary-color: var(--general-color-light6) !important;   }
     
     /* Accent color indicator over each wallpaper */
     
     .wallpaper-input[aria-checked]::after {
-        position: fixed;
+        position: absolute;
         content: "";
         width: 10px;
         height: 10px;
         background-color: var(--general-color);
-        border-radius: 2px;
+        border-radius: 50%;
         margin-block: 5px;
         margin-inline: 5px;
         outline: 1px solid #80808080;
         outline-offset: 1px;
     }
     
-    /* Rearrangement of wallpapers */
-    
-    #dark-sky {             order: 1 !important;   --general-color: var(--general-color-dark1) !important; }
-    #dark-mountain {        order: 2 !important;   --general-color: var(--general-color-dark2) !important; }
-    #dark-panda {           order: 3 !important;   --general-color: var(--general-color-dark3) !important; }
-    #dark-fox-anniversary { order: 4 !important;   --general-color: var(--general-color-dark4) !important; }
-    #dark-landscape {       order: 5 !important;   --general-color: var(--general-color-dark5) !important; }
-    #dark-beach {           order: 6 !important;   --general-color: var(--general-color-dark6) !important; }
-    #light-panda {          order: 7 !important;   --general-color: var(--general-color-light1) !important; }
-    #light-landscape {      order: 8 !important;   --general-color: var(--general-color-light2) !important; }
-    #light-mountain {       order: 9 !important;   --general-color: var(--general-color-light3) !important; }
-    #light-sky {            order: 10 !important;  --general-color: var(--general-color-light4) !important; }
-    #light-beach {          order: 11 !important;  --general-color: var(--general-color-light5) !important; }
-    #light-fox-anniversary{ order: 12 !important;  --general-color: var(--general-color-light6) !important; }
-        
     /* Border color when 'hover' over wallpapers */
 
     .wallpaper-list .wallpaper-input:not(:checked):hover {
-        outline: 1px solid #808080 !important;
+        outline: 2px solid var(--general-color) !important;
+        box-shadow: inset 0 0 0 1px var(--contrast-color) !important;
     }
     
     /* Border color when 'hover' over selected wallpaper */
-    
-    .wallpaper-list .wallpaper-input {
-        padding: 1px !important;
-    }
 
     .wallpaper-list .wallpaper-input {
+        padding: 1px !important;
+        box-shadow: inset 0 0 1px 0 var(--border-color) !important;
+        
         &:checked {
             filter: none !important;
-            outline-color: var(--button-hover-bgcolor) !important;
+            box-shadow: inset 0 0 0 2px var(--color-accent-primary) !important;
+
             &:hover {
                 outline-color: var(--general-color) !important;
             }
@@ -314,9 +410,10 @@
 
     .modal {
         --newtab-border-color: var(--arrowpanel-border-color) !important;
+        border: 1px solid transparent !important;
         background: var(--newtab-overlay-color) !important;
         outline: 1px solid var(--contrast-color) !important;
-        border-radius: var(--border-radius-medium) !important;
+        border-image: var(--panel-separator-zap-gradient2) 1 !important;
         backdrop-filter: var(--personal-blur) !important;
     }
 
@@ -329,7 +426,7 @@
     }
 
     input[type="text"], input[type="search"] {
-        border-radius: 4px !important; 
+        border-color: var(--border-color) !important;
     }
 
     input:focus-visible {
@@ -365,12 +462,18 @@
     /* 'Customize' button */
     
     .personalize-button {
-        img {content: url("../icons/edit.svg") !important;  }
+        background-color: var(--newtab-pinnedsites-background) !important;
+        box-shadow: 0 0 0 1px #50505050, 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
+        
+        img {
+            content: url("../icons/edit.svg") !important;
+        }
         
         &:hover,
         &:focus {
             background-color: var(--newtab-element-secondary-hover-color) !important;
             backdrop-filter: var(--personal-blur) !important;
+            box-shadow: 0 0 0 1px var(--button-hover-bgcolor), 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
         }
     }
     
@@ -380,20 +483,18 @@
     }
 
     /* Colors of the 'Close' button */
-
-    .close-button {
-        border-color: transparent !important;
-    }
     
     .close-button-wrapper {
         --newtab-background-color-secondary: transparent !important;
-        position: static !important;
+        position: static !important; /* Make close button scroll up */
     }
     
     /* Weather */
     
     .weatherInfoLink, .weatherButtonContextMenuWrapper {
         background-color: light-dark(var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background)) !important;
+        background-image: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
+                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
     }
     
     .weatherCard {
@@ -416,13 +517,20 @@
         --newtab-button-static-background: #50505040 !important;
     }
     
+    .weatherSponsorText { display: none !important; }
+    
     /* _________________________________ Colors of the sliding sidebar used to customize the NewTab __________________________________ 
        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     
-    /* Shadow */
+    /* Shadow 
     
     .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active,
-    .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done{
+    .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done {
+        box-shadow: -1px 0 #50505050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+        transition-duration: 200ms !important;
+    }*/
+    
+    .customize-menu-animate-wrapper.customize-animate-enter-done, .customize-menu-animate-wrapper.customize-animate-enter-active {
         box-shadow: -1px 0 #50505050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
         transition-duration: 200ms !important;
     }
@@ -440,6 +548,16 @@
         background-color: var(--newtab-element-secondary-color) !important;
         border-radius: 4px !important;
         box-shadow: none !important;
+        
+        &:hover {
+            background-color: var(--button-bgcolor) !important;
+            border-color: var(--button-bgcolor) !important;
+        }
+        
+        &:focus {
+            background-color: var(--button-hover-bgcolor) !important;
+            border-color: var(--button-bgcolor) !important;
+        }
     }
     
     /* Checkbox color for 'sponsored sites' */
@@ -518,7 +636,18 @@
     }
 
     .search-inner-wrapper {
-        box-shadow: 0 2px var(--button-bgcolor) !important;
+        box-shadow: inset 0 -2px var(--button-bgcolor) !important;
+    }
+    
+    /* Remove unwanted borders */
+    
+    .search-handoff-button { 
+        box-shadow: none !important;
+        border-radius: 0px !important;
+        border-inline-color: transparent !important;
+        border-block-start-color: transparent !important;
+        border-block-end-width: 2px !important;
+        --content-search-handoff-ui-fakefocus-border-color: var(--general-color) !important;
     }
         
     /* Logo and Search when it get sticky position */
@@ -532,102 +661,11 @@
                 var(--newtab-wallpaper, none),
                 linear-gradient(var(--my-solid-background-blur, transparent), var(--my-solid-background-blur, transparent))!important;
             background-size: cover;
-            background-position: center;
+            /*background-position: center;/**/
             background-attachment: fixed;
             backdrop-filter: var(--personal-blur) !important;
             border-color: Field !important;
             box-shadow: 0 2px 6px 0 black !important;
-        }
-    }
-    
-    /* Styles for the classic search box */
-    
-    @media not -moz-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
-        
-        .search-handoff-button { box-shadow: none !important; }
-        
-        .search-handoff-button {
-            border-color: transparent !important;
-        }
-        
-        .search-inner-wrapper:not(:focus) input, .search-wrapper:not(:active) input:focus {
-            box-shadow: none !important;
-            outline-color: transparent !important;
-        }
-
-        .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
-            outline-color: transparent !important;
-            border-color: transparent !important;
-        }
-
-        browser[primary="true"][tabDialogShowing="true"],
-        #main-window[window-modal-open="true"] > body > #browser {
-            filter: blur(10px)
-        }
-        
-        /* Searchbox focus Animation line - included code for RTL language */
-        
-        :root:has(#newtab-search-text) .search-inner-wrapper:after,
-        :root:has(#newtab-search-text) .search-inner-wrapper:dir(rtl):after {
-            content: '' !important; display: flex !important; position: absolute !important;
-            width: 100% !important;
-            height: 2px !important;
-            top: 50px !important;
-            box-shadow: 0 2px 0 0 var(--general-color) !important;
-            clip-path: xywh(0 0 0% calc(100% + 2px)) !important;
-            transition: clip-path 400ms ease !important;
-        }
-        
-        :root:has(#newtab-search-text[Keepfocus="true"]) .search-inner-wrapper:after,
-        :root:has(#newtab-search-text[Keepfocus="true"]) .search-inner-wrapper:dir(rtl):after {
-            clip-path: xywh(0 0 100% calc(100% + 2px)) !important;
-            transition: clip-path 400ms ease !important;
-        }
-        
-        :root:has(#newtab-search-text) .search-inner-wrapper:dir(rtl):after  {
-            clip-path: xywh(100% 100% 0% calc(100% + 2px)) !important;
-        }
-    }
-    
-    /* Styles for the improved search box */
-    
-    @media -moz-pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar") {
-
-        /* Transparent border when 'focus' */    
-        .search-wrapper.fake-focus .search-inner-wrapper .search-handoff-button {
-            box-shadow: none !important;
-            border-color: transparent !important;
-            transition-duration: 0ms !important;
-        }
-
-        /* inputbox animation when 'focus' */
-
-        .search-wrapper .fake-editable,
-        .search-wrapper:dir(rtl) .fake-editable {
-            border-color: transparent !important;
-            border-radius: 0px !important;
-            box-shadow: 0 2px 0 0 var(--general-color) !important;
-            opacity: 1 !important;
-            clip-path: xywh(0 0 0% calc(100% + 2px)) !important;
-            transition: clip-path 400ms ease !important;
-        }
-
-        .search-wrapper.fake-focus .fake-editable,
-        .search-wrapper.fake-focus:dir(rtl) .fake-editable {
-            border-color: transparent !important;
-            border-radius: 0px !important;
-            box-shadow: 0 2px 0 0 var(--general-color) !important;
-            opacity: 1 !important;
-            clip-path: xywh(0 0 100% calc(100% + 2px)) !important;
-            transition: clip-path 400ms ease !important;
-        }
-        
-        .search-wrapper:dir(rtl) .fake-editable  {
-            clip-path: xywh(100% 100% 10% calc(100% + 2px)) !important;
-        }
-        
-        .search-wrapper .search-inner-wrapper:active input, .search-wrapper input:focus {
-            outline: none !important;
         }
     }
     
@@ -886,16 +924,16 @@
     
     /* Scheme light */                    
     .lightWallpaper :is(
-    .weatherCard, .personalize-button,                                                                  /* weather - personalize-button */
-    .search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"] ) {       /* Search-box */
+    .weatherCard, .personalize-button,                                                /* weather - personalize-button */
+    .search-inner-wrapper, #newtab-search-text[Keepfocus="true"] ) {                  /* Search-box */
         color-scheme: light !important;
         --contrast-color: white !important;
     }
     
     /* scheme dark */
     .darkWallpaper :is(
-    .weatherCard, .personalize-button,                                                                  /* weather - personalize-button */
-    .search-inner-wrapper input, .search-wrapper input, #newtab-search-text[Keepfocus="true"] ) {       /* Search-box */
+    .weatherCard, .personalize-button,                                                /* weather - personalize-button */
+    .search-inner-wrapper, #newtab-search-text[Keepfocus="true"] ) {                  /* Search-box */
         color-scheme: dark !important;
         --contrast-color: black !important;
     }
@@ -974,11 +1012,12 @@
         
         /* Slider background */
         .customize-menu-animate-wrapper {
+            background-image: url("../icons/urlbar-noise-light.png") !important;
             background-color: var(--newtab-background-color) !important;
         }
 
         .customize-menu {
-            background-image: url("../icons/urlbar-noise-light.png") !important;
+            backdrop-filter: none !important;
             background-color: transparent !important;
         }
 

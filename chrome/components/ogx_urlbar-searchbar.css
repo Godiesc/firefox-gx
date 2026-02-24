@@ -232,6 +232,11 @@ findbar {
     border-radius: var(--toolbarbutton-border-radius) !important;
 }
 
+/* Fix overflow background in last result item - not 'overflow hidden' in urlbar open to solve bug when trying url partial selection */
+.urlbarView-results {
+    clip-path: xywh( 0 0 100% 100% round 0 0 calc(var(--border-radius-urlbar-personal) + 6px) calc(var(--border-radius-urlbar-personal) + 6px)) !important;
+}
+
 #urlbar:not([open], [focused]) .urlbar-background {
     transition: ease-in 150ms !important;
     transition-delay: 80ms !important;
@@ -274,15 +279,25 @@ findbar {
 
 /* Dark filter when urlbar is [open] */
 
-#urlbar {
-    box-shadow: 0 0 0 100vw transparent;
-    transition: box-shadow 250ms ease-out !important;
+#urlbar-container::before {
+    content: '';
+    box-shadow: 0 0 0 100vw var(--my-box-shadow-color, transparent);
+    transition: box-shadow 250ms ease-out;
+    pointer-events: none;
+    z-index: 6 !important;
 }
 
-#urlbar[open] {
-    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
-    transition: box-shadow 250ms ease-out !important;
-    overflow: hidden !important;
+#urlbar-container:has(#urlbar[open])::before {
+    --my-box-shadow-color: rgba(0, 0, 0, 0.50);
+}
+
+/* 'Trust' button */
+
+@media -moz-pref("browser.urlbar.trustPanel.featureGate") {
+    #trust-icon-container {
+        align-self: center !important;
+        margin-inline-end: var(--urlbar-icon-padding) !important;
+    }
 }
 
 /* Search Engine button */

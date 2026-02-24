@@ -76,11 +76,16 @@ window, dialog, .dialogBox {
     --button-background-color-hover: var(--button-hover-bgcolor) !important;                    /* Button color on 'hover' */
     --button-background-color-active: var(--button-active-bgcolor) !important;                  /* Button color on 'active' */
     
+    --color-accent-primary-selected: var(--button-hover-bgcolor) !important;                    /* Accent color in selected item into a combobox */
+    --text-color-accent-primary-selected: var(--in-content-text-color) !important;              /* Text color in selected item into a combobox ^-- */
+    
+    --background-color-list-item-hover: var(--button-bgcolor) !important;                       /* Background color of Item of a combobox when 'hover' */
+    
     --button-border-color-hover: var(--button-bgcolor) !important;                              /* Button border color on 'hover' */
 
-    --button-background-color-primary: var(--button-hover-bgcolor) !important;                 /* Primary button background */
+    --button-background-color-primary: var(--button-hover-bgcolor) !important;                  /* Primary button background */
     --button-background-color-primary-hover: var(--button-active-bgcolor) !important;                   /* Primary button background on 'hover' */
-    --button-background-color-primary-active: var(--button-hover-bgcolor) !important;          /* Primary button background on 'active' */
+    --button-background-color-primary-active: var(--button-hover-bgcolor) !important;           /* Primary button background on 'active' */
     
     --button-text-color-primary: var(--in-content-text-color) !important;
 

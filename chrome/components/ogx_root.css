@@ -26,9 +26,9 @@
   --chrome-content-separator-color: none !important;                                    /* toolbar_bottom_separator */
 
   /*--arrowpanel-background: #1c1726 !important;                                        /* popup */
-  /*--arrowpanel-color: var(--my-font-color) !important;                       /* popup_text */
+  /*--arrowpanel-color: var(--my-font-color) !important;                                /* popup_text */
   /*--arrowpanel-border-color: color-mix(in srgb, 
-  var(--arrowpanel-background) 90%, var(--my-font-color)) !important;        /* popup_border */
+  var(--arrowpanel-background) 90%, var(--my-font-color)) !important;                   /* popup_border */
   /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);             /* popup_highlight */
 
   --panel-description-color: var(--general-color) !important;                           /* label color: mail, and connected devices */
@@ -38,7 +38,7 @@
 
   /*--toolbar-field-focus-background-color: color-mix(in srgb, 
   var(--general-color) 4%, #2e273ffb) !important;                                       /* toolbar_field_focus */
-  --toolbar-field-focus-color: var(--my-font-color) !important;                /* toolbar_field_text_focus */
+  --toolbar-field-focus-color: var(--my-font-color) !important;                         /* toolbar_field_text_focus */
   --toolbar-field-focus-border-color: transparent !important;                           /* toolbar_field_border_focus */
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /* toolbar_field_highlight */
   --lwt-toolbar-field-highlight-text: var(--contrast-color) !important;                 /* toolbar_field_highlight_text */
@@ -114,6 +114,9 @@
   --tab-overflow-clip-margin: 0px !important;                                           /* Remove unwanted space between pinned tabs */
   
   --border-radius-medium: 4px !important;                                               /* Roundness of various buttons */
+  
+  --trustpanel-highlight-bg: var(--button-bgcolor) !important;                          /* Background color when a page has connection secure - Trust button */
+  --trustpanel-inner-border: 1px solid var(--border-color) !important;                  /* Border color - Trust button - 0 trackers - tested in addons web page */
 
   /* Variable used for RTL languajes */
   &:dir(rtl) {

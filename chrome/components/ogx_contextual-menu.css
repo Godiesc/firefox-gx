@@ -66,7 +66,7 @@ panel:not(.in-menulist,.panel-no-padding) {
     background-repeat: var(--my-background-repeat) !important;
     background-size: var(--my-background-size) !important;
     background-position: var(--my-background-position) !important;
-    background-color: var(--my-background-color, Field) !important;
+    background-color: var(--my-background-color, Field) !important; /* Not 'Field' because 'TabGroupPreview' background color */
 }
 
 menupopup:not(.in-menulist) {
@@ -110,7 +110,7 @@ menupopup:not(.in-menulist) {
     @media not -moz-pref("firefoxgx.gradientBorder-in-menus") {
         /*&::before,/**/
         &::after {
-            --my-arrowpanel-gradient: radial-gradient(ellipse at center, var(--button-bgcolor), transparent);
+            --my-arrowpanel-gradient: radial-gradient(ellipse at center, var(--button-hover-bgcolor), transparent);
             content: "";
             position: absolute;
             inset: 1px;
@@ -122,6 +122,14 @@ menupopup:not(.in-menulist) {
             mask-composite: exclude;
             pointer-events: none !important;
         }
+    }
+}
+
+/* Autofill (example: login page) focus item background */
+
+.autocomplete-richlistitem {
+    &[selected] {
+        background-color: var(--button-hover-bgcolor) !important;
     }
 }
 

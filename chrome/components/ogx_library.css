@@ -144,6 +144,21 @@
         background-color: var(--organizer-pane-background) !important;
          border-color: transparent !important;
     }
+    
+    richlistitem[selected="true"] {
+        background-color: var(--button-bgcolor) !important;
+    }
+    
+    @media not (prefers-contrast) {
+        #downloadsListBox:focus > richlistitem[selected] {
+            background-image: none !important;
+            background-color: var(--button-bgcolor) !important;
+            border-radius: 0px !important;
+            outline: 1px solid var(--general-color) !important;
+            outline-offset: -1px !important;
+        }
+    }
+    
     /*--------------Fondo general de Editar--------------------*/
     #detailsPane, #places #downloadsRichListBox, #editBMPanel_keywordRow, #editBMPanel_locationRow, #editBMPanel_tagsRow, #editBMPanel_tagsSelectorRow {
         appearance: none !important;

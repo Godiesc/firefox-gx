@@ -3,9 +3,9 @@
 
 :root {           /* _______________ Color variables, you can put your custom color and use it _______________ */
 
-  --fuchsia: #fa1e4e;     --blue: #4c4cff;    --aqua: #00bfff;        --cyan: #00ffff;        --lightblue: #45a1ff;   --pink: #FF0F7E;
-  --purple: #8d35e2;      --green: #05b694;   --aquamarine: #00ffa2;  --lightgreen: #36ff4e;  --yellowbrown: #febd60; --swampautumn: #fdf008;
-  --gray: #bfb6d2;        --orange: #ff6c22;  --yellow: #ffe20f;      --red: #ff3230;         --navyblue: #0050cE;    --poison: #cb17cf;
+  --fuchsia: #fa1e4e;     --blue: #4c4cff;       --aqua: #00bfff;        --cyan: #00ffff;        --lightblue: #45a1ff;   --pink: #FF0F7E;        --poison: #cb17cf;
+  --purple: #8d35e2;      --green: #05b694;      --aquamarine: #00ffa2;  --lightgreen: #36ff4e;  --yellowbrown: #febd60; --swampautumn: #fdf008; --cheaterman: #33ff4e;
+  --gray: #bfb6d2;        --ashgray: #737373;    --orange: #ff6c22;      --yellow: #ffe20f;      --red: #ff3230;         --navyblue: #0050cE;    --fruttidimare: #FF5959;
   --catppuccino: #f38ba8;
   
   
@@ -22,7 +22,10 @@
   --wallpaper-dark3: url("../newtab/wallpaper-dark3.png") !important;           --general-color-dark3: var(--blue) !important;
   --wallpaper-dark4: url("../newtab/wallpaper-dark4.png") !important;           --general-color-dark4: var(--green) !important;
   --wallpaper-dark5: url("../newtab/wallpaper-dark5.png") !important;           --general-color-dark5: var(--swampautumn) !important;
-  --wallpaper-dark6: url("../newtab/wallpaper-dark6.png") !important;           --general-color-dark6: var(--gray) !important;
+  --wallpaper-dark6: url("../newtab/wallpaper-dark6.png") !important;           --general-color-dark6: var(--cheaterman) !important;
+  --wallpaper-dark7: url("../newtab/wallpaper-dark7.png") !important;           --general-color-dark7: var(--orange) !important;
+  --wallpaper-dark8: url("../newtab/wallpaper-dark8.png") !important;           --general-color-dark8: var(--catppuccino) !important;
+  --wallpaper-dark9: url("../newtab/wallpaper-dark9.png") !important;           --general-color-dark9: var(--gray) !important;
   
                   /* light wallpapers ¯¯¯| */                                    /* Accentcolor for each wallpaper ¯¯¯|
                                          v                                                                            v                          */  
@@ -31,7 +34,10 @@
   --wallpaper-light3: url("../newtab/wallpaper-light3.png") !important;         --general-color-light3: var(--blue) !important;
   --wallpaper-light4: url("../newtab/wallpaper-light4.png") !important;         --general-color-light4: var(--fuchsia) !important;
   --wallpaper-light5: url("../newtab/wallpaper-light5.png") !important;         --general-color-light5: var(--lightgreen) !important;
-  --wallpaper-light6: url("../newtab/wallpaper-light6.png") !important;         --general-color-light6: var(--orange) !important;
+  --wallpaper-light6: url("../newtab/wallpaper-light6.png") !important;         --general-color-light6: var(--green) !important;
+  --wallpaper-light7: url("../newtab/wallpaper-light7.png") !important;         --general-color-light7: var(--orange) !important;
+  --wallpaper-light8: url("../newtab/wallpaper-light8.png") !important;         --general-color-light8: var(--fruttidimare) !important;
+  --wallpaper-light9: url("../newtab/wallpaper-light9.png") !important;         --general-color-light9: var(--ashgray) !important;
 }
 
 @media (prefers-color-scheme: dark) { :root {

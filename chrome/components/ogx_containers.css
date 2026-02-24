@@ -120,6 +120,9 @@ tab-group[collapsed] > .tab-group-label-container:not(:hover) .tab-group-label {
 }
 
 .tab-group-overflow-count {
+    /* Solve bug in 'compact' density when 'tab selected' in 'collapsed' group */
+    padding-block: 0px !important;
+    
   #tabbrowser-tabs[orient="vertical"] & {
       margin-inline: 0px !important;
     }
@@ -167,7 +170,7 @@ tab-group[collapsed] > .tab-group-label-container:not(:hover) .tab-group-label {
     
     /* Center align group label */
     #tabbrowser-arrowscrollbox[orient="horizontal"] & {
-        padding-block: calc(var(--tab-block-margin) - 2px) calc(var(--tab-block-margin) + 2px) !important;
+        /*padding-block: calc(var(--tab-block-margin) - 2px) calc(var(--tab-block-margin) + 2px) !important;    /* Cause bug for 'compact' mode */
     }
 }
 
@@ -187,8 +190,8 @@ tab-group[collapsed] > .tab-group-label-container:not(:hover) .tab-group-label {
     
     /* Replace default group label height */
     .tab-group-label {
-        line-height: calc(var(--tab-group-label-height) + 2px) !important;
-        min-height: calc(var(--tab-group-label-height) + 2px) !important;
+        /*line-height: calc(var(--tab-group-label-height) + 2px) !important;
+        min-height: calc(var(--tab-group-label-height) + 2px) !important;/**/
     }
     
     /* Smaller tab height */
@@ -211,7 +214,7 @@ tab-group[collapsed] > .tab-group-label-container:not(:hover) .tab-group-label {
         }
 
         & .tab-content {
-            margin-block-end: -2px !important;
+            /*margin-block-end: -2px !important;/**/
         }
     }
 }

@@ -491,6 +491,18 @@ toolbar:is(#TabsToolbar, #nav-bar, #PersonalToolbar) #firefox-view-button[aria-p
     }
 }
 
+/* Remove unwanted background color in 'tabgroup' 'hover' preview */
+
+#tabgroup-panel-content {
+    background-color: transparent !important;
+}
+
+/* Remove unwanted maargins in tabgroup context-menu */
+
+#tab-group-main .tab-group-edit-mode-only {
+    margin-inline: calc(0px - var(--panel-padding) - 16px) !important;
+}
+
 /* _____________________________________________________ Configuration for Linux ______________________________________________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
