@@ -217,9 +217,9 @@
       }
    }
    
-   /* ______________________ Legacy image scaling ______________________ */
+   /* ______________________ Main image expand on hover alignment ______________________ */
 
-   @media -moz-pref("firefoxgx.use-legacy-main-image-scaling") {
+   @media -moz-pref("firefoxgx.main-image-expandOnHover-aligned") {
 
       #main-window {
          background-size: 100% 100vh !important;
