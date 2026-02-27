@@ -217,6 +217,64 @@
       }
    }
    
+   /* ______________________ Legacy image scaling ______________________ */
+
+   @media -moz-pref("firefoxgx.use-legacy-main-image-scaling") {
+
+      #main-window {
+         background-size: 100% 100vh !important;
+      }
+
+      .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
+         background-size: 100% 100vh !important;
+      }
+
+      #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack  > .tab-background {
+         background-size: 100vw 100vh !important;
+      }
+
+      #statuspanel label, 
+      findbar {
+         background-size: 100vw 100vh !important;
+      }
+
+      @media -moz-pref("sidebar.verticalTabs") {
+
+         :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
+            #sidebar-main {
+               background-size: 100vw 100vh !important;
+            }
+         }
+
+         @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
+
+            @media -moz-pref("firefoxgx.left-sidebar") {
+
+               :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
+                  #sidebar-main {
+                     background-size: 100vw 100vh !important;
+                  }
+               }
+            }
+         }
+      }
+
+      @media -moz-pref("firefoxgx.tab-shapes") {
+
+         @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or 
+                -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or 
+                -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
+                -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
+                -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
+
+                  .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background::before,
+                  .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background::after {
+                     background-size: 100% !important;
+                  }
+         }
+      }
+   }
+
    /* Oneline compatibility */
 
    @media -moz-pref("firefoxgx.oneline") {

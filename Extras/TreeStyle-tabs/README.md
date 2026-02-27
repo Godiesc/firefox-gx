@@ -10,6 +10,12 @@
     <td width="500px">firefoxgx.verticalTabs-expandOnHover</td>
     <td width="50px">true</td></tr>
     </table>
+
+<li>Note: When using the 'Expand on hover' feature, and are using main image and want the image underneath the tabs to match with the rest of the window you must enable legacy main image scaling in about:config page:</li>
+    <table><tr>
+    <td width="500px">firefoxgx.use-legacy-main-image-scaling</td>
+    <td width="50px">true</td></tr>
+    </table>
 <li>Dependig of the extension you will use for tree-tabs you have different steps to follow:
 <ul><li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/TreeStyle-tabs/Sidebery">Sideberry</a></li>
 <li><a href="https://github.com/Godiesc/firefox-gx/tree/main/Extras/TreeStyle-tabs/Tab-Center-Reborn">Tab-center-reborn</a></li>
