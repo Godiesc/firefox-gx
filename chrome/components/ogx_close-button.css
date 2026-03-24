@@ -34,42 +34,16 @@
         display: flex !important;
         transition: all 0.2s ease !important;
     }
-/*
-    @container smaller-tab (width < 48px) {
-        .tabbrowser-tab {
-            &:not([pinned])[fadein]:not([soundplaying],[muted],[activemedia-blocked]) {
-                #tabbrowser-tabs[orient="horizontal"] & {
-                    
-                    .tab-close-button,
-                    .tab-label-container {
-                        display: none !important;
-                    }
-                    
-                    .tab-content {
-                        --tab-inline-padding: 0px !important;
-                        --tab-icon-end-margin: 0px !important;
-                    }
+}
 
-                    .tab-icon-stack {
-                        margin-inline: auto !important;
-                    }
-                }
-            }
+/* In vertical tabs, a split view tab close button */
+#tabbrowser-tabs tab-split-view-wrapper {
+    #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
+        & .tab-close-button {
+            inset-inline-start: 2px !important;
+
         }
     }
-    
-    @container smaller-sound-tab (width < 48px) {
-        .tabbrowser-tab {
-            &:not([pinned])[fadein]:is([soundplaying],[muted],[activemedia-blocked]) {
-                #tabbrowser-tabs[orient="horizontal"] & {
-                    
-                    .tab-close-button {
-                        display: none !important;
-                    }
-                }
-            }
-        }
-    }/**/
 }
 
 #tabbrowser-tabs[orient="vertical"] {
@@ -89,11 +63,6 @@
         }
     }
     &[expanded] {
-        /*& .tabbrowser-tab[pinned] {
-            & .tab-close-button {
-                display: none !important;
-            }
-        }/**/
         & .tab-close-button {
             height: 16px !important;
             width:  16px !important;

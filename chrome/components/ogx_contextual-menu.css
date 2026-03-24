@@ -1,8 +1,8 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Menu padding */
-
+/* Menu padding \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 menupopup {
     --panel-padding: 4px 0px !important;
 }
@@ -13,14 +13,14 @@ menupopup > menuitem, menupopup > menu {
     border-radius: 0px !important;
 }
 
-/* Combo-box - Select Box more compact */
-
+/* Combo-box - Select Box more compact \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #ContentSelectDropdown > menupopup > menuitem {
     padding: 0 6px !important;
 }
 
-/* Separator */
-
+/* Separator \
+¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 menupopup:not(.in-menulist)  menuseparator {
     padding-inline: 6px !important;
     
@@ -34,8 +34,8 @@ menupopup:not(.in-menulist)  menuseparator {
     }
 }
 
-/* Bug fix: Separator after 'AI menu' causes unwanted scrolling */
-
+/* Bug fix: Separator after 'AI menu' causes unwanted scrolling \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media -moz-pref("browser.ml.chat.menu") {
     #context-ask-chat,
     #context-ask-chat + #frame-sep {
@@ -43,16 +43,16 @@ menupopup:not(.in-menulist)  menuseparator {
     }
 }
 
-/* 'Menu inside menu' margin */
-
+/* 'Menu inside menu' margin \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 menupopup menupopup {
     appearance: none !important;
     margin-block-start: -6px !important;
     margin-inline-start: -8px !important;
 }
 
-/* General Styles */
-
+/* General Styles \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 menupopup:not(.in-menulist), 
 panel:not(.in-menulist,.panel-no-padding) {
     --panel-shadow-margin: 1px !important;  /* 1px to draw the external border */
@@ -66,13 +66,13 @@ panel:not(.in-menulist,.panel-no-padding) {
     background-repeat: var(--my-background-repeat) !important;
     background-size: var(--my-background-size) !important;
     background-position: var(--my-background-position) !important;
-    background-color: var(--my-background-color, Field) !important; /* Not 'Field' because 'TabGroupPreview' background color */
+    background-color: var(--my-background-color, Field) !important;
 }
 
 menupopup:not(.in-menulist) {
     --panel-background: var(--arrowpanel-background) !important;
     --panel-shadow: 0 0 0 1px var(--border-contrast-color) !important;
-    --my-background-image1:                                                         /* Soft gradient background - needs to be 1 */
+    --my-background-image1:                                              /* Soft gradient background - needs to be 1 */
         radial-gradient( 100% 91.38% at 50% 99.62%,
         color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
         var(--arrowpanel-background)) !important;
@@ -82,7 +82,6 @@ menupopup:not(.in-menulist) {
     --my-background-color: var(--arrowpanel-background) !important;
 
     /* Font color in Contextual menus */
-
     &> menuitem,
     &> menu {
         &:not([disabled]) {
@@ -91,8 +90,7 @@ menupopup:not(.in-menulist) {
         }
     }
 
-    /* Color to 'hover' items */
-
+    /* Backgroud color to 'hover' items */
     &> menu,
     &> menuitem {
         &:where([_moz-menuactive]) {
@@ -105,10 +103,8 @@ menupopup:not(.in-menulist) {
         }
     }
     
-    /* Gradient border */
-    
+    /* Smooth colored border */
     @media not -moz-pref("firefoxgx.gradientBorder-in-menus") {
-        /*&::before,/**/
         &::after {
             --my-arrowpanel-gradient: radial-gradient(ellipse at center, var(--button-hover-bgcolor), transparent);
             content: "";
@@ -125,29 +121,17 @@ menupopup:not(.in-menulist) {
     }
 }
 
-/* Autofill (example: login page) focus item background */
-
+/* Autofill (example: login page) focus item background \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .autocomplete-richlistitem {
     &[selected] {
         background-color: var(--button-hover-bgcolor) !important;
+        color: FieldText !important;
     }
 }
 
-/* Mostrar background-color en el item seleccionado 
-
-menuitem:is([selected]):not([disabled="false"]) {
-    appearance: none !important;
-    background-color: var(--button-hover-bgcolor) !important;
-    color: #ffffff !important;
-}
-
-menuitem:is([selected="true"]):hover:not([disabled="false"]) {
-    appearance: none !important;
-    background-color: var(--button-active-bgcolor) !important;
-}*/
-
-/* __________________________ Makes context navigation buttons appears as normal textual menuitems __________________________ */
-
+/* Makes context navigation buttons appears as normal textual menuitems \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #context-navigation { flex-direction: column !important; }
 
 @media -moz-pref("firefoxgx.icon.disabled") {
@@ -179,8 +163,8 @@ menuitem:is([selected="true"]):hover:not([disabled="false"]) {
     content: attr(aria-label);
 }
 
-/* 'back-forward-reload-addBookmark' buttons size */
-
+/* 'back-forward-reload-addBookmark' buttons size \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media not -moz-pref("firefoxgx.icon.disabled") {
 
     #context-navigation > .menuitem-iconic {
@@ -212,85 +196,9 @@ menuitem:is([selected="true"]):hover:not([disabled="false"]) {
         -moz-box-pack: start !important;
         width: auto !important;
         border-radius: 0px !important;
-    }
-}
-
-/* _______________________________________________________________ LINUX _______________________________________________________________ 
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-@media (-moz-platform: linux) {
-
-    @media not -moz-pref("firefoxgx.icon.disabled") {
         
-        /*:not(#context-navigation) menuitem:not([type="radio"],[type="checkbox"],.menuitem-with-favicon, .menuitem-iconic) > .menu-icon {
-            display: none !important;
+        @media (-moz-platform: linux) {
+            padding-inline-start: 0px !important;
         }
-
-        /* Remove unwanted margin that interferes with icon margin */
-
-        .menu-text{ margin-inline-start: 0px !important; }
-
-        /* Remove double icon on certain menu items 
-
-        :is(
-        #toggle_toolbar-menubar:not([checked="true"]),
-        #toggle_PersonalToolbar,
-        #show-other-bookmarks_PersonalToolbar:not([checked="true"]),
-        #context-sendpagetodevice,
-        #context-ask-chat,
-        #spell-check-enabled:not([checked="true"]),
-        #spell-dictionaries,
-        #goOfflineMenuitem,
-        #browserToolsMenu,
-        #historyUndoMenu,
-        #historyUndoWindowMenu,
-        #toolbar-context-full-screen-autohide[checked="false"],
-        #menu_newUserContext,
-        #menu_viewPopup>menu,
-        #menu_devToolbox,
-        #menu_responsiveUI,
-        #menu_eyedropper,
-        #main-menubar #toggle_toolbar-menubar,
-        #main-menubar :is(#toggle_PersonalToolbar, #pageStyleMenu) menuitem,
-        #menu_bookmarksSidebar,
-        #menu_historySidebar,
-        #menu_tabsSidebar,
-        #toggle_zoom,
-        .unified-extensions-context-menu-pin-to-toolbar
-        ) > .menu-icon {
-            display: none !important;
-        }*/
-
-        /* Align extension icons */    
-
-        .menuitem-iconic:not(#context-navigation>.menuitem-iconic), .menu-iconic:not(#PlacesToolbar){
-            padding-inline-start: 12px !important;
-        }
-
-        /* 'bookmarks items' margin from menubar */
-
-        ..menu-icon:not(#context-navigation>.menuitem-iconic>.menu-icon) {
-            padding-inline-end: 5px !important;
-        }
-    }
-
-    /* Align items when icons are disabled */
-
-    @media -moz-pref("firefoxgx.icon.disabled") {
-        #context-navigation > menuitem {
-            /*padding-inline-start: 28px !important;/**/
-            padding-inline: 8px !important;
-            padding-block: 4px !important;
-        }
-    }
-
-    /* Items */
-
-    menupopup {
-        --panel-padding: 4px 0px !important;
-    }
-
-    menu, menuitem, menucaption {
-        border-radius: 0px !important;
     }
 }

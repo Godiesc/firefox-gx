@@ -1,15 +1,15 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-@media -moz-pref("firefoxgx.tree-tabs") and ((not -moz-pref("sidebar.verticalTabs")) /*and (not -moz-pref("firefoxgx.oneline"))/**/) {
-    
-/* __________________________________________________________ For Tree-tabs extensions __________________________________________________________
-   _________________________ https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/hide_tabs_toolbar_v2.css _________________________ */
+/* ______________________________________ For Tree-tabs extensions ______________________________________
+¯¯¯¯¯¯¯¯ https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/hide_tabs_toolbar_v2.css ¯¯¯¯¯¯¯¯ */
 
-    /* This requires Firefox 133+ to work */
+@media -moz-pref("firefoxgx.tree-tabs") and ((not -moz-pref("sidebar.verticalTabs"))) {
+
+    /* Hidde horizontal tabs */
 
     @media -moz-pref("sidebar.verticalTabs"){
-        #sidebar-main{
+        #sidebar-main {
             visibility: collapse;
         }
     }
@@ -53,13 +53,11 @@
     }
 }
 
-/* ___________________________________________________________________________________________________________________________________________ 
-   ___________________________________________________________________________________________________________________________________________ */
-
-@media /*(not (-moz-bool-pref:"firefoxgx.tree-tabs")) and/**/ -moz-pref("sidebar.verticalTabs") /*and (not -moz-pref("firefoxgx.oneline")) /**/{   
+/* _________________ When using default 'Vertical tabs' _________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media -moz-pref("sidebar.verticalTabs") {   
 
     /* ¡Necessary for the hamburger button to be above the sidebar */
-        
     .browser-titlebar {
         :root & {
             will-change: unset !important;
@@ -68,72 +66,32 @@
     }
     
     /* Remove unwanted space in navbar */
-
     #vertical-spacer {
         display: none !important;
     }
+    
+    /* Toolbars background color */
+    .browser-toolbar:not(#toolbar-menubar) {
+        background-color: var(--toolbar-bgcolor) !important;
+    }
 }
 
-/* ______________________________________________ Code for both 'tree-tabs' or 'Firefox vertical tabs' _______________________________________________ */
+/* ________________________________________ Code for both 'tree-tabs' or 'Firefox vertical tabs' ________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) /*and (not -moz-pref("firefoxgx.oneline"))/**/ {
+@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
     
-    /* My Personal Variables */
-
-    :root {
-        /* Remove unnecessary padding for window controls in [sizemode="normal"] */
-        --windowed-top-padding: 0px !important;
-    }
-    
-    :root[lwtheme],
-    :root:not([lwtheme]){
-        /* New background for toolbarbuttons on 'hover' */
-        --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
-    }
-    
-    /* Overwrite variable to fix height of buttons */
-    
-    .titlebar-buttonbox-container {
-        --tab-height-personal: var(--toolbar-height-personal) !important;
-        margin-inline-start: 42px !important;
-    }
-
-    /* Separator between <window controls> and other buttons */
-
-    :root:not([chromehidden~="toolbar"]) #nav-bar>.titlebar-buttonbox-container::before{
-        content: ""; position: absolute !important; align-self: center !important;
-        background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
-        background-size: 6px 16px !important;
-        width: 6px !important;
-        height: 16px !important;
-        fill: var(--toolbarbutton-icon-fill) !important;
-        -moz-context-properties: fill !important;
-        opacity: 0.2 !important;
-        fill-opacity: 1 !important;
-        margin-inline-start: -24px !important;
-    }
-    
-    /* Separator between <window controls> and other buttons - LinuxOS*/
-    
-    @media -moz-pref("userchrome.force-window-controls-on-left.enabled"),
-       (-moz-gtk-csd-reversed-placement),
-       (-moz-platform: macos){
-           :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) #nav-bar>.titlebar-buttonbox-container::before{
-               margin-inline-start: calc(106px) !important;
-           }
-    }
-
-    /* _______ trick to be able to click on extensions from the top edge of the nav-bar */
-
-    :root:not([chromehidden~="toolbar"]){    
+    /* trick to be able to click on extensions from the top edge of the nav-bar \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    :root:not([chromehidden~="toolbar"]) {    
         toolbar .toolbaritem-combined-buttons toolbarbutton {
             margin-top: -7px !important;
             padding-top: 7px !important;
         }
     }
 
-    /* _______ Make border top of url dragable */
-
+    /* Make border top of url dragable \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     #urlbar-container {
         margin-block: 1px !important;
     }
@@ -142,20 +100,20 @@
         --urlbar-container-height: calc(var(--toolbar-height-personal) - 2px) !important;
     }
 
-    /* _______ Urlbar text centered */
-
+    /* Urlbar text centered \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     #urlbar:not([open],[focused]) .urlbar-input{ 
         text-align: center !important; 
     }
     
-    /* _______ New position of Zoom button */
-
+    /* New position of Zoom button \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     #urlbar-zoom-button{
         order: -1 !important;
     }
     
-    /* Bug fix: Trick to hide urlbar when menu appears (Alt key) */
-
+    /* Bug fix: Trick to hide urlbar when menu appears (Alt key) \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     #toolbar-menubar[autohide] ~ #nav-bar #urlbar {
         opacity: 0 !important;
         pointer-events: none !important;
@@ -202,15 +160,15 @@
     }
     
     #toolbar-menubar[autohide] #main-menubar{
-        background-image: linear-gradient(
-            var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor),var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor)),
+        background-image: linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)),
+            linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)),
             var(--lwt-additional-images,none), var(--lwt-header-image, none),
             linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field));
-        background-attachment: scroll, fixed, fixed;
-        background-position: 0 0, var(--lwt-background-alignment), right top;
+        background-attachment: scroll, scroll, fixed, fixed;
+        background-position: 0 0, 0 0, var(--lwt-background-alignment), right top;
         background-position-y: top !important;
-        background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat;
-        background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto;
+        background-repeat: repeat-x, repeat-x, var(--lwt-background-tiling), no-repeat;
+        background-size: auto 100%, auto 100%, var(--lwt-background-size, auto auto), auto auto;
         /* Not set 'color' - tested it in 'APNG-Kakashi Hatake' theme */
         box-shadow: inset 0 -1px var(--my-content-border-color) !important;
     }
@@ -223,7 +181,8 @@
         #toolbar-menubar[autohide]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
     }
 
-    /* ________________________________ My code - Style when menubar is always visible */
+    /* ___________ My code - Style when menubar is always visible ___________
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
     #toolbar-menubar:not([autohide]) {
         position: initial !important;
@@ -234,12 +193,9 @@
     /* Display window controls */
     #toolbar-menubar:not([autohide]) > .titlebar-buttonbox-container,
     #toolbar-menubar:not([autohide]) > spacer{ display: flex; }
-}
 
-/* Gradient line under Menubar when it is active */
-
-@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) /*and (not -moz-pref("firefoxgx.oneline"))/**/ {
-    
+    /* Gradient line under Menubar when it is active \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     #toolbar-menubar:not([autohide]) {
         &::after{
             content: ""; position: absolute !important; 
@@ -258,24 +214,6 @@
         
         & #main-menubar{
             height: var(--menubar-height-personal);
-        }
-    }
-}
-
-/* __________________________ Toolbars new background __________________________ */
-
-@media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
-
-    /* 'Nav-bar - boolmarks-bar - Sidebar-main' background color */
-
-    .browser-toolbar:not(#toolbar-menubar) {
-        background-color: var(--toolbar-bgcolor) !important;
-    }
-
-    @media not -moz-pref("firefoxgx.left-sidebar") {
-
-        #sidebar-main:not([sidebar-positionend]), #navigator-toolbox::before {
-            /*background-color: color-mix(in srgb, var(--toolbar-bgcolor) 75%, transparent) !important;/**/
         }
     }
 }

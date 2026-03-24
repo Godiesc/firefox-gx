@@ -143,7 +143,7 @@
                      /* not: Hamburger-menu, tab preview, tabgroup preview panel, contextual menu in group button, menu in customization mode */
   :is(menupopup, panel):not(
   #appMenu-popup, #tab-preview-panel, #tabgroup-preview-panel, .tab-group-editor-panel, 
-  #customization-uidensity-menu, #feature-callout, #chat-shortcuts-options-panel
+  #customization-uidensity-menu, /*#feature-callout,/**/ #chat-shortcuts-options-panel
   ):where([type="arrow"])::after {
     z-index: 0 !important;
     top: calc(var(--my-margin-top-popups, -4px) + 4px) !important;
@@ -161,7 +161,7 @@
                                /* not: hamburger menu, link preview popup, translation popup, IA popup */
   .panel-no-padding[type="arrow"]:not(
   #appMenu-popup, #link-preview-panel, 
-  #select-translations-panel, #selection-shortcut-action-panel/*, #feature-callout/**/, #chat-shortcuts-options-panel)::before {
+  #select-translations-panel, #selection-shortcut-action-panel, #feature-callout, #chat-shortcuts-options-panel)::before {
     content: ''; position: absolute;
     top: calc(var(--my-margin-top-popups) - 4px);
     inset-inline-start: calc(var(--toolbarbutton-inner-padding) + 2px);
@@ -260,9 +260,9 @@
 
 @media -moz-pref("firefoxgx.gradientBorder-in-menus") /*and (not -moz-pref("firefoxgx.arrow-in-menus"))/**/ {
   
-  :root,
+  :root/*,
   :root[lwtheme],
-  :root:not([lwtheme]) {
+  :root:not([lwtheme])/**/ {
     --arrowpanel-border-radius: 0px !important;
     --panel-separator-zap-gradient2: linear-gradient(to right, transparent, var(--general-color)) !important;
   }
@@ -288,6 +288,6 @@
   }
   
   :is(menupopup, panel):where([type="arrow"])::after {
-    background: var(--panel-separator-zap-gradient2);
+    background: var(--panel-separator-zap-gradient2) !important;
   }
 }

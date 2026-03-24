@@ -9,25 +9,23 @@
 
   .tab-background {
     clip-path: none !important;
-    border-inline: none !important;
+    border-radius: 0 !important;
+    margin-inline: 0px !important;
+  }
+
+  #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper .tab-background {
+    clip-path: var(--my-tab-background-clip) !important;
+    margin-inline: 1px !important;
     border-radius: 0 !important;
   }
 
-  .tabbrowser-tab[visuallyselected] > .tab-stack::before{
+  .tabbrowser-tab[visuallyselected] > .tab-stack::before {
     display: none !important;
   }
-
-  #tabbrowser-arrowscrollbox[orient="horizontal"] {
-
-    /* Margin between tabs */
-    &>.tabbrowser-tab,
-    &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-child) {
-      padding-inline: 0 !important;
-    }
-
-    /* Margin last tab of group */
-    &>tab-group:not([collapsed])>.tabbrowser-tab:is(:last-child) {
-      margin-inline-end: calc(var(--uc-tab-corner-size)/2) !important;
+  
+  #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper {
+    .tabbrowser-tab[visuallyselected] > .tab-stack::before {
+      display: flex !important;
     }
   }
   
@@ -43,13 +41,10 @@
     opacity: 0 !important; 
     pointer-events: none !important;
   }
-
-  /* Smaller size of tab shape */  
-  tab-group>.tabbrowser-tab .tab-background {
-    &::before, &::after {
-      height: calc(var(--tab-height-personal) - 4px) !important;
-      width: calc(var(--uc-tab-corner-size) - 4px) !important;
-    }
+  
+  tab-group:is([collapsed]) tab-split-view-wrapper[hasactivetab] .tabbrowser-tab {
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
   
 /* ________________________________________________ various styles ________________________________________________ */
@@ -59,8 +54,27 @@
     -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
 
       :root {
-        --border-radius-urlbar-personal: 14px !important;
+        --border-radius-urlbar-personal: 12px !important;
         --urlbar-icon-border-radius: 14px !important;
+      }
+      
+      #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper {
+        clip-path: xywh(0 0 100% 100% round 14px);
+      }
+      
+      #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper {
+        & .tabbrowser-tab {
+          
+          &:first-child {
+            --my-tab-background-clip: xywh(0 0 100% 100% round var(--border-radius-urlbar-personal) 0 0 var(--border-radius-urlbar-personal));
+            --my-tab-stack-clip:  xywh(0 0 100% 100% round var(--border-radius-urlbar-personal) 0 0 var(--border-radius-urlbar-personal));
+          }
+          
+          &:last-child {
+            --my-tab-background-clip: xywh(0 0 100% 100% round 0 var(--border-radius-urlbar-personal) var(--border-radius-urlbar-personal) 0);
+            --my-tab-stack-clip:  xywh(0 0 100% 100% round 0 var(--border-radius-urlbar-personal) var(--border-radius-urlbar-personal) 0);
+          }
+        }
       }
 
       /* Various navbar and tabsbar buttons border radius */
@@ -98,6 +112,10 @@
   
   .tabbrowser-tab:nth-child(1 of :not([hidden])) {
     margin-inline-start: calc(0px - var(--uc-margin-left-right, 0px) + var(--uc-tab-corner-half-size, 4px)) !important;
+  }
+  /* |-> remove margin inline in tabs in split view */
+  #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper .tabbrowser-tab:nth-child(1 of :not([hidden])) {
+    margin-inline-start: 0px !important;
   }
   
   #tabbrowser-tabs>#pinned-tabs-container>.tabbrowser-tab:last-child {
@@ -149,19 +167,11 @@
     --uc-tab-shadow-color: var( --general-color, var(--lwt-tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9)))  );
     --uc-tab-shadow-color-bundle: var(--general-color, var(--lwt-tab-line-color, rgba(128, 128, 142, 0.9)));
   }
-  .tabbrowser-tab:is([selected],[multiselected]) .tab-background {
+  .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
     box-shadow: none !important;
     filter: drop-shadow(-1px -0.5px 0px var(--general-color, transparent))
       drop-shadow(1px -0.5px 0px var(--general-color, transparent));
     /* This next rule set is needed for Fx 120, otherwise themes with translucent tabs would seem to have extra border separating them from toolbar below. */
-    background-attachment: scroll, fixed, fixed !important;
-    background-color: transparent !important;
-    background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-                                      var(--lwt-additional-images,none), var(--lwt-header-image, none),
-                      linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field))!important;
-    background-position: 0 0, var(--lwt-background-alignment), right top !important;
-    background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
-    background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
     transition: filter 0s ease !important;
     transition-delay: 10ms !important;
   }
@@ -191,69 +201,22 @@
       @media not -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
         @media not -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
           @media not -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
-            #TabsToolbar {
-               --uc-tab-corner-rounding: 3px; /* 10px looks about like chromium - 17px looks close to Australis tabs */
-              --uc-tab-corner-padding: 0px;
+            .tabbrowser-tab {
+              --uc-tab-corner-rounding: 10px; /* 10px looks about like chromium - 17px looks close to Australis tabs */
+              --uc-tab-corner-padding: 6px;
               --uc-tab-corner-position: calc(var(--uc-tab-corner-padding) - var(--uc-tab-corner-rounding));
               --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left.svg");
               --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right.svg");
-              --uc-margin-left-newtab: 7px;
-            }
-            
-            .tab-background { border-radius: 5px 5px 0 0 !important; }       /* My edit */
-
-            .tab-background {
-              .tabbrowser-tab > .tab-stack > &:not([selected],[multiselected],[visuallyselected]) {
-                border-radius: 5px 5px 0 0 !important;
-              }
-            }
-            
-            .tabbrowser-tab .tab-background::before,
-            .tabbrowser-tab .tab-background::after {
-              /* Box */
-              content: "";
-              display: block;
-              position: absolute;
-              z-index: -1;
-              bottom: 0;
-              /* Shape */
-              width: var(--uc-tab-corner-rounding) !important;
-              height: 100%;
-              /* Color */
-              fill: transparent;
-              stroke: transparent;
-              -moz-context-properties: fill, stroke;
-              /* Image */
-              background-size: var(--uc-tab-corner-rounding);
-              background-repeat: no-repeat;
-              background-position-y: bottom;
-            }
-            
-            .tabbrowser-tab .tab-background {
-              &::before {
-                left: var(--uc-tab-corner-position);
-                background-image: var(--uc-tab-corner-left-side-svg);
-              }
               
-              &::after {
-                right: var(--uc-tab-corner-position);
-                background-image: var(--uc-tab-corner-right-side-svg);
+              .tab-background {
+                border-radius: 4px 4px 0 0 !important;
+                margin-inline: 1px !important;
               }
             }
             
-            .tabbrowser-tab[visuallyselected] .tab-background::before,
-            .tabbrowser-tab[visuallyselected] .tab-background::after {
-              fill: var(--uc-tab-corner-bgimage, var(--toolbar-bgcolor));
-              /*stroke: var(--tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9)));/**/
-            }
-            .tabbrowser-tab[multiselected] .tab-background::before,
-            .tabbrowser-tab[multiselected] .tab-background::after {
-              fill: var(--uc-tab-corner-bgimage, var(--toolbar-bgcolor));
-            }
-            
-            /* Gives space for 'left' & 'right' image */
-            .tabbrowser-tab {
-              overflow-clip-margin: var(--uc-tab-corner-rounding) !important;
+            /* Remove margin on the <left> and <right> of the tabs */
+            .tabbrowser-tab:nth-child(1 of :not([hidden])) {
+              margin-inline-start: 0px !important;
             }
           }
         }
@@ -266,41 +229,48 @@
     -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
     -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
     -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
-    #TabsToolbar {
-      --uc-tab-corner-height: calc(var(--tab-min-height) - 1px);
-      --uc-tab-corner-size: calc(var(--uc-tab-corner-height) - 1px);
+      
+      .tabbrowser-tab {
+      --uc-tab-corner-height: calc(var(--tab-min-height) - 0px);
+      --uc-tab-corner-size: calc(var(--uc-tab-corner-height) - 0px);
       --uc-tab-corner-half-size: calc(var(--uc-tab-corner-size) / 2);
       --uc-tab-corner-half-size-reverse: calc(var(--uc-tab-corner-half-size) * -1);
       --uc-tab-corner-bgimage: none;
     }
+      
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") {
-      #TabsToolbar {
+      
+      .tabbrowser-tab {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-wave1.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-wave1.svg#svgClipPath");
         --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-wave1.svg");
         --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-wave1.svg#svgClipPath");
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-wave-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
-        
+      }
+       
+      #TabsToolbar {
         --uc-margin-left-right: 4px;
         --uc-margin-left-newtab: 3px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.australis") {
-      #TabsToolbar {
+      .tabbrowser-tab {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-australis1.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-australis1.svg#svgClipPath");
         --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-australis1.svg");
         --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-australis1.svg#svgClipPath");
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-australis-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-australis-clipped.svg");
-        
+      }
+      
+       #TabsToolbar {
         --uc-margin-left-right: 1px;
         --uc-margin-left-newtab: 4px;
-      }
+      }      
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
-      #TabsToolbar {
+      .tabbrowser-tab {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-chrome1.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-chrome1.svg#svgClipPath");
         --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-chrome1.svg");
@@ -308,26 +278,30 @@
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-chrome-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chrome-clipped.svg");
         --uc-tab-corner-size: 12px;
+      }
         
+        #TabsToolbar {
         --uc-margin-left-right: -1px;
         --uc-margin-left-newtab: 3px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
-      #TabsToolbar {
+      .tabbrowser-tab {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-chromeLegacy1.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-chromeLegacy1.svg#svgClipPath");
         --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-chromeLegacy1.svg");
         --uc-tab-corner-right-side-clipPath: url("../icons/tab-bottom-corner-right-chromeLegacy1.svg#svgClipPath");
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-chromeLegacy-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chromeLegacy-clipped.svg");
-        
+      }
+       
+      #TabsToolbar {
         --uc-margin-left-right: 6px;
         --uc-margin-left-newtab: 8px;
       }
     }
     @media -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
-      #TabsToolbar {
+      .tabbrowser-tab {
         --uc-tab-corner-left-side-svg: url("../icons/tab-bottom-corner-left-edge.svg");
         --uc-tab-corner-left-side-clipPath: url("../icons/tab-bottom-corner-left-edge.svg#svgClipPath");
         --uc-tab-corner-right-side-svg: url("../icons/tab-bottom-corner-right-edge.svg");
@@ -335,7 +309,9 @@
         --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-edge-clipped.svg");
         --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-edge-clipped.svg");
         --uc-tab-corner-size: 12px;
-        
+      }
+      
+      #TabsToolbar {  
         --uc-margin-left-right: 2px;
         --uc-margin-left-newtab: 4px;
       }
@@ -343,9 +319,14 @@
       .tabbrowser-tab {
         overflow-clip-margin: var(--uc-tab-corner-half-size) !important;
       }
-      .tabbrowser-tab .tab-background {
+      
+      .tab-background {
         margin-inline:  var(--uc-tab-corner-half-size) !important;
         position: relative;
+      }
+      
+      tab-split-view-wrapper>.tabbrowser-tab .tab-background {
+        margin-inline: unset !important;
       }
 
     .tabbrowser-tab .tab-background::before,
@@ -371,35 +352,14 @@
     }
     .tabbrowser-tab .tab-background::before {
       right: 100%;
-      background-image: var(--uc-tab-corner-left-side-svg), var(--uc-tab-corner-bgimage);
+      background-image: var(--uc-tab-corner-left-side-svg);
       clip-path: var(--uc-tab-corner-left-side-clipPath);
     }
     .tabbrowser-tab .tab-background::after {
       left: 100%;
-      background-image: var(--uc-tab-corner-right-side-svg), var(--uc-tab-corner-bgimage);
+      background-image: var(--uc-tab-corner-right-side-svg);
       clip-path: var(--uc-tab-corner-right-side-clipPath);
     }
-      
-      /* Tab selected background image - themes with more than one image */
-      
-      .tabbrowser-tab:is([visuallyselected]) {
-        & .tab-background::before,
-        & .tab-background::after {
-          background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-                                            var(--lwt-additional-images,none), var(--lwt-header-image, none),
-                            linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field))!important;
-          background-position: 0 0, var(--lwt-background-alignment), right top !important;
-          background-repeat: repeat-x, var(--lwt-background-tiling), no-repeat !important;
-          background-size: auto 100%, var(--lwt-background-size, auto auto), auto auto !important;
-          background-attachment: scroll, fixed, fixed !important;
-        }
-      }
-  }
-  
-  .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
-    --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)), 
-      linear-gradient(transparent, transparent), 
-      var(--lwt-header-image, var(--lwt-additional-images, none)) !important;
   }
   
   /* used for smooth transition 'hover' on tab */
@@ -407,9 +367,10 @@
   .tabbrowser-tab:not([visuallyselected],[multiselected],[selected]) {
     &:not(:hover),
     &:hover {
+      & .tab-background,
       & .tab-background::before,
       & .tab-background::after {
-        top: -1px !important;
+        /*top: 0px !important;/**/
         /*transition: fill 0.2s ease !important;/**/
       }
     }
@@ -419,27 +380,6 @@
     & .tab-background::before,
     & .tab-background::after {
       fill: color-mix(in srgb, var(--general-color) 25%, transparent) !important; /* My edit */
-    }
-  }
-  
-  @media (-moz-gtk-csd-available) {
-    /* Fill color for GTK */
-    @media -moz-pref("firefoxgx.tab-shapes") {
-      :root:not([lwtheme="true"]) .tabbrowser-tab {
-        --uc-tab-shadow-color: rgba(0, 0, 0, 0.4);
-      }
-    }
-    :root:not([lwtheme="true"]) .tabbrowser-tab[visuallyselected] .tab-background {
-      background-clip: content-box;
-    }
-    :root:not([lwtheme="true"]) .tabbrowser-tab[visuallyselected] .tab-background::before,
-    :root:not([lwtheme="true"]) .tabbrowser-tab[visuallyselected] .tab-background::after {
-      /* As GTK Toolbar's background-color + background-image
-      * --toolbar-non-lwt-bgcolor: -moz-dialog;
-      --toolbar-non-lwt-bgimage: linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15));
-      */
-      --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-non-lwt-bgcolor), var(--toolbar-non-lwt-bgcolor));
-      fill: rgba(255, 255, 255, 0.075);
     }
   }
 }

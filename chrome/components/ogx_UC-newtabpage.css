@@ -1,335 +1,479 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/firefox-gx */
 
+/* General Variables for all 'about:' pages */
+
+:root {
+    --color-accent-primary: var(--general-color) !important;                            /* Main Accent color */
+    --color-accent-primary-hover: var(--button-active-bgcolor) !important;              /* Accent color when 'hover' - tested in newtab slider bottom link */
+    /*--color-accent-primary-active: var(--button-active-bgcolor) !important;           /* Accent color when 'active' */
+    
+    --border-radius-large: var(--my-border-radius) !important;                          /* Roundness of all elements */
+    --border-radius-medium: calc(var(--border-radius-large) - 2px) !important;          /* Roundness of all elements */
+    
+    --button-background-color-primary: var(--button-active-bgcolor) !important;         /* Primary button background */
+    --button-background-color-primary-hover: var(--button-hover-bgcolor) !important;    /* Primary button background on 'hover' */
+    --button-background-color-primary-active: var(--general-color) !important;          /* Primary button background on 'hover' */
+    --button-text-color-primary: light-dark(black, white) !important;                   /* Primary button text color */
+    --button-border-color-primary: var(--general-color) !important;                     /* Primary button border color */
+    --button-border-color-primary-hover: var(--button-bgcolor) !important;              /* Primary button border color */
+    
+    /*--button-background-color: var(--button-smaller-bgcolor) !important;              /* Normal button background */
+    --button-background-color-hover: color-mix(in srgb, 
+        var(--general-color), var(--button-background-color-menu)) !important;          /* Normal button background on 'hover' */
+    --button-background-color-active: var(--button-hover-bgcolor) !important;           /* Normal button background on 'active' */
+    --button-border-color: var(--my-smooth-border-color) !important;                    /* Normal Button border color */
+    --button-border-color-hover: var(--button-smaller-bgcolor) !important;              /* Normal Button border color on 'hover' */
+    
+    --button-border-color-ghost: transparent !important;                                /* Ghost Button border color - Close button in slider */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --my-color-scheme: black;                                        /* Background for dark theme */
+        --my-contrast-color: white;                                      /* Contrast color */
+        --my-border-color-scheme: #09080d;                               /* Border color for contrast */
+        --my-smooth-border-color: #50505030;                             /* Border with transparency */
+        --my-arrowpanel-border-color: #302b3a;                           /* border color for menus */
+    }
+
+    .lightWallpaper {
+        --newtab-background-color: #eaeaea;                              /* Replace newtab background color - variable used in slider */
+        --my-border-color-scheme: #10101920;                             /* Border of 3 dot context menu */
+        --my-smooth-border-color: #10101920;                             /* Border with transparency */
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --my-color-scheme: white;                                        /* Background for dark theme */
+        --my-contrast-color: black;                                      /* Contrast color */
+        --my-border-color-scheme: #10101920;                             /* Border color for contrast */
+        --my-smooth-border-color: #10101920;                             /* Border with transparency */
+        --my-arrowpanel-border-color: #302b3a60;                         /* border color for menus */
+    }
+
+    .darkWallpaper {
+        --newtab-background-color: #101019;                              /* Replace newtab background color - variable used in slider */
+        --my-border-color-scheme: #09080d;                               /* Border of 3 dot context menu */
+        --my-smooth-border-color: #50505030;                             /* Border with transparency */
+    }
+}
+
+/* Apply accent color of NewTab wallpaper in other 'about:' pages \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+/* Dark 1 - Fuchsia */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
+    :root { --newtab-text-primary-color: var(--general-color-dark1) !important; }
+}
+
+/* Dark 2 - ultraviolet */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
+    :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
+}
+
+/* Dark 3 - Blue */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
+    :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
+}
+
+/* Dark 4 - Green */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
+    :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
+}
+
+/* Dark 5 - Swamp */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
+    :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
+}
+
+/* Dark 6 - Cheaterman */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
+    :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
+}
+
+/* Dark 7 - Gray */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
+    :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
+}
+
+/* Dark 8 - Orange */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
+    :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
+}
+
+/* Dark 8 - Catppuccino */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
+    :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
+}
+
+/* Light 1 - Fuchsia */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
+    :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
+}
+
+/* Light 2 - Ultraviolet */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
+    :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
+}
+
+/* Light 3 - BLue */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
+    :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
+}
+
+/* Light 4 - Rose */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
+    :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
+}
+
+/* Light 5 - Lightgreen */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
+    :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
+}
+
+/* Light 6 - Orange */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
+    :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
+}
+
+/* Light 7 - Orange */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
+    :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
+}
+
+/* Light 8 - Orange */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
+    :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
+}
+
+/* Light 9 - Orange */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+    :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
+}
+
+/* __________________________________________________________ Newtab styles __________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing) {
     
     body {
-        /*--newtab-search-icon: url(chrome://global/skin/icons/search-glass.svg) !important;            /* Image in the newtab searchbox */
-        --newtab-background-color-secondary: var(--newtab-pinnedsites-background) !important;           /* Background color of search box, recent activity, news */
-        --newtab-background-card: var(--newtab-pinnedsites-background) !important;                      /* Background color of pinned sites */
-        --newtab-element-hover-color: var(--button-active-bgcolor) !important;                          /* Background color when clicking on the 3 dot menu icon */
-
-        --newtab-element-secondary-color: color-mix(in srgb, Field 90%, FieldText ) !important;         /* background of buttons */      
-        --newtab-element-secondary-hover-color: var(--button-hover-bgcolor) !important;                 /* Background 'hover' on buttons */
-        --newtab-element-secondary-active-color: var(--button-bgcolor) !important;                      /* Background 'active' on buttons */
-
-        --newtab-border-color: color-mix(in srgb, Field 86%, var(--newtab-wordmark-color)) !important;  /* 3-point menu and input-box border color when editing a site*/
-
-
-        --newtab-primary-action-background: var(--button-active-bgcolor) !important;                    /* Colors for 'Save' buttons and radiobuttons */
-
-        --newtab-primary-element-text-color: var(--newtab-text-primary-color) !important;               /* check-box color */
+        --newtab-text-primary-color: FieldText !important;                                            /* General font color */
+        --newtab-text-secondary-color: FieldText !important;                                          /* 'Recent Activity' first line */
+        --newtab-contextual-text-primary-color: FieldText !important;                                 /* Pinned font color*/
         
-        --my-opaque-bgcolor: color-mix(in srgb, var(--contrast-color), transparent);                    /* Opaque background color - personal use */
-        --newtab-overlay-color: color-mix(in srgb, Field 30%, var(--my-opaque-bgcolor)) !important;     /* Big background when editing a site, semi-transparent */
+        --newtab-overlay-color: color-mix(in srgb,                                                    /* - Original variable but needs to be here for some reason */
+            var(--newtab-background-color) 45%, transparent);                                         /* test 'edit site' when using darkTheme + light wallpaper  */        
+        --newtab-background-card: var(--newtab-background-color) !important;                          /* When 'edit site' -> Site icon background */
         
-        --border-radius-medium: 6px !important;                                                         /* Roundness of elements */
-        --border-radius-large: 6px !important;                                                          /* Roundness of elements */
-    
+        --newtab-button-hover-background: var(--button-hover-bgcolor) !important;                     /* Newtab button 'hover' - 3 dot button */
+        --newtab-button-active-background: var(--button-active-bgcolor) !important;                   /* Newtab button 'active' - 3 dot button */
+        
+        --newtab-background-color-secondary: var(--my-context-menu-background) !important;            /* 3 dot context menu background */
+        --background-color-box: var(--my-context-menu-background) !important;                         /* 'Weather' context menu background */
+        
+        --my-opaque-background: color-mix(in srgb, var(--my-color-scheme), transparent);              /* Background with transparency - follow newtab scheme*/
+        --my-small-opaque-background: color-mix(in srgb, var(--my-color-scheme) 20%, transparent);    /* Background with transparency - follow newtab scheme*/
+        --my-big-opaque-background: color-mix(in srgb, var(--my-color-scheme) 90%, transparent);    /* Background with transparency - follow newtab scheme*/
+        
+        --my-context-menu-background: color-mix(in srgb,                                              /* Background color for menus */
+            var(--newtab-background-color) 95%, FieldText);
+        
+        --my-box-shadow:                                                                              /* General 'box shadow' style */
+            0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1),
+            0 2px 6px var(--box-shadow-color-lighter-layer-2);
+        
+        --my-small-main-background: color-mix(in srgb,                                                /* Color used below */
+            var(--general-color) 4%, var(--my-newtab-elements-background));
+        
+        --my-gradient-background: linear-gradient(to bottom,                                          /* Smooth Gradient background used in main elements */
+            var(--my-newtab-elements-background) 30%, var(--my-small-main-background));
+        
+        --my-gradient-background-hover: color-mix(in srgb,                                            /* Background color when 'hover' in main elements */
+            var(--general-color) 6%, var(--my-newtab-elements-background));
     }
-
-    @media (prefers-color-scheme: dark){
-
-        body {
-            --contrast-color: black;                                                     /* Personal background color for contrast */
-            --border-contrast-color: #09080d;                                            /* Personal border color for contrast */
-            --arrowpanel-background: #1c1726;                                            /* Background color for 3 dot menu */
-            --arrowpanel-border-color: #302b3a;                                          /* border color for 3 dot menu */
-        }}
-
-    @media (prefers-color-scheme: light){
-
-        body{
-            --contrast-color: white;                                                     /* Personal background color for contrast */
-            --border-contrast-color: #acacac50;                                          /* Personal border color for contrast */
-            --arrowpanel-background : #f9f9f9;                                           /* Background color for 3 dot menu */
-            --arrowpanel-border-color: #302b3a60;                                        /* border color for 3 dot menu */
-        }}
     
     /* __________________________________________________________ Wallpapers _________________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+    /* Set default 'photographs' main category preview wallpaper */
+
+    #photographs {
+        background-image: var(--wallpaper-dark1) !important;
+    }
+
+    /* Replace 'Photographs' category label */
+
+    #photographs ~ label,
+    .arrow-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] {
+        font-size: 0 !important;
+
+        &::after {
+            content: 'Firefox GX';
+            font-size: var(--font-size-small);
+        }
+    }
+
+    .arrow-button[data-l10n-id="newtab-wallpaper-category-title-photographs"]::after {
+        font-size: var(--font-size-root) !important;
+    }
+
+    /* Rearrangement of wallpapers + Replace 'Photographs' preview wallpapers with Firefox-GX wallpapers */
+
+    #dark-sky {              order: 1 !important;  background-image: var(--wallpaper-dark1) !important;  --general-color: var(--general-color-dark1) !important; }
+    #starry-canyon {         order: 2 !important;  background-image: var(--wallpaper-dark2) !important;  --general-color: var(--general-color-dark2) !important; }
+    #dark-mountain {         order: 3 !important;  background-image: var(--wallpaper-dark3) !important;  --general-color: var(--general-color-dark3) !important; }
+    #dark-panda {            order: 4 !important;  background-image: var(--wallpaper-dark4) !important;  --general-color: var(--general-color-dark4) !important; }
+    #dark-fox-anniversary {  order: 5 !important;  background-image: var(--wallpaper-dark5) !important;  --general-color: var(--general-color-dark5) !important; }
+    #dark-beach {            order: 6 !important;  background-image: var(--wallpaper-dark6) !important;  --general-color: var(--general-color-dark6) !important; }
+    #palm-trees {            order: 7 !important;  background-image: var(--wallpaper-dark7) !important;  --general-color: var(--general-color-dark7) !important; }
+    #suspension-bridge {     order: 8 !important;  background-image: var(--wallpaper-dark8) !important;  --general-color: var(--general-color-dark8) !important; }
+    #dark-landscape {        order: 9 !important;  background-image: var(--wallpaper-dark9) !important;  --general-color: var(--general-color-dark9) !important; }
+    #hot-air-balloons {      order: 10 !important; background-image: var(--wallpaper-light1) !important; --general-color: var(--general-color-light1) !important; }
+    #light-panda {           order: 11 !important; background-image: var(--wallpaper-light2) !important; --general-color: var(--general-color-light2) !important; }
+    #light-fox-anniversary { order: 12 !important; background-image: var(--wallpaper-light3) !important; --general-color: var(--general-color-light3) !important; }
+    #blue-flowers {          order: 13 !important; background-image: var(--wallpaper-light4) !important; --general-color: var(--general-color-light4) !important; }
+    #light-landscape {       order: 14 !important; background-image: var(--wallpaper-light5) !important; --general-color: var(--general-color-light5) !important; }
+    #sand-dunes {            order: 15 !important; background-image: var(--wallpaper-light6) !important; --general-color: var(--general-color-light6) !important; }
+    #light-mountain {        order: 16 !important; background-image: var(--wallpaper-light7) !important; --general-color: var(--general-color-light7) !important; }
+    #light-sky {             order: 17 !important; background-image: var(--wallpaper-light8) !important; --general-color: var(--general-color-light8) !important; }
+    #light-beach {           order: 18 !important; background-image: var(--wallpaper-light9) !important; --general-color: var(--general-color-light9) !important; }
     
-    @media not -moz-pref("firefoxgx.main-image") {
-        
-        /* Set default 'photographs' main category preview wallpaper */
-        
-        #photographs {
+    /* Apply New wallpapers \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+    /* Dark 1 - Fuchsia */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
+        :root { --newtab-text-primary-color: var(--general-color-dark1) !important; }
+        body,
+        #photographs,
+        #dark-sky {
+            --newtab-wallpaper: var(--wallpaper-dark1) !important;
             background-image: var(--wallpaper-dark1) !important;
         }
-        
-        /* Replace 'Photographs' category label */
-        
-        #photographs ~ label,
-        .arrow-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] {
-            font-size: 0 !important;
+    }
 
-            &::after {
-                content: 'Firefox GX';
-                font-size: var(--font-size-small);
-            }
+    /* Dark 2 - ultraviolet */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
+        :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
+        body,#photographs,
+        #starry-canyon {
+            --newtab-wallpaper: var(--wallpaper-dark2) !important;
+            background-image: var(--wallpaper-dark2) !important;
         }
-        
-        .arrow-button[data-l10n-id="newtab-wallpaper-category-title-photographs"]::after {
-            font-size: var(--font-size-root) !important;
-        }
-        
-        /* Rearrangement of wallpapers + Replace 'Photographs' preview wallpapers with Firefox-GX wallpapers */
-        
-        #dark-sky {              order: 1 !important;  background-image: var(--wallpaper-dark1) !important;  --general-color: var(--general-color-dark1) !important; }
-        #starry-canyon {         order: 2 !important;  background-image: var(--wallpaper-dark2) !important;  --general-color: var(--general-color-dark2) !important; }
-        #dark-mountain {         order: 3 !important;  background-image: var(--wallpaper-dark3) !important;  --general-color: var(--general-color-dark3) !important; }
-        #dark-panda {            order: 4 !important;  background-image: var(--wallpaper-dark4) !important;  --general-color: var(--general-color-dark4) !important; }
-        #dark-fox-anniversary {  order: 5 !important;  background-image: var(--wallpaper-dark5) !important;  --general-color: var(--general-color-dark5) !important; }
-        #dark-beach {            order: 6 !important;  background-image: var(--wallpaper-dark6) !important;  --general-color: var(--general-color-dark6) !important; }
-        #palm-trees {            order: 7 !important;  background-image: var(--wallpaper-dark7) !important;  --general-color: var(--general-color-dark7) !important; }
-        #suspension-bridge {     order: 8 !important;  background-image: var(--wallpaper-dark8) !important;  --general-color: var(--general-color-dark8) !important; }
-        #dark-landscape {        order: 9 !important;  background-image: var(--wallpaper-dark9) !important;  --general-color: var(--general-color-dark9) !important; }
-        #hot-air-balloons {      order: 10 !important; background-image: var(--wallpaper-light1) !important; --general-color: var(--general-color-light1) !important; }
-        #light-panda {           order: 11 !important; background-image: var(--wallpaper-light2) !important; --general-color: var(--general-color-light2) !important; }
-        #light-fox-anniversary { order: 12 !important; background-image: var(--wallpaper-light3) !important; --general-color: var(--general-color-light3) !important; }
-        #blue-flowers {          order: 13 !important; background-image: var(--wallpaper-light4) !important; --general-color: var(--general-color-light4) !important; }
-        #light-landscape {       order: 14 !important; background-image: var(--wallpaper-light5) !important; --general-color: var(--general-color-light5) !important; }
-        #sand-dunes {            order: 15 !important; background-image: var(--wallpaper-light6) !important; --general-color: var(--general-color-light6) !important; }
-        #light-mountain {        order: 16 !important; background-image: var(--wallpaper-light7) !important; --general-color: var(--general-color-light7) !important; }
-        #light-sky {             order: 17 !important; background-image: var(--wallpaper-light8) !important; --general-color: var(--general-color-light8) !important; }
-        #light-beach {           order: 18 !important; background-image: var(--wallpaper-light9) !important; --general-color: var(--general-color-light9) !important; }
-        
-        /* Apply New wallpapers 
-           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-        
-        /* Dark 1 - Fuchsia */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
-            :root { --newtab-text-primary-color: var(--general-color-dark1) !important; }
-            body,
-            #photographs,
-            #dark-sky {
-                --newtab-wallpaper: var(--wallpaper-dark1) !important;
-                background-image: var(--wallpaper-dark1) !important;
-            }
-        }
-        
-        /* Dark 2 - ultraviolet */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
-            :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
-            body,#photographs,
-            #starry-canyon {
-                --newtab-wallpaper: var(--wallpaper-dark2) !important;
-                background-image: var(--wallpaper-dark2) !important;
-            }
-        }
-        
+    }
 
-        /* Dark 3 - Blue */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
-            :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
-            body,
-            #photographs,
-            #dark-mountain {
-                --newtab-wallpaper: var(--wallpaper-dark3) !important;
-                background-image: var(--wallpaper-dark3) !important;
-            }
-        }
 
-        /* Dark 4 - Green */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
-            :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
-            body,
-            #photographs,
-            #dark-panda {
-                --newtab-wallpaper: var(--wallpaper-dark4) !important;
-                background-image: var(--wallpaper-dark4) !important;
-            }
+    /* Dark 3 - Blue */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
+        :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
+        body,
+        #photographs,
+        #dark-mountain {
+            --newtab-wallpaper: var(--wallpaper-dark3) !important;
+            background-image: var(--wallpaper-dark3) !important;
         }
-        
-        /* Dark 5 - Swamp */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
-            :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
-            body,
-            #photographs,
-            #dark-fox-anniversary {
-                --newtab-wallpaper: var(--wallpaper-dark5) !important;
-                background-image: var(--wallpaper-dark5) !important;
-            }
-        }
+    }
 
-        /* Dark 6 - Cheaterman */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
-            :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
-            body,
-            #photographs,
-            #dark-beach {
-                --newtab-wallpaper: var(--wallpaper-dark6) !important;
-                background-image: var(--wallpaper-dark6) !important;
-            }
+    /* Dark 4 - Green */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
+        :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
+        body,
+        #photographs,
+        #dark-panda {
+            --newtab-wallpaper: var(--wallpaper-dark4) !important;
+            background-image: var(--wallpaper-dark4) !important;
         }
-        
-        /* Dark 7 - Gray */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
-            :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
-            body,
-            #photographs,
-            #palm-trees {
-                --newtab-wallpaper: var(--wallpaper-dark7) !important;
-                background-image: var(--wallpaper-dark7) !important;
-            }
-        }
-        
-        /* Dark 8 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
-            :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
-            body,
-            #photographs,
-            #suspension-bridge {
-                --newtab-wallpaper: var(--wallpaper-dark8) !important;
-                background-image: var(--wallpaper-dark8) !important;
-            }
-        }
-        
-        /* Dark 8 - Catppuccino */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
-            :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
-            body,
-            #photographs,
-            #dark-landscape {
-                --newtab-wallpaper: var(--wallpaper-dark9) !important;
-                background-image: var(--wallpaper-dark9) !important;
-            }
-        }
-        
-        /* Light 1 - Fuchsia */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
-            :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
-            body,
-            #photographs,
-            #hot-air-balloons {
-                --newtab-wallpaper: var(--wallpaper-light1) !important;
-                background-image: var(--wallpaper-light1) !important;
-            }
-        }
-        
-        /* Light 2 - Ultraviolet */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
-            :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
-            body,
-            #photographs,
-            #light-panda {
-                --newtab-wallpaper: var(--wallpaper-light2) !important;
-                background-image: var(--wallpaper-light2) !important;
-            }
-        }
+    }
 
-        /* Light 3 - BLue */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
-            :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
-            body,
-            #photographs,
-            #light-fox-anniversary {
-                --newtab-wallpaper: var(--wallpaper-light3) !important;
-                background-image: var(--wallpaper-light3) !important;
-            }
+    /* Dark 5 - Swamp */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
+        :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
+        body,
+        #photographs,
+        #dark-fox-anniversary {
+            --newtab-wallpaper: var(--wallpaper-dark5) !important;
+            background-image: var(--wallpaper-dark5) !important;
         }
+    }
 
-        /* Light 4 - Rose */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
-            :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
-            body,
-            #photographs,
-            #blue-flowers {
-                --newtab-wallpaper: var(--wallpaper-light4) !important;
-                background-image: var(--wallpaper-light4) !important;
-            }
+    /* Dark 6 - Cheaterman */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
+        :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
+        body,
+        #photographs,
+        #dark-beach {
+            --newtab-wallpaper: var(--wallpaper-dark6) !important;
+            background-image: var(--wallpaper-dark6) !important;
         }
+    }
 
-        /* Light 5 - Lightgreen */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
-            :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
-            body,
-            #photographs,
-            #light-landscape {
-                --newtab-wallpaper: var(--wallpaper-light5) !important;
-                background-image: var(--wallpaper-light5) !important;
-            }
+    /* Dark 7 - Gray */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
+        :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
+        body,
+        #photographs,
+        #palm-trees {
+            --newtab-wallpaper: var(--wallpaper-dark7) !important;
+            background-image: var(--wallpaper-dark7) !important;
         }
-        
-        /* Light 6 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
-            :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
-            body,
-            #photographs,
-            #sand-dunes {
-                --newtab-wallpaper: var(--wallpaper-light6) !important;
-                background-image: var(--wallpaper-light6) !important;
-            }
+    }
+
+    /* Dark 8 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
+        :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
+        body,
+        #photographs,
+        #suspension-bridge {
+            --newtab-wallpaper: var(--wallpaper-dark8) !important;
+            background-image: var(--wallpaper-dark8) !important;
         }
-        
-        /* Light 7 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
-            :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
-            body,
-            #photographs,
-            #light-mountain {
-                --newtab-wallpaper: var(--wallpaper-light7) !important;
-                background-image: var(--wallpaper-light7) !important;
-            }
+    }
+
+    /* Dark 8 - Catppuccino */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
+        :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
+        body,
+        #photographs,
+        #dark-landscape {
+            --newtab-wallpaper: var(--wallpaper-dark9) !important;
+            background-image: var(--wallpaper-dark9) !important;
         }
-        
-        /* Light 8 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
-            :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
-            body,
-            #photographs,
-            #light-sky {
-                --newtab-wallpaper: var(--wallpaper-light8) !important;
-                background-image: var(--wallpaper-light8) !important;
-            }
+    }
+
+    /* Light 1 - Fuchsia */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
+        :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
+        body,
+        #photographs,
+        #hot-air-balloons {
+            --newtab-wallpaper: var(--wallpaper-light1) !important;
+            background-image: var(--wallpaper-light1) !important;
         }
-        
-        /* Light 9 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
-            :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
-            body,
-            #photographs,
-            #light-beach {
-                --newtab-wallpaper: var(--wallpaper-light9) !important;
-                background-image: var(--wallpaper-light9) !important;
-            }
+    }
+
+    /* Light 2 - Ultraviolet */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
+        :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
+        body,
+        #photographs,
+        #light-panda {
+            --newtab-wallpaper: var(--wallpaper-light2) !important;
+            background-image: var(--wallpaper-light2) !important;
+        }
+    }
+
+    /* Light 3 - BLue */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
+        :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
+        body,
+        #photographs,
+        #light-fox-anniversary {
+            --newtab-wallpaper: var(--wallpaper-light3) !important;
+            background-image: var(--wallpaper-light3) !important;
+        }
+    }
+
+    /* Light 4 - Rose */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
+        :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
+        body,
+        #photographs,
+        #blue-flowers {
+            --newtab-wallpaper: var(--wallpaper-light4) !important;
+            background-image: var(--wallpaper-light4) !important;
+        }
+    }
+
+    /* Light 5 - Lightgreen */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
+        :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
+        body,
+        #photographs,
+        #light-landscape {
+            --newtab-wallpaper: var(--wallpaper-light5) !important;
+            background-image: var(--wallpaper-light5) !important;
+        }
+    }
+
+    /* Light 6 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
+        :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
+        body,
+        #photographs,
+        #sand-dunes {
+            --newtab-wallpaper: var(--wallpaper-light6) !important;
+            background-image: var(--wallpaper-light6) !important;
+        }
+    }
+
+    /* Light 7 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
+        :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
+        body,
+        #photographs,
+        #light-mountain {
+            --newtab-wallpaper: var(--wallpaper-light7) !important;
+            background-image: var(--wallpaper-light7) !important;
+        }
+    }
+
+    /* Light 8 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
+        :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
+        body,
+        #photographs,
+        #light-sky {
+            --newtab-wallpaper: var(--wallpaper-light8) !important;
+            background-image: var(--wallpaper-light8) !important;
+        }
+    }
+
+    /* Light 9 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+        :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
+        body,
+        #photographs,
+        #light-beach {
+            --newtab-wallpaper: var(--wallpaper-light9) !important;
+            background-image: var(--wallpaper-light9) !important;
         }
     }
     
     /* Accent color indicator over each wallpaper */
-    
-    .wallpaper-input[aria-checked]::after {
+
+    button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div .wallpaper-input[aria-checked]::after {
         position: absolute;
         content: "";
         width: 10px;
         height: 10px;
         background-color: var(--general-color);
         border-radius: 50%;
-        margin-block: 5px;
-        margin-inline: 5px;
-        outline: 1px solid #80808080;
+        margin-block-start: 6px;
+        margin-inline-start: 6px;
+        outline: 1px solid var(--my-smooth-border-color);
         outline-offset: 1px;
     }
     
     /* Border color when 'hover' over wallpapers */
 
-    .wallpaper-list .wallpaper-input:not(:checked):hover {
-        outline: 2px solid var(--general-color) !important;
-        box-shadow: inset 0 0 0 1px var(--contrast-color) !important;
-    }
-    
-    /* Border color when 'hover' over selected wallpaper */
-
-    .wallpaper-list .wallpaper-input {
-        padding: 1px !important;
-        box-shadow: inset 0 0 1px 0 var(--border-color) !important;
+     .wallpaper-list .wallpaper-input {
+         outline-color: var(--my-smooth-border-color) !important;
+         outline-width: 1px !important;
+         
+        &:hover {
+            box-shadow: 0 0 0 2px var(--general-color),
+                inset 0 0 0 1px var(--my-color-scheme) !important;
+        }
         
-        &:checked {
+        /* Border color when 'hover' over 'selected' wallpaper */
+        &:checked,
+        &.selected {
             filter: none !important;
-            box-shadow: inset 0 0 0 2px var(--color-accent-primary) !important;
-
+            box-shadow: 0 0 0 2px var(--color-accent-primary) !important;
+            
             &:hover {
-                outline-color: var(--general-color) !important;
+                box-shadow: 0 0 0 3px var(--color-accent-primary) !important;
             }
         }
     }
@@ -352,194 +496,191 @@
     }
     
     /* _______________________________________________________ Logo & Wordmark _______________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-    .logo{
+    .logo {
         background: url("../icons/foxlogonewtab.svg") no-repeat center !important;
         background-size: 100% 100% !important;
         -moz-context-properties: fill !important;
-        fill: var(--newtab-text-primary-color) !important;
+        fill: var(--general-color) !important;
     }
 
     .wordmark {
-        fill: var(--newtab-text-primary-color) !important;
+        fill: var(--general-color) !important;
     }
-
+    
+    /* To remove Logo&Wordmark when possible */
     @media (height < 700px) {
         body:not(.inline-onboarding) .fixed-search .search-wrapper .logo-and-wordmark {
-            Opacity: var(--logo-wordmark-visibility) !important;
-            display: var(--logo-wordmark-display) !important;
-            margin-bottom: 10px !important;
+            display: var(--my-logo-wordmark-display) !important;
         }
     }
-
-    .promo-cta .button {
-        color: #cacaca !important; 
-    }
-
+    
+    /* Position of all elements */
     main {
-        justify-content: var(--newtab-pinnedsites-position-top, center) !important;
+        justify-content: var(--my-newtab-pinnedsites-position, center) !important;
     }
-
-    /* 'Wordmark,logo' and 'search box' side by side */
-
-    @media screen and (min-width: 1000px){
-
-        .logo-and-wordmark { 
-            margin-inline: 30px !important;  
-        }
-
-        .search-wrapper {
-            display: var(--orientation-display) !important;
-        }
-
-        .search-inner-wrapper{
-            height: 52px !important;
-            margin-top: 0px !important;
-        }
+    
+    /* _________________________________________ Font color when using light/dark wallpaper __________________________________________
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    
+    /* Reset fonts color in both light/dark themes */    
+    .darkWallpaper,
+    .lightWallpaper {
+        /*--background-color-box: var(--my-context-menu-background) !important;              /* Background color of 'Weather' context menu */
+        /*--newtab-text-primary-color: FieldText !important;                                 /* Remove Accent color in 2nd line of 'Recent Activity' */
+        /*--newtab-background-color-secondary: var(--my-context-menu-background) !important; /* 3 dot context menu background */
+    }
+    
+    /* When using 'Dark' wallpaper */
+    .darkWallpaper  {
+        --my-color-scheme: black !important;
+        color-scheme: dark !important;
+        color: white !important;
+    }
+    
+    /* When using 'light' wallpaper */
+    .lightWallpaper {
+        --my-color-scheme: white !important;
+        color-scheme: light !important;
+        color: black !important;
+    }
+    
+    /* Remove unwanted Accent color of fonts in 'News' */
+    
+    .ds-card {
+        /*--newtab-text-primary-color: FieldText !important;                              /* Accent color in 'News' */
+        --color-accent-primary: FieldText !important;                                   /* Accent color in 'News' when 'hover' */
+        --newtab-text-secondary-color: var(--general-color) !important;                 /* Source of information in 'News' */
     }
     
     /* ______________________________________________________ Various Changes ________________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     
-    /* Remove scrollbar 
-
-    *{scrollbar-width: none !important }*/
-
-    /* Colors when editing a pinned site or When deleting a pinned site */
-
-    .modal {
-        --newtab-border-color: var(--arrowpanel-border-color) !important;
+    /* Some buttons style - Ex. 'News' section \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    
+    .button-background {
+        box-shadow: var(--my-box-shadow) !important;
+        backdrop-filter: var(--my-blur);
+    }
+    
+    /* Colors when editing a pinned site or When deleting a pinned site \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    
+    /* Big transparent background with blur effect */
+    .modalOverlayOuter::backdrop,
+    .confirmation-dialog::backdrop,
+    .modal-overlay {
+        backdrop-filter: var(--my-blur);
+    }
+    
+    /* Modal & confirmation styles */
+    .modalOverlayOuter,
+    .confirmation-dialog {
+        border-radius: 0px !important;
+        border: unset !important; /* Used in cofirmation dialog */
+        box-shadow: 0 0 0 1px var(--my-border-color-scheme), var(--my-box-shadow) !important;
         border: 1px solid transparent !important;
-        background: var(--newtab-overlay-color) !important;
-        outline: 1px solid var(--contrast-color) !important;
+        background-color: var(--newtab-background-color) !important;/**/
         border-image: var(--panel-separator-zap-gradient2) 1 !important;
-        backdrop-filter: var(--personal-blur) !important;
+        backdrop-filter: var(--my-blur) !important;/**/
     }
-
-    .modalOverlayOuter, .modal-overlay {
-        backdrop-filter: blur(40px); 
-    }
-
-    .topsite-form .actions {
-        border-image: var(--panel-separator-zap-gradient2) 1 !important;
-    }
-
-    input[type="text"], input[type="search"] {
-        border-color: var(--border-color) !important;
-    }
-
-    input:focus-visible {
-        outline: 2px solid var(--general-color) !important;
-        outline-offset: -1px !important;
-        border-color: var(--general-color) !important;
-    }
-
-    /* Styles for the 'Save' button */
-
-    .actions button:not(.cancel), .actions button:focus:not(.cancel) {
-        color: var(--newtab-wordmark-color) !important;
-        border-color: transparent !important;
-    }
-
-    .actions button:hover:not(.dismiss) {
-        background-color: var(--button-hover-bgcolor) !important;
-        color: var(--newtab-wordmark-color) !important; 
-        box-shadow:none !important; 
-    }
-
-    /* Styles for the 'Cancel' button */
-
-    .actions button:is(.cancel, [data-l10n-id="newtab-topsites-cancel-button"]){
-        background-color: var(--newtab-element-secondary-color) !important; 
-        border-color: transparent !important;
-
-        &:hover {
-            background-color: #da3633aa !important;
-        }
-    }
-
-    /* 'Customize' button */
     
-    .personalize-button {
-        background-color: var(--newtab-pinnedsites-background) !important;
-        box-shadow: 0 0 0 1px #50505050, 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
+    /* Edit form  */
+    .topsite-form {       
         
-        img {
-            content: url("../icons/edit.svg") !important;
+        /* Gradient separator line */
+        .actions {
+            border-image: var(--panel-separator-zap-gradient2) 1 !important;
         }
+        
+        /* Textbox */
+        input {
+            border-color: var(--border-color) !important;
+            
+            &:hover {
+                border-color: var(--general-color) !important;
+            }
+            
+            /* When input 'focus' */
+            &:focus-visible {
+                outline: 2px solid var(--general-color) !important;
+                border-color: var(--general-color) !important;
+            }
+        }
+        
+        /* 'X' button */
+        .icon.icon-clear-input {
+            &:hover {
+                fill: var(--general-color) !important;
+            }
+        }
+    }
+    
+    /* Styles for the 'Cancel' button */
+    
+    #topsites-form-cancel-button,                                                                       /* 'Edit site' cancel button */
+    moz-button[data-l10n-id="newtab-topsites-cancel-button"] {                                          /* 'Confirmation Dialog' cancel button */
+        --button-background-color-hover: color-mix(in srgb, var(--red) 60%, transparent) !important;
+        --button-background-color-active: color-mix(in srgb, var(--red) 80%, transparent) !important;
+        --my-smooth-border-color: color-mix(in srgb, var(--red) 50%, transparent) !important;
+    }
+    
+    /* 'Customize' button \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
+    .personalize-button {
+        background-color: var(--my-newtab-elements-background) !important;
+        box-shadow: inset 0 0 0 1px #30303030, var(--my-box-shadow) !important;
+        backdrop-filter: var(--my-blur) !important;
+        
+        img { content: url("../icons/edit.svg") !important; }
         
         &:hover,
         &:focus {
-            background-color: var(--newtab-element-secondary-hover-color) !important;
-            backdrop-filter: var(--personal-blur) !important;
-            box-shadow: 0 0 0 1px var(--button-hover-bgcolor), 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
+            background-color: var(--button-smaller-bgcolor) !important;
+            box-shadow: inset 0 0 0 1px var(--button-smaller-bgcolor), var(--my-box-shadow) !important;
         }
     }
     
-    /* Keep personalize button collapse after close customize menu (slider) */
+    /* Keep 'customize' button collapse after close customize menu (slider) */
     .personalize-button.personalize-animate-enter.personalize-animate-enter-active {
         display: none !important;
     }
+    
+    /* _________________________________ Colors of the sliding sidebar used to customize the NewTab __________________________________ 
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-    /* Colors of the 'Close' button */
+    /* Background */
+    
+    .customize-menu-animate-wrapper {
+        background-color: color-mix(in srgb, var(--newtab-background-color) 80%, transparent) !important;
+        background-image: url("../icons/urlbar-noise-light.png") !important;
+        backdrop-filter: var(--my-blur);
+        
+        @media -moz-pref("firefoxgx.main-image") {
+            background-color: var(--newtab-background-color) !important;
+            backdrop-filter: none;
+        }
+    }
+    
+    /* Shadow */
+    
+    .customize-menu-animate-wrapper {
+        box-shadow: -1px 0 #50505050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+    }
+    
+    /* 'Close' button */
     
     .close-button-wrapper {
         --newtab-background-color-secondary: transparent !important;
         position: static !important; /* Make close button scroll up */
-    }
-    
-    /* Weather */
-    
-    .weatherInfoLink, .weatherButtonContextMenuWrapper {
-        background-color: light-dark(var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background)) !important;
-        background-image: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
-                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
-    }
-    
-    .weatherCard {
-        backdrop-filter: var(--personal-blur) !important;
-        box-shadow: inset 0 0 0 1px #50505040, 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
-    }
-    
-    .weatherCard :is(.weatherInfoLink, .weatherButtonContextMenuWrapper) {
-        outline: 2px solid transparent !important;
-        outline-offset: -2px !important;
-        transition: outline 0.1s ease !important;
         
-        &:hover {
-            backdrop-filter: var(--personal-blur) !important;
-            outline-color: var(--button-active-bgcolor) !important;
+        /* Remove unwantes styles from 'buttons' styles */
+        #close-button {
+            --my-blur: none !important;
+            --my-box-shadow: none !important;
         }
-    }
-    
-    .weatherButtonContextMenuWrapper::after {
-        --newtab-button-static-background: #50505040 !important;
-    }
-    
-    .weatherSponsorText { display: none !important; }
-    
-    /* _________________________________ Colors of the sliding sidebar used to customize the NewTab __________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
-    /* Shadow 
-    
-    .customize-menu.customize-animate-enter-done, .customize-menu.customize-animate-enter-active,
-    .customize-menu.customize-animate-exit, .customize-menu.customize-animate-exit-done {
-        box-shadow: -1px 0 #50505050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
-        transition-duration: 200ms !important;
-    }*/
-    
-    .customize-menu-animate-wrapper.customize-animate-enter-done, .customize-menu-animate-wrapper.customize-animate-enter-active {
-        box-shadow: -1px 0 #50505050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
-        transition-duration: 200ms !important;
-    }
-    
-    /* Background */
-    
-    .customize-menu {
-        background-color: color-mix(in srgb, var(--my-opaque-bgcolor), Field) !important;
-        backdrop-filter: var(--personal-blur);
     }
     
     /* Combobox */
@@ -560,41 +701,24 @@
         }
     }
     
-    /* Checkbox color for 'sponsored sites' */
-
-    .sponsored-checkbox:is(:checked):hover, .sponsored-checkbox:not(:checked):hover{ 
-        background-color: var(--button-hover-bgcolor) !important;
-    }
-
-    /* Radiobutton color into "Customize" */
-
-    .toggle-button[aria-pressed="true"] {
-        background: var(--button-active-bgcolor) !important;
+    /* Toggle 2nd description aligned */
+    .label-wrapper .description.text-deemphasized {
+        margin-inline-start: 4px !important;
     }
     
-    .toggle-button[aria-pressed="false"] {
-        opacity: 0.7 !important;
-    }
-
-    .toggle-button[aria-pressed="true"]:enabled:hover {
-        background: var(--button-hover-bgcolor) !important;
-    }
-
-    .toggle-button:enabled:hover {
-        opacity: 1 !important;
-    }
-    
-    /* Separador*/
+    /* Separator line */
     
     .home-section .divider { 
         border-image: var(--panel-separator-zap-gradient2) 1 !important;
     }
     
-    /* Background blur when open a wallpaper category */
+    /* Remove unwanted background when a category is open */
     
     .wallpaper-list.category {
         --newtab-background-color-secondary: transparent !important;
     }
+    
+    /* Remove main elements when open a wallpaper category */
     
     .customize-menu:has(.category.wallpaper-list) {
         & .wallpapers-section ~ *,
@@ -616,81 +740,158 @@
         }
     }
     
+    /* Recommended stories - blocked topics - slider */
+    
+    .sections-mgmt-panel {
+        background-color: var(--newtab-background-color) !important;
+        margin: 0px !important;
+        inset-inline-start: 0px !important;
+        width: -moz-available !important;
+        padding: var(--space-xlarge) !important;
+    }
+    
     /* __________________________________________________________ Search box _________________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-    /* Remove arrow */
-    .search-wrapper .search-button { display: none !important; }
-
-    /* General background */
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     
-    .has-recommended-stories .outer-wrapper:not(.fixed-search) .search-wrapper {
-        margin-block-start: var(--space-small) !important;
-    }
-
-    .search-wrapper {
+    .search-wrapper content-search-handoff-ui {
         --newtab-background-color-secondary: transparent !important;
+        --newtab-text-primary-color: Fieldtext !important;
+        --content-search-handoff-ui-border-width: 0px !important;
+    }
+    
+    /* Remove arrow */
+    .non-handoff-container .search-button { display: none !important; }
+
+    /* Margin when 'stories' are enabled */    
+    .has-recommended-stories .outer-wrapper:not(.fixed-search) .search-wrapper {
+        margin-block-start: 0px !important;
+    }
+    
+    /* Styles for the classic search box \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    #newtab-search-text {
+        background-size: var(--size-item-medium) !important;
+        padding-inline-start: 50px !important;
         border-radius: 0px !important;
-        outline-color: transparent !important;
-        box-shadow: none !important;
+        box-shadow: 0 2px var(--button-bgcolor) !important;
+        outline: none !important;
+    }
+    
+    /* Styles for the improved search box \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    .search-handoff-button {
+        box-shadow:  0 2px var(--button-bgcolor) !important;
+        border-radius: 0px !important;
+    }
+    
+    /* Searchbox focus Animation line
+    - Styles for the classic search box
+    - Styles for the improved search box
+    - included code for RTL language
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    .non-handoff-container,
+    content-search-handoff-ui {
+        &:after, &:dir(rtl):after {
+            content: '' !important; display: flex !important; position: absolute !important;
+            width: -moz-available !important;
+            height: 2px !important;
+            bottom: 0px !important;
+            box-shadow: 0 2px 0 0 var(--general-color) !important;
+            clip-path: xywh(0 0 0% calc(100% + 2px)) !important;
+            transition: clip-path 400ms ease !important;
+        }
+        
+        &:dir(rtl):after {
+            clip-path: xywh(100% 100% 0% calc(100% + 2px)) !important;
+        }
     }
 
-    .search-inner-wrapper {
-        box-shadow: inset 0 -2px var(--button-bgcolor) !important;
+    .non-handoff-container:focus-within,
+    content-search-handoff-ui[fakefocus] {
+        &:after, &:dir(rtl):after {
+            clip-path: xywh(0 0 100% calc(100% + 2px)) !important;
+            transition: clip-path 400ms ease !important;
+        }
     }
     
-    /* Remove unwanted borders */
-    
-    .search-handoff-button { 
-        box-shadow: none !important;
-        border-radius: 0px !important;
-        border-inline-color: transparent !important;
-        border-block-start-color: transparent !important;
-        border-block-end-width: 2px !important;
-        --content-search-handoff-ui-fakefocus-border-color: var(--general-color) !important;
-    }
-        
-    /* Logo and Search when it get sticky position */
+    /* Search-box when it get sticky position \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     
     @media (height > 700px) {
         body:not(.inline-onboarding) .fixed-search .search-wrapper {
-            --my-image-background-blur: color-mix(in srgb, var(--contrast-color), transparent) !important;
+            --my-image-background-blur: color-mix(in srgb, var(--my-color-scheme), transparent) !important;
             --my-solid-background-blur: color-mix(in srgb, var(--newtab-background-color), transparent) !important;
             background-image: linear-gradient(
                 var(--my-image-background-blur), var(--my-image-background-blur)),
                 var(--newtab-wallpaper, none),
                 linear-gradient(var(--my-solid-background-blur, transparent), var(--my-solid-background-blur, transparent))!important;
             background-size: cover;
-            /*background-position: center;/**/
+            background-position: center;
             background-attachment: fixed;
-            backdrop-filter: var(--personal-blur) !important;
+            backdrop-filter: var(--my-blur) !important;
             border-color: Field !important;
-            box-shadow: 0 2px 6px 0 black !important;
+            box-shadow: var(--my-box-shadow) !important;
+            
+            @media -moz-pref("firefoxgx.main-image") {
+                background-image: none !important;
+                background-color: var(--my-big-opaque-background) !important;
+            }
         }
     }
     
-    /* _____________________________________________________ Pinned sites ________________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    /* _____________________________________________________ Weather _____________________________________________________ \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+    .weatherInfoLink, 
+    .weatherButtonContextMenuWrapper {
+        background-color: transparent !important;
+    }
+
+    .weatherCard {
+        background: var(--my-gradient-background) !important;
+        backdrop-filter: var(--my-blur) !important;
+        box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+    }
+
+    .weatherCard :is(.weatherInfoLink, .weatherButtonContextMenuWrapper) {
+        outline: 2px solid transparent !important;
+        outline-offset: -2px !important;
+        transition: background 0.1s ease, outline 0.1s ease !important;
+
+        &:hover {
+            background: var(--my-gradient-background-hover) !important;
+            outline-color: var(--button-active-bgcolor) !important;
+        }
+    }
     
+    /* Separator */
+    .weatherButtonContextMenuWrapper::after {
+        --newtab-button-static-background: var(--my-smooth-border-color) !important;
+    }
+
+    /* Sponsor label */
+    .weatherSponsorText { display: none !important; }
+    
+    /* _____________________________________________________ Pinned sites ________________________________________________________ 
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
     .top-sites-list {
-         margin-block: 40px !important;
-        
+        margin-block: 40px !important;
+
         /* Pinned Site Colors (Small Background) */
         .top-site-outer .tile {
-            border-radius: var(--border-radius-medium) !important;
             width: 100px !important;
             height: 100px !important;
             align-items: start !important;
             padding-block-start: 12px !important;
             margin-inline: 0px !important;
-            box-shadow: 0 0 0 1px #50505050, 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
-            outline-color: transparent !important; /* Used for smooth transition */
-            background-image: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
-                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
-            backdrop-filter: var(--personal-blur) !important;
+            box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+            background-color: transparent !important;
+            background: var(--my-gradient-background) !important;
+            backdrop-filter: var(--my-blur) !important;
             transition: background-image ease 100ms, box-shadow ease 100ms;
             
-            & .icon-wrapper {
+            .icon-wrapper {
                 --size-item-large: 48px !important;
                 width: var(--size-item-large) !important;
                 height: var(--size-item-large) !important;
@@ -720,6 +921,7 @@
             min-height: 1lh !important;
             margin-block-start: -28px !important;
             align-content: center !important;
+            text-shadow: 0px 0px 4px var(--my-color-scheme) !important;
         }
 
         /* Title label just in one line */
@@ -751,227 +953,177 @@
         }
 
         /* Styes when on 'hover' over 'Pinned sites' and 'Recent Activity' */
-        .top-site-outer:hover {
+        .top-site-outer:is(:hover, :focus-within, .active) {
             .tile {
-                box-shadow: 0 0 0 2px var(--button-active-bgcolor), 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
+                background: var(--my-gradient-background-hover) !important;
+                box-shadow: inset 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
+                outline-color: transparent !important;
             }
         }
     }
     
     /* ____________________________________________________ Recent Activity ______________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
-    .card-outer .card {
-        background-image: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
-                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
-        backdrop-filter: var(--personal-blur) !important;
-        border-radius: var(--border-radius-medium) !important;
-        outline-color: transparent !important;
-        outline-offset: -1px !important;
-        box-shadow: 0 0 0 1px #50505050, 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
-        transition: background ease 100ms, box-shadow ease 100ms;
-        
-        &:hover {
-            box-shadow: 0 0 0 2px var(--button-active-bgcolor), 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
-        }
-        
-        /* Site preview image roundness */
-        & .card-preview-image-outer { 
-            border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0 !important;
-        }
-        
-        & .card-title {
-            /*text-decoration: transparent underline !important;/**/
-            transition: text-decoration ease 100ms !important;
-            text-underline-offset: 2px !important;
-        }
-    }
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-    /* Underline on 'hover' */
-    .card-outer:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-title {
-        --newtab-primary-action-background: var(--newtab-text-primary-color) !important;
-        text-decoration: underline !important;
-    }
-    
-    .compact-cards .card-outer .card-context {
-        backdrop-filter: var(--personal-blur) !important;
-        background-color: color-mix(in srgb, var(--newtab-pinnedsites-background)94%, var(--contrast-color)) !important;
+    .card-outer {
+        background-color: transparent !important;
+        box-shadow: 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+        transition: background ease 0.1s, box-shadow ease-in-out 0.1s !important;
         
-        &> .card-context-icon {
-            fill: var(--newtab-text-primary-color) !important;
-            background-color: var(--newtab-pinnedsites-background) !important;
+        &:hover,
+        &.active {
+            background: var(--my-gradient-background-hover) !important;
+            box-shadow: 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
         }
-    }
-    
-    /* Styles when clicking on a pinned site and moving the mouse away */
-    .top-site-outer:is(:focus-within) .tile, 
-    .card-outer:is(.active,:focus-within) .card {
-        box-shadow: 0 0 0 2px var(--button-active-bgcolor), 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
+        
+        .card {
+            background: var(--my-gradient-background) !important;
+            backdrop-filter: var(--my-blur) !important;
+            
+            & .card-title {
+                transition: text-decoration ease 0.19s !important;
+                text-underline-offset: 2px !important;
+            }
+            
+            /* Icon */
+            .card-context {
+                backdrop-filter: var(--my-blur);
+                background-color: var(--my-opaque-background) !important;
+                border-radius: 50% !important;
+
+                &> .card-context-icon {
+                    fill: currentColor !important;
+                }
+            }
+        }
+        
+        /* Underline on 'hover' */
+        &:is(:hover, :focus, :active, :focus-within, .active):not(.placeholder) .card-title {
+            --newtab-primary-action-background: var(--newtab-text-primary-color) !important;
+            text-decoration: underline !important;
+        }
+        
+        /* Text shadow */
+        .card-host-name,
+        .card-title {
+            text-shadow: 0px 0px 4px var(--my-color-scheme) !important;
+        }
     }
     
     /* ______________________________________________________ News Section _______________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
     .section-context-wrapper {
-        margin-inline-end: 4px !important;
+        margin-inline-end: 14px !important;
+    }
+
+    .ds-card {
+        background-color: transparent !important;
+        background: var(--my-gradient-background) !important;
+        box-shadow: 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+        transition: box-shadow ease-in-out 0.1s !important;
+        transition-delay: 0ms !important;
+
+        &:hover {
+            box-shadow: 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
+            background: var(--my-gradient-background-hover) !important;
+        }
+
+        .ds-card-link {
+            backdrop-filter: var(--my-blur) !important;
+            border-radius: var(--border-radius-large) !important;
+        }
+        
+        .info-wrap {
+            text-shadow: 0px 0px 4px var(--my-color-scheme) !important;
+        }
     }
     
-    .ds-card {
-        background-color: var(--newtab-pinnedsites-background) !important;
-        background-image: linear-gradient(0deg, color-mix(in srgb, var(--general-color)4%, var(--newtab-pinnedsites-background)) , rgba(0,255,0,0) 64.71%),
-                linear-gradient(190deg, var(--newtab-pinnedsites-background), var(--newtab-pinnedsites-background) 99.71%) !important;
-        box-shadow: 0 0 0 1px #50505050, 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
-        border-radius: var(--border-radius-medium) !important;
-        transition: box-shadow 0.1s ease;
-        
-        &:hover {
-            box-shadow: 0 0 0 2px var(--button-active-bgcolor), 0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1), 0 2px 6px var(--box-shadow-color-lighter-layer-2) !important;
-        }
-        
-        .ds-card-link {
-            backdrop-filter: var(--personal-blur) !important;
-            clip-path: xywh(0 0 100% 100% round var(--border-radius-medium));
-        }
+    /* Underline when 'hover' */
+    .ds-card-grid .ds-card:hover h3,
+    .ds-card-grid .ds-card.active h3 {
+        text-decoration: underline 1px !important;
     }
     
     /* _________________________________________________ 3 dot contextual menu ___________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
     /* 3 dot icon pinned sites */
-    
+
     .top-site-outer .context-menu-button {
         background-image: url("../icons/more.svg") !important;
-        background-color: transparent !important;
-        border-radius: calc(var(--border-radius-medium) - 1px) !important;
+        border-radius: var(--border-radius-large) !important;
         border-start-start-radius: 0px !important;
         border-end-end-radius: 0px !important;
         inset-block-start: 0px !important;
         inset-inline-end: 10px !important;
         transition: opacity 100ms;
         
-        &:hover {
-            background-color: var(--button-active-bgcolor) !important;
+        & ~ .context-menu {
+            margin-inline-start: 0px !important;
+            top: 0 !important;
         }
     }
-    
+
     /* 3 dot icon recent activity */
-    
+
     .card-outer .context-menu-button {
-        border-radius: 5px !important;
-        inset-inline-end: 1px !important;
-        inset-block-start: 1px !important;
+        background-color: var(--my-opaque-background) !important;
+        top: 2px !important;
+        inset-inline-end: 2px !important;
+        border-radius: var(--border-radius-large) !important;
+        fill: currentColor !important;
         transition-duration: 150ms !important;
         transition-delay: 0ms !important;
-        
-        &:hover {
+
+        &:hover,
+        &[aria-expanded="true"] {
             background-color: var(--general-color) !important;
         }
     }
-    
+
     /* 3 dot contextual menu */
 
-    .context-menu {
-        background-color: var(--arrowpanel-background) !important; 
-        border-radius: 4px !important;
-        top: 0px !important;
-        box-shadow: 0px 0px 0 1px var(--contrast-color) !important;
-        border: 1px solid var(--arrowpanel-border-color) !important;
-        
+    .context-menu,
+    #weather-context-menu {
+        --newtab-element-secondary-hover-color: var(--panel-separator-zap-gradient3) !important;    /* 'Hover' menuitem gradient */
+        --newtab-element-secondary-active-color: var(--panel-separator-zap-gradient4) !important;    /* 'clic' menuitem gradient */
+        border-radius: 0px !important;
+        box-shadow: 0px 0px 0 1px var(--my-border-color-scheme) !important;
+        border: 1px solid var(--my-arrowpanel-border-color) !important;
+        border-image: var(--panel-separator-zap-gradient2) 1 !important;
+        backdrop-filter: var(--my-blur) !important;
 
+        /* Separator */
         & .separator {
             margin-inline: 6px !important;
             width: -moz-available !important;
             border-image: var(--panel-separator-zap-gradient2) 1 !important;
         }
+    }
+    
+    #weather-context-menu {
+        --button-background-color-hover: var(--button-active-bgcolor) !important;
+    }
+    
+    /* _____________ Styles when using Firefox feature 'transparent browser' _____________
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-        /* 'hover' on items */
-        & > ul > li > a:is(:focus, :hover), & > ul > li > button:is(:focus, :hover) {
-            background: linear-gradient(to right, var(--button-bgcolor) 49%, transparent) !important;
+    @media -moz-pref("browser.tabs.allow_transparent_browser") {
+        
+        /* Remove unwanted solid background */
+        body {
+            background-color: transparent !important;
         }
     }
     
-    /* ________________________ Font color when using a light wallpaper ________________________ */
-
-    .lightWallpaper .top-site-outer{
-        --contrast-color: white !important;
-    }
-    
-    .darkWallpaper .top-site-outer{
-        --contrast-color: black !important;
-    }
-
-    /* Recent Activity text shadow */
-    .ds-highlights .section .section-list .card-outer .card-host-name,
-    .card-outer:not(.placeholder) .card-title {
-        text-shadow: 0px 0px 4px var(--contrast-color) !important;
-    }
-    
-    .lightWallpaper :is(
-    .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
-    .top-site-outer:is(:hover, :active, .active) .title span,                         /* 'Activity' label */
-     .ds-card .meta .clamp ) {                                                        /* 'News' */             
-        color: black !important;
-        --contrast-color: white !important;
-    }
-    
-    .darkWallpaper :is(
-    .card-host-name, .card-outer:not(.placeholder) .card-title, .card-outer .icon,    /* 'Pinned' label */
-    .top-site-outer:is(:hover, :active, .active) .title span,                         /* 'Activity' label */
-     .ds-card .meta .clamp ) {                                                        /* 'News' */
-        color: white !important;
-        --contrast-color: black !important;
-    }
-    
-    /* Scheme light */                    
-    .lightWallpaper :is(
-    .weatherCard, .personalize-button,                                                /* weather - personalize-button */
-    .search-inner-wrapper, #newtab-search-text[Keepfocus="true"] ) {                  /* Search-box */
-        color-scheme: light !important;
-        --contrast-color: white !important;
-    }
-    
-    /* scheme dark */
-    .darkWallpaper :is(
-    .weatherCard, .personalize-button,                                                /* weather - personalize-button */
-    .search-inner-wrapper, #newtab-search-text[Keepfocus="true"] ) {                  /* Search-box */
-        color-scheme: dark !important;
-        --contrast-color: black !important;
-    }
-    
-    /* ___________________________________________________ Newtab Fonts color ____________________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
-    .search-wrapper input,                                                      /* Search box text */
-    .title,                                                                     /* Pinned site text */
-    .card-outer .card-host-name,                                                /* Recent activity line 1 */
-    .card-context,                                                              /* Recent activity icon */
-    .selector,                                                                  /* Icon of combobox */
-    .top-site-icon.search-topsite,                                              /* Search icon in pinned sites */
-    .ds-layout .section-title span {
-        --newtab-text-primary-color: FieldText !important;
-        --newtab-text-secondary-color: FIeldText !important;
-        --newtab-contextual-text-primary-color: FieldText !important;
-        --newtab-primary-element-text-color: FieldText !important;
-    }
-    
-    .card-outer > a,                                                            /* Recent activity line 2 */
-    .card-outer:is(:hover, :focus, .active):not(.placeholder) .card-title,      /* Recent activity line 2 'hover' */
-    .context-menu > ul > li > a, .context-menu > ul > li > button,              /* Pined site 3 dot menu */
-    .form-input-container,                                                      /* Edit pinned site */
-    button:not(.external-link,.wallpapers-reset),                               /* Buttons */
-    .modal,                                                                     /* popup message when trying to delete a pinned site */
-    .customize-menu {                                                           /* Sliding sidebar used to customize the NewTab */
-        color: FieldText !important;
-    }
-    
     /* ______________________________________________ For Main-image configuration _______________________________________________ 
-       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     
     @media -moz-pref("firefoxgx.main-image") {
         
         body {
-            background-image: none !important;
-            background-color: transparent !important;
+            background: transparent !important;
 
             /*Remove unwanted brightness */
             &::before {
@@ -979,109 +1131,92 @@
             }
         }
         
-        .customize-menu {
-            background-image: url("../icons/urlbar-noise-dark.png") !important;
+        /* Previews - Firefox GX wallpapers deleted and show only accent color */        
+        button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div :is(.theme-dark, .theme-light) {
+            background-size: 0px !important;
+            background-color: black !important;            
+            align-content: center !important;
+            text-align: center !important;
+            
+            &[aria-checked]::after {
+                width: 16px !important;
+                height: 16px !important;
+                margin-inline-start: -8px !important;
+                margin-block-start: -8px !important;
+            }
         }
         
-        /* When editing a pinned site */
-        
-        .modalOverlayOuter {
-            --newtab-button-static-hover-background: light-dark(#E0E0E6, #101019e0) !important;
-            background-image: url("../icons/urlbar-noise-dark.png") !important;
-            background-color: var(--newtab-button-static-hover-background) !important;
-        }
-        
-        /* General -Recent activity- */
-
-        .card .card-details {
-            position: relative !important;
-            z-index: 1 !important;
-        }
-
-        .card .card-context {
-            position: fixed !important;
-        }
-    }
-    
-    /* Theme image go below in newtab page */
-
-    @media -moz-pref("browser.tabs.allow_transparent_browser") {    
-        body {
-            background-color: transparent !important;
-        }
-        
-        /* Slider background */
-        .customize-menu-animate-wrapper {
-            background-image: url("../icons/urlbar-noise-light.png") !important;
-            background-color: var(--newtab-background-color) !important;
-        }
-
-        .customize-menu {
-            backdrop-filter: none !important;
-            background-color: transparent !important;
-        }
-
-        /* When editing a pinned site */
-
-        .modalOverlayOuter {
-            --newtab-button-static-hover-background: light-dark(#E0E0E6, #101019e0) !important;
-            background-image: url("../icons/urlbar-noise-dark.png") !important;
-            background-color: var(--newtab-button-static-hover-background) !important;
-        }
-
-        /* General -Recent activity- */
-
-        .card .card-details {
-            position: relative !important;
-            z-index: 1 !important;
-        }
-
-        .card .card-context {
-            position: fixed !important;
+        .wallpaper-list>button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div .theme-light {
+            background-color: white !important;
         }
     }
 }
 
 /* _____________ Background and font color when selecting text on websites _____________ 
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 ::selection {
     color: black !important;
     box-shadow: none !important;
     text-shadow: none !important;
-    background: var(--selected-text-background) !important;
+    background: var(--my-selected-text-background) !important;
 }
 
 /* _____________________________________________________ Private Newtab page _____________________________________________________ 
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @-moz-document url(about:privatebrowsing) {
     
-    :root{ 
-        --general-color: var(--purple) !important; 
+    :root {
+        --general-color: var(--purple) !important;      /* Need it to fill buttons */
     }
     
     body {
         --newtab-search-icon: url("chrome://global/skin/icons/indicator-private-browsing.svg") !important;
         background: var(--lwt-private-image) no-repeat right top fixed !important;
         background-size: cover !important;
-        backdrop-filter: var(--brightness-wallpaper) !important;
+    }
+    
+    .logo {
+        background: url("chrome://global/skin/icons/indicator-private-browsing.svg") no-repeat !important;
+        background-size: cover !important;
+        height: 70px !important;
+        width: 70px !important;
+        display: var(--my-logo-wordmark-display) !important;
     }
 
+    .wordmark {
+        fill: var(--purple) !important;
+        display: var(--my-logo-wordmark-display) !important;
+    }
+    
+    /* Informative boxes */
     .promo.below-search, .info {
-        background-color: var(--newtab-pinnedsites-background) !important;
-        backdrop-filter: var(--personal-blur) !important;
-        outline: 1px solid #50505030 !important;
+        background-color: var(--my-newtab-elements-background) !important;
+        backdrop-filter: var(--my-blur) !important;
+        outline: 1px solid #50505050 !important;
     }
-
+    
+    /* Primary buttons */
+    .promo-cta .primary {
+        background-color: var(--button-bgcolor) !important;
+        color: Fieldtext !important;
+        
+        &:hover {
+            background-color: var(--button-hover-bgcolor) !important;
+        }
+    }
+    
+    /* Searchbox */
     .search-handoff-button {
         background-color: transparent !important;
         border: transparent !important;
-        box-shadow: none !important;
+        box-shadow: 0 2px var(--button-bgcolor) !important;
     }
 
-    .fake-textbox, .fake-editable {
-        color: var(--newtab-wordmark-color) !important;
+    .fake-textbox, 
+    .fake-editable {
+        color: FieldText !important;
     }
 
     .fake-caret { 
@@ -1089,136 +1224,86 @@
     }
 
     .search-inner-wrapper:not(:focus) {
-        backdrop-filter: var(--personal-blur) !important;
+        backdrop-filter: var(--my-blur) !important;
     }
-
-    .logo {
-        background: url("chrome://global/skin/icons/indicator-private-browsing.svg") no-repeat !important;
-        background-size: cover !important;
-        height: 80px !important;
-        width: 80px !important;
-        Opacity: var(--logo-wordmark-visibility) !important;
-        display: var(--logo-wordmark-display) !important;
-    }
-
-    .wordmark {
-        background: url("../icons/firefox-wordmark-private.svg") no-repeat center center !important;
-        Opacity: var(--logo-wordmark-visibility) !important;
-        display: var(--logo-wordmark-display) !important;
+    
+    /* Font color - test when change to a light theme */
+    @media not (prefers-contrast) {
+        html.private {
+            color-scheme: inherit !important;
+        }
     }
 }
 
 /* ________________________________________________________ Firefox View _________________________________________________________ 
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @-moz-document regexp("^about:firefoxview.*") {
     
     :root {
-        --newtab-text-primary-color: unset !important;
-        --fxview-primary-action-background: transparent !important;                     /* background color of the selected category */
+        --newtab-text-primary-color: unset !important;                                  /* Remove general font accent color */
+        --fxview-primary-action-background: var(--general-color) !important;            /* Accent color 'View all' & ... */
         --fxview-element-background-hover: var(--button-hover-bgcolor) !important;      /* Context menu: color on 'hover' over items */
         --fxview-element-background-active: var(--button-active-bgcolor) !important;    /* Context menu: color on 'clic' over items */
-        --fxview-border: var(--fxview-primary-action-background) !important;
-        --fxview-background-color: transparent !important;
-        --opaque: color-mix(in srgb, var(--in-content-page-background) 50%, transparent) !important;
+        --fxview-background-color: transparent !important;                              /* Sticky background */
     }
     
     @media (prefers-color-scheme: dark) {
         :host, :root {
-            --border-contrast-color: black;
-            --newtab-background-color: #14141d !important;
-            --newtab-background-color-secondary: rgba(52, 55, 69, 0.7) !important;
-            --newtab-primary-action-background: var(--general-color) !important;
-            --in-content-primary-button-text-color: white !important;
-            --in-content-primary-button-background: var(--general-color) !important;
-            --in-content-primary-button-background-hover: var(--button-hover-bgcolor) !important;
-            --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;
+            --newtab-background-color-secondary: rgba(32, 35, 49, 0.9) !important;          /* Category content background color */
         }
     }
     
     @media (prefers-color-scheme: light){
         :root{
-            --border-contrast-color: white;
-            --newtab-background-color: #efeff5 !important;
-            --newtab-primary-action-background: var(--general-color) !important;
-            --in-content-primary-button-text-color: white !important;
-            --in-content-primary-button-background: var(--general-color) !important;
-            --in-content-primary-button-background-hover: var(--button-hover-bgcolor) !important;
-            --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;
+            --newtab-background-color-secondary: rgba(292, 295, 299, 0.9) !important;       /* Category content background color */
         }
     }
     
-    .sticky-container{
-        margin-block-end: 10px !important;
-        box-shadow: 6px 4px 6px var(--in-content-page-background) !important;
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% + 10px), 0 calc(100% + 10px));
-    }
-    
-    button[selected] {
-        transition-duration: 0ms !important;
-    }
-    
-    .search-container input:is(:focus, :focus-visible) {
-        &:focus-visible {
-            border-color: transparent !important;
-            box-shadow: 0 0 0 2px var(--general-color) !important;
-            outline: none !important;
-        }
-    }
-    
-    /* New style of elements */
-    
+    /* Remove unwanted big vertical scrollbar */
     body {
-        background: transparent !important;
         overflow-y: hidden !important;
     }
-
+    
+    /* All right side */
     .main-container {
         width: 100% !important;
     }
-
-    #pages {
-        padding: 0px !important;
-    }
-
-    named-deck>view-recentbrowsing>div {
-
-        min-width: 100% !important;
-        display: grid;
-    }
-
-    named-deck {
-        width: 100% !important;
-        display: grid;
-    }
-
-    .cards-container {
-        height: 66vh !important;
-        overflow: auto;
-        scrollbar-gutter: stable !important;
-        padding-inline: 42px 52px !important;
-    }
-
+    
+    /* Sticky */
     .sticky-container {
         margin-inline: 0px !important;
         padding-inline: 42px 52px !important;
+        box-shadow: 6px 0px 10px black !important;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% + 10px), 0 calc(100% + 10px));
     }
     
     /* Search-box */
     #input {
         &[type="search"] {
-            border-color: color-mix(in srgb, var(--in-content-box-border-color) 80%, var(--in-content-text-color)) !important; 
-            border-radius: 16px !important;
+            background-color: color-mix(in srgb, var(--newtab-background-card) 80%, transparent) !important;
+            border-color: color-mix(in srgb, var(--newtab-background-card) 80%, FieldText) !important; 
+            border-radius: var(--border-radius-medium) !important;
 
             &:hover {
-                border-color: var(--general-color) !important;
-                outline: 0px solid var(--general-color) !important;
+                background-color: color-mix(in srgb, var(--button-smaller-bgcolor) 30%, var(--newtab-background-card)) !important;
+                border-color: var(--button-bgcolor) !important;
             }
             
             &:focus-visible {
+                background-color: var(--newtab-background-card) !important;
                 border-color: var(--general-color) !important;
                 outline: 1px solid var(--general-color) !important;
             }
         }
+    }
+    
+    /* Category Content */
+    .cards-container {
+        height: 66vh !important;
+        overflow: auto;
+        scrollbar-gutter: stable !important;
+        padding-inline: 42px 52px !important;
+        padding-block-start: 10px !important;
     }
 }

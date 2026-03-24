@@ -43,13 +43,13 @@
 @media (prefers-color-scheme: dark) { :root {
   --lwt-main-image: url("../newtab/about-page-dark.png") !important;                    /* 'about:' pages wallpaper - solid dark theme */
   --lwt-private-image: url("../newtab/private-dark.png") !important;                    /* Private New-tab wallpaper - dark theme */
-  --brightness-toolbar: 30%;                                                            /* Themes with images - dark filter to navbar - bookmarksbar */
+  --brightness-toolbar: 50%;                                                            /* Themes with images - dark filter to navbar - bookmarksbar */
   --brightness-wallpaper: 100%;                                                         /* 100% -> default */ }}
 
 @media (prefers-color-scheme: light) { :root {
   --lwt-main-image: url("../newtab/about-page-light.png") !important;                   /* 'about:' pages wallpaper - solid light theme*/
   --lwt-private-image: url("../newtab/private-light.png") !important;                   /* Private New-tab wallpaper - light theme*/
-  --brightness-toolbar: 30%;                                                            /* Themes with images - light filter to navbar - bookmarksbar */
+  --brightness-toolbar: 50%;                                                            /* Themes with images - light filter to navbar - bookmarksbar */
   --brightness-wallpaper: 100%;                                                         /* 100% -> default */ }}
 
 :root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }    /* Accent color for private browsing */
@@ -65,16 +65,15 @@
   --menu-label: "Menu" ;                                                                /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                            /* Horizontal size of the hamburger menu button */
   
-  --logo-wordmark-display: flex ;                                                       /* Logo-wordmark | none -> remove | flex -> show |  */
-  --orientation-display: block ;                                                        /* Orientation of 'Logo-wordmark & searchbar'
-                                                                                           block -> vertical | flex -> horizontal | none -> remove | */
+  --my-logo-wordmark-display: flex ;                                                    /* Logo-wordmark | none -> remove | flex -> show |  */
   
-  --newtab-pinnedsites-background: color-mix(in srgb, white 1%, transparent) ;          /* Background color of pinned sites and search bar  */
-  --personal-blur: blur(16px) ;                                                         /* Blur on new tab page elements */
+  --my-newtab-elements-background: color-mix(in srgb, white 3%, transparent) ;          /* Background color of newtab elements */
+  --my-border-radius: 6px ;                                                             /* Roundness of many elements in 'about:' pages */
+  --my-blur: blur(16px) ;                                                               /* Blur on new tab page elements */
   
-  --newtab-pinnedsites-position-top: start ;                                            /* Pinned sites position -> :start | :center | :end | */
+  --my-newtab-pinnedsites-position: start ;                                             /* Pinned sites position -> :start | :center | :end | */
   
-  --selected-text-background: var(--general-color);                                     /* Selected text background */
+  --my-selected-text-background: var(--general-color);                                  /* Selected text background */
 
 }
 
@@ -91,11 +90,13 @@
 @media -moz-pref("firefoxgx.main-image") {  
   @media (prefers-color-scheme: dark) { :root {
     --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                 /* new-tab page image - dark theme */
-    --brightness-wallpaper: 50%;                                                        /* Black filter | no filter -> 100% */ }}
+    --brightness-toolbar: 50%;                                                          /* Dark filter to toolbars & web content */
+    --brightness-wallpaper: 80%;                                                        /* Black filter | no filter -> 100% */ }}
   
   @media (prefers-color-scheme: light) { :root {
     --lwt-main-image:  url("../newtab/main-image-light.png") !important;                /* new-tab page image - light theme*/
-    --brightness-wallpaper: 50%;                                                        /* White filter | no filter -> 100% */ }}
+    --brightness-toolbar: 50%;                                                          /* light filter to toolbars & web content */
+    --brightness-wallpaper: 80%;                                                        /* White filter | no filter -> 100% */ }}
 }
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------

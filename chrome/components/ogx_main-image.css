@@ -3,152 +3,124 @@
 
 @media -moz-pref("firefoxgx.main-image") {
 
-   @media (prefers-color-scheme: dark){
-      :root[brighttext],
-      :root[lwt-toolbar-field-focus-brighttext],
-      :root[lwtheme],
-      :root:not([lwtheme]){
-         --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;
-         --toolbar-field-background-color: transparent !important;                                                    /* toolbar_field */
-         --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
-         --lwt-selected-tab-background-color: #10101900 !important;                                                   /* tab_selected */
-         --toolbarbutton-hover-background:  color-mix(in srgb, 
-            transparent 90%, color-mix(in srgb, var(--my-font-color) 50%, var(--general-color))) !important;            /* button_background_hover */
-         --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
-         /*--lwt-sidebar-background-color: #101019 !important;                                                          /* Sidebar-background */
-         /*--chrome-content-separator-color: var(--toolbar-bgcolor) !important                                          /* toolbar_bottom_separator */
-      }}
-
-   @media (prefers-color-scheme: light){
-      :root:not([lwtheme-brighttext="true"]),
-      :root:not([lwt-toolbar-field-focus-brighttext]),
-      :root[lwtheme],
-      :root:not([lwtheme]){
-         --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;
-         --toolbar-field-background-color: transparent !important;                                                    /* toolbar_field */
-         --toolbar-field-border-color: transparent !important;                                                        /* toolbar_field_border */
-         --lwt-selected-tab-background-color: #f9f9f900 !important;                                                   /* tab_selected */
-         --toolbarbutton-hover-background:  color-mix(in srgb, 
-            transparent 90%, color-mix(in srgb, var(--my-font-color) 50%, var(--general-color))) !important;  /* button_background_hover */
-         --toolbarbutton-hover-personal:  var(--toolbarbutton-hover-background) !important;                           /* Button :hover color personal */
-         /*--lwt-sidebar-background-color: #f9f9f9 !important;                                                          /* Sidebar-background */
-         /*--chrome-content-separator-color: var(--toolbar-bgcolor) !important;                                         /* toolbar_bottom_separator */
-      }}
-
-   @media (prefers-color-scheme: dark){
-      :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-         /*--toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;
-         --lwt-selected-tab-background-color: transparent !important;/**/
-      }}
-
-   @media (prefers-color-scheme: light){
-      :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-         /*--toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper)) !important;
-         --lwt-selected-tab-background-color: transparent !important;/**/
-      }}
-
-   /* Variables generales */
-
+   /* General Variables \
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
    :root,
    :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-      --lwt-header-image: var(--lwt-main-image) !important;
-      --lwt-additional-images: var(--lwt-main-image) !important;
+      --lwt-additional-images: var(--lwt-main-image) !important;                                                  /* Replace default theme 'aditional' image */
+      --lwt-header-image: var(--lwt-additional-images) !important;                                                /* Replace default theme 'header' image */
+      --toolbar-bgcolor: color-mix(in srgb,                                                                       /* Toolbars - web content background color */
+         var(--contrast-color), transparent var(--brightness-toolbar)) !important;
+      --toolbarbutton-hover-background: color-mix(in srgb,                                                        /* Button background when 'hover' */
+            transparent 90%, color-mix(in srgb, var(--my-font-color) 50%, var(--general-color))) !important;
+      --toolbarbutton-hover-personal: var(--toolbarbutton-hover-background) !important;                           /* Button background 'hover' personal */
    }
    
-   /* Set the main image to all body */
+   /* Image size and posistion - in this way to keep align in 'expand-on-hover' */
    
    #main-window {
       background-size: cover !important;
-   }
-   
-   /* blur effect 
-   body::after {
-      content: '';
-      display: flex;
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(34px);
-      z-index: -1;
-      mask: radial-gradient(ellipse at center, #e66465, #00000020),
-         radial-gradient(ellipse at bottom, #4d9f0c, transparent
-         );
-   }*/
-
-   /* Remove main gradient background */
-
-   #main-window>body:before {
-      display: none !important;
+      background-position-x: left !important;
+      
+      /* Sidebar 'expand-on-hover' + Sidebar on right */
+      @media -moz-pref("sidebar.visibility", "expand-on-hover") and (not -moz-pref("sidebar.position_start")) {
+         background-position-x: right !important;
+      }
    }
 
    /* Align tab-background image */
 
-   .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
-      background-size: cover !important;
+   .tabbrowser-tab:is([visuallyselected],[multiselected]) {
+      .tab-background,
+      .tab-background::before,
+      .tab-background::after {
+         --my-tab-toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper));
+         background-image: linear-gradient(var(--my-tab-toolbar-bgcolor), var(--my-tab-toolbar-bgcolor)),
+            linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+            var(--lwt-header-image, none), var(--lwt-additional-images,none),
+            linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
+         background-color: var(--toolbar-bgcolor) !important;
+         background-size: cover !important;
+         background-position-x: left !important;
+         background-position-y: top !important;    /* Test using theme with 'Header' image */
+      }
    }
 
    /* Improved background when moving tab */
 
    #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack  > .tab-background{
-      background-size: cover !important;
+      background-size: auto !important;
    }
 
    /* I override url-bar 'focus' from ogx_urlbar-searchbar.css */
 
-   #urlbar:not([open]):is([focused]) #urlbar-background {
-      background-color: var(--button-smaller-bgcolor) !important;
+   #urlbar:not([open]):is([focused]) .urlbar-background {
+        background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
    }
 
    /* background-color when buttons are 'open' in solid themes - used to match colors in solid and image themes */
 
-   #TabsToolbar, #nav-bar {   
-      --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--my-font-color) 80%, var(--general-color))) !important;
+   #TabsToolbar, #nav-bar, #PersonalToolbar {
+      --toolbarbutton-hover-background: color-mix(in srgb, transparent 90%, color-mix(in srgb, var(--my-font-color) 50%, var(--general-color))) !important;
+      --toolbarbutton-active-background: color-mix(in srgb, transparent 90%, var(--my-font-color)) !important;
    }
 
    /* fix for status panel - findbar */
 
    #statuspanel label, 
-   findbar{
-      background-image: var(--lwt-main-image) !important;
-      background-size: cover !important;
+   findbar {
+      background-color: transparent !important;
+      background-size: 100vw 100vh !important;
       background-position: calc(0px - var(--my-vertical-toolbar-width)) bottom !important;
       background-attachment: fixed !important;
       border-color: var(--my-content-border-color) !important;
    }
 
-   /* ______________________ Vertical tabs ______________________ */
+   /* ____________________________________________ Vertical tabs ____________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
    @media -moz-pref("sidebar.verticalTabs") {
       
-      /* When using default 'expand-on-hover' */
+      /* Tab selected background */
+      .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
+         background-size: auto auto !important;
+      }
       
+      /* When using default 'expand-on-hover' \
+      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */      
       :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
-         #sidebar-main {
-            background-image: var(--lwt-additional-images), var(--lwt-header-image) !important;
-            background-size: cover !important;
+         
+         #sidebar-main,
+         #navigator-toolbox::before {
+            background-image:  linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+               var(--lwt-additional-images), var(--lwt-header-image) !important;
             background-position-y: bottom !important;
+            background-position-x: left !important;
             
+            /* Sidebar on right */
             &[sidebar-positionend] {
                background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+                  linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
                   var(--lwt-additional-images), var(--lwt-header-image) !important;
+               background-position-x: right !important;
             }
             
+            /* Sidebar + 'left-sidebar' */
             @media -moz-pref("firefoxgx.left-sidebar") {
                
                &:not([sidebar-positionend]) {
                   background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+                     linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
                      var(--lwt-additional-images), var(--lwt-header-image) !important;
-                  background-position-x: var(--my-elements-left-margin) !important;
+                  background-position-x: calc(0px - var(--my-elements-left-margin)) !important;
+                  background-repeat: repeat-x !important;
                }
             }
          }
-         #navigator-toolbox::before {
-            background: transparent !important;
-         }
       }
       
-      /* Put image in sidebar when expand-on-hover */
-      
+      /* Not default 'expand-on-hover' - Put image in sidebar when expand-on-hover \
+      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */      
       @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
          
          :root:not([chromehidden~="toolbar"]) {            
@@ -198,54 +170,36 @@
             }
          }
       }
-   }
    
-   /* ______________________ Tab-shapes compatibility */
+      /* ______________________ Main image expand on hover alignment ______________________ */
 
-   @media -moz-pref("firefoxgx.tab-shapes") {
-      
-      @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or 
-             -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or 
-             -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
-             -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
-             -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
-                
-                .tabbrowser-tab:is([visuallyselected],[multiselected])  .tab-background::before,
-                .tabbrowser-tab:is([visuallyselected],[multiselected])  .tab-background::after {
-                   background-size: cover !important;
-                }
-      }
-   }
-   
-   /* ______________________ Main image expand on hover alignment ______________________ */
+      @media -moz-pref("firefoxgx.main-image-expandOnHover-aligned") {
 
-   @media -moz-pref("firefoxgx.main-image-expandOnHover-aligned") {
+         #main-window {
+            background-size: 100% 100vh !important;
+         }
 
-      #main-window {
-         background-size: 100% 100vh !important;
-      }
+         .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
+            background-size: 100% 100vh !important;
+         }
 
-      .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
-         background-size: 100% 100vh !important;
-      }
+         #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack  > .tab-background {
+            background-size: 100vw 100vh !important;
+         }
 
-      #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack  > .tab-background {
-         background-size: 100vw 100vh !important;
-      }
-
-      #statuspanel label, 
-      findbar {
-         background-size: 100vw 100vh !important;
-      }
-
-      @media -moz-pref("sidebar.verticalTabs") {
-
+         #statuspanel label, 
+         findbar {
+            background-size: 100vw 100vh !important;
+         }
+         
+         /* 'Expand-on-hover' */
          :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
             #sidebar-main {
                background-size: 100vw 100vh !important;
             }
          }
 
+         /* Personal 'Expand-on-hover' + 'left-sidebar' */
          @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
 
             @media -moz-pref("firefoxgx.left-sidebar") {
@@ -257,54 +211,6 @@
                }
             }
          }
-      }
-
-      @media -moz-pref("firefoxgx.tab-shapes") {
-
-         @media -moz-pref("userChrome.tab.bottom_rounded_corner.wave") or 
-                -moz-pref("userChrome.tab.bottom_rounded_corner.australis") or 
-                -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") or 
-                -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") or 
-                -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
-
-                  .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background::before,
-                  .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background::after {
-                     background-size: 100% !important;
-                  }
-         }
-      }
-   }
-
-   /* Oneline compatibility */
-
-   @media -moz-pref("firefoxgx.oneline") {
-      
-      @media screen and (min-width: 1000px) {
-      /*
-         @media (prefers-color-scheme: dark) {
-            :root, :root[lwtheme], :root:not([lwtheme]) {
-               --lwt-selected-tab-background-color: #0000007f !important;
-            }
-         }
-
-         @media (prefers-color-scheme: light) {
-            :root, :root[lwtheme], :root:not([lwtheme]) {
-               --lwt-selected-tab-background-color: #ffffff7f !important;
-            }
-         }/*
-
-         #nav-bar {
-            background-color: transparent !important;
-         }
-         
-         /* Fix continuous line with 'Sidebar-revamp' 
-         
-         :root:not([customizing]) {
-            & #navigator-toolbox::before {
-               bottom: -1px !important;
-               height: calc(2px + var(--windowed-top-padding, 0px) + var(--toolbar-height-personal) + var(--bookmarksbar-height-personal, 1px)) !important;
-            }
-         }*/
       }
    }
 }

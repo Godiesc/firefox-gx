@@ -1,6 +1,49 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
+/* Toggle button \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.toggle-button {
+    --toggle-border-radius: 4px !important;
+    --toggle-height: 21px !important;
+    --toggle-width: 36px !important;
+    --toggle-dot-height: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
+    --toggle-dot-width: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
+
+    /* Toggle hexagon */
+    &::before {
+        translate: 1px !important;
+        border-radius: calc(var(--toggle-border-radius) - 2px) !important;
+    }
+}
+
+/* Toggle Opacity when not 'hover' */
+.toggle-button:not(:hover) {
+    opacity: 0.8 !important;
+}
+
+/* Toggle off when 'hover' */
+.toggle-button[aria-pressed="false"]:hover {
+    background: transparent !important;
+}
+
+/* Toggle on */
+.toggle-button[aria-pressed="true"] {
+    --toggle-dot-transform-x: calc(var(--toggle-width) - 3 * var(--toggle-dot-margin) - 2px - var(--toggle-dot-width));
+    background-color: var(--button-bgcolor) !important;
+    border-color: var(--general-color) !important;
+
+    &:hover {
+        background-color: var(--button-hover-bgcolor) !important;
+        border-color: var(--general-color) !important;
+    }
+
+    &::before {
+        background-color: FieldText !important;
+        translate: var(--toggle-dot-transform-x) !important;
+    }
+}
+
 /* Bookmark popup dropdown colors */
 
 panel menulist {
@@ -35,33 +78,6 @@ panel menulist {
     
     & label {
         display: none !important;
-    }
-}
-
-/* Searchbox in Sidebar 'bookmarks-history-sync' */
-
-/* First-second variable used for '--general-color' unset to follow the next variable for that accent color */
-
-@-moz-document regexp("^chrome://browser/content/places.*"), url(chrome://browser/content/webext-panels.xhtml),
-    url(chrome://browser/content/syncedtabs/sidebar.xhtml), regexp("^chrome://browser/content/sidebar.*") {
-    
-    :root { 
-        --toolbarbutton-icon-fill-attention: unset !important; 
-        --newtab-text-primary-color: unset !important;
-        }
-}
-
-/* sync-tabs sidebar searchbox */
-
-#input {
-    &[type="search"] {
-        --input-text-background-color: color-mix(in srgb, Field, transparent) !important;
-        border-color: #80808080 !important;
-        &:focus {
-            --toolbarbutton-icon-fill-attention: unset !important;
-            outline: 1px solid var(--general-color) !important;
-            border-color: var(--general-color) !important;
-        }
     }
 }
 
@@ -188,6 +204,12 @@ button {
     --toolbarbutton-icon-fill:  var(--general-color) !important;
 }
 
+/* Style when moving a bookmark into a folder - tested by holding the click */
+.bookmark-item:is(toolbarbutton)[dragover="true"][open] {
+    background: var(--button-smaller-bgcolor) !important;
+    fill: var(--general-color) !important;
+}
+
 /* ___________________ ALL tabs button ___________________ 
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
@@ -206,12 +228,6 @@ button {
 .all-tabs-close-button.all-tabs-secondary-button.subviewbutton:hover,
 .all-tabs-mute-button.all-tabs-secondary-button.subviewbutton:hover{
     background: var(--button-hover-bgcolor) !important;
-}
-
-/* Groups icon color in 'List all tabs' button */
-
-.subviewbutton-iconic.tab-group-icon-closed>image {
-  color: light-dark(var(--tab-group-color), var(--tab-group-color)) !important;
 }
 
 /* ______________ Unified extentions button ______________
@@ -325,17 +341,54 @@ button {
 /* Delete style when 'sidebar' button change to 'active' */
 
 #sidebar-button {
+    
+    &:not(:hover) {
     --toolbarbutton-active-background: transparent !important;
+    }
 
     &[checked] {
         @media -moz-pref("sidebar.revamp") {
             list-style-image: url("chrome://browser/skin/sidebar-collapsed.svg") !important;
+            
+            @media not -moz-pref("sidebar.position_start") {
+                list-style-image: url("chrome://browser/skin/sidebar-collapsed-right.svg") !important;
+            }
         }
 
         &:hover {
             --toolbarbutton-active-background: var(--toolbarbutton-hover-background) !important;
         }
     }
+    &[open] {
+        /* When Firefox show a 'Message' in this button */
+        --toolbarbutton-active-background: inherit !important;
+    }
+}
+
+/* ________________________ Firefox-view ________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+#tabbrowser-tabs {
+    border-inline-start-width: 0px !important;
+}
+
+#TabsToolbar {
+    
+    & #firefox-view-button {
+        padding-inline: 4px !important;
+    }
+
+    & #firefox-view-button:hover .toolbarbutton-icon {
+        background-color: var(--toolbarbutton-hover-personal) !important;
+        fill: var(--general-color) !important;
+        transition: none !important;
+    }
+}
+
+toolbar:is(#TabsToolbar, #nav-bar, #PersonalToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
+        background: var(--button-bgcolor) !important;
+        fill: var(--arrowpanel-color, var(--my-font-color)) !important;
+        transition: none !important;
 }
 
 /* ---------------------------------------------- Used for various smooth transition ---------------------------------------------- */

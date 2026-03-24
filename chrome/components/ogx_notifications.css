@@ -2,24 +2,41 @@
    https://github.com/Godiesc/firefox-gx */
 
 /* _____________________________________________ Notifs - warnings - and browser dialogs ______________________________________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 /* Position */
 
-#window-modal-dialog{
+#window-modal-dialog {
     --chrome-offset: 78px !important;
 }
 
 /* Background color for dark themes */
 
-@media (prefers-color-scheme: dark){
-    :root[dialogroot], :host(dialog) {
+@media (prefers-color-scheme: dark) {
+    :root[dialogroot], 
+    :host(dialog) {
         --arrowpanel-background: #101019 !important;
         --in-content-page-background: var(--arrowpanel-background) !important;
-    }}
+        --background-color-canvas: var(--arrowpanel-background) !important;     /* Background color e.g. Magnet link to open in other aplication */
+    }
+}
+
+/* Button style e.g. Magnet link to open in other aplication */
+
+.dialog-button-box {
+    button[dlgtype="accept"] {
+        --button-background-color: var(--button-hover-bgcolor) !important;
+        --button-background-color-hover: var(--button-bgcolor) !important;
+        --button-background-color-active: var(--button-hover-bgcolor) !important;
+    }
+    button[dlgtype="cancel"] {
+        --button-background-color-hover: color-mix(in srgb, var(--red) 60%, transparent) !important;
+        --button-background-color-active: color-mix(in srgb, var(--red) 80%, transparent) !important;
+    }
+}
 
 @-moz-document url("chrome://global/content/commonDialog.xhtml"){
-  :root{
+  :root {
     background-color: var(--arrowpanel-background) !important;
   }
 }
@@ -69,7 +86,7 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
     #commonDialogWindow,
     #commonDialogWindow * {
         
-    --toolbarbutton-icon-fill-attention: var(--newtab-text-primary-color) !important;
+    --toolbarbutton-icon-fill-attention: unset !important;
     --in-content-link-color: var(--button-active-bgcolor) !important;
     --in-content-link-color-hover: var(--general-color) !important;
     --in-content-link-color-active: var(--button-active-bgcolor) !important;

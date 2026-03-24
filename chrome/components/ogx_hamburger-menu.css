@@ -106,21 +106,24 @@
     
     @media not (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs") or -moz-pref("firefoxgx.oneline")) {
 
+        /* When 'Overflow' button is visible */
         #nav-bar-overflow-button {
             padding-inline-end: var(--toolbar-start-end-padding) !important;
         }
-
-        /* When extension button is hidden from toolbar / overflow empty */
-        :root:has(#appMenu-unified-extensions-button[hidden]) 
-        #nav-bar:not([nonemptyoverflow], [customizing]) 
-        #nav-bar-customization-target > :last-child {
+        
+        /* when 'Overflow' button is hidden and 'Unfied extensions' is visible */
+        #nav-bar[unifiedextensionsbuttonshown="true"]:not([nonemptyoverflow],[customizing]) #nav-bar-customization-target > :last-child {
             padding-inline-end: var(--toolbar-start-end-padding) !important;
         }
-
-        :root:has(#appMenu-unified-extensions-button:not([hidden])) 
-        #nav-bar:not([nonemptyoverflow], [customizing]) 
+        
+        /* When 'overflow' and 'Unified Extensions' are hidden */
+        
         #nav-bar-customization-target {
-            padding-inline-end: var(--toolbar-start-end-padding) !important;
+            padding-inline-end: var(--my-padding-last-child, unset) !important;
+        }
+        
+        #nav-bar:not([nonemptyoverflow],[customizing]) #nav-bar-customization-target:has(#unified-extensions-button[hidden]) {
+            --my-padding-last-child: var(--toolbar-start-end-padding) !important;
         }
     }
     

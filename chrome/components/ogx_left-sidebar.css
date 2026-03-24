@@ -546,6 +546,9 @@
     :root {
         --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px);                         /* With of sidebar elements */
         --my-margin-inline-inner-tab: 4px;                                                                  /* Tab margin inline */
+        --tab-inner-inline-margin: var(--my-margin-inline-inner-tab) !important;
+        --tab-outer-inline-margin: calc(var(--my-margin-inline-inner-tab) - 1px) !important;
+        
         --my-margin-inline-outer-tab: calc(var(--my-margin-inline-inner-tab) + 1px);                        /* Tab margin inline - group tabs */
         --my-separator-border-style: linear-gradient(to right, transparent 4px, var(--general-color) 4px, 
                                      var(--general-color) calc(100% - 4px), transparent calc(100% - 4px));
@@ -651,32 +654,6 @@
         &[type="icon ghost"]:active > img  {
             transform: var(--my-transform-active) !important;
         }
-    }
-    
-    /* _______________ Styles of Sidebar content [open] _______________ */
-    
-    .sidebar-panel, 
-    #sidebar {
-        border-radius: 0px !important;
-    }
-    
-    /* Borders of sidebar */
-    #sidebar {
-        border: none !important;
-    }
-    
-    /* Margins of sidebar */
-    
-    #sidebar-box {
-        padding-block-end: 0px !important;
-        padding-inline: 0px !important;
-    }
-    
-    /* Search-box outline color on focus */
-    
-    .search-container input:focus-visible {
-        outline: 1px solid var(--general-color) !important;
-        border-color: var(--general-color) !important;
     }
     
     /* ___________________ Some extensions icons ____________________
@@ -808,7 +785,7 @@
             
             /* Transition delayed to hide tools when expanding */
             .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child) {
-                transition-delay: 0.3s, 0.2s, 0.3s !important;
+                transition-delay: 0.3s, 0.4s, 0.3s !important;
             }
             
             /* Transition duration removed to hide tools  instantly on collapse */
@@ -891,51 +868,37 @@
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯  °°°°°°°°°°°°°°°°°°°°°  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @media -moz-pref("sidebar.verticalTabs") {
+    
+    :root {
+        /* These Variables needed to be in root, not only into some class */
+        --tab-min-height: var(--tab-height-personal) !important;                            /* Tab height */
+        --tab-height-with-margin-padding: calc(var(--tab-min-height) + 2px) !important;     /* Remove unwanted tab extra height for pinned tabs */
+    }
 
-    /* Remove unwanted space between tabs tabs */
+    /* Remove unwanted space between tabs */
 
     #tabbrowser-tabs[orient="vertical"] {
-        --tab-height-with-margin-padding: var(--tab-min-height) !important;                     /* Remove unwanted tab extra height for pinned tabs */
-        & #pinned-tabs-container .tabbrowser-tab {                                              /* Pinned tabs */
+        --tab-inline-padding: calc((var(--tab-collapsed-width) - var(--icon-size)) / 2);
+
+        /* Pinned tabs */
+        #pinned-tabs-container .tabbrowser-tab {
             padding-block: 0px !important;
         }
 
-        & .tabbrowser-tab/*:not(:nth-child(1 of :not([hidden], [pinned])))/**/ {      /* Normal tabs */
+        /* Normal tabs - include collapsed & expanded sidebar */
+        .tabbrowser-tab {
             padding-block: 1px !important;
         }
-    }
-
-    /* Fix separator below hamburger button when using default 'expand-on-hover' */
-
-    :root:not([customizing]) {
-        & #navigator-toolbox::before,
-        & #navigator-toolbox::after{
-            z-index: 5 !important;
-        }
-    }
-
-    /* overwrite code from ogx_tabs-bar.css */
-
-    /* New selected tab shape */
-    .tabbrowser-tab,
-    tab-group .tabbrowser-tab {
-        --my-tab-background-clip: polygon(5.5px 0, calc(100% - 5.5px) 0, 100% 5.5px, 100% calc(100% - 5.5px), calc(100% - 5.5px) 100%, 5.5px 100%, 0 calc(100% - 5.5px), 0 5.5px);
-        --my-tab-stack-clip: polygon(4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px), 0 4px);
     }
     
     /* Remove clip-path because a bug with group-tabs */
     
     tab-group .tab-background {
         clip-path: none !important;
-        border-radius: 7px !important;
+        border-radius: 8px !important;
     }
     
-    /* Add bottom border to complete the tab shape */
-    .tab-background {
-        border-block-end: 1px solid transparent !important;
-    }
-    
-    /* Align tab-background image */
+    /* Better tab background image */
 
     .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
         background-position: top left !important;
@@ -956,7 +919,7 @@
         }
     }
 
-    /* Keep the same pinned tab width when sidebar is expanded */
+    /* Keep the same pinned tab width when sidebar expand-collapse */
 
     @media not -moz-pref("sidebar.visibility", "expand-on-hover") { 
         #tabbrowser-tabs[orient="vertical"][expanded] {
@@ -966,6 +929,7 @@
         }
     }
 
+    /* For some reason with this 'tab-content' stay into the sidebar width */
     slot[part="items-wrapper"] {
         padding-inline: 0px !important;
         grid-template-columns: repeat( auto-fit, minmax(var(--my-vertical-elements-width), auto)) !important;
@@ -975,32 +939,34 @@
 
     #tabbrowser-tabs[orient="vertical"] {
         
-        --tab-collapsed-width: var(--my-vertical-elements-width) !important;    /* For pinned tabs */
-        
-        .tab-background {
-            margin-inline: var(--my-margin-inline-inner-tab) !important;
-        }
+        /*--tab-collapsed-width: var(--my-vertical-elements-width) !important;    /* For pinned tabs */
+        /*--tab-inline-padding: calc((var(--tab-collapsed-width) - var(--icon-size)) / 2) !important;/**/
         
         tab-group .tab-background {
             margin-inline: var(--my-margin-inline-outer-tab) !important;
         }
-        
-        /* Less space below group label */
-        .tab-group-label-container {
-            padding-block-end: var(--space-xsmall) !important;
+
+        /* Margin inline */
+        & .tabbrowser-tab[visuallyselected] > .tab-stack::before {
+            margin-inline: var(--tab-outer-inline-margin) !important;
         }
         
         /* Collapsed */
         &:not([expanded]) {
             
+            .tab-background {
+                /*--tab-collapsed-background-width: var(--tab-height-personal) !important;
+                width: calc(var(--tab-collapsed-background-width) + 1px) !important;/**/
+            }
+            
+            /* Width - collapsed tab */
             & .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-                width: calc(var(--my-vertical-elements-width) - 8px) !important; /* fix for expand-on-hover */
-                margin-inline: var(--my-margin-inline-inner-tab) !important;
+                width: calc(var(--my-vertical-elements-width) - 6px) !important; /* fix for expand-on-hover */
             }
 
             & tab-group .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-                width: calc(var(--my-vertical-elements-width) - 10px) !important; /* fix for expand-on-hover */
-                margin-inline: var(--my-margin-inline-outer-tab) !important;
+                width: calc(var(--my-vertical-elements-width) - 8px) !important; /* fix for expand-on-hover */
+                margin-inline: calc(var(--tab-outer-inline-margin) + 1px) !important;
             }
             
             & tab-group .tab-background {
@@ -1011,29 +977,44 @@
         /* Expanded */
         &:is([expanded]) {
             
-            & .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-                margin-inline: var(--my-margin-inline-inner-tab) !important;
-            }
-            
             & tab-group .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-                margin-inline: var(--my-margin-inline-outer-tab) !important;
-            }
-            
-            /* Remove unwanted margin of group tabs when expanded */
-            & tab-group > :is(.tabbrowser-tab), &[movingtab][movingtab-addToGroup]:not([movingtab-createGroup], [movingtab-ungroup]) .tabbrowser-tab:is(:active, [multiselected]) {
-                margin-inline-start: 0px !important;
-                padding-inline-start: 0px !important;
+                margin-inline: var(--tab-inner-inline-margin) !important;
             }
         }
     }
 
     /* ______________________________ fix glich when using default 'expand-on-hover' ______________________________
        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    
+    /* Fix separator below hamburger button when using default 'expand-on-hover' */
 
+    :root:not([customizing]) {
+        & #navigator-toolbox::before,
+        & #navigator-toolbox::after{
+            z-index: 5 !important;
+        }
+    }
+    
+    /* Remove unwanted 'Sidebarbox' margin top */
+    @media -moz-pref("sidebar.visibility", "expand-on-hover") {
+        #sidebar {
+            box-shadow: none;
+            margin-block-start: 0px !important;
+        }
+    }
+    
+    /* fix When 'expand-on-hover' + clic to keep expanded */
+    .tab-content {
+        :root:not([uidensity="compact"], [sidebar-expand-on-hover]) &[pinned] {
+            padding: 0 12px !important;
+        }
+    }
+    
     :root[sidebar-expand-on-hover] {
         
+        /* Keep the minimum width of the sidebar: the dividers will fail without this */
         #tabbrowser-tabs[orient="vertical"] {
-            width: var(--my-vertical-elements-width) !important;                    /* when using grid of pinned-tabs */
+            width: var(--my-vertical-elements-width) !important;
         }
 
         /* Fix bug 'web content move when expand and collapse' */
@@ -1042,7 +1023,7 @@
             --sidebar-launcher-collapsed-width: var(--my-vertical-toolbar-width) !important;
         }
 
-        /* New image cause isn't posible to put an align image */
+        /* Add image because isn't posible to put an align image */
 
         & #sidebar-main,
         & #navigator-toolbox::before {
@@ -1053,28 +1034,34 @@
             background-size: auto 100vh !important;
             background-attachment: fixed !important;
         }
+
+        &:is([lwtheme-image],[style*="--lwt-additional-images"]) {
+            #sidebar-main,
+            #navigator-toolbox::before {
+                background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+                    var(--lwt-header-image, none), var(--lwt-additional-images,none),
+                    linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;
+            }
+
+            #sidebar-main {
+                background-position-y: bottom !important;
+            }
+        }
         
-        & #sidebar-main,
-        & #navigator-toolbox::before {
-            background-image: var(--lwt-header-image, none), var(--lwt-additional-images,none),
-                linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;
-            background-position: left top !important;
-            background-repeat: no-repeat !important;
-            background-size: auto 100vh !important;
-            background-attachment: fixed !important;
+        /* Remove image of linear gradient patch */
+        @media -moz-pref("firefoxgx.left-sidebar") {
+            &:is([lwtheme-image],[style*="--lwt-additional-images"]) {
+                #navigator-toolbox::before {
+                    background-image: none !important;
+                }
+            }
         }
         
         & #sidebar-main {
             @media -moz-pref("firefoxgx.left-sidebar") {
                 background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
                     var(--lwt-header-image, none), var(--lwt-additional-images,none),
-                linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;
-            }
-        }
-        
-        & #navigator-toolbox::before {
-            @media -moz-pref("firefoxgx.left-sidebar") {
-                background-image: none !important;
+                linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;/**/
             }
         }
         
@@ -1148,105 +1135,4 @@
             border-image: var(--my-separator-border-style1) !important;
         }
     }
-}
-
-/* -----------------------------------------------------------------------------------------------------------------------------------------------
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ Borders around sidebars and web content ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-@media -moz-pref("sidebar.revamp") {
-    
-    /* web content */
-    #tabbrowser-tabbox {
-        outline-color: transparent !important;
-        box-shadow: none !important;
-        border-radius: 0px !important;
-    }
-    
-    /* Sidebar[open] - Important- remove unwanted styles */
-    #sidebar {
-        outline-color: transparent !important;
-        box-shadow: none !important;
-    }
-    
-    #sidebar-box {
-        box-shadow: 0 -1px var(--my-content-border-color) !important;
-        
-        /* Sidebar content 'open' + web content */
-        &[checked] ~ #tabbrowser-tabbox {
-            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
-        }
-        
-        /* Sidebar content 'open' on right */
-        &[checked][sidebar-positionend] {
-            box-shadow: calc(1px * var(--rtl-variable, 1)) -1px 0 0 var(--my-content-border-color) !important;
-        }
-        
-        /* Sidebar content 'open' on right + web content */
-        &[checked][sidebar-positionend] ~ #tabbrowser-tabbox {
-            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
-        }
-    }
-    
-    /* When sidebar-revamp is on right */
-    
-    #sidebar-main[sidebar-positionend] {
-        
-        /* web content */
-        & ~ #tabbrowser-tabbox {
-            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
-        }
-    }
-}
-
-/* _____________ Added missing border when sidebar is on left and with 'left-sidebar' config */
-
-
-@media -moz-pref("sidebar.revamp") and -moz-pref("firefoxgx.left-sidebar") {
-    
-    /* sidebar content */
-    #sidebar-box {
-        box-shadow: calc(-1px * var(--rtl-variable, 1)) -1px var(--my-content-border-color) !important;
-    }
-    
-    @media not -moz-pref("firefoxgx.oneline") {
-        #tabbrowser-tabbox {
-            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
-        }
-    }
-    
-    @media -moz-pref("firefoxgx.oneline") {
-        #tabbrowser-tabbox {
-            box-shadow: calc(-1px * var(--rtl-variable, 1)) 0 0 0 var(--my-content-border-color) !important;
-        }
-    }
-}
-
-@media -moz-pref("firefoxgx.tree-tabs") {
-    #sidebar-box:is(
-    [sidebarcommand*="tabcenter"],
-    [sidebarcommand*="treestyletab"],
-    [sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"]) {
-
-        /* Sidebar content 'open' + web content 
-        &[checked] ~ #tabbrowser-tabbox {
-            box-shadow: none !important;
-        }/**/
-    }
-}
-
-/* Add border top of web content and remove it in some 'about:' pages */
-:root:has(.tabbrowser-tab[selected][label="Firefox View"]),
-:root:has(.tabbrowser-tab[selected] :is(
-.tab-icon-image[src="chrome://mozapps/skin/extensions/extension.svg"],
-.tab-icon-image[src="chrome://global/skin/icons/settings.svg"],
-.tab-icon-image[src="chrome://global/skin/icons/developer.svg"],
-.tab-icon-image[src="chrome://branding/content/icon32.png"],
-.tab-icon-image[src="chrome://global/skin/icons/performance.svg"])) #sidebar-box:not([checked]) ~ #tabbrowser-tabbox {
-
-    --my-content-border-color: transparent !important;                                    /* Border color for web content is some situations */
-}
-
-#tabbrowser-tabbox {
-    box-shadow: 0 -1px var(--my-content-border-color) !important;
 }

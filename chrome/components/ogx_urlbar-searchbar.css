@@ -61,13 +61,22 @@ findbar {
   border: 0px solid transparent !important;
 }
 
-/* Url margin inline */
+/* Url margin inline - Searchbox margin inline */
 
-.urlbar-input-container {
+#urlbar .urlbar-input-container {
     padding-inline: 12px !important;
 }
 
-#urlbar[breakout][breakout-extend] {
+#search-container #searchbar-new {
+    padding-inline: 12px !important;
+    
+    .urlbarView {
+        margin-inline-start: -12px !important;
+        width: calc(100% + 24px) !important;
+    }
+}
+
+:is(#urlbar)[breakout][breakout-extend] {
   & > .urlbar-input-container {
       padding-inline: 17px !important;
     }
@@ -95,8 +104,12 @@ findbar {
     clip-path: circle(90%) !important;
 }
 
-/* Remove pinned site icon from search suggestions */
+/* example 'Search with youtube' when you type 'you' */
+.urlbarView-row[dynamicType="actions"] > .urlbarView-row-inner {
+  padding-inline: 13px !important;
+}
 
+/* Remove pinned site icon from search suggestions */
 .urlbarView-type-icon {
     display: none !important;
 }
@@ -211,23 +224,25 @@ findbar {
     height: var(--toolbar-height-personal) !important;
 }
 
-#urlbar-container {
+#urlbar-container, #search-container {
     --urlbar-container-height: var(--toolbar-height-personal) !important;
 }
 
-#urlbar, #searchbar {
+:is(#urlbar, #searchbar-new) {
     --urlbar-height: calc(var(--toolbar-height-personal) - 10px) !important;
     --urlbar-min-height: calc(var(--toolbar-height-personal) - 10px) !important;
 }
 
 /* Roundness */
 
-#urlbar, .urlbar-background {
+:is(#urlbar, #searchbar-new), 
+.urlbar-background {
     --toolbarbutton-border-radius: var(--border-radius-urlbar-personal) !important;
     border-radius: var(--toolbarbutton-border-radius) !important;
 }
 
-#urlbar[open], #urlbar[open] .urlbar-background {
+:is(#urlbar, #searchbar-new)[open], 
+:is(#urlbar, #searchbar-new)[open] .urlbar-background {
     --toolbarbutton-border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-radius: var(--toolbarbutton-border-radius) !important;
 }
@@ -237,12 +252,12 @@ findbar {
     clip-path: xywh( 0 0 100% 100% round 0 0 calc(var(--border-radius-urlbar-personal) + 6px) calc(var(--border-radius-urlbar-personal) + 6px)) !important;
 }
 
-#urlbar:not([open], [focused]) .urlbar-background {
+:is(#urlbar, #searchbar-new):not([open], [focused]) .urlbar-background {
     transition: ease-in 150ms !important;
     transition-delay: 80ms !important;
 }
 
-#urlbar:not([open], [focused]):hover .urlbar-background {
+:is(#urlbar, #searchbar-new):not([open], [focused]):hover .urlbar-background {
     background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     border-color: transparent !important;
     transition: linear 150ms !important;
@@ -250,16 +265,16 @@ findbar {
 }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) 
-    #urlbar:not([open]):is([focused]) .urlbar-background {
+    :is(#urlbar, #searchbar-new):not([open]):is([focused]) .urlbar-background {
         background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
 }
 
-#urlbar[focused] .urlbar-background {
+:is(#urlbar, #searchbar-new)[focused] .urlbar-background {
     box-shadow: none !important;
     transition: background-color 0.4s ease !important;
 }
 
-#urlbar[open] .urlbar-background {
+:is(#urlbar, #searchbar-new)[open] .urlbar-background {
     background-image: var(--noise-urlbar-personal) !important;
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-color: transparent !important;
@@ -267,7 +282,6 @@ findbar {
 }
 
 #urlbar-input, #urlbar-scheme {
-    padding-inline-start: 4px !important;
     margin-block-start: -2px !important;
 }
 
@@ -296,7 +310,6 @@ findbar {
 @media -moz-pref("browser.urlbar.trustPanel.featureGate") {
     #trust-icon-container {
         align-self: center !important;
-        margin-inline-end: var(--urlbar-icon-padding) !important;
     }
 }
 
@@ -308,7 +321,8 @@ findbar {
     }
 }
 
-.searchmode-switcher-icon {
+/* Hide default search engine icon */
+:is(#urlbar, #searchbar-new):not([searchmode]) .searchmode-switcher-icon {
     list-style-image: url("chrome://global/skin/icons/search-glass.svg") !important;
 }
 
@@ -356,33 +370,6 @@ findbar {
 
 /* Search-box - the one next to address-bar */
 
-#searchbar {
-    min-height: calc(var(--toolbar-height-personal) - 10px) !important;
-    border-radius: 4px !important;
-    border: none !important;
-}
-
-#searchbar:hover {
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
-}
-
-#searchbar:focus-within {
-    box-shadow: none !important;
-    background-color: var(--toolbar-field-focus-background-color) !important;
-}
-
-#PopupSearchAutoComplete{
-    --uc-slot-radius: 4px;
-    --arrowpanel-border-radius: var(--uc-slot-radius) !important;
-    --arrowpanel-border-color: none !important;
-    margin-top: 0px !important;
-    margin-inline-start: -3px !important;
-}
-
-#PopupSearchAutoComplete menuseparator{
-    margin-inline-end: 12px !important;
-}
-
 .search-go-button, #urlbar-go-button {
     width: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
     height: calc(var(--urlbar-min-height) - 6px - 2 * var(--urlbar-container-padding)) !important;
@@ -390,17 +377,37 @@ findbar {
     align-self: center !important;
 }
 
-/* Extension pages button */
-
-#identity-box[pageproxystate="valid"].extensionPage>.identity-box-button {
-    background: transparent !important;
+/* 'X' button to clear box search */
+input::-moz-search-clear-button {
+    bottom: 0px !important;
+    width: calc(var(--urlbar-min-height) - 14px - 2 * var(--urlbar-container-padding)) !important;
+    height: calc(var(--urlbar-min-height) - 14px - 2 * var(--urlbar-container-padding)) !important;  
 }
 
-#identity-box.extensionPage label {
+input::-moz-search-clear-button:hover {
+    background-color: var(--urlbar-box-hover-bgcolor) !important;
+}
+
+/* 'Trust' icon replaced with Extension icon in pages of extensions */
+
+.extensionPage {
     display: none !important;
 }
 
+#trust-icon-container.secure {
+    --my-replace-trust-icon: url(chrome://mozapps/skin/extensions/extension.svg);
+}
+
+:has(.extensionPage) #trust-icon-container.secure {
+    list-style-image: var(--my-replace-trust-icon) !important;
+}
+
 /* Firefox secure pages */
+
+.identity-box-button{
+    --urlbar-box-bgcolor: transparent !important;
+    --urlbar-box-focus-bgcolor: transparent !important;
+}
 
 #identity-icon-label {
     display: none !important;
@@ -408,20 +415,11 @@ findbar {
 
 #identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button {
     padding-inline: var(--urlbar-icon-padding) !important;
+    margin-inline: 0px !important;
 }
 
 #identity-box[pageproxystate="valid"].chromeUI .identity-box-button:not(:hover, [open]) #identity-icon {
     fill: var(--general-color) !important;
-}
-
-#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button, #urlbar-label-box {
-    --urlbar-box-bgcolor: transparent !important;
-    --urlbar-box-focus-bgcolor: transparent !important;
-}
-
-#identity-box[pageproxystate="valid"].notSecureText, #identity-box[pageproxystate="valid"].chromeUI, 
-#identity-box[pageproxystate="valid"].extensionPage, #urlbar-label-box {
-    margin-inline-end: 4px !important;
 }
 
 /* ________________________________________________ Smaller url-bar icons ________________________________________________ */
@@ -505,7 +503,7 @@ findbar {
 /* Space between left url icons */
 
 #identity-box>box {
-    margin-inline-end: 4px !important;
+    margin-inline: 4px !important;
 }
 
 /* Space between right url icons */

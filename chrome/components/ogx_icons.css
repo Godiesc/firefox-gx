@@ -134,43 +134,49 @@
 
 /* left and right urlbar separator */
 
-.urlbar-background::before,
-.urlbar-background::after {
-  content: ""; display: block; position: relative;
-  background: url("../icons/urlbar-separator.svg");
-  background-repeat: no-repeat;
-  background-size: 6px 16px;
-  background-position-y: center;
-  fill: var(--toolbarbutton-icon-fill);
-  -moz-context-properties: fill;
-  opacity: 0.2;
-  transition-duration: 400ms;
-  height: calc(-2px + var(--toolbar-height-personal) - var(--urlbar-padding-block)*2);
+.urlbar-background {
+  &::before,
+  &::after {
+    content: ""; display: block; position: relative;
+    background: url("../icons/urlbar-separator.svg");
+    background-repeat: no-repeat;
+    background-size: 6px 16px;
+    background-position-y: center;
+    fill: var(--toolbarbutton-icon-fill);
+    -moz-context-properties: fill;
+    opacity: 0.2;
+    transition-duration: 400ms;
+    height: calc(-2px + var(--toolbar-height-personal) - var(--urlbar-padding-block)*2);
 
-  /* This directionality flipper for RTL languages */
-  direction: ltr;
-  &:is([positionend],[sidebar-positionend]):not(:-moz-locale-dir(rtl)){
-    direction: rtl;
+    /* This directionality flipper for RTL languages */
+    direction: ltr;
+    &:is([positionend],[sidebar-positionend]):not(:-moz-locale-dir(rtl)){
+      direction: rtl;
+    }
   }
 }
 
-.urlbar-background::before {
+.urlbar-background {
+  &::before {
     background-position-x: left;
     inset-inline-start: -3px;
+  }
 }
 
-.urlbar-background::after {
+.urlbar-background {
+  &::after {
     background-position-x: right;
     top: calc(10px - var(--toolbar-height-personal));
-    inset-inline-end: -2px;
+    inset-inline-end: -3px;
+  }
 }
 
 .urlbar:is([open], [focused], :hover) {
-    .urlbar-background::before,
-    .urlbar-background::after {
-        opacity: 0;
-        transition-duration: 400ms;
-    }
+  .urlbar-background::before,
+  .urlbar-background::after {
+    opacity: 0;
+    transition-duration: 400ms;
+  }
 }
 
 /* ________________________________________________________________________________________________________________________________
@@ -519,7 +525,7 @@
   #appMenu-multiView .subviewbutton::before,
   #appMenu-proton-update-banner::before,
   #downloadsHistory .button-icon,
-  .subviewbutton:not(#appMenu-proton-update-banner) > image {
+  .subviewbutton:not(#appMenu-proton-update-banner)[.tab-group-icon-closed] > image {
     fill: var(--identity-icon-color, currentColor) !important;
     fill-opacity: var(--toolbarbutton-icon-fill-opacity) !important;
     -moz-context-properties: fill, fill-opacity, stroke !important;
@@ -1647,9 +1653,17 @@
       --menuitem-image: url("../icons/add-tab-to-group.svg");
   }
   
+  #context_moveTabToSavedGroup > .menu-icon {
+    content: url("../icons/send-tab-to-group.svg");
+  }
+  
+  #context_moveTabToSplitView,
+  #context_separateSplitView {
+    --menuitem-image: url("../icons/split-view-horizontal.svg");
+  }
+  
   #context_moveTabToGroupNewGroup>.menu-icon {
-    list-style-image: url("chrome://global/skin/icons/plus.svg");
-    margin-block: 0px !important;
+    content: url("chrome://global/skin/icons/plus.svg");
   }
   
   #context_ungroupTab {
@@ -1719,6 +1733,11 @@
   #sidebartabs_asamuzak_jp-menuitem-_bookmarkAllTabs {
     --menuitem-image: url("../icons/bookmark-empty.svg");
   }
+  
+  #context_addNote {
+    --menuitem-image: url("../icons/add-note.svg");
+  }
+  
   #context_moveTabOptions,
   #treestyletab_piro_sakura_ne_jp-menuitem-_context_moveTab,
   #tabcenter-reborn_ariasuni-menuitem-_contextMenuMoveTab,
@@ -3440,7 +3459,7 @@
     }
   }
   
-  menuitem:not(.menuitem-iconic, [checked="true"]) {   /* Ejm. Bookmarksbar options 'always show, never show, etc' or 'Check spelling' */
+  menuitem:not(.menuitem-iconic, [checked="true"], #context_moveTabToGroupNewGroup) {   /* Ejm. Bookmarksbar options 'always show, never show, etc' or 'Check spelling' */
     & > .menu-icon {
       visibility: hidden !important;
     }

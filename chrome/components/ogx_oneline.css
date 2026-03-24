@@ -227,7 +227,8 @@
   /* Urlbar icons - show on 'hover' */
 
   #identity-box>box:not([open])>:is(image, box), 
-  #urlbar-searchmode-switcher:not([open]), 
+  #urlbar-searchmode-switcher:not([open]),
+  #trust-icon-container:not([open]),
   #urlbar-zoom-button, .urlbar-page-action:not([open])>image {
     opacity: 0 !important;
     transition: opacity 250ms ease-in-out !important;
@@ -235,6 +236,7 @@
 
   #urlbar:is([open],:hover,[focused]) :is(#identity-box>box>:is(image, box),
   #urlbar-searchmode-switcher,
+  #trust-icon-container,
   #urlbar-zoom-button, .urlbar-page-action>image) {
     opacity: 1 !important;
     transition: opacity 250ms ease-in-out !important;
@@ -341,7 +343,7 @@
 
   #main-menubar{
     min-height: calc(var(--toolbar-height-personal) - 1px) !important;
-    background-image: linear-gradient(transparent, transparent),
+    background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
                       var(--lwt-header-image, none), var(--lwt-additional-images,none),
                       linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;
     background-position: 0 0, right top , var(--lwt-background-alignment) !important;

@@ -4,8 +4,12 @@
 :root {
 
   --my-content-border-color: var(--toolbarbutton-hover-personal) !important;            /* Border color for web content is some situations */
-  --my-main-gradient-background: linear-gradient(to top, var(--lwt-accent-color)        /* Gradiente background used in themes with images */
-    calc(100% - 200px), transparent calc(100% - var(--tab-height-personal)));
+  --my-main-gradient-background: linear-gradient(to top, 
+    var(--lwt-accent-color)        /* Gradiente background used in themes with images */
+    calc(100% - var(--toolbar-height-personal) - var(--tab-height-personal) - 
+    var(--menubar-height-personal, 0px) - 100px), 
+    transparent calc(100% - var(--toolbar-height-personal) - var(--tab-height-personal) - 
+    var(--menubar-height-personal, 0px)));
 
   /*--lwt-accent-color: #09080d !important;                                             /* frame */
   /*--toolbox-textcolor: var(--my-font-color) !important;                               /* tab_background_text */
@@ -18,6 +22,7 @@
 
   --tab-selected-outline-color: transparent !important;                                 /* Selected tab border color */
   --tab-loading-fill: var(--general-color) !important;                                  /* Dot color when page loads */
+  /*--tab-hover-background-color: transparent !important;                               /* Tab background when 'hover' */
 
   --tabs-navbar-separator-color: transparent !important;                                /* Separator between tabs and toolbar */
 
@@ -49,6 +54,7 @@
     var(--button-bgcolor) 82%, white) !important;
   --urlbar-icon-border-radius: 3px !important;                                          /* shape of url bar icons */
   --urlbar-icon-padding: 3px !important;                                                /* Urlbar icon padding */
+  --identity-box-margin-inline: 10px !important;                                        /* margin between 'trust' icon and url */
 
   /*--toolbarbutton-icon-fill: #b6b6d2 !important;                                      /* icons */
   /*--toolbarbutton-icon-fill-attention: var(--general-color) !important;               /* icons_attention */
@@ -67,7 +73,7 @@
   --tab-block-margin: 0px !important;                                                   /* Tab margins - change this will break the theme */
   --my-tab-margin-top: 0px !important;                                                  /* Top margin of tabs - variable personal */
 
-  --tab-min-height: var(--tab-height-personal) !important;                              /* Tab size */
+  --tab-min-height: calc(var(--tab-height-personal) - 1px) !important;                              /* Tab size */
   --tabstrip-min-height: var(--tab-height-personal) !important;                         /* Tab min size */
   --tabs-shadow-size: 0px !important;                                                   /* Tab shadow */
   --tab-border-radius: 0px !important;                                                  /* Tab roundness */
@@ -139,7 +145,7 @@
   --toolbarbutton-hover-personal: var(--toolbar-field-focus-background-color) !important;                               /* Button personal color when 'hover' */
   
   --arrowpanel-border-color: color-mix(in srgb, 
-    var(--arrowpanel-background) 90%, var(--my-font-color)) !important;                                        /* popup_border */
+    var(--arrowpanel-background) 86%, var(--my-font-color)) !important;                                        /* popup_border */
   
   scrollbar-color: #38375580 #18173530 !important;                                                                      /* Scroll bar colors */
   
@@ -161,14 +167,14 @@
   --contrast-color: #f9f9f9 !important;
   --border-contrast-color: #acacac30 !important;                                                                        /* Used in context-menu and arrowpanels*/
   
-  --my-font-color: #101019 !important;                                                                         /* tab_text */
+  --my-font-color: #101019 !important;                                                                                  /* tab_text */
   
   --toolbarbutton-hover-background: color-mix(in srgb, var(--toolbar-bgcolor) 92%, black) !important;                   /* button_background_hover */
   --toolbarbutton-active-background: color-mix(in srgb, var(--toolbar-bgcolor) 84%, black) !important;                  /* button_background_active */
   --toolbarbutton-hover-personal: color-mix(in srgb, var(--toolbar-bgcolor) 88%, black) !important;                     /* Button personal color when 'hover' */
   
   --arrowpanel-border-color: color-mix(in srgb, 
-    var(--arrowpanel-background) 80%, var(--my-font-color)) !important;                                        /* popup_border */
+    var(--arrowpanel-background) 78%, var(--my-font-color)) !important;                                                 /* popup_border */
 
   scrollbar-color: #d8d9da var(--toolbar-bgcolor) !important;                                                           /* Scroll bar colors */
   
@@ -196,7 +202,7 @@
     --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
     --tab-loading-fill: var(--tab-selected-outline-color) !important;                                   /* Dot color when page loads */
     --tab-group-bgcolor: color-mix(in srgb, 
-      light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 8%, transparent) !important;   /* Group Background */
+      light-dark(var(--tab-group-color), var(--tab-group-color-invert)) 12%, transparent) !important;   /* Group Background */
     
     /*--my-hover-dark-group-color: color-mix(in srgb, var(--tab-group-color) 80%, var(--my-font-color));       /* 'hover' on group label - dark */
     /*--my-hover-light-group-color: color-mix(in srgb, var(--tab-group-color-invert), transparent);           /* 'hover' on group label - light */
@@ -206,7 +212,7 @@
 /* __________________________________________________ Partial support for themes using "Images" _________________________________________________ */
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) {
-  --toolbar-bgcolor: color-mix(in srgb,var(--my-toolbar-bgcolor),transparent var(--brightness-toolbar)) !important;     /* toolbar */
+  --toolbar-bgcolor: color-mix(in srgb,var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;    /* toolbar */
   --toolbar-field-background-color: transparent !important;                                                             /* toolbar_field */
   --toolbar-field-border-color: transparent !important;                                                                 /* toolbar_field_border */
 }
@@ -271,12 +277,12 @@
 
 /* ________________________________________ Colors when the theme selected is 'System theme - automatic' _______________________________________ */
 
-@media not (prefers-contrast) {
+@media (not (prefers-contrast)) and (not -moz-pref("firefoxgx.main-image")) {
   :root:not([lwtheme]) {
-    --lwt-accent-color: light-dark(#f9f9f9, #101019) !important;                                                        /* Frame */
+    --lwt-accent-color: light-dark(#f9f9f9, #09080d) !important;                                                        /* Frame */
     --toolbox-bgcolor: light-dark(var(--lwt-accent-color), var(--lwt-accent-color)) !important;                         /* Frame window focus */
     --toolbox-bgcolor-inactive: light-dark(var(--lwt-accent-color), var(--lwt-accent-color)) !important;                /* Frame window unfocus */
-    --toolbar-bgcolor: light-dark(#f4f2f7, #131019) !important;                                                         /* Toolbar */
+    --toolbar-bgcolor: light-dark(#f4f2f7, #120f19) !important;                                                         /* Toolbar */
     --arrowpanel-background: light-dark(#f4f2f7, #1c1726) !important;                                                   /* Popup */
     --toolbar-field-focus-background-color: light-dark(#f4f2f7, #2b2640) !important;                                    /* Urlbar focus */
     --sidebar-background-color: light-dark(var(--toolbar-bgcolor), var(--toolbar-bgcolor)) !important;                  /* Sidebar content background */
@@ -284,10 +290,24 @@
   }
   
   ::selection {
-    background: var(--selected-text-background) !important;
+    background: var(--general-color, var(--fuchsia)) !important;
     color: black !important;
     box-shadow: none !important;
     text-shadow: none !important;
+  }
+}
+
+/* Testing replace accent color I don't know where */
+@media not (forced-colors) {
+  :root {
+    accent-color: light-dark(var(--general-color), var(--general-color)) !important;
+  }
+}
+
+/* Testing accent color for theme 'system theme - auto' */
+@media not ((forced-colors) or (-moz-native-theme)) {
+  :root:not([lwtheme]) {
+    --toolbarbutton-icon-fill-attention: var(--fuchsia) !important;
   }
 }
 

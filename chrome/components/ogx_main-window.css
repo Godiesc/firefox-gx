@@ -1,0 +1,443 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/firefox-gx */
+
+/* Remove navigator-toolbox image \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#navigator-toolbox {
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+/* Set the image in main window \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#main-window {
+    --my-background-image: var(--lwt-additional-images), var(--lwt-header-image, none),
+        linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;
+    --my-background-position-y: top;
+    background-image: var(--my-background-image);
+    background-repeat: var(--lwt-background-tiling);
+    background-position: var(--lwt-background-alignment);
+    background-position-y: var(--my-background-position-y) !important;
+    background-color: var(--lwt-accent-color, Field) !important;
+    background-size:var(--my-background-size, auto) !important;
+    
+    /* Keep the blur effect in newtab page - Bug in 'about:' pages remove the blur */
+    clip-path: xywh(0 0 100% 100% round 0 0 1px 0);
+}
+
+/* Gradient effect to the bottom \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#main-window {
+    &>body:before {
+        content: "";
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--my-main-gradient-background);
+        z-index: -1;
+        pointer-events: none;
+        
+        @media -moz-pref("firefoxgx.main-image") {
+            --my-main-gradient-background: transparent !important;
+            background-color: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper));
+        }
+    }
+
+    @media not -moz-pref("firefoxgx.main-image") {
+        /* Put here this color only in themes with images because a bug with solid themes (lwt-accent-color) */
+        &:is([lwtheme-image],[style*="--lwt-additional-images"])>body:before {
+            background-color: var(--toolbar-bgcolor);
+        }
+    }
+}
+
+/* Remove unnecessary background to show the theme image \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#browser, .browserContainer {
+    background-color: transparent !important;
+    box-shadow: none !important; /* Remove unwanted shadow when using 'revamp' */
+}
+
+/* Sidebar-box background the same as the web content  */
+#tabbrowser-tabpanels {
+    background-color: var(--toolbar-bgcolor) !important;
+}
+
+/* Remove unwanted background to all browser background */
+#browser:not(.browser-toolbox-background):not(#tabbrowser-tabpanels) {
+    :root[lwtheme] & {
+        background-image: none !important;
+    }
+}
+
+/* Wallpaper for some 'about:' pages \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media -moz-pref("browser.tabs.allow_transparent_browser") {
+
+    :root:not([lwtheme-image],[style*="--lwt-additional-images"],[privatebrowsingmode="temporary"]):has(
+    .tabbrowser-tab[selected] :is(
+    .tab-icon-image[src="chrome://mozapps/skin/extensions/extension.svg"],
+    .tab-icon-image[src="chrome://global/skin/icons/settings.svg"],
+    .tab-icon-image[src="chrome://global/skin/icons/developer.svg"],
+    .tab-icon-image[src="chrome://global/skin/icons/performance.svg"])) {
+        
+        --my-main-gradient-background: transparent !important;
+        --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent calc(var(--brightness-wallpaper)/* - 20%/**/)) !important;
+        --lwt-header-image: var(--lwt-main-image) !important;
+        --my-background-size: 100vw 100vh !important;
+        
+        @media -moz-pref("firefoxgx.main-image") {
+            --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent calc(var(--brightness-toolbar))) !important;
+        }
+    }
+}
+
+/* __________________________ Menu-bar __________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+#toolbar-menubar, #menubar-items, #main-menubar {
+    min-height: var(--menubar-height-personal) !important;
+}
+
+#main-menubar>menu{
+    border-radius: 0px !important;
+    background-color: transparent !important;
+}
+
+@media (-moz-platform: windows) {
+    menubar > menu {
+        padding: 0px 2px 2px !important;
+    }
+}
+
+#main-menubar>menu>.menu-text{
+    padding: 2px 4px !important;
+    margin-inline: 0px !important;
+}
+
+#main-menubar>menu:is(:hover,[open])>.menu-text {
+    background-color: var(--button-active-bgcolor) !important;
+    color: white !important;
+    border-radius: 2px !important;
+    width: -moz-available !important;
+}
+
+/* _________________________________________________________ Sidebar-box _________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+/* Sidebar background color & Seachbox  \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯  |
+- 'synced tabs' with a theme with images |
+- 'Paswords'                             |
+- 'Extensions' panel                     |
+- 'ia chat'                              |
+- 'Library'                              |
+- 'other' sidebars                       |
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@-moz-document url("chrome://browser/content/syncedtabs/sidebar.xhtml"), 
+    url("chrome://global/content/megalist/megalist.html"), 
+    url("chrome://browser/content/webext-panels.xhtml"),
+    url("chrome://browser/content/genai/chat.html"),
+    regexp("^chrome://browser/content/places.*"),   
+    regexp("chrome://browser/content/sidebar.*") {
+        
+        :root { 
+            background-color: transparent !important;
+            --toolbarbutton-icon-fill-attention: unset !important;
+            --newtab-text-primary-color: unset !important;
+            --border-color-interactive: #50505050 !important;
+        }
+
+        /* searchbox \
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+        .search-container,          /* 'Passwords' sidebar searchbox */
+        #input[type="search"] {     /* Other sidebars searchbox */
+            
+            background-color: color-mix(in srgb, Field, transparent) !important;
+            
+            /* When 'hover' */
+            &:hover:not(:focus-within) {
+                background-color: color-mix(in srgb, var(--button-smaller-bgcolor) 70%, transparent) !important;
+                border-color: var(--button-bgcolor) !important;
+            }
+            
+            /* When 'focus' */
+            &:focus-within {
+                background-color: color-mix(in srgb, var(--contrast-color) 40%, transparent) !important;
+                border-color: var(--general-color) !important;
+                outline: 1px solid var(--general-color) !important;
+            }
+        }
+}
+
+/*.content-container,
+body[role="application"],
+sidebar-browser-stack {
+    background: transparent !important;
+}/**/
+
+/* Apply background but not in tree-tabs extension to solve bug 'gradient-line don't display' \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+:root:has(#sidebar-box:not(
+[sidebarcommand*="tabcenter"],
+[sidebarcommand*="treestyletab"],
+[sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) #sidebar {
+    background-color: var(--toolbar-bgcolor) !important;
+}
+
+#sidebar-header {
+    background-color: var(--lwt-sidebar-background-color) !important;
+    box-shadow: 0px -1px 0 0 var(--my-content-border-color) !important;
+    padding: 4px 6px !important;
+
+    & toolbarbutton:is(:hover, [open]) {
+        background-color: var(--toolbarbutton-hover-personal) !important;
+    }
+}
+
+/* Remove rare space when IA chat is open */
+#message-container {
+    padding: 0px !important;
+}
+
+/* 'Firefox sidebar' \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#sidebar { border-radius: 0px !important; }
+
+#sidebar-box {
+    /* Remove limit */
+    max-width: none !important;
+    min-width: 1px !important;
+    /* Other styles */
+    overflow-x: hidden !important;
+    padding-block-end: 0px !important;
+    box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+}
+
+/* 'Sidebar' splitter \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.sidebar-splitter {
+    @media -moz-pref("sidebar.revamp") or (not (-moz-platform: linux)) {
+        width: 6px !important;
+        background-color: transparent !important;
+        border-color: transparent !important;   /*Test when sidebar is on right */
+        border-width: 0px !important;
+        
+        &:hover {
+            background-color: var(--general-color) !important;
+            background-clip: unset !important;
+        }
+    }
+    
+    /* Spliter style on Linux */
+    @media (not -moz-pref("sidebar.revamp")) and (-moz-platform: linux), not -moz-pref("sidebar.revamp") {
+        background-color: transparent !important;
+        width: 7px !important;
+        border-width: 0px !important;
+    }
+}
+
+#sidebar-box {
+    ~ .sidebar-splitter {
+        transform: translateX(3px) !important;
+    }
+    &[sidebar-positionend] ~ .sidebar-splitter {
+        transform: translateX(-3px) !important;
+    }
+}
+
+/* Fix unwanted margin when 'vertical-tabs' */
+@media -moz-pref("sidebar.verticalTabs") {
+    #sidebar-launcher-splitter {
+        margin-inline-end: -6px !important;
+    }
+}
+
+#sidebar-box[checked] {
+    &:not([sidebar-positionend])  {
+        margin-inline-end: -6px !important;
+    }
+
+    &:is([sidebar-positionend])  {
+        margin-inline-start: -6px !important;
+    }
+}
+
+@media -moz-pref("sidebar.revamp") {
+    
+    /* Remove extra margin of sidebar header */
+    #sidebar-panel-header {
+        margin-block: 0px !important;
+        padding-block: 0px !important;
+    }
+    
+    .sidebar-splitter {
+        @media (-moz-overlay-scrollbars) {
+            --splitter-width: 0px !important;
+            transition: background-color ease-in-out 250ms !important;
+        }
+    }
+}
+
+/* __________________________________________________'Split view' web content style __________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+:root:not([inDOMFullscreen]) #tabbrowser-tabpanels {
+    &[splitview] {
+        & .split-view-panel.split-view-panel-active {
+            margin-block: 2px !important;
+            margin-inline: 3px !important;
+            outline: 1px solid var(--toolbarbutton-hover-personal) !important;
+        }
+
+        & .browserContainer {
+            border-radius: 0px !important;
+        }
+    }
+}
+
+/* 'Split view' spliter \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.split-view-splitter {
+    border-block: none !important;
+    border-color: transparent !important;
+    border-width: 2px !important;
+    background: transparent !important;
+    margin-inline: -3px !important;
+    
+    &:hover {
+        transition: background 0.1s ease-in-out 0.1s, border-color 0.1s ease-in-out 0.1s !important;
+        background: var(--button-smaller-bgcolor) !important;
+        border-color: var(--general-color) !important;
+        z-index: 1 !important;
+    }
+}
+
+/* 'Split view' footer button */
+split-view-footer {
+    background: var(--lwt-accent-color) !important;
+    border-radius: 0px !important;
+    border-color: var(--toolbarbutton-hover-personal) !important;
+}
+
+/* _________________________________________________ Borders around sidebars and web content _________________________________________________ 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+/* Web content top border */
+#tabbrowser-tabbox {
+    box-shadow: 0 -1px var(--my-content-border-color) !important;
+}
+
+@media -moz-pref("sidebar.revamp") {
+    
+    /* web content */
+    #tabbrowser-tabbox {
+        outline-color: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0px !important;
+        box-shadow: 0 -1px var(--my-content-border-color) !important;
+    }
+    
+    /* Sidebar[open] - Important- remove unwanted styles */
+    #sidebar {
+        outline-color: transparent !important;
+        box-shadow: none !important;
+    }
+    
+    #sidebar-box {
+        box-shadow: 0 -1px var(--my-content-border-color) !important;
+        
+        /* Sidebar content 'open' + web content */
+        &[checked] ~ #tabbrowser-tabbox {
+            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+        }
+        
+        /* Sidebar content 'open' on right */
+        &[checked][sidebar-positionend] {
+            box-shadow: calc(1px * var(--rtl-variable, 1)) -1px 0 0 var(--my-content-border-color) !important;
+        }
+        
+        /* Sidebar content 'open' on right + web content */
+        &[checked][sidebar-positionend] ~ #tabbrowser-tabbox {
+            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+        }
+    }
+    
+    /* When sidebar-revamp is on right */
+    
+    #sidebar-main[sidebar-positionend] {
+        
+        /* web content */
+        & ~ #tabbrowser-tabbox {
+            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+        }
+    }
+}
+
+/* Added missing border when sidebar is on left and with 'left-sidebar' config \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media -moz-pref("sidebar.revamp") and -moz-pref("firefoxgx.left-sidebar") {
+    
+    /* sidebar content */
+    #sidebar-box {
+        box-shadow: calc(-1px * var(--rtl-variable, 1)) -1px var(--my-content-border-color) !important;
+    }
+    
+    @media not -moz-pref("firefoxgx.oneline") {
+        #tabbrowser-tabbox {
+            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+        }
+    }
+    
+    @media -moz-pref("firefoxgx.oneline") {
+        #tabbrowser-tabbox {
+            box-shadow: calc(-1px * var(--rtl-variable, 1)) 0 0 0 var(--my-content-border-color) !important;
+        }
+    }
+}
+
+/* Remove border of web content in some 'about:' pages \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+:root:has(.tabbrowser-tab[selected][label="Firefox View"]),
+:root:has(#tabbrowser-tabpanels[splitview] .split-view-panel.split-view-panel-active),
+:root:has(.tabbrowser-tab[selected] :is(
+.tab-icon-image[src="chrome://mozapps/skin/extensions/extension.svg"],
+.tab-icon-image[src="chrome://global/skin/icons/settings.svg"],
+.tab-icon-image[src="chrome://global/skin/icons/developer.svg"],
+.tab-icon-image[src="chrome://branding/content/icon32.png"],
+.tab-icon-image[src="chrome://global/skin/icons/performance.svg"])) {
+    #sidebar-box:not([checked]) ~ #tabbrowser-tabbox {
+        --my-content-border-color: transparent !important;
+    }
+}
+
+/* _____________________________________________________ Configuration for Linux ______________________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+@media (-moz-platform: linux) {
+    
+    /* Remove unnecessary padding from menu-bar */
+    toolbar { &[type="menubar"] { padding: 0px !important; }}
+
+    /* less spaced menu items */
+    #main-menubar>menu>.menu-text{
+        margin-inline: -5px !important;
+    }
+}
+
+/* _____________________________________________________ Configuration for MacOS ______________________________________________________
+   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+@media (-moz-platform: macos) {
+    
+  /* Add padding top in tabs bar */
+    #TabsToolbar {
+        padding-block-start: 6px !important;
+    }
+  
+  /* Add margin in window controls */
+    :root:not([sizemode="fullscreen"]) .titlebar-buttonbox-container {
+        margin-inline: 6px 10px !important;
+    }
+}

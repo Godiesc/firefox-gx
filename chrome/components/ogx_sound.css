@@ -118,7 +118,7 @@
     
     /* ¯¯¯¯¯¯¯¯ New margins when tab width get smaller ¯¯¯¯¯¯¯¯ */
     
-    @container smaller-tab (width < 48px) {
+    @container smaller-tab (width < 52px) {
         .tab-audio-button:is([soundplaying],[muted],[activemedia-blocked]) {
             --my-inset-inline-start: calc(50% - 1px) !important;
         }
@@ -287,7 +287,7 @@
     
     /* ¯¯¯¯¯¯¯¯ New margins when tab width get smaller ¯¯¯¯¯¯¯¯ */
     
-    @container smaller-tab (width < 48px) {
+    @container smaller-tab (width < 52px) {
         .tab-audio-button:is([soundplaying],[muted],[activemedia-blocked]) {
             --my-inset-inline-start: calc(50% - 12px) !important;
             

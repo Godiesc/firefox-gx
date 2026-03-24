@@ -1,0 +1,88 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/firefox-gx */
+
+/* Page -> 'Customize the toolbar' */
+
+#customization-container {
+    background-color: transparent !important;
+    color: var(--lwt-text-color) !important;
+} 
+
+#customization-footer .footer-button:not(#customization-done-button,:hover,:active,[open]) {
+    appearance: none !important;
+    background-color: var(--input-border-color) !important;
+    border-color: var(--input-border-color) !important;
+    color: var(--my-font-color) !important;
+}
+
+#customization-done-button {
+    appearance: none !important;
+    color: var(--my-font-color) !important;
+    border-color: var(--button-hover-bgcolor) !important;
+    background-color: var(--button-hover-bgcolor) !important;
+    padding: 2px 24px !important;
+}
+
+#customization-footer {
+    
+  & > .footer-button:hover {
+      background-color: var(--button-bgcolor) !important;
+      color: initial !important;
+    }
+    
+    & .footer-button:is([open]),
+    & #customization-done-button:is(:active, :hover):not([disabled]) {
+        appearance: none !important;
+        color: var(--my-font-color) !important;
+        background-color: var(--button-active-bgcolor) !important;
+        border-color: var(--button-active-bgcolor) !important;
+    }
+}
+
+/* Overflow panel    */
+
+#customization-panel-container {
+    --customization-panel-padding: 1px !important;
+}
+
+#customization-panelWrapper {
+    & > .panel-arrowcontent {
+        box-shadow: 0 0 0 1px var(--contrast-color) !important;
+        
+        @media not (-moz-platform: macos) {
+            border-radius: var(--arrowpanel-border-radius) !important;
+        }
+    }
+}
+
+#customization-panelWrapper > .panel-arrowbox > .panel-arrow[side="top"] {
+    /* This variable used for oneline config ¯v */
+    margin-inline-end: calc(3px + var(--customization-panel-padding)) !important;
+    margin-top: 1px !important;
+    width: 34px; height: 9px;
+    list-style-image: url("../icons/panelarrow-menu.svg") !important;
+    filter: drop-shadow(0px -1px 0px var(--contrast-color));
+
+    @media -moz-pref("firefoxgx.oneline") {
+        margin-inline-end: calc(var(--uc-window-control-width, 8px) - 6px + var(--customization-panel-padding)) !important;
+    }
+}
+
+/* In [customization] - Align overflow arrow with its button when using 'Tree-tabs' */
+
+@media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
+    @media not (-moz-gtk-csd-reversed-placement) {
+        #customization-panelWrapper > .panel-arrowbox > .panel-arrow[side="top"] {
+            margin-inline-end: calc(var(--uc-window-control-width, 162px) - 3px + var(--customization-panel-padding)) !important;
+        }
+    }
+}
+
+/* Separator */
+#customization-panelHolder {
+  & > #widget-overflow-fixed-list {
+    &:not(:empty) {
+      border-top: 1px solid var(--input-border-color) !important;
+    }
+  }
+}

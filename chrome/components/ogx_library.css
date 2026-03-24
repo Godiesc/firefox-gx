@@ -140,9 +140,9 @@
         background: var(--organizer-pane-background) !important;
     }
     /* Downloads */
-     #downloadsListBox{
+    #downloadsListBox{
         background-color: var(--organizer-pane-background) !important;
-         border-color: transparent !important;
+        border-color: transparent !important;
     }
     
     richlistitem[selected="true"] {
@@ -150,7 +150,11 @@
     }
     
     @media not (prefers-contrast) {
-        #downloadsListBox:focus > richlistitem[selected] {
+        #downloadsListBox > richlistitem[selected] {
+            color: currentColor !important;
+            background-color: transparent !important;
+        }
+        #downloadsListBox:focus  > richlistitem[selected] {
             background-image: none !important;
             background-color: var(--button-bgcolor) !important;
             border-radius: 0px !important;

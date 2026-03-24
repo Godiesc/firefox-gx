@@ -1,8 +1,8 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Arrowpanel, popup menus & panels styles */
-
+/* Arrowpanel, popup menus & panels styles \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 :is(menupopup, panel):where([type="arrow"]) {
     --my-background-image-popup: radial-gradient( 100% 91.38% at 50% 99.62%,
                            color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
@@ -20,26 +20,26 @@ panel {
     }
 }
 
-/* Remove unwanted style for radiobutton */
-
+/* Remove unwanted style for radiobutton \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .toggle-button {
     --toggle-dot-background-color-on-pressed: var(--arrowpanel-background) !important;
 }
 
-/* Alignment of popups [Open] */
-
+/* Alignment of popups [Open] \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .panel-no-padding[type="arrow"] {
     margin-block: calc(-1 * var(--panel-shadow-margin) + 1px) !important;
     margin-inline: -4px !important;
 }
 
-/* Gradient border around popups -&- border color in popups like bookmark */
-
+/* Gradient border around popups -&- border color in popups like bookmark \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 :is(menupopup, panel):where([type="arrow"]) {
     position: relative;  /* Needed for round gradient border ¯¯v */
 }
-                   /* not: Firefox info messages */
-:is(menupopup, panel):not([#feature-callout]):where([type="arrow"])::after {
+                                         /* not: Firefox info messages */
+:is(menupopup, panel):where([type="arrow"]):not(#feature-callout)::after {
     content: "";
     position: absolute;
     inset: var(--panel-shadow-margin);
@@ -58,8 +58,8 @@ panel {
     --arrowpanel-menuitem-margin-inline: 4px !important;
 }
 
-/* Gradient background color when :hover over different items in the main menus */
-
+/* Gradient background color when :hover over different items in the main menus \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .protections-popup-category:not(#appMenu-popup toolbarbutton,[disabled]):hover, .protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, 
 #protections-popup-show-report-stack:not(#appMenu-popup toolbarbutton):hover > .protections-popup-footer-button:not(#appMenu-popup toolbarbutton), 
 panelview .toolbarbutton-1:not([disabled], [open]:not(#appMenu-popup toolbarbutton)):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open], 
@@ -71,8 +71,8 @@ menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .t
     color: var(--arrowpanel-color, var(--my-font-color)) !important;
 }
 
-/* Background color when clicking on different items in the main menus */
-
+/* Background color when clicking on different items in the main menus \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .protections-popup-category:active:not([disabled]), .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button, 
 panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back):is(:active, [open]), 
 .navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, 
@@ -82,47 +82,38 @@ menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .
     background: var(--panel-separator-zap-gradient4) !important;
 }
 
-/* Colors on disabled items */
-
+/* Colors on disabled items \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .subviewbutton:is([disabled]), .subviewbutton:where([disabled="true"]):hover {       
     -moz-context-properties: fill;
     color: color-mix(in srgb, var(--arrowpanel-color)70%, transparent) !important;
     fill:  color-mix(in srgb, var(--arrowpanel-color)70%, transparent) !important;
 }
 
-/* Gradient line - separators */
-
+/* Gradient line - separators \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 toolbarseparator {
     &::before {
         border-image: var(--panel-separator-zap-gradient2) 1 !important;
     }
+    
+    /* Remove gradient in bookmarks 'bar' separator */
+    :is(#PlacesToolbarItems) & {
+        &::before {
+            border-image: none !important;
+        }
+    }
 }
 
-#PlacesToolbar menupopup[placespopup] menuseparator {
-    margin-inline: 4px !important;
-}
-
-/* Label color  'learn more about' */
-
-toolbar .text-link:hover, panel .text-link:hover {
-    color: var(--general-color) !important;
-}
-
-/* Separator line into Firefox Sidebar items */
-
-treechildren::-moz-tree-separator {
-    border-bottom: none !important;
-}
-
-/* 'Monitor' and 'Relay' items from account dropdown menu */
-
+/* 'Monitor' and 'Relay' items from account dropdown menu \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #PanelUI-fxa-menu .fxa-cta-button {
     margin-inline: 0 !important;
     padding-inline-start: var(--margin-left-icons-personal, 0px) !important;
 }
 
-/* 'back' button */
-
+/* 'back' button \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .panel-header {
     --button-background-color-ghost-hover: var(--button-hover-bgcolor) !important;
     --button-background-color-ghost-active: var(--button-active-bgcolor) !important;
@@ -130,99 +121,62 @@ treechildren::-moz-tree-separator {
     --arrowpanel-header-back-icon-padding: 6px 6px 6px 4px !important; 
 }
 
-/* bug fix for Background-color when :hover on zoom buttons */
-
+/* bug fix for Background-color when :hover on zoom buttons \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .PanelUI-subView .toolbaritem-combined-buttons > .subviewbutton:is(:hover, :hover:active):not([disabled]) {
     background: transparent !important;
 }
 
-/* _____________________ Sidebar-box ____________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-/* remove unwanted background color - tested without 'revamp' in 'synced tabs' with a theme with images */
-:root { background-color: transparent !important; }
-
-/* Apply background but not in tree-tabs extension to solve bug 'gradient-line don't display' */
-
-:root:has(#sidebar-box:not(
-[sidebarcommand*="tabcenter"],
-[sidebarcommand*="treestyletab"],
-[sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) #sidebar {
-    background-color: var(--toolbar-bgcolor) !important;
+/* _______________________ 'Firefox Messages' show in some buttons e.g. Messages of new features _______________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#feature-callout:not([arrow-position="inline-start-top"]) {
+    --arrow-corner-distance: 0px !important;
+    --panel-arrow-space: 16px !important;
+    --panel-shadow: none !important;
+    margin-inline: -28px !important;
 }
 
-#sidebar-header {
-    background-color: var(--lwt-sidebar-background-color) !important;
-    box-shadow: 0px -1px 0 0 var(--my-content-border-color) !important;
-    padding: 4px 6px !important;
+#feature-callout:is([arrow-position="inline-start-top"]) {
+    --panel-arrow-space: 16px !important;
+    --panel-shadow: none !important;
+    margin-block-start: -26px !important;
+}
 
-    & toolbarbutton:is(:hover, [open]) {
-        background-color: var(--toolbarbutton-hover-personal) !important;
+/* Top position and Remove incompatibility styles \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.arrow-box {
+    #feature-callout & {
+        top: -8px !important;
+        transform: none !important;
+        transform-style: unset !important;
+        z-index: 2 !important;
     }
-}
 
-/* Remove limit when resizing 'Firefox sidebar' */
-
-#sidebar-box {
-    max-width: none !important;
-    min-width: 1px !important;
-
-    /* Add border top to web content when sidebar is 'open' */
-    &[checked="true"] ~ #tabbrowser-tabbox {
-        box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+    #feature-callout[arrow-position="inline-start-top"] & {
+        top: 16px !important;
+        transform: rotate(-90deg) !important;
+        inset-inline-start: -20px !important;
     }
 }
 
-/* Splitter */
-
-.sidebar-splitter {
-    @media -moz-pref("sidebar.revamp") or (not (-moz-platform: linux)) {
-        --sidebar-border-color: transparent !important;
-    }
-    
-    /* Spliter style on Linux */
-    @media (not -moz-pref("sidebar.revamp")) and (-moz-platform: linux) {
-        background-color: var(--sidebar-border-color) !important;
-        width: 0px !important;
-        border-width: 0px !important;
-    }
+/* Replace default 'arrow' with GX style \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#feature-callout .arrow {
+    outline-color: transparent !important;
+    box-shadow: none !important;
+    width: 34px!important; 
+    height: 9px !important;
+    background-size: 34px 9px !important;
+    background-image: url("../icons/panelarrow-menu.svg") !important;
+    background-color: transparent !important;
+    -moz-context-properties: fill, stroke !important;
+    fill: var(--arrowpanel-background) !important;
+    stroke: var(--arrowpanel-border-color) !important;
+    filter: drop-shadow(0px -1px 0px var(--contrast-color)) !important;
 }
 
-@media -moz-pref("sidebar.revamp") {
-    
-    /* Remove extra margin of sidebar header */
-    #sidebar-panel-header {
-        margin-block: 0px !important;
-        padding-block: 0px !important;
-    }
-    
-    @media (-moz-overlay-scrollbars) {
-        .sidebar-splitter {
-            --splitter-width: 4px !important;
-        }
-    }
-    
-    /* Bug fix - remove unwanted space of splitter */
-    #sidebar-main[style*="order: 1;"] ~ splitter[style*="order: 4"] {
-            margin-inline-start: calc(-1 * var(--splitter-width)) !important;
-    }
-    /*/**/
-    splitter[style*="order: 2"] {
-        margin-inline-start: calc(-1 * var(--splitter-width)) !important;
-    }
-    
-    #sidebar-box[checked]:not([sidebar-positionend]) ~ #tabbrowser-tabbox {
-        margin-inline-start: -6px !important;
-        box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
-    }
-    
-    #sidebar-box[sidebar-positionend] + splitter {
-        margin-inline-end: -6px !important;
-    }
-    
-    /* Remove unwanted margin of sidebar-box when is on right */
-    #sidebar-box[sidebar-positionend] {
-        /*margin-inline-start: 0px !important;/**/
-        margin-inline-end: -3px !important;
-    }
+/* Fix panel external border */
+#feature-callout .section-main {
+    border-radius: var(--arrowpanel-border-radius) !important;
+    box-shadow: 0 0 0 1px var(--contrast-color) !important;
 }
