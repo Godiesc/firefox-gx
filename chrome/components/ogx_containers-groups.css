@@ -130,10 +130,6 @@ tab-group {
         inset-inline-start: 0px;
         width: 100%;
     }
-    
-    /*&[aria-expanded="true"]::after {
-        background-color: var(--tab-group-bgcolor) !important;
-    }/**/
 
     /* Click on border 'Horizontal tabs' */
     #tabbrowser-arrowscrollbox[orient="horizontal"] & {
@@ -155,22 +151,10 @@ tab-group[hasactivetab][collapsed],
 tab-group:not([collapsed]) {
     .tab-group-label-container {
         background-color: var(--tab-group-bgcolor) !important;
-        padding-inline: 4px 4px !important;
-        
-        /* When using tab-shapes */
-        @media -moz-pref("firefoxgx.tab-shapes") and (not -moz-pref("sidebar.verticalTabs")) {
-            padding-inline: 4px 7px !important;
-        }
     }
 }
 
 .tab-group-label-container {
-    padding-inline: 0px 5px !important;
-    
-    /* When using tab-shapes */
-    @media -moz-pref("firefoxgx.tab-shapes") and (not -moz-pref("sidebar.verticalTabs")) {
-        padding-inline: calc(var(--tab-height-personal) - 30px + var(--uc-margin-left-newtab, 0px)) calc(var(--tab-height-personal) - 28px + var(--uc-margin-left-newtab, 0px)) !important;
-    }
     
     /* Group Label 'hover' effect */
     &:hover,
@@ -224,6 +208,28 @@ tab-group:not([collapsed]) {
             &:not([multiselected]) {
                 box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
             }
+        }
+    }
+    
+    /* Margins tab group label */
+    tab-group[hasactivetab][collapsed],
+    tab-group:not([collapsed]) {
+        .tab-group-label-container {
+            padding-inline: 4px 4px !important;
+            
+            /* When using tab-shapes */
+            @media -moz-pref("firefoxgx.tab-shapes") {
+                padding-inline: 4px 7px !important;
+            }
+        }
+    }
+
+    .tab-group-label-container {
+            padding-inline: 0px 5px !important;
+
+        /* When using tab-shapes */
+        @media -moz-pref("firefoxgx.tab-shapes") {
+                padding-inline: calc(var(--tab-height-personal) - 30px + var(--uc-margin-left-newtab, 0px)) calc(var(--tab-height-personal) - 28px + var(--uc-margin-left-newtab, 0px)) !important;
         }
     }
 }
@@ -298,8 +304,7 @@ tab-group:not([collapsed]) {
         
         
         /* Group label when sidebar is expanded  
-           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-        
+           ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */        
         /* When sidebar expanded - Align the group label with the same collapsed position */
         #tabbrowser-tabs[orient="vertical"][expanded] & {
             padding-inline-start: 8px !important;

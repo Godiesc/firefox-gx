@@ -939,9 +939,6 @@
 
     #tabbrowser-tabs[orient="vertical"] {
         
-        /*--tab-collapsed-width: var(--my-vertical-elements-width) !important;    /* For pinned tabs */
-        /*--tab-inline-padding: calc((var(--tab-collapsed-width) - var(--icon-size)) / 2) !important;/**/
-        
         tab-group .tab-background {
             margin-inline: var(--my-margin-inline-outer-tab) !important;
         }
@@ -953,11 +950,6 @@
         
         /* Collapsed */
         &:not([expanded]) {
-            
-            .tab-background {
-                /*--tab-collapsed-background-width: var(--tab-height-personal) !important;
-                width: calc(var(--tab-collapsed-background-width) + 1px) !important;/**/
-            }
             
             /* Width - collapsed tab */
             & .tabbrowser-tab[visuallyselected] > .tab-stack::before {
