@@ -77,9 +77,7 @@
 
   /* New :root preferences to adapt oneline style */
   
-  :root,
-  :root[lwtheme],
-  :root:not([lwtheme]) {
+  :root {
     --toolbar-height-personal: var(--tab-height-personal) !important;                     /* Toolbar height */
     --navbarWidth: 32vw;                                                                  /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
     --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;     /* button_background_hover */
