@@ -5,7 +5,7 @@
 
   --my-content-border-color: var(--toolbarbutton-hover-personal) !important;            /* Border color for web content is some situations */
   --my-main-gradient-background: linear-gradient(to top, 
-    var(--lwt-accent-color)        /* Gradiente background used in themes with images */
+    var(--lwt-accent-color)                                                             /* Gradiente background used in themes with images */
     calc(100% - var(--toolbar-height-personal) - var(--tab-height-personal) - 
     var(--menubar-height-personal, 0px) - 100px), 
     transparent calc(100% - var(--toolbar-height-personal) - var(--tab-height-personal) - 

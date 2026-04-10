@@ -90,9 +90,9 @@
       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */      
       :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
          
-         #sidebar-main,
-         #navigator-toolbox::before {
-            background-image:  linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+         #sidebar-main/*,
+         #navigator-toolbox::before/**/ {
+            background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
                var(--lwt-additional-images), var(--lwt-header-image) !important;
             background-position-y: bottom !important;
             background-position-x: left !important;

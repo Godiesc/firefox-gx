@@ -144,7 +144,7 @@
         top: 0;
         width: 100vw;/**/
         height: initial !important;
-        z-index: 10;
+        z-index: 6; /* Test it 'Vertical tabs' on right */
     }
 
     #toolbar-menubar[autohide][inactive]{ height: 0px !important; }
@@ -205,10 +205,10 @@
             height: initial !important;
             z-index: 0;
             border-bottom: 1px solid var(--general-color) !important;
-            border-image: linear-gradient(to right, transparent var(--my-elements-left-magin,0px), var(--general-color)  var(--my-elements-left-magin,0px), transparent 90%) 1 !important;
+            border-image: linear-gradient(to right, var(--general-color), transparent 90%) 1 !important;
             
             @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") {
-                inset-inline-start: var(--my-elements-left-margin) !important;
+                inset-inline-start: var(--my-vertical-elements-width) !important;
             }
         }
         

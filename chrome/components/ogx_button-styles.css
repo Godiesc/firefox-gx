@@ -361,7 +361,8 @@ button {
     }
     &[open] {
         /* When Firefox show a 'Message' in this button */
-        --toolbarbutton-active-background: inherit !important;
+        --toolbarbutton-active-background: var(--button-active-bgcolor) !important;
+        fill: FieldText !important;
     }
 }
 
@@ -403,11 +404,10 @@ panel :is(menulist, button, toolbarbutton:not([.subviewbutton])):not([open]),   
 }
 
 /* Transition of the secure page button, bookmark and Tracking Protection of the url */
-
-#identity-box[pageproxystate="valid"].chromeUI #identity-icon,
-#pageAction-panel-bookmark[starred], #star-button[starred],
-#tracking-protection-icon{ 
-    transition: fill 0.2s ease !important;
+.urlbar-input-container box:not([open])>image,
+#page-action-buttons>hbox>image,
+#tracking-protection-icon { 
+    transition: fill 0.2s ease;
 }
 
 /* Transition for the other buttons in the url */

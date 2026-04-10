@@ -353,7 +353,7 @@
             /* New Menu height */
             
             --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;
-            --my-elements-left-margin: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
+            --my-elements-left-margin: calc(var(--padding-left-tab, var(--my-vertical-toolbar-width)) + 1px) !important;
         }
         
         /* Move tabsbar to the right */
@@ -366,6 +366,7 @@
 
         #nav-bar {
             margin-inline-start: var(--my-elements-left-margin, 0px) !important;
+            box-shadow: -1px 0 var(--general-color) !important;
         }
     }
     
@@ -375,13 +376,14 @@
         
         :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[customizing]):not(:has(#sidebar-main[hidden],sidebar-main[hidden])) {
             --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;     /* New Menu height */
-            --my-elements-left-margin: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
+            --my-elements-left-margin: calc(var(--padding-left-tab, var(--my-vertical-toolbar-width)) + 1px) !important;
         }
         
         /* Move nav-bar buttons to the right */
 
         #nav-bar {
-            margin-inline-start: var(--my-elements-left-margin, 0px) !important;
+            margin-inline-start: calc(var(--my-elements-left-margin, 0px) + 0px) !important;
+            box-shadow: -1px 0 var(--general-color) !important;
         }
     }
 
@@ -554,7 +556,7 @@
         /* Menu space in the nav-bar */
             
         :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) #toolbar-menubar[autohide] ~ #nav-bar {
-            --my-elements-left-margin: calc(var(--padding-left-tab,0px) + var(--uc-window-drag-space-pre, 0px)) !important;
+            --my-elements-left-margin: calc(var(--padding-left-tab,0px) + 1px + var(--uc-window-drag-space-pre, 0px)) !important;
         }
         
         #nav-bar {

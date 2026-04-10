@@ -85,7 +85,7 @@
 
 #TabsToolbar::before {
     content: "" !important; position: absolute !important; align-self: end !important;
-    inset-inline-start: var(--my-elements-left-margin, 0px) !important;
+    inset-inline-start: calc(var(--my-elements-left-margin, 0px) - 1px) !important;
     width: 100% !important;
     border-block-end: 1px solid var(--general-color) !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
@@ -482,10 +482,4 @@ sidebar-main:is([expanded]) {
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #tabgroup-panel-content {
     background-color: transparent !important;
-}
-
-/* Remove unwanted margins in tabgroup context-menu \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#tab-group-main .tab-group-edit-mode-only {
-    margin-inline: calc(0px - var(--panel-padding) - 16px) !important;
 }

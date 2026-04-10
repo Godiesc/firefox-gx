@@ -121,10 +121,35 @@ toolbarseparator {
     --arrowpanel-header-back-icon-padding: 6px 6px 6px 4px !important; 
 }
 
+/* Color sign when moving bookmark into a folder in bookmarksbar \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+image[part='drop-indicator'] {
+  background-color: var(--general-color) !important;
+}
+
 /* bug fix for Background-color when :hover on zoom buttons \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .PanelUI-subView .toolbaritem-combined-buttons > .subviewbutton:is(:hover, :hover:active):not([disabled]) {
     background: transparent !important;
+}
+
+/* Margins in tabsgroup context-menu \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.tab-group-editor-panel>:is(div) {
+    padding-inline: 10px !important;
+}
+
+#tab-group-main toolbarbutton {
+    margin-inline: calc(0px - var(--panel-padding) + 6px) !important;
+    padding-inline: 12px !important;
+}
+
+#tab-group-main {
+    margin-block-end: 6px !important;
+
+    toolbarseparator {
+        padding-inline: 0px !important;
+    }
 }
 
 /* _______________________ 'Firefox Messages' show in some buttons e.g. Messages of new features _______________________

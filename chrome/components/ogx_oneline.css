@@ -107,11 +107,12 @@
   
   /* Align the navbar gradient line with selected tab, and trick to vertically center all elements */ 
 
-  #nav-bar{
+  #nav-bar {
     --toolbar-bgcolor: transparent !important;
-    margin-inline-start: var(--padding-left-tab) !important;
+    margin-inline-start: var(--my-vertical-toolbar-width) !important;
     padding-inline-end: calc(var(--uc-window-control-width, 28px)) !important; /* 20px when 'without control buttons' */
     margin-top: calc(-1* var(--toolbar-height-personal)) !important;
+    box-shadow: none !important;
   }
   
   #PersonalToolbar {
@@ -167,12 +168,12 @@
 
   /* Blur at the end of "Search with..." */
 
-  #urlbar[pageproxystate="invalid"]:not([usertyping],[searchmode],[open]) #urlbar-input{
+  #urlbar[pageproxystate="invalid"]:not([usertyping],[searchmode],[open]) #urlbar-input {
     mask-image: linear-gradient(to right, black calc(var(--min-width-url) - 60px), transparent calc(var(--min-width-url) - 36px)) !important;
   }
 
   #urlbar:not([open],:hover, [focused]) #urlbar-input {
-    mask-image: linear-gradient(to right,  transparent 0%, #fff 10% 80%, transparent 90%) !important;
+    mask-image: linear-gradient(to right, /*transparent 0%,/**/ #fff 10% 80%, transparent 100%) !important;
   }
   
   /* urlbar when 'focus' and 'open' */
@@ -222,22 +223,43 @@
     transform: rotate(90deg);
   }
   
-  /* Urlbar icons - show on 'hover' */
-
-  #identity-box>box:not([open])>:is(image, box), 
-  #urlbar-searchmode-switcher:not([open]),
-  #trust-icon-container:not([open]),
-  #urlbar-zoom-button, .urlbar-page-action:not([open])>image {
-    opacity: 0 !important;
-    transition: opacity 250ms ease-in-out !important;
+  /* Urlbar icons - show on 'hover' \
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+  /*.urlbar-input-container box,/**/
+  #page-action-buttons>:is(hbox, toolbarbutton):not(#star-button-box, #taskbar-tabs-button) {
+    visibility: collapse !important;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
   }
 
-  #urlbar:is([open],:hover,[focused]) :is(#identity-box>box>:is(image, box),
-  #urlbar-searchmode-switcher,
-  #trust-icon-container,
-  #urlbar-zoom-button, .urlbar-page-action>image) {
+  #urlbar:is([open],:hover,[focused]) :is(
+  /*.urlbar-input-container box,/**/
+  #page-action-buttons>:is(hbox, toolbarbutton) 
+  ) {
+    visibility: visible !important;
+  }
+  
+  /* Urlbar icon button 'opacity' transition \
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+  .urlbar-input-container box:not([open])>image,
+  #page-action-buttons>hbox>image {
+    opacity: 0 !important;
+    transition: opacity 0.4s ease-in-out, visibility 0.2s ease, transform 0.2s ease, fill 0.2s ease;
+  }
+  
+  .urlbar-input-container box:not([open])>image {
+    transform: translateX(-10px) !important;
+  }
+
+  #page-action-buttons>hbox>image {
+    transform: translateX(10px) !important;
+  }
+
+  #urlbar:is([open],:hover,[focused]) :is(
+  .urlbar-input-container box>image,
+  #page-action-buttons>hbox>image 
+  ) {
     opacity: 1 !important;
-    transition: opacity 250ms ease-in-out !important;
+    transform: translateX(0px) !important;
   }
   
   /* Match nav-bar buttons with tabs-bar buttons */

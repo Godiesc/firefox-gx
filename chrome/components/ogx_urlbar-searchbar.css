@@ -352,13 +352,21 @@ findbar {
 
 .searchmode-switcher-icon {
     padding: 0px !important;
-    margin: -2px !important;
+    margin-inline: -2px !important;
 }
 
 @media -moz-pref("browser.urlbar.searchModeSwitcher.featureGate"), -moz-pref("browser.urlbar.scotchBonnet.enableOverride") {
     #urlbar[searchmode] {
         #urlbar-searchmode-switcher {
             background-color: var(--urlbar-box-bgcolor) !important;
+            
+            >.searchmode-switcher-icon {
+                margin-inline-end: 2px !important;
+            }
+
+            >label {
+                display: none !important;
+            }
 
             &:is(:hover,[open]) {
                 background-color: var(--urlbar-box-hover-bgcolor) !important;

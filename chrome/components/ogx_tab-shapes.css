@@ -231,8 +231,8 @@
     -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
       
       .tabbrowser-tab {
-      --uc-tab-corner-height: calc(var(--tab-min-height) - 0px);
-      --uc-tab-corner-size: calc(var(--uc-tab-corner-height) - 0px);
+      --uc-tab-corner-height: calc(var(--tab-min-height) + 0px);
+      --uc-tab-corner-size: var(--uc-tab-corner-height);
       --uc-tab-corner-half-size: calc(var(--uc-tab-corner-size) / 2);
       --uc-tab-corner-half-size-reverse: calc(var(--uc-tab-corner-half-size) * -1);
       --uc-tab-corner-bgimage: none;

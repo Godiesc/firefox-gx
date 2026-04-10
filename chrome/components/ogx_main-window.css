@@ -1,8 +1,9 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Remove navigator-toolbox image \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Remove theme image \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+body,
 #navigator-toolbox {
     background-image: none !important;
     background-color: transparent !important;
@@ -20,9 +21,6 @@
     background-position-y: var(--my-background-position-y) !important;
     background-color: var(--lwt-accent-color, Field) !important;
     background-size:var(--my-background-size, auto) !important;
-    
-    /* Keep the blur effect in newtab page - Bug in 'about:' pages remove the blur */
-    clip-path: xywh(0 0 100% 100% round 0 0 1px 0);
 }
 
 /* Gradient effect to the bottom \
@@ -55,7 +53,7 @@
 
 /* Remove unnecessary background to show the theme image \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#browser, .browserContainer {
+body, #browser, .browserContainer {
     background-color: transparent !important;
     box-shadow: none !important; /* Remove unwanted shadow when using 'revamp' */
 }
@@ -65,12 +63,12 @@
     background-color: var(--toolbar-bgcolor) !important;
 }
 
-/* Remove unwanted background to all browser background */
+/* Remove unwanted background to all browser background 
 #browser:not(.browser-toolbox-background):not(#tabbrowser-tabpanels) {
     :root[lwtheme] & {
         background-image: none !important;
     }
-}
+}*/
 
 /* Wallpaper for some 'about:' pages \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */

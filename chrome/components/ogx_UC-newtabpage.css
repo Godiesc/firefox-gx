@@ -1307,3 +1307,16 @@
         padding-block-start: 10px !important;
     }
 }
+
+/* Fix some pages background color */
+
+@-moz-document 
+    regexp("^https://www.thomann.de.*"), 
+    regexp("^https://www.svgrepo.*")  {
+        
+    @media -moz-pref("browser.tabs.allow_transparent_browser") {
+        body {
+            background-color:  white !important;
+        }
+    }
+}
