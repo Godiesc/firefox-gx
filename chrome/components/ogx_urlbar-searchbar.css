@@ -58,7 +58,7 @@ findbar {
 }
 
 .urlbarView-row {
-  border: 0px solid transparent !important;
+  border-width: 0px !important;
 }
 
 /* Url margin inline - Searchbox margin inline */
@@ -313,66 +313,73 @@ findbar {
     }
 }
 
-/* Search Engine button */
+/* ___________________________________________ Search Engine button ___________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Replace default search engine button icon */
+.button-background > img {
+    content: var(--my-custom-image, none);
+}
 
-@media not -moz-pref("browser.urlbar.searchModeSwitcher.featureGate") {
-    #urlbar-searchmode-switcher:not(:hover,[open]) {
-        background-color: transparent !important;
+.searchmode-switcher {
+    /* Background */
+    --button-background-color: transparent !important; /* Test it when url open & extended */
+    --urlbar-box-background-color: transparent !important;
+    --button-background-color-hover: var(--urlbar-box-background-color-hover) !important;
+    --button-background-color-active: var(--urlbar-box-background-color-active) !important;
+    --button-background-color-selected: var(--urlbar-box-background-color-active) !important;
+    /* Roundness */
+    --button-border-radius: var(--urlbar-inner-border-radius) !important;
+    
+    /* Size */
+    width: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+    align-self: center !important;  /* Alignment */
+    
+    /* Keep the same background color when 'hover' on 'open' */
+    &[open] {
+    --button-background-color-hover: var(--urlbar-box-background-color-active) !important;
+    }
+    
+    /* Default search engine */
+    .urlbar:not([searchmode]) & {
+        --my-custom-image: url("chrome://global/skin/icons/search-glass.svg") !important;
+        --my-display: none !important;
+    }
+    
+    /* Selected Search engine */
+    .urlbar[searchmode] & {
+        --my-display: none !important;
+        
+        &:hover,
+        &[open] {
+            --my-display: flex !important;
+            width: calc(var(--urlbar-min-height) + 18px - 2 * var(--urlbar-container-padding)) !important;
+        }
     }
 }
 
-/* Hide default search engine icon */
-:is(#urlbar, #searchbar-new):not([searchmode]) .searchmode-switcher-icon {
-    list-style-image: url("chrome://global/skin/icons/search-glass.svg") !important;
-}
-
-#urlbar-searchmode-switcher {
-    margin-block: 1px !important;
-    --urlbar-searchmodeswitcher-inline-padding: 5px !important;
-    --urlbar-searchmodeswitcher-margin-inline-end: 8px !important;
-    
-    &:hover { background-color: var(--urlbar-box-hover-bgcolor) !important; }
-    &[open] { background-color: var(--urlbar-box-active-bgcolor) !important; }   
-}
-
-.searchmode-switcher-popup {
-  & > menuitem {
-    margin-inline: var(--arrowpanel-menuitem-margin) !important;
-  }
-}
-
-.searchmode-switcher-dropmarker {
+/* Remove search engine label */
+.searchmode-switcher-title {
     display: none !important;
 }
 
-.searchmode-switcher-chicklet {
-    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    align-self: center !important;
+/* Remove unwanted space in default search engine button removing label */
+#main-button label[is="moz-label"][part="moz-button-label"] {
+    display: var(--my-display, unset) !important;
 }
 
-.searchmode-switcher-icon {
-    padding: 0px !important;
-    margin-inline: -2px !important;
-}
-
-@media -moz-pref("browser.urlbar.searchModeSwitcher.featureGate"), -moz-pref("browser.urlbar.scotchBonnet.enableOverride") {
-    #urlbar[searchmode] {
-        #urlbar-searchmode-switcher {
-            background-color: var(--urlbar-box-bgcolor) !important;
-            
-            >.searchmode-switcher-icon {
-                margin-inline-end: 2px !important;
-            }
-
-            >label {
-                display: none !important;
-            }
-
-            &:is(:hover,[open]) {
-                background-color: var(--urlbar-box-hover-bgcolor) !important;
-                border-radius: var(--urlbar-icon-border-radius) !important;
-            }
-        }
+/* Search engine close button */
+.searchmode-switcher-close {
+    --urlbar-inner-border-radius: 12px !important;
+    --my-display: none !important;
+    background-color: var(--my-font-color) !important;
+    color: var(--contrast-color) !important;
+    
+    &:hover {
+        --my-width: 100% !important;
+        --my-display: flex !important;
+        background-color: var(--general-color) !important;
+        --urlbar-box-text-color-hover: var(--contrast-color) !important;
     }
 }
 
@@ -412,9 +419,9 @@ input::-moz-search-clear-button:hover {
 
 /* Firefox secure pages */
 
-.identity-box-button{
-    --urlbar-box-bgcolor: transparent !important;
-    --urlbar-box-focus-bgcolor: transparent !important;
+.identity-box-button {
+    --urlbar-box-background-color: transparent !important;
+    --urlbar-box-background-color-focus: transparent !important;
 }
 
 #identity-icon-label {

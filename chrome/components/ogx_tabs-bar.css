@@ -65,17 +65,19 @@
 
 /* Margins for horizontal tabs \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#tabbrowser-arrowscrollbox[orient="horizontal"] {
+@media (not -moz-pref("firefoxgx.tab-shapes")) and (not -moz-pref("sidebar.verticalTabs")) {
+    #tabbrowser-arrowscrollbox[orient="horizontal"] {
 
-    /* Margin between tabs */
-    &>.tabbrowser-tab,
-    &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-of-type) {
-        padding-inline: 0 2px !important;
-    }
-    
-    /* Margin last element into a group */
-    &>tab-group:not([collapsed]) :is(.tabbrowser-tab, tab-split-view-wrapper)[last-tab-or-split-view] {
-        margin-inline-end: 2px !important;
+        /* Margin between tabs */
+        &>.tabbrowser-tab,
+        &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-of-type) {
+            padding-inline: 0 2px !important;
+        }
+
+        /* Margin last element into a group */
+        &>tab-group:not([collapsed]) :is(.tabbrowser-tab, tab-split-view-wrapper)[last-tab-or-split-view] {
+            margin-inline-end: 2px !important;
+        }
     }
 }
 
@@ -262,16 +264,10 @@
 /* 'hover' tab background +  smooth transition */
 
 .tab-background {
-    .tabbrowser-tab > .tab-stack > &:not([selected],[multiselected],[visuallyselected]) {
-        clip-path: var(--my-tab-background-clip);
-        
-        @media not -moz-pref("firefoxgx.tab-shapes") {
-            transition: background-color 0.2s ease !important;
-        }
-    }
-
-    .tabbrowser-tab:hover > .tab-stack > &:not([selected],[multiselected],[visuallyselected]) {
-        /* don't use '--button-smaller-bgcolor' cause group tabs */
+    transition: background-color 0.2s ease !important;
+    
+    .tabbrowser-tab:hover > .tab-stack > &:not([selected], [multiselected]) {
+        /* don't use '--button-smaller-bgcolor' cause issue with group tabs */
         background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
     }
 }

@@ -45,7 +45,7 @@
     /* Toggle button \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     .toggle-button {
-        --toggle-border-radius: 4px !important;
+        --toggle-border-radius: calc(var(--my-border-radius) - 2px) !important;
         --toggle-height: 21px !important;
         --toggle-width: 36px !important;
         --toggle-dot-height: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
@@ -108,8 +108,6 @@
                 --button-border-color-hover: transparent !important;
                 --button-border-color-active: transparent !important;
                 color: color-mix(in srgb, var(--text-color) 76%, transparent) !important;
-                font-weight: 600 !important;
-                font-size: 0.9em !important;
                 text-underline-offset: 4px !important;
 
                 &:hover {
@@ -145,7 +143,7 @@
         }
 
         .pane-container{
-            width: max(100%, var(--page-main-content-width)) !important;
+            width: max(calc(100% - 1px), var(--page-main-content-width)) !important;
             display: grid !important;
             overflow-x: hidden !important;
 
@@ -334,6 +332,19 @@
     
     :root {
         --border-color-interactive: light-dark(var(--color-gray-50), var(--border-color)) !important;  /* border color for Picker items */
+    }
+    
+    /* Search input */
+    
+    #search-container {
+        --background-color-canvas: transparent !important;
+    }
+    
+    #input {
+            &[type="search"] {
+                width: 30% !important;
+                margin-inline-start: 230px !important;
+        }
     }
 
     /* Combobox item roundness */

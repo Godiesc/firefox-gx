@@ -54,8 +54,9 @@
     -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
 
       :root {
-        --border-radius-urlbar-personal: 12px !important;
+        --border-radius-urlbar-personal: 14px !important;
         --urlbar-icon-border-radius: 14px !important;
+        --urlbar-inner-border-radius: var(--urlbar-icon-border-radius) !important;
       }
       
       #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper {

@@ -145,7 +145,6 @@ body, #browser, .browserContainer {
             background-color: transparent !important;
             --toolbarbutton-icon-fill-attention: unset !important;
             --newtab-text-primary-color: unset !important;
-            --border-color-interactive: #50505050 !important;
         }
 
         /* searchbox \
@@ -154,6 +153,7 @@ body, #browser, .browserContainer {
         #input[type="search"] {     /* Other sidebars searchbox */
             
             background-color: color-mix(in srgb, Field, transparent) !important;
+            border-color: #50505050 !important;
             
             /* When 'hover' */
             &:hover:not(:focus-within) {
@@ -170,11 +170,16 @@ body, #browser, .browserContainer {
         }
 }
 
-/*.content-container,
-body[role="application"],
-sidebar-browser-stack {
-    background: transparent !important;
-}/**/
+#sidebar-header {
+    background-color: var(--lwt-sidebar-background-color) !important;
+    padding: 4px 6px 4px 4px !important;
+    border-bottom-color: var(--my-content-border-color) !important;
+}
+
+#sidebar-switcher-target:hover:active,
+#sidebar-switcher-target.active {
+    background-color: var(--button-bgcolor) !important;
+}
 
 /* Apply background but not in tree-tabs extension to solve bug 'gradient-line don't display' \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -185,19 +190,30 @@ sidebar-browser-stack {
     background-color: var(--toolbar-bgcolor) !important;
 }
 
-#sidebar-header {
-    background-color: var(--lwt-sidebar-background-color) !important;
-    box-shadow: 0px -1px 0 0 var(--my-content-border-color) !important;
-    padding: 4px 6px !important;
-
-    & toolbarbutton:is(:hover, [open]) {
-        background-color: var(--toolbarbutton-hover-personal) !important;
+/* Style for IA chat in sidebar is open \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#header {
+    --border-color: color-mix(in srgb, var(--my-content-border-color), transparent) !important;
+    background-color: transparent !important;
+    
+    #provider {
+        --button-background-color-ghost: transparent !important;
+        --button-background-color-ghost-hover: var(--button-hover-bgcolor) !important;
     }
 }
 
-/* Remove rare space when IA chat is open */
 #message-container {
     padding: 0px !important;
+}
+
+#summarize-btn-container {
+    --border-color: color-mix(in srgb, var(--my-content-border-color), transparent) !important;
+    --space-large: var(--space-small) !important;
+    
+    #summarize-button {
+        --button-background-color: color-mix(in srgb, currentColor 13%, transparent) !important;
+        --button-background-color-hover: var(--button-hover-bgcolor) !important;
+    }
 }
 
 /* 'Firefox sidebar' \
@@ -264,6 +280,27 @@ sidebar-browser-stack {
 }
 
 @media -moz-pref("sidebar.revamp") {
+    
+    /* Remove unwanted sidebar styles */
+    #sidebar {
+        --sidebar-background-color: transparent !important;
+        --sidebar-border-color: transparent !important;
+        --content-area-shadow: none !important;
+    }
+    
+    /* Style of sidebar header */
+    #webextpanels-window #sidebar-panel-header {
+        margin-block: 0px !important;
+        padding-block: 0px !important;
+        box-shadow: inset 0 -1px color-mix(in srgb, var(--my-content-border-color) 60%, transparent) !important;
+        
+        &:not(:hover) {
+            max-height: 1px !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+            opacity: 0 !important;
+        }
+    }
     
     /* Remove extra margin of sidebar header */
     #sidebar-panel-header {

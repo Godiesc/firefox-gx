@@ -2,9 +2,9 @@
    https://github.com/Godiesc/firefox-gx */
 
 :root {
-    --margin-left-icons-personal: 10px !important;
+    --margin-left-icons-personal: calc(var(--panel-menuitem-padding-inline)) !important;
     --margin-right-icons-personal: 1px !important;/**/
-    --label-color: color-mix(in srgb, var(--arrowpanel-color, var(--my-font-color))86%, transparent);
+    --label-color: color-mix(in srgb, var(--panel-color, var(--my-font-color)) 86%, transparent);
     --my-menu-button-height: calc(var(--menubar-height-personal, var(--tab-height-personal)) - 1px) !important;
 }
 
@@ -23,7 +23,8 @@
 
 /* Color of icons and labels */
 
-.subviewbutton:not([disabled]), #appMenu-popup toolbarbutton:not([disabled]) .toolbarbutton-text label {
+.subviewbutton:not([disabled]), 
+#appMenu-popup toolbarbutton:not([disabled]) .toolbarbutton-text label {
     -moz-context-properties: fill;
     fill: var(--label-color) !important;
     color: var(--label-color) !important;
@@ -229,15 +230,16 @@
             /* Margen nuevo solo al menu hamburguesa maximizado */
 
             &:not([sizemode="normal"]) #appMenu-popup {
-                & :not(.panel-header, .toolbaritem-combined-buttons)>.subviewbutton>.toolbarbutton-icon {
-                    margin-inline: calc(var(--margin-left-icons-personal) - 4px) var(--margin-right-icons-personal) !important;
+                & :not(.panel-header, .toolbaritem-combined-buttons, toolbaritem)>.subviewbutton:not(#appMenu-fxa-status2) {
+                    padding-inline-start: var(--panel-menuitem-padding-inline) !important;
+                    /*padding-inline-end: var(--margin-right-icons-personal) !important;/**/
                 }
 
-                & #appMenu-fxa-status2[fxastatus="signedin"] #appMenu-fxa-label2,
+                & #appMenu-fxa-label2,
                 & #fxa-manage-account-button,
                 & #appMenu-zoom-controls,
                 & #PanelUI-fxa-menu-syncnow-button{
-                    padding-inline-start: calc(var(--margin-left-icons-personal) + 4px) !important;
+                    padding-inline-start: calc(var(--panel-menuitem-padding-inline) + 0px) !important;/**/
                 }
             }
         }
@@ -283,7 +285,7 @@
                     white-space: pre !important;                    
                     -moz-context-properties: fill;
                     fill: var(--general-color);                    
-                    inset-inline-start: calc(var(--margin-left-icons-personal) + 0px);
+                    inset-inline-start: calc(var(--panel-menuitem-padding-inline) - 6px);
                     color: var(--general-color);
                     font-size: 1.8rem;
                     text-transform: uppercase;
@@ -396,8 +398,11 @@
         
         :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
             --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;                        /* New size of the 'menu' button */
-            --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 14px) !important;         /* New margin-left for menu items */
-            --margin-right-icons-personal: 2px !important;                                                      /* New margin-right for menu items */
+            --margin-right-icons-personal: 0px !important;                                                      /* New margin-right for menu items */
+            
+            #appMenu-popup {
+                --panel-menuitem-padding-inline: calc(var(--my-vertical-toolbar-width) / 2 - 10px) !important;  /* New margin-left for menu items */
+            }
         }
         
         @media (-moz-platform: windows), (-moz-platform: linux) {

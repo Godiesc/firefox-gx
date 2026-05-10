@@ -245,7 +245,7 @@
     /* Dark 1 - Fuchsia */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
         :root { --newtab-text-primary-color: var(--general-color-dark1) !important; }
-        body,
+        .activity-stream.darkWallpaper,
         #photographs,
         #dark-sky {
             --newtab-wallpaper: var(--wallpaper-dark1) !important;
@@ -256,7 +256,8 @@
     /* Dark 2 - ultraviolet */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
         :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
-        body,#photographs,
+        .activity-stream.darkWallpaper,
+        #photographs,
         #starry-canyon {
             --newtab-wallpaper: var(--wallpaper-dark2) !important;
             background-image: var(--wallpaper-dark2) !important;
@@ -267,7 +268,7 @@
     /* Dark 3 - Blue */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
         :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
-        body,
+        .activity-stream.darkWallpaper,
         #photographs,
         #dark-mountain {
             --newtab-wallpaper: var(--wallpaper-dark3) !important;
@@ -278,7 +279,7 @@
     /* Dark 4 - Green */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
         :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
-        body,
+        .activity-stream.darkWallpaper,
         #photographs,
         #dark-panda {
             --newtab-wallpaper: var(--wallpaper-dark4) !important;
@@ -289,7 +290,7 @@
     /* Dark 5 - Swamp */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
         :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
-        body,
+        .activity-stream.darkWallpaper,
         #photographs,
         #dark-fox-anniversary {
             --newtab-wallpaper: var(--wallpaper-dark5) !important;
@@ -300,7 +301,7 @@
     /* Dark 6 - Cheaterman */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
         :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
-        body,
+        .activity-stream.darkWallpaper,
         #photographs,
         #dark-beach {
             --newtab-wallpaper: var(--wallpaper-dark6) !important;
@@ -311,7 +312,7 @@
     /* Dark 7 - Gray */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
         :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
-        body,
+        .activity-stream.darkWallpaper,
         #photographs,
         #palm-trees {
             --newtab-wallpaper: var(--wallpaper-dark7) !important;
@@ -322,7 +323,7 @@
     /* Dark 8 - Orange */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
         :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
-        body,
+        .activity-stream.darkWallpaper,
         #photographs,
         #suspension-bridge {
             --newtab-wallpaper: var(--wallpaper-dark8) !important;
@@ -330,10 +331,10 @@
         }
     }
 
-    /* Dark 8 - Catppuccino */
+    /* Dark 9 - Catppuccino */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
         :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
-        body,
+        .activity-stream.darkWallpaper,
         #photographs,
         #dark-landscape {
             --newtab-wallpaper: var(--wallpaper-dark9) !important;
@@ -344,7 +345,7 @@
     /* Light 1 - Fuchsia */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
         :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #hot-air-balloons {
             --newtab-wallpaper: var(--wallpaper-light1) !important;
@@ -355,7 +356,7 @@
     /* Light 2 - Ultraviolet */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
         :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #light-panda {
             --newtab-wallpaper: var(--wallpaper-light2) !important;
@@ -366,7 +367,7 @@
     /* Light 3 - BLue */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
         :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #light-fox-anniversary {
             --newtab-wallpaper: var(--wallpaper-light3) !important;
@@ -377,7 +378,7 @@
     /* Light 4 - Rose */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
         :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #blue-flowers {
             --newtab-wallpaper: var(--wallpaper-light4) !important;
@@ -388,7 +389,7 @@
     /* Light 5 - Lightgreen */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
         :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #light-landscape {
             --newtab-wallpaper: var(--wallpaper-light5) !important;
@@ -399,7 +400,7 @@
     /* Light 6 - Orange */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
         :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #sand-dunes {
             --newtab-wallpaper: var(--wallpaper-light6) !important;
@@ -410,7 +411,7 @@
     /* Light 7 - Orange */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
         :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #light-mountain {
             --newtab-wallpaper: var(--wallpaper-light7) !important;
@@ -421,7 +422,7 @@
     /* Light 8 - Orange */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
         :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #light-sky {
             --newtab-wallpaper: var(--wallpaper-light8) !important;
@@ -432,7 +433,7 @@
     /* Light 9 - Orange */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
         :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
-        body,
+        .activity-stream.lightWallpaper,
         #photographs,
         #light-beach {
             --newtab-wallpaper: var(--wallpaper-light9) !important;
@@ -644,7 +645,8 @@
     }
     
     /* Keep 'customize' button collapse after close customize menu (slider) */
-    .personalize-button.personalize-animate-enter.personalize-animate-enter-active {
+    .personalize-button.personalize-animate-enter.personalize-animate-enter-active,
+    .open-customization-button.personalize-animate-enter.personalize-animate-enter-active {
         display: none !important;
     }
     
@@ -724,7 +726,9 @@
         & .wallpapers-section ~ *,
         & .wallpapers-section .category-header,
         & .wallpapers-section .category-list,
-        & .close-button-wrapper {
+        & .close-button-wrapper,
+        & #wallpapers-toggle,
+        & .manage-settings-footer {
             opacity: 0  !important;
             transition: opacity 0.2s ease;
         }
@@ -734,7 +738,8 @@
         & .wallpapers-section ~ *,
         & .wallpapers-section .category-header,
         & .wallpapers-section .category-list,
-        & .close-button-wrapper{
+        & .close-button-wrapper,
+        & #wallpapers-toggle {
             opacity: 1 !important;
             transition: opacity 0.3s ease;
         }
@@ -752,6 +757,12 @@
     
     /* __________________________________________________________ Search box _________________________________________________________ 
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    /* Width */
+    @container content-grid (inline-size >= calc(750px + 6.75rem)) {
+        .nova-enabled .search-inner-wrapper {
+            width: calc(6 * var(--col-width) + 9 * var(--space-medium)) !important;
+        }
+    }
     
     .search-wrapper content-search-handoff-ui {
         --newtab-background-color-secondary: transparent !important;
@@ -841,55 +852,70 @@
     
     /* _____________________________________________________ Weather _____________________________________________________ \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    :root {
+        /*--mrec-height: 170px !important;/**/
+    }
+    .weather-widget.col-4.small-widget {
+        height: 90px !important;
+    }
 
-    .weatherInfoLink, 
-    .weatherButtonContextMenuWrapper {
+    .weather-widget {
         background-color: transparent !important;
-    }
-
-    .weatherCard {
         background: var(--my-gradient-background) !important;
-        backdrop-filter: var(--my-blur) !important;
         box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
-    }
-
-    .weatherCard :is(.weatherInfoLink, .weatherButtonContextMenuWrapper) {
-        outline: 2px solid transparent !important;
-        outline-offset: -2px !important;
-        transition: background 0.1s ease, outline 0.1s ease !important;
-
-        &:hover {
+        flex-direction: column;
+        --weather-sunny-background-color: light-dark(var(--color-yellow-0), var(--color-yellow-50)) !important;
+        --weather-cloudy-background-color: light-dark(var(--color-gray-20), var(--color-gray-80));
+        --weather-rainy-background-color: light-dark(var(--color-blue-0), var(--color-blue-90));
+        --weather-snowy-background-color: light-dark(var(--color-violet-0), var(--color-violet-90));
+        --weather-hot-background-color: light-dark(var(--color-orange-0), var(--color-orange-90));
+        
+        &:hover,
+        &:focus-within {
             background: var(--my-gradient-background-hover) !important;
-            outline-color: var(--button-active-bgcolor) !important;
+            box-shadow: inset 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
+            outline-color: transparent !important;
+            transition: background-image ease 100ms, box-shadow ease 100ms;
+        }
+        
+        .forecast-footer {
+            display: none !important;
         }
     }
     
-    /* Separator */
-    .weatherButtonContextMenuWrapper::after {
-        --newtab-button-static-background: var(--my-smooth-border-color) !important;
+    .weather-widget.small-widget {
+        --mrec-height: 100px !important;
+        grid-column: span 2;
+        grid-row: span 2 !important;
     }
-
-    /* Sponsor label */
-    .weatherSponsorText { display: none !important; }
+    
+    .weather-widget .widget-title-bar {
+        --mrec-height: 100px !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block-end: auto !important;
+        font-size: var(--font-size-small);
+    }
     
     /* _____________________________________________________ Pinned sites ________________________________________________________ 
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
     .top-sites-list {
-        margin-block: 40px !important;
+        --col-width: calc(var(--mrec-width) / 3.2) !important;
 
         /* Pinned Site Colors (Small Background) */
         .top-site-outer .tile {
-            width: 100px !important;
-            height: 100px !important;
+            width: var(--col-width) !important;
+            height: var(--col-width) !important;
+            border-width: 0px !important;
             align-items: start !important;
-            padding-block-start: 12px !important;
-            margin-inline: 0px !important;
+            padding-block-start: 10px !important;
             box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
             background-color: transparent !important;
             background: var(--my-gradient-background) !important;
             backdrop-filter: var(--my-blur) !important;
-            transition: background-image ease 100ms, box-shadow ease 100ms;
+            transition: box-shadow ease-in-out 0.1s !important;
             
             .icon-wrapper {
                 --size-item-large: 48px !important;
@@ -905,21 +931,22 @@
             height: var(--size-item-large) !important;
         }
 
-        /* Pin icon removed */
+        /* Pin icon removed 
         .top-site-outer .icon.icon-pin-small { 
             display: none !important;
-        }
+        }*/
         
         /* Label - pinned site */
         .title {
             padding-block: 0px !important;
+            
         }
         
         .title-label  {
-            padding-inline: 8px !important;
             font-size: 14px !important;
             min-height: 1lh !important;
             margin-block-start: -28px !important;
+            padding-inline: 8px !important;
             align-content: center !important;
             text-shadow: 0px 0px 4px var(--my-color-scheme) !important;
         }
@@ -945,7 +972,7 @@
         .top-site-outer {
             border-radius: 0px !important;
             background-color: transparent !important;
-            margin-block-end: 12px !important;
+            /*margin-block-end: 22px !important;/**/
             
             .top-site-icon {
                 background-color: transparent !important;
@@ -956,9 +983,25 @@
         .top-site-outer:is(:hover, :focus-within, .active) {
             .tile {
                 background: var(--my-gradient-background-hover) !important;
-                box-shadow: inset 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
+                box-shadow:  inset 0 0 0 1px var(--button-active-bgcolor), 0 0 0 1px var(--button-active-bgcolor), var(--my-box-shadow) !important;
                 outline-color: transparent !important;
             }
+        }
+    }
+    
+    /* __________________________________________________________ Widgets ___________________________________________________________
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    .lists,
+    .focus-timer {
+        --newtab-background-card: var(--my-gradient-background) !important;
+        box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+        outline-color: transparent !important;
+        transition: box-shadow ease-in-out 0.1s !important;
+        backdrop-filter: var(--my-blur) !important;
+        
+        &:hover {
+            background: var(--my-gradient-background-hover) !important;
+            box-shadow:  inset 0 0 0 1px var(--button-active-bgcolor), 0 0 0 1px var(--button-active-bgcolor), var(--my-box-shadow) !important;
         }
     }
     
@@ -1010,6 +1053,16 @@
         }
     }
     
+    /* Recent activity wider */
+    .nova-enabled .ds-highlights .section-list {
+        grid-column: 1/18 !important;
+    }
+    
+    /* News wider */
+    .nova-enabled .content .ds-section-wrapper {
+        grid-template-columns: repeat(auto-fill, calc(3 * var(--col-width) + 4 * var(--space-medium))) !important;
+    }
+    
     /* ______________________________________________________ News Section _______________________________________________________ 
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
@@ -1051,17 +1104,19 @@
     /* 3 dot icon pinned sites */
 
     .top-site-outer .context-menu-button {
-        background-image: url("../icons/more.svg") !important;
-        border-radius: var(--border-radius-large) !important;
+        --size-item-medium: 18px !important;
+        background-image: url("../icons/more.svg") !important;        
+        border-radius: var(--border-radius-medium) !important;
         border-start-start-radius: 0px !important;
+        border-start-end-radius: calc(var(--my-border-radius) - 3px) !important;
         border-end-end-radius: 0px !important;
-        inset-block-start: 0px !important;
-        inset-inline-end: 10px !important;
+        inset-block-start: 1px !important;
+        inset-inline-end: 1px !important;
         transition: opacity 100ms;
         
         & ~ .context-menu {
-            margin-inline-start: 0px !important;
-            top: 0 !important;
+            margin-inline-start: -6px !important;
+            top: 16px !important;
         }
     }
 

@@ -40,6 +40,8 @@
 .tab-background {
     #tabbrowser-tabs[movingtab-group] & {
         &:is([selected], [multiselected]) {
+            background-image: none !important;
+            background-color: var(--contrast-color) !important;
             margin: 0px !important;
             outline-width: 3px !important;
             outline-offset: -3px !important;
@@ -157,8 +159,7 @@ tab-group:not([collapsed]) {
 .tab-group-label-container {
     
     /* Group Label 'hover' effect */
-    &:hover,
-    &[open] {
+    &:hover {
         .tab-group-label {
             opacity: 0.9;
             outline: 1px solid light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;

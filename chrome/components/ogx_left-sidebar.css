@@ -646,8 +646,8 @@
     
     /* Set extension image */
     
-    .button-background > img{
-        content: var(--my-custom-image,none);
+    .button-background > img {
+        content: var(--my-custom-image, none);
     }
     
     /* _____________________________ Autohide 'tools-and-extensions' when Vertical tabs are enable ______________________________ 

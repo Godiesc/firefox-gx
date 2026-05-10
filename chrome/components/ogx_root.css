@@ -22,7 +22,7 @@
 
   --tab-selected-outline-color: transparent !important;                                 /* Selected tab border color */
   --tab-loading-fill: var(--general-color) !important;                                  /* Dot color when page loads */
-  /*--tab-hover-background-color: transparent !important;                               /* Tab background when 'hover' */
+  --tab-hover-background-color: var(--button-smaller-bgcolor) !important;               /* Tab background when 'hover' */
 
   --tabs-navbar-separator-color: transparent !important;                                /* Separator between tabs and toolbar */
 
@@ -30,13 +30,12 @@
   /*--toolbar-color: var(--toolbarbutton-icon-fill) !important;                         /* toolbar label color */
   --chrome-content-separator-color: none !important;                                    /* toolbar_bottom_separator */
 
-  /*--arrowpanel-background: #1c1726 !important;                                        /* popup */
+  --arrowpanel-background: var(--panel-background) !important;                          /* popup background - variable removed in firefox v.151 */
   /*--arrowpanel-color: var(--my-font-color) !important;                                /* popup_text */
   /*--arrowpanel-border-color: color-mix(in srgb, 
   var(--arrowpanel-background) 90%, var(--my-font-color)) !important;                   /* popup_border */
   /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);             /* popup_highlight */
 
-  --panel-description-color: var(--general-color) !important;                           /* label color: mail, and connected devices */
   --toolbar-field-background-color: transparent !important;                             /* toolbar_field */
   --toolbar-field-color: var(--toolbar-color) !important;                               /* toolbar_field_text */
   --toolbar-field-border-color: transparent !important;                                 /* toolbar_field_border */
@@ -48,11 +47,11 @@
   --lwt-toolbar-field-highlight: var(--general-color) !important;                       /* toolbar_field_highlight */
   --lwt-toolbar-field-highlight-text: var(--contrast-color) !important;                 /* toolbar_field_highlight_text */
 
-  --urlbar-box-hover-bgcolor: color-mix(in srgb,                                        /* 'hover' background urlbar icons */
+  --urlbar-box-background-color-hover: color-mix(in srgb,                               /* 'hover' background urlbar icons */
     var(--button-bgcolor) 90%, white) !important;
-  --urlbar-box-active-bgcolor: color-mix(in srgb,                                       /* :active background urlbar icons */
+  --urlbar-box-background-color-active: color-mix(in srgb,                              /* :active background urlbar icons */
     var(--button-bgcolor) 82%, white) !important;
-  --urlbar-icon-border-radius: 3px !important;                                          /* shape of url bar icons */
+  --urlbar-inner-border-radius: 3px !important;                                         /* Roundness of url bar icons */
   --urlbar-icon-padding: 3px !important;                                                /* Urlbar icon padding */
   --identity-box-margin-inline: 10px !important;                                        /* margin between 'trust' icon and url */
 
@@ -73,7 +72,7 @@
   --tab-block-margin: 0px !important;                                                   /* Tab margins - change this will break the theme */
   --my-tab-margin-top: 0px !important;                                                  /* Top margin of tabs - variable personal */
 
-  --tab-min-height: calc(var(--tab-height-personal) - 1px) !important;                              /* Tab size */
+  --tab-min-height: calc(var(--tab-height-personal) - 1px) !important;                  /* Tab size */
   --tabstrip-min-height: var(--tab-height-personal) !important;                         /* Tab min size */
   --tabs-shadow-size: 0px !important;                                                   /* Tab shadow */
   --tab-border-radius: 0px !important;                                                  /* Tab roundness */
@@ -82,11 +81,14 @@
   --arrowpanel-border-radius: 4px !important;                                           /* Menus roundness */
   --panel-subview-body-padding: 4px 0px !important;                                     /* Menu padding */
   --arrowpanel-menuitem-margin-inline: 8px !important;                                  /* Padding popup 'elements' */
-  --arrowpanel-padding: 1.3em !important;                                               /* Another menu padding */
-  --arrowpanel-menuitem-margin: 0px !important;                                         /* Menu margins */
+  --panel-padding: 1.3em !important;                                                    /* Another menu padding */
+  --panel-menuitem-margin: 0px !important;                                              /* Menu margins */
+  --panel-menuitem-margin-inline: 4px !important;                                       /* Margin bottom - last item of arrowpanel */
   /*--menu-panel-width-wide: 29em !important;                                           /* Width of the popups */
-
-  --arrowpanel-menuitem-border-radius: 0px !important;                                  /* Menuitems 'hover' roundness */
+  
+  --panel-menuitem-padding-inline: 12px !important;                                      /* Menuitems padding inline */
+  --panel-menuitem-border-radius: 0px !important;                                       /* Menuitems 'hover' roundness */
+  
   --panel-separator-margin-vertical: 4px !important;                                    /* Margin between separators */
   --panel-separator-margin-horizontal: 8px !important;                                  /* Horizontal margin between separators */
   --panel-separator-padding-horizontal: 6px !important;                                 /* Horizontal padding between separators */
@@ -95,7 +97,7 @@
 
   --urlbar-popup-url-color: var(--general-color) !important;                            /* 'Search suggestions' urls color */
   --autocomplete-popup-hover-background: var(--button-bgcolor) !important;              /* 'Search suggestions' urls 'hover' color */
-  --urlbarView-separator-color: transparent !important;                                 /* Urlbar 'open' - separator color  */
+  --urlbarview-separator-color: transparent !important;                                 /* Urlbar 'open' - Separator color  */
   --urlbarView-result-button-selected-background-color: color-mix(in srgb,              /* Urlbar 'open' - button on each result */
     var(--button-bgcolor) 94%, white) !important;
 

@@ -74,11 +74,22 @@ panel menulist {
 #editBookmarkPanelRemoveButton {
     --button-background-color-hover: #da3633bb !important;
     -moz-context-properties: fill !important;
-    fill: var(--toolbarbutton-icon-fill) !important;
+    fill: var(--toolbar-color) !important;
     
     & label {
         display: none !important;
     }
+}
+
+/* When creating a group - AI button */
+#tab-group-suggestion-button {
+    --button-background-color-ghost-hover: var(--button-smaller-bgcolor) !important;
+}
+
+/* Various 'Cancel' button */
+moz-button[id*="cancel"] {
+    --button-background-color-hover: #da3633bb !important;
+    --button-background-color-active: #da3633bb !important;
 }
 
 /* Background and Border Color in items (Dropdown Menu) */
@@ -233,53 +244,107 @@ button {
 /* ______________ Unified extentions button ______________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-:root{ --uei-icon-size: 18px !important; }
-
-#unified-extensions-manage-extensions .toolbarbutton-icon{
-    margin-inline: 2px 4px !important;
+#unified-extensions-panel #unified-extensions-view {
+    --uei-icon-size: calc(2 * var(--toolbarbutton-inner-padding) + 6px);
+    --firefoxcss-number-of-extensions-in-a-row: 7;
+    --button-background-color-ghost-hover: var(--button-hover-bgcolor) !important;
+    --panel-separator-zap-gradient6: linear-gradient(to left, #70707070, transparent 100%) 1;
 }
 
-.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not(.toolbarbutton-1)[disabled] {
-    opacity: 1 !important;
+/* Remove Labels */
+.unified-extensions-item-name {
+    display: none !important;
 }
 
-#unified-extensions-panel {
-    --menu-panel-width-wide: 30em !important; /* Keep the second line in 1 line 'Spanish languaje' */
-    
-    .unified-extensions-item {
-        padding-block: 0 !important;
-        margin-block: 0px !important;
-    }
+/* Remove 'options' button */
+.unified-extensions-item-menu-button.subviewbutton.subviewbutton-iconic {
+    display: none !important;
 }
 
-.unified-extensions-item-action-button.panel-no-padding.webextension-browser-action.subviewbutton.subviewbutton-iconic{
-    padding-block: 2px !important;
-    margin-block: 0px !important;
+/* Remove unwanted margin to center icon */
+.unified-extensions-item-icon, 
+.unified-extensions-item .webextension-browser-action.subviewbutton > .toolbarbutton-badge-stack {
+    margin-inline-end: 0px !important;
 }
 
-.unified-extensions-item-menu-button:is(panelview .toolbarbutton-1, toolbarbutton.subviewbutton, .widget-overflow-list .toolbarbutton-1, 
-.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton):not([disabled]) {
-    background: transparent !important;
-    padding: 0px 6px !important;
+/* Align 'Manage Extensions' icon */
+#unified-extensions-manage-extensions>.toolbarbutton-icon {
+    margin-inline-start: 6px !important;
 }
 
-.unified-extensions-item-menu-button.subviewbutton.subviewbutton-iconic:hover image {
-    background: var(--button-hover-bgcolor) !important;
-    border-radius: 3px !important;
+#overflowed-extensions-list,    /* Extensions in overflow than get into it */
+#unified-extensions-area,       /* Extensions into the button */
+.unified-extensions-list {      /* Extension not permissions needed */
+    --panel-menuitem-border-radius: 3px !important;
+    display: grid !important;    
+    grid-template-columns: repeat(var(--firefoxcss-number-of-extensions-in-a-row), 1fr) !important;    
+    justify-items:left !important;    
+    align-items:left !important;
+    margin-inline: 6px !important;
+    padding-block-end: var(--my-padding-block-end, 0px) !important;
+    border-top: var(--my-border-top, none) !important;
+    border-bottom: var(--my-border-bottom, none) !important;
+    border-image: var(--my-border-image, none) !important;
 }
 
-/* Second label del botón de extensiones */
-
-#unified-extensions-area toolbaritem:hover .unified-extensions-item-message-deck label{
-    color: var(--arrowpanel-color, var(--my-font-color)) !important;
+/* Margins of first group of extensions */
+#overflowed-extensions-list:has(.unified-extensions-item) {
+    --my-border-bottom: 1px solid transparent !important;
+    --my-border-image: var(--panel-separator-zap-gradient6) 1 !important;
+    --my-padding-block-end: 4px !important;
 }
 
-@media (-moz-platform: linux) {
-#unified-extensions-area toolbaritem .unified-extensions-item-message-deck label{
-    appearance: none !important;
-    font-size: 0.875em !important;
-    width: -moz-available !important;
-    }
+/* Margins of third group of extensions */
+.unified-extensions-list:has(.unified-extensions-item) {
+    --my-border-top: 1px solid transparent !important;
+    --my-border-image: var(--panel-separator-zap-gradient6) 1 !important;/**/
+}
+
+#unified-extensions-view #unified-extensions-area {
+    padding-block: 3px !important;
+}
+
+.unified-extensions-item-message-deck {
+    background-color: var(--my-traffic-light-color, transparent) !important;
+    position: absolute !important;
+    box-shadow: var(--my-box-shadow, inset 0 0 1px 1px var(--contrast-color)) !important;
+    border-radius: 10px !important;
+    font-size: 0 !important;
+    width: 8px !important;
+    height: 8px !important;
+    margin-inline-start: -2px !important;
+    margin-block-start: 4px !important;
+}
+
+.unified-extensions-item-message-deck:has(label[data-l10n-id="origin-controls-state-no-access"]) {
+    --my-box-shadow: none !important;
+}
+
+/* Extensions with access to the page */
+.unified-extensions-item-message-deck:has(label[data-l10n-id="origin-controls-state-always-on"]) {
+    --my-traffic-light-color: var(--lightgreen) !important;
+}
+
+/* Extensions needing clic to run */
+.unified-extensions-item-message-deck:has(label[data-l10n-id="origin-controls-state-when-clicked"]) {
+    --my-traffic-light-color: var(--yellow) !important;
+}
+
+/* Extensions with no access to the page */
+.unified-extensions-item-message-deck:has(label[data-l10n-id="origin-controls-state-temporary-access"]) {
+    --my-traffic-light-color: var(--green) !important;
+}
+
+/* Extensions with no access to the page */
+.unified-extensions-list .unified-extensions-item-message-deck:has(label[data-l10n-id="origin-controls-state-no-access"]) {
+    --my-traffic-light-color: transparent !important;
+}
+
+/* 'dot' position, extension needing attention */
+#unified-extensions-button[attention] > .toolbarbutton-icon, .unified-extensions-item[attention] > .unified-extensions-item-row-wrapper > .unified-extensions-item-action-button.toolbarbutton-1 > .toolbarbutton-badge-stack, .unified-extensions-item[attention] > .unified-extensions-item-row-wrapper > .unified-extensions-item-action-button.subviewbutton {
+  &.subviewbutton {
+    background-position: center bottom var(--uei-dot-vertical-position-in-panel) !important;
+  }
 }
 
 /* _______________ Downloads popup menu _______________
