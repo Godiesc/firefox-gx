@@ -62,95 +62,97 @@
 
 /* Apply accent color of NewTab wallpaper in other 'about:' pages \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.user.enabled") {
 
-/* Dark 1 - Fuchsia */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark1) !important; }
-}
+    /* Dark 1 - Fuchsia */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
+        :root { --newtab-text-primary-color: var(--general-color-dark1) !important; }
+    }
 
-/* Dark 2 - ultraviolet */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark2) !important; }
-}
+    /* Dark 2 - ultraviolet */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
+        :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
+    }
 
-/* Dark 3 - Blue */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark3) !important; }
-}
+    /* Dark 3 - Blue */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
+        :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
+    }
 
-/* Dark 4 - Green */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark4) !important; }
-}
+    /* Dark 4 - Green */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
+        :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
+    }
 
-/* Dark 5 - Swamp */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark5) !important; }
-}
+    /* Dark 5 - Swamp */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
+        :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
+    }
 
-/* Dark 6 - Cheaterman */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark6) !important; }
-}
+    /* Dark 6 - Cheaterman */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
+        :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
+    }
 
-/* Dark 7 - Gray */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark7) !important; }
-}
+    /* Dark 7 - Gray */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
+        :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
+    }
 
-/* Dark 8 - Orange */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark8) !important; }
-}
+    /* Dark 8 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
+        :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
+    }
 
-/* Dark 9 - Catppuccino */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
-    :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark9) !important; }
-}
+    /* Dark 9 - Catppuccino */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
+        :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
+    }
 
-/* Light 1 - Fuchsia */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light1) !important; }
-}
+    /* Light 1 - Fuchsia */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
+        :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
+    }
 
-/* Light 2 - Ultraviolet */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light2) !important; }
-}
+    /* Light 2 - Ultraviolet */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
+        :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
+    }
 
-/* Light 3 - BLue */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light3) !important; }
-}
+    /* Light 3 - BLue */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
+        :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
+    }
 
-/* Light 4 - Rose */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light4) !important; }
-}
+    /* Light 4 - Rose */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
+        :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
+    }
 
-/* Light 5 - Lightgreen */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light5) !important; }
-}
+    /* Light 5 - Lightgreen */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
+        :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
+    }
 
-/* Light 6 - Orange */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light6) !important; }
-}
+    /* Light 6 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
+        :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
+    }
 
-/* Light 7 - Orange */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light7) !important; }
-}
+    /* Light 7 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
+        :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
+    }
 
-/* Light 8 - Orange */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light8) !important; }
-}
+    /* Light 8 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
+        :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
+    }
 
-/* Light 9 - Orange */
-@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
-    :root:has(.activity-stream.lightWallpaper) { --newtab-text-primary-color: var(--general-color-light9) !important; }
+    /* Light 9 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+        :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
+    }
 }
 
 /* __________________________________________________________ Newtab styles __________________________________________________________
@@ -241,203 +243,205 @@
     
     /* Apply New wallpapers \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.user.enabled") {
 
-    /* Dark 1 - Fuchsia */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
-        :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark1) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #dark-sky {
-            --newtab-wallpaper: var(--wallpaper-dark1) !important;
-            background-image: var(--wallpaper-dark1) !important;
+        /* Dark 1 - Fuchsia */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
+            :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark1) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #dark-sky {
+                --newtab-wallpaper: var(--wallpaper-dark1) !important;
+                background-image: var(--wallpaper-dark1) !important;
+            }
         }
-    }
 
-    /* Dark 2 - ultraviolet */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
-        :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #starry-canyon {
-            --newtab-wallpaper: var(--wallpaper-dark2) !important;
-            background-image: var(--wallpaper-dark2) !important;
+        /* Dark 2 - ultraviolet */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
+            :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #starry-canyon {
+                --newtab-wallpaper: var(--wallpaper-dark2) !important;
+                background-image: var(--wallpaper-dark2) !important;
+            }
         }
-    }
 
 
-    /* Dark 3 - Blue */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
-        :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #dark-mountain {
-            --newtab-wallpaper: var(--wallpaper-dark3) !important;
-            background-image: var(--wallpaper-dark3) !important;
+        /* Dark 3 - Blue */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
+            :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #dark-mountain {
+                --newtab-wallpaper: var(--wallpaper-dark3) !important;
+                background-image: var(--wallpaper-dark3) !important;
+            }
         }
-    }
 
-    /* Dark 4 - Green */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
-        :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #dark-panda {
-            --newtab-wallpaper: var(--wallpaper-dark4) !important;
-            background-image: var(--wallpaper-dark4) !important;
+        /* Dark 4 - Green */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
+            :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #dark-panda {
+                --newtab-wallpaper: var(--wallpaper-dark4) !important;
+                background-image: var(--wallpaper-dark4) !important;
+            }
         }
-    }
 
-    /* Dark 5 - Swamp */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
-        :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #dark-fox-anniversary {
-            --newtab-wallpaper: var(--wallpaper-dark5) !important;
-            background-image: var(--wallpaper-dark5) !important;
+        /* Dark 5 - Swamp */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
+            :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #dark-fox-anniversary {
+                --newtab-wallpaper: var(--wallpaper-dark5) !important;
+                background-image: var(--wallpaper-dark5) !important;
+            }
         }
-    }
 
-    /* Dark 6 - Cheaterman */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
-        :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #dark-beach {
-            --newtab-wallpaper: var(--wallpaper-dark6) !important;
-            background-image: var(--wallpaper-dark6) !important;
+        /* Dark 6 - Cheaterman */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
+            :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #dark-beach {
+                --newtab-wallpaper: var(--wallpaper-dark6) !important;
+                background-image: var(--wallpaper-dark6) !important;
+            }
         }
-    }
 
-    /* Dark 7 - Gray */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
-        :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #palm-trees {
-            --newtab-wallpaper: var(--wallpaper-dark7) !important;
-            background-image: var(--wallpaper-dark7) !important;
+        /* Dark 7 - Gray */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
+            :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #palm-trees {
+                --newtab-wallpaper: var(--wallpaper-dark7) !important;
+                background-image: var(--wallpaper-dark7) !important;
+            }
         }
-    }
 
-    /* Dark 8 - Orange */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
-        :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #suspension-bridge {
-            --newtab-wallpaper: var(--wallpaper-dark8) !important;
-            background-image: var(--wallpaper-dark8) !important;
+        /* Dark 8 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
+            :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #suspension-bridge {
+                --newtab-wallpaper: var(--wallpaper-dark8) !important;
+                background-image: var(--wallpaper-dark8) !important;
+            }
         }
-    }
 
-    /* Dark 9 - Catppuccino */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
-        :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
-        .activity-stream.darkWallpaper,
-        #photographs,
-        #dark-landscape {
-            --newtab-wallpaper: var(--wallpaper-dark9) !important;
-            background-image: var(--wallpaper-dark9) !important;
+        /* Dark 9 - Catppuccino */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
+            :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
+            .activity-stream.darkWallpaper,
+            #photographs,
+            #dark-landscape {
+                --newtab-wallpaper: var(--wallpaper-dark9) !important;
+                background-image: var(--wallpaper-dark9) !important;
+            }
         }
-    }
 
-    /* Light 1 - Fuchsia */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
-        :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #hot-air-balloons {
-            --newtab-wallpaper: var(--wallpaper-light1) !important;
-            background-image: var(--wallpaper-light1) !important;
+        /* Light 1 - Fuchsia */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
+            :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #hot-air-balloons {
+                --newtab-wallpaper: var(--wallpaper-light1) !important;
+                background-image: var(--wallpaper-light1) !important;
+            }
         }
-    }
 
-    /* Light 2 - Ultraviolet */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
-        :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #light-panda {
-            --newtab-wallpaper: var(--wallpaper-light2) !important;
-            background-image: var(--wallpaper-light2) !important;
+        /* Light 2 - Ultraviolet */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
+            :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #light-panda {
+                --newtab-wallpaper: var(--wallpaper-light2) !important;
+                background-image: var(--wallpaper-light2) !important;
+            }
         }
-    }
 
-    /* Light 3 - BLue */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
-        :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #light-fox-anniversary {
-            --newtab-wallpaper: var(--wallpaper-light3) !important;
-            background-image: var(--wallpaper-light3) !important;
+        /* Light 3 - BLue */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
+            :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #light-fox-anniversary {
+                --newtab-wallpaper: var(--wallpaper-light3) !important;
+                background-image: var(--wallpaper-light3) !important;
+            }
         }
-    }
 
-    /* Light 4 - Rose */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
-        :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #blue-flowers {
-            --newtab-wallpaper: var(--wallpaper-light4) !important;
-            background-image: var(--wallpaper-light4) !important;
+        /* Light 4 - Rose */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
+            :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #blue-flowers {
+                --newtab-wallpaper: var(--wallpaper-light4) !important;
+                background-image: var(--wallpaper-light4) !important;
+            }
         }
-    }
 
-    /* Light 5 - Lightgreen */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
-        :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #light-landscape {
-            --newtab-wallpaper: var(--wallpaper-light5) !important;
-            background-image: var(--wallpaper-light5) !important;
+        /* Light 5 - Lightgreen */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
+            :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #light-landscape {
+                --newtab-wallpaper: var(--wallpaper-light5) !important;
+                background-image: var(--wallpaper-light5) !important;
+            }
         }
-    }
 
-    /* Light 6 - Orange */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
-        :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #sand-dunes {
-            --newtab-wallpaper: var(--wallpaper-light6) !important;
-            background-image: var(--wallpaper-light6) !important;
+        /* Light 6 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
+            :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #sand-dunes {
+                --newtab-wallpaper: var(--wallpaper-light6) !important;
+                background-image: var(--wallpaper-light6) !important;
+            }
         }
-    }
 
-    /* Light 7 - Orange */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
-        :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #light-mountain {
-            --newtab-wallpaper: var(--wallpaper-light7) !important;
-            background-image: var(--wallpaper-light7) !important;
+        /* Light 7 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
+            :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #light-mountain {
+                --newtab-wallpaper: var(--wallpaper-light7) !important;
+                background-image: var(--wallpaper-light7) !important;
+            }
         }
-    }
 
-    /* Light 8 - Orange */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
-        :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #light-sky {
-            --newtab-wallpaper: var(--wallpaper-light8) !important;
-            background-image: var(--wallpaper-light8) !important;
+        /* Light 8 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
+            :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #light-sky {
+                --newtab-wallpaper: var(--wallpaper-light8) !important;
+                background-image: var(--wallpaper-light8) !important;
+            }
         }
-    }
 
-    /* Light 9 - Orange */
-    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
-        :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
-        .activity-stream.lightWallpaper,
-        #photographs,
-        #light-beach {
-            --newtab-wallpaper: var(--wallpaper-light9) !important;
-            background-image: var(--wallpaper-light9) !important;
+        /* Light 9 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+            :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
+            .activity-stream.lightWallpaper,
+            #photographs,
+            #light-beach {
+                --newtab-wallpaper: var(--wallpaper-light9) !important;
+                background-image: var(--wallpaper-light9) !important;
+            }
         }
     }
     
