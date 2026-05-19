@@ -73,12 +73,6 @@
     }
 }
 
-/* Replace group label border color \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-tab-group[collapsed] > .tab-group-label-container:not(:hover) .tab-group-label {
-    outline-color: var(--tab-group-line-color) !important;
-}
-
 /* Remove group 'hover' background \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tab-group-label-hover-highlight {
@@ -120,8 +114,18 @@ tab-group {
 }
         
 .tab-group-label {
-    /* Group label roundness */
     border-radius: calc(var(--border-radius-urlbar-personal) - 3px) !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+    transition: outline 0.1s ease-in-out, box-shadow 0.1s ease-in-out !important;
+    box-shadow: inset 0 0 0 1px var(--tab-group-line-color) !important;
+
+    /* Group Label 'hover' effect */
+    &:hover {
+        opacity: 1;
+        outline: 1px solid light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+        box-shadow: inset 0 0 0 1px var(--toolbar-bgcolor) !important;
+    }
 
     /* Trick to clic on border */
     
@@ -156,18 +160,8 @@ tab-group:not([collapsed]) {
     }
 }
 
+/* Center align group label */
 .tab-group-label-container {
-    
-    /* Group Label 'hover' effect */
-    &:hover {
-        .tab-group-label {
-            opacity: 0.9;
-            outline: 1px solid light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
-            outline-offset: 0px !important;
-        }
-    }
-    
-    /* Center align group label */
     #tabbrowser-arrowscrollbox[orient="horizontal"] & {
         padding-block: calc(var(--tab-block-margin) - 2px) calc(var(--tab-block-margin) + 2px) !important;    /* Cause bug for 'compact' mode */
     }

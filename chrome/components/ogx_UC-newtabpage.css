@@ -206,8 +206,7 @@
 
     /* Replace 'Photographs' category label */
 
-    #photographs ~ label,
-    .arrow-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] {
+    #photographs ~ label {
         font-size: 0 !important;
 
         &::after {
@@ -215,9 +214,20 @@
             font-size: var(--font-size-small);
         }
     }
-
-    .arrow-button[data-l10n-id="newtab-wallpaper-category-title-photographs"]::after {
-        font-size: var(--font-size-root) !important;
+    
+    moz-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] {
+        --my-first-font-size: 0;
+        --my-content: 'Firefox GX';
+        --my-second-font-size: var(--button-font-size);
+    }
+    
+    label[part="moz-button-label"] {
+        font-size: var(--my-first-font-size) !important;
+        
+        &::after {
+            content: var(--my-content);
+            font-size: var(--my-second-font-size);
+        }
     }
 
     /* Rearrangement of wallpapers + Replace 'Photographs' preview wallpapers with Firefox-GX wallpapers */
@@ -447,7 +457,7 @@
     
     /* Accent color indicator over each wallpaper */
 
-    button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div .wallpaper-input[aria-checked]::after {
+    moz-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div .wallpaper-input[aria-checked]::after {
         position: absolute;
         content: "";
         width: 10px;
@@ -670,6 +680,15 @@
         }
     }
     
+    .customize-menu.nova-enabled {
+        background-color: var(--newtab-background-color) !important;
+        min-height: 100% !important;
+        border-radius: 0 calc(var(--my-border-radius) - 6px) calc(var(--my-border-radius) - 6px) 0 !important;
+        box-shadow: -1px 0 #70707070, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+        backdrop-filter: var(--my-blur) !important;
+        --space-xxsmall: 0px !important;
+    }
+    
     /* Shadow */
     
     .customize-menu-animate-wrapper {
@@ -691,20 +710,8 @@
     
     /* Combobox */
     
-    .home-section .section .selector {
-        background-color: var(--newtab-element-secondary-color) !important;
-        border-radius: 4px !important;
-        box-shadow: none !important;
-        
-        &:hover {
-            background-color: var(--button-bgcolor) !important;
-            border-color: var(--button-bgcolor) !important;
-        }
-        
-        &:focus {
-            background-color: var(--button-hover-bgcolor) !important;
-            border-color: var(--button-bgcolor) !important;
-        }
+    .select-wrapper {
+        --select-background-color: var(--button-background-color-menu) !important;
     }
     
     /* Toggle 2nd description aligned */
@@ -856,9 +863,6 @@
     
     /* _____________________________________________________ Weather _____________________________________________________ \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    :root {
-        /*--mrec-height: 170px !important;/**/
-    }
     .weather-widget.col-4.small-widget {
         height: 90px !important;
     }
@@ -867,7 +871,7 @@
         background-color: transparent !important;
         background: var(--my-gradient-background) !important;
         box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
-        flex-direction: column;
+        backdrop-filter: var(--my-blur) !important;
         --weather-sunny-background-color: light-dark(var(--color-yellow-0), var(--color-yellow-50)) !important;
         --weather-cloudy-background-color: light-dark(var(--color-gray-20), var(--color-gray-80));
         --weather-rainy-background-color: light-dark(var(--color-blue-0), var(--color-blue-90));
