@@ -7,29 +7,22 @@
     --my-background-image-popup: radial-gradient( 100% 91.38% at 50% 99.62%,
                            color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
                            var(--arrowpanel-background));
-    --panel-background: var(--my-background-image-popup), var(--noise-urlbar-personal),
+    --panel-background-color: var(--my-background-image-popup), var(--noise-urlbar-personal),
                         var(--noise-urlbar-personal) , var(--arrowpanel-background) !important;
-    --panel-border-color: var(--arrowpanel-border-color) !important;
 }
 
-panel {
-    --panel-shadow: 0 0 0 1px var(--contrast-color) !important;
+panel:where([type="arrow"]) {
+    --panel-box-shadow: 0 0 0 1px var(--my-scheme-color) !important;
     
     @media (prefers-color-scheme: light) {
-        --contrast-color: var(--border-contrast-color) !important;
+        --my-scheme-color: var(--my-scheme-border-color) !important;
     }
-}
-
-/* Remove unwanted style for radiobutton \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.toggle-button {
-    --toggle-dot-background-color-on-pressed: var(--arrowpanel-background) !important;
 }
 
 /* Alignment of popups [Open] \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .panel-no-padding[type="arrow"] {
-    margin-block: calc(-1 * var(--panel-shadow-margin) + 1px) !important;
+    margin-block: calc(-1 * var(--panel-box-shadow-margin) + 1px) !important;
     margin-inline: -4px !important;
 }
 
@@ -42,8 +35,8 @@ panel {
 :is(menupopup, panel):where([type="arrow"]):not(#feature-callout)::after {
     content: "";
     position: absolute;
-    inset: var(--panel-shadow-margin);
-    border-radius: var(--arrowpanel-border-radius);
+    inset: var(--panel-box-shadow-margin);
+    border-radius: var(--panel-border-radius);
     padding: 1px;
     background-position: center center !important;
     background: radial-gradient(ellipse at center, var(--button-hover-bgcolor), transparent);
@@ -55,10 +48,10 @@ panel {
 /* Margin bottom last item of popups */
 
 .panel-subview-footer-button {
-    --arrowpanel-menuitem-margin-inline: 4px !important;
+    --panel-menuitem-margin-inline: 4px !important;
 }
 
-/* Gradient background color when :hover over different items in the main menus \
+/* Gradient background color when ':hover' over different items in the main menus \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .protections-popup-category:not(#appMenu-popup toolbarbutton,[disabled]):hover, .protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, 
 #protections-popup-show-report-stack:not(#appMenu-popup toolbarbutton):hover > .protections-popup-footer-button:not(#appMenu-popup toolbarbutton), 
@@ -68,7 +61,7 @@ menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .t
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover),
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover {
     background: var(--panel-separator-zap-gradient3) !important;
-    color: var(--panel-color, var(--my-font-color)) !important;
+    color: var(--panel-text-color, var(--my-font-color)) !important;
 }
 
 /* Background color when clicking on different items in the main menus \
@@ -82,12 +75,21 @@ menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .
     background: var(--panel-separator-zap-gradient4) !important;
 }
 
+/* Color of icons and labels \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.subviewbutton:not([disabled]), 
+#appMenu-popup toolbarbutton:not([disabled]) .toolbarbutton-text label {
+    -moz-context-properties: fill;
+    fill: var(--label-color) !important;
+    color: var(--label-color) !important;
+}
+
 /* Colors on disabled items \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .subviewbutton:is([disabled]), .subviewbutton:where([disabled="true"]):hover {       
     -moz-context-properties: fill;
-    color: color-mix(in srgb, var(--panel-color)70%, transparent) !important;
-    fill:  color-mix(in srgb, var(--panel-color)70%, transparent) !important;
+    color: color-mix(in srgb, var(--panel-text-color) 70%, transparent) !important;
+    fill:  color-mix(in srgb, var(--panel-text-color) 70%, transparent) !important;
 }
 
 /* Gradient line - separators \
@@ -112,18 +114,13 @@ toolbarseparator {
     padding-inline-start: var(--margin-left-icons-personal, 0px) !important;
 }
 
-/* Header of arrowpanels */
-.panel-header {
-    --panel-menuitem-margin-inline: 4px 6px 4px 6px !important;
-}
-
 /* 'back' button \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .panel-header {
     --button-background-color-ghost-hover: var(--button-hover-bgcolor) !important;
     --button-background-color-ghost-active: var(--button-active-bgcolor) !important;
     --panel-menuitem-border-radius: 3px !important;
-    --panel-header-back-icon-padding: 6px 6px 6px 4px !important;
+    /*--panel-header-back-icon-padding: 6px 6px 6px 4px !important;/**/
 }
 
 /* Color sign when moving bookmark into a folder in bookmarksbar \
@@ -138,23 +135,11 @@ image[part='drop-indicator'] {
     background: transparent !important;
 }
 
-/* Margins in tabsgroup context-menu \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.tab-group-editor-panel>:is(div) {
-    padding-inline: 10px !important;
-}
-
-#tab-group-main toolbarbutton {
-    margin-inline: calc(0px - var(--panel-padding) + 6px) !important;
-    padding-inline: 12px !important;
-}
-
-#tab-group-main {
-    margin-block-end: 6px !important;
-
-    toolbarseparator {
-        padding-inline: 0px !important;
-    }
+/* Remove unwanted styles in 'tabgroup' 'hover' preview \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#tabgroup-panel-content {
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 /* _______________________ 'Firefox Messages' show in some buttons e.g. Messages of new features _______________________
@@ -162,13 +147,13 @@ image[part='drop-indicator'] {
 #feature-callout:not([arrow-position="inline-start-top"]) {
     --arrow-corner-distance: 0px !important;
     --panel-arrow-space: 16px !important;
-    --panel-shadow: none !important;
+    --panel-box-shadow: none !important;
     margin-inline: -28px !important;
 }
 
 #feature-callout:is([arrow-position="inline-start-top"]) {
     --panel-arrow-space: 16px !important;
-    --panel-shadow: none !important;
+    --panel-box-shadow: none !important;
     margin-block-start: -26px !important;
 }
 
@@ -201,13 +186,13 @@ image[part='drop-indicator'] {
     background-color: transparent !important;
     -moz-context-properties: fill, stroke !important;
     fill: var(--arrowpanel-background) !important;
-    stroke: var(--arrowpanel-border-color) !important;
-    filter: drop-shadow(0px -1px 0px var(--contrast-color)) !important;
+    stroke: var(--panel-border-color) !important;
+    filter: drop-shadow(0px -1px 0px var(--my-scheme-color)) !important;
 }
 
 /* Fix panel external border */
 #feature-callout .section-main {
     background-color: var(--arrowpanel-background) !important;
-    border-radius: var(--arrowpanel-border-radius) !important;
-    box-shadow: 0 0 0 1px var(--contrast-color) !important;
+    border-radius: 3px !important;/**/
+    box-shadow: 0 0 0 1px var(--my-scheme-color) !important;/**/
 }

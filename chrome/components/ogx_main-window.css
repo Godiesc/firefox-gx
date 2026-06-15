@@ -7,6 +7,7 @@ body,
 #navigator-toolbox {
     background-image: none !important;
     background-color: transparent !important;
+    border-bottom-width: 0px !important;
 }
 
 /* Set the image in main window \
@@ -36,17 +37,22 @@ body,
         background: var(--my-main-gradient-background);
         z-index: -1;
         pointer-events: none;
-        
+
         @media -moz-pref("firefoxgx.main-image") {
             --my-main-gradient-background: transparent !important;
-            background-color: color-mix(in srgb, var(--contrast-color), transparent var(--brightness-wallpaper));
+            background-color: color-mix(in srgb, var(--my-scheme-color), transparent var(--brightness-wallpaper));
         }
     }
 
     @media not -moz-pref("firefoxgx.main-image") {
         /* Put here this color only in themes with images because a bug with solid themes (lwt-accent-color) */
         &:is([lwtheme-image],[style*="--lwt-additional-images"])>body:before {
-            background-color: var(--toolbar-bgcolor);
+            background-color: var(--toolbar-background-color);
+        }
+
+        /* Add the style with 'solid' & 'image' themes in 'Private' mode */
+        &:is([privatebrowsingmode="temporary"])>body:before {
+            background-color: var(--toolbar-background-color);
         }
     }
 }
@@ -60,15 +66,8 @@ body, #browser, .browserContainer {
 
 /* Sidebar-box background the same as the web content  */
 #tabbrowser-tabpanels {
-    background-color: var(--toolbar-bgcolor) !important;
+    background-color: var(--toolbar-background-color) !important;
 }
-
-/* Remove unwanted background to all browser background 
-#browser:not(.browser-toolbox-background):not(#tabbrowser-tabpanels) {
-    :root[lwtheme] & {
-        background-image: none !important;
-    }
-}*/
 
 /* Wallpaper for some 'about:' pages \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -81,13 +80,16 @@ body, #browser, .browserContainer {
     .tab-icon-image[src="chrome://global/skin/icons/developer.svg"],
     .tab-icon-image[src="chrome://global/skin/icons/performance.svg"])) {
         
-        --my-main-gradient-background: transparent !important;
-        --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent calc(var(--brightness-wallpaper)/* - 20%/**/)) !important;
-        --lwt-header-image: var(--lwt-main-image) !important;
-        --my-background-size: 100vw 100vh !important;
+        --my-main-gradient-background: var(--toolbar-background-color);
+        --my-toolbar-bgcolor: color-mix(in srgb, var(--panel-background-color) 50%, transparent) !important;
+        --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
+        --lwt-header-image: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
+        --lwt-additional-images: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
+        --my-background-size: cover !important;
         
         @media -moz-pref("firefoxgx.main-image") {
-            --toolbar-bgcolor: color-mix(in srgb, var(--contrast-color), transparent calc(var(--brightness-toolbar))) !important;
+            --lwt-additional-images: var(--lwt-main-image) !important;
+            --toolbar-background-color: color-mix(in srgb, var(--my-scheme-color), transparent calc(var(--brightness-toolbar))) !important;
         }
     }
 }
@@ -163,7 +165,7 @@ body, #browser, .browserContainer {
             
             /* When 'focus' */
             &:focus-within {
-                background-color: color-mix(in srgb, var(--contrast-color) 40%, transparent) !important;
+                background-color: color-mix(in srgb, var(--my-scheme-color) 40%, transparent) !important;
                 border-color: var(--general-color) !important;
                 outline: 1px solid var(--general-color) !important;
             }
@@ -171,7 +173,6 @@ body, #browser, .browserContainer {
 }
 
 #sidebar-header {
-    background-color: var(--lwt-sidebar-background-color) !important;
     padding: 4px 6px 4px 4px !important;
     border-bottom-color: var(--my-content-border-color) !important;
 }
@@ -179,15 +180,6 @@ body, #browser, .browserContainer {
 #sidebar-switcher-target:hover:active,
 #sidebar-switcher-target.active {
     background-color: var(--button-bgcolor) !important;
-}
-
-/* Apply background but not in tree-tabs extension to solve bug 'gradient-line don't display' \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-:root:has(#sidebar-box:not(
-[sidebarcommand*="tabcenter"],
-[sidebarcommand*="treestyletab"],
-[sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929"])) #sidebar {
-    background-color: var(--toolbar-bgcolor) !important;
 }
 
 /* Style for IA chat in sidebar is open \
@@ -224,10 +216,10 @@ body, #browser, .browserContainer {
     /* Remove limit */
     max-width: none !important;
     min-width: 1px !important;
+    box-shadow: 0 -1px var(--my-content-border-color) !important;
     /* Other styles */
     overflow-x: hidden !important;
     padding-block-end: 0px !important;
-    box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
 }
 
 /* 'Sidebar' splitter \
@@ -283,7 +275,6 @@ body, #browser, .browserContainer {
     
     /* Remove unwanted sidebar styles */
     #sidebar {
-        --sidebar-background-color: transparent !important;
         --sidebar-border-color: transparent !important;
         --content-area-shadow: none !important;
     }
@@ -321,8 +312,7 @@ body, #browser, .browserContainer {
 :root:not([inDOMFullscreen]) #tabbrowser-tabpanels {
     &[splitview] {
         & .split-view-panel.split-view-panel-active {
-            margin-block: 2px !important;
-            margin-inline: 3px !important;
+            margin: 3px !important;
             outline: 1px solid var(--toolbarbutton-hover-personal) !important;
         }
 
@@ -340,10 +330,11 @@ body, #browser, .browserContainer {
     border-width: 2px !important;
     background: transparent !important;
     margin-inline: -3px !important;
+    margin-block: 2px !important;
     
     &:hover {
         transition: background 0.1s ease-in-out 0.1s, border-color 0.1s ease-in-out 0.1s !important;
-        background: var(--button-smaller-bgcolor) !important;
+        background: transparent !important;
         border-color: var(--general-color) !important;
         z-index: 1 !important;
     }
@@ -364,48 +355,48 @@ split-view-footer {
     box-shadow: 0 -1px var(--my-content-border-color) !important;
 }
 
-@media -moz-pref("sidebar.revamp") {
-    
-    /* web content */
-    #tabbrowser-tabbox {
-        outline-color: transparent !important;
-        box-shadow: none !important;
-        border-radius: 0px !important;
-        box-shadow: 0 -1px var(--my-content-border-color) !important;
+#sidebar-box {
+    box-shadow: 0 -1px var(--my-content-border-color) !important;
+
+    /* Sidebar content 'open' + web content */
+    &[checked] ~ #tabbrowser-tabbox {
+        box-shadow: calc(-1px * var(--rtl-variable, 1)) -1px var(--my-content-border-color) !important;
     }
-    
+
+    /* Sidebar content 'open' on right + web content */
+    &[checked][sidebar-positionend] ~ #tabbrowser-tabbox {
+        box-shadow: calc(1px * var(--rtl-variable, 1)) -1px var(--my-content-border-color) !important;
+    }
+}
+
+@media -moz-pref("sidebar.revamp") {
+
+    /* web content
+    -- Test with tabs in 'Split View' - this works to not delete 'web content' outline */
+    .browserContainer {
+        --chrome-content-separator-color: transparent !important;   
+    }
+
     /* Sidebar[open] - Important- remove unwanted styles */
     #sidebar {
         outline-color: transparent !important;
         box-shadow: none !important;
     }
-    
+        
     #sidebar-box {
-        box-shadow: 0 -1px var(--my-content-border-color) !important;
-        
-        /* Sidebar content 'open' + web content */
-        &[checked] ~ #tabbrowser-tabbox {
-            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
-        }
-        
         /* Sidebar content 'open' on right */
         &[checked][sidebar-positionend] {
             box-shadow: calc(1px * var(--rtl-variable, 1)) -1px 0 0 var(--my-content-border-color) !important;
         }
-        
-        /* Sidebar content 'open' on right + web content */
-        &[checked][sidebar-positionend] ~ #tabbrowser-tabbox {
-            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
-        }
     }
     
-    /* When sidebar-revamp is on right */
+    /* Make 'web content' - 'border top' always visible when sidebar 'Revamp' is on right */
     
     #sidebar-main[sidebar-positionend] {
         
         /* web content */
         & ~ #tabbrowser-tabbox {
-            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+            box-shadow: 0 0 0 1px var(--toolbarbutton-hover-personal) !important;/**/
         }
     }
 }
@@ -414,20 +405,20 @@ split-view-footer {
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media -moz-pref("sidebar.revamp") and -moz-pref("firefoxgx.left-sidebar") {
     
-    /* sidebar content */
+    /* sidebar content - not apply z index because cause border dissapear in some cases in left or right side */
     #sidebar-box {
         box-shadow: calc(-1px * var(--rtl-variable, 1)) -1px var(--my-content-border-color) !important;
     }
     
     @media not -moz-pref("firefoxgx.oneline") {
         #tabbrowser-tabbox {
-            box-shadow: 0 0 0 1px var(--my-content-border-color) !important;
+            box-shadow: 0 0 0 1px var(--toolbarbutton-hover-personal) !important;
         }
     }
     
     @media -moz-pref("firefoxgx.oneline") {
         #tabbrowser-tabbox {
-            box-shadow: calc(-1px * var(--rtl-variable, 1)) 0 0 0 var(--my-content-border-color) !important;
+            box-shadow: calc(-1px * var(--rtl-variable, 1)) 0 var(--my-content-border-color) !important;
         }
     }
 }
@@ -441,10 +432,32 @@ split-view-footer {
 .tab-icon-image[src="chrome://global/skin/icons/settings.svg"],
 .tab-icon-image[src="chrome://global/skin/icons/developer.svg"],
 .tab-icon-image[src="chrome://branding/content/icon32.png"],
-.tab-icon-image[src="chrome://global/skin/icons/performance.svg"])) {
+.tab-icon-image[src="chrome://global/skin/icons/performance.svg"],
+.tab-icon-image[src="chrome://browser/skin/privatebrowsing/favicon.svg"])) {
     #sidebar-box:not([checked]) ~ #tabbrowser-tabbox {
         --my-content-border-color: transparent !important;
     }
+}
+
+/* Find-bar \
+¯¯¯¯¯¯¯¯¯¯¯¯ */
+findbar {
+    background: none !important;
+    background-color: var(--toolbar-bgcolor) !important;
+    color: var(--tab-selected-textcolor) !important;
+    border-color: var(--my-content-border-color) !important;
+    margin-block-start: 1px !important;
+}
+
+.findbar-textbox:not([status="notfound"]):focus {
+    background-color: var(--lwt-accent-color) !important;
+    outline-color: var(--general-color) !important;
+}
+
+.findbar-textbox[status="notfound"] { 
+    background: var(--lwt-accent-color) !important;
+    border-color: var(--my-content-border-color) !important;
+    outline-color: #fb2030 !important;
 }
 
 /* _____________________________________________________ Configuration for Linux ______________________________________________________

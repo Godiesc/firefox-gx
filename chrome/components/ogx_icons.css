@@ -2333,7 +2333,7 @@
         background-size: 16px 16px !important;
         border-radius: 4px !important;
         -moz-context-properties: fill !important;
-        fill: var(--panel-color, #1245ef) !important;
+        fill: var(--panel-text-color, #1245ef) !important;
   }
 
   #context-media-eme-learnmore {
@@ -3464,8 +3464,8 @@
         /* Tested in menubar icons */
         visibility: visible !important;
         -moz-context-properties: fill, stroke !important;
-        fill: var(--panel-color) !important;
-        stroke: var(--panel-color) !important;/**/
+        fill: var(--panel-text-color) !important;
+        stroke: var(--panel-text-color) !important;/**/
 
     }
   }
@@ -3477,8 +3477,8 @@
       & > :is(menu, menuitem) {
         &> .menu-icon {
           /*-moz-context-properties: fill, stroke;
-          fill: var(--panel-color) !important;
-          stroke: var(--panel-color) !important;/**/
+          fill: var(--panel-text-color) !important;
+          stroke: var(--panel-text-color) !important;/**/
         }
 
         &:where([disabled]) > .menu-icon {
@@ -3498,7 +3498,7 @@
     }
   }
   
-  menuitem:not(.menuitem-iconic, [checked="true"], #context_moveTabToGroupNewGroup) {   /* Ejm. Bookmarksbar options 'always show, never show, etc' or 'Check spelling' */
+  menuitem:not(.menuitem-iconic, [checked], #context_moveTabToGroupNewGroup) {   /* Ejm. Bookmarksbar options 'always show, never show, etc' or 'Check spelling' */
     & > .menu-icon {
       visibility: hidden !important;
     }

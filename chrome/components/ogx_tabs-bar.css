@@ -28,6 +28,8 @@
     
     /* Vertical tabs */
     @media -moz-pref("sidebar.verticalTabs") {
+        --lwt-header-image: none !important;
+        --lwt-additional-images: none !important;
         margin-block-end: 1px !important;
         margin-inline: var(--tab-inner-inline-margin) !important;
     }
@@ -37,8 +39,8 @@
     .tab-background,
     .tab-background::before,
     .tab-background::after {
-        background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
-            linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+        background-image: linear-gradient(var(--tab-group-background-color, var(--toolbar-background-color)), var(--tab-group-background-color, var(--toolbar-background-color))),
+            linear-gradient(var(--tab-group-background-color, var(--toolbar-background-color)), var(--tab-group-background-color, var(--toolbar-background-color))),
             var(--lwt-header-image, none), var(--lwt-additional-images,none),
             linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
         background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
@@ -71,7 +73,7 @@
         /* Margin between tabs */
         &>.tabbrowser-tab,
         &>tab-group:not([collapsed])>.tabbrowser-tab:not(:last-of-type) {
-            padding-inline: 0 2px !important;
+            padding-inline: 0 1px !important;
         }
 
         /* Margin last element into a group */
@@ -83,8 +85,6 @@
 
 /* Gradient under tabs-bar \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#nav-bar { border-top: none !important; }
-
 #TabsToolbar::before {
     content: "" !important; position: absolute !important; align-self: end !important;
     inset-inline-start: calc(var(--my-elements-left-margin, 0px) - 1px) !important;
@@ -94,27 +94,49 @@
     z-index: 3 !important;  /*same index of oneline: 'Makes tabsbar items clicleable' - fix when 'left-sidebar' + 'Firefox-revamp' on right*/
 }
 
-/* ________________________________________ Split view ________________________________________ 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-#tabbrowser-tabs tab-split-view-wrapper {
-    /* remove unwanted roundness */
-    --tab-border-radius: 0 !important;
+/* _____________________________________________________ Split view _____________________________________________________ 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+tab-split-view-wrapper {
+    border-radius: 0px !important;
+    clip-path: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 5px 100%, 0 calc(100% - 5px), 0 5px);
+    
+    /* Avoid group line to dissappear when sidebar is collapsing when using 'expand-on-hover' */
+    .tab-group-line {
+        display: flex !important;
+    }
 
     /* Split container background when has an active tab */
     &[hasactivetab] {
-        background-color: var(--tab-group-bgcolor, var(--button-smaller-bgcolor))!important;
+        /*background-color: var(--tab-group-background-color, var(--button-smaller-bgcolor))!important;/**/
+        
+        & .tabbrowser-tab {
+            
+            /* Transparent sepataror when a tab is active */
+            border-image: none !important;
+            
+            /* Split 'selected tab' background */
+            &[visuallyselected] .tab-background {
+                box-shadow: inset 0 0 30px var(--general-color) !important;
+            }
+            
+            /* Remove conflicted roundness */
+            .tab-background,
+            .tab-stack::before {
+                --tab-border-radius: 0px !important;
+            }
+        }
     }
 }
 
-/* Split styles */
+/* Split styles - Horizontal tabs \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #tabbrowser-tabs[orient="horizontal"] {
     
     /* Split container */
     tab-split-view-wrapper {
         align-items: unset !important;
-        clip-path: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 5px 100%, 0 calc(100% - 5px), 0 5px);
         padding-block: 0px !important; /* Remove unwanted padding */
+        padding-inline: 3px !important;
         margin-inline: 2px !important; /* Add wanted 'lef-right' margin */
         
         /* Remove unwanted extra tab margin */
@@ -123,52 +145,23 @@
 
             /* New tab size */
             & .tab-stack {
-                padding-block: 1px 2px !important;
+                padding-block: 2px 2px !important;
             }
             & .tab-background {
                 margin-block-end: 1px !important;
-                min-height: calc(var(--tab-min-height) - 4px) !important; /* '1+2'+1 = 4px */
+                min-height: calc(var(--tab-min-height) - 5px) !important; /* '2+2'+1 = 5px */
             }
             
             /* Style left tab */            
             &:first-child {
                 --my-tab-background-clip: polygon(5px 0, 100% 0, 100% 100%, 5px 100%, 0 calc(100% - 5px), 0 5px);
-
-                .tab-stack {
-                    margin-inline-start: 2px !important;
-
-                    &::before { --tab-border-radius: 0px !important; }
-                }
-
-                .tab-background {
-                    --tab-border-radius: 0px !important;
-                }
             }
 
             /* Style right tab */
             &:last-child {
                 --my-tab-background-clip:  polygon(calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 0);
-
-                border-inline-start: 1px solid var(--toolbarbutton-icon-fill) !important;
-                border-image: 0 1 linear-gradient(
-                    transparent 18%,
-                    color-mix(in srgb, var(--general-color) 50%, transparent) 18%,
-                    color-mix(in srgb, var(--general-color) 50%, transparent) 77%,
-                    transparent 77% );
-
-                .tab-stack {
-                    margin-inline-end: 2px !important;
-                }
-            }
-        }
-        
-        /* Transparent sepataror when a tab is active */
-        &[hasactivetab] {
-            & .tabbrowser-tab {
-                &:last-child {
-                    border-image: none !important;
-                    border-color: transparent !important;
-                }
+                border-image: 0 1 linear-gradient( transparent 25%, var(--tab-group-color,var(--button-hover-bgcolor)) 25%,
+                    var(--tab-group-color,var(--button-hover-bgcolor)) 75%, transparent 75% );
             }
         }
     }
@@ -177,6 +170,98 @@
     tab-group tab-split-view-wrapper {
         clip-path: none;
         margin-inline: 0px !important;
+        padding-inline: 0px !important;
+    }
+}
+
+/* Split styles - Vertical tabs \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media -moz-pref("sidebar.verticalTabs") {
+    
+/* Split view */
+    tab-split-view-wrapper {
+        margin-inline: 0px !important;
+        padding: 0px !important;
+        padding-block: 2px !important;
+        gap: 0px !important;
+        
+        & .tabbrowser-tab {
+            #tabbrowser-tabs[orient="vertical"] tab-split-view-wrapper & {
+                &:first-child {
+                    @container vertical-tabs-container (max-width: 211px) {
+                        --my-tab-background-clip: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 100% 100%, 0px 100%, 0 calc(100% - 5px), 0 5px);
+                        border-block-end: 1px solid transparent !important;/**/
+                        border-image: 1 linear-gradient( to right,
+                            transparent 10px, var(--tab-group-color,var(--button-hover-bgcolor)) 10px,
+                            var(--tab-group-color, var(--button-hover-bgcolor)) calc(100% - 10px), transparent calc(100% - 10px));
+                    }
+                    
+                    @container vertical-tabs-container (min-width: 211px) {
+                        --my-tab-background-clip: polygon(5px 0, 100% 0, 100% 100%, 5px 100%, 0 calc(100% - 5px), 0 5px);
+                    }
+                }
+
+                &:last-child {
+                    @container vertical-tabs-container (max-width: 211px) {
+                        --my-tab-background-clip: polygon(0px 0, 100% 0, 100% 0px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 5px 100%, 0 calc(100% - 5px), 0 5px);
+                    }
+                    
+                    @container vertical-tabs-container (min-width: 211px) {
+                        --my-tab-background-clip:  polygon(calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 0);
+                        border-image: 0 1 linear-gradient(
+                            transparent 18%, var(--tab-group-color,var(--button-hover-bgcolor)) 18%,
+                            var(--tab-group-color,var(--button-hover-bgcolor)) 77%, transparent 77% );
+                    }
+                }
+            }
+        }
+    }
+    
+    /* Style when using 'expand-on-hover' - both styles of split when sidebar expand */
+    :root[sidebar-expand-on-hover] #tabbrowser-tabs[orient="vertical"] tab-split-view-wrapper {
+        & .tabbrowser-tab {
+            &:first-child {
+                --my-tab-background-clip: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 100% 100%, 0px 100%, 0 calc(100% - 5px), 0 5px);
+                border-block-width: 1px !important;
+                border-block-color: transparent !important;
+                border-image: 1 linear-gradient( to right,
+                    transparent 10px, var(--tab-group-color,var(--button-hover-bgcolor)) 10px,
+                    var(--tab-group-color,var(--button-hover-bgcolor)) calc(100% - 10px), transparent calc(100% - 10px));
+            }
+
+            &:last-child {
+                --my-tab-background-clip: polygon(0px 0, 100% 0, 100% 0px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 5px 100%, 0 calc(100% - 5px), 0 5px);
+                border-inline: none !important;
+            }
+        }
+    }
+    
+    /* Sidebar Collapsed */
+    #tabbrowser-tabs[orient="vertical"]:not([expanded]) tab-split-view-wrapper {
+        
+        /* Remove inherited border inline in second tab */
+        & .tabbrowser-tab {
+            &:last-child {
+                border-inline: none !important;
+            }
+        }
+    }
+    
+    /* Remove unwanted padding */
+    #tabbrowser-tabs tab-split-view-wrapper {
+        & .tabbrowser-tab {
+            & .tab-content {
+                padding-inline: var(--tab-inline-padding) !important; /* Test it in tab with sound - sidebar expanded */
+                justify-content: unset !important;  /* Test sidebar 'expand-on-hover' */
+                width: unset !important; /* Test sidebar collapsed */
+            }
+        }
+    }
+    
+    /* Remove unwanted style when split container is into a group */
+    tab-group tab-split-view-wrapper {
+        clip-path: none;
+        padding: 0px !important;
     }
 }
 
@@ -234,23 +319,7 @@
     }
 }
 
-/* Remove unwanted extra sound-tab width \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-#tabbrowser-tabs[orient="horizontal"] {
-    &>.tabbrowser-tab,
-    &>tab-group:not([collapsed],[movingtabgroup]) > .tabbrowser-tab,
-    &>tab-group[collapsed]:not([movingtabgroup]) > .tabbrowser-tab[selected] {
-        &:is([muted], [soundplaying], [activemedia-blocked]) {
-            &:not([pinned]) {
-                /*min-width: max(var(--tab-min-width-pref, var(--tab-min-width))) !important;/**/
-            }
-        }
-    }
-}
-
 /* Bug fix - Overwrite default tab size in 'density:touch' */
-
 #tabbrowser-tabs[orient="horizontal"] {
     :root[uidensity="touch"] & :not(tab-group)>.tabbrowser-tab[fadein]:not([pinned]),
     :root[uidensity="touch"] & tab-group:not([collapsed]) > .tabbrowser-tab {
@@ -258,41 +327,39 @@
     }
 }
 
-/* ________________ Tab 'hover' background-color ________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-/* 'hover' tab background +  smooth transition */
-
+/* Smooth transition when 'hover' in 'non-selected' tab \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tab-background {
-    transition: background-color 0.2s ease !important;
-    
-    .tabbrowser-tab:hover > .tab-stack > &:not([selected], [multiselected]) {
-        /* don't use '--button-smaller-bgcolor' cause issue with group tabs */
-        background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+    .tabbrowser-tab > .tab-stack > &:not([selected], [multiselected]) {
+        transition: background-color 0.2s ease !important;
     }
 }
 
 /* ______ Rules for better 'multiselected' visualization ________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
 .tabbrowser-tab[multiselected] {
 
     /* Selected tab */
-    &:is([selected]) .tab-background,
-    &:is([selected]) .tab-background::before,   /* 'before' & 'after' for tab-shapes config*/
-    &:is([selected]) .tab-background::after{    /* 'before' & 'after' for tab-shapes config*/
-        background: light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color-invert, var(--general-color))) !important;
-        outline-color: transparent !important;
-        outline-offset: -1px !important;
+    &[selected] {
+        .tab-background,
+        .tab-background::before,    /* 'before' & 'after' for tab-shapes config*/
+        .tab-background::after {    /* 'before' & 'after' for tab-shapes config*/
+            background-color: light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color-invert, var(--general-color))) !important;
+            outline-color: transparent !important;
+        }
     }
 
     /* non-Selected tab */
-    &:not([selected]) .tab-background {
-        background-image: none !important;
-        background-color: light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color, var(--button-hover-bgcolor))) !important;
-        clip-path: var(--my-tab-background-clip);
-        outline-color: transparent !important;
-        transition: background 0.2s ease !important;
+    &:not([selected]) {
+        .tab-background,
+        .tab-background::before,    /* 'before' & 'after' for tab-shapes config*/
+        .tab-background::after {    /* 'before' & 'after' for tab-shapes config*/
+            background-image: none !important;
+            filter: none !important;
+            background-color: light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color-invert, var(--button-hover-bgcolor))) !important;
+            outline-color: transparent !important;
+            transition: background 0.2s ease, fill 0.2s ease !important;
+        }
     }
 }
 
@@ -331,7 +398,7 @@
 /* Tab-label color the same as the group \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 tab-group .tab-label {
-    color: light-dark(var(--tab-group-color, initial), var(--tab-group-color-invert, initial)) !important;
+    color: light-dark(var(--tab-group-color, initial), var(--tab-group-color-invert, initial)) !important;/**/
 }
 
 /* Remove tab label shadow \
@@ -379,12 +446,12 @@ tab-group .tab-label {
 /* Size and color of the 'dot' when a tab needs attention \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]) {
-    background-image: radial-gradient(circle, var(--attention-dot-color), var(--attention-dot-color) 2px, transparent 2px) !important;
     background-position: center bottom !important;
     background-size: 8px 8px !important;
 }
 
 #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:not([pinned]) > .tab-stack > .tab-content[titlechanged]:not([selected]) {
+    --tab-attention-dot-color: light-dark(var(--tab-group-color, var(--general-color)), var(--tab-group-color-invert, var(--general-color))) !important;
     background-position-y: bottom 2px !important;
     background-position-x: calc(var(--my-vertical-elements-width)/2 - 2px) !important;
 }
@@ -393,9 +460,10 @@ tab-group .tab-label {
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #tabbrowser-tabs :is(#tabs-newtab-button, #vertical-tabs-newtab-button),
 #new-tab-button {
-    --toolbarbutton-hover-background: transparent !important;
-    --toolbarbutton-active-background: transparent !important;
-    --toolbarbutton-inner-padding: calc((var(--tab-min-height) - 18px) / 2) !important;
+    --tab-background-color-hover: transparent !important;
+    --toolbarbutton-background-color-hover: transparent !important;
+    --toolbarbutton-background-color-active: transparent !important;
+    --toolbarbutton-padding-inner: calc((var(--tab-min-height) - 18px) / 2) !important;
     padding-inline: var(--uc-margin-left-newtab, 0px) !important;
 
     &::before {
@@ -458,24 +526,16 @@ sidebar-main:is([expanded]) {
 /* Tab Preview \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tab-preview-thumbnail-container {    
-    border-top-color: var(--arrowpanel-border-color) !important;
+    border-top-color: var(--panel-border-color) !important;
 }
 
 #tab-preview-panel {
-    margin-block-start: 1px !important;
-    border-radius: var(--arrowpanel-border-radius) !important;
-    box-shadow: inset 0 0 0 1px var(--contrast-color) !important;
+    margin-block-start: -3px !important;
 }
 
 @media -moz-pref("sidebar.verticalTabs") {
     #tab-preview-panel {
         margin-block-start: -4px !important;
-        margin-inline: 1px !important;
+        margin-inline: -1px !important;
     }
-}
-
-/* Remove unwanted background color in 'tabgroup' 'hover' preview \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#tabgroup-panel-content {
-    background-color: transparent !important;
 }

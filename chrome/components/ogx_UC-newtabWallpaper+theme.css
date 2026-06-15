@@ -1,0 +1,161 @@
+/* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
+   https://github.com/Godiesc/firefox-gx */
+
+/* Apply Newtab wallpapers + Theme colors \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+/* ______________________________________________________________ Dark Wallpaper ______________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.user.enabled") {
+
+  @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-sky"),
+    -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "starry-canyon"),
+    -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-mountain"),
+    -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-panda"),
+    -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-fox-anniversary"),
+    -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-beach"),
+    -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "palm-trees"),
+    -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "suspension-bridge"),
+    -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-landscape") {
+
+      /* Dark scheme for 'about:' pages */
+      @-moz-document url-prefix("about:"), url-prefix("https://addons.mozilla.org") {
+        :root {
+          color-scheme: dark !important;
+          --newtab-background-color-secondary: lch(from var(--newtab-background-color) calc(l + 8) c h) !important;       /* 'Manage' Buttons background color */
+          --my-newtab-elements-background: color-mix(in srgb, white 3%, var(--newtab-background-color) 65%, transparent); /* Elements background color */
+        }
+
+        /* Remove styles for light theme + dark wallpaper of 'ogx_UC-newtabpage.css' */
+        @media (prefers-color-scheme: light) {
+          .darkWallpaper {
+            --newtab-background-color: unset;
+          }
+        }
+      }
+  }
+  
+  :root:not([privatebrowsingrendercomplete]) {
+
+    /* Dark 1 - Fuchsia */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
+      --newtab-background-color: #120f19 !important;                                    /* Newtab background color */
+    }
+
+    /* Dark 2 - ultraviolet */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
+      --newtab-background-color: #0e0c1d !important;                                    /* Newtab background color */
+    }
+    
+    /* Dark 3 - Blue */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
+      --newtab-background-color: #0d121b !important;                                    /* Newtab background color */
+    }
+
+    /* Dark 4 - Green */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
+      --newtab-background-color: #101019 !important;                                    /* Newtab background color */
+    }
+
+    /* Dark 5 - Swamp */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
+      --newtab-background-color: #002429 !important;                                    /* Newtab background color */
+    }
+
+    /* Dark 6 - Cheaterman */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
+      --newtab-background-color: #101811 !important;                                    /* Newtab background color */
+    }
+
+    /* Dark 7 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
+      --newtab-background-color: #131615 !important;                                    /* Newtab background color */
+    }
+
+    /* Dark 8 - Catppuccino */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
+      --newtab-background-color: #101019 !important;                                    /* Newtab background color */
+    }
+
+    /* Dark 9 - Gray */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
+      --newtab-background-color: #141414 !important;                                    /* Newtab background color */
+    }
+    
+    /* ______________________________________________________________ Light Wallpaper ______________________________________________________________
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons'),
+      -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda'),
+      -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary'),
+      -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers'),
+      -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape'),
+      -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes'),
+      -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain'),
+      -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky'),
+      -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+
+        /* Light scheme for 'about:' pages */
+        @-moz-document url-prefix("about:"), url-prefix("https://addons.mozilla.org") {
+          color-scheme: light !important;
+          
+          :root {
+            color-scheme: light !important;
+            --newtab-background-color-secondary: lch(from var(--newtab-background-color) calc(l + 8) c h) !important;       /* 'Manage' Buttons background color */
+            --my-newtab-elements-background: color-mix(in srgb, white 3%, var(--newtab-background-color) 65%, transparent); /* Elements background color */
+          }
+
+          /* Remove styles for light theme + dark wallpaper of 'ogx_UC-newtabpage.css' */
+          @media (prefers-color-scheme: dark) {
+            .lightWallpaper {
+              --newtab-background-color: unset;
+            }
+          }
+        }
+    }
+
+    /* Light 1 - Fuchsia */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
+      --newtab-background-color: #f1e9f1 !important;                                    /* Newtab background color */
+    }
+    
+    /* Light 2 - Ultraviolet */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
+      --newtab-background-color: #f0ecfa !important;                                    /* Newtab background color */
+    }
+
+    /* Light 3 - BLue */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
+      --newtab-background-color: #edeef9 !important;                                    /* Newtab background color */
+    }
+
+    /* Light 4 - Rose */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
+      --newtab-background-color: #f7ecf1 !important;                                    /* Newtab background color */
+    }
+    
+    /* Light 5 - Lightgreen */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
+      --newtab-background-color: #f2ebf8 !important;                                    /* Newtab background color */
+    }
+    
+    /* Light 6 - Green */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
+      --newtab-background-color: #e8fafa !important;                                    /* Newtab background color */
+    }
+    
+    /* Light 7 - Orange */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
+      --newtab-background-color: #f3f2f0 !important;                                    /* Newtab background color */
+    }
+
+    /* Light 8 - Frutti di mare */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
+      --newtab-background-color: #f1e9f1 !important;                                    /* Newtab background color */
+    }
+    
+    /* Light 9 - Gray */
+    @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+      --newtab-background-color: #f2f2f2 !important;                                    /* Newtab background color */
+    }
+  }
+}

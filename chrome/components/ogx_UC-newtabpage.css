@@ -25,12 +25,15 @@
     --button-border-color: var(--my-smooth-border-color) !important;                    /* Normal Button border color */
     --button-border-color-hover: var(--button-smaller-bgcolor) !important;              /* Normal Button border color on 'hover' */
     
-    --button-border-color-ghost: transparent !important;                                /* Ghost Button border color - Close button in slider */
+    --customize-menu-bg: var(--newtab-background-color-secondary) !important;           /* Slider background - !important - same variable into the slider class */
+    --my-box-button-background-color: color-mix(in srgb,                                /* Variable used to in other 'about:' pages to fill 'Manage' buttons */
+        var(--customize-menu-bg, #181d25) 94%, 
+        var(--my-scheme-color), var(--general-color)) !important;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --my-color-scheme: black;                                        /* Background for dark theme */
+        --my-scheme-color: black;                                        /* Background for dark theme */
         --my-contrast-color: white;                                      /* Contrast color */
         --my-border-color-scheme: #09080d;                               /* Border color for contrast */
         --my-smooth-border-color: #50505030;                             /* Border with transparency */
@@ -46,7 +49,7 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --my-color-scheme: white;                                        /* Background for dark theme */
+        --my-scheme-color: white;                                        /* Background for dark theme */
         --my-contrast-color: black;                                      /* Contrast color */
         --my-border-color-scheme: #10101920;                             /* Border color for contrast */
         --my-smooth-border-color: #10101920;                             /* Border with transparency */
@@ -94,17 +97,17 @@
         :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
     }
 
-    /* Dark 7 - Gray */
+    /* Dark 7 - Orange */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
         :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
     }
 
-    /* Dark 8 - Orange */
+    /* Dark 8 - Catppuccino */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
         :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
     }
 
-    /* Dark 9 - Catppuccino */
+    /* Dark 9 - Gray */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
         :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
     }
@@ -157,7 +160,7 @@
 
 /* __________________________________________________________ Newtab styles __________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-@-moz-document url(about:newtab), url(about:home), url(about:privatebrowsing) {
+@-moz-document url-prefix("about:newtab"), url-prefix("about:home"), url-prefix("about:privatebrowsing") {
     
     body {
         --newtab-text-primary-color: FieldText !important;                                            /* General font color */
@@ -174,12 +177,14 @@
         --newtab-background-color-secondary: var(--my-context-menu-background) !important;            /* 3 dot context menu background */
         --background-color-box: var(--my-context-menu-background) !important;                         /* 'Weather' context menu background */
         
-        --my-opaque-background: color-mix(in srgb, var(--my-color-scheme), transparent);              /* Background with transparency - follow newtab scheme*/
-        --my-small-opaque-background: color-mix(in srgb, var(--my-color-scheme) 20%, transparent);    /* Background with transparency - follow newtab scheme*/
-        --my-big-opaque-background: color-mix(in srgb, var(--my-color-scheme) 90%, transparent);    /* Background with transparency - follow newtab scheme*/
+        
+        
+        --my-opaque-background: color-mix(in srgb, var(--my-scheme-color), transparent);              /* Background with transparency - follow newtab scheme*/
+        --my-small-opaque-background: color-mix(in srgb, var(--my-scheme-color) 20%, transparent);    /* Background with transparency - follow newtab scheme*/
+        --my-big-opaque-background: color-mix(in srgb, var(--my-scheme-color) 90%, transparent);      /* Background with transparency - follow newtab scheme*/
         
         --my-context-menu-background: color-mix(in srgb,                                              /* Background color for menus */
-            var(--newtab-background-color) 95%, FieldText);
+            var(--newtab-background-color) 100%, FieldText);
         
         --my-box-shadow:                                                                              /* General 'box shadow' style */
             0 0.25px 0.75px var(--box-shadow-color-lighter-layer-1),
@@ -188,11 +193,12 @@
         --my-small-main-background: color-mix(in srgb,                                                /* Color used below */
             var(--general-color) 4%, var(--my-newtab-elements-background));
         
-        --my-gradient-background: linear-gradient(to bottom,                                          /* Smooth Gradient background used in main elements */
-            var(--my-newtab-elements-background) 30%, var(--my-small-main-background));
+        --my-gradient-background: url("../icons/urlbar-noise-light.png"),
+            linear-gradient(to bottom,
+            var(--my-newtab-elements-background) 30%, var(--my-small-main-background));               /* Smooth Gradient background used in main elements */
         
-        --my-gradient-background-hover: color-mix(in srgb,                                            /* Background color when 'hover' in main elements */
-            var(--general-color) 6%, var(--my-newtab-elements-background));
+        --my-gradient-background-hover: url("../icons/urlbar-noise-light.png"),
+            color-mix(in srgb, var(--general-color) 6%, var(--my-newtab-elements-background));        /* Background color when 'hover' in main elements */
     }
     
     /* __________________________________________________________ Wallpapers _________________________________________________________ 
@@ -217,7 +223,7 @@
     
     moz-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] {
         --my-first-font-size: 0;
-        --my-content: 'Firefox GX';
+        --my-content: 'Wallpaper & Theme Colors';
         --my-second-font-size: var(--button-font-size);
     }
     
@@ -256,201 +262,254 @@
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.user.enabled") {
 
         /* Dark 1 - Fuchsia */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
-            :root:has(.activity-stream.darkWallpaper) { --newtab-text-primary-color: var(--general-color-dark1) !important; }
-            .activity-stream.darkWallpaper,
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-sky") {
+            :root { --newtab-text-primary-color: var(--general-color-dark1) !important; }
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #dark-sky {
                 --newtab-wallpaper: var(--wallpaper-dark1) !important;
                 background-image: var(--wallpaper-dark1) !important;
             }
+            .activity-stream.darkWallpaper {
+                background-image: none !important;
+            }
         }
 
         /* Dark 2 - ultraviolet */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'starry-canyon') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "starry-canyon") {
             :root { --newtab-text-primary-color: var(--general-color-dark2) !important; }
-            .activity-stream.darkWallpaper,
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #starry-canyon {
                 --newtab-wallpaper: var(--wallpaper-dark2) !important;
                 background-image: var(--wallpaper-dark2) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
-
         /* Dark 3 - Blue */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-mountain') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-mountain") {
             :root { --newtab-text-primary-color: var(--general-color-dark3) !important; }
-            .activity-stream.darkWallpaper,
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #dark-mountain {
                 --newtab-wallpaper: var(--wallpaper-dark3) !important;
                 background-image: var(--wallpaper-dark3) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Dark 4 - Green */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-panda') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-panda") {
             :root { --newtab-text-primary-color: var(--general-color-dark4) !important; }
-            .activity-stream.darkWallpaper,
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #dark-panda {
                 --newtab-wallpaper: var(--wallpaper-dark4) !important;
                 background-image: var(--wallpaper-dark4) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Dark 5 - Swamp */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-fox-anniversary') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-fox-anniversary") {
             :root { --newtab-text-primary-color: var(--general-color-dark5) !important; }
-            .activity-stream.darkWallpaper,
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #dark-fox-anniversary {
                 --newtab-wallpaper: var(--wallpaper-dark5) !important;
                 background-image: var(--wallpaper-dark5) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Dark 6 - Cheaterman */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-beach') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-beach") {
             :root { --newtab-text-primary-color: var(--general-color-dark6) !important; }
-            .activity-stream.darkWallpaper,
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #dark-beach {
                 --newtab-wallpaper: var(--wallpaper-dark6) !important;
                 background-image: var(--wallpaper-dark6) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
-        /* Dark 7 - Gray */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'palm-trees') {
+        /* Dark 7 - Orange */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "palm-trees") {
             :root { --newtab-text-primary-color: var(--general-color-dark7) !important; }
-            .activity-stream.darkWallpaper,
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #palm-trees {
                 --newtab-wallpaper: var(--wallpaper-dark7) !important;
                 background-image: var(--wallpaper-dark7) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
-        /* Dark 8 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'suspension-bridge') {
+        /* Dark 8 - Catppuccino */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "suspension-bridge") {
             :root { --newtab-text-primary-color: var(--general-color-dark8) !important; }
-            .activity-stream.darkWallpaper,
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #suspension-bridge {
                 --newtab-wallpaper: var(--wallpaper-dark8) !important;
                 background-image: var(--wallpaper-dark8) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
-        /* Dark 9 - Catppuccino */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-landscape') {
+        /* Dark 9 - Gray */
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-landscape") {
             :root { --newtab-text-primary-color: var(--general-color-dark9) !important; }
-            .activity-stream.darkWallpaper,
+            /*.activity-stream.darkWallpaper,/**/
             #photographs,
             #dark-landscape {
                 --newtab-wallpaper: var(--wallpaper-dark9) !important;
                 background-image: var(--wallpaper-dark9) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 1 - Fuchsia */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "hot-air-balloons") {
             :root { --newtab-text-primary-color: var(--general-color-light1) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #hot-air-balloons {
                 --newtab-wallpaper: var(--wallpaper-light1) !important;
                 background-image: var(--wallpaper-light1) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 2 - Ultraviolet */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "light-panda") {
             :root { --newtab-text-primary-color: var(--general-color-light2) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #light-panda {
                 --newtab-wallpaper: var(--wallpaper-light2) !important;
                 background-image: var(--wallpaper-light2) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 3 - BLue */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "light-fox-anniversary") {
             :root { --newtab-text-primary-color: var(--general-color-light3) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #light-fox-anniversary {
                 --newtab-wallpaper: var(--wallpaper-light3) !important;
                 background-image: var(--wallpaper-light3) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 4 - Rose */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "blue-flowers") {
             :root { --newtab-text-primary-color: var(--general-color-light4) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #blue-flowers {
                 --newtab-wallpaper: var(--wallpaper-light4) !important;
                 background-image: var(--wallpaper-light4) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 5 - Lightgreen */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "light-landscape") {
             :root { --newtab-text-primary-color: var(--general-color-light5) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #light-landscape {
                 --newtab-wallpaper: var(--wallpaper-light5) !important;
                 background-image: var(--wallpaper-light5) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 6 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "sand-dunes") {
             :root { --newtab-text-primary-color: var(--general-color-light6) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #sand-dunes {
                 --newtab-wallpaper: var(--wallpaper-light6) !important;
                 background-image: var(--wallpaper-light6) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 7 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "light-mountain") {
             :root { --newtab-text-primary-color: var(--general-color-light7) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #light-mountain {
                 --newtab-wallpaper: var(--wallpaper-light7) !important;
                 background-image: var(--wallpaper-light7) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 8 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "light-sky") {
             :root { --newtab-text-primary-color: var(--general-color-light8) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #light-sky {
                 --newtab-wallpaper: var(--wallpaper-light8) !important;
                 background-image: var(--wallpaper-light8) !important;
             }
+            .activity-stream {
+                background-image: none !important;
+            }
         }
 
         /* Light 9 - Orange */
-        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+        @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "light-beach") {
             :root { --newtab-text-primary-color: var(--general-color-light9) !important; }
-            .activity-stream.lightWallpaper,
+            /*.activity-stream.lightWallpaper,/**/
             #photographs,
             #light-beach {
                 --newtab-wallpaper: var(--wallpaper-light9) !important;
                 background-image: var(--wallpaper-light9) !important;
+            }
+            .activity-stream {
+                background-image: none !important;
             }
         }
     }
@@ -478,7 +537,7 @@
          
         &:hover {
             box-shadow: 0 0 0 2px var(--general-color),
-                inset 0 0 0 1px var(--my-color-scheme) !important;
+                inset 0 0 0 1px var(--my-scheme-color) !important;
         }
         
         /* Border color when 'hover' over 'selected' wallpaper */
@@ -518,10 +577,19 @@
         background-size: 100% 100% !important;
         -moz-context-properties: fill !important;
         fill: var(--general-color) !important;
+        display: var(--my-logo-wordmark-display) !important;
     }
 
     .wordmark {
         fill: var(--general-color) !important;
+        display: var(--my-logo-wordmark-display) !important;
+    }
+    
+    /* Remove wordmark in small screen width */
+    @container outer-grid (inline-size <= calc(900px + 6.75rem)) {
+        .nova-enabled .logo-and-wordmark .wordmark {
+            display: none !important;
+        }
     }
     
     /* To remove Logo&Wordmark when possible */
@@ -537,26 +605,17 @@
     }
     
     /* _________________________________________ Font color when using light/dark wallpaper __________________________________________
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
-    /* Reset fonts color in both light/dark themes */    
-    .darkWallpaper,
-    .lightWallpaper {
-        /*--background-color-box: var(--my-context-menu-background) !important;              /* Background color of 'Weather' context menu */
-        /*--newtab-text-primary-color: FieldText !important;                                 /* Remove Accent color in 2nd line of 'Recent Activity' */
-        /*--newtab-background-color-secondary: var(--my-context-menu-background) !important; /* 3 dot context menu background */
-    }
-    
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
     /* When using 'Dark' wallpaper */
     .darkWallpaper  {
-        --my-color-scheme: black !important;
+        --my-scheme-color: black !important;
         color-scheme: dark !important;
         color: white !important;
     }
     
     /* When using 'light' wallpaper */
     .lightWallpaper {
-        --my-color-scheme: white !important;
+        --my-scheme-color: white !important;
         color-scheme: light !important;
         color: black !important;
     }
@@ -574,9 +633,8 @@
     
     /* Some buttons style - Ex. 'News' section \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
     .button-background {
-        box-shadow: var(--my-box-shadow) !important;
+        /*box-shadow: var(--my-box-shadow) !important;/**/
         backdrop-filter: var(--my-blur);
     }
     
@@ -658,45 +716,56 @@
         }
     }
     
+    /* Border in button for collapse/expand widgets */
+    .widgets-expand-button {
+        --newtab-primary-action-background: var(--my-smooth-border-color) !important;
+    }
+    
     /* Keep 'customize' button collapse after close customize menu (slider) */
     .personalize-button.personalize-animate-enter.personalize-animate-enter-active,
     .open-customization-button.personalize-animate-enter.personalize-animate-enter-active {
         display: none !important;
     }
     
-    /* _________________________________ Colors of the sliding sidebar used to customize the NewTab __________________________________ 
+    /* ___________________________________________________ Customize menu Slider ____________________________________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-    /* Background */
     
-    .customize-menu-animate-wrapper {
-        background-color: color-mix(in srgb, var(--newtab-background-color) 80%, transparent) !important;
-        background-image: url("../icons/urlbar-noise-light.png") !important;
-        backdrop-filter: var(--my-blur);
-        
-        @media -moz-pref("firefoxgx.main-image") {
-            background-color: var(--newtab-background-color) !important;
-            backdrop-filter: none;
-        }
+    /* Smooth gradient background */    
+    .customize-menu.nova-enabled,
+    .wallpaper-list.category,
+    .widgets-mgmt-panel,
+    .sections-mgmt-panel {
+        background-color: transparent !important;
+        /* Color used below */
+        --my-small-main-background: color-mix(in srgb, var(--general-color) 4%, var(--customize-menu-bg));
+        /* Smooth Gradient background */
+        background: url("../icons/urlbar-noise-light.png"), 
+            linear-gradient(to top, var(--my-small-main-background) 50%, var(--customize-menu-bg)) !important;
     }
     
-    .customize-menu.nova-enabled {
-        background-color: var(--newtab-background-color) !important;
+    /* Shape and border */
+    .customize-menu {
+        --customize-menu-bg: var(--newtab-background-color-secondary) !important;
+        --my-slider-border-color: color-mix(in srgb, var(--customize-menu-bg) 94%, var(--my-contrast-color));
         min-height: 100% !important;
-        border-radius: 0 calc(var(--my-border-radius) - 6px) calc(var(--my-border-radius) - 6px) 0 !important;
-        box-shadow: -1px 0 #70707070, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
-        backdrop-filter: var(--my-blur) !important;
+        border-radius: 0px !important;
+        box-shadow: -1px 0 var(--my-slider-border-color), 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
         --space-xxsmall: 0px !important;
     }
     
-    /* Shadow */
-    
-    .customize-menu-animate-wrapper {
-        box-shadow: -1px 0 #50505050, 0px 0px 20px rgb(1 1 1 / 16%), 0px 0px 10px rgb(0 0 0 / 93%) !important;
+    .customize-menu-content .manage-settings-footer {
+        --my-slider-footer-background-color: color-mix(in srgb, var(--button-smaller-bgcolor) 30%, var(--customize-menu-bg));
+        background: linear-gradient(var(--my-slider-footer-background-color), var(--my-slider-footer-background-color)),
+            linear-gradient(to bottom, transparent 10px, var(--customize-menu-bg) 20px) !important;
+        
+        &::before {
+            background: url("../icons/urlbar-noise-light.png"), 
+                linear-gradient(to top, var(--my-slider-footer-background-color), transparent) !important;
+            pointer-events: none !important;
+        }
     }
     
-    /* 'Close' button */
-    
+    /* 'Close' button */    
     .close-button-wrapper {
         --newtab-background-color-secondary: transparent !important;
         position: static !important; /* Make close button scroll up */
@@ -711,59 +780,14 @@
     /* Combobox */
     
     .select-wrapper {
+        /*--button-background-color-menu: color-mix(in srgb, var(--customize-menu-bg) 84%, var(--my-contrast-color), var(--general-color)) !important;/**/
         --select-background-color: var(--button-background-color-menu) !important;
-    }
-    
-    /* Toggle 2nd description aligned */
-    .label-wrapper .description.text-deemphasized {
-        margin-inline-start: 4px !important;
     }
     
     /* Separator line */
     
-    .home-section .divider { 
+    .home-section .divider {
         border-image: var(--panel-separator-zap-gradient2) 1 !important;
-    }
-    
-    /* Remove unwanted background when a category is open */
-    
-    .wallpaper-list.category {
-        --newtab-background-color-secondary: transparent !important;
-    }
-    
-    /* Remove main elements when open a wallpaper category */
-    
-    .customize-menu:has(.category.wallpaper-list) {
-        & .wallpapers-section ~ *,
-        & .wallpapers-section .category-header,
-        & .wallpapers-section .category-list,
-        & .close-button-wrapper,
-        & #wallpapers-toggle,
-        & .manage-settings-footer {
-            opacity: 0  !important;
-            transition: opacity 0.2s ease;
-        }
-    }
-
-    .customize-menu:not(:has(.category.wallpaper-list)) {
-        & .wallpapers-section ~ *,
-        & .wallpapers-section .category-header,
-        & .wallpapers-section .category-list,
-        & .close-button-wrapper,
-        & #wallpapers-toggle {
-            opacity: 1 !important;
-            transition: opacity 0.3s ease;
-        }
-    }
-    
-    /* Recommended stories - blocked topics - slider */
-    
-    .sections-mgmt-panel {
-        background-color: var(--newtab-background-color) !important;
-        margin: 0px !important;
-        inset-inline-start: 0px !important;
-        width: -moz-available !important;
-        padding: var(--space-xlarge) !important;
     }
     
     /* __________________________________________________________ Search box _________________________________________________________ 
@@ -771,7 +795,7 @@
     /* Width */
     @container content-grid (inline-size >= calc(750px + 6.75rem)) {
         .nova-enabled .search-inner-wrapper {
-            width: calc(6 * var(--col-width) + 9 * var(--space-medium)) !important;
+            width: calc(6 * var(--col-width) + 12 * var(--space-medium)) !important;
         }
     }
     
@@ -782,66 +806,82 @@
     }
     
     /* Remove arrow */
-    .non-handoff-container .search-button { display: none !important; }
-
-    /* Margin when 'stories' are enabled */    
-    .has-recommended-stories .outer-wrapper:not(.fixed-search) .search-wrapper {
-        margin-block-start: 0px !important;
+    .non-handoff-container .search-button {
+        display: none !important;
+        border-radius: 0 calc(var(--border-radius-medium) + 22px) calc(var(--border-radius-medium) + 22px) 0px !important;
+    }
+    
+    /* Styles for both searchbox - classic & improved \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
+    #newtab-search-text,
+    .search-handoff-button {
+        backdrop-filter: var(--my-blur) !important;
+        box-shadow: inset 0 -1px var(--button-smaller-bgcolor), inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+        transition: box-shadow ease-in-out 0.2s, background-color 0.2s ease !important;
+        outline: 2px solid transparent !important; /* Remove unwanted outline but keep it transparent for 'accessibility' */
+        
+        &:hover,
+        &:hover:not([keepfocus]) {
+            box-shadow: inset 0 0px 0 2px var(--my-box-shadow-color, var(--button-smaller-bgcolor)), inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;/**/
+        }
+        
+        &[keepfocus] {
+            box-shadow: inset 0 0 0 1px var(--general-color), inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;/**/
+        }
+    }
+    
+    /* Styles for the improved search box \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    .non-handoff-container:focus-within,
+    content-search-handoff-ui[fakefocus] {
+        --my-box-shadow-color: var(--general-color) !important;
+        --my-smooth-border-color: var(--my-box-shadow-color) !important;
     }
     
     /* Styles for the classic search box \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     #newtab-search-text {
-        background-size: var(--size-item-medium) !important;
         padding-inline-start: 50px !important;
-        border-radius: 0px !important;
-        box-shadow: 0 2px var(--button-bgcolor) !important;
-        outline: none !important;
-    }
-    
-    /* Styles for the improved search box \
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    .search-handoff-button {
-        box-shadow:  0 2px var(--button-bgcolor) !important;
-        border-radius: 0px !important;
     }
     
     /* Searchbox focus Animation line
     - Styles for the classic search box
     - Styles for the improved search box
-    - included code for RTL language
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     .non-handoff-container,
     content-search-handoff-ui {
-        &:after, &:dir(rtl):after {
+        background: var(--my-gradient-background) !important;
+        border-radius: calc(var(--border-radius-medium) + 22px) !important;
+        
+        &:before {
             content: '' !important; display: flex !important; position: absolute !important;
             width: -moz-available !important;
-            height: 2px !important;
+            border-radius: calc(var(--border-radius-medium) + 22px) !important;
+            height: 100% !important;
             bottom: 0px !important;
-            box-shadow: 0 2px 0 0 var(--general-color) !important;
-            clip-path: xywh(0 0 0% calc(100% + 2px)) !important;
-            transition: clip-path 400ms ease !important;
-        }
-        
-        &:dir(rtl):after {
-            clip-path: xywh(100% 100% 0% calc(100% + 2px)) !important;
+            box-shadow: 0 1px 0 0 var(--general-color) !important;
+            clip-path: xywh(50% -2px 0% calc(100% + 4px)) !important;
+            transition: clip-path 0.8s ease, background 0.4s ease !important;
+            pointer-events: none !important;
         }
     }
 
     .non-handoff-container:focus-within,
     content-search-handoff-ui[fakefocus] {
-        &:after, &:dir(rtl):after {
-            clip-path: xywh(0 0 100% calc(100% + 2px)) !important;
-            transition: clip-path 400ms ease !important;
+        background: var(--my-gradient-background-hover) !important;
+        &:before {
+            box-shadow: 0 0 0 1px var(--general-color) !important;
+            clip-path: xywh(-2px -2px calc(100% + 4px) calc(100% + 4px)) !important;
+            background: var(--my-gradient-background) !important;
+            transition: clip-path 0.3s ease, background 0.4s ease !important;
         }
     }
     
     /* Search-box when it get sticky position \
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
     @media (height > 700px) {
         body:not(.inline-onboarding) .fixed-search .search-wrapper {
-            --my-image-background-blur: color-mix(in srgb, var(--my-color-scheme), transparent) !important;
+            --my-image-background-blur: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
             --my-solid-background-blur: color-mix(in srgb, var(--newtab-background-color), transparent) !important;
             background-image: linear-gradient(
                 var(--my-image-background-blur), var(--my-image-background-blur)),
@@ -859,6 +899,12 @@
                 background-color: var(--my-big-opaque-background) !important;
             }
         }
+    }
+    
+    /* Test it without 'News' section - Small space above searchbox */
+    
+    .nova-enabled.container {
+        grid-auto-rows: 0px !important;
     }
     
     /* _____________________________________________________ Weather _____________________________________________________ \
@@ -904,6 +950,12 @@
         align-items: center;
         margin-block-end: auto !important;
         font-size: var(--font-size-small);
+    }
+    
+    /* 'Checklist widget' - button background \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
+    .lists {
+        --lists-button-background: var(--button-smaller-bgcolor) !important;
     }
     
     /* _____________________________________________________ Pinned sites ________________________________________________________ 
@@ -956,7 +1008,7 @@
             margin-block-start: -28px !important;
             padding-inline: 8px !important;
             align-content: center !important;
-            text-shadow: 0px 0px 4px var(--my-color-scheme) !important;
+            text-shadow: 0px 0px 4px var(--my-scheme-color) !important;
         }
 
         /* Title label just in one line */
@@ -1001,7 +1053,7 @@
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     .lists,
     .focus-timer {
-        --newtab-background-card: var(--my-gradient-background) !important;
+        background: var(--my-gradient-background) !important;
         box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
         outline-color: transparent !important;
         transition: box-shadow ease-in-out 0.1s !important;
@@ -1057,7 +1109,7 @@
         /* Text shadow */
         .card-host-name,
         .card-title {
-            text-shadow: 0px 0px 4px var(--my-color-scheme) !important;
+            text-shadow: 0px 0px 4px var(--my-scheme-color) !important;
         }
     }
     
@@ -1081,25 +1133,32 @@
     .ds-card {
         background-color: transparent !important;
         background: var(--my-gradient-background) !important;
-        box-shadow: 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+        box-shadow: transparent !important;
+        box-shadow:  inset 0 0 0 1px transparent, 0 0 0 2px transparent, var(--my-box-shadow) !important;
+        backdrop-filter: var(--my-blur) !important;
         transition: box-shadow ease-in-out 0.1s !important;
-        transition-delay: 0ms !important;
 
         &:hover {
-            box-shadow: 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
+            box-shadow:  inset 0 0 0 1px var(--button-active-bgcolor), 0 0 0 2px var(--button-active-bgcolor), var(--my-box-shadow) !important;
             background: var(--my-gradient-background-hover) !important;
         }
 
         .ds-card-link {
-            backdrop-filter: var(--my-blur) !important;
+            background-color: transparent !important;
             border-radius: var(--border-radius-large) !important;
+            box-shadow: inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
+            transition: box-shadow ease-in-out 0.1s !important;
+
+            &:hover {
+                box-shadow:  inset 0 0 0 1px transparent, 0 0 0 1px var(--button-active-bgcolor) !important;
+            }
         }
-        
+
         .info-wrap {
-            text-shadow: 0px 0px 4px var(--my-color-scheme) !important;
+            text-shadow: 0px 0px 4px var(--my-scheme-color) !important;
         }
     }
-    
+
     /* Underline when 'hover' */
     .ds-card-grid .ds-card:hover h3,
     .ds-card-grid .ds-card.active h3 {
@@ -1195,7 +1254,7 @@
         }
         
         /* Previews - Firefox GX wallpapers deleted and show only accent color */        
-        button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div :is(.theme-dark, .theme-light) {
+        moz-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div :is(.theme-dark, .theme-light) {
             background-size: 0px !important;
             background-color: black !important;            
             align-content: center !important;
@@ -1209,7 +1268,7 @@
             }
         }
         
-        .wallpaper-list>button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div .theme-light {
+        .wallpaper-list>moz-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div .theme-light {
             background-color: white !important;
         }
     }
@@ -1228,41 +1287,51 @@
 /* _____________________________________________________ Private Newtab page _____________________________________________________ 
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-@-moz-document url(about:privatebrowsing) {
-    
+@-moz-document url-prefix(about:privatebrowsing) {
     :root {
-        --general-color: var(--purple) !important;      /* Need it to fill buttons */
+        --newtab-background-color: light-dark(#fefefe, #101019) !important;
     }
     
-    body {
-        --newtab-search-icon: url("chrome://global/skin/icons/indicator-private-browsing.svg") !important;
-        background: var(--lwt-private-image) no-repeat right top fixed !important;
-        background-size: cover !important;
+    /* Background & Font color - test changing to a light theme */
+    @media not (prefers-contrast) {
+        html.private {
+            background: none !important;
+            color-scheme: inherit !important;            
+        }
     }
     
+    /* Firefox logo replaced by 'Private' logo */
     .logo {
         background: url("chrome://global/skin/icons/indicator-private-browsing.svg") no-repeat !important;
         background-size: cover !important;
         height: 70px !important;
         width: 70px !important;
-        display: var(--my-logo-wordmark-display) !important;
-    }
-
-    .wordmark {
-        fill: var(--purple) !important;
-        display: var(--my-logo-wordmark-display) !important;
     }
     
     /* Informative boxes */
-    .promo.below-search, .info {
-        background-color: var(--my-newtab-elements-background) !important;
+    .promo.below-search, 
+    .info {
+        --my-informative-background-color: light-dark(#ffffff, #0c0c0d) !important;
+        background: var(--my-gradient-background) !important;
         backdrop-filter: var(--my-blur) !important;
         outline: 1px solid #50505050 !important;
+
+        &:hover {
+            --my-gradient-background-hover: color-mix(in srgb,                                            /* Background color when 'hover' in main elements */
+            var(--general-color) 6%, var(--my-informative-background-color)) !important;
+            background: var(--my-gradient-background-hover) !important;
+        }
+    }
+
+    .info-border {
+        background: none !important;
+        box-shadow: none !important;
     }
     
     /* Primary buttons */
     .promo-cta .primary {
         background-color: var(--button-bgcolor) !important;
+        border-color: var(--button-smaller-bgcolor) !important;
         color: Fieldtext !important;
         
         &:hover {
@@ -1270,31 +1339,36 @@
         }
     }
     
-    /* Searchbox */
+    /* __________________________________ Searchbox __________________________________ 
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     .search-handoff-button {
+        --content-search-handoff-ui-fill: FieldText !important;     /* Icon fill color */
         background-color: transparent !important;
-        border: transparent !important;
-        box-shadow: 0 2px var(--button-bgcolor) !important;
+        border-width: 0px !important;
+        border-color: transparent !important;
+        box-shadow: inset 0 -1px var(--button-bgcolor) !important;
+        opacity: 0.8 !important;
     }
-
+    
+    /* 'Search with...' text color */
     .fake-textbox, 
     .fake-editable {
         color: FieldText !important;
     }
 
+    /* Caret- insertion point */
     .fake-caret { 
-        background-color: var(--in-content-icon-color) !important;
-    }
-
-    .search-inner-wrapper:not(:focus) {
-        backdrop-filter: var(--my-blur) !important;
+        background-color: FieldText !important;
     }
     
-    /* Font color - test when change to a light theme */
-    @media not (prefers-contrast) {
-        html.private {
-            color-scheme: inherit !important;
-        }
+    /* I don't know why this keep the animation in searchbox */
+    .search-inner-wrapper {
+        --mrec-width: 300px;
+        --col-width: calc(var(--mrec-width) / 4);
+        width: calc(6 * var(--col-width) + 12 * var(--space-medium)) !important;
+        min-width: calc(6 * var(--col-width) + 12 * var(--space-medium)) !important;
+        backdrop-filter: var(--my-blur) !important;
+        margin-inline: auto !important;
     }
 }
 
@@ -1375,7 +1449,8 @@
 
 @-moz-document 
     regexp("^https://www.thomann.de.*"), 
-    regexp("^https://www.svgrepo.*")  {
+    regexp("^https://www.svgrepo.*"),
+    regexp("^https://www.pichincha.com.*") {
         
     @media -moz-pref("browser.tabs.allow_transparent_browser") {
         body {

@@ -41,7 +41,7 @@
     #tabbrowser-tabs[movingtab-group] & {
         &:is([selected], [multiselected]) {
             background-image: none !important;
-            background-color: var(--contrast-color) !important;
+            background-color: var(--my-scheme-color) !important;
             margin: 0px !important;
             outline-width: 3px !important;
             outline-offset: -3px !important;
@@ -60,6 +60,7 @@
 /* 'Static tab' when creating a group */
 .tabbrowser-tab[dragover-groupTarget] {            
     & .tab-background {
+        background-color: light-dark(var(--dragover-tab-group-color), var(--dragover-tab-group-color)) !important;
         margin: 0px !important;
         outline-color: transparent !important;
         border-radius: 0px !important;
@@ -67,7 +68,7 @@
         
         &::before,
         &::after {
-            background: var(--dragover-tab-group-color) !important;
+            background: light-dark(var(--dragover-tab-group-color-pale), var(--dragover-tab-group-color)) !important;
             box-shadow: 0 1px var(--dragover-tab-group-color) !important;
         }
     }
@@ -76,8 +77,14 @@
 /* Remove group 'hover' background \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tab-group-label-hover-highlight {
-    --tab-hover-background-color: transparent !important;
-    margin-inline: 0px !important;
+    margin-inline: 0px !important; /* Remove unwanted margin-inline in 'Vertical tabs' */
+    
+  tab-group[collapsed]:not([movingtabgroup]) &:hover, tab-group[previewpanelactive] & {
+    @media not -moz-pref("browser.nova.enabled") {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+    }
 }
 
 /* Group line color the same when is collapsed and a tab is 'selected' \
@@ -86,13 +93,13 @@ tab-group {
     --tab-group-line-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
 
     /* Tab group background */
-    & .tabbrowser-tab { background-color: var(--tab-group-bgcolor) !important; }
+    & .tabbrowser-tab { background-color: var(--tab-group-background-color) !important; }
 }
 
 /* Align tab group counter when group collapsed with a 'selected' tab on \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tab-group-overflow-count-container {
-    background-color: var(--tab-group-bgcolor) !important;
+    background-color: var(--tab-group-background-color) !important;
     
      /* In 'Vertical tabs' */
     #tabbrowser-tabs[orient="vertical"] & {
@@ -124,7 +131,7 @@ tab-group {
     &:hover {
         opacity: 1;
         outline: 1px solid light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
-        box-shadow: inset 0 0 0 1px var(--toolbar-bgcolor) !important;
+        box-shadow: inset 0 0 0 1px var(--toolbar-background-color) !important;
     }
 
     /* Trick to clic on border */
@@ -155,8 +162,8 @@ tab-group {
 /* Keep group label background color */
 tab-group[hasactivetab][collapsed],
 tab-group:not([collapsed]) {
-    .tab-group-label-container {
-        background-color: var(--tab-group-bgcolor) !important;
+    .tab-group-label::after {
+        background-color: var(--tab-group-background-color) !important;
     }
 }
 
@@ -186,7 +193,7 @@ tab-group:not([collapsed]) {
     tab-group {
         /* Distance of the line below label from the toolbar */
         --tab-group-line-toolbar-border-distance: 2px !important;
-        /* Tab height */
+        /* Tab height - test it with 'Tab-Shapes' */
         --tab-min-height: calc(var(--my-group-tab-min-height) - 1px) !important;
         /* New tab height for groups */
         --my-group-tab-min-height: calc(var(--tab-height-personal) - var(--tab-group-line-toolbar-border-distance));
@@ -230,7 +237,7 @@ tab-group:not([collapsed]) {
 }
 
 /* _____________________________________ Tabs groups styles for Vertical tabs _____________________________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @media -moz-pref("sidebar.verticalTabs") {
     
@@ -244,50 +251,10 @@ tab-group:not([collapsed]) {
         padding-block-end: var(--space-xsmall) !important;
     }
     
-    /* Split view */
-    tab-split-view-wrapper {
-        #tabbrowser-tabs[orient="vertical"] & {
-            #tabbrowser-tabs & {
-                margin-inline: 0px !important;
-                padding: 0px !important;
-                gap: 0px !important;
-            }
-        }
-    }
-    
-    #tabbrowser-tabs tab-split-view-wrapper {
-        & .tabbrowser-tab {
-            &:first-child {
-                border-image: 1 linear-gradient( to right,
-                    transparent 10px,
-                    color-mix(in srgb, var(--general-color) 50%, transparent) 10px,
-                    color-mix(in srgb, var(--general-color) 50%, transparent) calc(100% - 10px),
-                    transparent calc(100% - 10px));
-            }
-        }
-
-        &:is([hasactivetab]) {
-            & .tabbrowser-tab {
-                &:first-child {
-                    border-block-end: 1px solid transparent !important;
-                    border-image: none !important;
-                }
-            }
-        }
-    }
-    
-    /* Remove unwanted padding */
-    #tabbrowser-tabs tab-split-view-wrapper {
-        & .tabbrowser-tab {
-            & .tab-content {
-                padding-inline: var(--tab-inline-padding) !important;
-            }
-        }
-    }
-    
     /* Group label */
     
     .tab-group-label {
+        text-overflow: " " !important;  /* Test it using personal 'expand-on-hover' */
         
         /* First letter always capitalized */
         &::first-letter {
@@ -296,6 +263,7 @@ tab-group:not([collapsed]) {
         
         /* Center label in all densities */
         margin-inline: calc(var(--tab-collapsed-width) /2 - 12px) !important;
+        padding-inline: 0px !important;
         
         
         /* Group label when sidebar is expanded  

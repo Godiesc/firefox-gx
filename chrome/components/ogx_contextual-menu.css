@@ -3,19 +3,19 @@
 
 /* Menu padding \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-menupopup {
+menupopup:not(.in-menulist) {
     --panel-padding: 4px 0px !important;
-}
-
-menupopup > menuitem, menupopup > menu {
-    appearance: none !important;
-    padding-block: 4px !important;
-    border-radius: 0px !important;
+    
+    & > :is(menuitem, menu) {
+        --menuitem-border-radius: 0px !important;
+        --menuitem-padding: 0.34em 1em !important;
+        appearance: none !important;
+    }
 }
 
 /* Combo-box - Select Box more compact \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#ContentSelectDropdown > menupopup > menuitem {
+#ContentSelectDropdown > menupopup:not(.in-menulist) > menuitem {
     padding: 0 6px !important;
 }
 
@@ -34,15 +34,6 @@ menupopup:not(.in-menulist)  menuseparator {
     }
 }
 
-/* Bug fix: Separator after 'AI menu' causes unwanted scrolling \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-@media -moz-pref("browser.ml.chat.menu") {
-    #context-ask-chat,
-    #context-ask-chat + #frame-sep {
-        display: flex !important;
-    }
-}
-
 /* 'Menu inside menu' margin \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 menupopup menupopup {
@@ -53,11 +44,10 @@ menupopup menupopup {
 
 /* General Styles \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-menupopup:not(.in-menulist), 
-panel:not(.in-menulist,.panel-no-padding) {
-    --panel-shadow-margin: 1px !important;  /* 1px to draw the external border */
-    --panel-border-radius: var(--arrowpanel-border-radius) !important;  /* Roundness */
-    --panel-border-color: var(--arrowpanel-border-color) !important;
+:is(menupopup:not(.in-menulist), panel):where(:not([type="arrow"])) {
+    --panel-box-shadow-margin: 1px !important;  /* 1px to draw the external contrast border */
+    --panel-border-radius: 4px !important;
+    --panel-box-shadow: 0 0 0 1px var(--my-scheme-color) !important;    /* Test in 'search engine' button */
 }
 
 .menupopup-arrowscrollbox {
@@ -67,11 +57,12 @@ panel:not(.in-menulist,.panel-no-padding) {
     background-size: var(--my-background-size) !important;
     background-position: var(--my-background-position) !important;
     background-color: var(--my-background-color, Field) !important;
+    border-color: var(--my-panel-border-color, var(--border-color)) !important;
+    box-shadow: var(--my-panel-box-shadow, var(--panel-box-shadow)) !important;
 }
 
 menupopup:not(.in-menulist) {
-    --panel-background: var(--arrowpanel-background) !important;
-    --panel-shadow: 0 0 0 1px var(--border-contrast-color) !important;
+    --panel-background-color: var(--arrowpanel-background) !important;
     --my-background-image1:                                              /* Soft gradient background - needs to be 1 */
         radial-gradient( 100% 91.38% at 50% 99.62%,
         color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
@@ -80,13 +71,20 @@ menupopup:not(.in-menulist) {
     --my-background-size: auto auto !important;
     --my-background-position: center center;
     --my-background-color: var(--arrowpanel-background) !important;
+    --my-panel-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;       /* popup_border - internal */
+    --my-panel-box-shadow: 0 0 0 1px var(--my-scheme-color) !important;                                 /* popup border - external */
+    
+    @media (prefers-color-scheme: light) {
+        --my-panel-border-color: lch(from var(--panel-background-color) calc(l - 20) c h) !important;   /* popup_border - internal */
+        --my-scheme-color: var(--my-scheme-border-color) !important;                                    /* popup border - external */
+    }
 
     /* Font color in Contextual menus */
     &> menuitem,
     &> menu {
         &:not([disabled]) {
             appearance: none !important;
-            color: var(--arrowpanel-color, var(--my-font-color)) !important;
+            color: var(--panel-text-color, var(--my-font-color)) !important;
         }
     }
 
@@ -111,7 +109,7 @@ menupopup:not(.in-menulist) {
             position: absolute;
             inset: 1px;
             padding: 1px;
-            border-radius: var(--arrowpanel-border-radius);
+            border-radius: var(--panel-border-radius);
             background: repeat var(--identity-icon-color, var(--my-arrowpanel-gradient)) !important;
             background-repeat: no-repeat !important;
             mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -152,7 +150,7 @@ menupopup:not(.in-menulist) {
 #context-navigation > menuitem[_moz-menuactive="true"] {
     &:not([disabled]) {
         background: var(--panel-separator-zap-gradient3) !important;
-        color: var(--arrowpanel-color, var(--my-font-color)) !important;
+        color: var(--panel-text-color, var(--my-font-color)) !important;
     }
     &:is([disabled]) {
         background: linear-gradient(to right, color-mix(in srgb, currentcolor 20%, transparent), transparent) !important;
@@ -177,7 +175,7 @@ menupopup:not(.in-menulist) {
         }
         
         &:not([disabled]) {
-            color: var(--arrowpanel-color, var(--my-font-color)) !important; /* used when font color isn't white/black */
+            color: var(--panel-text-color, var(--my-font-color)) !important; /* used when font color isn't white/black */
         }
     }
     

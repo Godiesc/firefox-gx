@@ -80,8 +80,8 @@
   :root {
     --toolbar-height-personal: var(--tab-height-personal) !important;                     /* Toolbar height */
     --navbarWidth: 32vw;                                                                  /* Set width of navbar. Use px for a fixed width or vw for a percentage of your window.*/
-    --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;     /* button_background_hover */
-    --toolbarbutton-inner-padding: 4px !important;                                        /* Smaller button size */
+    --toolbarbutton-background-color-hover: var(--toolbarbutton-hover-personal) !important;     /* button_background_hover */
+    --toolbarbutton-padding-inner: 4px !important;                                        /* Smaller button size */
   }
   
   /* New variables */
@@ -108,7 +108,7 @@
   /* Align the navbar gradient line with selected tab, and trick to vertically center all elements */ 
 
   #nav-bar {
-    --toolbar-bgcolor: transparent !important;
+    --toolbar-background-color: transparent !important;
     margin-inline-start: var(--my-vertical-toolbar-width) !important;
     padding-inline-end: calc(var(--uc-window-control-width, 28px)) !important; /* 20px when 'without control buttons' */
     margin-top: calc(-1* var(--toolbar-height-personal)) !important;
@@ -277,9 +277,9 @@
 
   #TabsToolbar .toolbarbutton-1:not(#tabs-newtab-button,#new-tab-button), 
   #nav-bar {
-    --toolbarbutton-hover-background: var(--toolbarbutton-hover-personal) !important;
-    --toolbarbutton-active-background: var(--button-bgcolor) !important;
-    --toolbarbutton-icon-fill: var(--toolbar-color) !important;
+    --toolbarbutton-background-color-hover: var(--toolbarbutton-hover-personal) !important;
+    --toolbarbutton-background-color-active: var(--button-bgcolor) !important;
+    --toolbarbutton-icon-fill: var(--toolbar-text-color) !important;
   }
   
 /* :hover icons */
@@ -302,7 +302,7 @@
   :root:is([lwtheme-image],[style*="--lwt-additional-images"]),
   :root:not([lwtheme-image],[style*="--lwt-additional-images"]){
     #nav-bar .toolbarbutton-1:is([open]):not([disabled]) {
-      --toolbarbutton-icon-fill: var(--toolbar-color) !important;
+      --toolbarbutton-icon-fill: var(--toolbar-text-color) !important;
     }
   }
   
@@ -363,7 +363,7 @@
 
   #main-menubar{
     min-height: calc(var(--toolbar-height-personal) - 1px) !important;
-    background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
+    background-image: linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
                       var(--lwt-header-image, none), var(--lwt-additional-images,none),
                       linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;
     background-position: 0 0, right top , var(--lwt-background-alignment) !important;
@@ -371,7 +371,7 @@
     background-repeat: repeat-x, no-repeat, var(--lwt-background-tiling) !important;
     background-size: auto 100%, auto auto, var(--lwt-background-size) !important;
     background-attachment: fixed, fixed, fixed !important;
-    color: var(--arrowpanel-color) !important;
+    color: var(--panel-text-color) !important;
   }
 
   @media (-moz-gtk-csd-reversed-placement) {

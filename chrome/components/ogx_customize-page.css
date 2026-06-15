@@ -4,7 +4,7 @@
 /* Page -> 'Customize the toolbar' */
 
 #customization-container {
-    background-color: var(--toolbar-bgcolor) !important;
+    background-color: var(--toolbar-background-color) !important;
     color: var(--lwt-text-color) !important;
 } 
 
@@ -47,10 +47,10 @@
 
 #customization-panelWrapper {
     & > .panel-arrowcontent {
-        box-shadow: 0 0 0 1px var(--contrast-color) !important;
+        box-shadow: 0 0 0 1px var(--my-scheme-color) !important;
         
         @media not (-moz-platform: macos) {
-            border-radius: var(--arrowpanel-border-radius) !important;
+            border-radius: var(--panel-border-radius) !important;
         }
     }
 }
@@ -61,7 +61,7 @@
     margin-top: 1px !important;
     width: 34px; height: 9px;
     list-style-image: url("../icons/panelarrow-menu.svg") !important;
-    filter: drop-shadow(0px -1px 0px var(--contrast-color));
+    filter: drop-shadow(0px -1px 0px var(--my-scheme-color));
 
     @media -moz-pref("firefoxgx.oneline") {
         margin-inline-end: calc(var(--uc-window-control-width, 8px) - 6px + var(--customization-panel-padding)) !important;

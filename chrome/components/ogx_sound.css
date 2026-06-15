@@ -33,12 +33,12 @@
     position: var(--my-position) !important;
     top: var(--my-top) !important;
     inset-inline-start: var(--my-inset-inline-start) !important;
-    background-image: var(--my-background-sound-image, none) !important;
+    background-image: var(--my-background-sound-image, var(--message-bar-icon-close-url)) !important;   /* Keep 'close icon' in infobar */
     background-size: var(--my-background-size) !important;
     /*box-shadow: var(--my-box-shadow) !important;/**/
     opacity: var(--my-opacity) !important;
-    fill: var(--my-fill) !important;
-    stroke: var(--my-stroke, inherit) !important;
+    fill: var(--my-fill, currentColor) !important;
+    stroke: var(--my-stroke, inherit) !important;/**/
     outline: var(--my-outline) !important;
     outline-offset: var(--my-outline-offset) !important;
     align-items: var(--my-align-items, center) !important;
@@ -84,9 +84,9 @@
     
     .tab-audio-button[soundplaying] {
         --my-background-sound-image: url("../icons/sound-playing.svg") !important;
-        --button-background-color-ghost: color-mix(in srgb, var(--contrast-color), transparent) !important;
-        --button-background-color-ghost-hover: color-mix(in srgb, var(--contrast-color), transparent) !important;
-        --button-background-color-ghost-active: color-mix(in srgb, var(--contrast-color), transparent) !important;
+        --button-background-color-ghost: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
+        --button-background-color-ghost-hover: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
+        --button-background-color-ghost-active: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
         --my-fill: var(--general-color)  !important;
         
         &:hover {
@@ -132,7 +132,7 @@
             &:is([soundplaying], [muted], [activemedia-blocked]) {
                 width: 14px !important;
                 height: 14px !important;
-                background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
+                background-color: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
                 background-image: none !important;
                 inset-inline-end: -7px !important;
                 top: -5px !important;
@@ -150,7 +150,7 @@
             
             &:is([muted],[activemedia-blocked]) {
                 list-style-image: url("../icons/sound-muted.svg") !important;
-                background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
+                background-color: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
                 
                 &:hover {
                     fill: var(--my-font-color) !important;
@@ -181,7 +181,7 @@
                 &:is([soundplaying],[muted],[activemedia-blocked]) {
                     height: 14px !important;
                     width: 14px !important;
-                    background-color: color-mix(in srgb, var(--contrast-color), transparent) !important;
+                    background-color: color-mix(in srgb, var(--my-scheme-color), transparent) !important;
                     background-image: none !important;
                     padding: 0px !important;
                     top: -5px !important;
@@ -259,7 +259,7 @@
             --button-background-color-ghost-active: var(--general-color) !important;
             --my-background-size: inherit !important;
             --my-background-position: center !important;
-            --my-fill: var(--contrast-color) !important;
+            --my-fill: var(--my-scheme-color) !important;
             --my-top: calc(var(--tab-height-personal)/2 - 9px) !important;
             --my-inset-inline-start: 7px !important;
         }
@@ -363,7 +363,7 @@
             
             &[soundplaying]:is(:hover) {
                 background-color: var(--general-color) !important;
-                fill: var(--contrast-color) !important;
+                fill: var(--my-scheme-color) !important;
             }
             
             &:is([muted],[activemedia-blocked]) {
@@ -408,7 +408,7 @@
 
                 &[soundplaying]:is(:hover) {
                     background-color: var(--general-color) !important;
-                    fill: var(--contrast-color) !important;
+                    fill: var(--my-scheme-color) !important;
                 }
 
                 &:is([muted],[activemedia-blocked]) {

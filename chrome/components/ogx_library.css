@@ -14,8 +14,8 @@
     @media (prefers-color-scheme: dark){
         :root{
         --arrowpanel-background: #1c1726 !important;
-        --contrast-color: #09080d !important;
-        --border-contrast-color: #09080d !important;
+        --my-scheme-color: #09080d !important;
+        --my-scheme-border-color: #09080d !important;
         --organizer-pane-background: #101019 !important;
         --organizer-border-color: #373748 !important;
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, white) !important;
@@ -26,18 +26,18 @@
     @media (prefers-color-scheme: light){
         :root{
         --arrowpanel-background: #f9f9f9 !important;
-        --contrast-color: #f9f9f9 !important;
-        --border-contrast-color: #acacac50 !important;
+        --my-scheme-color: #f9f9f9 !important;
+        --my-scheme-border-color: #acacac50 !important;
         --organizer-pane-background: #f9f9f9 !important;
         --organizer-border-color:#cdcdcd !important;
         --organizer-pane-background2: color-mix(in srgb, var(--organizer-pane-background) 94%, black) !important;
-        --contrast-color: white !important;
+        --my-scheme-color: white !important;
         --organizer-color: black !important;
         --organizer-pane-field-border-color: color-mix(in srgb, var(--organizer-toolbar-background) 78%, black) !important;
     }}
     /* ---------------- Contextual menu border ------------------ */
     .menupopup-arrowscrollbox{
-        box-shadow: 0px 0px 0 1px var(--border-contrast-color) !important;
+        box-shadow: 0px 0px 0 1px var(--my-scheme-border-color) !important;
     }
     /* --------- Border color 'name-Labels-Address' --------- */
     treecol, treecolpicker {
@@ -107,7 +107,7 @@
         appearance: none !important;
         padding-inline: 14px !important;
         border-radius: 4px !important;
-        outline: 1px solid  color-mix(in srgb, var(--contrast-color) 30%, transparent) !important;
+        outline: 1px solid  color-mix(in srgb, var(--my-scheme-color) 30%, transparent) !important;
         outline-offset: -1px !important;
         background: var(--organizer-pane-background) !important;
         }
@@ -172,8 +172,8 @@
     /* General 'Edit' background */
     #editBookmarkPanelRows>vbox>input, #editBookmarkPanelRows>vbox>hbox>input {
         appearance: none !important;
-        background: color-mix(in srgb, var(--organizer-pane-background2) 60%, var(--contrast-color)) !important;
-        border-color: color-mix(in srgb, var(--organizer-pane-background2) 30%, var(--contrast-color)) !important;
+        background: color-mix(in srgb, var(--organizer-pane-background2) 60%, var(--my-scheme-color)) !important;
+        border-color: color-mix(in srgb, var(--organizer-pane-background2) 30%, var(--my-scheme-color)) !important;
     }
     #editBookmarkPanelRows>vbox>input:focus, #editBookmarkPanelRows>vbox>hbox>input:focus{
         appearance: none !important;

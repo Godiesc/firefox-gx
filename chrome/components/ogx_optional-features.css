@@ -142,7 +142,7 @@
 
                      /* not: Hamburger-menu, tab preview, tabgroup preview panel, contextual menu in group button, menu in customization mode */
   :is(menupopup, panel):not(
-  #appMenu-popup, #tab-preview-panel, #tabgroup-preview-panel, .tab-group-editor-panel, 
+  #appMenu-popup, #tab-preview-panel, #tabgroup-preview-panel,
   #customization-uidensity-menu, /*#feature-callout,/**/ #chat-shortcuts-options-panel
   ):where([type="arrow"])::after {
     z-index: 0 !important;
@@ -164,14 +164,14 @@
   #select-translations-panel, #selection-shortcut-action-panel, #feature-callout, #chat-shortcuts-options-panel)::before {
     content: ''; position: absolute;
     top: calc(var(--my-margin-top-popups) - 4px);
-    inset-inline-start: calc(var(--toolbarbutton-inner-padding) + 2px);
+    inset-inline-start: calc(var(--toolbarbutton-padding-inner) + 2px);
     width: 34px; height: 9px;
     background-size: 34px 9px;
     background-image: url("../icons/panelarrow-menu.svg");
     -moz-context-properties: fill, stroke;
     fill: var(--arrowpanel-background);
-    stroke: var(--arrowpanel-border-color);
-    filter: drop-shadow(0px -1px 0px var(--contrast-color));
+    stroke: var(--panel-border-color);
+    filter: drop-shadow(0px -1px 0px var(--my-scheme-color));
     z-index: 1;
   }
 
@@ -189,14 +189,14 @@
     :root:has(toolbarbutton[open] ~ #tabbrowser-tabs) & ,                              /* Buttons on left of tabsbar */
     :root:has(toolbaritem>box>toolbarbutton[open] ~ #tabbrowser-tabs) & {              /* Buttons on left of tabsbar (Extensions) */
       &::before{
-        inset-inline-start: calc(var(--toolbarbutton-inner-padding) + 2px);
+        inset-inline-start: calc(var(--toolbarbutton-padding-inner) + 2px);
       }
     }
     :root:has(#tabbrowser-tabs ~ toolbarbutton[open]:not(#firefox-view-button)) &,     /* Buttons on right of tabsbar */
     :root:has(#tabbrowser-tabs ~ toolbaritem toolbarbutton[open]) & {                  /* Buttons on right of tabsbar (Extensions) */
       &::before{
         inset-inline-start: unset !important;
-        inset-inline-end: calc(var(--toolbarbutton-inner-padding) + 2px);
+        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px);
         
         @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
           stroke: var(--general-color) !important;
@@ -213,7 +213,7 @@
     :root:has(#urlbar-container ~ toolbaritem toolbarbutton[open]) & {                 /* Movable right icon extensions */
       &::before {
         inset-inline-start: unset !important;
-        inset-inline-end: calc(var(--toolbarbutton-inner-padding) + 2px) !important;
+        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
         
         /* Arrow + gradientBorder in menus */
         @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
@@ -234,7 +234,7 @@
     :root:has(#tracking-protection-icon-container[open]) & {  /* Shield */
       &::before {
         inset-inline-start: unset !important;
-        inset-inline-end: calc(var(--toolbarbutton-inner-padding) + 2px) !important;
+        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
         
         @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
           stroke: var(--general-color) !important;
@@ -245,7 +245,7 @@
     :root:has(#page-action-buttons>hbox[open]) & {            /* urlbar-page-action */
       &::before {
         inset-inline-start: unset !important;
-        inset-inline-end: calc(var(--toolbarbutton-inner-padding) + 2px) !important;
+        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
         
         @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
           stroke: var(--general-color) !important;
@@ -260,32 +260,32 @@
 
 @media -moz-pref("firefoxgx.gradientBorder-in-menus") /*and (not -moz-pref("firefoxgx.arrow-in-menus"))/**/ {
   
-  :root/*,
-  :root[lwtheme],
-  :root:not([lwtheme])/**/ {
-    --arrowpanel-border-radius: 0px !important;
+  :root {
+    --panel-border-radius: 0px !important;
     --panel-separator-zap-gradient2: linear-gradient(to right, transparent, var(--general-color)) !important;
+    --panel-border-color: color-mix(in srgb, 
+    var(--panel-background-color) 96%, var(--my-font-color)) !important;                                        /* popup_border */
   }
   
   /* Hamburger menu */
   
   :root:not([chromehidden~="toolbar"],[sizemode="normal"]) {
     & #appMenu-popup {
-      --arrowpanel-border-radius: 0px !important;
+      --panel-border-radius: 0px !important;
     }
   }
   
   /* Context menus */
-
+  
+  :is(menupopup, panel):where(:not([type="arrow"])) {
+    --panel-border-radius: 0px !important;
+  }
+  
   menupopup:not(.in-menulist) {
     --my-border-image: var(--panel-separator-zap-gradient2) 1 !important;
   }
   
   /* Arrowpanels */
-  
-  :is(menupopup, panel):where([type="arrow"]) {
-    --arrowpanel-border-color: transparent !important;
-  }
   
   :is(menupopup, panel):where([type="arrow"])::after {
     background: var(--panel-separator-zap-gradient2) !important;

@@ -52,11 +52,13 @@
   --brightness-toolbar: 50%;                                                            /* Themes with images - light filter to navbar - bookmarksbar */
   --brightness-wallpaper: 100%;                                                         /* 100% -> default */ }}
 
-:root[privatebrowsingmode="temporary"]{ --general-color: var(--purple) !important; }    /* Accent color for private browsing */
+:root:is(
+[privatebrowsingmode="temporary"],
+[privatebrowsingrendercomplete]) { --general-color: var(--purple) !important; }         /* Accent color for private browsing */
   
 :root {
   
-  --tab-height-personal: 32px ;                                                         /* Tab height */
+  --tab-height-personal: 32px ;                                                         /* Tab height - minimum 28px */
   --tab-min-width-personal: 22px ;                                                      /* Tab min width | default -> :76px */
   --toolbar-height-personal: 38px ;                                                     /* Toolbar height */
   
@@ -67,7 +69,8 @@
   
   --my-logo-wordmark-display: flex ;                                                    /* Logo-wordmark | none -> remove | flex -> show |  */
   
-  --my-newtab-elements-background: color-mix(in srgb, white 3%, transparent) ;          /* Background color of newtab elements */
+  --my-newtab-elements-background: color-mix(in srgb, 
+    white 3%, var(--newtab-background-color) , transparent) ;                        /* Background color of newtab elements */
   --my-border-radius: 6px ;                                                             /* Roundness of many elements in 'about:' pages */
   --my-blur: blur(16px) ;                                                               /* Blur on new tab page elements */
   
@@ -89,12 +92,12 @@
 
 @media -moz-pref("firefoxgx.main-image") {  
   @media (prefers-color-scheme: dark) { :root {
-    --lwt-main-image:  url("../newtab/main-image-dark.png") !important;                 /* new-tab page image - dark theme */
+    --lwt-main-image: url("../newtab/main-image-dark.png") !important;                  /* new-tab page image - dark theme */
     --brightness-toolbar: 50%;                                                          /* Dark filter to toolbars & web content */
     --brightness-wallpaper: 80%;                                                        /* Black filter | no filter -> 100% */ }}
   
   @media (prefers-color-scheme: light) { :root {
-    --lwt-main-image:  url("../newtab/main-image-light.png") !important;                /* new-tab page image - light theme*/
+    --lwt-main-image: url("../newtab/main-image-light.png") !important;                 /* new-tab page image - light theme*/
     --brightness-toolbar: 50%;                                                          /* light filter to toolbars & web content */
     --brightness-wallpaper: 80%;                                                        /* White filter | no filter -> 100% */ }}
 }

@@ -18,7 +18,7 @@
     --table-header-background-color: var(--button-smaller-bgcolor) !important;                          /* Table th accent color */
     --table-header-text-color: FieldText !important;                                                    /* Table th color */
 
-    --button-background-color-menu: light-dark(#dee2ed, #181d25) !important;                            /* Other Ghost button background */
+    --button-background-color-menu: light-dark(#dee2ed, var(--my-box-button-background-color)) !important;                            /* Other Ghost button background */
 
     --border-color: light-dark(var(--color-gray-50), #70707070) !important;                             /* Border color */
 
@@ -37,6 +37,25 @@
         transparent);
 }
 
+/* Various combobox */
+.select-wrapper {
+    /*--select-background-color: var(--my-box-button-background-color) !important;) !important;/**/
+}
+
+moz-box-group {
+    background-color: var(--button-background-color-menu) !important;
+}
+
+/* All buttons? - 'Manage' Buttons */
+.button:not([disabled]) {
+    /*--box-button-background-color: color-mix(in srgb, var(--customize-menu-bg) 84%, var(--my-contrast-color), var(--general-color)) !important;/**/
+
+    /* Border */
+    &:hover {
+        outline: 1px solid var(--button-hover-bgcolor) !important;
+    }
+}
+
 /* Styles for all 'about' pages \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
@@ -45,7 +64,11 @@
     /* Toggle button \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     .toggle-button {
-        --toggle-border-radius: calc(var(--my-border-radius) - 2px) !important;
+        --toggle-background-color-hover: var(--button-smaller-bgcolor) !important;
+        --toggle-background-color-pressed: var(--button-bgcolor) !important;
+        --toggle-background-color-pressed-hover: var(--button-hover-bgcolor) !important;
+        --toggle-background-color-pressed-active: var(--button-active-bgcolor) !important;
+        --toggle-border-radius: var(--border-radius-medium) !important;
         --toggle-height: 21px !important;
         --toggle-width: 36px !important;
         --toggle-dot-height: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
@@ -53,7 +76,7 @@
 
         /* Toggle hexagon */
         &::before {
-            translate: 1px !important;
+            margin-inline: 2px !important;
             border-radius: calc(var(--toggle-border-radius) - 2px) !important;
         }
     }
@@ -62,26 +85,14 @@
     .toggle-button:not(:hover) {
         opacity: 0.8 !important;
     }
-
-    /* Toggle off when 'hover' */
-    .toggle-button[aria-pressed="false"]:hover {
-        background: transparent !important;
-    }
-
+    
     /* Toggle on */
     .toggle-button[aria-pressed="true"] {
-        --toggle-dot-transform-x: calc(var(--toggle-width) - 3 * var(--toggle-dot-margin) - 2px - var(--toggle-dot-width));
-        background-color: var(--button-bgcolor) !important;
         border-color: var(--general-color) !important;
 
-        &:hover {
-            background-color: var(--button-hover-bgcolor) !important;
-            border-color: var(--general-color) !important;
-        }
-
         &::before {
-            background-color: FieldText !important;
-            translate: var(--toggle-dot-transform-x) !important;
+            margin-inline: 1px !important;
+            background-color: currentColor !important;
         }
     }
 }
@@ -204,7 +215,7 @@
                 }
 
                 &:focus-visible {
-                    --input-text-background-color: var(--my-color-scheme) !important; /* background color */
+                    --input-text-background-color: var(--my-scheme-color) !important; /* background color */
                     border-color: var(--general-color) !important;
                     outline: 1px solid var(--general-color) !important;
                 }

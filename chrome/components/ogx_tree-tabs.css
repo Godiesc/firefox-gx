@@ -72,7 +72,7 @@
     
     /* Toolbars background color */
     .browser-toolbar:not(#toolbar-menubar) {
-        background-color: var(--toolbar-bgcolor) !important;
+        background-color: var(--toolbar-background-color) !important;
     }
 }
 
@@ -160,8 +160,8 @@
     }
     
     #toolbar-menubar[autohide] #main-menubar{
-        background-image: linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)),
-            linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)),
+        background-image: linear-gradient(var(--toolbar-background-color),var(--toolbar-background-color)),
+            linear-gradient(var(--toolbar-background-color),var(--toolbar-background-color)),
             var(--lwt-additional-images,none), var(--lwt-header-image, none),
             linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field));
         background-attachment: scroll, scroll, fixed, fixed;

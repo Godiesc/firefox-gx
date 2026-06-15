@@ -2,7 +2,7 @@
    https://github.com/Godiesc/firefox-gx */
 
 .tab-close-button:hover {
-    background-color: var(--contrast-color, var(--lwt-accent-color)) !important;
+    background-color: var(--my-scheme-color, var(--lwt-accent-color)) !important;
     fill: var(--general-color) !important;
 }
 
@@ -53,12 +53,12 @@
             height: 12px !important;
             background: var(--general-color) !important;
             padding: 2px !important;
-            fill: var(--contrast-color) !important;
+            fill: var(--my-scheme-color) !important;
             top: -1px !important;
             
             &:hover {
                 background: var(--my-font-color) !important;
-                fill: var(--contrast-color) !important;
+                fill: var(--my-scheme-color) !important;
             }
         }
     }
