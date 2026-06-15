@@ -1,12 +1,18 @@
+/* Toolbar background */
+
+:root {
+    background-color: transparent !important;
+}
+
 #root.root {
-    --tabs-border-radius: 4px;
     --tabs-indent: 12px;
     --tabs-margin: 0px;
     --tabs-pinned-width: var(--my-vertical-elements-width);
+    --s-frame-bg: transparent !important;
+    --tabs-border-radius: 4px;   /* Tabs raundness */
 
 
     /* Sidebar variables */
-
     --my-vertical-toolbar-width: 41px !important;
     --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px);    
     --uc-margin-inline: 3px;
@@ -47,7 +53,8 @@ body:not(:hover) {
 /* width */
 
 .NavigationBar.-top {
-    width: calc(var(--uc-sidebar-hover-width) - 6px);
+    background-color: transparent;
+    width: calc(var(--uc-sidebar-hover-width) * var(--my-vertical-elements-width) - 12px);
     box-shadow: none;
 }
 
