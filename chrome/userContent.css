@@ -1,7 +1,8 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/opera-gx */  
 
-@import url(components/ogx_root-personal.css);
-@import url(components/ogx_UC-newtabpage.css);
-@import url(components/ogx_UC-settings-addons-pages.css);
-@import url(components/ogx_UC-addons-store.css);
+@import url('components/ogx_root-personal.css');
+@import url('components/ogx_UC-newtabpage.css');
+@import url('components/ogx_UC-settings-addons-pages.css');
+@import url('components/ogx_UC-addons-store.css');
+@import url('components/ogx_UC-newtabWallpaper+theme.css');
