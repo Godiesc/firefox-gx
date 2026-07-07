@@ -8,6 +8,7 @@
 
     :host,
     :root {
+      --color-accent-primary: var(--general-color) !important;
       --in-content-page-color: rgb(21, 20, 26);
       --in-content-page-background: #fff;
       --in-content-text-color: var(--in-content-page-color);
@@ -131,8 +132,8 @@
         --in-content-icon-color: rgb(251, 251, 254);
         --in-content-primary-button-text-color: rgb(43, 42, 51);
         --in-content-primary-button-background: var(--general-color);
-        --in-content-primary-button-background-hover: var(--button-hover-bgcolor);
-        --in-content-primary-button-background-active: var(--button-active-bgcolor);
+        --in-content-primary-button-background-hover: var(--color-accent-primary-hover);
+        --in-content-primary-button-background-active: var(--color-accent-primary-active);
         --in-content-danger-button-background: #ff848b;
         --in-content-danger-button-background-hover: #ffbdc5;
         --in-content-danger-button-background-active: #ffdfe7;
@@ -887,13 +888,13 @@
     /* 'hover' button */
     .Button--neutral.Button--micro:not(.Button--disabled):hover, 
     .Button--neutral:not(.Button--disabled):hover {
-      background-color: var(--button-hover-bgcolor) !important;
+      background-color: var(--color-accent-primary-hover) !important;
     }
     
     /* Accent color in various main backgrounds */
     .Header,
     .Footer {
-      background: var(--button-smaller-bgcolor) !important;
+      background: var(--color-accent-primary-xsmall) !important;
     }
 
     .HeroRecommendation-color-ink-80-color-blue-70,
@@ -902,7 +903,7 @@
     .HeroRecommendation-color-ink-80-color-green-70,
     .HeroRecommendation-color-ink-80-color-violet-70 {
       background: #1c1b22 !important;
-      background-image: linear-gradient(var(--button-smaller-bgcolor) 20%, #05409650) !important;
+      background-image: linear-gradient(var(--color-accent-primary-xsmall) 20%, #05409650) !important;
     }
   }
 }

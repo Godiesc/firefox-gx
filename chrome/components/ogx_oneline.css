@@ -89,7 +89,7 @@
   :root {
     --uc-vertical-toolbar-width: calc(var(--my-vertical-toolbar-width) - 1px);
     --padding-left-tab: var(--uc-vertical-toolbar-width) !important;
-    --button-bgcolor-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
+    --color-accent-primary-small-personal: color-mix(in srgb, var(--general-color) 12%, transparent) !important;
     --min-width-url: 24.2vw !important;
   }
   
@@ -278,7 +278,7 @@
   #TabsToolbar .toolbarbutton-1:not(#tabs-newtab-button,#new-tab-button), 
   #nav-bar {
     --toolbarbutton-background-color-hover: var(--toolbarbutton-hover-personal) !important;
-    --toolbarbutton-background-color-active: var(--button-bgcolor) !important;
+    --toolbarbutton-background-color-active: var(--color-accent-primary-small) !important;
     --toolbarbutton-icon-fill: var(--toolbar-text-color) !important;
   }
   
@@ -504,7 +504,7 @@
   @media ((-moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.verticalTabs"))) and -moz-pref("sidebar.position_start")) and (not -moz-pref("firefoxgx.left-sidebar")) {
 
     :root:not([customizing]) {
-      & #sidebar-main {
+      & #sidebar-container {
         padding-block-start: 20px !important;
       }
       

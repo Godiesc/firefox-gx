@@ -126,7 +126,7 @@
             --space-before-gradient-line: calc(var(--tab-height-personal) - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
             border-image: linear-gradient(to bottom, transparent var(--space-before-gradient-line), 
                 var(--general-color) var(--space-before-gradient-line), 
-                var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;/**/
+                var(--color-accent-primary-hover) 52%, transparent 94%) 1 !important;/**/
         }
         & #navigator-toolbox {
             margin-top: 0px !important;
@@ -201,7 +201,7 @@
 
         margin-block-start: -1px !important; /* to align separator with content border & tested with sidebar-box open */
         border-inline-end: 1px solid transparent !important;
-        border-image: linear-gradient(to bottom, var(--general-color), var(--button-hover-bgcolor) 52%, transparent 94%) 1 !important;
+        border-image: linear-gradient(to bottom, var(--general-color), var(--color-accent-primary-hover) 52%, transparent 94%) 1 !important;
         z-index: 5 !important; /* tested when sidebar-revamp is on too */
     }
 
@@ -362,7 +362,7 @@
     /* Extension counter */
 
     #PersonalToolbar .toolbarbutton-badge {
-        background-color: var(--button-hover-bgcolor) !important;
+        background-color: var(--color-accent-primary-hover) !important;
         color: white !important;
         margin-inline-end: -9px !important;
         margin-block-end: -4px !important;
@@ -533,8 +533,7 @@
 }
 
 /* _____________________________________________________ Firefox Sidebar-revamp ______________________________________________________
-   ___________________________________________________________________________________________________________________________________ */
-
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media -moz-pref("sidebar.revamp") {
     
     /* Remove margins to get the same size as the 'sidebar' width */
@@ -586,14 +585,14 @@
     .button-background[type="icon"] {
         img {
             fill: white !important;
-            background-color: var(--button-hover-bgcolor) !important;
-            box-shadow: 0 0 0 5px var(--button-hover-bgcolor) !important;
+            background-color: var(--color-accent-primary-hover) !important;
+            box-shadow: 0 0 0 5px var(--color-accent-primary-hover) !important;
             border-radius: 0.1px !important;
         }
 
         &:hover img {
-            background-color: var(--button-bgcolor) !important;
-            box-shadow: 0 0 0 5px var(--button-bgcolor) !important;
+            background-color: var(--color-accent-primary-small) !important;
+            box-shadow: 0 0 0 5px var(--color-accent-primary-small) !important;
         }
     }
     
@@ -612,37 +611,43 @@
     }
     
     /* Some extensions icons \
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
-    /* Gx Theme Styles Extension 
-    moz-button[extensionId="GXThemeStyles@Godie"] { --button-icon-content: url(../icons/logo_gx-theme-styles.svg); }*/
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    /* Gx Theme Styles Extension */
+    moz-button[extensionId="GXThemeStyles@Godie"] { --my-button-icon-content: url(../icons/logo_gx-theme-styles.svg); }
 
-    /* Whatsapp Extension 
-    moz-button[extensionId="ChatwappInSidebar@Godie"] { --button-icon-content: url("../icons/logo_whatsapp.svg"); }*/
+    /* Whatsapp Extension */
+    moz-button[extensionId="ChatwappInSidebar@Godie"] { --my-button-icon-content: url("../icons/logo_whatsapp.svg"); }
 
-    /* Instagram Extension 
-    moz-button[extensionId="SidebarInstaChat@Godie"] { --button-icon-content: url("../icons/logo_instagram.svg"); }*/
+    /* Instagram Extension */
+    moz-button[extensionId="SidebarInstaChat@Godie"] { --my-button-icon-content: url("../icons/logo_instagram.svg"); }
 
-    /* Spotify Extension 
-    moz-button[extensionId="SidebarSpotyplay@Godie"] { --button-icon-content: url("../icons/logo_spotify.svg"); }*/
+    /* Spotify Extension */
+    moz-button[extensionId="SidebarSpotyplay@Godie"] { --my-button-icon-content: url("../icons/logo_spotify.svg"); }
 
-    /* Telegram Extension 
-    moz-button[extensionId="{14390478-b41b-4e29-8307-8a3c714f7783}"] { --button-icon-content: url("../icons/logo_telegram.svg"); }*/
+    /* Telegram Extension */
+    moz-button[extensionId="{14390478-b41b-4e29-8307-8a3c714f7783}"] { --my-button-icon-content: url("../icons/logo_telegram.svg"); }
 
-    /* ublock Extension 
-    moz-button[extensionId="uBlock0@raymondhill.net"] { --button-icon-content: url("../icons/logo_ublock.svg"); }*/
+    /* ublock Extension */
+    moz-button[extensionId="uBlock0@raymondhill.net"] { --my-button-icon-content: url("../icons/logo_ublock.svg"); }
     
-    /* Discord Extension 
-    moz-button[extensionId="{a16c3799-d903-44e3-b044-a032197f5ef8}"] { --button-icon-content: url("../icons/logo_discord.svg"); }*/
+    /* Discord Extension */
+    moz-button[extensionId="{a16c3799-d903-44e3-b044-a032197f5ef8}"] { --my-button-icon-content: url("../icons/logo_discord.svg"); }
 
-    /* Twitter Extension 
-    moz-button[extensionId="{3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1}"] { --button-icon-content: url("../icons/logo_twitter.svg"); }*/
+    /* Twitter Extension */
+    moz-button[extensionId="{3119ae66-3c2f-47e2-b1b1-1c76cb9c4ec1}"] { --my-button-icon-content: url("../icons/logo_twitter.svg"); }
     
-    /* Bitwarden extension 
-    moz-button[extensionId="{446900e4-71c2-419f-a6a7-df9c091e268b}"] { --button-icon-content: url(../icons/logo_bitwarden.svg); }*/
+    /* Bitwarden extension */
+    moz-button[extensionId="{446900e4-71c2-419f-a6a7-df9c091e268b}"] { --my-button-icon-content: url(../icons/logo_bitwarden.svg); }
 
-    /* Tree-tabs extension 
+    /* Tree-tabs extension */
     moz-button[extensionId="treestyletab@piro.sakura.ne.jp"],
-    moz-button[extensionId="tabcenter-reborn@ariasuni"] { --button-icon-content: url(../icons/logo_tree-tabs.svg); }*/
+    moz-button[extensionId="tabcenter-reborn@ariasuni"] { --my-button-icon-content: url(../icons/logo_tree-tabs.svg); }
+    
+    .button-background {
+        & img {
+            content: var(--my-button-icon-content, var(--button-icon-content)) !important;
+        }
+    }
     
     /* _____________________________ Autohide 'tools-and-extensions' when Vertical tabs are enable ______________________________ 
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -755,17 +760,21 @@
 }
 
 /* _________________________________________________ Sidebar-revamp or Vertical-tabs _________________________________________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media -moz-pref("sidebar.revamp") {
 
-    #sidebar-main {
-        margin-block-start: -1px !important; /* to align separator with content border */
+    #sidebar-container {
+        margin-block-start: calc(-1px - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important; /* to align separator with content border */
         border-inline-end: 1px solid var(--my-content-border-color) !important;
         border-image: linear-gradient(calc(99deg * var(--rtl-variable, 1)),
             transparent calc(var(--my-vertical-toolbar-width) - 1px),
             var(--general-color) calc(var(--my-vertical-toolbar-width) - 1px) 70%, transparent) 1 !important;
         z-index: 3 !important;  /* Test it only with revamp */
+        
+        @media -moz-pref("sidebar.verticalTabs") {
+            /* Remove height of menubar cause the layout hide the toolbar buttons (sidebar button to expand/collapse sidebar ) */
+            margin-block-start: calc(-1px - var(--bookmarksbar-height-personal, 0px)) !important;
+        }
         
         /* Sidebar top border \
         ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -849,7 +858,7 @@
         :root:not([customizing]) {
             & #navigator-toolbox::after {
                 content: ''; position: absolute !important;
-                top: calc(var(--bookmarksbar-height-personal, 0px) + var(--toolbar-height-personal) - 1px) !important;
+                top: calc(/*var(--bookmarksbar-height-personal, 0px) +/**/ var(--toolbar-height-personal) - 1px) !important;
                 width: var(--my-elements-left-margin, 0px) !important;
                 z-index: 99999 !important; /* works when using default 'expand-on-hover' */
                 pointer-events: none !important;
@@ -857,6 +866,10 @@
                 border-image: linear-gradient(to right, 
                     transparent 10px, var(--my-content-border-color) 10px, 
                     var(--my-content-border-color) calc(100% - 10px), transparent calc(100% - 10px)) 1 !important;
+                
+                @media -moz-pref("sidebar.verticalTabs") {
+                    top: calc(/*var(--bookmarksbar-height-personal, 0px) +/**/ var(--toolbar-height-personal) - 1px + var(--menubar-height-personal, 0px)) !important;
+                }
             }
         }
     }
@@ -992,6 +1005,48 @@
             }
         }
     }
+    
+    @media (not -moz-pref("firefoxgx.left-sidebar")) and -moz-pref("sidebar.position_start") {
+        
+        :root:not([lwtheme-image],[style*="--lwt-additional-images"]) {
+            sidebar-main[expanded] {
+                --toolbar-background-color: var(--lwt-accent-color) !important;
+            }
+        }
+
+        sidebar-main[expanded] {
+            /*background-color: rgb(from color-mix(in srgb, var(--toolbar-background-color) 70%, var(--lwt-accent-color)) r g b / 100%) !important;/**/
+            background-color: transparent !important;
+            &::before {
+                content: ''; height: 100vh; width: 100vw; position: fixed;
+                background-image: linear-gradient(transparent, transparent),
+                    linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
+                    var(--lwt-header-image, none), var(--lwt-additional-images,none),
+                    linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
+                background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
+                background-position-y: calc(1px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
+                background-repeat: repeat-x, no-repeat, no-repeat, var(--lwt-background-tiling) !important;
+                background-size: var(--my-background-size, var(--lwt-background-size)) !important;
+                z-index: -1 !important;
+                mask-image: linear-gradient(to bottom, black  var(--bookmarksbar-height-personal, 0px), transparent calc(var(--toolbar-height-personal) + 100px));
+            }
+            
+            @media -moz-pref("firefoxgx.main-image") {
+                :root:not([sidebar-expand-on-hover]) & {
+                    --toolbar-background-color: color-mix(in srgb,                                                              /* Toolbars - web content background color */
+                        var(--my-scheme-color), transparent var(--brightness-wallpaper)) !important;
+                    --my-background-size: cover !important; /* Important to align image when base theme use images */
+                    &::before {
+                        background-image: linear-gradient(transparent, transparent),
+                            linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
+                            var(--lwt-header-image, none), var(--lwt-additional-images,none),
+                            linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
+                        mask-image: none !important;
+                    }
+                }
+            }
+        }
+    }
 
     /* ______________________________ fix glich when using default 'expand-on-hover' ______________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -1012,7 +1067,7 @@
     }
     
     :root[sidebar-expand-on-hover] {
-        & #sidebar-main {
+        & #sidebar-container {
             &[sidebar-launcher-expanded], 
             &[sidebar-ongoing-animations]:not([sidebar-launcher-expanded]) {
                 background-image: none !important;
@@ -1034,7 +1089,7 @@
         }
         
         /* Apply this background only on solid themes to avoid rare border - test it in theme with images - sidebar on right */
-        &:not([lwtheme-image],[style*="--lwt-additional-images"]) #sidebar-main {
+        &:not([lwtheme-image],[style*="--lwt-additional-images"]) #sidebar-container {
             &[sidebar-positionend] {
                 background-color: rgb(from var(--toolbar-background-color) r g b / 100%) !important;
             }
@@ -1056,9 +1111,9 @@
                         var(--lwt-header-image, none), var(--lwt-additional-images,none),
                         linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                     background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
-                    background-position-y: calc(0px - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+                    background-position-y: calc(1px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
                     background-repeat: repeat-x, no-repeat, no-repeat, var(--lwt-background-tiling) !important;
-                    background-size: var(--my-background-size, auto 100%, var(--lwt-background-size)) !important;
+                    background-size: var(--my-background-size, var(--lwt-background-size)) !important;
                     z-index: -1 !important;
                     mask-image: linear-gradient(to bottom, black  var(--bookmarksbar-height-personal, 0px), transparent calc(var(--toolbar-height-personal) + 100px));
                     
@@ -1101,7 +1156,7 @@
             }
         }
         
-        & #sidebar-main:dir(rtl),
+        & #sidebar-container:dir(rtl),
         & #navigator-toolbox:dir(rtl)::before {
             background-position: right top !important;
         }

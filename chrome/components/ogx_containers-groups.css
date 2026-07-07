@@ -24,13 +24,6 @@
     display: none !important;
 }
 
-/* Default container color */
-
-.identity-color-toolbar {
-    --identity-tab-color: #0c86ee !important;
-    --identity-icon-color: #0c86ee !important;
-}
-
 /* ______________________________________________ Tabs groups styles ______________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 

@@ -15,106 +15,74 @@
 @media (prefers-color-scheme: dark) {
     :root[dialogroot], 
     :host(dialog) {
-        --arrowpanel-background: #101019 !important;
+        --arrowpanel-background: #12121b !important;
         --in-content-page-background: var(--arrowpanel-background) !important;
         --background-color-canvas: var(--arrowpanel-background) !important;     /* Background color e.g. Magnet link to open in other aplication */
     }
 }
 
-/* Button style e.g. Magnet link to open in other aplication */
-
-.dialog-button-box {
-    button[dlgtype="accept"] {
-        --button-background-color: var(--button-hover-bgcolor) !important;
-        --button-background-color-hover: var(--button-bgcolor) !important;
-        --button-background-color-active: var(--button-hover-bgcolor) !important;
-    }
-    button[dlgtype="cancel"] {
-        --button-background-color-hover: color-mix(in srgb, var(--red) 60%, transparent) !important;
-        --button-background-color-active: color-mix(in srgb, var(--red) 80%, transparent) !important;
-    }
-}
-
-@-moz-document url("chrome://global/content/commonDialog.xhtml"){
-  :root {
-    background-color: var(--arrowpanel-background) !important;
-  }
-}
-
-/* website icon background */
-
-.titleIcon {
-  background-color: transparent !important;
-}
-
-/* Background color behind notification */
-
-browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"], #window-modal-dialog::backdrop {
+/* Background color behind notification \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+browser[primary="true"][tabDialogShowing="true"], 
+.dialogOverlay[topmost="true"],
+#window-modal-dialog::backdrop {
     background-image: linear-gradient(var(--arrowpanel-background, transparent), transparent), 
                       linear-gradient(transparent, var(--arrowpanel-background, transparent)), 
-                      var(--noise-urlbar-personal, var(--noise-urlbar-personal, none)) !important;    
+                      var(--noise-urlbar-personal, var(--noise-urlbar-personal, none)) !important;
 }
 
-/* Background color behind notification - "about:" pages */
-
-#window-modal-dialog::backdrop, #main-window[window-modal-open="true"]>body>#browser{
-    background-color: color-mix(in srgb, var(--toolbarbutton-hover-personal), transparent) !important; 
+/* Border \
+¯¯¯¯¯¯¯¯¯¯ */
+.dialogBox:not(.spotlightBox), 
+#commonDialog, 
+.dialogFrame {
+    border-radius: var(--border-radius-large) !important;
 }
-
-/* Border */
 
 .dialogBox:not(.spotlightBox) {
-    box-shadow:  0 0px 0px 1px var(--general-color)  !important;
-    border-radius: 0px !important;
+    border-radius: var(--border-radius-large) !important;
     overflow-x: unset !important;
-    outline: 1px solid var(--my-scheme-color) !important;
-    outline-offset: 1px !important;
+    outline: 1px solid var(--general-color) !important;
+    outline-offset: -1px !important;
+    box-shadow: 0 0px 0px 1px var(--my-scheme-color) !important;
 }
 
-/* Remove background color behind notification en "about:" pages*/
-
+/* Remove background color behind notification en "about:" pages \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #window-modal-dialog > .dialogOverlay[topmost="true"] {
     background: transparent !important;
 }
 
 /* Buttons - checkbox - etc colors */
 
-@-moz-document url(chrome://global/content/commonDialog.xhtml),
-    url("chrome://mozapps/content/handling/permissionDialog.xhtml"),
-    url("chrome://mozapps/content/handling/appChooser.xhtml")
-{
-    #commonDialogWindow,
-    #commonDialogWindow * {
-        
-    --toolbarbutton-icon-fill-attention: unset !important;
-    --in-content-link-color: var(--button-active-bgcolor) !important;
-    --in-content-link-color-hover: var(--general-color) !important;
-    --in-content-link-color-active: var(--button-active-bgcolor) !important;
-        
-    --in-content-primary-button-background: var(--button-active-bgcolor) !important;
-    --in-content-primary-button-background-hover: var(--button-hover-bgcolor) !important;
-    --in-content-primary-button-background-active: var(--button-active-bgcolor) !important;
-    --in-content-primary-button-text-color: white !important;
-        
-    --checkbox-checked-border-color: transparent !important;        
-    --checkbox-border-color:  color-mix(in srgb, var(--arrowpanel-background)75%,var(--in-content-text-color) ) !important;
-        
-    --checkbox-unchecked-bgcolor: color-mix(in srgb, var(--arrowpanel-background) 90%,var(--in-content-text-color) ) !important;
-    --checkbox-unchecked-hover-bgcolor: var(--general-color) !important;                /*color de los checkbox hover*/
-    --checkbox-unchecked-active-bgcolor: var(--button-hover-bgcolor) !important;        /*color de los checkbox al darle clic*/
+@media not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.user.enabled") {
 
-    --checkbox-checked-bgcolor: var(--button-active-bgcolor) !important;                /*color de los checkbox con check*/
-    --checkbox-checked-color: white !important;                                         /*color de la palomita check*/
-    --checkbox-checked-hover-bgcolor: var(--general-color) !important;                  /*color de los checkbox con check :hover*/
-    --checkbox-checked-active-bgcolor: var(--button-active-bgcolor) !important;         
-    }    
+    @media not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-sky"), not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "starry-canyon"),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-mountain"), not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-panda"),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-fox-anniversary"), not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-beach"),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "palm-trees"), not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "suspension-bridge"),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-landscape"),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons'), not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda'),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary'), not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers'),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape'), not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes'),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-mountain'), not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-sky'),
+        not -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
+
+            @-moz-document url(chrome://global/content/commonDialog.xhtml),
+                url("chrome://mozapps/content/handling/permissionDialog.xhtml"),
+                url("chrome://mozapps/content/handling/appChooser.xhtml")
+                {
+                    :root {
+                        --toolbarbutton-icon-fill-attention: unset !important;
+                        --color-accent-primary-hover: color-mix(in srgb, black 24%, var(--color-accent-primary)) !important;   /* Button background color when 'hover' */
+                        --color-accent-primary-active: color-mix(in srgb, black 40%, var(--color-accent-primary)) !important;  /* Button background color when 'active' */
+                    }    
+            }
+    }
 }
-
-/* HTML5 dark mode web notifs */
 
 /* ____________________________________________________ HTML5 dark mode web notifs ____________________________________________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
 @-moz-document url("chrome://global/content/alerts/alert.xhtml") {
     @media (prefers-color-scheme: dark){
     #alertBox {
@@ -232,7 +200,7 @@ browser[primary="true"][tabDialogShowing="true"], .dialogOverlay[topmost="true"]
     
     &  .infobar.animated {
         background-color: var(--arrowpanel-background) !important;
-        border-color: var(--button-bgcolor) !important;
+        border-color: var(--color-accent-primary-small) !important;
         outline: 1px solid var(--general-color) !important;
         outline-offset: 1px;
         border-radius: 2px !important;

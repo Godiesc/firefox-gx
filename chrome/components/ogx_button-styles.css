@@ -6,6 +6,8 @@
 button[role="menuitem"] {   /* Apply only in items inside */
     &:enabled:hover {
         --button-background-color-hover: transparent !important;
+        --button-background-color-active: transparent !important;
+        color: contrast-color(var(--color-accent-primary-hover)) !important;
         &::before {
             position: absolute !important;
             top: 0 !important;
@@ -17,6 +19,10 @@ button[role="menuitem"] {   /* Apply only in items inside */
             margin: 0px !important;
             padding: 0px !important;
             z-index: -1 !important;
+        }
+        
+        &:active::before {
+            background: var(--panel-separator-zap-gradient4) !important;
         }
     }
 }
@@ -35,8 +41,8 @@ button[role="menuitem"] {   /* Apply only in items inside */
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .toggle-button {
     --toggle-background-color: transparent !important;
-    --toggle-background-color-hover: var(--button-smaller-bgcolor) !important;
-    --toggle-background-color-active: var(--button-hover-bgcolor) !important;
+    --toggle-background-color-hover: var(--color-accent-primary-xsmall) !important;
+    --toggle-background-color-active: var(--color-accent-primary-hover) !important;
     --toggle-border-radius: var(--border-radius-medium) !important;
     --toggle-height: 21px !important;
     --toggle-width: 36px !important;
@@ -59,10 +65,16 @@ button[role="menuitem"] {   /* Apply only in items inside */
 
 /* Toggle on */
 .toggle-button[aria-pressed="true"] {
-    --toggle-background-color-pressed: var(--button-bgcolor) !important;
-    --toggle-background-color-pressed-hover: var(--button-hover-bgcolor) !important;
-    --toggle-background-color-pressed-active: var(--button-active-bgcolor) !important;
+    --toggle-background-color-pressed: var(--color-accent-primary-small) !important;
+    --toggle-background-color-pressed-hover: var(--color-accent-primary-hover) !important;
+    --toggle-background-color-pressed-active: var(--color-accent-primary-active) !important;
     border-color: var(--general-color) !important;
+    
+    &[disabled] {
+        --toggle-background-color-pressed: var(--color-accent-primary-xsmall) !important;
+        border-color: transparent !important;
+        opacity: var(--toggle-opacity-disabled) !important;
+    }
 
     &::before {
         margin-inline: 1px !important;
@@ -70,41 +82,11 @@ button[role="menuitem"] {   /* Apply only in items inside */
     }
 }
 
-/* Bookmark popup dropdown colors \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-panel menulist {
-    &:hover, 
-    &[open] {
-        background-color: var(--button-hover-bgcolor) !important;
-        color: var(--panel-text-color, var(--my-font-color)) !important;
-        box-shadow: none !important;
-    }
-}
-
-/* Border color (down arrow) \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.hideable {
-    --button-background-color-hover: var(--button-hover-bgcolor) !important;
-}
-
-#editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
-    border-color: transparent !important;
-}
-
-/* 'Save' & 'Remove' buttons \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#editBookmarkPanelDoneButton {   
-    color: white !important;
-}
-
-#editBookmarkPanelRemoveButton {
-    --button-background-color-hover: #da3633bb !important;
-    -moz-context-properties: fill !important;
-    fill: var(--toolbar-text-color) !important;
-    
-    & label {
-        display: none !important;
-    }
+/* Combobox e.g. 'allow audio and video' into permissions button \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+menulist:is(:hover, [open]) {
+    --button-background-color: var(--color-accent-primary-hover) !important;
+    --button-text-color: contrast-color(var(--color-accent-primary-hover)) !important;
 }
 
 /* Margins in tabsgroup context-menu \
@@ -122,19 +104,41 @@ panel menulist {
 
 /* AI button 'hover' background */
 #tab-group-suggestion-button {
-    --button-background-color-ghost-hover: var(--button-smaller-bgcolor) !important;
+    --button-border-color-ghost: var(--color-accent-primary-hover) !important;
+    --button-background-color-ghost: var(--color-accent-primary-xsmall) !important;
+    --button-text-color-ghost-hover: contrast-color(var(--color-accent-primary-hover)) !important;
+}
+
+/* Bookmark - Remove icon \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#editBookmarkPanelRemoveButton {
+    -moz-context-properties: fill !important;
+    fill: currentColor !important;
+    
+    & label {
+        display: none !important;
+    }
 }
 
 /* Various 'Cancel' button \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-moz-button[id*="cancel"],
+moz-button:is(
+[id*="cancel"],
+.popup-notification-secondary-button
+),
 button:is(
 [data-l10n-id*="cancel"],
 [label*="Block"],
+[dlgtype="cancel"],   /* Button style e.g. Warning dialogs */
+#editBookmarkPanelRemoveButton,
 .popup-notification-secondary-button
 ) {
-    --button-background-color-hover: #da3633bb !important;
-    --button-background-color-active: #da3633bb !important;
+    --button-background-color: light-dark(lch(from var(--arrowpanel-background, var(--background-color-canvas)) calc(l - 20) c h),
+        lch(from var(--arrowpanel-background, var(--background-color-canvas)) calc(l + 20) c h)) !important;
+    --button-background-color-hover: #da3633 !important;
+    --button-background-color-active: color-mix(in srgb, black 20%, var(--button-background-color-hover)); !important;
+    --button-text-color-hover: contrast-color(var(--button-background-color-hover)) !important;
+    --button-text-color-active: contrast-color(var(--button-background-color-hover)) !important;
 }
 
 /* Background and Border Color in items (Dropdown Menu) \
@@ -142,12 +146,12 @@ button:is(
 /* Style tested in sidebar-bookmarks, clic in the arrow | can't convine with the next line for unknow reason */
 treechildren::-moz-tree-row(current, focus),
 treechildren::-moz-tree-row(selected) {
-    background-color: var(--button-hover-bgcolor) !important;
+    background-color: var(--color-accent-primary-hover) !important;
     outline-color: transparent !important;
 }
 
 #editBMPanel_folderTreeRow treechildren::-moz-tree-row(selected) {
-    background-color: var(--button-active-bgcolor) !important;
+    background-color: var(--color-accent-primary-active) !important;
 }
 
 treechildren::-moz-tree-image(selected), 
@@ -173,12 +177,20 @@ treechildren::-moz-tree-cell-text(selected) {
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #PanelUI-profiler-header {
     &[isinfocollapsed="false"] {
-        background: radial-gradient(circle farthest-side at top right, transparent 5%, var(--button-bgcolor)) !important;
+        background: radial-gradient(circle farthest-side at top right, transparent 25%, var(--color-accent-primary-small)) !important;
         color: currentColor !important;
     }
 }
 
-button {
+#PanelUI-profiler-learn-more {
+    color: currentColor !important;
+}
+
+.PanelUI-profiler-info-icon {
+    fill: currentColor !important;
+}
+
+.PanelUI-profiler-button-primary {
     border-color: transparent !important;
 }
 
@@ -187,7 +199,7 @@ button {
 
 #TabsToolbar {
     --toolbarbutton-background-color-hover: var(--toolbarbutton-hover-personal) !important;
-    --toolbarbutton-background-color-active: var(--button-bgcolor) !important;
+    --toolbarbutton-background-color-active: var(--color-accent-primary-small) !important;
     --toolbarbutton-icon-fill: var(--general-color) !important;
     --toolbarbutton-padding-inner: calc((var(--tab-min-height) - 24px) / 2) !important;
     --tab-border-radius: var(--toolbarbutton-border-radius) !important; /* Used for tabsbar buttons */
@@ -249,7 +261,7 @@ button {
 
 /* Style when moving a bookmark into a folder - tested by holding the click */
 .bookmark-item:is(toolbarbutton)[dragover="true"][open] {
-    background: var(--button-smaller-bgcolor) !important;
+    background: var(--color-accent-primary-xsmall) !important;
     fill: var(--general-color) !important;
 }
 
@@ -270,7 +282,7 @@ button {
 .all-tabs-secondary-button.subviewbutton.subviewbutton-iconic:hover,
 .all-tabs-close-button.all-tabs-secondary-button.subviewbutton:hover,
 .all-tabs-mute-button.all-tabs-secondary-button.subviewbutton:hover{
-    background: var(--button-hover-bgcolor) !important;
+    background: var(--color-accent-primary-hover) !important;
 }
 
 /* ______________ Unified extentions button ______________
@@ -279,7 +291,8 @@ button {
 #unified-extensions-panel #unified-extensions-view {
     --uei-icon-size: calc(2 * var(--toolbarbutton-padding-inner) + 6px);
     --firefoxcss-number-of-extensions-in-a-row: 7;
-    --button-background-color-ghost-hover: var(--button-hover-bgcolor) !important;
+    --button-background-color-ghost-hover: var(--color-accent-primary-hover) !important;
+    --button-background-color-ghost-active: var(--color-accent-primary-active) !important;
     --panel-separator-zap-gradient6: linear-gradient(to left, #70707070, transparent 100%) 1;
 }
 
@@ -381,6 +394,13 @@ button {
 
 /* _______________ Downloads popup menu _______________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#downloadsListBox > richlistitem {
+    border-radius: 0px !important;
+    
+    .downloadMainArea:hover {
+        color: contrast-color(var(--color-accent-primary-hover)) !important;
+    }
+}
 
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
     padding-inline: 0px !important;
@@ -393,13 +413,20 @@ button {
 
 .downloadButton {
     margin-inline-end: 2px !important;
+    color: var(--panel-text-color) !important;
     &:hover:not(:active) {
-        background-color: var(--button-hover-bgcolor) !important;
+        background-color: var(--color-accent-primary-hover) !important;
+        color: contrast-color(var(--color-accent-primary-hover)) !important;
     }
 }
 
 #downloadsFooterButtons .button-icon { 
-    margin-inline: 2px 6px !important;
+    margin-inline: 0px 8px !important;
+}
+
+/* button icon fill color when 'hover' e.g. test it in swamp theme */
+.subviewbutton:hover .button-icon {
+    fill: contrast-color(var(--color-accent-primary-hover)) !important;
 }
 
 /* 'Connection secure' button into 'trust button' \
@@ -420,12 +447,12 @@ button {
     max-height: calc(var(--tab-height-personal) + 0px) !important;
     margin-inline: 3px !important;
     background-image: linear-gradient(
-        transparent 25%, var(--button-hover-bgcolor) 25%, 
-        var(--button-hover-bgcolor) 75%, transparent 75% ) !important;
+        transparent 25%, var(--color-accent-primary-hover) 25%, 
+        var(--color-accent-primary-hover) 75%, transparent 75% ) !important;
 }
 
 :is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"]{
-    background: var(--button-active-bgcolor) !important;
+    background: var(--color-accent-primary-active) !important;
     max-width: 3px !important;
     min-width: 3px !important;
     padding-inline: 3px !important; 
@@ -437,8 +464,8 @@ button {
 
 /* Status panel */
 
-#statuspanel label{
-    background-color: var(--lwt-accent-color) !important;
+#statuspanel-label {
+    background-color: var(--lwt-accent-color, var(--red)) !important;
     color: currentColor !important;
     border-color: var(--toolbarbutton-hover-personal) !important;
     border-radius: 0px !important;
@@ -467,17 +494,17 @@ button {
     }
     &[open] {
         /* When Firefox show a 'Message' in this button */
-        --toolbarbutton-background-color-active: var(--button-active-bgcolor) !important;
+        --toolbarbutton-background-color-active: var(--color-accent-primary-active) !important;
         fill: FieldText !important;
     }
 }
 
 /* ________________________ Firefox-view ________________________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #tabbrowser-tabs::before {
     border-image: 0 1 linear-gradient(
-            transparent 25%, var(--button-hover-bgcolor) 25%,
-            var(--button-hover-bgcolor) 75%, transparent 75% );
+            transparent 25%, var(--color-accent-primary-hover) 25%,
+            var(--color-accent-primary-hover) 75%, transparent 75% );
 }
 
 #TabsToolbar {
@@ -489,7 +516,7 @@ button {
 }
 
 toolbar:is(#TabsToolbar, #nav-bar, #PersonalToolbar) #firefox-view-button[aria-pressed="true"] .toolbarbutton-icon {
-        background: var(--button-bgcolor) !important;
+        background: var(--color-accent-primary-small) !important;
         fill: var(--panel-text-color, var(--my-font-color)) !important;
         transition: none !important;
 }

@@ -1,104 +1,19 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text.
    https://github.com/Godiesc/firefox-gx */
 
-/* General Variables - needs to be outside */
-
-:root {
-    --toolbarbutton-icon-fill-attention: unset !important;                                              /* Remove unwanted accent color in 'about:preferences' */
-    --color-accent-primary-selected: var(--general-color) !important;                                   /* Accent color bg into combobox */
-    --text-color-accent-primary-selected: var(--color-white) !important;                                /* Accent color text */
-
-    --background-color-box: light-dark(var(--color-white), #111115) !important;                         /* Card default solid bg - about:config bg */
-
-    --background-color-canvas: var(--background-color-box) !important;                                  /* Background 'about:config' page */
-    --table-row-background-color-alternate: color-mix(in srgb,                                          /* Table rows distinction */
-        var(--background-color-box) 95%, FieldText) !important;
-    --table-background-color: var(--button-background-color-menu) !important;                           /* Table background */
-    --table-border-color: color-mix(in srgb, currentColor 21%, transparent) !important;                 /* Table border color */
-    --table-header-background-color: var(--button-smaller-bgcolor) !important;                          /* Table th accent color */
-    --table-header-text-color: FieldText !important;                                                    /* Table th color */
-
-    --button-background-color-menu: light-dark(#dee2ed, var(--my-box-button-background-color)) !important;                            /* Other Ghost button background */
-
-    --border-color: light-dark(var(--color-gray-50), #70707070) !important;                             /* Border color */
-
-    --link-color-hover: FieldText !important;                                                           /* Links color on 'hover' */
-    --link-color-active: var(--purple) !important;                                                      /* Links color on 'active' */
-    --link-color-visited: var(--general-color) !important;                                              /* Links color on 'visited' */
-
-    --background-color-information: var(--button-smaller-bgcolor) !important;                           /* Information message */
-    --icon-color-information: var(--general-color) !important;        /* Information message icon */
-
-    --my-gradient-background: radial-gradient( 100% 91.38% at 50% 99.62%,                               /* Background gradient - personal */
-        color-mix(in srgb, var(--button-bgcolor) 10%, transparent) 0%,
-        transparent);
-    --my-gradient-background-hover: radial-gradient( 100% 91.38% at 50% 99.62%,                         /* Background gradient when 'hover' - personal */
-        color-mix(in srgb, var(--button-bgcolor) 20%, transparent) 0%,
-        transparent);
-}
-
-/* Various combobox */
-.select-wrapper {
-    /*--select-background-color: var(--my-box-button-background-color) !important;) !important;/**/
-}
-
-moz-box-group {
-    background-color: var(--button-background-color-menu) !important;
-}
-
-/* All buttons? - 'Manage' Buttons */
-.button:not([disabled]) {
-    /*--box-button-background-color: color-mix(in srgb, var(--customize-menu-bg) 84%, var(--my-contrast-color), var(--general-color)) !important;/**/
-
-    /* Border */
-    &:hover {
-        outline: 1px solid var(--button-hover-bgcolor) !important;
-    }
-}
-
-/* Styles for all 'about' pages \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-@-moz-document url-prefix(about:) {
-    
-    /* Toggle button \
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    .toggle-button {
-        --toggle-background-color-hover: var(--button-smaller-bgcolor) !important;
-        --toggle-background-color-pressed: var(--button-bgcolor) !important;
-        --toggle-background-color-pressed-hover: var(--button-hover-bgcolor) !important;
-        --toggle-background-color-pressed-active: var(--button-active-bgcolor) !important;
-        --toggle-border-radius: var(--border-radius-medium) !important;
-        --toggle-height: 21px !important;
-        --toggle-width: 36px !important;
-        --toggle-dot-height: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
-        --toggle-dot-width: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
-
-        /* Toggle hexagon */
-        &::before {
-            margin-inline: 2px !important;
-            border-radius: calc(var(--toggle-border-radius) - 2px) !important;
-        }
-    }
-
-    /* Toggle Opacity when not 'hover' */
-    .toggle-button:not(:hover) {
-        opacity: 0.8 !important;
-    }
-    
-    /* Toggle on */
-    .toggle-button[aria-pressed="true"] {
-        border-color: var(--general-color) !important;
-
-        &::before {
-            margin-inline: 1px !important;
-            background-color: currentColor !important;
-        }
-    }
-}
-
 @-moz-document url-prefix(about:preferences), url-prefix(about:settings), url-prefix(about:addons), 
     url-prefix(about:support), url-prefix(about:profiles) , url-prefix(about:debugging), url-prefix(about:welcome) {
+        
+        /* Replace style for cards background setted in main 'root' variables in 'ogx_UC-newtabpage.css' */
+        
+        :root {
+            --my-gradient-background: radial-gradient( 100% 91.38% at 50% 99.62%,                               /* Background gradient - personal */
+                color-mix(in srgb, var(--color-accent-primary-small) 5%, transparent) 0%,
+                transparent);
+            --my-gradient-background-hover: radial-gradient( 100% 91.38% at 50% 99.62%,                         /* Background gradient when 'hover' - personal */
+                color-mix(in srgb, var(--color-accent-primary-small) 20%, transparent) 0%,
+                transparent);
+        }
         
         html,   /* For addons-preferences... */
         body {  /* For other 'about:' pages */
@@ -111,28 +26,17 @@ moz-box-group {
         
         /* Categories - left side */
 
-        #categories {
-            &> .category {
-                --button-background-color-hover: transparent !important;
-                --button-background-color-active: transparent !important;
-                --button-border-color-primary: transparent !important;
-                --button-border-color-hover: transparent !important;
-                --button-border-color-active: transparent !important;
-                color: color-mix(in srgb, var(--text-color) 76%, transparent) !important;
-                text-underline-offset: 4px !important;
-
+        moz-page-nav-button {
+            --page-nav-button-background-color-selected: color-mix(in srgb, var(--general-color) 8%, transparent) !important;
+        }
+        
+        button {
+            &[selected] {
+                --page-nav-button-indicator-color: light-dark(lch(from var(--general-color) calc(l - 5) c h), lch(from var(--general-color) calc(l + 5) c h)) !important;
+                
                 &:hover {
-                    color: var(--text-color) !important;
-                    text-decoration: 1px underline var(--text-color) !important;
-                }
-            }
-
-            &> .category[selected] {
-                color: color-mix(in srgb, var(--general-color) 90%, var(--text-color)) !important;
-
-                &:hover {
-                    color: var(--general-color) !important;
-                    text-decoration: 1px underline var(--general-color)!important;
+                    --page-nav-button-indicator-color: currentColor !important;
+                    --page-nav-button-background-color-selected: var(--color-accent-primary-hover) !important;
                 }
             }
         }
@@ -141,63 +45,6 @@ moz-box-group {
         .sidebar-footer-list {
             --button-border-color: transparent !important;
             --button-border: var(--border-width) solid var(--button-border-color);
-        }
-        
-        /* _________ New layout of sticky and main content _________
-        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-        /* 'About:preferences' page \
-        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-        /* Remove unwanted margin from right section */
-        .main-content {
-            padding-inline: 0px !important;
-        }
-
-        .pane-container{
-            width: max(calc(100% - 1px), var(--page-main-content-width)) !important;
-            display: grid !important;
-            overflow-x: hidden !important;
-
-            & #mainPrefPane {
-                padding-top: 20px !important; 
-                padding-inline-start: 60px !important;
-                padding-inline-end: calc(100% - var(--page-main-content-width)) !important;
-                overflow-x: hidden !important;
-            }
-        }
-        
-        /* 'About:addons' page \
-        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-        #content {
-            max-height: 100vh;
-            display: grid !important;
-            grid-template-rows: auto auto 1fr;
-            --in-content-page-background: transparent;
-        }
-
-        #main {
-            overflow: auto;
-            max-width: 100% !important;
-            scrollbar-gutter: stable !important;
-            margin-inline-start: 0px !important;
-            padding-inline-start: var(--main-margin-start);
-
-            & addon-card[expanded="true"],
-            & addon-list,
-            &>recommended-themes-section>recommended-addon-list,
-            & recommended-extensions-section {
-                --page-main-content-width: calc(100% + 28px + 4px) !important;
-                display: block !important;
-                max-width: calc(100% - var(--sidebar-width) - var(--main-margin-start, 0px)) !important;
-                padding-inline-start: 4px !important;
-            }
-
-            & discovery-pane {
-                --page-main-content-width: calc(100% + var(--main-margin-start) + 4px) !important;
-                display: block !important;
-                max-width: calc(100% - var(--sidebar-width) - var(--main-margin-start)) !important;
-                padding-inline-start: 4px !important;
-            }
         }
         
         /* Search box \
@@ -209,13 +56,13 @@ moz-box-group {
                 border-radius: var(--my-border-radius) !important;
 
                 &:hover {
-                    --input-text-background-color: color-mix(in srgb, var(--button-smaller-bgcolor) 70%, transparent) !important; /* background color */
-                    border-color: var(--button-bgcolor) !important;
+                    --input-text-background-color: color-mix(in srgb, var(--color-accent-primary-xsmall) 70%, transparent) !important; /* background color */
+                    border-color: var(--color-accent-primary-small) !important;
                     outline: 0px solid var(--general-color) !important;
                 }
 
                 &:focus-visible {
-                    --input-text-background-color: var(--my-scheme-color) !important; /* background color */
+                    --input-text-background-color: color-mix(in srgb, var(--my-scheme-color), transparent) !important; /* background color */
                     border-color: var(--general-color) !important;
                     outline: 1px solid var(--general-color) !important;
                 }
@@ -226,6 +73,7 @@ moz-box-group {
         ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
         /* Little gradient background in cards */
         .card:not([active="false"]) {
+            
             background: var(--my-gradient-background) !important;
             background-color: var(--button-background-color-menu) !important;
             transition: background 0.2s ease-in-out, border-color 0.1s ease-in-out !important;
@@ -251,19 +99,15 @@ moz-box-group {
         }
 
         .card[active="true"] {
+            box-shadow: 0 0 0 1px transparent !important;
             &:hover {
                 border-color: var(--general-color) !important;
+                box-shadow: 0 0 0 1px var(--general-color) !important;
+                transition: border-color 0.1s ease, box-shadow 0.1s ease !important;
             }
         }
         
-        /* Keep button style when context menu is open */
-        button[aria-expanded="true"] {
-            background-color: var(--button-background-color-hover) !important;
-            border-color: var(--button-border-color-hover) !important;
-        }
-        
         /* 'Separator line' gradient in 'settings' */
-
         .subcategory:not([hidden]) ~ .subcategory {
             border-width: 2px !important;
             border-image: var(--panel-separator-zap-gradient3) 1 !important; 
@@ -274,6 +118,44 @@ moz-box-group {
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @-moz-document url-prefix(about:addons) {
+    
+    :root {
+        --newtab-background-color: var(--background-color-box) !important;
+    }
+    
+    /* 'About:addons' page \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    #content {
+        max-height: 100vh;
+        display: grid !important;
+        grid-template-rows: auto auto 1fr;
+        --in-content-page-background: transparent;
+    }
+
+    #main {
+        overflow: auto;
+        max-width: 100% !important;
+        scrollbar-gutter: stable !important;
+        margin-inline-start: 0px !important;
+        padding-inline-start: var(--main-margin-start);
+
+        & addon-card[expanded="true"],
+        & addon-list,
+        &>recommended-themes-section>recommended-addon-list,
+        & recommended-extensions-section {
+            --page-main-content-width: calc(100% + 28px + 4px) !important;
+            display: block !important;
+            max-width: calc(100% - var(--sidebar-width) - var(--main-margin-start, 0px)) !important;
+            padding-inline-start: 4px !important;
+        }
+
+        & discovery-pane {
+            --page-main-content-width: calc(100% + var(--main-margin-start) + 4px) !important;
+            display: block !important;
+            max-width: calc(100% - var(--sidebar-width) - var(--main-margin-start)) !important;
+            padding-inline-start: 4px !important;
+        }
+    }
 
     /* Sticky elements in one line \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -321,17 +203,57 @@ moz-box-group {
     }
 }
 
-/* ________________________________________ only 'about:preferences' page _________________________________________
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-/* Remove unwanted background from modal window */
-@media (not (forced-colors)) {
+/* ________________________________________________________________________________________________________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ Only 'about:preferences' page ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Variables used in popup dialogbox - Needs to be outside */
+@media not ((forced-colors) or (-moz-native-theme)) {
     :root[dialogroot] {
-        --background-color-canvas: transparent !important;
+        --my-scheme-color: light-dark(#ffffff, #000000) !important;                                         /* Scheme color - needed to set here again */
+        --my-font-color: light-dark(#000000, #ffffff) !important;                                           /* Needed variables to mix colors */
+        --toolbarbutton-icon-fill-attention: unset !important;                                              /* Remove unwanted default accent color */
+        --color-accent-primary-selected: var(--color-accent-primary-hover) !important;                      /* Accent color in some items selected */
+        --text-color-accent-primary-selected: contrast-color(var(--color-accent-primary-hover)) !important; /* Accent text color in some items selected */
+        --background-color-box: light-dark(var(--color-white), #111115) !important;                         /* inset container background - needed to set here again */
+        
+        --color-accent-primary: var(--general-color) !important;                                            /* Main Accent color */
+        --button-background-color-primary: var(--color-accent-primary) !important;                          /* Primary button background */
+        --button-background-color-primary-hover: var(--color-accent-primary-hover) !important;              /* Primary button background when 'hover' */
+        --button-background-color-primary-active: var(--color-accent-primary-active) !important;            /* Primary button background when 'active' */
+        --button-text-color-primary: contrast-color(var(--color-accent-primary-hover)) !important;          /* Primary button text color */
+        
+        --button-background-color: color-mix(in srgb, var(--background-color-box) 75%, 
+            var(--my-font-color), var(--color-accent-primary-small)) !important;                            /* General button background */
+        --button-background-color-hover: color-mix(in srgb, var(--background-color-box) 80%, 
+            var(--my-font-color), var(--color-accent-primary-small)) !important;                            /* General button background when 'hover' */
     }
 }
 
 @-moz-document url-prefix(about:preferences) {
+    
+    /* General Buttons background */
+    setting-control {
+        --button-background-color: light-dark(lch(from var(--button-background-color-menu) calc(l - 5) c h), 
+            lch(from var(--button-background-color-menu) calc(l + 5) c h)) !important;
+    }
+    
+    /* Remove unwanted margin from right section */
+    .main-content {
+        padding-inline: 0px !important;
+    }
+    
+    .pane-container {
+        width: max(calc(100% - 1px), var(--page-main-content-width)) !important;
+        display: grid !important;
+        overflow-x: hidden !important;
+
+        & #mainPrefPane {
+            padding-top: 20px !important; 
+            padding-inline-start: 60px !important;
+            padding-inline-end: calc(100% - var(--page-main-content-width)) !important;
+            overflow-x: hidden !important;
+        }
+    }
     
     /* Background color for modal window */
     window, 
@@ -369,7 +291,7 @@ moz-box-group {
     @media not (forced-colors) {
         .info-box-container.selected {
             background: radial-gradient( 70% 71.38% at 50% 99.62%,
-                color-mix(in srgb, var(--button-smaller-bgcolor), transparent),
+                color-mix(in srgb, var(--color-accent-primary-xsmall), transparent),
                 transparent) !important;
             background-color: var(--background-color-box) !important;
         }
@@ -377,7 +299,7 @@ moz-box-group {
 
     /* Box inside selected option */
     .highlighting-group {
-        --section-highlight-background-color: var(--button-smaller-bgcolor) !important;
+        --section-highlight-background-color: var(--color-accent-primary-xsmall) !important;
     }
     .privacy-detailedoption.selected .content-blocking-warning {
         border-color: var(--general-color) !important;

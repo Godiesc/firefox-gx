@@ -27,7 +27,7 @@
 
   /* With 'sidebar-revamp' only */
   @media -moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.left-sidebar")) {
-    #sidebar-main,
+    #sidebar-container,
     :root:not([customizing]) #navigator-toolbox::before,
     :is(#TabsToolbar, #toolbar-menubar){
       background-image: none !important;
@@ -37,7 +37,7 @@
 
   /* Vertical-tabs Without 'left-sidebar' */
   @media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("firefoxgx.left-sidebar")) {
-    #sidebar-main, :root[sidebar-expand-on-hover] #sidebar-main,
+    #sidebar-container, :root[sidebar-expand-on-hover] #sidebar-container,
     :root:not([customizing]) #navigator-toolbox::before,
     :is(#TabsToolbar, #toolbar-menubar:not([autohide])){
       background-image: none !important;

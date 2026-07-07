@@ -81,7 +81,7 @@ https://github.com/Godiesc/firefox-gx */
       /* Various navbar and tabsbar buttons border radius */
       toolbar toolbarbutton:not(toolbarbutton.bookmark-item, .subviewbutton)>image,
       toolbar toolbarbutton:not(#PanelUI-menu-button) .toolbarbutton-badge-stack {
-        clip-path: circle(50%) !important;
+        border-radius: var(--border-radius-urlbar-personal) !important;
         @media -moz-pref("firefoxgx.left-sidebar") {
           #PersonalToolbar & {
             clip-path: none !important;

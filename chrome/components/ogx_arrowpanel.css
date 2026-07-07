@@ -39,10 +39,18 @@ panel:where([type="arrow"]) {
     border-radius: var(--panel-border-radius);
     padding: 1px;
     background-position: center center !important;
-    background: radial-gradient(ellipse at center, var(--button-hover-bgcolor), transparent);
+    background: radial-gradient(ellipse at center, var(--color-accent-primary-hover), transparent);
     mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     mask-composite: exclude;
     pointer-events: none !important;
+}
+
+/* Panels like 'search engine' - 'open'  - affect too the group tabs preview list */
+.toolbar-menupopup {
+    &, 
+    & menupopup {
+        margin-block-start: 0px !important;
+    }
 }
 
 /* Margin bottom last item of popups */
@@ -53,43 +61,111 @@ panel:where([type="arrow"]) {
 
 /* Gradient background color when ':hover' over different items in the main menus \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.protections-popup-category:not(#appMenu-popup toolbarbutton,[disabled]):hover, .protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, 
+.protections-popup-category:not(#appMenu-popup toolbarbutton,[disabled]):hover, 
+.protections-popup-footer-button:not(#appMenu-popup toolbarbutton):hover, 
 #protections-popup-show-report-stack:not(#appMenu-popup toolbarbutton):hover > .protections-popup-footer-button:not(#appMenu-popup toolbarbutton), 
-panelview .toolbarbutton-1:not([disabled], [open]:not(#appMenu-popup toolbarbutton)):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open], 
-.subviewbutton-back, .unified-extensions-item-action-button):is(:hover), .navigable.subviewbutton:not([disabled], [open]):is(:hover), menu.subviewbutton:not([disabled])[_moz-menuhover], 
-menuitem.subviewbutton:not([disabled])[_moz-menuhover], .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover), 
+panelview .toolbarbutton-1:not([disabled],[open]:not(#appMenu-popup toolbarbutton)):is(:hover), 
+toolbarbutton.subviewbutton:not([disabled], [open], .subviewbutton-back, .unified-extensions-item-action-button):is(:hover), 
+.navigable.subviewbutton:not([disabled], [open]):is(:hover),
+menu.subviewbutton:not([disabled])[_moz-menuhover], 
+menuitem.subviewbutton:not([disabled])[_moz-menuhover], 
+.widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover), 
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover),
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover {
     background: var(--panel-separator-zap-gradient3) !important;
-    color: var(--panel-text-color, var(--my-font-color)) !important;
+    color: contrast-color(var(--color-accent-primary-hover)) !important;
 }
 
 /* Background color when clicking on different items in the main menus \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.protections-popup-category:active:not([disabled]), .protections-popup-footer-button:active, #protections-popup-show-report-stack:active > .protections-popup-footer-button, 
-panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back):is(:active, [open]), 
-.navigable.subviewbutton:not([disabled]):is(:active, [open]), menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, 
-menuitem.subviewbutton:not([disabled])[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]), 
+.protections-popup-category:active:not([disabled]), 
+.protections-popup-footer-button:active, 
+#protections-popup-show-report-stack:active > .protections-popup-footer-button, 
+panelview .toolbarbutton-1:not([disabled]):is(:active, [open]), 
+toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back,.unified-extensions-item-action-button):is(:active, [open]), 
+.navigable.subviewbutton:not([disabled]):is(:active, [open]), 
+menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, 
+menuitem.subviewbutton:not([disabled])[_moz-menuactive], 
+.widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]), 
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]),
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:active {
     background: var(--panel-separator-zap-gradient4) !important;
+    color: contrast-color(var(--color-accent-primary-hover)) !important;
 }
 
 /* Color of icons and labels \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.subviewbutton:not([disabled]), 
-#appMenu-popup toolbarbutton:not([disabled]) .toolbarbutton-text label {
-    -moz-context-properties: fill;
-    fill: var(--label-color) !important;
-    color: var(--label-color) !important;
+:is(panelview .toolbarbutton-1, toolbarbutton.subviewbutton, .widget-overflow-list .toolbarbutton-1,
+.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton) {
+    letter-spacing: 0.2px !important;
 }
 
 /* Colors on disabled items \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.subviewbutton:is([disabled]), .subviewbutton:where([disabled="true"]):hover {       
-    -moz-context-properties: fill;
-    color: color-mix(in srgb, var(--panel-text-color) 70%, transparent) !important;
-    fill:  color-mix(in srgb, var(--panel-text-color) 70%, transparent) !important;
+.subviewbutton:is([disabled]), 
+.subviewbutton:where([disabled="true"]):hover {       
+    color: color-mix(in srgb, currentColor 70%, transparent) !important;
+    fill:  color-mix(in srgb, currentColor 70%, transparent) !important;
+}
+
+/* Shortcuts 'Ctrl +' into arrowpanels \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.subviewbutton[shortcut] {
+    &::after {
+        background-color: color-mix(in srgb, var(--my-scheme-color), var(--arrowpanel-background)) !important;
+        --text-color-deemphasized: light-dark(lch(from var(--arrowpanel-background) calc(l - 60) calc(c - 10) h),
+            lch(from var(--arrowpanel-background) calc(l + 60) calc(c + 10) h)) !important;
+        border-radius: var(--toolbarbutton-border-radius) !important;
+        padding: 4px !important;
+        margin-block: -4px !important;
+        margin-inline-end: calc(6px - var(--panel-menuitem-padding-inline)) !important;
+        font-family: monospace;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    &:hover::after {
+        --text-color-deemphasized: var(--my-font-color) !important;
+    }
+    
+    #appMenu-popup & {
+        margin-inline-end: 8px !important;
+    }
+}
+
+/* Shortcuts 'Ctrl +' into menubar items \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+menuitem {
+    .menu-accel::before {
+        background-color: color-mix(in srgb, var(--my-scheme-color), var(--arrowpanel-background)) !important;
+        color: light-dark(lch(from var(--arrowpanel-background) calc(l - 60) calc(c - 10) h),
+            lch(from var(--arrowpanel-background) calc(l + 60) calc(c + 10) h)) !important;
+        border-radius: var(--toolbarbutton-border-radius) !important;
+        padding: 2px 4px !important;
+        margin-block: -4px !important;
+        margin-inline: 4px -8px !important;
+        font-family: monospace;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    &:hover .menu-accel::before {
+        color: var(--my-font-color) !important;
+    }
+}
+
+menupopup > menu::after {
+    margin-inline-end: -6px !important;
+}
+
+/* Keep arrow icon the same color when hover (into arrowpanel items) */
+#protections-popup-mainView .subviewbutton-nav:not(.notFound), 
+.widget-overflow-list .subviewbutton-nav, 
+.PanelUI-subView .subviewbutton-nav, 
+.tab-preview-add-note.subviewbutton-nav {
+    &:hover::after {
+        fill: contrast-color(var(--my-scheme-color)) !important;
+    }
 }
 
 /* Gradient line - separators \
@@ -112,15 +188,24 @@ toolbarseparator {
 #PanelUI-fxa-menu .fxa-cta-button {
     margin-inline: 0 !important;
     padding-inline-start: var(--margin-left-icons-personal, 0px) !important;
+    
+    .ctaMenuLogo {
+        margin-inline-end: 0.5em !important;
+    }
+    
+    #cta-menu-header-description {
+        margin-inline-start: calc(var(--icon-size) + 0.5em) !important;
+    }
 }
 
-/* 'back' button \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Header buttons e.g. back button \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .panel-header {
-    --button-background-color-ghost-hover: var(--button-hover-bgcolor) !important;
-    --button-background-color-ghost-active: var(--button-active-bgcolor) !important;
+    --button-background-color-ghost-active: var(--color-accent-primary-active) !important;
     --panel-menuitem-border-radius: 3px !important;
-    /*--panel-header-back-icon-padding: 6px 6px 6px 4px !important;/**/
+    --panel-header-back-icon-padding: 6px 6px 6px 4px !important;
+    --button-text-color-ghost-hover: contrast-color(var(--color-accent-primary-hover)) !important;
+    --button-text-color-ghost-active: contrast-color(var(--color-accent-primary-hover)) !important;
 }
 
 /* Color sign when moving bookmark into a folder in bookmarksbar \

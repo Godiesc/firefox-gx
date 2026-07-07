@@ -51,11 +51,11 @@
     }
     #placesMenu > menu:is(:hover, [open]) {
         appearance: none !important;
-        background: var(--button-hover-bgcolor, #0060bf) !important;
+        background: var(--color-accent-primary-hover, #0060bf) !important;
     }
     #placesMenu > menu:is(:hover, [open])[_moz-menuactive="true"][open="true"] {
         appearance: none !important;
-        background: var(--button-active-bgcolor, #0060bf) !important;
+        background: var(--color-accent-primary-active, #0060bf) !important;
     }
     toolbar {
         appearance: none !important;
@@ -83,7 +83,7 @@
     }
     #searchFilter:is([focused]){
         background-color: color-mix(in srgb, var(--organizer-pane-background) 96%, var(--organizer-color, #eaeaea)) !important;
-        outline-color: var(--button-active-bgcolor) !important;
+        outline-color: var(--color-accent-primary-active) !important;
         outline-offset: -1px !important;
         transition-duration: 50ms !important;
     }
@@ -112,7 +112,7 @@
         background: var(--organizer-pane-background) !important;
         }
     #editBMPanel_tagsSelectorExpander:hover{
-        background: var(--button-active-bgcolor) !important;
+        background: var(--color-accent-primary-active) !important;
         outline: none !important;
         }
     #placesView>splitter {
@@ -129,7 +129,7 @@
     }
     #contentView treecol:hover{
         appearance: none !important;
-        background-color: var(--button-active-bgcolor, #0060bf) !important;
+        background-color: var(--color-accent-primary-active, #0060bf) !important;
     }
     #placeContent treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text() {
         appearance: none !important;
@@ -146,7 +146,7 @@
     }
     
     richlistitem[selected="true"] {
-        background-color: var(--button-bgcolor) !important;
+        background-color: var(--color-accent-primary-small) !important;
     }
     
     @media not (prefers-contrast) {
@@ -156,7 +156,7 @@
         }
         #downloadsListBox:focus  > richlistitem[selected] {
             background-image: none !important;
-            background-color: var(--button-bgcolor) !important;
+            background-color: var(--color-accent-primary-small) !important;
             border-radius: 0px !important;
             outline: 1px solid var(--general-color) !important;
             outline-offset: -1px !important;
@@ -184,7 +184,7 @@
     /* Item "selected" color */
     #places treechildren:not(.autocomplete-treebody)::-moz-tree-row(selected), #placesList>treechildren::-moz-tree-row(selected) {
         appearance: none !important;
-        background: var(--button-active-bgcolor, #0060bf)  !important;
+        background: var(--color-accent-primary-active, #0060bf)  !important;
         outline: none !important;
     }
     #placeContent treechildren:not(.autocomplete-treebody)::-moz-tree-cell-text(selected), #placesList>treechildren::-moz-tree-cell-text(selected) {

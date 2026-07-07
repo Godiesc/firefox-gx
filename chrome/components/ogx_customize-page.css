@@ -18,15 +18,15 @@
 #customization-done-button {
     appearance: none !important;
     color: var(--my-font-color) !important;
-    border-color: var(--button-hover-bgcolor) !important;
-    background-color: var(--button-hover-bgcolor) !important;
+    border-color: var(--color-accent-primary-hover) !important;
+    background-color: var(--color-accent-primary-hover) !important;
     padding: 2px 24px !important;
 }
 
 #customization-footer {
     
   & > .footer-button:hover {
-      background-color: var(--button-bgcolor) !important;
+      background-color: var(--color-accent-primary-small) !important;
       color: initial !important;
     }
     
@@ -34,8 +34,8 @@
     & #customization-done-button:is(:active, :hover):not([disabled]) {
         appearance: none !important;
         color: var(--my-font-color) !important;
-        background-color: var(--button-active-bgcolor) !important;
-        border-color: var(--button-active-bgcolor) !important;
+        background-color: var(--color-accent-primary-active) !important;
+        border-color: var(--color-accent-primary-active) !important;
     }
 }
 

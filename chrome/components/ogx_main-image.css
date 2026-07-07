@@ -95,7 +95,7 @@
       :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
          
          /* Solve border color when using base solid theme - Overwrite code from 'ogx_left-sidebar.css' */
-         #sidebar-main {
+         #sidebar-container {
             &[sidebar-positionend] {
                 background-color: var(--toolbar-background-color) !important;
             }
@@ -118,7 +118,7 @@
                   var(--lwt-header-image, none), var(--lwt-additional-images,none),
                   linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                background-position: left top !important;
-               background-position-y: calc(1px - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+               background-position-y: calc(1px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
                background-repeat: no-repeat !important;
                background-size: cover !important;
                z-index: -1 !important;
@@ -255,7 +255,7 @@
          }
          
          :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
-            #sidebar-main {
+            #sidebar-container {
                background-size: 100vw 100vh !important;
             }
          }
@@ -265,7 +265,7 @@
             @media -moz-pref("firefoxgx.left-sidebar") {
 
                :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
-                  #sidebar-main {
+                  #sidebar-container {
                      background-size: 100vw 100vh !important;
                   }
                }

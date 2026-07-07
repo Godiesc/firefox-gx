@@ -1,6 +1,63 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
+/* Style for both 'vertical tabs' */
+
+@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
+
+    :root:not([chromehidden*="menubar"]):has(#toolbar-menubar[autohide]) .titlebar-buttonbox-container {
+        --tab-height-personal: var(--toolbar-height-personal) !important;
+        margin-inline-start: 42px !important;
+    }
+
+    /* Separator between <window controls> and other buttons */
+    :root:not([chromehidden~="toolbar"]) .titlebar-buttonbox-container::before {
+        content: ""; position: absolute !important; align-self: center !important;
+        background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
+        background-size: 6px 16px !important;
+        width: 6px !important;
+        height: 16px !important;
+        fill: var(--toolbarbutton-icon-fill) !important;
+        -moz-context-properties: fill !important;
+        opacity: 0.2 !important;
+        fill-opacity: 1 !important;
+        margin-inline-start: -24px !important;
+    }
+    
+    /* Remove separator when menubar is always active */
+    :root:not([chromehidden~="toolbar"]) #toolbar-menubar:not([autohide]) .titlebar-buttonbox-container::before {
+        display: none !important;
+    }
+
+    /* Separator between <window controls> and other buttons - LinuxOS*/
+
+    @media -moz-pref("userchrome.force-window-controls-on-left.enabled"),
+        (-moz-gtk-csd-reversed-placement),
+        (-moz-platform: macos) {
+            :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) #nav-bar>.titlebar-buttonbox-container::before {
+                margin-inline-start: calc(106px) !important;
+            }
+    }
+}
+
+:root[chromehidden*="menubar"] {
+    .titlebar-buttonbox {
+        height: var(--toolbar-height-personal) !important;
+    }
+}
+
+/* Larger buttons (min-max-close) on non-maximized windows */
+
+:root:not([chromehidden*="menubar"]):has(#toolbar-menubar[autohide]) .titlebar-buttonbox-container {
+    height: calc(var(--tab-height-personal) - 1px + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top)) !important;
+    margin-top: calc(0px - var(--windowed-top-padding,0px)) !important;
+
+    @media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
+        --tab-height-personal: var(--toolbar-height-personal) !important;
+        margin-inline-start: 42px !important;
+    }
+}
+
 /* WindowsOS - window control icons */
 
 @media (-moz-platform: windows) {
@@ -28,58 +85,6 @@
         background-color: hsl(355, 86%, 49%) !important;
         color: white !important;
     }
-    
-    /* Larger buttons (min-max-close) on non-maximized windows */
-    
-    :root:not([chromehidden*="menubar"]):has(#toolbar-menubar[autohide]) .titlebar-buttonbox-container {
-        height: calc(var(--tab-height-personal) - 1px + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top)) !important;
-        margin-top: calc(0px - var(--windowed-top-padding,0px)) !important;
-        
-        @media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
-            --tab-height-personal: var(--toolbar-height-personal) !important;
-            margin-inline-start: 42px !important;
-        }
-    }
-    
-    /* Style for both 'vertical tabs' */
-    
-    @media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
-        
-        :root:not([chromehidden*="menubar"]):has(#toolbar-menubar[autohide]) .titlebar-buttonbox-container {
-            --tab-height-personal: var(--toolbar-height-personal) !important;
-            margin-inline-start: 42px !important;
-        }
-        
-        /* Separator between <window controls> and other buttons */
-        :root:not([chromehidden~="toolbar"]) #nav-bar>.titlebar-buttonbox-container::before{
-            content: ""; position: absolute !important; align-self: center !important;
-            background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
-            background-size: 6px 16px !important;
-            width: 6px !important;
-            height: 16px !important;
-            fill: var(--toolbarbutton-icon-fill) !important;
-            -moz-context-properties: fill !important;
-            opacity: 0.2 !important;
-            fill-opacity: 1 !important;
-            margin-inline-start: -24px !important;
-        }
-
-        /* Separator between <window controls> and other buttons - LinuxOS*/
-
-        @media -moz-pref("userchrome.force-window-controls-on-left.enabled"),
-            (-moz-gtk-csd-reversed-placement),
-            (-moz-platform: macos){
-                :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) #nav-bar>.titlebar-buttonbox-container::before{
-                    margin-inline-start: calc(106px) !important;
-                }
-        }
-    }
-    
-    :root[chromehidden*="menubar"] {
-        .titlebar-buttonbox {
-            height: var(--toolbar-height-personal) !important;
-        }
-    }
 }
 
 /* Linux default window control icons */
@@ -90,12 +95,6 @@
         list-style-image: none !important;
         appearance: none !important;
     }
-    /*.titlebar-button > .toolbarbutton-icon{
-        appearance: auto !important;
-        background: none !important;
-        width: unset !important;
-        height: unset !important;
-    }/**/
     .titlebar-min > .toolbarbutton-icon{
         -moz-default-appearance: -moz-window-button-minimize !important;
     }
@@ -113,26 +112,29 @@
         max-height: calc(var(--tab-block-margin-personal) * 2 + var(--tab-height-personal)) !important;
     }
     
-    /* On linux set width based on number of caption buttons.
+    /* On linux set width based on number of caption buttons */
     
-    One button */
-    @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
-        :root:is([customtitlebar]) {
-            --uc-window-control-width: 74px !important;
-        }
-    }
-    /* Two buttons */
-    @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
-        (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
-        (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
-            :root:is([customtitlebar],[sizemode="fullscreen"]) {
-                --uc-window-control-width: 100px !important;
+    @media -moz-pref("firefoxgx.oneline") {
+
+        /* One button */
+        @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
+            :root:is([customtitlebar]) {
+                --uc-window-control-width: 74px !important;
             }
-    }
-    /* Three buttons */
-    @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
-        :root:is([customtitlebar],[sizemode="fullscreen"]) {
-            --uc-window-control-width: 128px !important;
+        }
+        /* Two buttons */
+        @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
+            (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
+            (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+                :root:is([customtitlebar],[sizemode="fullscreen"]) {
+                    --uc-window-control-width: 100px !important;
+                }
+        }
+        /* Three buttons */
+        @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+            :root:is([customtitlebar],[sizemode="fullscreen"]) {
+                --uc-window-control-width: 128px !important;
+            }
         }
     }
 }

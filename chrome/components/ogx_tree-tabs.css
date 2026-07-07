@@ -9,7 +9,7 @@
     /* Hidde horizontal tabs */
 
     @media -moz-pref("sidebar.verticalTabs"){
-        #sidebar-main {
+        #sidebar-container {
             visibility: collapse;
         }
     }
@@ -55,7 +55,7 @@
 
 /* _________________ When using default 'Vertical tabs' _________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-@media -moz-pref("sidebar.verticalTabs") {   
+@media -moz-pref("sidebar.verticalTabs") {
 
     /* ¡Necessary for the hamburger button to be above the sidebar */
     .browser-titlebar {
@@ -134,11 +134,11 @@
     }
 
     #toolbar-menubar:not([autohide]) > .titlebar-buttonbox-container,
-    #toolbar-menubar:not([autohide]) > spacer{ display: none; }
+    #toolbar-menubar:not([autohide]) > spacer { display: none; }
 
     /* Makes menubar appear as overlay in the top left corner */
 
-    #toolbar-menubar{
+    #toolbar-menubar {
         position: fixed;
         display: flex;
         top: 0;
@@ -148,29 +148,44 @@
     }
 
     #toolbar-menubar[autohide][inactive]{ height: 0px !important; }
+    #toolbar-menubar[autohide]:not([inactive]) { 
+        min-height: var(--toolbar-height-personal) !important;
+        max-height: var(--toolbar-height-personal) !important;
+    }
 
-    #toolbar-menubar > spacer{ flex-grow: 1 }
-    #toolbar-menubar[inactive] > .titlebar-buttonbox-container{ display: none }
+    #toolbar-menubar > spacer { flex-grow: 1 }
+    #toolbar-menubar[inactive] > .titlebar-buttonbox-container { display: none }
 
     /* Makes the menubar clic on top border */
-    #main-menubar{
+    #main-menubar {
         height: calc(var(--menubar-height-personal, var(--toolbar-height-personal)) - 0px) !important;
         align-self: start !important;
         /*box-shadow: inset 0 -1px 0 0 var(--my-content-border-color) !important;/**/
     }
     
-    #toolbar-menubar[autohide] #main-menubar{
-        background-image: linear-gradient(var(--toolbar-background-color),var(--toolbar-background-color)),
-            linear-gradient(var(--toolbar-background-color),var(--toolbar-background-color)),
-            var(--lwt-additional-images,none), var(--lwt-header-image, none),
-            linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field));
-        background-attachment: scroll, scroll, fixed, fixed;
-        background-position: 0 0, 0 0, var(--lwt-background-alignment), right top;
-        background-position-y: top !important;
-        background-repeat: repeat-x, repeat-x, var(--lwt-background-tiling), no-repeat;
-        background-size: auto 100%, auto 100%, var(--lwt-background-size, auto auto), auto auto;
-        /* Not set 'color' - tested it in 'APNG-Kakashi Hatake' theme */
-        box-shadow: inset 0 -1px var(--my-content-border-color) !important;
+    #toolbar-menubar[autohide] {
+        #main-menubar {
+            background-image: linear-gradient(var(--toolbar-background-color),var(--toolbar-background-color)),
+                linear-gradient(var(--toolbar-background-color),var(--toolbar-background-color)),
+                var(--lwt-additional-images,none), var(--lwt-header-image, none),
+                linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field));
+            background-attachment: scroll, scroll, fixed, fixed;
+            background-position: 0 0, 0 0, var(--lwt-background-alignment), right top;
+            background-position-y: top !important;
+            background-repeat: repeat-x, repeat-x, var(--lwt-background-tiling), no-repeat;
+            background-size: var(--lwt-background-size, auto auto), auto auto;
+            /* Not set 'color' - tested it in 'APNG-Kakashi Hatake' theme */
+            box-shadow: inset 0 -1px var(--my-content-border-color) !important;
+            z-index: 0 !important;
+
+            menu {
+                &::before {
+                    height: calc(100% - 10px);
+                    z-index: -1 !important;
+                    border-radius: var(--border-radius-small);
+                }
+            }
+        }
     }
 
     #menubar-items{
@@ -178,7 +193,7 @@
     }
 
     @media (-moz-gtk-csd-reversed-placement){
-        #toolbar-menubar[autohide]:not([inactive]) > .titlebar-buttonbox-container{ display: none }  
+        #toolbar-menubar[autohide]:not([inactive]) > .titlebar-buttonbox-container { display: none }  
     }
 
     /* ___________ My code - Style when menubar is always visible ___________

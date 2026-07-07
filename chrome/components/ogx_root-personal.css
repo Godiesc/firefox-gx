@@ -9,9 +9,9 @@
   --catppuccino: #f38ba8;
   
   
-  /* Accent color ----> UI del navegador.  -----|        Newtab Accent color |                      |--- userContent <------------ Accent color
-                                                v                            v                      v    (Some 'about:' pages)                   */
-  --general-color: var(--toolbarbutton-icon-fill-attention, var(--newtab-text-primary-color, var(--fuchsia)));
+  /* Accent color ----> UI del navegador.  -----|              Newtab Accent color |                              |--- userContent <----- Accent color
+                                                v                                  v                              v    (Some 'about:' pages)     */
+  --general-color: var(--toolbarbutton-icon-fill-attention, var(--lwt-sidebar-highlight-background-color, var(--fuchsia)));
 
   /* __________________________________________________________ Various customizations _________________________________________________________ */
   
@@ -67,17 +67,12 @@
   --menu-label: "Menu" ;                                                                /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                            /* Horizontal size of the hamburger menu button */
   
-  --my-logo-wordmark-display: flex ;                                                    /* Logo-wordmark | none -> remove | flex -> show |  */
-  
   --my-newtab-elements-background: color-mix(in srgb, 
-    white 3%, var(--newtab-background-color) , transparent) ;                        /* Background color of newtab elements */
+    white 3%, var(--newtab-background-color) 30%, transparent) ;                        /* Background color of newtab elements */
   --my-border-radius: 6px ;                                                             /* Roundness of many elements in 'about:' pages */
   --my-blur: blur(16px) ;                                                               /* Blur on new tab page elements */
   
-  --my-newtab-pinnedsites-position: start ;                                             /* Pinned sites position -> :start | :center | :end | */
-  
   --my-selected-text-background: var(--general-color);                                  /* Selected text background */
-
 }
 
 @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always'),
@@ -103,17 +98,16 @@
 }
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ The following variables were not included for user editing, but are required in this file ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ The following variables were not included for user editing, but are required in this file !!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
 :root {  
   /* ________ Various Gradientes */
   
   --panel-separator-zap-gradient1: linear-gradient(to right,var(--general-color) 80% , transparent calc(94% - var(--my-elements-left-margin,0px)));
-  --panel-separator-zap-gradient2: linear-gradient(to left, var(--button-hover-bgcolor) , transparent);
-  --panel-separator-zap-gradient3: linear-gradient(to right, var(--button-bgcolor) 49%, transparent);
-  --panel-separator-zap-gradient4: linear-gradient(to right, var(--button-hover-bgcolor) 80%, transparent);
-  --panel-separator-zap-gradient5: linear-gradient(to left, transparent 7px,var(--button-hover-bgcolor) 7px, 
+  --panel-separator-zap-gradient2: linear-gradient(to left, var(--color-accent-primary-hover) , transparent);
+  --panel-separator-zap-gradient3: linear-gradient(to right, var(--color-accent-primary-hover) 50%, transparent);
+  --panel-separator-zap-gradient4: linear-gradient(to right, var(--color-accent-primary-hover) 80%, transparent);
+  --panel-separator-zap-gradient5: linear-gradient(to left, transparent 7px,var(--color-accent-primary-hover) 7px, 
                                                    transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
                                                    transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1;
 
@@ -122,23 +116,23 @@
   &:-moz-locale-dir(rtl) {
     direction: rtl;
     --panel-separator-zap-gradient1: linear-gradient(to left,var(--general-color) 80% , transparent calc(94% - var(--my-elements-left-margin,0px)));
-    --panel-separator-zap-gradient2: linear-gradient(to right, var(--button-hover-bgcolor) , transparent);
-    --panel-separator-zap-gradient3: linear-gradient(to left, var(--button-bgcolor) 49%, transparent);
-    --panel-separator-zap-gradient4: linear-gradient(to left, var(--button-hover-bgcolor) 80%, transparent);
-    --panel-separator-zap-gradient5: linear-gradient(to right, transparent 7px,var(--button-hover-bgcolor) 7px, 
+    --panel-separator-zap-gradient2: linear-gradient(to right, var(--color-accent-primary-hover) , transparent);
+    --panel-separator-zap-gradient3: linear-gradient(to left, var(--color-accent-primary-small) 50%, transparent);
+    --panel-separator-zap-gradient4: linear-gradient(to left, var(--color-accent-primary-hover) 80%, transparent);
+    --panel-separator-zap-gradient5: linear-gradient(to right, transparent 7px,var(--color-accent-primary-hover) 7px, 
                                                      transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
                                                      transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1;
   }
 
   /* ________________ buttons background color when 'static' - 'hover' - 'click'  ________________ */
   
-  --button-smaller-bgcolor: color-mix(in srgb, var(--general-color) 25%, transparent);
-  --button-bgcolor: color-mix(in srgb, var(--general-color) 40%, transparent) !important;             /* Button background color */
-  --button-hover-bgcolor: color-mix(in srgb, var(--general-color) 55%, transparent) !important;       /* Button background color when 'hover' */
-  --button-active-bgcolor: color-mix(in srgb, var(--general-color) 75%, transparent) !important;      /* Button background color when 'active' */
-  
+  --color-accent-primary-xsmall: color-mix(in srgb, transparent 75%, var(--color-accent-primary));       /* Button background color smaller */
+  --color-accent-primary-small: color-mix(in srgb, transparent 60%, var(--color-accent-primary));        /* Button background color small */
+  --color-accent-primary-medium: color-mix(in srgb, transparent 45%, var(--color-accent-primary));       /* Button background color medium */
+  --color-accent-primary-hover: color-mix(in srgb, black 24%, var(--color-accent-primary)) !important;   /* Button background color when 'hover' */
+  --color-accent-primary-active: color-mix(in srgb, black 40%, var(--color-accent-primary)) !important;  /* Button background color when 'active' */
 }
 
 @media (-moz-platform: linux ) { :root {
-  --panel-separator-zap-gradient1: linear-gradient(to right, var(--general-color) 80% , transparent calc(100% - var(--uc-window-control-width, 0px))) !important;
+  --panel-separator-zap-gradient1: linear-gradient(to right, var(--general-color) 80% , transparent calc(94% - var(--my-elements-left-margin, var(--uc-window-control-width, 0px)))) !important;
   }}

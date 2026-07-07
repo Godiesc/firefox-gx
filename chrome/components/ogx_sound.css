@@ -279,7 +279,7 @@
         --my-opacity: 0.8 !important;
 
         &:hover {         
-            --my-background-color: var(--button-hover-bgcolor) !important;
+            --my-background-color: var(--color-accent-primary-hover) !important;
             --my-fill: var(--my-font-color) !important;
             --my-opacity: 1 !important;
         }
@@ -319,7 +319,7 @@
             --my-inset-inline-start: 11px !important;
 
             &:hover {         
-                --my-background-color: var(--button-hover-bgcolor) !important;
+                --my-background-color: var(--color-accent-primary-hover) !important;
                 --my-fill: var(--my-font-color) !important;
                 --my-opacity: 1 !important;
             }

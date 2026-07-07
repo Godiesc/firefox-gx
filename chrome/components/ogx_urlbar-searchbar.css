@@ -137,8 +137,8 @@
 }
 
 .urlbarView-quickaction-button:hover {
-    background-color: var(--button-hover-bgcolor) !important;
-    box-shadow: 0px 0px 0px 1px var(--button-hover-bgcolor) !important;
+    background-color: var(--color-accent-primary-hover) !important;
+    box-shadow: 0px 0px 0px 1px var(--color-accent-primary-hover) !important;
 }
 
 /* Label 'Firefox Suggestions - Google Suggestions' */
@@ -195,14 +195,15 @@
     }
 }
 
-/* ____________________________________ Nav-bar height ____________________________________ */
-
+/* ____________________________________ Nav-bar height ____________________________________ 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #nav-bar {
     height: var(--toolbar-height-personal) !important;
     border-top-width: 0px !important;
 }
 
-#urlbar-container, #search-container {
+#urlbar-container, 
+#search-container {
     --urlbar-container-height: var(--toolbar-height-personal) !important;
 }
 
@@ -236,7 +237,7 @@
 }
 
 :is(#urlbar, #searchbar-new):not([open], [focused]):hover .urlbar-background {
-    background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+    background-color: var(--color-accent-primary-xsmall) !important;
     border-color: transparent !important;
     transition: linear 150ms !important;
     transition-delay: 100ms !important;
@@ -244,7 +245,7 @@
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) 
     :is(#urlbar, #searchbar-new):not([open]):is([focused]) .urlbar-background {
-        background-color: color-mix(in srgb, var(--general-color) 25%, transparent) !important;
+        background-color: var(--color-accent-primary-xsmall) !important;
 }
 
 :is(#urlbar, #searchbar-new)[focused] .urlbar-background {
@@ -253,7 +254,11 @@
 }
 
 :is(#urlbar, #searchbar-new)[open] .urlbar-background {
-    background-image: var(--noise-urlbar-personal) !important;
+    --my-background-image-popup: radial-gradient( 100% 91.38% at 50% 99.62%,
+                           color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
+                           var(--urlbar-background-background-color-focused));
+    background: var(--my-background-image-popup), var(--noise-urlbar-personal),
+                        var(--noise-urlbar-personal) , var(--urlbar-background-background-color-focused) !important;
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-color: transparent !important;
     margin-block-start: 1px !important;
@@ -269,26 +274,43 @@
     z-index: unset !important;
 }
 
-/* Dark filter when urlbar is [open] */
-
-#urlbar-container::before {
-    content: '';
-    box-shadow: 0 0 0 100vw var(--my-box-shadow-color, transparent);
-    transition: box-shadow 250ms ease-out;
-    pointer-events: none;
-    z-index: 6 !important;
-}
-
-#urlbar-container:has(#urlbar[open])::before {
-    --my-box-shadow-color: rgba(0, 0, 0, 0.50);
-}
-
-/* 'Trust' button */
-
-@media -moz-pref("browser.urlbar.trustPanel.featureGate") {
-    #trust-icon-container {
-        align-self: center !important;
+/* Dark filter when urlbar is [open] \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+:is(#urlbar-container, #search-container) {
+    &::before {
+        content: '';
+        box-shadow: 0 0 0 100vw var(--my-box-shadow-color, transparent);
+        transition: box-shadow 250ms ease-out;
+        pointer-events: none;
+        z-index: 6 !important;
     }
+
+    &:has(#urlbar[open], #searchbar-new[open])::before {
+        --my-box-shadow-color: rgba(0, 0, 0, 0.50);
+    }
+}
+
+/* Trust button ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ \
+/* Green color of the secure web description \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#identity-popup-securityView-extended-info[connection="secure"] {
+    background: linear-gradient(to right, #28a74550, #15572450) !important;
+    border-color: #2cf62c50 !important;
+    background-origin: border-box !important;
+}
+
+description#identity-popup-content-owner-label, 
+description#identity-popup-content-owner, 
+description#identity-popup-content-verifier, 
+#identity-popup-securityView-body>button {
+    color: #2cf62c !important;
+}
+
+/* Remove unwanted space when urlbar keep search terms and don't show the url */
+.urlbar-input-container[pageproxystate="invalid"] {
+  & > :is([urlbar-slot="site-info"]:not(#trust-icon-container):not(#tracking-protection-icon-container)):not([hidden]) {
+    margin-inline-end: 0px !important;
+  }
 }
 
 /* ___________________________________________ Search Engine button ___________________________________________
@@ -304,9 +326,8 @@
     --button-border-radius: var(--urlbar-inner-border-radius) !important;
     
     /* Size */
-    width: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    align-self: center !important;  /* Alignment */
+    width: var(--urlbar-basic-component-size) !important;
+    height: var(--urlbar-basic-component-size) !important;
     
     /* Keep the same background color when 'hover' on 'open' */
     &[open] {
@@ -326,7 +347,7 @@
         &:hover,
         &[open] {
             --my-display: flex !important;
-            width: calc(var(--urlbar-min-height) + 18px - 2 * var(--urlbar-container-padding)) !important;
+            width: calc(var(--urlbar-basic-component-size) + 22px) !important;
         }
     }
 }
@@ -376,8 +397,8 @@ input::-moz-search-clear-button:hover {
     background-color: var(--urlbar-box-hover-bgcolor) !important;
 }
 
-/* 'Trust' icon replaced with Extension icon in pages of extensions */
-
+/* 'Trust' icon replaced with Extension icon in extensions' pages \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .extensionPage {
     display: none !important;
 }
@@ -388,10 +409,11 @@ input::-moz-search-clear-button:hover {
 
 :has(.extensionPage) #trust-icon-container.secure {
     list-style-image: var(--my-replace-trust-icon) !important;
+    margin-inline-end: var(--urlbar-input-gap) !important;
 }
 
-/* Firefox secure pages */
-
+/* Firefox secure pages \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .identity-box-button {
     --urlbar-box-background-color: transparent !important;
     --urlbar-box-background-color-focus: transparent !important;
@@ -410,54 +432,37 @@ input::-moz-search-clear-button:hover {
     fill: var(--general-color) !important;
 }
 
-/* ________________________________________________ Smaller url-bar icons ________________________________________________ */
-
-/* Box margin */
-
-.identity-box-button,                                                                                      /* Lock */
-#notification-popup-box,                                                                                   /* Password... */
-#tracking-protection-icon-container {                                                                      /* Shield */
-    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    min-width: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    justify-content: center !important;                                                                    /* Align too in touch density */
-    align-self: center !important;
-}
-
-/* Background 'hover' & 'open' in Notification buttons like 'password'... */
-
-#notification-popup-box {
-    &:hover { background-color: var(--urlbar-box-background-color-hover) !important; }
-    &[open] { background-color: var(--urlbar-box-background-color-active) !important; }
-}
-
-/* vertical align 'urlbar-page-action' icons */
-
-.urlbar-icon {
-    align-self: center !important;
-}
-
-/* Size & horizontal align 'urlbar-page-action' icons \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.urlbar-page-action,
-.urlbar-revert-button {
-    width: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    justify-content: center !important;
-}
-
-/* Size of 'go-button' icons \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.urlbar-go-button,
-.search-go-button {
-    width: calc(var(--urlbar-min-height) - 10px - 2 * var(--urlbar-container-padding)) !important;
-    height: calc(var(--urlbar-min-height) - 10px - 2 * var(--urlbar-container-padding)) !important;
-}
-
-/* Correct display of zoom percentage shown in the url bar \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Zoom percentage shown in left of 'page-action' buttons \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #urlbar-zoom-button {
     order: -1 !important;
-    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
+}
+
+/* Space between left url icons \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#identity-box>box {
+    margin-inline-start: 4px !important;
+}
+
+/* Space between right url icons \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#page-action-buttons>hbox,
+#tracking-protection-icon-container{
+    margin-inline-start: 4px !important;
+}
+
+/* Add missing Background when 'hover' & 'open' in 'Notification buttons' like 'password'... \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#notification-popup-box {
+    &:hover { 
+        background-color: var(--urlbar-box-background-color-hover) !important; 
+        color: var(--urlbar-box-text-color-hover) !important; 
+    }
+    
+    &[open] { 
+        background-color: var(--urlbar-box-background-color-active) !important; 
+        color: var(--urlbar-box-text-color-hover) !important; 
+    }
 }
 
 /* Show only the permision (blocked, allow...) icon \
@@ -466,7 +471,6 @@ input::-moz-search-clear-button:hover {
     &> image {
         display: none !important;
     }
-    /*.blocked-permission-icon.popup-icon { margin-inline-start: 0px !important; }/**/
 }
 
 /* Margin left when there are 2 and/or more 'bloqued' icons */
@@ -482,48 +486,27 @@ input::-moz-search-clear-button:hover {
 
 /* Translate button \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#translations-button[translationsactive]{
-    width: initial !important;
-    border-radius: var(--urlbar-inner-border-radius) !important;
+#translations-button-icon {
+    margin-inline: 4px !important;
 }
 
 #translations-button[translationsactive] {
-    --toolbarbutton-icon-fill-attention: var(--toolbar-text-color) !important;
-    &:not(:hover,[open]) .urlbar-icon{
+    --toolbarbutton-icon-fill-attention: currentColor !important;
+    
+    &:not(:hover,[open]) {
+        --toolbarbutton-icon-fill-attention: var(--general-color) !important;
+    }
+    
+     &:not(:hover,[open]) #translations-button-locale {
         display: none !important;
     }
 }
 
 #translations-button-locale {
-    background-color: var(--general-color) !important;
-    border-radius: var(--urlbar-inner-border-radius) !important;
-    height: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    width: calc(var(--urlbar-min-height) - 4px - 2 * var(--urlbar-container-padding)) !important;
-    align-self: center !important;
+    height: var(--urlbar-basic-component-size) !important;
+    min-width: var(--urlbar-basic-component-size) !important;
+    margin-inline: unset !important;
+    background-color: var(--color-accent-primary-active) !important;
+    border-radius: 0 var(--urlbar-inner-border-radius) var(--urlbar-inner-border-radius) 0 !important;
     font-weight: bold !important;
-}
-
-#translations-button:is([open], :hover) #translations-button-locale{
-    background-color: var(--toolbarbutton-icon-fill) !important;
-    color: var(--my-scheme-color) !important;
-}
-
-/* Space between left url icons \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#identity-box>box {
-    margin-inline: 4px !important;
-}
-
-/* Space between right url icons \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#page-action-buttons>hbox,
-#tracking-protection-icon-container{
-    margin-inline-start: 4px !important;
-}
-
-/* Green color of the secure web description \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-description#identity-popup-content-owner-label, description#identity-popup-content-owner, description#identity-popup-content-verifier, 
-#identity-popup-securityView-body>button {
-    color: #2cf62c !important;
 }

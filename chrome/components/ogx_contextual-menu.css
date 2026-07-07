@@ -6,10 +6,11 @@
 menupopup:not(.in-menulist) {
     --panel-padding: 4px 0px !important;
     
-    & > :is(menuitem, menu) {
+    /* without '>' to affect too the context navigation buttons */
+    & :is(menuitem, menu) {
         --menuitem-border-radius: 0px !important;
         --menuitem-padding: 0.34em 1em !important;
-        appearance: none !important;
+        /*appearance: none !important;/**/
     }
 }
 
@@ -48,6 +49,7 @@ menupopup menupopup {
     --panel-box-shadow-margin: 1px !important;  /* 1px to draw the external contrast border */
     --panel-border-radius: 4px !important;
     --panel-box-shadow: 0 0 0 1px var(--my-scheme-color) !important;    /* Test in 'search engine' button */
+    --panel-text-color: inherit !important;
 }
 
 .menupopup-arrowscrollbox {
@@ -64,7 +66,7 @@ menupopup menupopup {
 menupopup:not(.in-menulist) {
     --panel-background-color: var(--arrowpanel-background) !important;
     --my-background-image1:                                              /* Soft gradient background - needs to be 1 */
-        radial-gradient( 100% 91.38% at 50% 99.62%,
+        radial-gradient( 100% 90% at 50% 100%,
         color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
         var(--arrowpanel-background)) !important;
     --my-background-repeat: no-repeat !important;
@@ -79,24 +81,21 @@ menupopup:not(.in-menulist) {
         --my-scheme-color: var(--my-scheme-border-color) !important;                                    /* popup border - external */
     }
 
-    /* Font color in Contextual menus */
-    &> menuitem,
-    &> menu {
-        &:not([disabled]) {
-            appearance: none !important;
-            color: var(--panel-text-color, var(--my-font-color)) !important;
-        }
-    }
-
     /* Backgroud color to 'hover' items */
     &> menu,
-    &> menuitem {
+    & menuitem {
         &:where([_moz-menuactive]) {
-            &:not([disabled="true"]) {
+            &:not([disabled]) {
                 background: var(--panel-separator-zap-gradient3) !important;
+                color: contrast-color(var(--color-accent-primary-hover)) !important;
             }
-            &:is([disabled="true"]) {
-                background: linear-gradient(to right, color-mix(in srgb, currentcolor 20%, transparent), transparent) !important;
+            &:is([disabled]) {
+                background: linear-gradient(to right, color-mix(in srgb, gray 20%, transparent), transparent) !important;
+            }
+            
+            /* Arrow fill color - test it in swamp theme */
+            &:after {
+                color: var(--panel-text-color) !important;
             }
         }
     }
@@ -104,7 +103,7 @@ menupopup:not(.in-menulist) {
     /* Smooth colored border */
     @media not -moz-pref("firefoxgx.gradientBorder-in-menus") {
         &::after {
-            --my-arrowpanel-gradient: radial-gradient(ellipse at center, var(--button-hover-bgcolor), transparent);
+            --my-arrowpanel-gradient: radial-gradient(ellipse at center, var(--color-accent-primary-hover), transparent);
             content: "";
             position: absolute;
             inset: 1px;
@@ -123,7 +122,7 @@ menupopup:not(.in-menulist) {
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .autocomplete-richlistitem {
     &[selected] {
-        background-color: var(--button-hover-bgcolor) !important;
+        background-color: var(--color-accent-primary-hover) !important;
         color: FieldText !important;
     }
 }
@@ -132,71 +131,55 @@ menupopup:not(.in-menulist) {
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #context-navigation { flex-direction: column !important; }
 
+#context-navigation > .menuitem-iconic {
+    /* size */
+    padding: var(--menuitem-padding) !important;
+    margin: var(--menuitem-margin) !important;
+    justify-content: flex-start !important;
+
+    /* Display label */
+    &::before { 
+        content: attr(aria-label); 
+        order: 1 !important; 
+        padding-block: 1px !important;  /* Needed to match other items height */
+    }
+}
+
+/* Remove icons when all icons are disabled */
 @media -moz-pref("firefoxgx.icon.disabled") {
-
-    #context-navigation > .menuitem-iconic > .menu-icon { display: none !important; }
-
-    #context-navigation > menuitem {
-        appearance: none !important;
-        padding-block: 0.4em !important;
-        padding-inline-start: 1em !important;
-        justify-content: flex-start !important;
-        -moz-box-pack: start !important;
-        width: auto !important;
-        border-radius: 0px !important;
+    /* Text */
+    #context-navigation > .menuitem-iconic {
+        /* Remove icon */
+        > .menu-icon { display: none !important; }
     }
-}
-
-#context-navigation > menuitem[_moz-menuactive="true"] {
-    &:not([disabled]) {
-        background: var(--panel-separator-zap-gradient3) !important;
-        color: var(--panel-text-color, var(--my-font-color)) !important;
-    }
-    &:is([disabled]) {
-        background: linear-gradient(to right, color-mix(in srgb, currentcolor 20%, transparent), transparent) !important;
-    }
-}
-
-#context-navigation > menuitem::after {
-    content: attr(aria-label);
 }
 
 /* 'back-forward-reload-addBookmark' buttons size \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media not -moz-pref("firefoxgx.icon.disabled") {
-
+    
     #context-navigation > .menuitem-iconic {
-        & .menu-icon {
-        appearance: none !important;
-        width: 30px !important;
-        height: 26px !important;
-        padding-block: 0px !important;
-        margin-block: 0px !important;
-        }
-        
-        &:not([disabled]) {
-            color: var(--panel-text-color, var(--my-font-color)) !important; /* used when font color isn't white/black */
+        & > .menu-icon {
+            width: var(--icon-size) !important;
+            height: var(--icon-size) !important;
+            margin-top: var(--space-xxsmall) !important;
+            margin-inline-end: var(--space-small) !important;
+            padding: unset !important;
         }
     }
     
-    /* For RTL languages */    
+    /* For RTL languages \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     #context-back:-moz-locale-dir(rtl), 
     #context-forward:-moz-locale-dir(rtl), 
     #context-reload:-moz-locale-dir(rtl) {
         transform: none !important;
     }
-
-    #context-navigation > menuitem {
-        appearance: none !important;
-        padding-block: 0.0em !important;
-        padding-inline-start: 6px !important;
-        justify-content: flex-start !important;
-        -moz-box-pack: start !important;
-        width: auto !important;
-        border-radius: 0px !important;
-        
-        @media (-moz-platform: linux) {
-            padding-inline-start: 0px !important;
+    
+    /* icons - Invert horizontal */
+    #context-navigation > .menuitem-iconic {
+        & > .menu-icon:-moz-locale-dir(rtl) {
+            transform: scaleX(-1);
         }
     }
 }

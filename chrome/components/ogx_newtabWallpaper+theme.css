@@ -3,7 +3,7 @@
 
 /* Apply Newtab wallpapers + Theme colors \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-/* ______________________________________________________________ Dark Wallpaper ______________________________________________________________
+/* ___________________________________________________________ Firefox GX Wallpaper ___________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.user.enabled") {
 
@@ -34,10 +34,16 @@
             }
 
             &[sidebar-expand-on-hover] {
-              #sidebar-main {
+              #sidebar-container {
                 &::before {
                   display: none !important;
                 }
+              }
+            }
+
+            @media not -moz-pref("firefoxgx.left-sidebar") {
+              sidebar-main {
+                --toolbar-background-color: var(--lwt-accent-color) !important;
               }
             }
             
@@ -62,7 +68,6 @@
                 }
               }
             }
-            
           }
           
           /* Style when 'tab selected' for various 'about' pages */
@@ -98,7 +103,7 @@
                       var(--lwt-header-image, none), var(--lwt-additional-images,none),
                       linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                     background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
-                    background-position-y: calc(1px - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
+                    background-position-y: calc(1px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
                     background-size: var(--my-background-size, auto 100%, var(--lwt-background-size)) !important;
                     background-attachment: fixed !important;
                     mask-image: none !important;
@@ -140,6 +145,14 @@
                         linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                       background-position-y: calc(0px - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
                       inset-inline-end: 0 !important;
+                    }
+                  }
+                  
+                  @media not -moz-pref("firefoxgx.left-sidebar") {
+                    --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
+                    &::before {
+                      --lwt-header-image: inherit !important;
+                      --lwt-additional-images: inherit !important;
                     }
                   }
                 }
@@ -197,6 +210,8 @@
       }
   }
 
+  /* ______________________________________________________________ Dark Wallpaper ______________________________________________________________
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-sky"), -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "starry-canyon"),
     -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-mountain"), -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-panda"),
     -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-fox-anniversary"), -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-beach"),
@@ -224,7 +239,7 @@
         --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
         --my-beats-image: url("../icons/Beats.webp") !important;                                                              /* Used in 'Extra' feature 'classic sound icon' */
 
-        --input-bgcolor: lch(from var(--panel-background-color) calc(l - 8) c h) !important;                                  /* Color of the 'input box' when saving a bookmark */
+        --input-text-background-color: lch(from var(--panel-background-color) calc(l - 6) c h) !important;                    /* Color of the 'input box' when saving a bookmark */
         --input-border-color:lch(from var(--panel-background-color) calc(l + 10) c h) !important;                             /* Border Color of the 'input box' not focused */
         --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when :focused */
 
@@ -249,7 +264,9 @@
         color-scheme: dark !important;
       }
   }
-  
+
+  /* _____________________________________________________________ Light Wallpaper ______________________________________________________________
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons'), -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-panda'),
     -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-fox-anniversary'), -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'blue-flowers'),
     -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-landscape'), -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'sand-dunes'),
@@ -279,11 +296,11 @@
         --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
         --my-beats-image: url("../icons/Beats.gif") !important;                                                               /* Used in 'Extra' feature 'classic sound icon' */
 
-        --button-background-color-primary: var(--button-active-bgcolor) !important;                                           /* Background of the 'Save' button */
+        --button-background-color-primary: var(--color-accent-primary-active) !important;                                           /* Background of the 'Save' button */
         --button-background-color-primary-hover: var(--general-color) !important;                                             /* Background of the 'Save' button 'hover' */
-        --button-background-color-primary-active: var(--button-active-bgcolor) !important;                                    /* Background of the 'Save' button 'clic' */
+        --button-background-color-primary-active: var(--color-accent-primary-active) !important;                                    /* Background of the 'Save' button 'clic' */
 
-        --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;                              /* Color of the 'input box' when saving a bookmark */
+        --input-text-background-color: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;                /* Color of the 'input box' when saving a bookmark */
         --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when 'focused' */
         --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 70%, black) !important;                         /* Border Color of the 'input box' 'non focused' */
 

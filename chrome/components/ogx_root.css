@@ -2,9 +2,9 @@
    https://github.com/Godiesc/firefox-gx */
 
 :root {
-  --my-content-border-color: var(--toolbarbutton-hover-personal) !important;                    /* Border color for web content is some situations */
-  --my-font-color: light-dark(#101019, #ffffff) !important;                                     /* Color used for contrast */
-  --my-main-gradient-background: linear-gradient(to top,                                        /* Gradiente background used in themes with images */
+  --my-content-border-color: var(--toolbarbutton-hover-personal) !important;                          /* Border color for web content is some situations */
+  --my-font-color: light-dark(#101019, #ffffff) !important;                                           /* Color used for contrast */
+  --my-main-gradient-background: linear-gradient(to top,                                              /* Gradiente background used in themes with images */
     var(--lwt-accent-color) calc(100% - 200px), 
     transparent calc(100% - calc(
       var(--menubar-height-personal, 0px) + 
@@ -15,128 +15,139 @@
 
   /* Toolbox Background & text color \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  /*--lwt-accent-color: #09080d !important;                                                     /* frame */
-  --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;                       /* frame_inactive */
-  /*--toolbox-text-color: blue !important;                                                      /* tab_background_text - focused window */
-  /*--toolbox-text-color-inactive: red !important;                                              /* tab_background_text - unfocused window */
-  /*--lwt-text-color: inherit !important;                                                       /* tab_background_text - general focus & unfocused window */
-  --inactive-titlebar-opacity: 1 !important;                                                    /* Opacity unfocused window */
+  /*--lwt-accent-color: #09080d !important;                                                           /* frame */
+  --lwt-accent-color-inactive: var(--lwt-accent-color, Field) !important;                             /* frame_inactive */
+  /*--toolbox-text-color: blue !important;                                                            /* tab_background_text - focused window */
+  /*--toolbox-text-color-inactive: red !important;                                                    /* tab_background_text - unfocused window */
+  /*--lwt-text-color: inherit !important;                                                             /* tab_background_text - general focus & unfocused window */
+  --inactive-titlebar-opacity: 1 !important;                                                          /* Opacity unfocused window */
 
   /* Tabs \
   ¯¯¯¯¯¯¯¯ */
-  --tab-block-margin: 0px !important;                                                           /* Tab margins - change this will break the theme */
-  --my-tab-margin-top: 0px !important;                                                          /* Top margin of tabs - variable personal */
-  --tab-min-height: calc(var(--tab-height-personal) - 1px) !important;                          /* Tab size */
-  --tabstrip-min-height: var(--tab-height-personal) !important;                                 /* Tab min size */
-  --tabs-shadow-size: 0px !important;                                                           /* Tab shadow */
-  --tab-border-radius: 0px !important;                                                          /* Tab roundness */
-  --tab-attention-dot-color: var(--general-color) !important;                                   /* Dot below favicon */
-  --tab-overflow-clip-margin: 0px !important;                                                   /* Remove unwanted space between tabs */
+  --tab-block-margin: 0px !important;                                                                 /* Tab margins - change this will break the theme */
+  --my-tab-margin-top: 0px !important;                                                                /* Top margin of tabs - variable personal */
+  --tab-min-height: calc(var(--tab-height-personal) - 1px) !important;                                /* Tab size */
+  --tabstrip-min-height: var(--tab-height-personal) !important;                                       /* Tab min size */
+  --tabs-shadow-size: 0px !important;                                                                 /* Tab shadow */
+  --tab-border-radius: 0px !important;                                                                /* Tab roundness */
+  --tab-attention-dot-color: var(--general-color) !important;                                         /* Dot below favicon */
+  --tab-overflow-clip-margin: 0px !important;                                                         /* Remove unwanted space between tabs */
 
   /* Selected tab \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --tab-selected-outline-color: transparent !important;                                         /* Selected tab border color */
-  --tab-loading-fill: var(--general-color) !important;                                          /* Dot color when page loads */
-  --tab-background-color-hover: var(--button-smaller-bgcolor) !important;                       /* Tab background when 'hover' */
-  /*--lwt-selected-tab-background-color: var(--toolbar-background-color) !important;            /* tab-selected background color */
-  /*--tab-selected-textcolor: var(--my-font-color) !important;                                  /* tab_selected text color */
+  --tab-selected-outline-color: transparent !important;                                               /* Selected tab border color */
+  --tab-loading-fill: var(--general-color) !important;                                                /* Dot color when page loads */
+  --tab-background-color-hover: var(--color-accent-primary-xsmall) !important;                        /* Tab background when 'hover' */
+  /*--lwt-selected-tab-background-color: var(--toolbar-background-color) !important;                  /* tab-selected background color */
+  /*--tab-selected-textcolor: var(--my-font-color) !important;                                        /* tab_selected text color */
 
   /* Navbar \
   ¯¯¯¯¯¯¯¯¯¯ */
-  /*--toolbar-background-color: var(--lwt-selected-tab-background-color) !important;            /* toolbar background */
-  /*--toolbar-text-color: var(--toolbarbutton-icon-fill) !important;                            /* toolbar label color */
-  /*--tabs-navbar-separator-color: transparent !important;                                      /* Separator color between tabs and navbar */
-  /*--chrome-content-separator-color: none !important;                                          /* toolbar_bottom_separator */
+  /*--toolbar-background-color: var(--lwt-selected-tab-background-color) !important;                  /* toolbar background */
+  /*--toolbar-text-color: var(--toolbarbutton-icon-fill) !important;                                  /* toolbar label color */
+  /*--tabs-navbar-separator-color: transparent !important;                                            /* Separator color between tabs and navbar */
+  /*--chrome-content-separator-color: none !important;                                                /* toolbar_bottom_separator */
 
   /* Navbar field \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --toolbar-field-background-color: transparent !important;                                     /* toolbar_field */
-  --toolbar-field-text-color: var(--toolbar-text-color) !important;                             /* toolbar_field_text */
-  --toolbar-field-border-color: transparent !important;                                         /* toolbar_field_border */
+  --toolbar-field-background-color: transparent !important;                                           /* toolbar_field */
+  --toolbar-field-text-color: var(--toolbar-text-color) !important;                                   /* toolbar_field_text */
+  --toolbar-field-border-color: transparent !important;                                               /* toolbar_field_border */
 
   /* Navbar field - focus \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  /*--toolbar-field-background-color-focus: var(--panel-background-color) !important;           /* toolbar_field_focus */
-  --toolbar-field-text-color-focus: var(--panel-text-color) !important;                         /* toolbar_field_text_focus */
-  --toolbar-field-border-color-focus: transparent !important;                                   /* toolbar_field_border_focus */
-  --lwt-toolbar-field-highlight: var(--general-color) !important;                               /* toolbar_field_highlight */
-  --lwt-toolbar-field-highlight-text: var(--my-scheme-color) !important;                        /* toolbar_field_highlight_text */
+  /*--toolbar-field-background-color-focus: var(--panel-background-color) !important;                 /* toolbar_field_focus */
+  --toolbar-field-text-color-focus: var(--panel-text-color) !important;                               /* toolbar_field_text_focus */
+  --toolbar-field-border-color-focus: transparent !important;                                         /* toolbar_field_border_focus */
+  --lwt-toolbar-field-highlight: var(--general-color) !important;                                     /* toolbar_field_highlight */
+  --lwt-toolbar-field-highlight-text: var(--my-scheme-color) !important;                              /* toolbar_field_highlight_text */
 
-  --autocomplete-popup-hover-background: var(--button-bgcolor) !important;                      /* background 'Search suggestions' 'hover' ^|v */
-  --urlbarview-separator-color: transparent !important;                                         /* Urlbar 'open' - Separator color  */
-  --border-radius-urlbar-personal: 4px;                                                         /* Personal variable - urlbar buttons roundness with 'tab-shapes' config */
+  --autocomplete-popup-hover-background: var(--color-accent-primary-small) !important;                /* background 'Search suggestions' 'hover' ^|v */
+  --urlbarview-separator-color: transparent !important;                                               /* Urlbar 'open' - Separator color  */
+  --border-radius-urlbar-personal: 4px;                                                               /* Personal variable - urlbar buttons roundness with 'tab-shapes' config */
 
   /* Navbar field items \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --urlbar-box-background-color-hover: var(--button-bgcolor) !important;                        /* Background urlbar icons when 'hover' */
-  --urlbar-box-background-color-active: var(--button-hover-bgcolor) !important;                 /* Background urlbar icons when 'active' */
-  --urlbar-inner-border-radius: 3px !important;                                                 /* Roundness of url bar icons */
-  --urlbar-icon-padding: 3px !important;                                                        /* Urlbar icon padding */
-  --identity-box-margin-inline: 10px !important;                                                /* Margin between 'trust' icon and url */
+  --urlbar-box-background-color-hover: var(--color-accent-primary-xsmall) !important;                 /* Background urlbar icons when 'hover' */
+  --urlbar-box-background-color-active: var(--color-accent-primary-small) !important;                 /* Background urlbar icons when 'active' */
+  /*--urlbar-box-text-color-hover: contrast-color(var(--color-accent-primary-xsmall)) !important;     /* Icon fill when 'hover' & 'open' */
+  --urlbar-inner-border-radius: 3px !important;                                                       /* Roundness of url bar icons */
+  --urlbar-icon-padding: calc((var(--urlbar-min-height) - 5px - 5px - 16px ) / 2) !important;         /* Urlbar icon padding */
+  --urlbar-input-gap: 10px !important;                                                                /* Margin between 'trust' icon and url */
+  --urlbar-basic-component-size: calc(var(--urlbar-min-height) - 5*                                   /* Url icon size - height & width */
+    (var(--urlbar-input-container-border-width) + var(--urlbar-input-container-padding))) !important;
 
   /* Toolbar buttons \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  /*--toolbarbutton-icon-fill: blue !important;                                                 /* icons */
-  /*--toolbarbutton-icon-fill-attention: red !important;                                        /* icons_attention */
-  --toolbarbutton-padding-inner: 6px !important;                                                /* Smaller toolbar buttons */
-  --toolbarbutton-padding-outer: 2px !important;                                                /* Space between buttons */
-  --toolbarbutton-border-radius: 3px !important;                                                /* Buttons roundness */
-  --toolbarseparator-color: var(--toolbarbutton-hover-personal) !important;                     /* Bookmarks-bar separator */
+  /*--toolbarbutton-icon-fill: blue !important;                                                       /* icons */
+  /*--toolbarbutton-icon-fill-attention: red !important;                                              /* icons_attention */
+  --toolbarbutton-padding-inner: 6px !important;                                                      /* Smaller toolbar buttons */
+  --toolbarbutton-padding-outer: 2px !important;                                                      /* Space between buttons */
+  --toolbarbutton-border-radius: 3px !important;                                                      /* Buttons roundness */
+  --toolbarseparator-color: var(--toolbarbutton-hover-personal) !important;                           /* Bookmarks-bar separator */
 
   /* Panels - Arrowpanels \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --arrowpanel-background: var(--panel-background-color) !important;                            /* popup background - variable removed in firefox v.151 */
-  --panel-border-radius: 4px !important;                                                        /* Roundness */
-  --panel-subview-body-padding: 4px 0px !important;                                             /* Popup main padding */
-  /*--menu-panel-width-wide: 29em !important;                                                   /* Popup width */
-  /*--panel-text-color: var(--my-font-color) !important;                                        /* popup_text */
-  /*--panel-border-color: red !important;                                                       /* popup_border */
-  /*--autocomplete-popup-highlight-background: var(--button-hover-bgcolor);                     /* popup_highlight */
-  /*--panel-padding: 16px !important;                                                           /* Padding in 'notification' popup */
+  --arrowpanel-background: var(--panel-background-color) !important;                                  /* popup background - variable removed in firefox v.151 */
+  --panel-border-radius: 4px !important;                                                              /* Roundness */
+  --panel-subview-body-padding: 4px 0px !important;                                                   /* Popup main padding */
+  /*--menu-panel-width-wide: 29em !important;                                                         /* Popup width */
+  /*--panel-text-color: light-dark(
+    lch(from var(--arrowpanel-background) calc(l - 75) calc(c - 10) h), 
+    lch(from var(--arrowpanel-background) calc(l + 75) calc(c + 10) h)) !important;                   /* popup_text */
+  /*--button-text-color-ghost: light-dark(
+    lch(from var(--arrowpanel-background) calc(l - 75) calc(c - 10) h), 
+    lch(from var(--arrowpanel-background) calc(l + 75) calc(c + 10) h)) !important;                   /* Popup_text */
+  /*--panel-border-color: red !important;                                                             /* popup_border */
+  /*--autocomplete-popup-highlight-background: var(--color-accent-primary-hover);                     /* popup_highlight */
+  /*--panel-padding: 16px !important;                                                                 /* Padding in 'notification' popup */
 
-  --panel-menuitem-margin: 0px !important;                                                      /* Marging for each item */
-  --panel-menuitem-padding-block: 8px !important;                                               /* Padding block for each item */
-  --panel-menuitem-padding-inline: 12px !important;                                             /* Padding inline for each item */
-  --panel-menuitem-border-radius: 0px !important;                                               /* Menuitems 'hover' roundness */
+  --panel-menuitem-margin: 0px !important;                                                            /* Marging for each item */
+  --panel-menuitem-padding-block: 7px !important;                                                     /* Padding block for each item */
+  --panel-menuitem-padding-inline: 12px !important;                                                   /* Padding inline for each item */
+  --panel-menuitem-border-radius: 0px !important;                                                     /* Menuitems 'hover' roundness */
 
-  --panel-separator-padding-vertical: 4px !important;                                           /* Padding block of separator */
-  --panel-separator-padding-horizontal: 6px !important;                                         /* Padding inline of separators */
-  /*--panel-separator-color: var(--general-color) !important;                                   /* Separator color */
+  --panel-separator-padding-vertical: 4px !important;                                                 /* Padding block of separator */
+  --panel-separator-padding-horizontal: 6px !important;                                               /* Padding inline of separators */
+  /*--panel-separator-color: var(--general-color) !important;                                         /* Separator color */
 
   /* Firefox Sidebar \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --sidebar-background-color: var(--toolbar-background-color) !important;                       /* Sidebar-background */
-  --sidebar-text-color: var(--toolbar-text-color, FieldText) !important;                        /* Sidebar label color */
-  /*--sidebar-border-color: var(--my-content-border-color) !important;                          /* Sidebar border color */
+  --sidebar-background-color: var(--toolbar-background-color) !important;                             /* Sidebar-background */
+  --sidebar-text-color: var(--toolbar-text-color, FieldText) !important;                              /* Sidebar label color */
+  /*--sidebar-border-color: var(--my-content-border-color) !important;                                /* Sidebar border color */
 
   /* Links color \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --link-color: var(--general-color) !important;                                                /* Links color */
-  --link-color-hover: var(--my-font-color) !important;                                          /* Links 'hover' color */
-  --link-color-active: var(--general-color);                                                    /* Links 'click' color */
-  --link-color-visited: var(--purple);                                                          /* Link 'visited' color */
+  --link-color: var(--general-color) !important;                                                      /* Links color */
+  --link-color-hover: var(--my-font-color) !important;                                                /* Links 'hover' color */
+  --link-color-active: var(--general-color);                                                          /* Links 'click' color */
+  --link-color-visited: var(--purple);                                                                /* Link 'visited' color */
 
-  /* Accent colors - Don't know where they are used \
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --color-accent-primary: var(--button-hover-bgcolor) !important;                               /* Accent color */
-  --color-accent-primary-hover: var(--button-active-bgcolor) !important;                        /* Accent color 'hover' */
-  --color-accent-primary-active: var(--general-color) !important;                               /* Accent color 'active' */
-  --color-accent-attention: var(--general-color) !important;                                    /* Accent color - don't know where it applies */
+  /* Accent colors - Other variables placed in 'ogx_root-personal.css' \
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+  --color-accent-primary: var(--general-color) !important;                                            /* Accent color */
+  --color-accent-attention: var(--general-color) !important;                                          /* Accent color - don't know where it applies */
 
   /* Buttons \
   ¯¯¯¯¯¯¯¯¯¯¯ */
-  --button-background-color: color-mix(in srgb, 
-    var(--panel-background-color) 82%, currentColor) !important;                                /* Normal buttons background */
-  --button-background-color-hover: var(--button-hover-bgcolor) !important;                      /* Normal buttons background 'hover' - test in Private - clear session button */
-  --button-text-color-primary: currentColor !important;                                         /* Primary Button text color - Test it in Notification when closing the browser */
-  --button-border-color-primary: var(--button-smaller-bgcolor) !important;                      /* Primary Button border color */
-  --border-radius-medium: 4px !important;                                                       /* Roundness of various buttons */
+  --button-background-color: light-dark(
+    lch(from var(--arrowpanel-background, var(--background-color-canvas)) calc(l - 20) c h),
+    lch(from var(--arrowpanel-background, var(--background-color-canvas)) calc(l + 20) c h)) !important;  /* Normal buttons background */
+  --button-background-color-hover: var(--color-accent-primary-hover) !important;                          /* Normal buttons background 'hover' - test in Private - clear session button */
+  --border-radius-medium: 4px !important;                                                                 /* Roundness of various buttons */
+  
+  --button-text-color-primary: contrast-color(var(--button-background-color-primary-hover)) !important;   /* Primary Button text color - Test it in Notification when closing the browser */  
+  --button-border-color-primary: var(--color-accent-primary-xsmall) !important;                           /* Primary Button border color */
+  --button-background-color-primary-disabled: var(--color-accent-primary-xsmall) !important;              /* Primary button when disabled */
+  --button-text-color-primary-disabled: GrayText !important;                                              /* Primary Button text color when disabled */  
+  --button-border-color-primary-disabled: transparent !important;                                         /* Primary Button border color when disabled */
 
   /* Trust arrowpanel \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --trustpanel-highlight-bg: var(--button-smaller-bgcolor) !important;                          /* Trust button - Background when 'connection secure' */
-  --trustpanel-graphic-bg: light-dark(var(--color-gray-20), var(--color-gray-100)) !important;  /* Trust button - Background when protection is off */
-  --trustpanel-inner-border: 1px solid var(--my-content-border-color) !important;               /* Trust button - Border color - 0 trackers */
+  --trustpanel-highlight-bg: var(--color-accent-primary-xsmall) !important;                           /* Trust button - Background when 'connection secure' */
+  --trustpanel-graphic-bg: light-dark(var(--color-gray-20), var(--color-gray-100)) !important;        /* Trust button - Background when protection is off */
+  --trustpanel-inner-border: 1px solid var(--color-accent-primary-xsmall) !important;                 /* Trust button - Border color - 0 trackers */
 
   /* Variable used for RTL languajes */
   &:dir(rtl) {
@@ -161,8 +172,9 @@
     --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
     --my-beats-image: url("../icons/Beats.webp") !important;                                                              /* Used in 'Extra' feature 'classic sound icon' */
 
-    --input-bgcolor: lch(from var(--panel-background-color) calc(l - 8) c h) !important;                                  /* Color of the 'input box' when saving a bookmark */
-    --input-border-color:lch(from var(--panel-background-color) calc(l + 10) c h) !important;                             /* Border Color of the 'input box' not focused */
+    --input-text-background-color: lch(from var(--panel-background-color) calc(l - 6) c h) !important;                    /* Color of the 'input box' when saving a bookmark */
+    --input-text-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                       /* Border Color of the 'input box' not focused e.g. save password */
+    --input-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                            /* Border Color of the 'input box' not focused */
     --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when :focused */
 
     scrollbar-color: #38375580 #18173530 !important;                                                                      /* Scroll bar colors */
@@ -186,14 +198,10 @@
     
     --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
     --my-beats-image: url("../icons/Beats.gif") !important;                                                               /* Used in 'Extra' feature 'classic sound icon' */
-
-    --button-background-color-primary: var(--button-active-bgcolor) !important;                                           /* Background of the 'Save' button */
-    --button-background-color-primary-hover: var(--general-color) !important;                                             /* Background of the 'Save' button 'hover' */
-    --button-background-color-primary-active: var(--button-active-bgcolor) !important;                                    /* Background of the 'Save' button 'clic' */
     
-    --input-bgcolor: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;                              /* Color of the 'input box' when saving a bookmark */
-    --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when 'focused' */
+    --input-text-background-color: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;                /* Color of the 'input box' when saving a bookmark */
     --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 70%, black) !important;                         /* Border Color of the 'input box' 'non focused' */
+    --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when 'focused' */
     
     scrollbar-color: #d8d9da var(--toolbar-background-color) !important;                                                  /* Scroll bar colors */
   }
@@ -249,11 +257,11 @@
   --lwt-header-image: var(--lwt-private-image) !important;                            /* Background image */
   --lwt-additional-images: var(--lwt-private-image) !important;                       /* Background image */
   --my-background-size: cover !important;                                             /* Background size */
-  --tabpanel-background-color: transparent !important;                                /* Remove gradient background in newtab page */
+  --tabpanel-background-color: transparent !important;                                /* Remove default gradient background in newtab page */
+  --my-main-gradient-background: transparent !important;                              /* Remove unneeded gradient effect in newtab page */
 
   /* Font color \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --lwt-accent-color: transparent !important;                                         /* frame */
   --toolbox-text-color: var(--my-font-color) !important;                              /* tab_background_text - focused window */
   --toolbox-text-color-inactive: var(--my-font-color) !important;                     /* tab_background_text - unfocused window */
   --tab-selected-textcolor: var(--my-font-color) !important;                          /* tab_selected text color */
@@ -306,31 +314,31 @@
   
   ::selection {
     background: var(--general-color, var(--fuchsia)) !important;
-    color: black !important;
+    color: contrast-color(var(--my-selected-text-background)) !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
 }
 
-/* Testing replace accent color I don't know where */
+/* Testing replace accent color - Test in checkbox into dialog warning when close the browser */
 @media not (forced-colors) {
   :root {
     accent-color: light-dark(var(--general-color), var(--general-color)) !important;
   }
 }
 
-/* Testing accent color for theme 'system theme - auto' */
+/* Testing accent color for theme 'system theme - auto' - remove right accent color in sidebar content if code enabled
 @media not ((forced-colors) or (-moz-native-theme)) {
   :root:not([lwtheme]) {
     --toolbarbutton-icon-fill-attention: var(--fuchsia) !important;
   }
-}
+}*/
 
 /* Set height of menu-bar, Bookmarks-bar \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 /* Set menu-bar height */
-:root:not([sizemode="fullscreen"]):has(#toolbar-menubar:not([autohide])) {
-  --menubar-height-personal: 30px !important;
+:root:not([sizemode="fullscreen"]):has(#toolbar-menubar:not([autohide],[collapsed])) {
+  --menubar-height-personal: 26px !important;
 }
 
 /* Set bookmarks-bar height */

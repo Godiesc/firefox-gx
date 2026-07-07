@@ -10,7 +10,6 @@
 #TabsToolbar { will-change: unset !important; }       /* test when using optional feature 'solid background' */
 
 /* Tab shape */
-
 .tabbrowser-tab {
     --my-tab-background-clip: polygon(5px 0, 100% 0, 100% 100%, 0 100%, 0 5px);
     
@@ -46,8 +45,9 @@
         background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
         background-position-y: top !important;
         background-repeat: repeat-x, no-repeat, no-repeat, var(--lwt-background-tiling) !important;
-        background-size: var(--my-background-size, auto 100%, var(--lwt-background-size)) !important;
+        background-size: var(--my-background-size, var(--lwt-background-size)) !important;
         background-attachment: fixed, fixed, fixed, fixed !important;
+        background-color: transparent !important; /* Fix 'flash' bug when add tab 'hover' transition - test in theme with images */
         box-shadow: none !important;
         background-clip: padding-box;
     }
@@ -107,7 +107,7 @@ tab-split-view-wrapper {
 
     /* Split container background when has an active tab */
     &[hasactivetab] {
-        /*background-color: var(--tab-group-background-color, var(--button-smaller-bgcolor))!important;/**/
+        /*background-color: var(--tab-group-background-color, var(--color-accent-primary-xsmall))!important;/**/
         
         & .tabbrowser-tab {
             
@@ -160,8 +160,8 @@ tab-split-view-wrapper {
             /* Style right tab */
             &:last-child {
                 --my-tab-background-clip:  polygon(calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 0);
-                border-image: 0 1 linear-gradient( transparent 25%, var(--tab-group-color,var(--button-hover-bgcolor)) 25%,
-                    var(--tab-group-color,var(--button-hover-bgcolor)) 75%, transparent 75% );
+                border-image: 0 1 linear-gradient( transparent 25%, var(--tab-group-color,var(--color-accent-primary-hover)) 25%,
+                    var(--tab-group-color,var(--color-accent-primary-hover)) 75%, transparent 75% );
             }
         }
     }
@@ -192,8 +192,8 @@ tab-split-view-wrapper {
                         --my-tab-background-clip: polygon(5px 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 100% 100%, 0px 100%, 0 calc(100% - 5px), 0 5px);
                         border-block-end: 1px solid transparent !important;/**/
                         border-image: 1 linear-gradient( to right,
-                            transparent 10px, var(--tab-group-color,var(--button-hover-bgcolor)) 10px,
-                            var(--tab-group-color, var(--button-hover-bgcolor)) calc(100% - 10px), transparent calc(100% - 10px));
+                            transparent 10px, var(--tab-group-color,var(--color-accent-primary-hover)) 10px,
+                            var(--tab-group-color, var(--color-accent-primary-hover)) calc(100% - 10px), transparent calc(100% - 10px));
                     }
                     
                     @container vertical-tabs-container (min-width: 211px) {
@@ -209,8 +209,8 @@ tab-split-view-wrapper {
                     @container vertical-tabs-container (min-width: 211px) {
                         --my-tab-background-clip:  polygon(calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 0);
                         border-image: 0 1 linear-gradient(
-                            transparent 18%, var(--tab-group-color,var(--button-hover-bgcolor)) 18%,
-                            var(--tab-group-color,var(--button-hover-bgcolor)) 77%, transparent 77% );
+                            transparent 18%, var(--tab-group-color,var(--color-accent-primary-hover)) 18%,
+                            var(--tab-group-color,var(--color-accent-primary-hover)) 77%, transparent 77% );
                     }
                 }
             }
@@ -225,8 +225,8 @@ tab-split-view-wrapper {
                 border-block-width: 1px !important;
                 border-block-color: transparent !important;
                 border-image: 1 linear-gradient( to right,
-                    transparent 10px, var(--tab-group-color,var(--button-hover-bgcolor)) 10px,
-                    var(--tab-group-color,var(--button-hover-bgcolor)) calc(100% - 10px), transparent calc(100% - 10px));
+                    transparent 10px, var(--tab-group-color,var(--color-accent-primary-hover)) 10px,
+                    var(--tab-group-color,var(--color-accent-primary-hover)) calc(100% - 10px), transparent calc(100% - 10px));
             }
 
             &:last-child {
@@ -290,11 +290,15 @@ tab-split-view-wrapper {
 
 @container smaller-tab (width < 52px) {
     #tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab:not([pinned])[fadein] {
-
         /* Remove unwanted elements */
         .tab-close-button,
         .tab-label-container {
             display: none !important;
+        }
+        
+        .tab-note-icon {
+            position: absolute !important;
+            color: transparent !important;
         }
 
         /* Remove unwanted margins */
@@ -344,7 +348,7 @@ tab-split-view-wrapper {
         .tab-background,
         .tab-background::before,    /* 'before' & 'after' for tab-shapes config*/
         .tab-background::after {    /* 'before' & 'after' for tab-shapes config*/
-            background-color: light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color-invert, var(--general-color))) !important;
+            background-color: light-dark(var(--tab-group-color-invert, var(--color-accent-primary-small)), var(--tab-group-color-invert, var(--general-color))) !important;
             outline-color: transparent !important;
         }
     }
@@ -356,7 +360,7 @@ tab-split-view-wrapper {
         .tab-background::after {    /* 'before' & 'after' for tab-shapes config*/
             background-image: none !important;
             filter: none !important;
-            background-color: light-dark(var(--tab-group-color-invert, var(--button-bgcolor)), var(--tab-group-color-invert, var(--button-hover-bgcolor))) !important;
+            background-color: light-dark(var(--tab-group-color-invert, var(--color-accent-primary-small)), var(--tab-group-color-invert, var(--color-accent-primary-hover))) !important;
             outline-color: transparent !important;
             transition: background 0.2s ease, fill 0.2s ease !important;
         }
@@ -463,7 +467,7 @@ tab-group .tab-label {
     --tab-background-color-hover: transparent !important;
     --toolbarbutton-background-color-hover: transparent !important;
     --toolbarbutton-background-color-active: transparent !important;
-    --toolbarbutton-padding-inner: calc((var(--tab-min-height) - 18px) / 2) !important;
+    --toolbarbutton-padding-inner: calc((var(--tab-min-height) - 15px) / 2) !important;
     padding-inline: var(--uc-margin-left-newtab, 0px) !important;
 
     &::before {
@@ -474,7 +478,7 @@ tab-group .tab-label {
     }
 
     &:hover::before {
-        background-color: var(--button-smaller-bgcolor) !important;
+        background-color: var(--color-accent-primary-xsmall) !important;
     }
 }
 
