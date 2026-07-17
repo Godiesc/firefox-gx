@@ -25,7 +25,6 @@
   /* Tabs \
   ¯¯¯¯¯¯¯¯ */
   --tab-block-margin: 0px !important;                                                                 /* Tab margins - change this will break the theme */
-  --my-tab-margin-top: 0px !important;                                                                /* Top margin of tabs - variable personal */
   --tab-min-height: calc(var(--tab-height-personal) - 1px) !important;                                /* Tab size */
   --tabstrip-min-height: var(--tab-height-personal) !important;                                       /* Tab min size */
   --tabs-shadow-size: 0px !important;                                                                 /* Tab shadow */
@@ -38,12 +37,13 @@
   --tab-selected-outline-color: transparent !important;                                               /* Selected tab border color */
   --tab-loading-fill: var(--general-color) !important;                                                /* Dot color when page loads */
   --tab-background-color-hover: var(--color-accent-primary-xsmall) !important;                        /* Tab background when 'hover' */
-  /*--lwt-selected-tab-background-color: var(--toolbar-background-color) !important;                  /* tab-selected background color */
+  --tab-background-color-selected: transparent !important;                                            /* tab-selected background color - Fix 'flash' bug when add tab 'hover' transition
+                                                                                                      -- test in theme with images - theme with colored tab selected */
   /*--tab-selected-textcolor: var(--my-font-color) !important;                                        /* tab_selected text color */
 
   /* Navbar \
   ¯¯¯¯¯¯¯¯¯¯ */
-  /*--toolbar-background-color: var(--lwt-selected-tab-background-color) !important;                  /* toolbar background */
+  /*--toolbar-background-color: var(--tab-background-color-selected) !important;                      /* toolbar background */
   /*--toolbar-text-color: var(--toolbarbutton-icon-fill) !important;                                  /* toolbar label color */
   /*--tabs-navbar-separator-color: transparent !important;                                            /* Separator color between tabs and navbar */
   /*--chrome-content-separator-color: none !important;                                                /* toolbar_bottom_separator */
@@ -85,19 +85,17 @@
   --toolbarbutton-padding-outer: 2px !important;                                                      /* Space between buttons */
   --toolbarbutton-border-radius: 3px !important;                                                      /* Buttons roundness */
   --toolbarseparator-color: var(--toolbarbutton-hover-personal) !important;                           /* Bookmarks-bar separator */
+  --toolbar-padding-inline: 9px !important;                                                           /* Padding left-right in first/last toolbar button */
 
   /* Panels - Arrowpanels \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   --arrowpanel-background: var(--panel-background-color) !important;                                  /* popup background - variable removed in firefox v.151 */
+  --panel-box-shadow-margin: 1px !important;                                                          /* Space for shadow - external border in panels */
   --panel-border-radius: 4px !important;                                                              /* Roundness */
   --panel-subview-body-padding: 4px 0px !important;                                                   /* Popup main padding */
   /*--menu-panel-width-wide: 29em !important;                                                         /* Popup width */
-  /*--panel-text-color: light-dark(
-    lch(from var(--arrowpanel-background) calc(l - 75) calc(c - 10) h), 
-    lch(from var(--arrowpanel-background) calc(l + 75) calc(c + 10) h)) !important;                   /* popup_text */
-  /*--button-text-color-ghost: light-dark(
-    lch(from var(--arrowpanel-background) calc(l - 75) calc(c - 10) h), 
-    lch(from var(--arrowpanel-background) calc(l + 75) calc(c + 10) h)) !important;                   /* Popup_text */
+  /*--panel-text-color: red !important;                                                               /* popup_text */
+  /*--button-text-color-ghost: red !important;                                                        /* popup_text - other */
   /*--panel-border-color: red !important;                                                             /* popup_border */
   /*--autocomplete-popup-highlight-background: var(--color-accent-primary-hover);                     /* popup_highlight */
   /*--panel-padding: 16px !important;                                                                 /* Padding in 'notification' popup */
@@ -145,9 +143,9 @@
 
   /* Trust arrowpanel \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --trustpanel-highlight-bg: var(--color-accent-primary-xsmall) !important;                           /* Trust button - Background when 'connection secure' */
-  --trustpanel-graphic-bg: light-dark(var(--color-gray-20), var(--color-gray-100)) !important;        /* Trust button - Background when protection is off */
-  --trustpanel-inner-border: 1px solid var(--color-accent-primary-xsmall) !important;                 /* Trust button - Border color - 0 trackers */
+  --trustpanel-highlight-bg: var(--color-accent-primary-small) !important;                                /* Trust button - Background when 'connection secure' */
+  --trustpanel-graphic-bg: light-dark(var(--color-gray-20), var(--color-gray-100)) !important;            /* Trust button - Background when protection is off */
+  --trustpanel-inner-border: 1px solid var(--color-accent-primary-small) !important;                      /* Trust button - Border color - 0 trackers */
 
   /* Variable used for RTL languajes */
   &:dir(rtl) {
@@ -160,24 +158,24 @@
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media (prefers-color-scheme: dark) {
   :root {
-    --my-scheme-color: #000000 !important;                                                                                /* variable used to modify colors */
-    --my-scheme-border-color: #000000 !important;                                                                         /* variable used to modify colors */
+    --my-scheme-color: #000000 !important;                                                                          /* variable used to modify colors */
+    --my-scheme-border-color: #000000 !important;                                                                   /* variable used to modify colors */
 
-    --toolbarbutton-hover-personal: var(--toolbar-field-background-color-focus) !important;                               /* Button personal color when 'hover' */
-    --toolbarbutton-background-color-hover: var(--toolbarbutton-hover-personal) !important;                               /* Toolbarbutton background when 'hover' */
-    --toolbarbutton-background-color-active: var(--my-scheme-color) !important;                                           /* Toolbarbutton background when 'click' */
+    --toolbarbutton-hover-personal: var(--toolbar-field-background-color-focus) !important;                         /* Button personal color when 'hover' */
+    --toolbarbutton-background-color-hover: var(--toolbarbutton-hover-personal) !important;                         /* Toolbarbutton background when 'hover' */
+    --toolbarbutton-background-color-active: var(--my-scheme-color) !important;                                     /* Toolbarbutton background when 'click' */
 
-    --panel-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                            /* popup_border */
+    --panel-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                      /* popup_border */
 
-    --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
-    --my-beats-image: url("../icons/Beats.webp") !important;                                                              /* Used in 'Extra' feature 'classic sound icon' */
+    --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                     /* Urlbar [open] - noise background */
+    --my-beats-image: url("../icons/Beats.webp") !important;                                                        /* Used in 'Extra' feature 'classic sound icon' */
 
-    --input-text-background-color: lch(from var(--panel-background-color) calc(l - 6) c h) !important;                    /* Color of the 'input box' when saving a bookmark */
-    --input-text-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                       /* Border Color of the 'input box' not focused e.g. save password */
-    --input-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                            /* Border Color of the 'input box' not focused */
-    --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when :focused */
+    --input-text-background-color: lch(from var(--panel-background-color) calc(l - 6) c h) !important;              /* Color of the 'input box' when saving a bookmark */
+    --input-text-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                 /* Border Color of the 'input box' not focused e.g. save password */
+    --input-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                      /* Border Color of the 'input box' not focused */
+    --focus-outline-color: var(--general-color) !important;                                                         /* Border color of the 'input box' when :focused */
 
-    scrollbar-color: #38375580 #18173530 !important;                                                                      /* Scroll bar colors */
+    scrollbar-color: #38375580 #18173530 !important;                                                                /* Scroll bar colors */
   }
 }
 
@@ -185,39 +183,47 @@
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media (prefers-color-scheme: light) {
   :root {    
-    --my-scheme-color: #f9f9f9 !important;                                                                                /* variable used to modify colors */
-    --my-scheme-border-color: lch(from var(--panel-border-color) l c h / 20%) !important;                                 /* External border in some panels */  
+    --my-scheme-color: #f9f9f9 !important;                                                                          /* variable used to modify colors */
+    --my-scheme-border-color: lch(from var(--panel-border-color) l c h / 20%) !important;                           /* External border in some panels */  
 
-    --toolbarbutton-background-color-hover: lch(from var(--toolbar-background-color) calc(l - 5) c h) !important;         /* button_background_hover */
-    --toolbarbutton-background-color-active: lch(from var(--toolbar-background-color) calc(l - 10) c h) !important;       /* button_background_active */
-    --toolbarbutton-hover-personal: lch(from var(--lwt-accent-color) calc(l - 5) c h) !important;                         /* Button personal color when 'hover' */
-    
-    --toolbar-field-background-color-focus: lch(from var(--toolbar-background-color) calc(l - 8) c h) !important;         /* toolbar_field_focus */
+    --toolbarbutton-background-color-hover: lch(from var(--toolbar-background-color) calc(l - 5) c h) !important;   /* button_background_hover */
+    --toolbarbutton-background-color-active: lch(from var(--toolbar-background-color) calc(l - 10) c h) !important; /* button_background_active */
+    --toolbarbutton-hover-personal: lch(from var(--lwt-accent-color) calc(l - 5) c h) !important;                   /* Button personal color when 'hover' */
 
-    --panel-border-color: lch(from var(--panel-background-color) calc(l - 20) c h) !important;                            /* popup_border */
+    --panel-border-color: lch(from var(--panel-background-color) calc(l - 20) c h) !important;                      /* popup_border */
     
-    --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
-    --my-beats-image: url("../icons/Beats.gif") !important;                                                               /* Used in 'Extra' feature 'classic sound icon' */
+    --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                     /* Urlbar [open] - noise background */
+    --my-beats-image: url("../icons/Beats.gif") !important;                                                         /* Used in 'Extra' feature 'classic sound icon' */
     
-    --input-text-background-color: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;                /* Color of the 'input box' when saving a bookmark */
-    --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 70%, black) !important;                         /* Border Color of the 'input box' 'non focused' */
-    --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when 'focused' */
+    --input-text-background-color: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;          /* Color of the 'input box' when saving a bookmark */
+    --input-text-border-color: lch(from var(--panel-background-color) calc(l - 15) c h) !important;                 /* Border Color of the 'input box' not focused e.g. save password */
+    --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 70%, black) !important;                   /* Border Color of the 'input box' 'non focused' */
+    --focus-outline-color: var(--general-color) !important;                                                         /* Border color of the 'input box' when 'focused' */
     
-    scrollbar-color: #d8d9da var(--toolbar-background-color) !important;                                                  /* Scroll bar colors */
+    scrollbar-color: #d8d9da var(--toolbar-background-color) !important;                                            /* Scroll bar colors */
   }
 }
 
 /* ___________ Tabs groups ___________
-   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 :root {
   tab-group {
     --general-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;      /* General color becomes the group accent color */
+    --color-accent-primary: var(--general-color) !important;                                            /* Accent color */
     --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
-    --tab-background-color-hover: color-mix(in srgb, 
-      var(--general-color) 25%, transparent) !important; !important;                                    /* Tab background when 'hover' */
-    --tab-loading-fill: var(--tab-selected-outline-color) !important;                                   /* Dot color when page loads */
     --tab-group-background-color: lch(from 
       light-dark(var(--tab-group-color), var(--tab-group-color-invert)) l c h / 12%) !important;        /* Group Background */
+    
+    /* Need to duplicate some variable */
+    --tab-background-color-hover: var(--color-accent-primary-xsmall) !important;                        /* Tab background when 'hover' */
+    --tab-loading-fill: var(--tab-selected-outline-color) !important;                                   /* Dot color when page loads */
+    
+    /* These variables from 'ogx_root-personal.css' are also needed here */
+    --color-accent-primary-xsmall: color-mix(in srgb, transparent 75%, var(--color-accent-primary));                        /* Button background color smaller */
+    --color-accent-primary-small: color-mix(in srgb, transparent 60%, var(--color-accent-primary));                         /* Button background color small */
+    --color-accent-primary-medium: color-mix(in srgb, transparent 45%, var(--color-accent-primary));                        /* Button background color medium */
+    --color-accent-primary-hover: color-mix(in srgb, var(--my-scheme-color) 24%, var(--color-accent-primary)) !important;   /* Button background color when 'hover' */
+    --color-accent-primary-active: color-mix(in srgb, var(--my-scheme-color) 40%, var(--color-accent-primary)) !important;  /* Button background color when 'active' */
   }
 }
 
@@ -254,8 +260,7 @@
   
   /* Toolbox Background \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --lwt-header-image: var(--lwt-private-image) !important;                            /* Background image */
-  --lwt-additional-images: var(--lwt-private-image) !important;                       /* Background image */
+  --toolbox-background-image: var(--lwt-private-image)  !important;                   /* Background image */
   --my-background-size: cover !important;                                             /* Background size */
   --tabpanel-background-color: transparent !important;                                /* Remove default gradient background in newtab page */
   --my-main-gradient-background: transparent !important;                              /* Remove unneeded gradient effect in newtab page */

@@ -1,27 +1,22 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
-/* Remove theme image \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-body,
+/* Remove theme image when it is in navigator-toolbox \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #navigator-toolbox {
-    background-image: none !important;
-    background-color: transparent !important;
-    border-bottom-width: 0px !important;
+    background-image: none !important;      /* ¡important, Don't use the image variable - 'bug' in image in tab selected */
+    border-bottom-width: 0px !important;    /* Remove unwanted border - bug in sidebars */
 }
 
-/* Set the image in main window \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#main-window {
-    --my-background-image: var(--lwt-additional-images), var(--lwt-header-image, none),
-        linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field)) !important;
-    --my-background-position-y: top;
-    background-image: var(--my-background-image);
-    background-repeat: var(--lwt-background-tiling);
-    background-position: var(--lwt-background-alignment);
-    background-position-y: var(--my-background-position-y) !important;
-    background-color: var(--lwt-accent-color, Field) !important;
-    background-size:var(--my-background-size, auto) !important;
+/* Apply the image properties in body element, in both image cases ¬
+-  into 'main-window' to not affect sidebarbox                       \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#main-window > body {
+    background-image: var(--toolbox-background-image) !important;
+    background-repeat: var(--toolbox-background-repeat) !important;
+    background-position: var(--toolbox-background-position) !important;
+    background-position-y: var(--my-background-position-y, top) !important;
+    background-size: var(--toolbox-background-size) !important;
 }
 
 /* Gradient effect to the bottom \
@@ -45,13 +40,9 @@ body,
     }
 
     @media not -moz-pref("firefoxgx.main-image") {
-        /* Put here this color only in themes with images because a bug with solid themes (lwt-accent-color) */
-        &:is([lwtheme-image],[style*="--lwt-additional-images"])>body:before {
-            background-color: var(--toolbar-background-color);
-        }
-
-        /* Add the style with 'solid' & 'image' themes in 'Private' mode */
-        &:is([privatebrowsingmode="temporary"])>body:before {
+        /* Put here this color only in themes with images because a bug with solid themes 'lwt-accent-color'
+        -  important, Added too for 'Private' window */
+        &:is([lwtheme-image],[style*="--lwt-additional-images"],[privatebrowsingmode="temporary"])>body:before {
             background-color: var(--toolbar-background-color);
         }
     }
@@ -59,7 +50,7 @@ body,
 
 /* Remove unnecessary background to show the theme image \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-body, #browser, .browserContainer {
+#browser, .browserContainer {
     background-color: transparent !important;
     box-shadow: none !important; /* Remove unwanted shadow when using 'revamp' */
 }
@@ -83,9 +74,9 @@ body, #browser, .browserContainer {
         --my-main-gradient-background: var(--toolbar-background-color);
         --my-toolbar-bgcolor: color-mix(in srgb, var(--panel-background-color) 50%, transparent) !important;
         --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
-        --lwt-header-image: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
-        --lwt-additional-images: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
         --my-background-size: cover !important;
+        --toolbox-background-image: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
+        --toolbox-background-size: cover !important;
         
         @media -moz-pref("firefoxgx.main-image") {
             --lwt-additional-images: var(--lwt-main-image) !important;
@@ -96,6 +87,12 @@ body, #browser, .browserContainer {
 
 /* __________________________ Menu-bar __________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media (-moz-platform: windows) {
+    menubar > menu {
+        padding-block-start: 0px !important;
+    }
+}
+
 #toolbar-menubar, /*
 #menubar-items/**/, 
 #main-menubar {
@@ -115,6 +112,7 @@ body, #browser, .browserContainer {
     background-color: transparent !important;
     background-origin: border-box !important;
     position: relative !important;
+    text-shadow: none !important;
     
     &::before {
         content: ''; position: absolute;

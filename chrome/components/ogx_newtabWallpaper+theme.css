@@ -47,6 +47,16 @@
               }
             }
             
+            @media -moz-pref("sidebar.verticalTabs") {
+              @media (not -moz-pref("firefoxgx.left-sidebar")) and -moz-pref("sidebar.position_start") {
+                :root:not([lwtheme-image], [style*="--lwt-additional-images"]) {
+                  & sidebar-main[expanded] {
+                    --toolbar-background-color: red !important;
+                  }
+                }
+              }
+            }
+            
             /* _________ Background or/and image in sidebar when using personal 'expand-on-hover' _________ \
             ¯¯¯¯¯¯¯¯¯ Test simultaneously on website page & 'about' page -> code in the block below ¯¯¯¯¯¯¯¯ */
             
@@ -88,6 +98,15 @@
               /* Fix accent color when base theme has images */
               &>body:before {
                 background-color: var(--toolbar-background-color) !important;
+              }
+              
+              /* Fix background color - test it with sidebar expanded & Catppuccino theme */
+              @media (not -moz-pref("firefoxgx.left-sidebar")) and -moz-pref("sidebar.position_start") {
+                sidebar-main[expanded] {
+                  &::before {
+                    --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
+                  }
+                }
               }
 
               /* Sidebar 'expand-on-hover' ----------------------------¬
@@ -219,7 +238,6 @@
     -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", "dark-landscape") {
 
       :root:not([privatebrowsingmode="temporary"]) {
-        color-scheme: dark !important;
         --lwt-text-color: #fefefe !important;                                                 /* Frame text color */
         --tab-selected-textcolor: #fefefe !important;                                         /* Selected tab text color */
         --toolbar-text-color: #bebebe !important;                                             /* Toolbar text color */
@@ -240,27 +258,38 @@
         --my-beats-image: url("../icons/Beats.webp") !important;                                                              /* Used in 'Extra' feature 'classic sound icon' */
 
         --input-text-background-color: lch(from var(--panel-background-color) calc(l - 6) c h) !important;                    /* Color of the 'input box' when saving a bookmark */
-        --input-border-color:lch(from var(--panel-background-color) calc(l + 10) c h) !important;                             /* Border Color of the 'input box' not focused */
+        --input-text-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                       /* Border Color of the 'input box' not focused e.g. save password */
+        --input-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                            /* Border Color of the 'input box' not focused */
         --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when :focused */
 
         scrollbar-color: #38375580 #18173530 !important;                                                                      /* Scroll bar colors */
       }
 
-      /* Fix context menu border */
+      /* Context menu */
       menupopup:not(.in-menulist) {
         color-scheme: dark !important;
 
         @media (prefers-color-scheme: light) {
           --my-panel-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;   /* popup_border - internal */
-          --my-scheme-color: var(--my-scheme-border-color) !important;                                    /* popup border - external */
         }
       }
       
-      * {
-        color-scheme: dark !important;
+      /* Test it with 'light' base theme \
+      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+      /* Selected tab scheme */
+      :root[lwt-tab-selected="light"] {
+        --tab-selected-color-scheme: dark !important;
       }
       
-      .tabbrowser-tab, .tab-background, .tab-stack {
+      /* Arrowpanels */
+      :root[lwtheme] {
+        & body, & toolbar, &[lwt-popup="light"] panel {
+          color-scheme: dark !important;
+        }
+      }
+
+      /* Web content scheme */
+      browser {
         color-scheme: dark !important;
       }
   }
@@ -274,7 +303,6 @@
     -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'light-beach') {
       
       :root:not([privatebrowsingmode="temporary"]) {
-        color-scheme: light !important;                                                       /* Light scheme for web content pages */
         --lwt-text-color: #3a334f !important;                                                 /* Frame text color */
         --tab-selected-textcolor: #3a334f !important;                                         /* Selected tab text color */
         --toolbar-text-color: #3a334f !important;                                             /* Toolbar text color */
@@ -285,8 +313,8 @@
         --my-scheme-color: #f9f9f9 !important;                                                                                /* variable used to modify colors */
         --my-scheme-border-color: lch(from var(--panel-border-color) l c h / 20%) !important;                                 /* External border in some panels */  
 
-        --toolbarbutton-background-color-hover: lch(from var(--toolbar-background-color) calc(l - 20) c h) !important;        /* button_background_hover */
-        --toolbarbutton-background-color-active: lch(from var(--toolbar-background-color) calc(l - 30) c h) !important;       /* button_background_active */
+        --toolbarbutton-background-color-hover: lch(from var(--toolbar-background-color) calc(l - 5) c h) !important;         /* button_background_hover */
+        --toolbarbutton-background-color-active: lch(from var(--toolbar-background-color) calc(l - 10) c h) !important;       /* button_background_active */
         --toolbarbutton-hover-personal: lch(from var(--lwt-accent-color) calc(l - 5) c h) !important;                         /* Button personal color when 'hover' */
 
         --toolbar-field-background-color-focus: lch(from var(--toolbar-background-color) calc(l - 8) c h) !important;         /* toolbar_field_focus */
@@ -296,13 +324,9 @@
         --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                           /* Urlbar [open] - noise background */
         --my-beats-image: url("../icons/Beats.gif") !important;                                                               /* Used in 'Extra' feature 'classic sound icon' */
 
-        --button-background-color-primary: var(--color-accent-primary-active) !important;                                           /* Background of the 'Save' button */
-        --button-background-color-primary-hover: var(--general-color) !important;                                             /* Background of the 'Save' button 'hover' */
-        --button-background-color-primary-active: var(--color-accent-primary-active) !important;                                    /* Background of the 'Save' button 'clic' */
-
         --input-text-background-color: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;                /* Color of the 'input box' when saving a bookmark */
-        --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when 'focused' */
         --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 70%, black) !important;                         /* Border Color of the 'input box' 'non focused' */
+        --focus-outline-color: var(--general-color) !important;                                                               /* Border color of the 'input box' when 'focused' */
 
         scrollbar-color: #d8d9da var(--toolbar-background-color) !important;                                                  /* Scroll bar colors */
       }
@@ -317,11 +341,35 @@
         }
       }
       
-      * {
+      /* Arrowpanel border */
+      panel:where([type="arrow"]) {
+        @media (prefers-color-scheme: dark) {
+          --my-scheme-color: var(--my-scheme-border-color) !important;
+        }
+      }
+      
+      /* Test it with 'dark' base theme \
+      ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+      /* Selected tab scheme */
+      :root[lwt-tab-selected="dark"] {
+        --tab-selected-color-scheme: light !important;
+      }
+      
+      /* Arrowpanels */
+      :root[lwtheme] {
+        & body, & toolbar, &[lwt-popup="dark"] panel {
+          color-scheme: light !important;
+        }
+      }
+
+      /* Web content scheme */
+      browser {
         color-scheme: light !important;
       }
   }
   
+  /* _________________________________________________________ Dark Themes & Wallpaper __________________________________________________________
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */  
   :root:not([privatebrowsingmode="temporary"]) {
     /* Dark 1 - Fuchsia */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'dark-sky') {
@@ -422,9 +470,8 @@
     }
   }
     
-  /* ______________________________________________________________ Light Wallpaper ______________________________________________________________
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
+  /* _________________________________________________________ Light Themes & Wallpaper _________________________________________________________
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   :root:not([privatebrowsingmode="temporary"]) {
     /* Light 1 - Fuchsia */
     @media -moz-pref("browser.newtabpage.activity-stream.newtabWallpapers.wallpaper", 'hot-air-balloons') {

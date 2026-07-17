@@ -4,7 +4,7 @@
 /* Arrowpanel, popup menus & panels styles \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 :is(menupopup, panel):where([type="arrow"]) {
-    --my-background-image-popup: radial-gradient( 100% 91.38% at 50% 99.62%,
+    --my-background-image-popup: radial-gradient( 100% 90% at 50% 100%,
                            color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
                            var(--arrowpanel-background));
     --panel-background-color: var(--my-background-image-popup), var(--noise-urlbar-personal),
@@ -23,7 +23,7 @@ panel:where([type="arrow"]) {
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .panel-no-padding[type="arrow"] {
     margin-block: calc(-1 * var(--panel-box-shadow-margin) + 1px) !important;
-    margin-inline: -4px !important;
+    margin-inline: calc(-1 * var(--panel-box-shadow-margin)) !important;
 }
 
 /* Gradient border around popups -&- border color in popups like bookmark \

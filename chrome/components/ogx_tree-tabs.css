@@ -66,7 +66,8 @@
     }
     
     /* Remove unwanted space in navbar */
-    #vertical-spacer {
+    #vertical-spacer,
+    #customizableui-special-spring24 {
         display: none !important;
     }
     
@@ -124,8 +125,8 @@
         pointer-events: all !important;
     }
     
-/* ___________________________________________ Makes menubar appear as overlay in the top left corner ___________________________________________
-   _________________________ https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/hide_tabs_toolbar_v2.css _________________________ */
+    /* ________________________________________ Makes menubar appear as overlay in the top left corner ________________________________________
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/hide_tabs_toolbar_v2.css ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
     /* Makes menubar appear as overlay in the top left corner */
 
@@ -167,13 +168,13 @@
         #main-menubar {
             background-image: linear-gradient(var(--toolbar-background-color),var(--toolbar-background-color)),
                 linear-gradient(var(--toolbar-background-color),var(--toolbar-background-color)),
-                var(--lwt-additional-images,none), var(--lwt-header-image, none),
-                linear-gradient(var(--lwt-accent-color, Field), var(--lwt-accent-color, Field));
-            background-attachment: scroll, scroll, fixed, fixed;
-            background-position: 0 0, 0 0, var(--lwt-background-alignment), right top;
+                var(--toolbox-background-image),
+                linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
+            background-position: 0 0, 0 0, var(--lwt-background-alignment) !important;
             background-position-y: top !important;
-            background-repeat: repeat-x, repeat-x, var(--lwt-background-tiling), no-repeat;
-            background-size: var(--lwt-background-size, auto auto), auto auto;
+            background-repeat: no-repeat, no-repeat, var(--lwt-background-tiling) !important;
+            background-size: var(--my-background-size, var(--lwt-background-size)) !important;
+            background-attachment: fixed, fixed, fixed !important;
             /* Not set 'color' - tested it in 'APNG-Kakashi Hatake' theme */
             box-shadow: inset 0 -1px var(--my-content-border-color) !important;
             z-index: 0 !important;

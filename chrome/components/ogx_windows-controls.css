@@ -1,19 +1,35 @@
 /* Source file made available under Mozilla Public License v. 2.0 See the main repository for updates as well as full license text. 
    https://github.com/Godiesc/firefox-gx */
 
+/* ________________________________________ General styles for window control buttons ________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+/* Buttons height in webapp window \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+:root[chromehidden*="menubar"] {
+    .titlebar-buttonbox {
+        height: var(--toolbar-height-personal) !important;
+    }
+}
+
 /* Style for both 'vertical tabs' */
 
-@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
+@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs") or -moz-pref("firefoxgx.oneline")) {
 
     :root:not([chromehidden*="menubar"]):has(#toolbar-menubar[autohide]) .titlebar-buttonbox-container {
-        --tab-height-personal: var(--toolbar-height-personal) !important;
-        margin-inline-start: 42px !important;
+        --tab-height-personal: var(--toolbar-height-personal) !important;   /* Height when using 'vertical tabs' */
+        margin-inline-start: 42px !important; /* Space for separator */
+        
+        @media (-moz-gtk-csd-reversed-placement) {
+            margin-inline-start: unset !important; /* Space for separator */
+            margin-inline-end: 42px !important; /* Space for separator */
+        }
     }
 
     /* Separator between <window controls> and other buttons */
     :root:not([chromehidden~="toolbar"]) .titlebar-buttonbox-container::before {
         content: ""; position: absolute !important; align-self: center !important;
-        background: url("../icons/urlbar-separator.svg") no-repeat left !important; 
+        background: url("../icons/urlbar-separator.svg") no-repeat left !important;
         background-size: 6px 16px !important;
         width: 6px !important;
         height: 16px !important;
@@ -22,6 +38,13 @@
         opacity: 0.2 !important;
         fill-opacity: 1 !important;
         margin-inline-start: -24px !important;
+        margin-block-start: var(--my-tab-margin-top, 0px) !important;
+        
+        /* Put separator on right side */
+        @media (-moz-gtk-csd-reversed-placement) {
+            inset-inline-start: calc(var(--uc-window-control-width) + 16px + var(--padding-left-tab)) !important;
+            margin-inline-start: unset !important;
+        }
     }
     
     /* Remove separator when menubar is always active */
@@ -29,97 +52,112 @@
         display: none !important;
     }
 
-    /* Separator between <window controls> and other buttons - LinuxOS*/
+    /* Separator between <window controls> and other buttons - LinuxOS
 
     @media -moz-pref("userchrome.force-window-controls-on-left.enabled"),
         (-moz-gtk-csd-reversed-placement),
         (-moz-platform: macos) {
             :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) #nav-bar>.titlebar-buttonbox-container::before {
+                background-color: red !important;
                 margin-inline-start: calc(106px) !important;
             }
-    }
+    }*/
 }
 
-:root[chromehidden*="menubar"] {
-    .titlebar-buttonbox {
-        height: var(--toolbar-height-personal) !important;
-    }
-}
-
-/* Larger buttons (min-max-close) on non-maximized windows */
-
-:root:not([chromehidden*="menubar"]):has(#toolbar-menubar[autohide]) .titlebar-buttonbox-container {
-    height: calc(var(--tab-height-personal) - 1px + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top)) !important;
-    margin-top: calc(0px - var(--windowed-top-padding,0px)) !important;
-
-    @media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
-        --tab-height-personal: var(--toolbar-height-personal) !important;
-        margin-inline-start: 42px !important;
-    }
-}
-
-/* WindowsOS - window control icons */
-
+/* ____________________________________________ Windows OS - window control icons ____________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media (-moz-platform: windows) {
-
-    .titlebar-button {
-        color: var(--general-color) !important;
-        padding-inline: 15px !important;
-    }
     
-    @media (not -moz-pref("firefoxgx.oneline")) and (not -moz-pref("firefoxgx.tree-tabs")) and (not -moz-pref("sidebar.verticalTabs")) {
-        :root:not([chromehidden*="menubar"]) .titlebar-min {
-            padding-block-start: 10px !important;
-            padding-block-end: 0px !important;
+    /* Replace default style \
+    ´´´´´´´´´´´´´´´´´´´´´´´´´ */
+    :root:not([chromehidden*="menubar"]) {
+        --uc-window-control-width: 120px;   /* Set Width container */
+
+        .titlebar-buttonbox {
+            width: var(--uc-window-control-width) !important;
+
+            .titlebar-button {
+                width: calc(var(--uc-window-control-width)/3) !important;
+                height: calc(var(--tab-height-personal) + var(--my-tab-margin-top, 0px) - 1px) !important;
+                background-color: transparent !important;
+                padding: 0px 0px !important;
+                color: var(--general-color) !important;
+
+                &:before {
+                    border-radius: calc(var(--my-tab-margin-top)/4) !important;
+                    width: 100% !important;
+                    height: calc(100% - var(--my-tab-margin-top, 0px)*1.6) !important;
+                    border-radius: calc(var(--my-tab-margin-top)/3) !important;
+                    padding: unset !important;
+                    margin-block-start: unset !important;
+                    align-content: center !important;
+                    text-align: center !important;
+                    margin-block-start: var(--my-tab-margin-top, 0px) !important;   /* Margin added for '--my-tab-margin-top' rule */
+                }
+
+                /* Background when 'hover' */
+                &:hover::before {
+                    background-color: var(--toolbarbutton-hover-personal) !important;
+                }
+
+                /* Background when 'hover' - Close button */
+                &.titlebar-close:hover::before {
+                    background-color: hsl(355, 86%, 49%) !important;
+                    color: white !important;
+                }
+            }
         }
     }
-    
-    .titlebar-button:hover:not(.titlebar-close) {
-        background-color: var(--toolbarbutton-hover-personal) !important;
-        color: var(--general-color) !important;
-    }
-    
-    /* Keep the same windows control icons in all the themes, including the themes with images */
-    
-    .titlebar-close:hover {
-        background-color: hsl(355, 86%, 49%) !important;
-        color: white !important;
+
+    @media not -moz-pref("firefoxgx.oneline") {
+        :root:not([chromehidden*="menubar"]) #toolbar-menubar {
+            &:not([autohide],[collapsed]),      /* When menubar is always active */
+            &:is([autohide],[collapsed]) {      /* When menubar isn't always active */
+                .titlebar-button {
+                    height: var(--menubar-height-personal) !important;
+                }
+            }
+        }
     }
 }
+
+/* ________________________________________ Style for Oneline feature ________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {
+
+    :root:not([chromehidden*="menubar"]) .titlebar-buttonbox {
+        .titlebar-button {
+            height: var(--toolbar-height-personal) !important;
+        }
+    }
+}
+
+/* _____________________________________________ Linux OS - window control icons _____________________________________________ 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 /* Linux default window control icons */
 
 @media (-moz-platform: linux) {
-
-    .titlebar-button{
-        list-style-image: none !important;
-        appearance: none !important;
-    }
-    .titlebar-min > .toolbarbutton-icon{
-        -moz-default-appearance: -moz-window-button-minimize !important;
-    }
-    .titlebar-max > .toolbarbutton-icon{
-        -moz-default-appearance: -moz-window-button-maximize !important;
-    }
-    .titlebar-restore > .toolbarbutton-icon{
-        -moz-default-appearance: -moz-window-button-restore !important;
-    }
-    .titlebar-close > .toolbarbutton-icon{
-        -moz-default-appearance: -moz-window-button-close !important;
-    }
-    .titlebar-buttonbox {
-        min-height: calc(var(--tab-block-margin-personal) * 2 + var(--tab-height-personal)) !important;
-        max-height: calc(var(--tab-block-margin-personal) * 2 + var(--tab-height-personal)) !important;
+    
+    .titlebar-button .toolbarbutton-icon {
+        margin-block-start: var(--my-tab-margin-top, 0px) !important;   /* Margin added for '--my-tab-margin-top' rule */
     }
     
-    /* On linux set width based on number of caption buttons */
-    
+    /* On linux set width based on number of caption buttons - used in 'oneline' feature */    
     @media -moz-pref("firefoxgx.oneline") {
+        
+        /* Width and align */
+        :root:not([chromehidden*="menubar"]) {
+            .titlebar-buttonbox {
+                width: var(--uc-window-control-width) !important;
+                justify-content: end !important;
+            }
+        }
 
         /* One button */
         @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
             :root:is([customtitlebar]) {
-                --uc-window-control-width: 74px !important;
+                --uc-window-control-width: 38px !important;
             }
         }
         /* Two buttons */
@@ -127,20 +165,136 @@
             (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
             (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
                 :root:is([customtitlebar],[sizemode="fullscreen"]) {
-                    --uc-window-control-width: 100px !important;
+                    --uc-window-control-width: 62px !important;
                 }
         }
         /* Three buttons */
         @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
             :root:is([customtitlebar],[sizemode="fullscreen"]) {
-                --uc-window-control-width: 128px !important;
+                --uc-window-control-width: 86px !important;
             }
         }
     }
-}
+    
+    /* New control icons when the theme used aren't 'breeze', 'adwaita' or 'yaru' */
+    @media (not (-moz-gtk-theme-family: breeze)) and (not (-moz-gtk-theme-family: adwaita)) and (not (-moz-gtk-theme-family: yaru)) {
+        
+        .titlebar-button {
+            --titlebar-button-spacing: 1px !important;
+            
+            /* Remove unwanted 'hover' background color */
+            &:hover > .toolbarbutton-icon {
+                background-color: transparent !important;
+            }
+            
+            /* Click effect */
+            &:active > .toolbarbutton-icon {
+                opacity: 0.8 !important;
+            }
+        }
+        
+        .toolbarbutton-icon {
+            
+            /* Close icon \
+            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+            .titlebar-close & {
+                background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-close-dark.svg") !important;
+            }
+            
+            .titlebar-close:hover & {
+                background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-close-hover-dark.svg") !important;
+            }
+            
+            /* Maximize icon \
+            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+            .titlebar-max & {
+                background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-maximize-dark.svg") !important;
+            }
+            
+            .titlebar-max:hover & {
+                background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-maximize-hover-dark.svg") !important;
+            }
+            
+            /* Minimize icon \
+            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+            .titlebar-min & {
+                background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-minimize-dark.svg") !important;
+            }
+            
+            .titlebar-min:hover & {
+                background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-minimize-hover-dark.svg") !important;
+            }
+            
+            /* Restore \
+            ¯¯¯¯¯¯¯¯¯¯¯ */
+            .titlebar-restore & {
+                background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-maximize-dark.svg") !important;
+            }
+            
+            .titlebar-restore:hover & {
+                background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-unmaximize-hover-dark.svg") !important;
+            }
+        }
 
-@media (-moz-gtk-csd-reversed-placement) {
-    .titlebar-buttonbox-container {
-        margin-inline: 2px 8px !important;
+        /* Style when window isn't focus \
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+        body:-moz-window-inactive {
+            .titlebar-close,
+            .titlebar-max,
+            .titlebar-min,
+            .titlebar-restore {
+                .toolbarbutton-icon {
+                    background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-backdrop-dark.svg") !important;
+                    
+                    @media (prefers-color-scheme: light) {
+                        background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-backdrop.svg") !important;
+                    }
+                }
+            }
+        }
+        
+        /* Style when window isn't focus but button is 'hover' \
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+        body:-moz-window-inactive {
+            .titlebar-close {
+                &:hover .toolbarbutton-icon {
+                    background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-close-backdrop-dark.svg") !important;
+                    
+                    @media (prefers-color-scheme: light) {
+                        background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-close-backdrop.svg") !important;
+                    }
+                }
+            }
+            
+            .titlebar-max {
+                &:hover .toolbarbutton-icon {
+                    background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-maximize-backdrop-dark.svg") !important;
+                    
+                    @media (prefers-color-scheme: light) {
+                        background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-maximize-backdrop.svg") !important;
+                    }
+                }
+            }
+            
+            .titlebar-min {
+                &:hover .toolbarbutton-icon {
+                    background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-minimize-backdrop-dark.svg") !important;
+                    
+                    @media (prefers-color-scheme: light) {
+                        background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-minimize-backdrop.svg") !important;                        
+                    }
+                }
+            }
+            
+            .titlebar-restore {
+                &:hover .toolbarbutton-icon {
+                    background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-unmaximize-backdrop-dark.svg") !important;
+                    
+                    @media (prefers-color-scheme: light) {
+                        background-image: url("../icons/titlebuttonsWhiteSur/titlebutton-unmaximize-backdrop.svg") !important;
+                    }
+                }
+            }
+        }
     }
 }

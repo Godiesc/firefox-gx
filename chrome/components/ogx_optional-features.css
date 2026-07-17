@@ -137,24 +137,27 @@
 
   :root {
     --my-margin-top-popups: 10px !important;
-    --my-margin-inline-popups: -11px !important;
+    --my-margin-inline-popups: -9px !important;
   }
 
                      /* not: Hamburger-menu, tab preview, tabgroup preview panel, contextual menu in group button, menu in customization mode */
   :is(menupopup, panel):not(
   #appMenu-popup, #tab-preview-panel, #tabgroup-preview-panel,
-  #customization-uidensity-menu, /*#feature-callout,/**/ #chat-shortcuts-options-panel
+  #customization-uidensity-menu, /*#feature-callout,/**/ #chat-shortcuts-options-panel, #downloads-button-autohide-panel
   ):where([type="arrow"])::after {
     z-index: 0 !important;
-    top: calc(var(--my-margin-top-popups, -4px) + 4px) !important;
+    top: calc(var(--my-margin-top-popups, -4px) + 1px) !important;
   }
 
   /* Margin tabsbar popups */
 
   .panel-no-padding[type="arrow"]:not(#appMenu-popup, #feature-callout, #chat-shortcuts-options-panel) {
-    /*--panel-shadow-margin: 0px !important;/**/
     padding-block-start: var(--my-margin-top-popups) !important;
     margin-inline: var(--my-margin-inline-popups) !important;
+    
+    @media -moz-pref("firefoxgx.oneline") {
+      margin-inline: calc(var(--my-margin-inline-popups) - 2px) !important;
+    }
   }
 
   /* Panelarrow */
@@ -163,8 +166,8 @@
   #appMenu-popup, #link-preview-panel, 
   #select-translations-panel, #selection-shortcut-action-panel, #feature-callout, #chat-shortcuts-options-panel)::before {
     content: ''; position: absolute;
-    top: calc(var(--my-margin-top-popups) - 4px);
-    inset-inline-start: calc(var(--toolbarbutton-padding-inner) + 2px);
+    top: calc(var(--my-margin-top-popups) - 7px);
+    inset-inline-start: calc(var(--toolbarbutton-padding-inner) + 0px);
     width: 34px; height: 9px;
     background-size: 34px 9px;
     background-image: url("../icons/panelarrow-menu.svg");
@@ -179,24 +182,25 @@
 
   .panel-no-padding[type="arrow"]:not(#feature-callout) {                               /* not: firefox info messages */
     :root:has(#TabsToolbar-customization-target toolbarbutton[open]) & {
-      margin-inline: -13px !important;
-      
-      @media -moz-pref("firefoxgx.oneline") {
-        margin-inline: -11px !important;
-      }
+      margin-inline: calc(var(--my-margin-inline-popups) - 2px) !important;
     }
 
     :root:has(toolbarbutton[open] ~ #tabbrowser-tabs) & ,                              /* Buttons on left of tabsbar */
     :root:has(toolbaritem>box>toolbarbutton[open] ~ #tabbrowser-tabs) & {              /* Buttons on left of tabsbar (Extensions) */
       &::before{
-        inset-inline-start: calc(var(--toolbarbutton-padding-inner) + 2px);
+        inset-inline-start: calc(var(--toolbarbutton-padding-inner) + 0px);
       }
     }
     :root:has(#tabbrowser-tabs ~ toolbarbutton[open]:not(#firefox-view-button)) &,     /* Buttons on right of tabsbar */
     :root:has(#tabbrowser-tabs ~ toolbaritem toolbarbutton[open]) & {                  /* Buttons on right of tabsbar (Extensions) */
       &::before{
         inset-inline-start: unset !important;
-        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px);
+        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 0px);
+        
+        /* Oneline align */
+        @media -moz-pref("firefoxgx.oneline") {
+          inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px);
+        }
         
         @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
           stroke: var(--general-color) !important;
@@ -213,7 +217,12 @@
     :root:has(#urlbar-container ~ toolbaritem toolbarbutton[open]) & {                 /* Movable right icon extensions */
       &::before {
         inset-inline-start: unset !important;
-        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
+        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 0px) !important;
+        
+        /* Oneline align */
+        @media -moz-pref("firefoxgx.oneline") {
+          inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
+        }
         
         /* Arrow + gradientBorder in menus */
         @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
@@ -226,20 +235,12 @@
   /* Popups in Urlbox */
 
   .panel-no-padding[type="arrow"] {  
-    :root:has(#urlbar-container box[open]) & ,          /* Url buttons */
-    :root:has(#page-action-buttons>hbox[open]) & {             /* Page-action-buttons */
-      margin-inline: -14px !important;
+    :root:has(#urlbar-container box[open]) & {                                /* Url buttons */
+      margin-inline: calc(var(--my-margin-inline-popups) - 3px) !important;
     }
-
-    :root:has(#tracking-protection-icon-container[open]) & {  /* Shield */
-      &::before {
-        inset-inline-start: unset !important;
-        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
-        
-        @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
-          stroke: var(--general-color) !important;
-        }
-      }
+    
+    :root:has(#page-action-buttons>hbox[open]) & {                            /* Page-action-buttons */
+      margin-inline: calc(var(--my-margin-inline-popups) - 6px) !important;
     }
 
     :root:has(#page-action-buttons>hbox[open]) & {            /* urlbar-page-action */
@@ -283,6 +284,7 @@
   
   menupopup:not(.in-menulist) {
     --my-border-image: var(--panel-separator-zap-gradient2) 1 !important;
+    --panel-border-radius: 0px !important;
   }
   
   /* Arrowpanels */

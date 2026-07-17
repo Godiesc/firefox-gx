@@ -94,7 +94,7 @@ menupopup:not(.in-menulist) {
             }
             
             /* Arrow fill color - test it in swamp theme */
-            &:after {
+            &:not([badge="Nuevo"]):after {
                 color: var(--panel-text-color) !important;
             }
         }

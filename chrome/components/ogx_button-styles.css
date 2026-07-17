@@ -194,6 +194,11 @@ treechildren::-moz-tree-cell-text(selected) {
     border-color: transparent !important;
 }
 
+/* Buttons into url's permission button */
+.permission-popup-permission-remove-button {
+    --button-text-color-hover: contrast-color(var(--color-accent-primary-hover)) !important;
+}
+
 /* ___________________________________________ Tabs-bar buttons __________________________________________
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
@@ -214,7 +219,13 @@ treechildren::-moz-tree-cell-text(selected) {
 #TabsToolbar {
     .toolbarbutton-1,   /* Default buttons */
     toolbaritem {       /* Extensions buttons */
-        height: calc(var(--tab-height-personal) - 2px) !important;
+        height: calc(var(--tab-height-personal) + var(--my-tab-margin-top, 0px) - 4px) !important;
+    }
+}
+
+#TabsToolbar {
+    .toolbarbutton-1 {  /* Default buttons */
+        padding-block-start: calc(var(--toolbarbutton-padding-outer) + var(--my-tab-margin-top, 0px)) !important;
     }
 }
 
@@ -443,12 +454,11 @@ treechildren::-moz-tree-cell-text(selected) {
 :is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"], :is(#TabsToolbar) toolbarspring {
     max-width: 1px !important;
     min-width: 1px !important;
-    min-height: calc(var(--tab-height-personal) + 0px) !important;
-    max-height: calc(var(--tab-height-personal) + 0px) !important;
+    min-height: calc(var(--tab-height-personal) + var(--my-tab-margin-top, 0px)) !important;
+    max-height: calc(var(--tab-height-personal) + var(--my-tab-margin-top, 0px)) !important;
     margin-inline: 3px !important;
-    background-image: linear-gradient(
-        transparent 25%, var(--color-accent-primary-hover) 25%, 
-        var(--color-accent-primary-hover) 75%, transparent 75% ) !important;
+    background-image: linear-gradient( transparent calc(25% + var(--my-tab-margin-top, 0px)/1.3), var(--color-accent-primary-hover) calc(25% + var(--my-tab-margin-top, 0px)/1.3),
+                    var(--color-accent-primary-hover) calc(75% + var(--my-tab-margin-top, 0px)/4), transparent calc(75% + var(--my-tab-margin-top, 0px)/4) ) !important;
 }
 
 :is(#TabsToolbar) toolbarpaletteitem[place="toolbar"][id^="wrapper-customizableui-special-spring"]{
@@ -502,9 +512,8 @@ treechildren::-moz-tree-cell-text(selected) {
 /* ________________________ Firefox-view ________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #tabbrowser-tabs::before {
-    border-image: 0 1 linear-gradient(
-            transparent 25%, var(--color-accent-primary-hover) 25%,
-            var(--color-accent-primary-hover) 75%, transparent 75% );
+    border-image: 0 1 linear-gradient( transparent calc(25% + var(--my-tab-margin-top, 0px)/1.3), var(--color-accent-primary-hover) calc(25% + var(--my-tab-margin-top, 0px)/1.3),
+                    var(--color-accent-primary-hover) calc(75% + var(--my-tab-margin-top, 0px)/4), transparent calc(75% + var(--my-tab-margin-top, 0px)/4) );
 }
 
 #TabsToolbar {

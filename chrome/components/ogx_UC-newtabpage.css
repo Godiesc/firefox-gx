@@ -467,6 +467,7 @@
     .non-handoff-container,
     content-search-handoff-ui {
         border-radius: calc(var(--border-radius-medium) + 22px) !important;
+        will-change: clip-path !important;
         
         &:before {
             content: '' !important; display: flex !important; position: absolute !important;
@@ -695,6 +696,17 @@
     /* News wider */
     .nova-enabled .content .ds-section-wrapper {
         grid-template-columns: repeat(auto-fill, calc(3 * var(--col-width) + 4 * var(--space-medium))) !important;
+    }
+    
+    .nova-enabled .widgets-section-container {
+        grid-template-columns: repeat(auto-fill, calc(5 * var(--col-width) + 3 * var(--space-medium))) !important;
+    }
+    
+    /* widgets wider */
+    .nova-enabled .widgets-container {
+        --mrec-width: 375px;
+        --col-width: calc(var(--mrec-width) / 4);
+        grid-template-columns: repeat(auto-fill, var(--col-width)) !important;
     }
     
     /* ______________________________________________________ News Section _______________________________________________________ 
@@ -1026,7 +1038,7 @@
 /* Fix pages background color when they didn't set a background in its body element \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @-moz-document regexp("^https?://.*") {
-    html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"]) {
+    html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"],[.no-touch]) {
         background-color: Field;
     }
 
@@ -1036,8 +1048,8 @@
 }
 
 /* 'Startpage' website set the background color into 'html', need to remove the background color from body element setted above */
-@-moz-document regexp(".*startpage.*"), regexp(".*https://fastcomments.*") {
+@-moz-document regexp(".*startpage.*"), regexp(".*https://fastcomments.*"), regexp(".*https://accounts.*") {
     html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"])/**/ {
-        background: unset;
+        background-color: unset;
     }
 }

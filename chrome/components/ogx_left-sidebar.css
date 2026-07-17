@@ -17,8 +17,8 @@
         width: var(--my-vertical-toolbar-width,0);
         min-width: unset !important;
         /* These create a empty area to the bottom of the toolbar, which is to mask a fact that we don't know exactly how high the toolbar should be */
-        height: calc(100vh - var(--tab-height-personal) - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px));
-        max-height: calc(100vh - var(--tab-height-personal) - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important; 
+        height: calc(100vh - var(--tab-height-personal) - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px) - var(--my-tab-margin-top, 0px));
+        max-height: calc(100vh - var(--tab-height-personal) - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px) - var(--my-tab-margin-top, 0px)) !important; 
         /*padding-bottom: 74px !important;/**/
         padding-inline: 0px !important;                                                           /* Mi edit */
         padding-block-end: 4px !important;
@@ -741,9 +741,9 @@
                 display: none !important;
             }
             
-            /* Keep alight newtab overflow separator when 'collapse' & 'expand' */
+            /* Keep alight newtab overflow separator when 'collapse' & 'expand'; persist '+' button issue */
             .tools-and-extensions[orientation="horizontal"] {
-                margin-block-start: -1px !important;
+                margin-block-start: -2px !important;
             }
             
             /* Transition delayed to hide tools when expanding */
@@ -751,7 +751,7 @@
                 transition-delay: 0.3s, 0.4s, 0.3s !important;
             }
             
-            /* Transition duration removed to hide tools  instantly on collapse */
+            /* Transition duration removed to hide tools instantly on collapse */
             .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child) {
                 transition-duration: 0ms !important;
             }
@@ -885,6 +885,7 @@
         /* These Variables needed to be in root, not only into some class */
         --tab-min-height: var(--tab-height-personal) !important;                            /* Tab height */
         --tab-height-with-margin-padding: calc(var(--tab-min-height) + 2px) !important;     /* Remove unwanted tab extra height for pinned tabs */
+        --my-tab-margin-top: 0px !important;                                                /* Remove unwanted margin top of tabs */
     }
 
     /* Remove unwanted space between tabs */
@@ -1021,11 +1022,11 @@
                 content: ''; height: 100vh; width: 100vw; position: fixed;
                 background-image: linear-gradient(transparent, transparent),
                     linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
-                    var(--lwt-header-image, none), var(--lwt-additional-images,none),
+                    var(--toolbox-background-image),
                     linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
-                background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
+                background-position: 0 0, 0 0, var(--lwt-background-alignment) !important;
                 background-position-y: calc(1px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
-                background-repeat: repeat-x, no-repeat, no-repeat, var(--lwt-background-tiling) !important;
+                background-repeat: no-repeat, no-repeat, var(--lwt-background-tiling) !important;
                 background-size: var(--my-background-size, var(--lwt-background-size)) !important;
                 z-index: -1 !important;
                 mask-image: linear-gradient(to bottom, black  var(--bookmarksbar-height-personal, 0px), transparent calc(var(--toolbar-height-personal) + 100px));
@@ -1035,11 +1036,11 @@
                 :root:not([sidebar-expand-on-hover]) & {
                     --toolbar-background-color: color-mix(in srgb,                                                              /* Toolbars - web content background color */
                         var(--my-scheme-color), transparent var(--brightness-wallpaper)) !important;
-                    --my-background-size: cover !important; /* Important to align image when base theme use images */
+                    /*--my-background-size: cover !important; /* Important to align image when base theme use images */
                     &::before {
                         background-image: linear-gradient(transparent, transparent),
                             linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
-                            var(--lwt-header-image, none), var(--lwt-additional-images,none),
+                            var(--toolbox-background-image),
                             linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                         mask-image: none !important;
                     }

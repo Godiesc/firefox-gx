@@ -293,17 +293,32 @@
 /* Trust button ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ \
 /* Green color of the secure web description \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#trustpanel-graphic-section {
+    border-radius: 0px !important;
+    margin-inline: 0px !important;
+}
+
+#trustpanel-toggle-section {
+    --panel-menuitem-margin-inline: 0px !important;
+}
+
 #identity-popup-securityView-extended-info[connection="secure"] {
-    background: linear-gradient(to right, #28a74550, #15572450) !important;
-    border-color: #2cf62c50 !important;
+    --my-secure-color: #28a745;
+    background: url("chrome://global/skin/icons/check-filled.svg") no-repeat calc(100% - 16px) center !important;
+    background-size: 40px 40px !important;
+    background-color: color-mix(in srgb, var(--my-secure-color) 10%, transparent) !important;
+    border-color: var(--my-secure-color) !important;
+    box-shadow: inset 0 0 2px var(--my-secure-color) !important;
     background-origin: border-box !important;
+    -moz-context-properties: fill !important;
+    fill: var(--my-secure-color) !important; !important;
 }
 
 description#identity-popup-content-owner-label, 
 description#identity-popup-content-owner, 
 description#identity-popup-content-verifier, 
 #identity-popup-securityView-body>button {
-    color: #2cf62c !important;
+    color: var(--my-secure-color) !important;
 }
 
 /* Remove unwanted space when urlbar keep search terms and don't show the url */

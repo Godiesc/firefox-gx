@@ -60,6 +60,7 @@
   
   --tab-height-personal: 32px ;                                                         /* Tab height - minimum 28px */
   --tab-min-width-personal: 22px ;                                                      /* Tab min width | default -> :76px */
+  --my-tab-margin-top: 1px ;                                                            /* Top margin of the tabs bar: keeps the click on the edge */
   --toolbar-height-personal: 38px ;                                                     /* Toolbar height */
   
   --my-group-line-thickness: 1px !important;                                            /* Tab-group line thickness */
@@ -126,11 +127,11 @@
 
   /* ________________ buttons background color when 'static' - 'hover' - 'click'  ________________ */
   
-  --color-accent-primary-xsmall: color-mix(in srgb, transparent 75%, var(--color-accent-primary));       /* Button background color smaller */
-  --color-accent-primary-small: color-mix(in srgb, transparent 60%, var(--color-accent-primary));        /* Button background color small */
-  --color-accent-primary-medium: color-mix(in srgb, transparent 45%, var(--color-accent-primary));       /* Button background color medium */
-  --color-accent-primary-hover: color-mix(in srgb, black 24%, var(--color-accent-primary)) !important;   /* Button background color when 'hover' */
-  --color-accent-primary-active: color-mix(in srgb, black 40%, var(--color-accent-primary)) !important;  /* Button background color when 'active' */
+  --color-accent-primary-xsmall: color-mix(in srgb, transparent 75%, var(--color-accent-primary));                        /* Button background color smaller */
+  --color-accent-primary-small: color-mix(in srgb, transparent 60%, var(--color-accent-primary));                         /* Button background color small */
+  --color-accent-primary-medium: color-mix(in srgb, transparent 45%, var(--color-accent-primary));                        /* Button background color medium */
+  --color-accent-primary-hover: color-mix(in srgb, var(--my-scheme-color) 24%, var(--color-accent-primary)) !important;   /* Button background color when 'hover' */
+  --color-accent-primary-active: color-mix(in srgb, var(--my-scheme-color) 40%, var(--color-accent-primary)) !important;  /* Button background color when 'active' */
 }
 
 @media (-moz-platform: linux ) { :root {
