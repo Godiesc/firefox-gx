@@ -23,8 +23,8 @@
 
           @media not -moz-pref("firefoxgx.main-image") {
             /* Put here the theme image to solve selected tab background in website tab into a group */
-            --lwt-header-image: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
-            --lwt-additional-images: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
+            --toolbox-background-image: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
+            --toolbox-background-size: cover !important;
 
             /* Gradient effect to the bottom --------------------------------------------------------------------------------- ¬
             -- Replace here the background color to solve Frame color when using base theme with images - websites tab selected \

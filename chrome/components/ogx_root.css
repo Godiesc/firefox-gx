@@ -261,7 +261,8 @@
   /* Toolbox Background \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   --toolbox-background-image: var(--lwt-private-image)  !important;                   /* Background image */
-  --my-background-size: cover !important;                                             /* Background size */
+  --toolbox-background-size: cover !important;                                        /* Background size */
+  --my-background-size: cover !important;                                             /* Bckground size used in selected tab */
   --tabpanel-background-color: transparent !important;                                /* Remove default gradient background in newtab page */
   --my-main-gradient-background: transparent !important;                              /* Remove unneeded gradient effect in newtab page */
 

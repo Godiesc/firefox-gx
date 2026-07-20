@@ -8,7 +8,6 @@
    :root {
       &:not([privatebrowsingmode="temporary"]) {
          --toolbox-background-image: var(--lwt-main-image) !important;                                               /* Set image */
-         --lwt-background-size: cover !important;
          --newtab-wallpaper: var(--lwt-header-image) !important;                                                     /* Test it using personal 'expand-on-hover' */
          --toolbar-background-color: color-mix(in srgb,
             var(--my-scheme-color), transparent var(--brightness-toolbar)) !important;                               /* Toolbar background */
@@ -27,7 +26,7 @@
    /* Image size and posistion - in this way to keep align in 'expand-on-hover' \
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */   
    #main-window > body {
-      background-size: cover !important;
+      --toolbox-background-size: cover !important;
       background-position-x: left !important;
 
       /* Sidebar 'expand-on-hover' + Sidebar on right */
@@ -48,8 +47,7 @@
             var(--toolbox-background-image),
             linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
          background-position-x: left !important;
-         /*background-size: cover !important;
-         background-position-y: top !important;    /* Test using theme with 'Header' image */
+         background-size: cover !important;
       }
    }
 

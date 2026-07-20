@@ -74,7 +74,7 @@
         background-position: 0 0, 0 0 , var(--lwt-background-alignment) !important;
         background-position-y: top !important;
         background-repeat: no-repeat, no-repeat, var(--lwt-background-tiling) !important;
-        background-size: var(--my-background-size, var(--lwt-background-size)) !important;
+        background-size: var(--my-background-size, var(--lwt-background-size)) !important;  /* '--my-background-size' used for 'main-image' feature and in 'Private window' */
         background-attachment: fixed !important;
         box-shadow: none !important;
         background-clip: padding-box;
