@@ -106,7 +106,7 @@ https://github.com/Godiesc/firefox-gx */
   /* Newtab button */
 
   #tabs-newtab-button {
-    padding-inline-start: calc(var(--tab-height-personal) - 34px + var(--uc-margin-left-newtab)) !important;
+    padding-inline-start: calc(0px + var(--uc-margin-left-newtab)) !important;
   }
 
   /* Trick to maintain margin on the <left> and <right> of the tabs */
@@ -190,7 +190,7 @@ https://github.com/Godiesc/firefox-gx */
 
         #TabsToolbar {
           --uc-margin-left-right: 4px;
-          --uc-margin-left-newtab: 3px;
+          --uc-margin-left-newtab: 6px;
         }
       }
       @media -moz-pref("userChrome.tab.bottom_rounded_corner.australis") {
@@ -205,7 +205,7 @@ https://github.com/Godiesc/firefox-gx */
 
         #TabsToolbar {
           --uc-margin-left-right: 1px;
-          --uc-margin-left-newtab: 4px;
+          --uc-margin-left-newtab: 8px;
         }      
       }
       @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome") {
@@ -221,7 +221,7 @@ https://github.com/Godiesc/firefox-gx */
 
         #TabsToolbar {
           --uc-margin-left-right: -1px;
-          --uc-margin-left-newtab: 3px;
+          --uc-margin-left-newtab: 6px;
         }
       }
       @media -moz-pref("userChrome.tab.bottom_rounded_corner.chrome_legacy") {
@@ -236,7 +236,7 @@ https://github.com/Godiesc/firefox-gx */
 
         #TabsToolbar {
           --uc-margin-left-right: 6px;
-          --uc-margin-left-newtab: 8px;
+          --uc-margin-left-newtab: 10px;
         }
       }
       @media -moz-pref("userChrome.tab.bottom_rounded_corner.edge") {
@@ -252,7 +252,7 @@ https://github.com/Godiesc/firefox-gx */
 
         #TabsToolbar {  
           --uc-margin-left-right: 2px;
-          --uc-margin-left-newtab: 4px;
+          --uc-margin-left-newtab: 8px;
         }
       }
       .tabbrowser-tab {
