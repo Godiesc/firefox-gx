@@ -1038,7 +1038,7 @@
 /* Fix pages background color when they didn't set a background in its body element \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @-moz-document regexp("^https?://.*") {
-    html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"],[.no-touch]) {
+    html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"],[class*="no-touch"]) {
         background-color: Field;
     }
 

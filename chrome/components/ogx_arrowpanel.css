@@ -201,11 +201,11 @@ toolbarseparator {
 /* Header buttons e.g. back button \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .panel-header {
-    --button-background-color-ghost-active: var(--color-accent-primary-active) !important;
+    --button-background-color-menu-active: var(--color-accent-primary-active) !important;
     --panel-menuitem-border-radius: 3px !important;
     --panel-header-back-icon-padding: 6px 6px 6px 4px !important;
-    --button-text-color-ghost-hover: contrast-color(var(--color-accent-primary-hover)) !important;
-    --button-text-color-ghost-active: contrast-color(var(--color-accent-primary-hover)) !important;
+    --button-text-color-menu-hover: contrast-color(var(--color-accent-primary-hover)) !important;
+    --button-text-color-menu-active: contrast-color(var(--color-accent-primary-hover)) !important;
 }
 
 /* Color sign when moving bookmark into a folder in bookmarksbar \

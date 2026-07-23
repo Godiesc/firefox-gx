@@ -90,7 +90,7 @@
     --tab-border-radius: 0px 2px 0px 0px !important;
     border-radius: var(--tab-border-radius) !important;
     clip-path: var(--my-tab-background-clip);
-    background: light-dark(var(--tab-group-color, var(--general-color)), var(--tab-group-color-invert, var(--general-color))) !important;
+    background: var(--tab-group-color, var(--general-color)) !important;
 }
 
 /* Align tab content */
@@ -112,7 +112,7 @@
         /* Margin last element into a group */
         &>tab-group:not([collapsed]) :is(.tabbrowser-tab, tab-split-view-wrapper)[last-tab-or-split-view] {
             margin-inline-end: 3px !important;
-            box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+            /*box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px var(--tab-group-color) !important;/**/
             border-inline-end: 3px solid transparent !important;
         }
         
@@ -225,8 +225,8 @@ tab-split-view-wrapper {
             /* Style right tab */
             &:last-child {
                 --my-tab-background-clip:  polygon(calc(100% - 5px) 0, 100% 5px, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 0);
-                border-image: 0 1 linear-gradient( transparent calc(25% + var(--my-tab-margin-top, 0px)/1.3), var(--tab-group-color-invert,var(--color-accent-primary-hover)) calc(25% + var(--my-tab-margin-top, 0px)/1.3),
-                    var(--tab-group-color-invert,var(--color-accent-primary-hover)) calc(75% + var(--my-tab-margin-top, 0px)/4), transparent calc(75% + var(--my-tab-margin-top, 0px)/4) );
+                border-image: 0 1 linear-gradient( transparent calc(25% + var(--my-tab-margin-top, 0px)/1.3), var(--tab-group-color,var(--color-accent-primary-hover)) calc(25% + var(--my-tab-margin-top, 0px)/1.3),
+                    var(--tab-group-color,var(--color-accent-primary-hover)) calc(75% + var(--my-tab-margin-top, 0px)/4), transparent calc(75% + var(--my-tab-margin-top, 0px)/4) );
             }
         }
     }
@@ -413,7 +413,7 @@ tab-split-view-wrapper {
         .tab-background,
         .tab-background::before,    /* 'before' & 'after' for tab-shapes config*/
         .tab-background::after {    /* 'before' & 'after' for tab-shapes config*/
-            background-color: light-dark(var(--tab-group-color-invert, var(--color-accent-primary-small)), var(--tab-group-color-invert, var(--general-color))) !important;
+            background: var(--tab-group-color, var(--general-color)) !important;
             outline-color: transparent !important;
         }
     }
@@ -425,7 +425,7 @@ tab-split-view-wrapper {
         .tab-background::after {    /* 'before' & 'after' for tab-shapes config*/
             background-image: none !important;
             filter: none !important;
-            background-color: light-dark(var(--tab-group-color-invert, var(--color-accent-primary-small)), var(--tab-group-color-invert, var(--color-accent-primary-hover))) !important;
+            background-color: var(--tab-group-color, var(--color-accent-primary-active)) !important;
             outline-color: transparent !important;
             transition: background 0.2s ease, fill 0.2s ease !important;
         }
@@ -455,7 +455,7 @@ tab-split-view-wrapper {
 /* Tab-label color the same as the group \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 tab-group .tab-label {
-    color: light-dark(var(--tab-group-color, initial), var(--tab-group-color-invert, initial)) !important;/**/
+    color: var(--tab-group-color, initial) !important;
 }
 
 /* Remove tab label shadow \
@@ -527,7 +527,7 @@ spacer[part="overflow-end-indicator"] {
 }
 
 #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:not([pinned]) > .tab-stack > .tab-content[titlechanged]:not([selected]) {
-    --tab-attention-dot-color: light-dark(var(--tab-group-color, var(--general-color)), var(--tab-group-color-invert, var(--general-color))) !important;
+    --tab-attention-dot-color: var(--tab-group-color, var(--general-color)) !important;
     background-position-y: bottom 2px !important;
     background-position-x: calc(var(--my-vertical-elements-width)/2 - 2px) !important;
 }
@@ -610,4 +610,11 @@ sidebar-main:is([expanded]) {
         margin-block-start: -4px !important;
         margin-inline:1px !important;
     }
+}
+
+/* Tab Preview - Add Note  \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.tab-preview-add-note {
+    --panel-menuitem-border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium) !important;
+    border-inline: 0px !important;
 }

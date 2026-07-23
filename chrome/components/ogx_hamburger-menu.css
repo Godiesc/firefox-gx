@@ -193,10 +193,6 @@
             & #appMenu-popup panelview {
                 padding-block-start: 40px !important;
             }
-
-            /*&:not([tabsintitlebar]) #appMenu-popup {
-                margin-top: calc(0px - var(--my-menu-button-height) - var(--tab-block-margin)) !important;
-            }/**/
             
             /* Bigger width of popup - maximized window */            
             &:not([sizemode="normal"]) #appMenu-popup panelview {
@@ -211,7 +207,7 @@
             /* Margins used to move up the menu dropdown when is 'open' */
             & #appMenu-popup {
                 --panel-border-radius: 8px !important;
-                margin-top: calc(0px - var(--my-menu-button-height) - var(--tab-block-margin)) !important;
+                margin-top: calc(-1px - var(--my-menu-button-height) - var(--tab-margin-block)) !important;
                 
                 /* Logo & Label 'menu' inside popup */
                 &::before {
