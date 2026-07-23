@@ -24,7 +24,7 @@
 
   /* Tabs \
   ¯¯¯¯¯¯¯¯ */
-  --tab-block-margin: 0px !important;                                                                 /* Tab margins - change this will break the theme */
+  --tab-margin-block: 0px !important;                                                                 /* Tab margins - change this will break the theme */
   --tab-min-height: calc(var(--tab-height-personal) - 1px) !important;                                /* Tab size */
   --tabstrip-min-height: var(--tab-height-personal) !important;                                       /* Tab min size */
   --tabs-shadow-size: 0px !important;                                                                 /* Tab shadow */
@@ -208,11 +208,11 @@
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 :root {
   tab-group {
-    --general-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;      /* General color becomes the group accent color */
+    --general-color: var(--tab-group-color) !important;      /* General color becomes the group accent color */
     --color-accent-primary: var(--general-color) !important;                                            /* Accent color */
     --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
     --tab-group-background-color: lch(from 
-      light-dark(var(--tab-group-color), var(--tab-group-color-invert)) l c h / 12%) !important;        /* Group Background */
+      var(--tab-group-color) l c h / 12%) !important;        /* Group Background */
     
     /* Need to duplicate some variable */
     --tab-background-color-hover: var(--color-accent-primary-xsmall) !important;                        /* Tab background when 'hover' */

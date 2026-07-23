@@ -256,9 +256,9 @@
 :is(#urlbar, #searchbar-new)[open] .urlbar-background {
     --my-background-image-popup: radial-gradient( 100% 91.38% at 50% 99.62%,
                            color-mix(in srgb, var(--general-color) 10%, transparent) 0%,
-                           var(--urlbar-background-background-color-focused));
+                           var(--urlbar-background-color-focus));
     background: var(--my-background-image-popup), var(--noise-urlbar-personal),
-                        var(--noise-urlbar-personal) , var(--urlbar-background-background-color-focused) !important;
+                        var(--noise-urlbar-personal), var(--urlbar-background-color-focus) !important;
     border-radius: calc(var(--border-radius-urlbar-personal) + 6px) !important;
     border-color: transparent !important;
     margin-block-start: 1px !important;

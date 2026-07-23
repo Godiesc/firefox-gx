@@ -84,7 +84,7 @@
 /* Group line color the same when is collapsed and a tab is 'selected' \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 tab-group {
-    --tab-group-line-color: light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+    --tab-group-line-color: var(--tab-group-color) !important;
     --my-group-background-margin-top: calc(var(--my-tab-margin-top) - 3px) !important;
 
     /* Tab group background */
@@ -134,7 +134,7 @@ tab-group {
     /* Group Label 'hover' effect */
     &:hover {
         opacity: 1;
-        outline: 1px solid light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+        outline: 1px solid var(--tab-group-color) !important;
         box-shadow: inset 0 0 0 1px var(--toolbar-background-color) !important;
     }
 
@@ -178,7 +178,7 @@ tab-group:not([collapsed]) {
 /* Center align group label */
 .tab-group-label-container {
     #tabbrowser-arrowscrollbox[orient="horizontal"] & {
-        padding-block: calc(var(--tab-block-margin) - 2px) calc(var(--tab-block-margin) + 2px) !important;    /* Cause bug for 'compact' mode */
+        padding-block: calc(var(--tab-margin-block) - 2px) calc(var(--tab-margin-block) + 2px) !important;    /* Cause bug for 'compact' mode */
     }
 }
 
@@ -208,14 +208,14 @@ tab-group:not([collapsed]) {
         tab-split-view-wrapper {
             --tab-min-height: calc(var(--my-group-tab-min-height) - var(--my-tab-margin-top, 0px) - 1px) !important;/**/
             height: var(--my-group-tab-min-height) !important;
-            box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+            box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px var(--tab-group-color) !important;
         }
         
         & .tabbrowser-tab {
             max-height: var(--my-group-tab-min-height) !important;
             /* Group Line under each tab  */
             &:not([multiselected]) {
-                box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px light-dark(var(--tab-group-color), var(--tab-group-color-invert)) !important;
+                box-shadow: inset 0 calc(0px - var(--tab-group-line-thickness)) 0px 0px var(--tab-group-color) !important;
             }
         }
         
