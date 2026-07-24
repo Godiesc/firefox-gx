@@ -541,13 +541,13 @@
   /* Profiles */
   #appMenu-empty-profiles-button,
   #PanelUI-fxa-menu-empty-profiles-button {
-    list-style-image: url("../icons/profiles.svg") !important;
+    list-style-image: url("chrome://global/skin/icons/users.svg") !important;
   }
   
   .subviewbutton-iconic.profile-item > .toolbarbutton-icon {
     --appmenu-profiles-theme-bg: var(--panel-background-color) !important;
     --appmenu-profiles-theme-fg: contrast-color(var(--appmenu-profiles-theme-bg)) !important;
-    content: url("../icons/profiles.svg");
+    content: url("chrome://global/skin/icons/users.svg");
     width: var(--icon-size) !important;
     height: var(--icon-size) !important;
   }
@@ -3021,8 +3021,8 @@
   #profiles-menu,
   #menu_manageProfiles,
   #profiles-manage-profiles-button {
-    --menuitem-icon: url("../icons/profiles.svg") !important;
-    list-style-image: url("../icons/profiles.svg") !important;
+    --menuitem-icon: url("chrome://global/skin/icons/users.svg") !important;
+    list-style-image: url("chrome://global/skin/icons/users.svg") !important;
   }  
   
   /* Library window - Menubar icons */
