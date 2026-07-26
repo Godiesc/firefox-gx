@@ -1,8 +1,8 @@
-# Opera-GX Theme for Firefox Css
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.md)
 [![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Godiesc/firefox-gx/blob/main/README.fr.md)
 
-<ul><li>Tema para los amantes de la skin GX de Opera. Compatibilidad - Versión estable del navegador.</li></ul>
+# Opera-GX Theme for Firefox Css
+<ul><li>Tema para los amantes de la skin GX de Opera. Compatibilidad completa con la versión estable del navegador.</li></ul>
 
 ![GX-Animated](https://user-images.githubusercontent.com/22057609/210189445-ced79421-3e1e-411b-87ed-1afbff82d9b1.png)
 
@@ -11,23 +11,36 @@
 <b>Pasos para configurar el tema:</b>
 <ol>
    <li>Descarga el tema desde la sección <b> << Releases >> </b> en el lado derecho de esta página.</code></li>
-   <li>Descomprime el archivo y copia la carpeta 👉<code>chrome</code>👈 y el archivo 👉<code>user.js</code>👈 dentro de la carpeta de perfil de tu usuario de firefox.</li>
+   <li>Descomprime el archivo y copia la carpeta 👉<code>chrome</code>👈 y el archivo 👉<code>user.js</code>👈 dentro de la carpeta de perfil de tu usuario de Firefox.</li>
    <li>Instala y usa un <a href="https://github.com/Godiesc/firefox-gx#temas" >tema</a> compatible.</li>
    <li>Reinicia el navegador.</li>
 </ol>
 
-<ul><li><p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport"> about:support</a> o about:profiles.</b></p></li></ul>
+<ul><li><p><b>Para encontrar el directorio de tu perfil de usuario ve a <a href="https://github.com/Godiesc/firefox-gx#example-of-aboutsupport-to-reach-the-profile-folder"> about:support</a> o about:profiles.</b></p></li></ul>
 </br>
 
 > <p>Notice:</p> ⚠ El último código actualizado en el repositorio (code > download zip) puede funcionar bien sólo en versiones beta o nightly.
 
 # Temas
-<ul><li>Temas Principales <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-gx-green/" >🟢Green</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-poison/" >🖍 Poison</a> <a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-swamp-in-autumn/" >🎑 Swamp</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a><a href= "https://addons.mozilla.org/es/firefox/addon/beautiful-purple-sky/"> 🌆 Purple-Sky</a> </li>
+<ul>
+<li>Temas principales:
+   <table>
+   <tr>
+      <td><a href= "https://addons.mozilla.org/firefox/addon/beautiful-opera-gx-fucsia/">🔴Fuchsia</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/beautiful-opera-gx-blue/">🔵Blue</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/beautiful-gx-green/" >🟢Green</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/beautiful-poison/">🖍Poison</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/beautiful-swamp-in-autumn/" >🎑Swamp</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/beautiful-red-blur/">🌈Red-Blur</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/beautiful-purple-sky/"> 🌆Purple-Sky</a></td></tr></table></li>
+<li> Otros colores:
+   <table>
+   <tr>
+      <td><a href= "https://addons.mozilla.org/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/opera-gx-ember-orange/">🦧Orange</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a></td><td><a href= "https://addons.mozilla.org/firefox/addon/opera-gx-wizard-grey/">🗻Gray</a></td></tr></table></li>
+<li>Temas claros:
+   <table>
+   <tr>
+      <td><a href="https://addons.mozilla.org/firefox/addon/opera-light/"> ⚪🔴 Fuchsia</a></td><td><a href="https://addons.mozilla.org/firefox/addon/beautiful-waves/"> ⚪🔵 Waves</a></td></tr></table></li>
 
-<li> Otros Colores <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-witchcraft-purple/">💜Purple</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-electric-aquamarine/">💚Aquamarine</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-ember-orange/">🦧Orange</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-frozen-cyan/">💠Cyan</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-level-up-green/">🍏GreenLight</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-stamina-yellow/">💛Yellow</a> <a href= "https://addons.mozilla.org/es/firefox/addon/opera-gx-wizard-grey/"> 🗻Gray</a></li>
-   <li>Temas Claros: <a href="https://addons.mozilla.org/es/firefox/addon/opera-light/"> ⚪🔴 Fuchsia</a> <a href="https://addons.mozilla.org/es/firefox/addon/beautiful-waves/"> ⚪🔵 Waves</a></li></ul>
-
-<p>Puedes usar la extensión <a href="https://addons.mozilla.org/es/firefox/addon/gx-theme-styles">"GX Theme Styles"</a> para cambiar facilmente los temas y colores, essta extensión funciona para temas sólidos y para usuarios que usan la configuración "Main-image". Para cambiar la imagen de la página Nueva Pestaña y su color de acento debes hacerlo manualmente como de costumbre. Esta extensión fue creado por mi.</p>
+<li> Tema usando una extensión:
+   <table>
+   <tr>
+   <td width="80%">Puedes usar la extensión <b>"GX Theme Styles"</b> para cambiar facilmente los temas y colores, esta extensión funciona para temas sólidos y para usuarios que usan la configuración "Main-image". Para cambiar la imagen de la página Nueva Pestaña y su color de acento debes hacerlo manualmente como de costumbre. Esta extensión fue creada por mi.</p>
+   <td width="20%"><a href="https://addons.mozilla.org/es/firefox/addon/gx-theme-styles">Estilos de Tema GX</a> </td></tr>
 
 ![imagen](https://github.com/Godiesc/firefox-gx/assets/22057609/c584a7ea-2410-4504-9de4-c00046da4b02) 
    
@@ -76,9 +89,9 @@
 
 <b><i>Color de Acento</i></b>
 <ul>
-<li><p>Debes editar el archivo <code>chrome/components/ogx_root-personal.css</code> lineas de la 18 a la 31, puedes cambiar el color para cada wallpaper de la página Nueva Pestaña. Para otras páginas (NuevaPestaña sin wallpaper, Ajustes and página de complementos) el archivo <code>chrome/components/ogx_root-personal.css</code> tiene la variable: <code>--general-color</code> para definir el color, puedes elegir el color que prefieras. 💙💚💜🤎💛🧡❤ Se requiere que reinices el navegador. </b></p></li></ul>
+<li><p>Debes editar el archivo <code>chrome/components/ogx_root-personal.css</code> lineas de la <code>18</code> a la <code>31</code>, puedes cambiar el color para cada wallpaper de la página Nueva Pestaña. Para otras páginas (NuevaPestaña sin wallpaper, Ajustes and página de complementos) el archivo <code>chrome/components/ogx_root-personal.css</code> tiene la variable: <code>--general-color</code> para definir el color, puedes elegir el color que prefieras. 💙💚💜🤎💛🧡❤ Se requiere que reinices el navegador. </b></p></li></ul>
 
-![Captura de pantalla 2022-06-05 155840](https://user-images.githubusercontent.com/22057609/172070426-0de79289-eaa3-4826-ac62-af6230cdf877.png)
+![general-color-accent](https://github.com/user-attachments/assets/a95ec5c8-a987-4cb9-a9d8-7198ae7ed413)
 
 # Compatibilidad
 
@@ -92,14 +105,13 @@
 # Problemas Conocidos
 <ul>
 <li>En temas con imágenes se mostrará un mal fondo en la pestaña que estes moviendo.</li>
-<li>No es compatible con lenguajes RTL(right-to-left).</li>
+<li>Soporte parcial con lenguajes RTL(right-to-left).</li>
 </ul>
 
 # Tema relacionado
-Disponible [Firefox-ONE](https://github.com/Godiesc/firefox-one)
 
-![SplashPromocionalFirefoxONE](https://github.com/Godiesc/firefox-one/assets/22057609/453c2917-8cee-4424-b550-e4e38f492c84)
+<a href="https://github.com/Godiesc/firefox-one"><img src="https://github.com/Godiesc/firefox-one/assets/22057609/453c2917-8cee-4424-b550-e4e38f492c84"></a>
 
-# Ejemplo de about:support
+# Ejemplo de about:support para encontrar el directorio de perfil
 
 ![120349392-b372f980-c2c3-11eb-904d-b088168fd849](https://user-images.githubusercontent.com/22057609/156908375-824f8679-56a5-4d09-a86f-353a7f61135e.png)
