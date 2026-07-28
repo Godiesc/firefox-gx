@@ -264,6 +264,9 @@
   :root {
     --panel-border-radius: 0px !important;
     --panel-separator-zap-gradient2: linear-gradient(to right, transparent, var(--general-color)) !important;
+    --panel-separator-zap-gradient5: linear-gradient(to left, transparent 7px,var(--general-color) 7px, 
+                                                   transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
+                                                   transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1;
     --panel-border-color: color-mix(in srgb, 
     var(--panel-background-color) 96%, var(--my-font-color)) !important;                                        /* popup_border */
   }
@@ -273,6 +276,9 @@
   :root:not([chromehidden~="toolbar"],[sizemode="normal"]) {
     & #appMenu-popup {
       --panel-border-radius: 0px !important;
+      --color-accent-primary-hover: var(--general-color) !important;
+      border: 1px solid red !important;
+      border-image: var(--panel-separator-zap-gradient2) 1 !important;
     }
   }
   

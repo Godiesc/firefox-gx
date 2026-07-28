@@ -424,7 +424,6 @@ input::-moz-search-clear-button:hover {
 
 :has(.extensionPage) #trust-icon-container.secure {
     list-style-image: var(--my-replace-trust-icon) !important;
-    margin-inline-end: var(--urlbar-input-gap) !important;
 }
 
 /* Firefox secure pages \

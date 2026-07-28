@@ -162,7 +162,7 @@
                     /* Menú Label */
                     &::after {
                         content: var(--menu-label);
-                        padding-inline-start: 8px;
+                        white-space: pre;
                         color: initial;
                         text-shadow: none;
                     }
@@ -191,7 +191,7 @@
             
             /* Space for 'logo + menuLabel' inside popup */
             & #appMenu-popup panelview {
-                padding-block-start: 40px !important;
+                padding-block-start: 32px !important;
             }
             
             /* Bigger width of popup - maximized window */            
@@ -211,24 +211,42 @@
                 
                 /* Logo & Label 'menu' inside popup */
                 &::before {
-                    content: url("../icons/fox-menu-open.svg") ' ' var(--menu-label);
+                    content: "";
                     position: absolute;
-                    top: 24px;
-                    background: linear-gradient(to right, transparent calc(var(--padding-left-tab) + 20px), transparent calc(var(--padding-left-tab) + 20px), var(--color-accent-primary-hover) 85%);
-                    background-size: calc(100% - 8px) 1px;
-                    background-repeat: no-repeat;
-                    width: -moz-available;
-                    height: 1px;
                     display: inline-flex;
-                    white-space: pre;                    
+                    width: 18px;
+                    height: 18px;
+                    top: 12px;
+                    inset-inline-start: var(--panel-menuitem-padding-inline);
+                    background-image: url("../icons/foxfill.svg");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
                     -moz-context-properties: fill;
-                    fill: var(--general-color);                    
-                    inset-inline-start: calc(var(--panel-menuitem-padding-inline) - 6px);
+                    fill: var(--general-color);
+                }
+                
+                /* Label 'menu' inside popup */
+                &:after {
+                    --menu-label: 'Menu';
+                    content: var(--menu-label);
+                    position: absolute;
+                    top: 19px;
+                    background: linear-gradient(to right, transparent calc(var(--padding-left-tab) + 0px), transparent calc(var(--padding-left-tab) + 0px), var(--color-accent-primary-hover) 85%);
+                    background-size: calc(100% - 14px) 1px !important;
+                    background-repeat: no-repeat !important;
+                    width: -moz-available;
+                    height: 1px !important;
+                    display: inline-flex;
+                    -moz-context-properties: fill;
+                    fill: var(--general-color);
+                    inset-inline-start: calc(var(--panel-menuitem-padding-inline) + 24px);
                     color: var(--general-color);
-                    font-size: 1.8rem;
+                    font-size: 1rem;
                     text-transform: uppercase;
                     font-family: "gamer";
                     align-items: center;
+                    mask: none !important;
                 }
 
                 &:dir(rtl) {

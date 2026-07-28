@@ -65,7 +65,7 @@
   
   --my-group-line-thickness: 1px !important;                                            /* Tab-group line thickness */
 
-  --menu-label: "Menu" ;                                                                /* Hamburger menu label */
+  --menu-label: "  Menu" ;                                                              /* Hamburger menu label */
   --padding-left-tab: 74px ;                                                            /* Horizontal size of the hamburger menu button */
   
   --my-newtab-elements-background: color-mix(in srgb, 
