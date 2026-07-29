@@ -324,7 +324,7 @@ tab-group:not([collapsed]) {
                 inset-inline-start: var(--tab-group-line-toolbar-border-distance);
                 width: 100%;
                 height: 100%;
-                border-inline-start: var(--my-group-line-thickness) solid light-dark(var(--tab-group-color, initial), var(--tab-group-color-invert, initial));
+                border-inline-start: var(--my-group-line-thickness) solid var(--tab-group-color, initial);
             }
         }
     }

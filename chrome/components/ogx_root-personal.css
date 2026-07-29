@@ -106,8 +106,8 @@
   
   --panel-separator-zap-gradient1: linear-gradient(to right,var(--general-color) 80% , transparent calc(94% - var(--my-elements-left-margin,0px)));
   --panel-separator-zap-gradient2: linear-gradient(to left, var(--color-accent-primary-hover) , transparent);
-  --panel-separator-zap-gradient3: linear-gradient(to right, var(--color-accent-primary-hover) 50%, transparent);
-  --panel-separator-zap-gradient4: linear-gradient(to right, var(--color-accent-primary-hover) 80%, transparent);
+  --panel-separator-zap-gradient3: linear-gradient(to right, var(--color-accent-primary) 50%, transparent);
+  --panel-separator-zap-gradient4: linear-gradient(to right, var(--color-accent-primary) 80%, transparent);
   --panel-separator-zap-gradient5: linear-gradient(to left, transparent 7px,var(--color-accent-primary-hover) 7px, 
                                                    transparent calc(100% - var(--margin-left-icons-personal) - 8px), 
                                                    transparent calc(100% - var(--margin-left-icons-personal) - 8px)) 1;

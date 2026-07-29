@@ -426,7 +426,6 @@
             :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
 
                 --my-menu-button-height: var(--toolbar-height-personal) !important;                                 /* New Menu height */
-                --padding-left-tab: var(--my-vertical-elements-width) !important;                                   /* Menu with smaller */
                 --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 14px) !important;         /* New margin-left for menu items */
             }
 
@@ -438,31 +437,44 @@
                 }
 
                 & #PanelUI-button, #appMenu-popup  {
-                    top: calc(0px - var(--menubar-height-personal, 0px)) !important;
+                    top: 0px !important;
                 }
                 
                 & #PanelUI-button, 
                 & #appMenu-popup {
                     --toolbarbutton-hover-personal: var(--color-accent-primary-small) !important;
-                    --my-menu-button-height: var(--toolbar-height-personal) !important;
+                    
+                }
+                
+                & #appMenu-popup {
+                    --my-menu-button-height: calc(var(--toolbar-height-personal) - 1px) !important;
                 }
             }
             
-            /* Vertical-tabs hidden */
-            
+            /* Vertical-tabs hidden \
+            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */            
             :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]):has(#sidebar-container[hidden],sidebar-main[hidden]) {
                 
                 #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar {
-                    padding-inline-start: var(--my-vertical-elements-width) !important;
+                    padding-inline-start: var(--padding-left-tab) !important;/**/
                     
                     @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
                         padding-inline-start: 0px !important;
                     }
                 }
                 
-                #PanelUI-button, 
-                #appMenu-popup {
+                #PanelUI-button {
                     --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;
+                }
+                
+                /* Button position */
+                #PanelUI-button {
+                    --my-inset-inline-start: 0px !important;
+                    
+                    /* Button position when 'left-sidebar' is visible */
+                    @media -moz-pref("firefoxgx.left-sidebar") and (-moz-pref("browser.toolbars.bookmarks.visibility", 'always')) {
+                        --my-inset-inline-start: calc(-1px - var(--padding-left-tab)) !important;
+                    }
                 }
             }
         }
@@ -478,13 +490,21 @@
                     :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
                         
                         /* Navbar left-margin */
-                        #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar {
+                        #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar  {
                             margin-inline-start: 0 !important;
-                            padding-inline-start: var(--padding-left-tab) !important;
+                            padding-inline-start: var(--padding-left-tab) !important;/**/
                         }
 
                         #PanelUI-button, #appMenu-popup  {
-                            --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;
+                            --my-menu-button-height: var(--menubar-height-personal, calc(var(--toolbar-height-personal) - 1px)) !important;
+                        }
+                        
+                        #appMenu-popup  {
+                            --my-menu-button-height: calc(var(--toolbar-height-personal) - 2px) !important;
+                        }
+                        
+                        #PanelUI-button {
+                            --my-inset-inline-start: 0px !important;
                         }
                     }
                 }
@@ -524,7 +544,7 @@
                 #PanelUI-button {
                     top: var(--windowed-top-padding, unset) !important;
                     position: fixed !important;
-                    inset-inline-start: 0px !important;
+                    --my-inset-inline-start: 0px !important;
                 }
             }
         }
@@ -577,7 +597,7 @@
                     
                     /* menu button when using 'expand-on-hover' */
                     @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
-                        inset-inline-start: 0 !important;
+                        --my-inset-inline-start: 0 !important;
                         
                         /* Larger menu icon */
                         .toolbarbutton-icon {
@@ -604,13 +624,13 @@
                         @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always'),
                         -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") {
                             position: absolute !important;
-                            inset-inline-start: calc(0px - var(--my-elements-left-magin, var(--padding-left-tab))) !important;
+                            --my-inset-inline-start: calc(0px - var(--my-elements-left-magin, var(--padding-left-tab))) !important;
                         }
                         
                         /* Menu button when 'left-sidebar' on but hidden + 'sidebar-revamp' */
                         @media -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always')) and
                         -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") {
-                            inset-inline-start: 0 !important;
+                            --my-inset-inline-start: 0 !important;
                         }
                     }
                     
