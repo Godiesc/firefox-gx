@@ -55,10 +55,8 @@
   --toolbarbutton-icon-fill-attention: var(--my-new-accent-color) !important;
 }
 
-:root,
-:root[lwtheme],
-:root:not([lwtheme]) {
-  --lwt-accent-color: color-mix(in srgb, var(--toolbar-bgcolor) 70%, var(--contrast-color)) !important;
+:root {
+  --lwt-accent-color: color-mix(in srgb, var(--toolbar-background-color), var(--my-scheme-color)) !important;
 }
 ```
 </details>
