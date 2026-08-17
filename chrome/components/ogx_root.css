@@ -4,6 +4,7 @@
 :root {
   --my-content-border-color: var(--toolbarbutton-hover-personal) !important;                          /* Border color for web content is some situations */
   --my-font-color: light-dark(#101019, #ffffff) !important;                                           /* Color used for contrast */
+  --my-titlebar-spacer-width: 40px !important;                                                        /* Titlebar spacer width - used in 'online' and 'vertical tabs' */
   --my-main-gradient-background: linear-gradient(to top,                                              /* Gradiente background used in themes with images */
     var(--lwt-accent-color) calc(100% - 200px), 
     transparent calc(100% - calc(

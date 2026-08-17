@@ -66,8 +66,7 @@
     }
     
     /* Remove unwanted space in navbar */
-    #vertical-spacer,
-    #customizableui-special-spring24 {
+    #vertical-spacer {
         display: none !important;
     }
     

@@ -423,6 +423,7 @@
     /* Background color */
     content-search-handoff-ui {
         background: var(--my-gradient-background) !important;
+        backdrop-filter: var(--my-blur);
     }
     
     /* Styles for both searchbox - classic & improved \
@@ -1037,19 +1038,24 @@
 
 /* Fix pages background color when they didn't set a background in its body element \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-@-moz-document regexp("^https?://.*") {
-    html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"],[class*="no-touch"]) {
+@-moz-document regexp("^https?://.*") {                                     /* Twitch with extensions */
+    html:not([class*="dark"],[data-theme*="dark"]) > body:not([class*="dark"],[tabindex="-1"]) {
         background-color: Field;
     }
 
-    html>body[class*="redhat"] {
+    html > body[class*="redhat"] {
         background-color: Field !important;
     }
 }
 
 /* 'Startpage' website set the background color into 'html', need to remove the background color from body element setted above */
-@-moz-document regexp(".*startpage.*"), regexp(".*https://fastcomments.*"), regexp(".*https://accounts.*") {
-    html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"])/**/ {
+@-moz-document 
+    regexp(".*startpage.*"),
+    regexp(".*https://fastcomments.*"),
+    regexp(".*https://accounts.*"),
+    regexp(".*0day.*"),
+    regexp(".*https://playersquared.com/.*") {
+    html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"]) {
         background-color: unset;
     }
 }

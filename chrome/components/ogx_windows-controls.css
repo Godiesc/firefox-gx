@@ -12,56 +12,32 @@
     }
 }
 
-/* Style for both 'vertical tabs' */
+/* Style for both 'vertical tabs' and 'oneline'*/
 
-@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs") or -moz-pref("firefoxgx.oneline")) {
+@media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) or (-moz-pref("firefoxgx.oneline")) {
 
-    :root:not([chromehidden*="menubar"]):has(#toolbar-menubar[autohide]) .titlebar-buttonbox-container {
+    :root:not([chromehidden*="menubar"]):has(#toolbar-menubar:is([autohide],[collapsed])) .titlebar-buttonbox-container {
         --tab-height-personal: var(--toolbar-height-personal) !important;   /* Height when using 'vertical tabs' */
-        margin-inline-start: 42px !important; /* Space for separator */
+        margin-inline-start: var(--my-titlebar-spacer-width) !important;    /* Space for separator */
         
-        @media (-moz-gtk-csd-reversed-placement) {
-            margin-inline-start: unset !important; /* Space for separator */
-            margin-inline-end: 42px !important; /* Space for separator */
-        }
-    }
-
-    /* Separator between <window controls> and other buttons */
-    :root:not([chromehidden~="toolbar"]) .titlebar-buttonbox-container::before {
-        content: ""; position: absolute !important; align-self: center !important;
-        background: url("../icons/urlbar-separator.svg") no-repeat left !important;
-        background-size: 6px 16px !important;
-        width: 6px !important;
-        height: 16px !important;
-        fill: var(--toolbarbutton-icon-fill) !important;
-        -moz-context-properties: fill !important;
-        opacity: 0.2 !important;
-        fill-opacity: 1 !important;
-        margin-inline-start: -24px !important;
-        margin-block-start: var(--my-tab-margin-top, 0px) !important;
-        
-        /* Put separator on right side */
-        @media (-moz-gtk-csd-reversed-placement) {
-            inset-inline-start: calc(var(--uc-window-control-width) + 16px + var(--padding-left-tab)) !important;
-            margin-inline-start: unset !important;
-        }
-    }
-    
-    /* Remove separator when menubar is always active */
-    :root:not([chromehidden~="toolbar"]) #toolbar-menubar:not([autohide]) .titlebar-buttonbox-container::before {
-        display: none !important;
-    }
-
-    /* Separator between <window controls> and other buttons - LinuxOS
-
-    @media -moz-pref("userchrome.force-window-controls-on-left.enabled"),
-        (-moz-gtk-csd-reversed-placement),
-        (-moz-platform: macos) {
-            :root:not([chromehidden~="toolbar"]):is([sizemode="fullscreen"],[sizemode="maximized"]) #nav-bar>.titlebar-buttonbox-container::before {
-                background-color: red !important;
-                margin-inline-start: calc(106px) !important;
+        /* Window controls on left */
+        @media ((-moz-gtk-csd-reversed-placement) or (-moz-platform: macos)) {
+            margin-inline-start: unset !important;                                  /* Space for separator */
+            margin-inline-end: var(--my-titlebar-spacer-width, 40px) !important;    /* Space for separator */
+            
+            @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
+                --my-titlebar-spacer-width: 0px;
+                margin-inline-start: unset !important;
             }
-    }*/
+            
+            /* With 'sidebar revamp' showed - code can be remove cause in this case the window controls are in 'absolute' position */
+            @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
+                :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[customizing]):not(:has(#sidebar-container[hidden])) & {
+                    --my-titlebar-spacer-width: 0px;
+                }
+            }
+        }
+    }
 }
 
 /* ____________________________________________ Windows OS - window control icons ____________________________________________
@@ -139,25 +115,19 @@
 
 @media (-moz-platform: linux) {
     
+    /* Align icons to the bottom because margin added for '--my-tab-margin-top' rule */
     .titlebar-button .toolbarbutton-icon {
-        margin-block-start: var(--my-tab-margin-top, 0px) !important;   /* Margin added for '--my-tab-margin-top' rule */
+        margin-block-start: var(--my-tab-margin-top, 0px) !important;
     }
     
-    /* On linux set width based on number of caption buttons - used in 'oneline' feature */    
+    /* Width used in 'online' feature \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     @media -moz-pref("firefoxgx.oneline") {
         
-        /* Width and align */
-        :root:not([chromehidden*="menubar"]) {
-            .titlebar-buttonbox {
-                width: var(--uc-window-control-width) !important;
-                justify-content: end !important;
-            }
-        }
-
         /* One button */
         @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
             :root:is([customtitlebar]) {
-                --uc-window-control-width: 38px !important;
+                --uc-window-control-width: 35px !important;
             }
         }
         /* Two buttons */
@@ -165,22 +135,245 @@
             (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
             (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
                 :root:is([customtitlebar],[sizemode="fullscreen"]) {
-                    --uc-window-control-width: 62px !important;
+                    --uc-window-control-width: 61px !important;
                 }
         }
         /* Three buttons */
         @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
             :root:is([customtitlebar],[sizemode="fullscreen"]) {
-                --uc-window-control-width: 86px !important;
+                --uc-window-control-width: 87px !important;
+            }
+        }
+
+        /* Set width based on number of caption buttons */
+        :root:not([chromehidden*="menubar"]) {
+            .titlebar-buttonbox {
+                width: var(--uc-window-control-width) !important;
+                justify-content: end !important;    /* Test without 'MacOS' window controls style */
+            }
+        }
+    }
+}
+
+/* _____________________________________________ Linux OS - window control on 'left' _____________________________________________ 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media (-moz-platform: macos), (-moz-gtk-csd-reversed-placement) {
+    
+    /* Height ¯¯¯\
+    -- One button */
+    @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
+        :root:is([customtitlebar]) {
+            --uc-window-control-height: 24px !important;
+            --uc-window-control-height: calc(24px + 1px + var(--my-tab-margin-top, 0px)) !important;
+        }
+    }
+    /* Two buttons */
+    @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
+        (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
+        (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+            :root:is([customtitlebar],[sizemode="fullscreen"]) {
+                --uc-window-control-height: 48px !important;
+                --uc-window-control-height: calc(48px + 1px + var(--my-tab-margin-top, 0px)) !important;
+            }
+    }
+    /* Three buttons */
+    @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+        :root:is([customtitlebar],[sizemode="fullscreen"]) {
+            --uc-window-control-height: calc(72px + 1px + var(--my-tab-margin-top, 0px)) !important;
+        }
+    }
+    
+    /* Tabsbar space on right */
+    @media not -moz-pref("firefoxgx.oneline") {
+        :root:not([customtitlebar][sizemode="normal"]) {
+            #TabsToolbar>.toolbar-items>#TabsToolbar-customization-target:last-child {
+                margin-inline-end: var(--toolbar-padding-inline) !important;
             }
         }
     }
     
-    /* New control icons when the theme used aren't 'breeze', 'adwaita' or 'yaru' */
+    /* Space 'close' button to the edge */
+    .titlebar-close {
+        padding-inline-start: var(--titlebar-button-end-spacing) !important;
+    }
+
+    /* Remove extra padding in unwanted title buttons */
+    .titlebar-button {
+        --titlebar-button-spacing: 1px !important;
+        
+        &:not(.titlebar-close) { 
+        --titlebar-button-end-spacing: 0px !important;
+        }
+    }
+    
+    /* ___________________________________ 'left-sidebar' always visible ___________________________________ \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
+        
+        /* Width */
+        :root:is([customtitlebar],[sizemode="fullscreen"]) {
+            --uc-window-control-width: var(--my-vertical-elements-width) !important;
+        }
+        
+        /* Remove unwanted padding in close button */
+        .titlebar-buttonbox { 
+            --titlebar-button-end-spacing: 0px !important;
+            
+            @media -moz-pref("sidebar.verticalTabs") {
+                --my-tab-margin-top: 7px !important;
+            }
+        }
+        
+        /* Remove unwanted left spacer */
+        .titlebar-spacer[type="pre-tabs"] {
+            display: none !important;
+        }
+        
+        #TabsToolbar .titlebar-buttonbox-container,
+        #nav-bar .titlebar-buttonbox-container, /* For 'Vertical tabs' */
+        :root:not([chromehidden*="menubar"]) #toolbar-menubar:is([autohide],[collapsed]):not([inactive]) .titlebar-buttonbox-container,
+        :root:not([chromehidden*="menubar"]) #toolbar-menubar:not([autohide],[collapsed]) .titlebar-buttonbox-container {
+            --my-inset-inline-start: 0 !important;
+            position: absolute;
+            max-height: initial !important; /* test it with 'oneline' + 'left-sidebar' */
+            max-height: var(--uc-window-control-height) !important; /* test it with 'oneline' + 'left-sidebar' */
+            inset-inline-start: var(--my-inset-inline-start) !important;
+            z-index: 4 !important; /* test it with 'oneline' + 'left-sidebar' - menubar always active/Alt */
+
+            .titlebar-buttonbox {
+                /* Vertical position */
+                flex-direction: column !important;
+                align-items: center !important;
+
+                .titlebar-button {
+                    width: var(--uc-window-control-width) !important;
+                    height: initial !important; /* test it with 'oneline' + 'left-sidebar' */
+                    
+                    & .toolbarbutton-icon {
+                        --my-tab-margin-top: 0px !important;
+                    }
+                    
+                    &:is(.titlebar-close) {
+                        padding-block-start: var(--my-tab-margin-top, 0px) !important;
+                    }
+                }
+            }
+            
+            @media -moz-pref("sidebar.verticalTabs") {
+                --my-inset-inline-start: calc(0px - var(--my-vertical-toolbar-width, 0px)) !important;
+                --my-left-window-controls-bottom-space: 50px !important;
+            }
+        }
+    }
+    
+    /* ________________________________ 'Sidebar Revamp' when hide and show ________________________________ \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
+                
+        /* Remove unwanted left spacer - applied only in TabsToolbar  - test it in linux with globar menu enabled in 'about:config' */
+        #TabsToolbar .titlebar-spacer[type="pre-tabs"] {
+            display: var(--my-tittlebar-spacer-display, initial) !important;
+            
+            @media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {
+                --my-tittlebar-spacer-display: none !important;
+            }
+        }
+        
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[customizing]):not(:has(#sidebar-container[hidden])) {
+            
+            --my-left-window-controls-bottom-space: calc(var(--uc-window-control-height) - 60px) !important;
+            --my-tittlebar-spacer-display: none !important;
+            --uc-window-control-width: var(--my-vertical-elements-width) !important;    /* Test with 'online' */
+            
+            /* Space for 'oneline' */
+            @media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {
+                --my-left-window-controls-bottom-space: calc(var(--uc-window-control-height) - 22px) !important;
+            }
+            
+            @media -moz-pref("sidebar.verticalTabs") {
+                --my-left-window-controls-bottom-space: calc(var(--uc-window-control-height) - 22px) !important;
+            }
+
+            /* Remove unwanted padding in last tittle button - added here to affect all scenarios of tittlebar buttons */
+            .titlebar-buttonbox { 
+                --titlebar-button-end-spacing: 0px !important;
+                
+                @media -moz-pref("sidebar.verticalTabs") {
+                    --my-tab-margin-top: 7px !important;
+                }
+            }
+
+            #TabsToolbar .titlebar-buttonbox-container,
+            #nav-bar .titlebar-buttonbox-container, /* For 'Vertical tabs' */
+            #toolbar-menubar:is([autohide],[collapsed]):not([inactive]) .titlebar-buttonbox-container,
+            #toolbar-menubar:not([autohide],[collapsed]) .titlebar-buttonbox-container {
+                --my-position: absolute !important;
+                --my-inset-inline-start: 0 !important;
+                --my-z-index: 6 !important; /* test with oneline + 'window controls in left' */
+                
+                .titlebar-buttonbox {
+                    /* Vertical position */
+                    --my-flex-direction: column !important;
+                    --my-align-items: center !important;
+
+                    .titlebar-button {
+                        --my-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
+                        --my-height: auto !important; /* test it with 'oneline' + 'left-sidebar' */
+                        
+                        & .toolbarbutton-icon {
+                            --my-tab-margin-top: 0px !important;
+                        }
+
+                        &:is(.titlebar-close) {
+                            --my-margin-block-start: var(--my-tab-margin-top, 0px) !important;
+                        }
+                    }
+                }
+                
+                @media -moz-pref("sidebar.verticalTabs") {
+                    --my-inset-inline-start: calc(0px - var(--my-vertical-toolbar-width, 0px)) !important;
+                    
+                    /* Menubar always active */
+                    #toolbar-menubar:not([autohide],[collapsed]) & {
+                        --my-inset-inline-start: 0 !important;
+                    }
+                }
+            }
+        }
+
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[customizing]) {
+            #TabsToolbar .titlebar-buttonbox-container,
+            #nav-bar .titlebar-buttonbox-container, /* For 'Vertical tabs' */
+            #toolbar-menubar:is([autohide],[collapsed]):not([inactive]) .titlebar-buttonbox-container,
+            #toolbar-menubar:not([autohide],[collapsed]) .titlebar-buttonbox-container {
+                position: var(--my-position, relative);
+                inset-inline-start: var(--my-inset-inline-start) !important;
+                max-height: var(--uc-window-control-height) !important; /* test it with 'oneline' + 'left-sidebar' */
+                z-index: var(--my-z-index) !important;                  /* test it with 'oneline' + 'left-sidebar' */
+
+                .titlebar-buttonbox {
+                    /* Vertical position */
+                    flex-direction: var(--my-flex-direction, row) !important;
+                    align-items: var(--my-align-items, center) !important;
+
+                    .titlebar-button {
+                        width: var(--my-width, initial) !important;
+                        height: var(--my-height, calc(var(--tab-height-personal) + var(--my-tab-margin-top))) !important;
+                        
+                        &:is(.titlebar-close) {
+                            padding-block-start: var(--my-margin-block-start, 0px) !important;/**/
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    /* MacOS window controls icons when the used theme isn't 'breeze', 'adwaita' or 'yaru' \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     @media (not (-moz-gtk-theme-family: breeze)) and (not (-moz-gtk-theme-family: adwaita)) and (not (-moz-gtk-theme-family: yaru)) {
         
         .titlebar-button {
-            --titlebar-button-spacing: 1px !important;
             
             /* Remove unwanted 'hover' background color */
             &:hover > .toolbarbutton-icon {
@@ -296,5 +489,15 @@
                 }
             }
         }
+    }
+}
+
+/* _____________________________________________ Linux OS - window control icons _____________________________________________ 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Space reserved for window controls \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+@media (-moz-platform: macos) {
+    :root:is([customtitlebar],[sizemode="fullscreen"]) {
+        --uc-window-control-width: 86px !important;
     }
 }

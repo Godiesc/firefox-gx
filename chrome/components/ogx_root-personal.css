@@ -134,6 +134,12 @@
   --color-accent-primary-active: color-mix(in srgb, var(--my-scheme-color) 40%, var(--color-accent-primary)) !important;  /* Button background color when 'active' */
 }
 
-@media (-moz-platform: linux ) { :root {
-  --panel-separator-zap-gradient1: linear-gradient(to right, var(--general-color) 80% , transparent calc(94% - var(--my-elements-left-margin, var(--uc-window-control-width, 0px)))) !important;
-  }}
+@media (-moz-platform: linux ) { 
+  :root {
+    --panel-separator-zap-gradient1: linear-gradient(to right, var(--general-color) 80% , transparent calc(94% - var(--my-elements-left-margin, var(--uc-window-control-width, 0px)))) !important;
+
+    @media (-moz-gtk-csd-reversed-placement) {
+      --panel-separator-zap-gradient1: linear-gradient(to right, var(--general-color) 90% , transparent 95%) !important;
+    }
+  }
+}

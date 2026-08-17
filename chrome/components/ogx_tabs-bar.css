@@ -6,7 +6,7 @@
 @media not -moz-pref("firefoxgx.oneline") {
     :root:not([chromehidden*="menubar"]):has(
     #toolbar-menubar:not([autohide],[collapsed]), 
-    #toolbar-menubar:is([autohide],[collapsed]):not([inactive])) {
+    #toolbar-menubar:is([autohide]):not([inactive])) { /* not collapsed - test it in linux with global menu enabled */
         --my-tab-margin-top: 0px !important;
     }
 }
@@ -435,7 +435,7 @@ tab-split-view-wrapper {
 /* Tabs-bar reach lower height that 30px \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .titlebar-buttonbox-container, .tab-close-button, .tab-label-container {
-  max-height: calc(var(--tab-height-personal) - 1px + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top, 0px)) !important;
+  max-height: calc(var(--tab-height-personal) /*- 1px/**/ + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top, 0px)) !important;
 }
 
 /* Bug fix: Unwanted larger tab-label-container - tested with 'oneline' in non-maximized window \

@@ -231,12 +231,28 @@
       }
     }
   }
+  
+  /* Arrow for Notification popup 'e.g. install an extension' when window controls are on left */
+  
+  @media (-moz-platform: macos), (-moz-gtk-csd-reversed-placement) {
+    .panel-no-padding[type="arrow"]:is(.popup-notification-panel)::before {
+      inset-inline-start: unset !important;
+      inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 0px) !important;
+    }
+  }
 
   /* Popups in Urlbox */
 
   .panel-no-padding[type="arrow"] {  
     :root:has(#urlbar-container box[open]) & {                                /* Url buttons */
       margin-inline: calc(var(--my-margin-inline-popups) - 3px) !important;
+      
+      /* For oneline */
+      @media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {
+        &::before {
+          inset-inline-start: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
+        }
+      }
     }
     
     :root:has(#page-action-buttons>hbox[open]) & {                            /* Page-action-buttons */
@@ -247,6 +263,11 @@
       &::before {
         inset-inline-start: unset !important;
         inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
+        
+        /* For oneline */
+        @media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {
+            inset-inline-start: calc(var(--toolbarbutton-padding-inner) + 5px) !important;
+        }
         
         @media -moz-pref("firefoxgx.gradientBorder-in-menus") {
           stroke: var(--general-color) !important;

@@ -127,7 +127,9 @@
 /* Newtab favicon */
 
 .tab-icon-image[src="chrome://branding/content/icon32.png"] {
-    content: url("../icons/newtab-favicon.svg") !important;
+  --my-container-favicon: var(--identity-icon) !important;
+  --my-default-favicon: url("../icons/newtab-favicon.svg") !important;
+    content: var(--my-container-favicon, var(--my-default-favicon)) !important;
     fill: var(--identity-icon-color, var(--general-color)) !important;
 }
 
@@ -2711,6 +2713,10 @@
 
   #menu_openFirefoxView {
     --menuitem-icon: url("../icons/firefoxview-open.svg") !important;
+  }
+  
+  #menu_editPDF {
+    --menuitem-icon: url("chrome://global/skin/icons/edit.svg") !important;
   }
 
   #webDeveloperMenu,
