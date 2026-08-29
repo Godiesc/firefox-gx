@@ -445,10 +445,10 @@ tab-split-view-wrapper {
 }
 
 /* Tabs-bar reach lower height that 30px \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
 .titlebar-buttonbox-container, .tab-close-button, .tab-label-container {
-  max-height: calc(var(--tab-height-personal) /*- 1px/**/ + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top, 0px)) !important;
-}
+  max-height: calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top, 0px)) !important;
+}*/
 
 /* Bug fix: Unwanted larger tab-label-container - tested with 'oneline' in non-maximized window \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -525,7 +525,7 @@ spacer[part="overflow-end-indicator"] {
 
 /* Remove left empty space on tabs when window is not maximized \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-@media not (-moz-gtk-csd-reversed-placement) {
+@media (not (-moz-gtk-csd-reversed-placement)) and (not (-moz-platform: macos)) {
     .titlebar-spacer[type="pre-tabs"] {
         display: none !important
     }

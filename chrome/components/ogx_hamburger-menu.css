@@ -96,15 +96,15 @@
         }
         
         #toolbar-menubar {
-            padding-inline-start: var(--my-elements-left-margin, 0px) !important;
+            padding-inline-start: var(--padding-left-tab, 0px) !important;
         }
         
         #TabsToolbar {
-            margin-inline-start: calc(var(--my-elements-left-margin, 0px) - 1px) !important;
+            margin-inline-start: calc(var(--padding-left-tab, 0px) - 1px) !important;
         }
         
         #nav-bar {
-            margin-inline-start: var(--my-elements-left-margin, 0px) !important;
+            margin-inline-start: var(--my-vertical-toolbar-width, 0px) !important;
             box-shadow: -1px 0 var(--general-color) !important;
         }
     }

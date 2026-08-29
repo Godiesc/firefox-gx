@@ -540,4 +540,26 @@ findbar {
     #TabsToolbar {
         padding-block-start: 6px !important;
     }
+    
+    @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
+        #TabsToolbar {
+            --padding-left-tab: 113px !important;
+        }
+
+        .titlebar-buttonbox-container {
+            height: calc(var(--tab-height-personal) + 1px) !important;
+        }
+    }
+
+    @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]/*,[sizemode="fullscreen"]/**/):not(:has(#sidebar-container[hidden],sidebar-main[hidden])) {
+            #TabsToolbar {
+                --padding-left-tab: 90px !important;
+            }
+        }
+        
+        .titlebar-buttonbox-container {
+            height: calc(var(--tab-height-personal) + 1px) !important;
+        }
+    }
 }
