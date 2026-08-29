@@ -144,17 +144,9 @@
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
     @media (-moz-platform: windows), (-moz-platform: linux) {
         
-        /* left margin of menubar */
-
-        #toolbar-menubar:not([autohide],[collapsed])>toolbaritem>menubar {
-            /*padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;/**/
-        }
-        
         /* left margin of tabs-bar */
-        
-        /*#toolbar-menubar:is([autohide],[collapsed])+#TabsToolbar,
-        :root:is([sizemode="fullscreen"]) /**/#TabsToolbar {
-            padding-inline-start: var(--padding-left-tab, var(--my-vertical-toolbar-width)) !important;
+        #TabsToolbar {
+            margin-inline-start: var(--padding-left-tab) !important;
         }
 
         :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
@@ -305,46 +297,6 @@
         }
     }
 
-    /* _______________________________ margin left of 'Nav-bar' when using only 'Left-Sidebar' or 'Firefox Sidebar' ________________________________
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    /* Variables for 'Left-sidebar' & */
-    @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
-        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
-            --my-menu-button-height: var(--toolbar-height-personal) !important;                                             /* New Menu height */
-            --my-elements-left-margin: calc(var(--padding-left-tab, var(--my-vertical-toolbar-width)) + 1px) !important;    /* New variable for left space */
-        }
-    }
-    
-    /* Variables for 'Sidebar revamp' without 'Left-sidebar' - when sidebar isn't 'hidden' */    
-    @media (not -moz-pref("firefoxgx.left-sidebar")) and (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) {        
-        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[customizing]):not(:has(#sidebar-container[hidden])) {
-            --my-menu-button-height: var(--toolbar-height-personal) !important;                                             /* New Menu height */
-            --my-elements-left-margin: calc(var(--padding-left-tab, var(--my-vertical-toolbar-width)) + 1px) !important;    /* New variable for left space */
-        }
-    }
-    
-    @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always'),
-        (not -moz-pref("firefoxgx.left-sidebar")) and (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) {
-            
-            /* Move nav-bar buttons to the right */
-            #nav-bar {
-                margin-inline-start: var(--my-elements-left-margin, 0px) !important;
-                box-shadow: -1px 0 var(--general-color) !important;
-            }
-            
-            /* Rules for aligning icons in the hamburger menu when using bigger sidebar width */
-            &:not([sizemode="normal"]) #appMenu-popup {
-                --panel-menuitem-padding-inline: calc(var(--my-vertical-toolbar-width) / 2 - 10px) !important;  /* New margin-left for menu items */
-                
-                & :not(.panel-header, .toolbaritem-combined-buttons, toolbaritem)>.subviewbutton:not(#appMenu-fxa-status2),
-                & #appMenu-fxa-label2,
-                & #fxa-manage-account-button,
-                & #PanelUI-fxa-menu-syncnow-button {
-                    padding-inline-start: var(--panel-menuitem-padding-inline) !important;  /* Variable setted below */
-                }
-            }
-    }
-
     /* _______________________________________ Hamburger menu when using 'Left-sidebar' or 'Firefox Sidebar' _______________________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     /* Using 'left-sidebar' */
@@ -352,6 +304,8 @@
 
             :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
                 --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;    /* New size of the 'menu' button */
+                --my-elements-left-margin: var(--my-vertical-toolbar-width) !important;         /* New variable for left space */
+                --my-menu-button-height: var(--toolbar-height-personal) !important;             /* New Menu height */
             }
 
             @media (-moz-platform: windows), (-moz-platform: linux) {
@@ -382,6 +336,8 @@
 
             :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[customizing]):not(:has(#sidebar-container[hidden])) {
                 --padding-left-tab: calc(var(--my-vertical-toolbar-width) - 1px) !important;    /* New size of the 'menu' button */
+                --my-elements-left-margin: var(--my-vertical-toolbar-width) !important;         /* New variable for left space */
+                --my-menu-button-height: var(--toolbar-height-personal) !important;             /* New Menu height */
             }
 
             @media (-moz-platform: windows), (-moz-platform: linux) {
@@ -407,39 +363,51 @@
             }
     }
     
-/* ______________________________________________________ New menu style for 'oneline' config ______________________________________________________
-   _________________________________________________________________________________________________________________________________________________ */
+    /* _______________________________ margin left of 'Nav-bar' when using only 'Left-Sidebar' or 'Firefox Sidebar' ________________________________
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
+    @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always'),
+        (not -moz-pref("firefoxgx.left-sidebar")) and (-moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start")) {
 
-    /*___________ Oneline general styles */
+            /* Move nav-bar buttons to the right */
+            #nav-bar {
+                margin-inline-start: var(--my-elements-left-margin, 0px) !important;
+                box-shadow: -1px 0 var(--general-color) !important;
+            }
 
+            /* Rules for aligning icons in the hamburger menu when using bigger sidebar width */            
+            &:not([sizemode="normal"]) #appMenu-popup {
+                /* New margin-left for 'Menu' logo & label */
+                --panel-menuitem-padding-inline: calc(var(--my-vertical-toolbar-width) / 2 - 10px) !important;
+
+                .subviewbutton,
+                .subview-subheader {
+                    /* New margin-left for menu items */
+                    --panel-menuitem-padding: var(--panel-menuitem-padding-block) calc(var(--my-vertical-toolbar-width) / 2 - 10px) !important;
+                }
+            }
+    }
+    
+    /* ____________________________________________________ New menu style for 'oneline' config ____________________________________________________
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     @media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {
 
         @media screen and (min-width: 1000px) {
 
-            /* Remove unneeded navbar left border - Applied too for MacOS users */
-            #nav-bar {
-                box-shadow: none !important;
-            }
-
             @media (-moz-platform: windows), (-moz-platform: linux) {
 
-                /* left margin of menubar */
-                #toolbar-menubar {
-                    padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
-                }
-
                 :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
+                    
+                    /* New Menu height - bug with bigger '--my-tab-margin-top' */
+                    & #PanelUI-button,
+                    & #appMenu-popup {
+                        --my-menu-button-height: var(--tab-height-personal) !important;
+                    }
 
                     /* position */
                     & #PanelUI-button {
-                        top: calc(0px/* + var(--windowed-top-padding, 0px)/**/) !important;
-                        z-index: 1 !important;  /* test with menubar always active - enable click */
-                        /*--my-menu-button-height: calc(var(--tab-height-personal) - 1px) !important;     /* New Menu height - bug with bigger '--my-tab-margin-top' */
-                        --my-inset-inline-start: calc(-1*var(--padding-left-tab, 0px) - 0px) !important;                    /* Test with left-sidebar hidden */
-                    }
-                    
-                    & #appMenu-popup {
-                        --my-menu-button-height: calc(var(--toolbar-height-personal) - 1px) !important; /* New Menu height */
+                        top: 0 !important;
+                        z-index: 4 !important;                                                        /* test with menubar always active - enable click */
+                        --my-inset-inline-start: calc(-1*var(--padding-left-tab, 0px)) !important;    /* Test with left-sidebar hidden */
                     }
                 }
             }
@@ -453,12 +421,6 @@
     @media -moz-pref("sidebar.verticalTabs") and -moz-pref("sidebar.position_start") {
         
         @media (-moz-platform: windows), (-moz-platform: linux) {
-            
-            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
-
-                --my-menu-button-height: var(--toolbar-height-personal) !important;                                 /* New Menu height */
-                --margin-left-icons-personal: calc(var(--my-vertical-toolbar-width) / 2 - 14px) !important;         /* New margin-left for menu items */
-            }
 
             :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
                 
@@ -467,14 +429,8 @@
                     margin-inline-start: calc(var(--my-vertical-toolbar-width) + 2px) !important;
                 }
 
-                & #PanelUI-button, #appMenu-popup  {
+                & #PanelUI-button {
                     top: 0px !important;
-                }
-                
-                & #PanelUI-button, 
-                & #appMenu-popup {
-                    --toolbarbutton-hover-personal: var(--color-accent-primary-small) !important;
-                    
                 }
                 
                 & #appMenu-popup {
@@ -483,15 +439,39 @@
             }
             
             /* Vertical-tabs hidden \
-            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */            
-            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]):has(#sidebar-container[hidden],sidebar-main[hidden]) {
+            ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+            #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar {
+                margin-inline-start: var(--my-hidden-left-margin, var(--my-vertical-toolbar-width)) !important;
+                padding-inline-start: var(--my-hidden-left-padding) !important;
+            }
+            
+            /* Style in 'customize' mode */
+            #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar[customizing] {
+                --my-hidden-left-margin: 0px !important;
+                --my-hidden-left-padding: var(--padding-left-tab) !important;
+                --my-elements-left-margin: var(--padding-left-tab) !important;
                 
-                #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar {
-                    padding-inline-start: var(--padding-left-tab) !important;/**/
-                    
+                /* Button position */
+                #PanelUI-button {
+                    --my-inset-inline-start: 0 !important; !important;
+                    --my-menu-button-height: var(--menubar-height-personal, var(--toolbar-height-personal)) !important;
+                }
+            }
+            
+            :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]):has(#sidebar-container[hidden],sidebar-main[hidden]) {
+                --my-hidden-left-margin: 0px !important;
+                --my-hidden-left-padding: var(--padding-left-tab) !important;
+                --my-elements-left-margin: var(--padding-left-tab) !important;
+                
+                #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar {                    
                     @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
-                        padding-inline-start: 0px !important;
+                        --my-hidden-left-margin: var(--my-vertical-toolbar-width) !important;
+                        --my-hidden-left-padding: 0px !important;
                     }
+                }
+
+                #PersonalToolbar {
+                    --my-elements-left-margin: 0px !important;
                 }
                 
                 #PanelUI-button {
@@ -500,7 +480,7 @@
                 
                 /* Button position */
                 #PanelUI-button {
-                    --my-inset-inline-start: 0px !important;
+                    --my-inset-inline-start: 0 !important; !important;
                     
                     /* Button position when 'left-sidebar' is visible */
                     @media -moz-pref("firefoxgx.left-sidebar") and (-moz-pref("browser.toolbars.bookmarks.visibility", 'always')) {
@@ -512,33 +492,27 @@
 
         /* 'Vertical tabs' + 'Left-sidebar' */
 
-        @media -moz-pref("firefoxgx.left-sidebar") {
+        @media -moz-pref("firefoxgx.left-sidebar") and (not -moz-pref("browser.toolbars.bookmarks.visibility", 'always')) {
 
-            @media (-moz-platform: windows), (-moz-platform: linux) {
-                
-                @media not -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
-                    
+            @media (-moz-platform: windows), (-moz-platform: linux) {                    
                     :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
                         
                         /* Navbar left-margin */
-                        #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar  {
+                        #toolbar-menubar:is([autohide],[collapsed]) ~ #nav-bar,
+                        #nav-bar {
                             margin-inline-start: 0 !important;
-                            padding-inline-start: var(--padding-left-tab) !important;/**/
-                        }
-
-                        #PanelUI-button, #appMenu-popup  {
-                            --my-menu-button-height: var(--menubar-height-personal, calc(var(--toolbar-height-personal) - 1px)) !important;
-                        }
-                        
-                        #appMenu-popup  {
-                            --my-menu-button-height: calc(var(--toolbar-height-personal) - 2px) !important;
+                            padding-inline-start: var(--padding-left-tab) !important;
                         }
                         
                         #PanelUI-button {
+                            --my-menu-button-height: var(--toolbar-height-personal) !important;
                             --my-inset-inline-start: 0px !important;
                         }
+                        
+                        #appMenu-popup  {
+                            --my-menu-button-height: calc(var(--toolbar-height-personal) - 1px) !important;
+                        }
                     }
-                }
             }
         }
     }

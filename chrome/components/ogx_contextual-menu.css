@@ -118,13 +118,12 @@ menupopup:not(.in-menulist) {
     }
 }
 
-/* Autofill (example: login page) focus item background \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.autocomplete-richlistitem {
-    &[selected] {
-        background-color: var(--color-accent-primary-hover) !important;
-        color: FieldText !important;
-    }
+/* Autocomplete (example: login page) \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#PopupAutoComplete > richlistbox {
+    --border-radius-large: 4px !important;
+    --button-text-color-hover: contrast-color(var(--color-accent-primary-hover)) !important;
+    padding: 2px !important;
 }
 
 /* Makes context navigation buttons appears as normal textual menuitems \

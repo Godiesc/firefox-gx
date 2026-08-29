@@ -752,9 +752,9 @@
                 display: none !important;
             }
             
-            /* Keep alight newtab overflow separator when 'collapse' & 'expand'; persist '+' button issue */
+            /* Keep alight newtab overflow separator when 'collapse' & 'expand' */
             .tools-and-extensions[orientation="horizontal"] {
-                margin-block-start: -2px !important;
+                margin-block-start: -1px !important;
             }
             
             /* Transition delayed to hide tools when expanding */

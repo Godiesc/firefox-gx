@@ -31,13 +31,25 @@
     }
 }
 
+/* Tabs toolbar needed changes */
+
+#TabsToolbar {
+    
+    /* Test in 'oneline' feature */
+    will-change: unset !important;                    
+    
+    /* Add drag space in 'Tabs toolbar */
+    .toolbar-items {
+        margin-inline-end: var(--my-titlebar-spacer-width);
+    }       
+}
+
 /* ___________________________________________________________ Selected tab ___________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 /* Necessary so that the first 'selected' tab does not remain under 'left-sidebar' */
 
 .tabbrowser-tab[selected] { z-index: 5 !important; }  /* over 'left-sidebar' */
-#TabsToolbar { will-change: unset !important; }       /* test when using optional feature 'solid background' */
 
 /* Tab shape */
 .tabbrowser-tab {
@@ -481,8 +493,8 @@ tab-group .tab-label {
 #tabbrowser-arrowscrollbox[orient="horizontal"] {
     --my-scroll-border-image: linear-gradient(to bottom, 
         transparent calc(var(--my-tab-margin-top) + 0px), 
-        var(--color-accent-primary-hover) calc(var(--my-tab-margin-top) + 0px), 
-        var(--color-accent-primary-hover) calc(100% - 2px),
+        var(--my-content-border-color) calc(var(--my-tab-margin-top) + 0px), 
+        var(--my-content-border-color) calc(100% - 2px),
         transparent calc(var(--tab-min-height) - 2px)) 1;
 }
 
@@ -535,62 +547,26 @@ spacer[part="overflow-end-indicator"] {
 /* _______________________ New Tab button _______________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #tabs-newtab-button,
-#vertical-tabs-newtab-button,
-#new-tab-button {
+#new-tab-button,
+#vertical-tabs-newtab-button {
     --toolbarbutton-background-color-hover: var(--color-accent-primary-xsmall) !important;
     --toolbarbutton-background-color-active: var(--color-accent-primary-small) !important;
     --toolbarbutton-padding-inner: calc((var(--tab-min-height) - 24px) / 2) !important;
     padding-inline-start: var(--uc-margin-left-newtab, 3px) !important;
-}
-
-#tabbrowser-tabs[orient="vertical"] {
-    #tabs-newtab-button,
-    #vertical-tabs-newtab-button {
-        --tab-background-color-hover: transparent !important;
-        margin-inline: 0px !important;
-        padding-inline: 0px !important;
+    
+    /* In vertical tabs */
+    #tabbrowser-tabs[orient="vertical"] & {
+        --tab-inner-inline-margin: calc(var(--my-margin-inline-inner-tab) + 5px) !important;
+        width: calc(100% - var(--tab-inner-inline-margin)*2) !important;
+        min-height: calc(var(--tab-collapsed-background-width) - 8px) !important;
         fill: var(--general-color) !important;
-
-        &::before {
-            content: ''; position: absolute; 
-            border-radius: var(--border-radius-urlbar-personal);
-            min-height: calc(var(--tab-collapsed-background-width) - 8px);
-            width: calc(var(--tab-collapsed-background-width) - 8px);
-        }
+        border-radius: var(--border-radius-urlbar-personal) !important;
+        margin-block: 3px !important;
+        justify-content: start !important;  /* To keep same position when sidebar expand/collapse */
         
-        &:hover::before {
-            background-color: var(--color-accent-primary-xsmall) !important;
-        }
-    }
-}
-
-/* Width when sidebar isn't expanded */    
-#tabbrowser-tabs[orient="vertical"] {
-    & #tabs-newtab-button,
-    & #vertical-tabs-newtab-button{
-        &:not([expanded]) {
-            min-width: var(--my-vertical-elements-width) !important;
-        }
-    }
-}
-
-/* When Sidebar is expanded */
-sidebar-main:is([expanded]) {
-    #tabbrowser-tabs[orient="vertical"] {
-        & #tabs-newtab-button,
-        & #vertical-tabs-newtab-button {
+        /* Alignt newtab label When Sidebar is expanded */
+        sidebar-main:is([expanded]) & {
             --tab-icon-end-margin: 5.5px !important;
-            padding-inline-start: calc(var(--my-vertical-elements-width)/2 - 8px) !important;
-            border-radius: 0px !important;
-
-            &::before {
-                inset-inline-start: 8px !important;
-                width: calc(100% - 16px) !important;
-            }
-
-            & .toolbarbutton-text {
-                mask: linear-gradient(to right, #e66465 calc(100% -  26px), #00000000 calc(100% - var(--my-vertical-elements-width)/2 + 7px)) !important;
-            }
         }
     }
 }

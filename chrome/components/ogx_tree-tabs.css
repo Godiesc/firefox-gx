@@ -179,7 +179,7 @@
             z-index: 0 !important;
 
             menu {
-                &::before {
+                &::after {
                     height: calc(100% - 10px);
                     z-index: -1 !important;
                     border-radius: var(--border-radius-small);

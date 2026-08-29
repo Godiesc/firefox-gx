@@ -73,9 +73,9 @@
   --urlbar-box-background-color-active: var(--color-accent-primary-small) !important;                 /* Background urlbar icons when 'active' */
   /*--urlbar-box-text-color-hover: contrast-color(var(--color-accent-primary-xsmall)) !important;     /* Icon fill when 'hover' & 'open' */
   --urlbar-inner-border-radius: 3px !important;                                                       /* Roundness of url bar icons */
-  --urlbar-icon-padding: calc((var(--urlbar-min-height) - 5px - 5px - 16px ) / 2) !important;         /* Urlbar icon padding */
+  --urlbar-icon-padding: calc((var(--urlbar-height) - 5px - 5px - 16px ) / 2) !important;             /* Urlbar icon padding */
   --urlbar-input-gap: 10px !important;                                                                /* Margin between 'trust' icon and url */
-  --urlbar-basic-component-size: calc(var(--urlbar-min-height) - 5*                                   /* Url icon size - height & width */
+  --urlbar-basic-component-size: calc(var(--urlbar-height) - 5*                                       /* Url icon size - height & width */
     (var(--urlbar-input-container-border-width) + var(--urlbar-input-container-padding))) !important;
 
   /* Toolbar buttons \
@@ -102,8 +102,8 @@
   /*--panel-padding: 16px !important;                                                                 /* Padding in 'notification' popup */
 
   --panel-menuitem-margin: 0px !important;                                                            /* Marging for each item */
-  --panel-menuitem-padding-block: 7px !important;                                                     /* Padding block for each item */
-  --panel-menuitem-padding-inline: 12px !important;                                                   /* Padding inline for each item */
+  --panel-menuitem-padding-block: 6px !important;                                                     /* Padding block for each item */
+  --panel-menuitem-padding-inline: 1em !important;                                                    /* Padding inline for each item */
   --panel-menuitem-border-radius: 0px !important;                                                     /* Menuitems 'hover' roundness */
 
   --panel-separator-padding-vertical: 4px !important;                                                 /* Padding block of separator */
@@ -209,11 +209,11 @@
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 :root {
   tab-group {
-    --general-color: var(--tab-group-color) !important;      /* General color becomes the group accent color */
+    --general-color: var(--tab-group-color) !important;                                                 /* General color becomes the group accent color */
     --color-accent-primary: var(--general-color) !important;                                            /* Accent color */
     --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
     --tab-group-background-color: lch(from 
-      var(--tab-group-color) l c h / 12%) !important;        /* Group Background */
+      var(--tab-group-color) l c h / 12%) !important;                                                   /* Group Background */
     
     /* Need to duplicate some variable */
     --tab-background-color-hover: var(--color-accent-primary-xsmall) !important;                        /* Tab background when 'hover' */
@@ -317,13 +317,6 @@
     --toolbar-field-background-color-focus: light-dark(#f4f2f7, #2b2640) !important;                                      /* Urlbar focus */
     --sidebar-background-color: light-dark(var(--toolbar-background-color), var(--toolbar-background-color)) !important;  /* Sidebar content background */
     --toolbarbutton-icon-fill: light-dark(#101019, #c4bbd7) !important;                                                   /* Icons */
-  }
-  
-  ::selection {
-    background: var(--general-color, var(--fuchsia)) !important;
-    color: contrast-color(var(--my-selected-text-background)) !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
   }
 }
 

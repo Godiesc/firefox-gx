@@ -367,8 +367,9 @@
 @media not -moz-pref("firefoxgx.icon.disabled") {
 
   /* Replace variable setted in 'normal' - cause bug for some icons like 'customize toolbar'
-  -- overwrite those icons with 'important' to solve it & specific add 'menuitem' before the item name */
-  menu, menuitem:not(.menuitem-iconic), menucaption {
+  -- overwrite those icons with 'important' to solve it & specific add 'menuitem' before the item name 
+  -- 'IMPORTANT' keep 'menupopup' before 'menu' to fix MacOS global menu items */
+  menupopup menu, menuitem:not(.menuitem-iconic), menucaption {
     --menuitem-icon: url("../icons/blank.svg") !important;
     --menuitem-icon-fill: currentColor !important;
   }
@@ -397,8 +398,8 @@
   /* Enable the icon variable in all menus \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .menu-icon {
-    menuitem:not([type="radio"],[type="checkbox"]) > &, 
-      menu > & {
+    menuitem:not([type="radio"],[type="checkbox"]) > &,
+      menupopup menu > & {  /* -- 'IMPORTANT' keep 'menupopup' before 'menu' to fix MacOS global menu items */
         &:where(:not([srcset])) {
           content: var(--menuitem-icon, url("../icons/blank.svg")) !important;
           list-style-image: var(--menuitem-icon, url("../icons/blank.svg")) !important;
@@ -542,6 +543,7 @@
   
   /* Profiles */
   #appMenu-empty-profiles-button,
+  #appMenu-create-profile-button,
   #PanelUI-fxa-menu-empty-profiles-button {
     list-style-image: url("chrome://global/skin/icons/users.svg") !important;
   }

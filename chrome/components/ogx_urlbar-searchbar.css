@@ -199,7 +199,24 @@
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #nav-bar {
     height: var(--toolbar-height-personal) !important;
-    border-top-width: 0px !important;
+    border-top: none !important;
+}
+
+#nav-bar::before {
+    /*content: "" !important; position: absolute !important; /*align-self: start !important;/**/
+    /*top: -1px !important;/**/
+    /*inset-inline-start: calc(var(--my-elements-left-margin, 0px) - 1px) !important;
+    width: 100% !important;
+    border-block-start: 1px solid var(--general-color) !important;
+    border-image: var(--panel-separator-zap-gradient1) 1 !important;/**/
+    /*z-index: 3 !important; /* same index of oneline: 'Makes tabsbar items clicleable' - fix when 'left-sidebar' + 'Firefox-revamp' on right*/
+    
+    @media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {
+        @media screen and (min-width: 1000px) {
+            /*top: unset !important;
+            bottom: 0 !important;/**/
+        }
+    }
 }
 
 #urlbar-container, 
@@ -209,7 +226,6 @@
 
 :is(#urlbar, #searchbar-new) {
     --urlbar-height: calc(var(--toolbar-height-personal) - 10px) !important;
-    --urlbar-min-height: calc(var(--toolbar-height-personal) - 10px) !important;
 }
 
 /* Roundness */
@@ -264,8 +280,8 @@
     margin-block-start: 1px !important;
 }
 
-#urlbar-input, #urlbar-scheme {
-    margin-block-start: -2px !important;
+.urlbar-input.textbox-input {
+    margin-block: -1px 1px !important;
 }
 
 /* Necessary for many -Hamburger Menu- and -Left Sidebar- scenarios */

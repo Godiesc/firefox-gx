@@ -310,23 +310,6 @@
         --my-smooth-border-color: color-mix(in srgb, var(--red) 50%, transparent) !important;
     }
     
-    /* 'Customize' button \
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    .button-background {
-        & img {
-            content: var(--my-button-icon-content, var(--button-icon-content)) !important;
-        }
-    }
-    
-    .open-customization-button {
-        --button-icon-content: url("../icons/more-options.svg") !important;
-        
-        &:hover,
-        &:focus {
-            --button-background-color: var(--color-accent-primary-xsmall) !important;
-        }
-    }
-    
     /* Border in button for collapse/expand widgets */
     .widgets-expand-button {
         --newtab-primary-action-background: var(--my-smooth-border-color) !important;
@@ -336,6 +319,29 @@
     .open-customization-button.personalize-animate-enter.personalize-animate-enter-active,
     .customize-menu.customize-animate-exit.customize-animate-exit-active {
         display: none !important;
+    }
+    
+    /* 'Customize' button \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    .button-background {
+        & img {
+            content: var(--my-button-icon-content, var(--button-icon-content)) !important;
+        }
+    }
+    
+    .open-customization-button {
+        --button-background-color-primary: transparent !important;
+        --button-border-color-primary: var(--my-smooth-border-color) !important;
+        --button-icon-content: url("../icons/more-options.svg") !important;
+        --button-icon-fill: var(--my-contrast-color) !important;
+        --button-icon-stroke: var(--my-contrast-color) !important;
+        
+        &:hover,
+        &:focus {
+            --button-background-color: var(--color-accent-primary-xsmall) !important;
+            --button-icon-fill: var(--button-text-color-primary) !important;
+            --button-icon-stroke: var(--button-text-color-primary) !important;
+        }
     }
     
     /* ___________________________________________________ Customize menu Slider ____________________________________________________
@@ -393,16 +399,34 @@
         border-image: var(--panel-separator-zap-gradient2) 1 !important;
     }
     
-    /* Test it without 'News' section - Small space above logo&wordmark - searchbox */
+    /* Test it without 'News' section - Small space above logo&wordmark - searchbox 
     
     .nova-enabled.container {
         grid-auto-rows: 0px !important;
+    }*/
+    
+    .container.nova-enabled.logo-in-content {
+        .sidebar-inline-start,
+        .sidebar-inline-end {
+            height: 0px !important;
+            /*grid-row: 1/span 1 !important;/**/
+        }
+    }
+    
+    .nova-enabled.logo-in-content .content {
+        grid-row: 2/span 2 !important;
     }
     
     /* __________________________________________________________ Search box _________________________________________________________ 
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     /* Width */
     @container content-grid (inline-size >= calc(750px + 6.75rem)) {
+        .nova-enabled .search-inner-wrapper {
+            width: calc(6 * var(--col-width) + 12 * var(--space-medium)) !important;
+        }
+    }
+    
+    @container outer-grid (inline-size >= calc(1050px + 8.25rem)) {
         .nova-enabled .search-inner-wrapper {
             width: calc(6 * var(--col-width) + 12 * var(--space-medium)) !important;
         }
@@ -689,26 +713,26 @@
         }
     }
     
-    /* Recent activity wider */
+    /* Recent activity wider 
     .nova-enabled .ds-highlights .section-list {
         grid-column: 1/18 !important;
-    }
+    }*/
     
-    /* News wider */
+    /* News wider 
     .nova-enabled .content .ds-section-wrapper {
         grid-template-columns: repeat(auto-fill, calc(3 * var(--col-width) + 4 * var(--space-medium))) !important;
     }
     
     .nova-enabled .widgets-section-container {
         grid-template-columns: repeat(auto-fill, calc(5 * var(--col-width) + 3 * var(--space-medium))) !important;
-    }
+    }*/
     
-    /* widgets wider */
+    /* widgets wider 
     .nova-enabled .widgets-container {
         --mrec-width: 375px;
         --col-width: calc(var(--mrec-width) / 4);
         grid-template-columns: repeat(auto-fill, var(--col-width)) !important;
-    }
+    }*/
     
     /* ______________________________________________________ News Section _______________________________________________________ 
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -870,13 +894,13 @@
 }
 
 /* _____________ Background and font color when selecting text on websites _____________ 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
 ::selection {
     color: contrast-color(var(--my-selected-text-background)) !important;
     box-shadow: none !important;
     text-shadow: none !important;
     background: var(--my-selected-text-background) !important;
-}
+}*/
 
 /* _____________________________________________________ Private Newtab page _____________________________________________________ 
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -1038,7 +1062,7 @@
 
 /* Fix pages background color when they didn't set a background in its body element \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-@-moz-document regexp("^https?://.*") {                                     /* Twitch with extensions */
+@-moz-document regexp("^https?://.*")/*, regexp(".*about:blank.*")/**/ {                                     /* Twitch with extensions */
     html:not([class*="dark"],[data-theme*="dark"]) > body:not([class*="dark"],[tabindex="-1"]) {
         background-color: Field;
     }
@@ -1048,14 +1072,16 @@
     }
 }
 
-/* 'Startpage' website set the background color into 'html', need to remove the background color from body element setted above */
+/* Some websites set the background color into 'html', need to remove the background color from body element setted above */
 @-moz-document 
     regexp(".*startpage.*"),
+    regexp(".*https://ogs.google.*"),   /* Test in google.com - account button */
+    regexp(".*play.hbomax.*"),
     regexp(".*https://fastcomments.*"),
     regexp(".*https://accounts.*"),
     regexp(".*0day.*"),
-    regexp(".*https://playersquared.com/.*") {
-    html:not([class*="dark"],[data-theme*="dark"])>body:not([class*="dark"]) {
-        background-color: unset;
+    regexp(".*https://playersquared.com.*") {
+    html:not([class*="dark"],[data-theme*="dark"]) > body:not([class*="dark"],[tabindex="-1"])  {
+        background-color: initial;
     }
 }

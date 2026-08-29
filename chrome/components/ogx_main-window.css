@@ -114,7 +114,8 @@
     position: relative !important;
     text-shadow: none !important;
     
-    &::before {
+    /* Use 'after' because MacOS use 'before' for other important style */
+    &::after {
         content: ''; position: absolute;
         width: 100%; height: calc(100% - 2px);
         z-index: -1;
@@ -125,7 +126,7 @@
     &:is(:hover,[open]) {
         color: contrast-color(var(--color-accent-primary-hover)) !important;
         
-        &::before {
+        &::after {
             background-color: var(--color-accent-primary-hover) !important;
         }
     }
@@ -534,14 +535,9 @@ findbar {
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
 @media (-moz-platform: macos) {
-    
-  /* Add padding top in tabs bar */
+
+    /* Add padding top in tabs bar */
     #TabsToolbar {
         padding-block-start: 6px !important;
-    }
-  
-  /* Add margin in window controls */
-    :root:not([sizemode="fullscreen"]) .titlebar-buttonbox-container {
-        margin-inline: 6px 10px !important;
     }
 }

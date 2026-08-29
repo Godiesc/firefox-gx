@@ -221,13 +221,24 @@
     /* Hide favicon when mute button appears */
     
     :root:has(.tab-audio-button[soundplaying]:hover),
-    :root:has(.tabbrowser-tab:hover .tab-audio-button:is([muted],[activemedia-blocked])) { 
+    :root:has(.tabbrowser-tab:hover .tab-audio-button:is([muted],[soundplaying][muted],[activemedia-blocked])) { 
         .tabbrowser-tab:not([pending],[busy]):hover {
             .tab-icon-image {
                 opacity: 0 !important;
             }
         }
     }
+    /*
+    .tab-audio-button {
+        @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
+            #tabbrowser-tabs[orient="horizontal"] &:not([pinned]):not([crashed]),
+            :root:not([sidebar-expand-on-hover]) #tabbrowser-tabs[orient="vertical"][expanded] &:not([pinned]):not([crashed]) {
+                &:is([soundplaying][muted], [activemedia-blocked]) {
+                    opacity: 0 !important;
+                }
+            }
+        }
+    }/**/
 
     /* General style for sound button */
     
@@ -237,7 +248,7 @@
     
     /* Shared styles for mute and play button */
     
-    .tab-audio-button:is([soundplaying],[muted],[activemedia-blocked]) {
+    .tab-audio-button:is([soundplaying],[muted],[soundplaying][muted],[activemedia-blocked]) {
         --my-position: absolute !important;
     }
 
@@ -267,7 +278,7 @@
     
     /* Normal tabs - Muted icon */
     
-    .tab-audio-button:is([muted],[activemedia-blocked]) {
+    .tab-audio-button:is([muted],[soundplaying][muted],[activemedia-blocked]) {
         --button-size-icon-small: 18px !important;
         --button-min-height-small: 18px !important;
         --my-background-sound-image: url("chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg") !important;
@@ -296,7 +307,7 @@
             }
         }
         
-        .tab-audio-button:is([muted],[activemedia-blocked]) {
+        .tab-audio-button:is([muted],[soundplaying][muted],[activemedia-blocked]) {
             --my-inset-inline-start: calc(50% - 9px) !important;
         }
     }
@@ -315,7 +326,7 @@
 
         /* Normal tabs - Muted icon */
 
-        .tab-audio-button:is([muted],[activemedia-blocked]) {
+        .tab-audio-button:is([muted],[soundplaying][muted],[activemedia-blocked]) {
             --my-inset-inline-start: 11px !important;
 
             &:hover {         
@@ -353,7 +364,7 @@
             }
 
             &[soundplaying]:is(:hover),
-            &:is([muted],[activemedia-blocked]) {
+            &:is([muted],[soundplaying][muted],[activemedia-blocked]) {
                 height: 18px !important;
                 width: 18px !important;
                 padding: 3px !important;
@@ -366,7 +377,7 @@
                 fill: var(--my-scheme-color) !important;
             }
             
-            &:is([muted],[activemedia-blocked]) {
+            &:is([muted],[soundplaying][muted],[activemedia-blocked]) {
                 background-color: transparent !important;
 
                 &:hover {
@@ -398,7 +409,7 @@
                 }
 
                 &[soundplaying]:is(:hover),
-                &:is([muted],[activemedia-blocked]) {
+                &:is([muted],[soundplaying][muted],[activemedia-blocked]) {
                     height: 18px !important;
                     width: 18px !important;
                     padding: 3px !important;
@@ -411,7 +422,7 @@
                     fill: var(--my-scheme-color) !important;
                 }
 
-                &:is([muted],[activemedia-blocked]) {
+                &:is([muted],[soundplaying][muted],[activemedia-blocked]) {
                     background-color: transparent !important;
 
                     &:hover {
