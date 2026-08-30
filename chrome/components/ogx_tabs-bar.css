@@ -41,6 +41,10 @@
     /* Add drag space in 'Tabs toolbar */
     .toolbar-items {
         margin-inline-end: var(--my-titlebar-spacer-width);
+        
+        @media (-moz-gtk-csd-reversed-placement), (-moz-platform: macos) {
+            margin-inline-end: 0px;
+        }
     }       
 }
 

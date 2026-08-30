@@ -66,14 +66,18 @@
     @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
 
         :root {
-            --padding-left-tab: var(--my-vertical-toolbar-width) !important;            /* New size of the 'menu' button */
+            --padding-left-tab: var(--my-vertical-toolbar-width) !important;
             --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
             --my-elements-left-margin: calc(var(--my-vertical-elements-width) + 1px) !important;
+            
+            @media (-moz-platform: macos) {
+                --padding-left-tab: 113px !important;
+            }
         }
 
         /* margin to the left of 'menubar-tabsbar-navbar' when new menu is disabled */
 
-        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"])/*:has(#PersonalToolbar:not([collapsed]))/**/ {
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
             & #toolbar-menubar {
                 padding-inline-start: var(--padding-left-tab) !important;
             }
@@ -89,10 +93,14 @@
     
     @media -moz-pref("sidebar.revamp") and -moz-pref("sidebar.position_start") and (not -moz-pref("firefoxgx.left-sidebar")) {
         
-        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]/*,[sizemode="fullscreen"]/**/):not(:has(#sidebar-container[hidden],sidebar-main[hidden])) {
-            --padding-left-tab: var(--my-vertical-toolbar-width) !important;            /* New size of the 'menu' button */
+        :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]):not(:has(#sidebar-container[hidden],sidebar-main[hidden])) {
+            --padding-left-tab: var(--my-vertical-toolbar-width) !important;
             --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px) !important;
             --my-elements-left-margin: calc(var(--my-vertical-elements-width) + 1px) !important;
+            
+            @media (-moz-platform: macos) {
+                --my-macos-left-margin: 112px !important;
+            }
         }
         
         #toolbar-menubar {
@@ -100,11 +108,11 @@
         }
         
         #TabsToolbar {
-            margin-inline-start: calc(var(--padding-left-tab, 0px) - 1px) !important;
+            margin-inline-start: calc(var(--my-macos-left-margin, var(--my-elements-left-margin, 0px)) - 0px) !important;
         }
         
         #nav-bar {
-            margin-inline-start: var(--my-vertical-toolbar-width, 0px) !important;
+            margin-inline-start: var(--my-elements-left-margin, 0px) !important;
             box-shadow: -1px 0 var(--general-color) !important;
         }
     }

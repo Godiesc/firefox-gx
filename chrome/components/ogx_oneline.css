@@ -67,7 +67,7 @@
       box-shadow: none !important; /* Remove shadow - test with left-sidebar on */
 
       @media (-moz-platform: macos), (-moz-gtk-csd-reversed-placement) {
-        margin-inline-start: var(--uc-window-control-width, var(--padding-left-tab)) !important;
+        margin-inline-start: var(--my-macos-left-margin, var(--uc-window-control-width, var(--padding-left-tab))) !important;
       }
     }
 
