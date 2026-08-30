@@ -595,7 +595,7 @@
     
     .button-background[type="icon"] {
         img {
-            fill: white !important;
+            fill: contrast-color(var(--color-accent-primary-hover)) !important;
             background-color: var(--color-accent-primary-hover) !important;
             box-shadow: 0 0 0 5px var(--color-accent-primary-hover) !important;
             border-radius: 0.1px !important;

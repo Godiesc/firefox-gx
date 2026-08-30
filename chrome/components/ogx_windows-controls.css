@@ -497,7 +497,13 @@
 /* Space reserved for window controls \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @media (-moz-platform: macos) {
+    /* Width */
     :root:is([customtitlebar],[sizemode="fullscreen"]) {
         --uc-window-control-width: 86px !important;
+    }
+    
+    /* Height */
+    .titlebar-buttonbox-container {
+        height: calc(var(--tab-height-personal) + 1px) !important;
     }
 }

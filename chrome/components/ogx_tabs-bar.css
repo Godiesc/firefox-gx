@@ -444,12 +444,6 @@ tab-split-view-wrapper {
     }
 }
 
-/* Tabs-bar reach lower height that 30px \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
-.titlebar-buttonbox-container, .tab-close-button, .tab-label-container {
-  max-height: calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + var(--my-tab-margin-top, 0px)) !important;
-}*/
-
 /* Bug fix: Unwanted larger tab-label-container - tested with 'oneline' in non-maximized window \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tab-label-container {
