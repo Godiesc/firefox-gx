@@ -626,7 +626,7 @@
                 @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
                     
                     --my-menu-button-width: var(--my-vertical-elements-width) !important;
-                    --padding-left-tab: var(--my-menu-button-width) !important;
+                    --padding-left-tab: var(--my-vertical-toolbar-width) !important;
                         
                     
                     & #PanelUI-menu-button .toolbarbutton-badge-stack::after {
