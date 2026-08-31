@@ -81,6 +81,14 @@
 
 @media (-moz-pref("firefoxgx.tree-tabs") or -moz-pref("sidebar.verticalTabs")) {
     
+    /* Makes menubar appear as overlay in the top left corner */
+
+    :root {
+        --my-tab-margin-top: 0px !important;
+        --my-content-border-color: var(--toolbarbutton-hover-personal);
+        --my-vertical-elements-width: calc(var(--my-vertical-toolbar-width) - 1px);
+    }
+    
     /* trick to be able to click on extensions from the top edge of the nav-bar \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     :root:not([chromehidden~="toolbar"]) {    
@@ -126,12 +134,6 @@
     
     /* ________________________________________ Makes menubar appear as overlay in the top left corner ________________________________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ https://github.com/MrOtherGuy/firefox-csshacks/blob/master/chrome/hide_tabs_toolbar_v2.css ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
-    /* Makes menubar appear as overlay in the top left corner */
-
-    :root {
-        --my-content-border-color: var(--toolbarbutton-hover-personal);
-    }
 
     #toolbar-menubar:not([autohide]) > .titlebar-buttonbox-container,
     #toolbar-menubar:not([autohide]) > spacer { display: none; }
