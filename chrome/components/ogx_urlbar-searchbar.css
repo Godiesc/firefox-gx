@@ -349,11 +349,11 @@ description#identity-popup-content-verifier,
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .searchmode-switcher {
     /* Background */
-    --button-background-color: transparent !important; /* Test it when url open & extended */
+    --button-background-color-muted: transparent !important;
     --urlbar-box-background-color: transparent !important;
-    --button-background-color-hover: var(--urlbar-box-background-color-hover) !important;
-    --button-background-color-active: var(--urlbar-box-background-color-active) !important;
-    --button-background-color-selected: var(--urlbar-box-background-color-active) !important;
+    --button-background-color-muted-hover: var(--urlbar-box-background-color-hover) !important;
+    --button-background-color-muted-active: var(--urlbar-box-background-color-active) !important;
+    --button-background-color-muted-selected: var(--urlbar-box-background-color-active) !important;
     /* Roundness */
     --button-border-radius: var(--urlbar-inner-border-radius) !important;
     
@@ -363,7 +363,7 @@ description#identity-popup-content-verifier,
     
     /* Keep the same background color when 'hover' on 'open' */
     &[open] {
-    --button-background-color-hover: var(--urlbar-box-background-color-active) !important;
+    --button-background-color-muted-hover: var(--urlbar-box-background-color-active) !important;
     }
     
     /* Default search engine */
