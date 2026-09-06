@@ -81,6 +81,12 @@ https://github.com/Godiesc/firefox-gx */
       background-image: var(--wallpaper-light9) !important;
     }
   }
+  
+  /* Remove 'user' attribution of wallpaper \
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+  .wallpaper-attribution {
+    display: none !important;
+  }
 
   /* Replace 'Photographs' category label \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
