@@ -200,7 +200,7 @@ https://github.com/Godiesc/firefox-gx */
 
         /* Dark scheme for 'about:' pages */
         :root {
-          color-scheme: dark !important; /* Test in 'Firefox view' */
+          --fxview-text-primary-color: #ffffff !important;  /* Test in 'Firefox view' - See bug 374 */
           --newtab-background-color-secondary: lch(from var(--newtab-background-color) calc(l + 8) c h) !important;       /* 'Manage' Buttons background color */
           --my-newtab-elements-background: color-mix(in srgb, white 3%, var(--newtab-background-color) 65%, transparent); /* Elements background color */
         }
@@ -305,7 +305,7 @@ https://github.com/Godiesc/firefox-gx */
         }
         
         :root {
-          color-scheme: light !important; /* Test in 'Firefox view' */
+          --fxview-text-primary-color: #000000 !important;  /* Test in 'Firefox view' - See bug 374 */
           --newtab-background-color-secondary: lch(from var(--newtab-background-color) calc(l + 8) c h) !important;       /* 'Manage' Buttons background color */
           --my-newtab-elements-background: color-mix(in srgb, white 3%, var(--newtab-background-color) 65%, transparent); /* Elements background color */
         }
