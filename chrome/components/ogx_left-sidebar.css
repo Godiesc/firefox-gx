@@ -540,6 +540,7 @@
             --button-background-color-ghost-active: transparent !important;
             --button-background-color-hover: transparent !important;
             --button-background-color-active: transparent !important;
+            --button-background-color-selected: transparent !important;
             --toolbarbutton-background-color-active: transparent !important;
             --button-icon-fill: var(--general-color) !important;
             --button-icon-stroke: var(--general-color) !important;
@@ -570,8 +571,8 @@
         }
 
         &:hover img {
-            background-color: var(--color-accent-primary-small) !important;
-            box-shadow: 0 0 0 5px var(--color-accent-primary-small) !important;
+            background-color: var(--color-accent-primary-active) !important;
+            box-shadow: 0 0 0 5px var(--color-accent-primary-active) !important;
         }
     }
     
@@ -900,7 +901,7 @@
         --my-margin-inline-outer-tab: calc(var(--my-margin-inline-inner-tab) + 1px);            /* Tab margin inline - group tabs */
         --tab-inner-inline-margin: var(--my-margin-inline-inner-tab) !important;                /* Default variable updated with the value of above */
         --tab-outer-inline-margin: calc(var(--my-margin-inline-inner-tab) - 1px) !important;    /* Personal variable used for align tab border */
-        --my-separator-border-style1:linear-gradient(to right, 
+        --my-separator-border-style1: linear-gradient(to right, 
             transparent 10px, var(--my-content-border-color) 10px,
             var(--my-content-border-color) calc(100% - 10px), transparent calc(100% - 10px)) 1; /* Separator */
     }
@@ -963,11 +964,17 @@
     /* Spliter for pinned tabs */
     #vertical-pinned-tabs-splitter {
         --tab-inner-inline-margin: 0px !important;
-        border-image: var(--my-separator-border-style1) !important;
-
-        &:hover {
-            --tabstrip-inner-border: var(--general-color) !important;
-        }
+        min-height: 7px !important;
+        height: 1px !important;
+        background-image: linear-gradient(to right, 
+            transparent 10px, var(--my-content-border-color) 10px,
+            var(--my-content-border-color) calc(100% - 10px), transparent calc(100% - 10px)) !important;
+        background-clip: content-box !important;
+        background-size: unset !important;
+        background-position: unset !important;
+        border-block: 3px solid transparent !important;
+        margin-block: -3px !important;
+        border-radius: 0px !important;
     }
 
     /* Separator bottom when tabs scroll appears */    
@@ -980,9 +987,8 @@
     
     /* Remove top separator of tools-and-extensions */    
     #sidebar-tools-and-extensions-splitter {
-        border-block-width: 0px !important;
         background-color: transparent !important;
-        pointer-events: none !important;
+        background-image: none !important;
     }
     
     /* _________________________ Pinned tabs ________________________

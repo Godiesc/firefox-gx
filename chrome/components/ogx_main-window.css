@@ -124,10 +124,10 @@
     }
     
     &:is(:hover,[open]) {
-        color: contrast-color(var(--color-accent-primary-hover)) !important;
+        color: contrast-color(var(--color-accent-primary)) !important;
         
         &::after {
-            background-color: var(--color-accent-primary-hover) !important;
+            background-color: var(--color-accent-primary) !important;
         }
     }
 }
