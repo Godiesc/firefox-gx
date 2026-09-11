@@ -91,7 +91,7 @@ menulist:is(:hover, [open]) {
 
 /* Margins in tabsgroup context-menu \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-.tab-group-editor-panel {    
+.tab-group-editor-panel {
     & .tab-group-editor-name,
     & .tab-group-editor-swatches{
         --panel-menuitem-margin: 4px 8px !important;
@@ -100,12 +100,21 @@ menulist:is(:hover, [open]) {
     #tab-group-suggestion-button {
         --panel-menuitem-margin: 0px 4px !important;
     }
+    
+    /* Add 'fill' property for icons */
+    toolbarbutton .toolbarbutton-icon {
+        -moz-context-properties: fill;
+        fill: currentColor !important;
+    }
 }
 
 /* AI button 'hover' background */
 #tab-group-suggestion-button {
-    --button-border-color-ghost: var(--color-accent-primary-hover) !important;
-    --button-background-color-ghost: var(--color-accent-primary-xsmall) !important;
+    --button-border-color-ghost: var(--color-accent-primary) !important;
+    --button-border-color-ghost-hover: var(--color-accent-primary-hover) !important;
+    --button-background-color-ghost: var(--color-accent-primary) !important;
+    --button-background-color-ghost-hover: var(--color-accent-primary-hover) !important;
+    --button-text-color-ghost: contrast-color(var(--color-accent-primary)) !important;
     --button-text-color-ghost-hover: contrast-color(var(--color-accent-primary-hover)) !important;
 }
 
