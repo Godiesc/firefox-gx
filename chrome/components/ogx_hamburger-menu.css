@@ -33,6 +33,12 @@
     background-color: var(--color-accent-primary-hover) !important;
 }
 
+/* Remove unwanted margin in 'Profile' item \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+.subviewbutton-iconic.profile-item > .toolbarbutton-icon {
+    margin-inline-end: 0px !important;
+}
+
 /* 'Update Available' banner \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #appMenu-popup .panel-banner-item:not([disabled]):hover, 
@@ -47,7 +53,7 @@
     /* New hamburger menu button icon */
     :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"]) {
         #PanelUI-button {
-            z-index: 4 !important;  /* Test with 'oneline' feature - if needs change, change too in online css */
+            /*z-index: 4 !important;  /* Test with 'oneline' feature - if needs change, change too in online css */
             
             .toolbarbutton-badge-stack {
                 list-style-image: url("../icons/foxfill.svg") !important;
@@ -164,10 +170,10 @@
             & #PanelUI-button {
                 --toolbarbutton-background-color-active: color-mix(in srgb, var(--toolbarbutton-hover-personal) 70%, transparent) !important;
                 --my-icon-transform: scale(1.2);
-                position: absolute;
+                position: absolute; /* Keep absolute to autohide using fullscreen */
                 top: calc(0px - var(--tab-height-personal) - var(--my-tab-margin-top, 0px)) !important;
                 
-                /* Define a variable because it will be used in pseudoclase 'has' in some code below */
+                /* Defined as a variable because it will be used in pseudoclase 'has' in some code below */
                 inset-inline-start: var(--my-inset-inline-start, unset) !important;
                 /*z-index: 5 !important;/**/
 
@@ -415,7 +421,7 @@
                     /* position */
                     & #PanelUI-button {
                         top: 0 !important;
-                        z-index: 4 !important;                                                        /* test with menubar always active - enable click */
+                        /*z-index: 4 !important;                                                        /* test with menubar always active - enable click */
                         --my-inset-inline-start: calc(-1*var(--padding-left-tab, 0px)) !important;    /* Test with left-sidebar hidden */
                     }
                 }
@@ -635,7 +641,7 @@
                     
                     #PanelUI-button {
                         top: 0 !important;
-                        z-index: 5 !important;
+                        /*z-index: 5 !important;/**/
                         
                         /* Menu button when 'expand-on-hover' + 'left-sidebar' */
                         @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always'),

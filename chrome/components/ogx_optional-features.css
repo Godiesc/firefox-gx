@@ -133,17 +133,19 @@
 
 @media -moz-pref("firefoxgx.arrow-in-menus") {
 
-  /* Add a Panelarrow to all popups */
-
+  /* Personal variables to use below \
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   :root {
     --my-margin-top-popups: 10px !important;
     --my-margin-inline-popups: -9px !important;
   }
 
+  /* Colored border top position \
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */  
                      /* not: Hamburger-menu, tab preview, tabgroup preview panel, contextual menu in group button, menu in customization mode */
   :is(menupopup, panel):not(
   #appMenu-popup, #tab-preview-panel, #tabgroup-preview-panel,
-  #customization-uidensity-menu, /*#feature-callout,/**/ #chat-shortcuts-options-panel, #downloads-button-autohide-panel
+  #customization-uidensity-menu, /*#feature-callout,/**/ #chat-shortcuts-options-panel, #downloads-button-autohide-panel, .tab-group-editor-panel
   ):where([type="arrow"])::after {
     z-index: 0 !important;
     top: calc(var(--my-margin-top-popups, -4px) + 1px) !important;

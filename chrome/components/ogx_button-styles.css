@@ -5,8 +5,8 @@
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 button[role="menuitem"] {   /* Apply only in items inside */
     &:enabled:hover {
-        --button-background-color-hover: transparent !important;
-        --button-background-color-active: transparent !important;
+        --button-background-color-menu-hover: transparent !important;
+        --button-background-color-menu-active: transparent !important;
         color: contrast-color(var(--color-accent-primary-hover)) !important;
         &::before {
             position: absolute !important;
@@ -28,13 +28,10 @@ button[role="menuitem"] {   /* Apply only in items inside */
 }
 
 /* Separator */
-.searchmode-switcher-panel-list {
-    & > hr:not([hidden]) {
-        margin: var(--panel-menuitem-margin);
-        --panel-menuitem-margin: 6px !important;
-        background-color: transparent !important;
-        background-image: var(--panel-separator-zap-gradient2) !important;
-    }
+.searchmode-switcher-panel-installed-engine-separator,
+.searchmode-switcher-panel-footer-separator {
+    border-block-start: 1px solid transparent !important;
+    border-image: var(--panel-separator-zap-gradient2) 1 !important;
 }
 
 /* Toggle button \
@@ -89,11 +86,14 @@ menulist:is(:hover, [open]) {
     --button-text-color: contrast-color(var(--color-accent-primary-hover)) !important;
 }
 
-/* Margins in tabsgroup context-menu \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Tabs group context-menu \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .tab-group-editor-panel {
+    --panel-padding: var(--space-large) 0 0 !important;
+    margin: 0px !important;
+    
     & .tab-group-editor-name,
-    & .tab-group-editor-swatches{
+    & .tab-group-editor-swatches {
         --panel-menuitem-margin: 4px 8px !important;
     }
     
@@ -105,6 +105,11 @@ menulist:is(:hover, [open]) {
     toolbarbutton .toolbarbutton-icon {
         -moz-context-properties: fill;
         fill: currentColor !important;
+    }
+    
+    #tab-group-suggestions-separator::before {
+        margin-block: 4px -4px !important;
+        margin-inline-end: 4px !important;
     }
 }
 

@@ -6,6 +6,7 @@
 #navigator-toolbox {
     background-image: none !important;      /* ¡important, Don't use the image variable - 'bug' in image in tab selected */
     border-bottom-width: 0px !important;    /* Remove unwanted border - bug in sidebars */
+    z-index: unset !important;              /* Necessary for 'Left Sidebar' - test it with the 'z-index' of 'ogx_left-sidebar.css' file */
 }
 
 /* Apply the image properties in body element, in both image cases ¬
@@ -51,8 +52,10 @@
 /* Remove unnecessary background to show the theme image \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #browser, .browserContainer {
+    --content-area-start-radius: 0px !important;    /* Web content roundness - test it with revamp + bookmarks 'open' */
     background-color: transparent !important;
-    box-shadow: none !important; /* Remove unwanted shadow when using 'revamp' */
+    box-shadow: none !important;                /* Remove unwanted shadow when using 'revamp' */
+    border-block-start-width: 0px !important;   /* Remove unwanted border in 'browserContainer' */
 }
 
 /* Sidebar-box background the same as the web content  */
@@ -148,13 +151,17 @@
     url("chrome://global/content/megalist/megalist.html"), 
     url("chrome://browser/content/webext-panels.xhtml"),
     url("chrome://browser/content/genai/chat.html"),
-    regexp("^chrome://browser/content/places.*"),   
+    regexp("^chrome://browser/content/places.*"),
     regexp("chrome://browser/content/sidebar.*") {
+        
+        body { background-color: transparent !important; }  /* Only for 'Passwords' */
         
         :root { 
             background-color: transparent !important;
             --toolbarbutton-icon-fill-attention: unset !important;
             --newtab-text-primary-color: unset !important;
+            --input-search-border-radius: 4px !important;
+            --input-text-border: 1px solid transparent !important;  /* This just enable the border, not define the border for unknown reason */
         }
 
         /* searchbox \
@@ -188,6 +195,12 @@
 #sidebar-switcher-target:hover:active,
 #sidebar-switcher-target.active {
     background-color: var(--color-accent-primary-small) !important;
+}
+
+/* Sections inside sidebar e.g. */
+moz-card {
+    backdrop-filter: var(--my-blur) !important;
+    --card-background-color: alpha(from var(--button-background-color) / 30%)!important;
 }
 
 /* Style for IA chat in sidebar is open \
@@ -224,6 +237,7 @@
     /* Remove limit */
     max-width: none !important;
     min-width: 1px !important;
+    border-radius: 0px !important;
     box-shadow: 0 -1px var(--my-content-border-color) !important;
     /* Other styles */
     overflow-x: hidden !important;
@@ -280,6 +294,11 @@
 }
 
 @media -moz-pref("sidebar.revamp") {
+    
+    /* Remove duplicate background */
+    #sidebar-box {
+        background-color: transparent !important;
+    }
     
     /* Remove unwanted sidebar styles */
     #sidebar {

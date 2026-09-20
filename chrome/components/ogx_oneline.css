@@ -86,13 +86,14 @@
     /* Makes tabsbar items clicleable \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */  
     :is(#TabsToolbar, #nav-bar) > .toolbar-items {
-      z-index: 4; /*same index of tabs gradient line - test with window controls css - menubar alt/enable */
+      /*z-index: 4; /*same index of tabs gradient line - test with window controls css - menubar alt/enable */
+      z-index: 1;
     }
 
     /* Immovable icons over all - test with menubar always active */
     #unified-extensions-button,
     #nav-bar-overflow-button {
-      z-index: 4 !important;
+      /*z-index: 4 !important;/**/
     }
 
     /* Unified extension button on right - Immovable \
@@ -117,7 +118,7 @@
       --urlbar-container-height: var(--toolbar-height-personal) !important;
       --urlbar-container-height: calc(var(--toolbar-height-personal) - var(--my-tab-margin-top, 0px) - 1px) !important;
       padding-block: calc(3px + var(--my-tab-margin-top, 0px)) 4px !important;
-      margin-block: 1px 2px !important;
+      margin-block: 2px !important;
     }
 
     :is(#urlbar, #searchbar-new) {
@@ -132,14 +133,14 @@
     /* Align url separators */
     .urlbar-background {
       &::before {
-        inset-block-start: calc(0px - var(--my-tab-margin-top, 0px));
+        inset-block-start: calc(1px - var(--my-tab-margin-top, 0px));
         padding-block-start: var(--my-tab-margin-top, 0px) !important;
       }
     }
 
     .urlbar-background {
       &::after {
-        top: calc(10px - var(--toolbar-height-personal) - var(--my-tab-margin-top, 0px)*1.5);
+        top: calc(11px - var(--toolbar-height-personal) - var(--my-tab-margin-top, 0px)*1.5);
       }
     }
 
@@ -283,7 +284,8 @@
       display: flex;
       top: 0px;
       width: 100vw;
-      z-index: 4; /* test with window controls css - menubar alt/enable */
+      /*z-index: 4; /* test with window controls css - menubar alt/enable */
+      z-index: 1;
       padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
 
       @media (-moz-platform: linux) {

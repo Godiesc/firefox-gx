@@ -159,8 +159,6 @@ menupopup:not(.in-menulist) {
     
     #context-navigation > .menuitem-iconic {
         & > .menu-icon {
-            width: var(--icon-size) !important;
-            height: var(--icon-size) !important;
             margin-top: var(--space-xxsmall) !important;
             margin-inline-end: var(--space-small) !important;
             padding: unset !important;

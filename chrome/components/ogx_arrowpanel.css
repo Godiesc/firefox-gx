@@ -74,6 +74,7 @@ menuitem.subviewbutton:not([disabled])[_moz-menuhover],
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover {
     background: var(--panel-separator-zap-gradient3) !important;
     color: contrast-color(var(--color-accent-primary-hover)) !important;
+    --panel-text-color: contrast-color(var(--color-accent-primary-hover)) !important;   /* Test it in 'accout' button */
 }
 
 /* Background color when clicking on different items in the main menus \
@@ -91,13 +92,7 @@ menuitem.subviewbutton:not([disabled])[_moz-menuactive],
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:active {
     background: var(--panel-separator-zap-gradient4) !important;
     color: contrast-color(var(--color-accent-primary-hover)) !important;
-}
-
-/* Color of icons and labels \
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-:is(panelview .toolbarbutton-1, toolbarbutton.subviewbutton, .widget-overflow-list .toolbarbutton-1,
-.toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton) {
-    letter-spacing: 0.2px !important;
+    --panel-text-color: contrast-color(var(--color-accent-primary-hover)) !important;   /* Test it in 'accout' button */
 }
 
 /* Colors on disabled items \
@@ -186,16 +181,15 @@ toolbarseparator {
 /* 'Monitor' and 'Relay' items from account dropdown menu \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #PanelUI-fxa-menu .fxa-cta-button {
-    margin-inline: 0 !important;
     padding-inline-start: var(--margin-left-icons-personal, 0px) !important;
     
     .ctaMenuLogo {
         margin-inline-end: 0.5em !important;
     }
     
-    #cta-menu-header-description {
+    /*#cta-menu-header-description {
         margin-inline-start: calc(var(--icon-size) + 0.5em) !important;
-    }
+    }/**/
 }
 
 /* Header buttons e.g. back button \

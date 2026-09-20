@@ -3,11 +3,10 @@
 
 @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
 
-    /* _______________________ Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/vertical_bookmarks_toolbar.css ------------------- */
-
-    /* Makes bookmarks toolbar appear vertically at the left side of the window */
-
-    #navigator-toolbox{ position: relative }
+    /*____________________________________________________________________________________________________________________
+    |    Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/vertical_bookmarks_toolbar.css     \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    #navigator-toolbox { position: relative; overflow: visible !important;}
     #PersonalToolbar{
         position: absolute;
         display: flex;
@@ -89,6 +88,12 @@
     #PersonalToolbar #PlacesToolbarItems{
         display: -webkit-box !important;
         -webkit-box-orient: vertical !important;
+    }
+    
+    @media -moz-pref("browser.nova.enabled"){
+        #navigator-toolbox{
+            
+        }
     }
 
     /* ______________________________________________________ Keep left-sidebar in 'Fullscreen' ______________________________________________________ */
@@ -541,6 +546,9 @@
             --button-background-color-hover: transparent !important;
             --button-background-color-active: transparent !important;
             --button-background-color-selected: transparent !important;
+            --button-border-color-selected: transparent !important;
+            --button-border-color-hover: transparent !important;
+            --button-border-color-active: transparent !important;
             --toolbarbutton-background-color-active: transparent !important;
             --button-icon-fill: var(--general-color) !important;
             --button-icon-stroke: var(--general-color) !important;
@@ -642,12 +650,6 @@
             padding-block: 0px !important;
         }
         
-        /* Remove unwanted margin when 'expand-on-hover' */
-        
-        .tools-and-extensions[orientation="horizontal"] {
-            /*--space-xxsmall: 0px !important;/**/
-        }
-        
         /* Code to hide 'overflow' button */
 
         .tools-and-extensions.actions-list {
@@ -671,7 +673,7 @@
         /* Hide tools except for the last one 'configuration' */
         
         .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child),
-        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child)/**/ {
+        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child) {
             opacity: 0 !important;
             transform: translateY(10px) !important;
             visibility: collapse !important;
@@ -681,7 +683,7 @@
         /* Hide tools except for the last one 'configuration' */
         
         .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child),
-        .actions-list[orientation="horizontal"]:is(:hover) moz-button[type="icon ghost"]:not(:first-child)/**/ {
+        .actions-list[orientation="horizontal"]:is(:hover) moz-button[type="icon ghost"]:not(:first-child) {
             opacity: 1 !important;
             transform: translateY(0px) !important;
             visibility: visible !important;
@@ -689,6 +691,8 @@
         }
         
         .tools-and-extensions[orientation="horizontal"] {
+            gap: 0px !important;    /* Remove unwanted margin when 'expand-on-hover' - aware of any performance issues */
+            
                 &[overflowing="true"] {
                     flex-wrap: wrap !important;
                     height: auto !important;

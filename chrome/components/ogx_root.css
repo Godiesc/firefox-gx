@@ -35,7 +35,7 @@
 
   /* Selected tab \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  --tab-selected-outline-color: transparent !important;                                               /* Selected tab border color */
+  --tab-border-color-selected: transparent !important;                                                /* Selected tab border color */
   --tab-loading-fill: var(--general-color) !important;                                                /* Dot color when page loads */
   --tab-background-color-hover: var(--color-accent-primary-xsmall) !important;                        /* Tab background when 'hover' */
   --tab-background-color-selected: transparent !important;                                            /* tab-selected background color - Fix 'flash' bug when add tab 'hover' transition
@@ -62,9 +62,24 @@
   --toolbar-field-border-color-focus: transparent !important;                                         /* toolbar_field_border_focus */
   --lwt-toolbar-field-highlight: var(--general-color) !important;                                     /* toolbar_field_highlight */
   --lwt-toolbar-field-highlight-text: var(--my-scheme-color) !important;                              /* toolbar_field_highlight_text */
+  
+  --urlbar-background-overhang-open: 4px !important;                                                  /* Pixels to expand urlbar 'open' */
+  --urlbarView-padding: 4px !important;                                                               /* Margin top of first search result urlbar 'open' */
+  --urlbar-joint-background-shadow-margin: 100vw !important;                                          /* Size of urlbar(open) shadow - enlarge for all screen */
 
-  --autocomplete-popup-hover-background: var(--color-accent-primary-small) !important;                /* background 'Search suggestions' 'hover' ^|v */
   --urlbarview-separator-color: transparent !important;                                               /* Urlbar 'open' - Separator color  */
+  --urlbarView-row-gutter: 0px !important;                                                            /* Padding each urlbar(open) result */
+  --urlbarView-row-border-radius: 0px !important;                                                     /* Roundness each urlbar(open) result */
+  
+  --urlbarview-background-color-selected: var(--color-accent-primary-small) !important;               /* background 'Search suggestions' 'hover' ^|v */
+  --urlbarview-background-color-hover: var(--color-accent-primary-small) !important;                  /* background 'Search suggestions' 'hover' with mouse */
+  --urlbarview-text-color-hover: var(--my-font-color) !important;                                     /* Url text color when 'hover' */
+  --urlbarview-text-color-selected: var(--my-font-color) !important;                                  /* Url text color when 'selected' */
+  
+  --urlbarview-action-button-background-color: var(--color-accent-primary-xsmall) !important;         /* Action buttons background */
+  --urlbarview-action-button-background-color-hover: var(--color-accent-primary-active) !important;   /* Action buttons background on 'hover' */
+  --urlbarView-rich-search-suggestion-icon-size: 16px !important;                                     /* Size favicon for rich suggestions */
+  
   --border-radius-urlbar-personal: 4px;                                                               /* Personal variable - urlbar buttons roundness with 'tab-shapes' config */
 
   /* Navbar field items \
@@ -74,9 +89,9 @@
   /*--urlbar-box-text-color-hover: contrast-color(var(--color-accent-primary-xsmall)) !important;     /* Icon fill when 'hover' & 'open' */
   --urlbar-inner-border-radius: 3px !important;                                                       /* Roundness of url bar icons */
   --urlbar-icon-padding: calc((var(--urlbar-height) - 5px - 5px - 16px ) / 2) !important;             /* Urlbar icon padding */
-  --urlbar-input-gap: 10px !important;                                                                /* Margin between 'trust' icon and url */
-  --urlbar-basic-component-size: calc(var(--urlbar-height) - 5*                                       /* Url icon size - height & width */
-    (var(--urlbar-input-container-border-width) + var(--urlbar-input-container-padding))) !important;
+  --urlbar-input-gap: 10px !important;                                                                /* Margin between 'trust' icon and url */  
+  --urlbar-basic-component-size: calc(var(--urlbar-height) - 2.5 *                                    /* Url icon size - height & width */
+    var(--urlbar-input-container-padding)) !important;
 
   /* Toolbar buttons \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -134,7 +149,13 @@
     lch(from var(--arrowpanel-background, var(--background-color-canvas)) calc(l - 20) c h),
     lch(from var(--arrowpanel-background, var(--background-color-canvas)) calc(l + 20) c h)) !important;  /* Normal buttons background */
   --button-background-color-hover: var(--color-accent-primary-hover) !important;                          /* Normal buttons background 'hover' - test in Private - clear session button */
-  --border-radius-medium: 4px !important;                                                                 /* Roundness of various buttons */
+  --button-background-color-ghost: transparent !important;                                                /* Ghost buttons background */
+  --button-background-color-ghost-hover: var(--color-accent-primary) !important;                          /* Ghost buttons background on 'hover' */
+  --button-border-radius: var(--border-radius-medium) !important;                                         /* Roundness of various buttons */
+  --button-border-color: transparent !important;                                                          /* border color of various buttons */
+  /*--border-radius-medium: 4px !important;                                                                 /* Roundness of various buttons */
+  
+  --border-width: 0px !important;                                                                         /* Remove border in combobox(select) e.g. 'Allow audio and video' permission */
   
   --button-text-color-primary: contrast-color(var(--button-background-color-primary-hover)) !important;   /* Primary Button text color - Test it in Notification when closing the browser */  
   --button-border-color-primary: var(--color-accent-primary-xsmall) !important;                           /* Primary Button border color */
@@ -212,6 +233,7 @@
     --general-color: var(--tab-group-color) !important;                                                 /* General color becomes the group accent color */
     --color-accent-primary: var(--general-color) !important;                                            /* Accent color */
     --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
+    --tab-group-label-padding: 4px !important;                                                          /* Group label padding inline */
     --tab-group-background-color: lch(from 
       var(--tab-group-color) l c h / 12%) !important;                                                   /* Group Background */
     

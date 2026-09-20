@@ -9,31 +9,13 @@
 /* Back icon */
 
 #nav-bar #back-button{
-    list-style-image: url("../icons/back.svg") !important;    
+    list-style-image: url("chrome://global/skin/icons/arrow-left.svg") !important;
 }
 
 /* forward icon */
 
 #nav-bar #forward-button {
-    list-style-image: url("../icons/forward.svg") !important;
-}
-
-/* Reload icon */
-
-#reload-button {
-    list-style-image: url("../icons/reload.svg") !important;
-}
-
-/* Stop icon */
-
-#stop-button {
-    list-style-image: url("../icons/stop.svg") !important;
-}
-
-/* Remove animation of stop-reload buttons */
-
-#stop-button .toolbarbutton-animatable-image, #reload-button .toolbarbutton-animatable-image {
-    animation-duration: 0ms !important;
+    list-style-image: url("chrome://global/skin/icons/arrow-right.svg") !important;
 }
 
 /* home button */
@@ -54,27 +36,6 @@
 
 #pageAction-panel-bookmark[starred]:hover, #star-button-box:is(:hover, [open]) #star-button[starred] {
     fill: var(--toolbarbutton-icon-fill) !important;
-}
-
-/* Tracking protection icon */
-
-#tracking-protection-icon-container {
-    -moz-box-ordinal-group: 2 !important;
-    order: 2 !important;
-}
-
-.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
-  &[active] {
-    list-style-image: url("../icons/shield.svg") !important;
-    fill: var(--general-color) !important;
-  }
-}
-
-.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container:is(:hover,[open]) > #tracking-protection-icon-box {
-  fill: var(--toolbarbutton-icon-fill) !important;
-  &[active] {
-    fill: var(--toolbarbutton-icon-fill) !important;
-  }
 }
 
 /* Lock icon */
@@ -445,7 +406,9 @@
   
   /* Apply fill color to icons into arrowpanels - ** don't add 'important' ** \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  .panel-no-padding[type="arrow"] .toolbarbutton-icon {
+                                  /* This section to exclude groups \
+                                     into 'all tabs' button ¯¯v      */
+  .panel-no-padding[type="arrow"] toolbarbutton:not(.subviewbutton-iconic) .toolbarbutton-icon {
     -moz-context-properties: fill;
     fill: light-dark(var(--tab-group-color, currentColor), var(--tab-group-color-invert, currentColor));
   }
@@ -453,8 +416,8 @@
   /* Add border to not opened Group - Into 'all tabs' button \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .tab-group-icon .toolbarbutton-icon {
-    box-shadow: inset 0 0 0 1px light-dark(var(--tab-group-color, currentColor), var(--tab-group-color-invert, currentColor));
-    border-radius: 4px !important;
+    /*box-shadow: inset 0 0 0 1px light-dark(var(--tab-group-color, currentColor), var(--tab-group-color-invert, currentColor));
+    border-radius: 4px !important;/**/
   }
   
   /* Remove Icons space in some cases \
@@ -468,14 +431,16 @@
   /* Apply margin to item text needed after add the icon in toolbarbuttons \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   .subviewbutton:not(                   /* Don't apply margin -v */
-  /**/.subviewbutton-iconic,            /* - when the item has an icon */
+  /**/.subviewbutton-iconic,            /* - When the item has an icon */
   /**/.all-tabs-close-button,           /* - Close button in AppMenu sync tabs */
-  /**/#appMenu-zoomReset-button2        /* - AppMenu zoom text */
+  /**/#appMenu-zoomReset-button2,       /* - AppMenu zoom text */
+  #PanelUI-fxa-menu-sync-status-button  /* - When item has 2 descriptions */
   ) {
     & > .toolbarbutton-text,            /* General text */
     & label:not(.toolbarbutton-text),   /* e.g. Accout label and don't apply again in toobarbutton text */
     & #appMenu-fxa-text {               /* e.g. Accout label when not sing in */
-      margin-inline-start: 0.5em !important;
+      margin-inline-start: 0px !important;
+      padding-inline-start: 0.5em !important;
     }
     
     /* Some Icons added by pseudoelement - e.g. Accout, zoom icon */
@@ -548,13 +513,13 @@
     list-style-image: url("chrome://global/skin/icons/users.svg") !important;
   }
   
-  .subviewbutton-iconic.profile-item > .toolbarbutton-icon {
+  /*.subviewbutton-iconic.profile-item > .toolbarbutton-icon {
     --appmenu-profiles-theme-bg: var(--panel-background-color) !important;
     --appmenu-profiles-theme-fg: contrast-color(var(--appmenu-profiles-theme-bg)) !important;
     content: url("chrome://global/skin/icons/users.svg");
     width: var(--icon-size) !important;
     height: var(--icon-size) !important;
-  }
+  }/**/
 
   #appMenu-new-tab-button2 {
     list-style-image: var(--uc-new-tab-icon) !important;
@@ -701,11 +666,6 @@
   #fxa-manage-account-button::before {
     order: 0 !important;
     -moz-box-ordinal-group: 2 !important;
-  }
-
-  #fxa-menu-header-title,
-  #fxa-menu-header-description {
-    text-align: right;
   }
 
   .syncNowBtn {
@@ -976,16 +936,57 @@
   #allTabsMenu-containerTabsButton {
     list-style-image: url("../icons/container-openin-16.svg") !important;
   }
+  
+  #allTabsMenu-groupsViewShowMore {
+    list-style-image: url("../icons/send-tab-to-group.svg") !important;
+  }
+  
+  #allTabsMenu-viewAllTabs {
+    list-style-image: url("../icons/firefoxview-close.svg") !important;
+    
+    &:hover {
+      list-style-image: url("../icons/firefoxview-open.svg") !important;
+    }
+  }
 
   #allTabsMenu-hiddenTabsButton {
     list-style-image: url("../icons/eye-hide.svg") !important;
+  }
+  
+  :is(menuitem, toolbarbutton)[data-l10n-id="user-context-add-container"] {
+    list-style-image: url("chrome://global/skin/icons/plus.svg") !important;
+    --menuitem-icon: url("chrome://global/skin/icons/plus.svg") !important;
   }
   
   :is(menuitem, toolbarbutton)[data-l10n-id="user-context-manage-containers"] {
     list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
     --menuitem-icon: url("chrome://global/skin/icons/settings.svg") !important;
   }
-
+  
+  /* Newtab button context menu - containers */
+  menuitem:not([data-l10n-id="user-context-add-container"]) {
+    .menu-text[value="Add new container"] {
+      &::after {
+        content: url("chrome://global/skin/icons/plus.svg");
+        position: absolute;
+        inset-inline-start: 1.2em !important;
+        margin-block-start: 1px !important;
+      }
+    }
+  }
+  
+  menuitem:not([data-l10n-id="user-context-manage-containers"]) {
+    .menu-text[value="Manage containers"] {
+      &::after {
+        content: url("chrome://global/skin/icons/settings.svg");
+        position: absolute;
+        inset-inline-start: 1.2em !important;
+        margin-block-start: 1px !important;
+        justify-self: center !important;
+      }
+    }
+  }
+  
   #BMB_viewBookmarksSidebar {
     --menuitem-icon: var(--uc-sidebar-icon) !important;
   }
@@ -1159,6 +1160,13 @@
   
   #context_ungroupTab {
     --menuitem-icon: url("../icons/close-duplicate-tabs.svg") !important;
+  }
+  
+  /* Smaller container icons */
+  .menuitem-iconic[data-usercontextid] { 
+    & > .menu-icon {
+      --icon-size-large: var(--icon-size-small) !important;
+    }
   }
   
   #context_reloadTab,
@@ -1899,11 +1907,11 @@
   }
 
   #context-back {
-    --menuitem-icon: url("../icons/back.svg") !important;
+    --menuitem-icon: url(chrome://global/skin/icons/arrow-left.svg) !important;
   }
   
   #context-forward {
-    --menuitem-icon: url("../icons/forward.svg") !important;
+    --menuitem-icon: url(chrome://global/skin/icons/arrow-right.svg) !important;
   }
   
   #context-reload {
@@ -3023,15 +3031,48 @@
   #tabGroupEditor_deleteGroup {
     list-style-image: url("chrome://global/skin/icons/delete.svg") !important;
   }  
+  
+  /* Profiles */
+  
+  #appMenu-empty-profiles-button,
+  #appMenu-create-profile-button,
+  #PanelUI-fxa-menu-empty-profiles-button {
+    list-style-image: url("chrome://global/skin/icons/users.svg") !important;
+  }
+  
+  #appMenu-profiles-button.profile-item > .toolbarbutton-icon {
+    --appmenu-profiles-theme-bg: var(--panel-background-color) !important;
+    --appmenu-profiles-theme-fg: contrast-color(var(--appmenu-profiles-theme-bg)) !important;
+    content: url("chrome://global/skin/icons/users.svg");
+    width: var(--icon-size) !important;
+    height: var(--icon-size) !important;
+  }
+  
+  #profiles-edit-this-profile-button {
+    list-style-image: url("chrome://global/skin/icons/edit.svg") !important;
+  }
+  
+  #profiles-copy-profile-button {
+    list-style-image: url("../icons/edit-copy.svg") !important;
+  }
+  
   #menu_newProfile {
     --menuitem-icon: url(chrome://global/skin/icons/plus.svg) !important;
-  }  
+  }
+  
   #profiles-menu,
-  #menu_manageProfiles,
-  #profiles-manage-profiles-button {
+  #menu_manageProfiles {
     --menuitem-icon: url("chrome://global/skin/icons/users.svg") !important;
     list-style-image: url("chrome://global/skin/icons/users.svg") !important;
-  }  
+  }
+  
+  #profiles-manage-profiles-button {
+    list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
+  }
+  
+  #profiles-create-profile-button {
+    list-style-image: url("chrome://global/skin/icons/plus.svg") !important;
+  }
   
   /* Library window - Menubar icons */
   @-moz-document url("chrome://browser/content/places/places.xhtml") {

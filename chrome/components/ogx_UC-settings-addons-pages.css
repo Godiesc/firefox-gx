@@ -133,6 +133,7 @@
     }
 
     #main {
+        --main-margin-end: 0px !important;
         overflow: auto;
         max-width: 100% !important;
         scrollbar-gutter: stable !important;
@@ -161,6 +162,8 @@
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     /* Header */
     .sticky-container {
+        max-width: calc(var(--page-main-content-width) + 80px) !important;
+        margin-inline-end: 0px !important;
         display: grid !important;
         grid-template-rows: 1 !important;
         grid-template-columns: auto  auto !important;

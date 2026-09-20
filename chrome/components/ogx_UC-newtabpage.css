@@ -576,8 +576,7 @@
     }
     
     /* _____________________________________________________ Pinned sites ________________________________________________________ 
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */    
     .top-sites-list {
         --col-width: calc(var(--mrec-width) / 3.2) !important;
 
@@ -648,12 +647,6 @@
         /* size and background color */
         .top-site-outer {
             border-radius: 0px !important;
-            background-color: transparent !important;
-            /*margin-block-end: 22px !important;/**/
-            
-            .top-site-icon {
-                background-color: transparent !important;
-            }
         }
 
         /* Styes when on 'hover' over 'Pinned sites' and 'Recent Activity' */

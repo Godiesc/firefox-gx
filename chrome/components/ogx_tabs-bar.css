@@ -53,7 +53,7 @@
 
 /* Necessary so that the first 'selected' tab does not remain under 'left-sidebar' */
 
-.tabbrowser-tab[selected] { z-index: 5 !important; }  /* over 'left-sidebar' */
+/*.tabbrowser-tab[selected] { z-index: 5 !important; }  /* over 'left-sidebar' */
 
 /* Tab shape */
 .tabbrowser-tab {
@@ -67,6 +67,7 @@
 
 .tab-background {
     --tab-border-radius: 0px 3px 0px 0px !important;
+    border: none !important; /* Remove unwanted border - Test too with 'tab-shapes' */
     margin-block-start: calc(1px + var(--my-tab-margin-top, 0px)) !important;
     margin-inline: 1px !important;
     clip-path: var(--my-tab-background-clip);
@@ -149,7 +150,7 @@
     width: 100% !important;
     border-block-end: 1px solid var(--general-color) !important;
     border-image: var(--panel-separator-zap-gradient1) 1 !important;
-    z-index: 3 !important;  /*same index of oneline: 'Makes tabsbar items clicleable' - fix when 'left-sidebar' + 'Firefox-revamp' on right*/
+    /*z-index: 3 !important;  /*same index of oneline: 'Makes tabsbar items clicleable' - fix when 'left-sidebar' + 'Firefox-revamp' on right*/
 }
 
 /* _____________________________________________________ Split view _____________________________________________________ 
@@ -218,7 +219,7 @@ tab-split-view-wrapper {
     tab-split-view-wrapper {
         align-items: unset !important;
         padding-block: 0px !important; /* Remove unwanted padding */
-        padding-inline: 3px !important;
+        padding-inline: 1px !important;
         
         /* Remove unwanted extra tab margin */
         & .tabbrowser-tab {
@@ -577,6 +578,7 @@ spacer[part="overflow-end-indicator"] {
 
 #tab-preview-panel {
     margin-block-start: 0px !important;
+    --panel-border-radius: inherit !important;
 }
 
 @media -moz-pref("sidebar.verticalTabs") {
