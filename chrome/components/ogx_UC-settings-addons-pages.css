@@ -25,18 +25,13 @@
         }
         
         /* Categories - left side */
-
-        moz-page-nav-button {
-            --page-nav-button-background-color-selected: color-mix(in srgb, var(--general-color) 8%, transparent) !important;
-        }
         
         button {
             &[selected] {
-                --page-nav-button-text-color-selected: light-dark(lch(from var(--general-color) calc(l - 5) c h), lch(from var(--general-color) calc(l + 5) c h)) !important;
+                --page-nav-button-text-color-selected: contrast-color(var(--color-accent-primary-hover)) !important;
                 
                 &:hover {
-                    --page-nav-button-text-color-selected: currentColor !important;
-                    --page-nav-button-background-color-selected: var(--color-accent-primary-medium) !important;
+                    --page-nav-button-background-color-selected: var(--color-accent-primary-hover) !important;
                 }
             }
         }

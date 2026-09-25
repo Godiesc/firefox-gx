@@ -193,6 +193,11 @@
     }
 
     /* ______________________________________________________ My code to adapt to the GX style ______________________________________________________ */
+    
+    /* Remove space of this sidebar in webapp window */
+    :root:has(#navigator-toolbox[tabs-hidden]) {
+        --my-vertical-toolbar-width: 0px !important;
+    }
 
     /* Position and style of the left-bookmarks-sidebar */
 

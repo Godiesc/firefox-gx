@@ -9,6 +9,7 @@
 
         --border-radius-large: var(--my-border-radius) !important;                                  /* Roundness of all elements */
         --border-radius-medium: calc(var(--border-radius-large) - 2px) !important;                  /* Roundness of all elements */
+        --border-radius-circle: var(--border-radius-medium) !important;                             /* Roundness of 'category' buttons */
 
         --button-background-color-primary: var(--color-accent-primary) !important;                  /* Primary button background */
         --button-background-color-primary-hover: var(--color-accent-primary-hover) !important;      /* Primary button background on 'hover' */
