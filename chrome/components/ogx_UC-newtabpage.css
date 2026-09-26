@@ -456,6 +456,7 @@
     #newtab-search-text,
     .search-handoff-button {
         backdrop-filter: var(--my-blur) !important;
+        border-radius: calc(var(--border-radius-medium) + 22px) !important;
         box-shadow: inset 0 -1px var(--color-accent-primary-xsmall), inset 0 0 0 1px var(--my-smooth-border-color), var(--my-box-shadow) !important;
         transition: box-shadow 0.2s ease, background-color 0.2s ease !important;
         outline: 2px solid transparent !important; /* Remove unwanted outline but keep it transparent for 'accessibility' */
