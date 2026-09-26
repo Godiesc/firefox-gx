@@ -25,9 +25,9 @@
     }
 
     /* Position private icon */
-    .private-browsing-indicator-with-label {
-      margin-inline-start: 11px !important;
-      margin-inline-end: -28px !important;
+    .private-browsing-indicator-button.toolbarbutton-1 {
+      margin-inline-end: -27px !important;
+      z-index: 1 !important;
     }
 
     /* Display but invisible navbar 'window controls' to keep the same space in various escenarios \
