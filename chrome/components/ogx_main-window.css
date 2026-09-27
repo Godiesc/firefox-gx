@@ -6,6 +6,7 @@
 #navigator-toolbox {
     background-image: none !important;      /* ¡important, Don't use the image variable - 'bug' in image in tab selected */
     border-bottom-width: 0px !important;    /* Remove unwanted border - bug in sidebars */
+    overflow: visible !important;           /* Makes visible 'window controls' when they are on left side */
     z-index: unset !important;              /* Necessary for 'Left Sidebar' - test it with the 'z-index' of 'ogx_left-sidebar.css' file */
 }
 

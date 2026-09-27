@@ -6,7 +6,7 @@
     /*____________________________________________________________________________________________________________________
     |    Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/vertical_bookmarks_toolbar.css     \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    #navigator-toolbox { position: relative; overflow: visible !important;}
+    #navigator-toolbox { position: relative;}
     #PersonalToolbar{
         position: absolute;
         display: flex;
@@ -195,8 +195,10 @@
     /* ______________________________________________________ My code to adapt to the GX style ______________________________________________________ */
     
     /* Remove space of this sidebar in webapp window */
-    :root:has(#navigator-toolbox[tabs-hidden]) {
-        --my-vertical-toolbar-width: 0px !important;
+    @media not -moz-pref("sidebar.verticalTabs") {
+        :root:has(#navigator-toolbox[tabs-hidden]) {
+            --my-vertical-toolbar-width: 0px !important;
+        }
     }
 
     /* Position and style of the left-bookmarks-sidebar */
@@ -228,7 +230,7 @@
         
         /* 'Left-sidebar' + 'vertical tabs' margins */
         @media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
-            padding-block-start: 10px !important;
+            padding-block-start: var(--my-left-window-controls-bottom-space, 10px) !important;
             height: calc(100vh - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px));
             max-height: calc(100vh - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important; 
         }
@@ -696,7 +698,7 @@
         }
         
         .tools-and-extensions[orientation="horizontal"] {
-            gap: 0px !important;    /* Remove unwanted margin when 'expand-on-hover' - aware of any performance issues */
+            gap: 1px !important;    /* 0px Remove unwanted margin when sidebar is 'expanded' or 'expand-on-hover' - aware of any performance issues */
             
                 &[overflowing="true"] {
                     flex-wrap: wrap !important;
