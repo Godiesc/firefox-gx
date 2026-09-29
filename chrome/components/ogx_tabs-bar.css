@@ -51,9 +51,9 @@
 /* ___________________________________________________________ Selected tab ___________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
-/* Necessary so that the first 'selected' tab does not remain under 'left-sidebar' */
+/* Necessary so that the 'selected' tab shows well when using 'tab-shapes' feature */
 
-/*.tabbrowser-tab[selected] { z-index: 5 !important; }  /* over 'left-sidebar' */
+.tabbrowser-tab[selected] { z-index: 1 !important; }
 
 /* Tab shape */
 .tabbrowser-tab {
