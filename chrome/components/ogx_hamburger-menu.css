@@ -5,7 +5,7 @@
     --margin-left-icons-personal: calc(var(--panel-menuitem-padding-inline)) !important;
     --margin-right-icons-personal: 1px !important;/**/
     --label-color: var(--panel-text-color, var(--my-font-color));
-    --my-menu-button-height: calc(var(--tab-height-personal) - 0px) !important;
+    --my-menu-button-height: calc(var(--tab-height-personal) - 1px) !important;
 }
 
 /* New font for 'Menu' label \
@@ -169,7 +169,7 @@
             ¯¯¯¯¯¯¯¯¯¯¯¯ */            
             & #PanelUI-button {
                 --toolbarbutton-background-color-active: color-mix(in srgb, var(--toolbarbutton-hover-personal) 70%, transparent) !important;
-                --my-icon-transform: scale(1.2);
+                --my-icon-transform: 20px;
                 position: absolute; /* Keep absolute to autohide using fullscreen */
                 top: calc(0px - var(--tab-height-personal) - var(--my-tab-margin-top, 0px)) !important;
                 
@@ -179,7 +179,8 @@
 
                 /* Logo size */
                 & .toolbarbutton-icon {
-                    transform: var(--my-icon-transform, unset) !important;
+                    width: var(--my-icon-transform, inherit) !important;
+                    /*transform: var(--my-icon-transform, unset) !important;/**/
                 }
                 
                 /* Logo image */
@@ -328,7 +329,7 @@
                     
                     /* Correct 'position' because a new margin was added to the navbar ¯¯v */
                     & #PanelUI-button {
-                        --my-icon-transform: scale(1.5) !important;
+                        --my-icon-transform: 24px !important;
                         --my-inset-inline-start: calc(-1*var(--my-elements-left-margin, 0px)) !important;
                     }
 
@@ -360,8 +361,8 @@
                 :root:not([chromehidden~="toolbar"],[chromehidden*="menubar"],[customizing]):not(:has(#sidebar-container[hidden])) {
                     
                     /* Correct 'position' because a new margin was added to the navbar ¯¯v */
-                    & #PanelUI-button {                        
-                        --my-icon-transform: scale(1.5) !important;
+                    & #PanelUI-button {
+                        --my-icon-transform: 24px !important;
                         --my-inset-inline-start: calc(-1*var(--my-elements-left-margin, 0px)) !important;
                     }
 
@@ -421,7 +422,7 @@
                     /* position */
                     & #PanelUI-button {
                         top: 0 !important;
-                        /*z-index: 4 !important;                                                        /* test with menubar always active - enable click */
+                        z-index: 1 !important;  /* test with menubar always active - enable click */
                         --my-inset-inline-start: calc(-1*var(--padding-left-tab, 0px)) !important;    /* Test with left-sidebar hidden */
                     }
                 }

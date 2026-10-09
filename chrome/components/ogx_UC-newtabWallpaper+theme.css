@@ -99,18 +99,34 @@ https://github.com/Godiesc/firefox-gx */
     }
   }
 
-  moz-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] {
-    --my-first-font-size: 0;
-    --my-content: 'Wallpaper & Theme Colors';
-    --my-second-font-size: var(--button-font-size);
-  }
-
-  label[part="moz-button-label"] {
-    font-size: var(--my-first-font-size) !important;
+  #wallpaper-list-title[data-l10n-id="newtab-wallpaper-category-title-photographs"] {
+    font-size: 0 !important;
 
     &::after {
-      content: var(--my-content);
-      font-size: var(--my-second-font-size);
+      content: 'Wallpaper & Theme Colors';
+      font-size: var(--font-size-heading-medium);
+      font-weight: var(--button-font-weight);
+    }
+  }
+  
+  /* Remove Grid default style and add 'Flex' to be able to reorder the wallpapers \
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+  .category.wallpaper-list.ignore-color-mode {
+    .wallpaper-grid-row,
+    div[role="gridcell"] {
+      display: contents !important;
+    }
+
+    .wallpaper-grid {
+      display: inline-flex !important;
+      width: 100% !important;
+      flex-wrap: wrap; /* Permite que bajen a la siguiente línea si el ancho no alcanza */
+      justify-content: space-between; /* Distribuye el espacio entre los elementos */
+      gap: 14px; /* Espacio opcional entre elementos */
+    }
+
+    .wallpaper-input {
+      flex: 1 1 100px !important;
     }
   }
 
@@ -135,45 +151,75 @@ https://github.com/Godiesc/firefox-gx */
   #light-sky {             order: 17 !important; background-image: var(--wallpaper-light8) !important; --general-color: var(--general-color-light8) !important; }
   #light-beach {           order: 18 !important; background-image: var(--wallpaper-light9) !important; --general-color: var(--general-color-light9) !important; }
 
-  /* Accent color indicator over each wallpaper \
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  moz-button[data-l10n-id="newtab-wallpaper-category-title-photographs"] ~ div .wallpaper-input[aria-checked]::after {
-    position: absolute;
-    content: "";
-    width: 10px;
-    height: 10px;
-    background-color: var(--general-color);
-    border-radius: 50%;
-    margin-block-start: 6px;
-    margin-inline-start: 6px;
-    outline: 1px solid var(--my-smooth-border-color);
-    outline-offset: 1px;
-  }
-
-  /* Border color when 'hover' over wallpapers \
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  .wallpaper-list .wallpaper-input {
+  /* Accent color indicator and style for each wallpaper \
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+  .wallpaper-input[name="wallpaper-photographs"] {
     outline-color: var(--my-smooth-border-color) !important;
     outline-width: 1px !important;
+    box-shadow: inset 0 0 0 0px transparent !important;
+
+    transition: height 0.2s ease, width 0.2s ease !important;
 
     &:hover {
-      box-shadow: 0 0 0 2px var(--general-color),
-        inset 0 0 0 1px var(--my-scheme-color) !important;
+      outline: 2px solid var(--general-color) !important;
+      outline-offset: -2px !important;
+      box-shadow: inset 0 0 0 3px var(--my-scheme-color) !important;
+      filter: none !important;
+      transition: outline 0s ease, box-shadow 0.1s ease 0.1s, border-radius 0.2s ease, corner-shape 0.2s ease !important;
+      corner-shape: bevel !important;/**/
+      border-start-start-radius: 18px !important;
     }
 
-    /* Border color when 'hover' over 'selected' wallpaper */
+    &::before {
+      position: absolute;
+      content: "";
+      width: 13px;
+      height: 13px;
+      margin-block-start: 5px !important;
+      margin-inline-start: 5px !important;
+      background-color: var(--general-color);
+      corner-block-start-shape: bevel !important;/**/
+      border-radius: 6px !important;
+      box-shadow: 0 0 1px black;
+      /*outline: 1px solid var(--my-smooth-border-color);
+      outline-offset: 1px;/**/
+      filter: none !important;
+      transition: height 50ms ease, width 50ms ease, border-radius 0.1s ease !important;
+    }
+
+    &:checked::before,
+    &.selected::before,
+    &:hover::before {
+      height: 14px;
+      width: 14px;
+      margin-block-start: 0px !important;
+      margin-inline-start: 0px !important;
+      corner-block-end-shape: bevel !important;/**/
+      border-radius: 0px !important;
+      outline-color: transparent !important;
+      border-end-end-radius: 18px !important;
+      transition: height 0.2s ease, width 0.2s ease, border-radius 0.2s ease !important;
+    }
+
+    /* wallpaper selected */
     &:checked,
     &.selected {
+      corner-shape: bevel !important;/**/
+      border-start-start-radius: 18px !important;
       filter: none !important;
-      box-shadow: 0 0 0 2px var(--color-accent-primary) !important;
+      outline-color: var(--general-color) !important;
+      outline-width: 2px !important;
+      outline-offset: -2px !important;
 
       &:hover {
-        box-shadow: 0 0 0 3px var(--color-accent-primary) !important;
+        outline-color: var(--general-color) !important;
+        outline-width: 3px !important;
+        outline-offset: -3px !important;
+        transition: none !important;
       }
     }
   }
-}
-
+  
 /* Apply Newtab wallpapers + Theme colors \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 @-moz-document url-prefix(about:), url-prefix("https://addons.mozilla.org")  {

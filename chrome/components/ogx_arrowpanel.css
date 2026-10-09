@@ -178,6 +178,15 @@ toolbarseparator {
     }
 }
 
+/* 'Manage Account' menu item \
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#PanelUI-fxa-menu-manage-account-button {
+    --panel-separator-zap-gradient3: linear-gradient(to left, var(--color-accent-primary) 50%, 
+        lch(from var(--color-accent-primary) calc(l - 10) calc(c + 0) calc(h + 10)));
+    --panel-separator-zap-gradient4: linear-gradient(to left, var(--color-accent-primary) 20%, 
+        lch(from var(--color-accent-primary) calc(l - 20) calc(c + 0) calc(h + 10)));
+}
+
 /* 'Monitor' and 'Relay' items from account dropdown menu \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #PanelUI-fxa-menu .fxa-cta-button {
@@ -186,10 +195,6 @@ toolbarseparator {
     .ctaMenuLogo {
         margin-inline-end: 0.5em !important;
     }
-    
-    /*#cta-menu-header-description {
-        margin-inline-start: calc(var(--icon-size) + 0.5em) !important;
-    }/**/
 }
 
 /* Header buttons e.g. back button \
@@ -219,6 +224,10 @@ image[part='drop-indicator'] {
 #tabgroup-panel-content {
     background-color: transparent !important;
     box-shadow: none !important;
+    
+    & .group-preview-button {
+        border-width: 0px !important;
+    }
 }
 
 /* _______________________ 'Firefox Messages' show in some buttons e.g. Messages of new features _______________________

@@ -530,7 +530,8 @@
     /* Remove margins to get the same size as the 'sidebar' width */
     
     .actions-list {
-        overflow: hidden !important;
+        -moz-window-dragging: no-drag !important;   /* Makes no draggable the buttons section */
+        
         & > moz-button {
             /*--button-outer-padding-block: 0px !important;/**/    
             --button-outer-padding-block-start: 0px !important;/**/
@@ -649,104 +650,117 @@
     
     @media -moz-pref("sidebar.verticalTabs") {
         
-        /* Rules to show all the tools without 'overflow button' */
+        /* Remove limitation to avoid the appears of overflow button \
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */        
         .buttons-wrapper {
             height: auto !important;
-            min-height: unset !important;
-            overflow: unset !important;
-            padding-block: 0px !important;
-        }
-        
-        /* Code to hide 'overflow' button */
-
-        .tools-and-extensions.actions-list {
-            height: auto !important;
+            min-height: auto !important;
+            align-items: start !important;  /* left Align - Test it enabling a few number of 'tools-and-extensions' */
+            flex-direction: column !important;  /* Maked the overflow button not appear when sidebar 'first' expand */
         }
 
-        .tools-and-.acextensionstions-list.overflow-button {
-            display: none !important;
-        }
-        
-        /* Remove unwanted padding when 'expanded' */
-        
-        .actions-list[orientation="horizontal"] {
-            /*--space-xxsmall: 0px !important; /* Remove unwante extra margin when sidebar is 'expanded' - causes high cpu consumption */
-            margin-block-start: 0px !important;
+        .tools-and-extensions[orientation="horizontal"] {
+            gap: 0px !important; /* By changing to display 'block' this code stop working */
+            display: flex !important; /* 'Flex' Needed to set 'order' to 'configuration' icon */
             padding-inline: 0px !important;
             padding-block-end: 0px !important;
-            
-        }
-        
-        /* Hide tools except for the last one 'configuration' */
-        
-        .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child),
-        .actions-list[orientation="horizontal"]:not(:hover) moz-button[type="icon ghost"]:not(:first-child) {
-            opacity: 0 !important;
-            transform: translateY(10px) !important;
-            visibility: collapse !important;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
-        }
 
-        /* Hide tools except for the last one 'configuration' */
-        
-        .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child),
-        .actions-list[orientation="horizontal"]:is(:hover) moz-button[type="icon ghost"]:not(:first-child) {
-            opacity: 1 !important;
-            transform: translateY(0px) !important;
-            visibility: visible !important;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease;
-        }
-        
-        .tools-and-extensions[orientation="horizontal"] {
-            gap: 1px !important;    /* 0px Remove unwanted margin when sidebar is 'expanded' or 'expand-on-hover' - aware of any performance issues */
-            
-                &[overflowing="true"] {
-                    flex-wrap: wrap !important;
-                    height: auto !important;
+            /* Maked the overflow button not appear when sidebar 'first' expand */
+            &[overflowing="true"] {
+                flex-direction: column !important;
+                overflow: unset !important;
             }
         }
         
-        /* 'Customize sidebar' button in the latest position */
-        
-        .wrapper:has(.actions-list[orientation="vertical"] moz-button[type="icon"]) .actions-list moz-button[type="icon ghost"]:is(:last-child) {
-            order: 2 !important;
+        /* 'Show and Hide' animation \
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+        /* Hide 'tools-and-extensions' except for the last one 'configuration' */        
+        .actions-list:not(:hover) moz-button[type="icon ghost"]:not(:last-child) {
+            max-height: 0px !important;
+            opacity: 0 !important;
+            transform: translateY(10px) !important;
+            visibility: hidden !important;  /* using 'collapse' cause performance issues and problems with the unwanted overflow button */
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease, transform 0.4s ease, max-height 0s ease 0.2s;
+        }
+
+        /* Show 'tools-and-extensions' except for the last one 'configuration' */        
+        .actions-list:is(:hover) moz-button[type="icon ghost"]:not(:last-child) {
+            max-height: 36px !important;
+            opacity: 1 !important;
+            transform: translateY(0px) !important;
+            visibility: visible !important;
+            transition: opacity 0.2s ease-in-out 0.25s, visibility 0.2s ease, transform 0.6s ease, max-height 0s ease 0.2s;
         }
         
-        /* Active tool always in the penultimate position when 'collapsed' */
+        /* 'configuration' & 'active' button always over all, to avoid wrong 'hover' effect in wrong button while the transition */
+        .actions-list moz-button {
+            &:is(:last-child),
+            &[type="icon"] {
+                z-index: 1;
+            }
+        }
         
+        /* Active tool always in the penultimate position when 'collapsed' */        
         .actions-list moz-button[type="icon"] {
             order: 1 !important;
         }
         
-        /* Active tool always in the same position when 'expanded' */
-        
-        .actions-list[orientation="horizontal"] moz-button[type="icon"] {
-            order: -1 !important;
+        /* 'Configuration' button in the latest position when other tool is open - sidebar collapsed */
+        .wrapper:has(.actions-list moz-button[type="icon"]) .actions-list[orientation="vertical"] moz-button[type="icon ghost"]:is(:last-child) {
+            order: 2 !important;
         }
         
-        /* When using default 'expand-on-hover' */
+        /* Positions when sidebar is expanded */        
+        .actions-list[orientation="horizontal"] moz-button {
+            
+            /* 'Configuration' button in the latest position */
+            &:is(:last-child) {
+                order: -2 !important;
+            }
 
+            /* Active tool always beside 'configuration' button */
+            &[type="icon"] {
+                order: -1 !important;
+            }
+        }
+        
+        /* When using default 'expand-on-hover' \
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
         @media -moz-pref("sidebar.visibility", 'expand-on-hover') {
             
+            /* Remove extra margin when using 'expand-on-hover' */
+            .buttons-wrapper {
+                padding-block-end: 0px !important;
+            }
+            
+            /* Remove iverflow button */
             .more-tools-button {
                 display: none !important;
             }
             
             /* Keep alight newtab overflow separator when 'collapse' & 'expand' */
             .tools-and-extensions[orientation="horizontal"] {
-                margin-block-start: -1px !important;
+                margin-block-start: 0px !important;
             }
             
-            /* Transition delayed to hide tools when expanding */
+            /* Transition delayed to show tools when expanding */
             .actions-list[orientation="vertical"]:is(:hover) moz-button[type="icon ghost"]:not(:last-child) {
-                transition-delay: 0.3s, 0.4s, 0.3s !important;
+                transition-delay: 0.3s, 0.4s, 0.3s, 0.3s !important;
             }
             
             /* Transition duration removed to hide tools instantly on collapse */
             .actions-list[orientation="vertical"]:not(:hover) moz-button[type="icon ghost"]:not(:last-child) {
-                transition-duration: 0ms !important;
+                transition: none !important;
+            }
+            
+            /* Hie 'configuration' button when sidebar is collapsed
+            -  Maintain the second position to avoid changes in location when another tool is enabled */
+            .wrapper:has(.actions-list moz-button[type="icon"]) .actions-list moz-button[type="icon ghost"]:is(:last-child) {
+                height: 0px !important;
+                order: -1 !important;
             }
         }
+
     }
 }
 
@@ -787,6 +801,7 @@
         border-image: linear-gradient(calc(99deg * var(--rtl-variable, 1)),
             transparent calc(var(--my-vertical-toolbar-width) - 1px),
             var(--general-color) calc(var(--my-vertical-toolbar-width) - 1px) 70%, transparent) 1 !important;
+        -moz-window-dragging: drag !important;
         z-index: 3 !important;  /* Test it only with revamp */
         
         /* For 'oneline' + 'window controls' on right */
@@ -925,56 +940,71 @@
 @media -moz-pref("sidebar.verticalTabs") {
     
     :root {
-        /* These Variables needed to be in root, not only into some class */
-        --tab-min-height: var(--tab-height-personal) !important;                            /* Tab height */
-        --tab-height-with-margin-padding: calc(var(--tab-min-height) + 2px) !important;     /* Remove unwanted tab extra height for pinned tabs */
-        --my-tab-margin-top: 0px !important;                                                /* Remove unwanted margin top of tabs */
+        --tab-min-height: var(--tab-height-personal) !important;                        /* Tab height - even number */
+        --tab-height-with-margin-padding: var(--tab-height-personal) !important;        /* Remove unwanted tab extra height for pinned tabs */
+        --tab-margin-inline-pinned-expanded: var(--tab-margin-inline-inner) !important; /* Keep the same pinned tab width when sidebar is expanded */
+        --tab-margin-inline-inner: 4px !important;                                      /* Tab margin inline */        
+        --tab-collapsed-background-width: calc(var(--my-vertical-elements-width) - var(--tab-margin-inline-inner)*2) !important;
     }
 
     /* Remove unwanted space between tabs */
     #tabbrowser-tabs[orient="vertical"] {
-        --tab-inline-padding: calc((var(--tab-collapsed-width) - var(--icon-size)) / 2);
+        --tab-padding-block-start: 1px !important;
+        --tab-padding-block-end: 0px !important;
 
-        /* Pinned tabs */
+        #pinned-tabs-container {
+            --tab-padding-block-start: 0px !important;
+            --tab-padding-block-end: 0px !important;
+        }
+        
+        /* Remove unwanted pinned tabs background */
         #pinned-tabs-container .tabbrowser-tab {
-            padding-block: 0px !important;
-            
-            /* Remove unwanted pinned tabs background */
-            &:not(:hover, [multiselected]) .tab-background {
+            &:not(:hover, [multiselected], [selected]) .tab-background {
                 background-color: transparent !important;
             }
         }
+        
+        /* Small tab width for tabs groups */
+        tab-group {
+            --tab-margin-inline-inner: 5px !important;/**/
+            --tab-collapsed-background-width: calc(var(--my-vertical-elements-width) - var(--tab-margin-inline-inner)*2) !important;/**/
+        }
+    }
 
-        /* Normal tabs - include collapsed & expanded sidebar */
-        .tabbrowser-tab {
-            padding-block: 1px !important;
+    /* Keep pinned tab size the same when sidebar is expanded */
+    slot[part="items-wrapper"] {
+        padding-inline: 0px !important; /* I could use '--tab-margin-inline-pinned-expanded' to remove the unwanted margin but tab becomes unclickable on border */
+        grid-template-columns: repeat(auto-fit, var(--my-vertical-elements-width)) !important;
+    }
+    
+    /* Margin top of pinned tabs or normal tabs - Don't apply in the container because a bug when moving a tab; with 'window controls on left' */
+    
+    /* Remove extra top padding when haven't pinned tabs */
+    #pinned-tabs-container:empty ~ #tabbrowser-arrowscrollbox[orient="vertical"] {
+        & .tabbrowser-tab {
+            &:nth-child(1 of :not([hidden], [pinned])) {
+                padding-block-start: 0px !important;
+            }
         }
     }
     
-    /* Margin top of pinned tabs or normal tabs - Don't apply in the container beause a bug when moving a tab; with 'window controls on left' */
     #pinned-tabs-container,
     #pinned-tabs-container:empty ~ #tabbrowser-arrowscrollbox {
-        margin-block-start: var(--my-tabs-margin-block-start, 8px) !important;
+        margin-block-start: var(--my-tabs-margin-block-start, 7px) !important;
         
         /* For 'window controls on left */
         @media (-moz-platform: macos), (-moz-gtk-csd-reversed-placement) {
             @media (not -moz-pref("firefoxgx.left-sidebar")) and -moz-pref("sidebar.position_start") {
-                --my-tabs-margin-block-start: calc(var(--uc-window-control-height, 0px) - var(--menubar-height-personal, 0px) - 14px);
+                --my-tabs-margin-block-start: calc(var(--uc-window-control-height, 0px) - var(--menubar-height-personal, 0px) - 14px);/**/
             }
         }
-    }
-    
-    /* Remove clip-path because a bug with group-tabs */    
-    tab-group .tab-background {
-        clip-path: none !important;
-        border-radius: 8px !important;
     }
     
     /* _____________________ Various separators _____________________
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     /* Spliter for pinned tabs */
     #vertical-pinned-tabs-splitter {
-        --tab-inner-inline-margin: 0px !important;
+        --tab-margin-inline-inner: 0px !important;
         min-height: 7px !important;
         height: 1px !important;
         background-image: linear-gradient(to right, 
@@ -986,9 +1016,13 @@
         border-block: 3px solid transparent !important;
         margin-block: -3px !important;
         border-radius: 0px !important;
+        
+        &:hover {
+            --my-content-border-color: var(--general-color) !important;
+        }
     }
 
-    /* Separator bottom when tabs scroll appears */    
+    /* Separator bottom when tabs scroll appears - Sidebar collapsed */
     #tabbrowser-tabs[orient="vertical"] {
         &[overflow]::after {
             margin-inline: 0px !important;
@@ -1000,80 +1034,17 @@
     #sidebar-tools-and-extensions-splitter {
         background-color: transparent !important;
         background-image: none !important;
-    }
-    
-    /* _________________________ Pinned tabs ________________________
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    /* Keep the same pinned tab width when sidebar expand-collapse */
-    @media not -moz-pref("sidebar.visibility", "expand-on-hover") { 
-        #tabbrowser-tabs[orient="vertical"][expanded] {
-            & .tabbrowser-tab[pinned] {
-                width: var(--my-vertical-elements-width) !important;
-            }
-        }
-    }
-
-    /* For some reason with this 'pinned-tabs-content' stay into the sidebar width */
-    slot[part="items-wrapper"] {
-        padding-inline: 0px !important;
-        grid-template-columns: repeat( auto-fit, minmax(var(--my-vertical-elements-width), auto)) !important;
-    }
-
-    /* Width and margins of tabs */
-
-    #tabbrowser-tabs[orient="vertical"] {
-        
-        tab-group .tab-background {
-            margin-inline: var(--my-margin-inline-outer-tab) !important;
-        }
-
-        /* Margin inline */
-        & .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-            margin-inline: var(--tab-outer-inline-margin) !important;
-        }
-        
-        /* Collapsed */
-        &:not([expanded]) {
-            
-            /* Width - collapsed tab */
-            & .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-                width: calc(var(--my-vertical-elements-width) - 6px) !important; /* fix for expand-on-hover */
-            }
-
-            & tab-group .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-                width: calc(var(--my-vertical-elements-width) - 8px) !important; /* fix for expand-on-hover */
-                margin-inline: calc(var(--tab-outer-inline-margin) + 1px) !important;
-            }
-            
-            & tab-group .tab-background {
-                --tab-collapsed-background-width: calc(var(--my-vertical-elements-width) - var(--my-margin-inline-outer-tab)*2) !important;
-            }
-        }
-        
-        /* Expanded */
-        &:is([expanded]) {
-            
-            & tab-group .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-                margin-inline: var(--tab-inner-inline-margin) !important;
-            }
-        }
+        pointer-events: none !important;
     }
     
     @media (not -moz-pref("firefoxgx.left-sidebar")) and -moz-pref("sidebar.position_start") {
-        
-        :root:not([lwtheme-image],[style*="--lwt-additional-images"]) {
-            sidebar-main[expanded] {
-                --toolbar-background-color: var(--lwt-accent-color) !important;
-            }
-        }
 
+        /* Sidebar expanded image - test it without left-sidebar + bookmarksbar visible */
         sidebar-main[expanded] {
-            /*background-color: rgb(from color-mix(in srgb, var(--toolbar-background-color) 70%, var(--lwt-accent-color)) r g b / 100%) !important;/**/
-            background-color: transparent !important;
             &::before {
                 content: ''; height: 100vh; width: 100vw; position: fixed;
                 background-image: linear-gradient(transparent, transparent),
-                    linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
+                    linear-gradient(var(--my-tab-background-color-filter), var(--my-tab-background-color-filter)),
                     var(--toolbox-background-image),
                     linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                 background-position: 0 0, 0 0, var(--lwt-background-alignment) !important;
@@ -1081,14 +1052,14 @@
                 background-repeat: no-repeat, no-repeat, var(--lwt-background-tiling) !important;
                 background-size: var(--my-background-size, var(--lwt-background-size)) !important;
                 z-index: -1 !important;
-                mask-image: linear-gradient(to bottom, black  var(--bookmarksbar-height-personal, 0px), transparent calc(var(--toolbar-height-personal) + 100px));
+                mask-image: linear-gradient(to bottom, black  var(--bookmarksbar-height-personal, 0px), transparent calc(var(--toolbar-height-personal) + 100px));/**/
             }
             
             @media -moz-pref("firefoxgx.main-image") {
                 :root:not([sidebar-expand-on-hover]) & {
                     --toolbar-background-color: color-mix(in srgb,                                                              /* Toolbars - web content background color */
                         var(--my-scheme-color), transparent var(--brightness-wallpaper)) !important;
-                    /*--my-background-size: cover !important; /* Important to align image when base theme use images */
+                    --my-background-size: cover !important; /* Important: test it in solid/image themes */
                     &::before {
                         background-image: linear-gradient(transparent, transparent),
                             linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
@@ -1119,14 +1090,14 @@
         }
     }
     
-    :root[sidebar-expand-on-hover] {
+    /*:root[sidebar-expand-on-hover] {
         & #sidebar-container {
             &[sidebar-launcher-expanded], 
             &[sidebar-ongoing-animations]:not([sidebar-launcher-expanded]) {
                 background-image: none !important;
             }
         }
-    }
+    }/**/
     
     :root[sidebar-expand-on-hover] {
         
@@ -1160,7 +1131,7 @@
                 &::before {
                     content: ''; height: 100vh; width: 100vw; position: fixed;
                     background-image: linear-gradient(transparent, transparent),
-                        linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
+                        linear-gradient(var(--my-tab-background-color-filter), var(--my-tab-background-color-filter)),
                         var(--lwt-header-image, none), var(--lwt-additional-images,none),
                         linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                     background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
@@ -1172,10 +1143,10 @@
                     
                     @media -moz-pref("firefoxgx.left-sidebar") {
                         background-image: linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
-                            linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
+                            linear-gradient(var(--my-tab-background-color-filter), var(--my-tab-background-color-filter)),
                             var(--lwt-header-image, none), var(--lwt-additional-images,none),
                             linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
-                        background-position-y: calc(-1px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
+                        background-position-y: calc(0px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
 
                         @media -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
                             inset-inline-start: calc(0px - var(--my-vertical-toolbar-width)) !important;
@@ -1186,12 +1157,13 @@
                 
                 &[sidebar-positionend] {
                     &::before {
-                        background-image: linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
+                        background-image: linear-gradient(transparent, transparent),
                             linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
                             var(--lwt-header-image, none), var(--lwt-additional-images,none),
                             linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                         background-position-y: calc(0px - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
                         inset-inline-end: 0 !important;
+                        mask-image: linear-gradient(to bottom, black  calc(var(--toolbar-height-personal, 0px) + var(--toolbar-height-personal)), transparent calc(var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) + 124px));
                         
                         @media -moz-pref("firefoxgx.left-sidebar") and -moz-pref("browser.toolbars.bookmarks.visibility", 'always') {
                             background-position-y: calc(0px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;

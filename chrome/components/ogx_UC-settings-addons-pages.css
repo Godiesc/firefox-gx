@@ -42,25 +42,25 @@
             --button-border: var(--border-width) solid var(--button-border-color);
         }
         
-        /* Search box \
-        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-        #input {        
-            &[type="search"] {
-                --input-text-background-color: color-mix(in srgb, var(--button-background-color) 70%, transparent) !important; /* background color */
-                border-color: var(--border-color) !important;  /* border color for searchbox */
-                border-radius: var(--my-border-radius) !important;
+        /* searchbox \
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+        #input[type="search"] {
+            --input-text-background-color: color-mix(in srgb, Field, transparent) !important;
+            --border-color: transparent !important;
+            outline: 1px solid var(--border-color) !important;
+            outline-offset: -1px !important;
+            transition: outline 0.1s ease-in-out, background-color 0.2s ease-in-out;
 
-                &:hover {
-                    --input-text-background-color: color-mix(in srgb, var(--color-accent-primary-xsmall) 70%, transparent) !important; /* background color */
-                    border-color: var(--color-accent-primary-small) !important;
-                    outline: 0px solid var(--general-color) !important;
-                }
-
-                &:focus-visible {
-                    --input-text-background-color: color-mix(in srgb, var(--my-scheme-color), transparent) !important; /* background color */
-                    border-color: var(--general-color) !important;
-                    outline: 1px solid var(--general-color) !important;
-                }
+            /* When 'hover' */
+            &:hover:not(:focus-within) {
+                --input-text-background-color: color-mix(in srgb, var(--color-accent-primary-xsmall) 50%, transparent) !important; /* background color */
+                outline-color: var(--color-accent-primary-hover) !important;
+            }
+            
+            /* When 'focus' */
+            &:focus-visible {
+                --input-text-background-color: alpha(from var(--my-scheme-color) / 20%) !important; /* background color */
+                outline: 2px solid var(--general-color) !important;
             }
         }
         
@@ -118,6 +118,68 @@
         --newtab-background-color: var(--background-color-box) !important;
     }
     
+    /* Sticky elements in one line \
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+    /* Header */
+    .sticky-container {
+        max-width: calc(var(--page-main-content-width) + 80px) !important;
+        margin-inline-end: 0px !important;
+        display: grid !important;
+        grid-template-rows: 2 !important;
+        grid-template-columns: auto  auto !important;
+
+        /* Left side */
+        & .main-heading {
+            display: grid !important;
+            grid-column: 1;
+            grid-row: 1;
+            align-items: center !important;
+            padding-block-end: unset !important;
+            padding-inline-end: 20px !important;
+            
+            /* Label 'Manage your...' */
+            .header-name {
+                grid-column: 1;
+                grid-row: 1;
+                /* shared rules to align */
+                align-self: start !important;
+                padding-block-start: 20px !important;
+            }
+            
+            /* 'Options' button */
+            .page-options-menu {
+                grid-row: 1;
+                grid-column: 2;
+                justify-self: center !important;
+                padding-inline: 10px !important;
+                /* shared rules to align */
+                align-self: start !important;
+                padding-block-start: 20px !important;
+            }
+            
+            /* Label 'no updates found, etc' */
+            #updates-message {
+                grid-row: 2;
+                align-self: start !important;
+            }
+        }
+
+        /* Right side */
+        & .main-search {
+            display: grid !important;
+            grid-column: 2;
+            grid-row: 1;
+            /*padding-inline: 10px !important;/**/
+            /* shared rules to align */
+            align-self: start !important;
+            padding-block-start: 20px !important;
+
+            & .search-label {
+                display: none !important;
+            }
+        }
+    }
+    
     /* 'About:addons' page \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     #content {
@@ -137,6 +199,7 @@
 
         & addon-card[expanded="true"],
         & addon-list,
+        & .view-footer[is="recommended-themes-footer"],
         &>recommended-themes-section>recommended-addon-list,
         & recommended-extensions-section {
             --page-main-content-width: calc(100% + 28px + 4px) !important;
@@ -152,52 +215,10 @@
             padding-inline-start: 4px !important;
         }
     }
-
-    /* Sticky elements in one line \
-    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    /* Header */
-    .sticky-container {
-        max-width: calc(var(--page-main-content-width) + 80px) !important;
-        margin-inline-end: 0px !important;
-        display: grid !important;
-        grid-template-rows: 1 !important;
-        grid-template-columns: auto  auto !important;
-
-        /* Left side */
-        & .main-heading {
-            grid-column: 1;
-            grid-row: 1;
-            align-items: center !important;
-            padding-block-end: unset !important;
-
-            & .spacer {
-                max-width: 20px !important;
-            }
-        }
-
-        /* Right side */
-        & .main-search {
-            justify-content: center !important;
-            display: grid !important;
-            grid-column: 2;
-            grid-row: 1;
-            align-items: center !important;
-            padding-block: 30px !important;
-
-            & .search-label {
-                display: none !important;
-            }
-        }
-    }
-
-    /* Stycky head Style in small width resolution */
-
-    @media (max-width: 830px) {
-
-        /* Remove header label */
-        .main-heading>.header-name {
-            display: none !important;
-        }
+    
+    /* Margin top 'light-dark-device' in 'Themes' section */
+    aboutaddons-themes-mode {
+        margin-block-start: 30px !important;
     }
 }
 

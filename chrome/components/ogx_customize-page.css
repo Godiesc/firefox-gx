@@ -64,7 +64,7 @@
     filter: drop-shadow(0px -1px 0px var(--my-scheme-color));
 
     @media -moz-pref("firefoxgx.oneline") {
-        margin-inline-end: calc(var(--uc-window-control-width, 8px) + 36px + var(--customization-panel-padding)) !important;
+        --customization-panel-padding: calc(var(--uc-window-control-width, 8px) + var(--my-titlebar-spacer-width) - 7px) !important;
     }
 }
 
@@ -73,7 +73,7 @@
 @media -moz-pref("firefoxgx.tree-tabs"), -moz-pref("sidebar.verticalTabs") {
     @media not (-moz-gtk-csd-reversed-placement) {
         #customization-panelWrapper > .panel-arrowbox > .panel-arrow[side="top"] {
-            margin-inline-end: calc(var(--uc-window-control-width, 162px) - 3px + var(--customization-panel-padding)) !important;
+            --customization-panel-padding: calc(var(--uc-window-control-width, 8px) + var(--my-titlebar-spacer-width) - 5px) !important;
         }
     }
 }

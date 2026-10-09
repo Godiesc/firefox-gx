@@ -97,14 +97,14 @@
 
               /* Fix accent color when base theme has images */
               &>body:before {
-                background-color: var(--toolbar-background-color) !important;
+                background-color: color-mix(in srgb, var(--my-scheme-color), transparent var(--brightness-wallpaper)) !important;
               }
               
               /* Fix background color - test it with sidebar expanded & Catppuccino theme */
               @media (not -moz-pref("firefoxgx.left-sidebar")) and -moz-pref("sidebar.position_start") {
                 sidebar-main[expanded] {
                   &::before {
-                    --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
+                    --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-wallpaper)) !important;
                   }
                 }
               }
@@ -117,9 +117,9 @@
                 sidebar-main {
                   &::before {
                     content: ''; height: 100vh; width: 100vw; position: fixed;
-                    background-image: linear-gradient(transparent, var(--toolbar-background-color)),
+                    background-image: linear-gradient(transparent, transparent),
                       linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
-                      var(--lwt-header-image, none), var(--lwt-additional-images,none),
+                      var(--toolbox-background-image, none),
                       linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                     background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
                     background-position-y: calc(1px - var(--toolbar-height-personal) - var(--menubar-height-personal, 0px)) !important;
@@ -168,7 +168,7 @@
                   }
                   
                   @media not -moz-pref("firefoxgx.left-sidebar") {
-                    --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
+                    --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-wallpaper)) !important;
                     &::before {
                       --lwt-header-image: inherit !important;
                       --lwt-additional-images: inherit !important;
@@ -183,9 +183,9 @@
                 sidebar-main[expanded] {
                   &::before {
                     content: ''; height: 100vh; width: 100vw; position: fixed;
-                    background-image: linear-gradient(transparent, var(--toolbar-background-color)),
+                    background-image: linear-gradient(transparent, transparent),
                         linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
-                        var(--lwt-header-image, none), var(--lwt-additional-images,none),
+                        var(--toolbox-background-image, none),
                         linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                     background-position: 0 0, right top ,right top, var(--lwt-background-alignment) !important;
                     background-position-y: calc(1px - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
@@ -215,7 +215,7 @@
                     &::before {
                       background-image: linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
                         linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
-                        var(--lwt-header-image, none), var(--lwt-additional-images,none),
+                        var(--toolbox-background-image, none),
                         linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
                       background-position-y: calc(0px - var(--toolbar-height-personal) - var(--bookmarksbar-height-personal, 0px) - var(--menubar-height-personal, 0px)) !important;
                     }
@@ -239,7 +239,7 @@
 
       :root:not([privatebrowsingmode="temporary"]) {
         --lwt-text-color: #fefefe !important;                                                 /* Frame text color */
-        --tab-selected-textcolor: #fefefe !important;                                         /* Selected tab text color */
+        --tab-text-color-selected: #fefefe !important;                                        /* Selected tab text color */
         --toolbar-text-color: #bebebe !important;                                             /* Toolbar text color */
         --panel-text-color: #bebebe !important;                                               /* Panel text color - test it too in bookmarksbar folders */
 
@@ -304,7 +304,7 @@
       
       :root:not([privatebrowsingmode="temporary"]) {
         --lwt-text-color: #3a334f !important;                                                 /* Frame text color */
-        --tab-selected-textcolor: #3a334f !important;                                         /* Selected tab text color */
+        --tab-text-color-selected: #3a334f !important;                                        /* Selected tab text color */
         --toolbar-text-color: #3a334f !important;                                             /* Toolbar text color */
         --panel-text-color: #3a334f !important;                                               /* Panel text color - test it too in bookmarksbar folders */
 

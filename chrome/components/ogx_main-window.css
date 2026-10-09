@@ -45,7 +45,7 @@
         /* Put here this color only in themes with images because a bug with solid themes 'lwt-accent-color'
         -  important, Added too for 'Private' window */
         &:is([lwtheme-image],[style*="--lwt-additional-images"],[privatebrowsingmode="temporary"])>body:before {
-            background-color: var(--toolbar-background-color);
+            background-color: color-mix(in srgb, var(--my-scheme-color), transparent var(--brightness-wallpaper));
         }
     }
 }
@@ -78,6 +78,7 @@
         --my-main-gradient-background: var(--toolbar-background-color);
         --my-toolbar-bgcolor: color-mix(in srgb, var(--panel-background-color) 50%, transparent) !important;
         --toolbar-background-color: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
+        --my-tab-background-color-filter: color-mix(in srgb, var(--my-toolbar-bgcolor), transparent var(--brightness-toolbar)) !important;
         --my-background-size: cover !important;
         --toolbox-background-image: var(--newtab-wallpaper, var(--lwt-main-image)) !important;
         --toolbox-background-size: cover !important;
@@ -124,7 +125,7 @@
         width: 100%; height: calc(100% - 2px);
         z-index: -1;
         inset-inline-start: 0;
-        border-radius: 0 0 var(--border-radius-small) var(--border-radius-small);
+        border-radius: 0 0 var(--border-radius-xsmall) var(--border-radius-xsmall);
     }
     
     &:is(:hover,[open]) {
@@ -155,37 +156,32 @@
     regexp("^chrome://browser/content/places.*"),
     regexp("chrome://browser/content/sidebar.*") {
         
-        body { background-color: transparent !important; }  /* Only for 'Passwords' */
-        
-        :root { 
-            background-color: transparent !important;
-            --toolbarbutton-icon-fill-attention: unset !important;
-            --newtab-text-primary-color: unset !important;
-            --input-search-border-radius: 4px !important;
-            --input-text-border: 1px solid transparent !important;  /* This just enable the border, not define the border for unknown reason */
-        }
+        body { background-color: transparent !important; } /* Only for 'Passwords' */
+        :root {
+            --card-border-radius: var(--border-radius-medium) !important;   /* Border radius inside elements */
+            background-color: transparent !important; } /* Only for 'Passwords' */
+}
 
-        /* searchbox \
-        ¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-        .search-container,          /* 'Passwords' sidebar searchbox */
-        #input[type="search"] {     /* Other sidebars searchbox */
-            
-            background-color: color-mix(in srgb, Field, transparent) !important;
-            border-color: #50505050 !important;
-            
-            /* When 'hover' */
-            &:hover:not(:focus-within) {
-                background-color: color-mix(in srgb, var(--color-accent-primary-xsmall) 70%, transparent) !important;
-                border-color: var(--color-accent-primary-small) !important;
-            }
-            
-            /* When 'focus' */
-            &:focus-within {
-                background-color: color-mix(in srgb, var(--my-scheme-color) 40%, transparent) !important;
-                border-color: var(--general-color) !important;
-                outline: 1px solid var(--general-color) !important;
-            }
-        }
+/* searchbox \
+¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+#input[type="search"] {
+    --input-text-background-color: color-mix(in srgb, Field, transparent) !important;
+    --border-color: light-dark(var(--color-gray-50), #70707070) !important;
+    outline: 1px solid var(--border-color) !important;
+    outline-offset: -1px !important;
+    transition: outline 0.1s ease-in-out, background-color 0.2s ease-in-out;
+
+    /* When 'hover' */
+    &:hover:not(:focus-within) {
+        --input-text-background-color: color-mix(in srgb, var(--color-accent-primary-xsmall) 50%, transparent) !important; /* background color */
+        outline-color: var(--color-accent-primary-hover) !important;
+    }
+
+    /* When 'focus' */
+    &:focus-visible {
+        --input-text-background-color: alpha(from var(--my-scheme-color) / 20%) !important; /* background color */
+        outline: 2px solid var(--general-color) !important;
+    }
 }
 
 #sidebar-header {
@@ -198,7 +194,7 @@
     background-color: var(--color-accent-primary-small) !important;
 }
 
-/* Sections inside sidebar e.g. */
+/* Sections inside sidebar e.g. History */
 moz-card {
     backdrop-filter: var(--my-blur) !important;
     --card-background-color: alpha(from var(--button-background-color) / 30%)!important;
@@ -243,6 +239,7 @@ moz-card {
     /* Other styles */
     overflow-x: hidden !important;
     padding-block-end: 0px !important;
+    padding-inline-start: 0px !important;   /* Test it without 'revamp' */
 }
 
 /* 'Sidebar' splitter \
@@ -345,14 +342,12 @@ moz-card {
 /* __________________________________________________'Split view' web content style __________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 :root:not([inDOMFullscreen]) #tabbrowser-tabpanels {
+    --border-radius-medium: 0px !important;
+    
     &[splitview] {
         & .split-view-panel.split-view-panel-active {
             margin: 3px !important;
             outline: 1px solid var(--toolbarbutton-hover-personal) !important;
-        }
-
-        & .browserContainer {
-            border-radius: 0px !important;
         }
     }
 }
@@ -360,18 +355,16 @@ moz-card {
 /* 'Split view' spliter \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .split-view-splitter {
+    border: 1px solid transparent !important;
     border-block: none !important;
-    border-color: transparent !important;
-    border-width: 2px !important;
     background: transparent !important;
-    margin-inline: -3px !important;
+    border-radius: 0px !important;
+    margin-inline: -2px !important;
     margin-block: 2px !important;
+    transition: border-color 0.1s ease-in-out 0.1s !important;
     
     &:hover {
-        transition: background 0.1s ease-in-out 0.1s, border-color 0.1s ease-in-out 0.1s !important;
-        background: transparent !important;
         border-color: var(--general-color) !important;
-        z-index: 1 !important;
     }
 }
 
@@ -474,19 +467,25 @@ split-view-footer {
     }
 }
 
-/* Find-bar \
-¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* -------------- Find-bar -------------- ¬
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 findbar {
     background: none !important;
     background-color: var(--toolbar-bgcolor) !important;
     color: var(--tab-selected-textcolor) !important;
-    border-color: var(--my-content-border-color) !important;
+    border-color: var(--toolbarbutton-hover-personal) !important;
     margin-block-start: 1px !important;
 }
 
-.findbar-textbox:not([status="notfound"]):focus {
-    background-color: var(--lwt-accent-color) !important;
-    outline-color: var(--general-color) !important;
+.findbar-textbox {
+    --border-color-interactive: var(--toolbarbutton-hover-personal) !important;
+    --border-width: 1px !important;
+    border-radius: var(--border-radius-xsmall) !important;
+    
+    &:not([status="notfound"]):focus {
+        background-color: var(--lwt-accent-color) !important;
+        outline-color: var(--general-color) !important;
+    }
 }
 
 .findbar-textbox[status="notfound"] { 

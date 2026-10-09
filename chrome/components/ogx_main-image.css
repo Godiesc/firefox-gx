@@ -37,17 +37,19 @@
 
    /* Align tab-background image \
    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-   .tabbrowser-tab:is([visuallyselected],[multiselected]) {
-      .tab-background,
-      .tab-background::before,
-      .tab-background::after {
-         --my-tab-toolbar-bgcolor: color-mix(in srgb, var(--my-scheme-color), transparent var(--brightness-wallpaper));
-         background-image: linear-gradient(var(--tab-group-background-color, var(--my-tab-toolbar-bgcolor)), var(--tab-group-background-color, var(--my-tab-toolbar-bgcolor))),
-            linear-gradient(var(--tab-group-background-color, var(--toolbar-background-color)), var(--tab-group-background-color, var(--toolbar-background-color))),
-            var(--toolbox-background-image),
-            linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
-         background-position-x: left !important;
-         background-size: cover !important;
+   #tabbrowser-tabs[orient="horizontal"] {
+      .tabbrowser-tab:is([visuallyselected],[multiselected]) {
+         .tab-background,
+         .tab-background::before,
+         .tab-background::after {
+            --my-tab-toolbar-bgcolor: color-mix(in srgb, var(--my-scheme-color), transparent var(--brightness-wallpaper));
+            background-image: linear-gradient(var(--tab-group-background-color, var(--my-tab-toolbar-bgcolor)), var(--tab-group-background-color, var(--my-tab-toolbar-bgcolor))),
+               linear-gradient(var(--tab-group-background-color, var(--toolbar-background-color)), var(--tab-group-background-color, var(--toolbar-background-color))),
+               var(--toolbox-background-image),
+               linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
+            background-position-x: left !important;
+            background-size: cover !important;
+         }
       }
    }
 
@@ -234,47 +236,5 @@
             }
          }
       }
-   }
-}
-   
-      /* ______________________ Main image expand on hover alignment ______________________ 
-
-      @media -moz-pref("firefoxgx.main-image-expandOnHover-aligned") {
-
-         #main-window {
-            background-size: 100% 100vh !important;
-         }
-
-         .tabbrowser-tab:is([visuallyselected],[multiselected]) .tab-background {
-            background-size: 100% 100vh !important;
-         }
-
-         #tabbrowser-tabs:is([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack  > .tab-background {
-            background-size: 100vw 100vh !important;
-         }
-
-         #statuspanel label, 
-         findbar {
-            background-size: 100vw 100vh !important;
-         }
-         
-         :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
-            #sidebar-container {
-               background-size: 100vw 100vh !important;
-            }
-         }
-
-         @media -moz-pref("firefoxgx.verticalTabs-expandOnHover") {
-
-            @media -moz-pref("firefoxgx.left-sidebar") {
-
-               :root[sidebar-expand-on-hover]:not([chromehidden~="toolbar"]) {
-                  #sidebar-container {
-                     background-size: 100vw 100vh !important;
-                  }
-               }
-            }
-         }
-      }/*
    }
 }

@@ -78,7 +78,6 @@
     }
     #searchFilter {
         appearance: none !important;
-        background-color: color-mix(in srgb, var(--organizer-pane-background) 90%, var(--organizer-color, #eaeaea)) !important;
         color: var(--organizer-color, #eaeaea) !important;
     }
     #searchFilter:is([focused]){

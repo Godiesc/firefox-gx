@@ -257,14 +257,14 @@
       }
     }
     
-    :root:has(#page-action-buttons>hbox[open]) & {                            /* Page-action-buttons */
-      margin-inline: calc(var(--my-margin-inline-popups) - 6px) !important;
+    :root:has(#page-action-buttons>hbox[open]) & {            /* Panel - urlbar-page-action */
+      margin-inline: calc(var(--my-margin-inline-popups) - 3px) !important;
     }
 
-    :root:has(#page-action-buttons>hbox[open]) & {            /* urlbar-page-action */
+    :root:has(#page-action-buttons>hbox[open]) & {            /* Arrow - urlbar-page-action */
       &::before {
         inset-inline-start: unset !important;
-        inset-inline-end: calc(var(--toolbarbutton-padding-inner) + 2px) !important;
+        inset-inline-end: calc(var(--toolbarbutton-padding-inner) - 0px) !important;
         
         /* For oneline */
         @media -moz-pref("firefoxgx.oneline") and ((not -moz-pref("sidebar.verticalTabs")) and (not -moz-pref("firefoxgx.tree-tabs"))) {

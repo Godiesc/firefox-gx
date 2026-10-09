@@ -2,7 +2,9 @@
    https://github.com/Godiesc/firefox-gx */
 
 /* Trick for Search results to fill all the container */
-.urlbarView-body-outer {
+
+#urlbar-results,
+#searchbar-results {
     margin-inline: calc(-1*var(--urlbar-background-overhang-open)) !important;
     margin-block-end: calc(-1*var(--urlbar-background-overhang-open)) !important;
 }
@@ -198,15 +200,13 @@
 }
 
 .urlbarView {
+    /* Remove rectangle defect in urlbox-searchbox */
+    --urlbarView-padding: 0px !important;
+    
     &:not(:popover-open) {
         height: 0px !important;
         width: 0px !important;
         display: flex !important;
-
-        /* Remove defect in searchbox */
-        #searchbar-new & {
-            padding-block-start: unset !important;
-        }
 
         .urlbarView-background {
             box-shadow: 0 0 0 100vw transparent !important;
@@ -275,6 +275,7 @@
 #trustpanel-graphic-section {
     border-radius: 0px !important;
     margin-inline: 0px !important;
+    border-inline-width: 0px !important;
 }
 
 #trustpanel-toggle-section {
@@ -282,9 +283,10 @@
 }
 
 #identity-popup-securityView-extended-info[connection="secure"] {
-    --my-secure-color: #189735;
+    --trustpanel-card-divider-color: transparent !important;
+    --my-secure-color: #1cb03e;
     background: url("chrome://global/skin/icons/check-filled.svg") no-repeat calc(100% - 16px) center !important;
-    background-size: 40px 40px !important;
+    background-size: 30px 30px !important;
     background-color: color-mix(in srgb, var(--my-secure-color) 10%, transparent) !important;
     border-color: var(--my-secure-color) !important;
     border-radius: var(--border-radius-large) !important;
@@ -299,6 +301,9 @@ description#identity-popup-content-owner,
 description#identity-popup-content-verifier, 
 #identity-popup-securityView-body>button {
     color: var(--my-secure-color) !important;
+    font-style: italic !important;
+    font-weight: bold !important;
+    text-shadow: 0px 0px 4px var(--my-scheme-color) !important;
 }
 
 /* Remove unwanted space when urlbar keep search terms and don't show the url */

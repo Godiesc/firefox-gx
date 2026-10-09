@@ -54,7 +54,7 @@
             background: var(--general-color) !important;
             padding: 2px !important;
             fill: var(--my-scheme-color) !important;
-            top: -1px !important;
+            top: 0px !important;
             
             &:hover {
                 background: var(--my-font-color) !important;

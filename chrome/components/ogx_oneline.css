@@ -23,11 +23,11 @@
         --min-width-url: 22.1vw !important;                                                     /* Smaller urlbar Width cause sidebar button */
       }
     }
-
+    
     /* Position private icon */
     .private-browsing-indicator-button.toolbarbutton-1 {
       margin-inline-end: -27px !important;
-      z-index: 1 !important;
+      /*z-index: 1 !important;/**/
     }
 
     /* Display but invisible navbar 'window controls' to keep the same space in various escenarios \
@@ -86,14 +86,13 @@
     /* Makes tabsbar items clicleable \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */  
     :is(#TabsToolbar, #nav-bar) > .toolbar-items {
-      /*z-index: 4; /*same index of tabs gradient line - test with window controls css - menubar alt/enable */
-      z-index: 1;
+      z-index: 3; /*same index of tabs gradient line - test with window controls css - menubar alt/enable */
     }
 
     /* Immovable icons over all - test with menubar always active */
     #unified-extensions-button,
     #nav-bar-overflow-button {
-      /*z-index: 4 !important;/**/
+      z-index: 1 !important;
     }
 
     /* Unified extension button on right - Immovable \
@@ -124,6 +123,11 @@
     :is(#urlbar, #searchbar-new) {
       --urlbar-height: calc(var(--toolbar-height-personal) - var(--my-tab-margin-top, 0px) - 7px) !important;
       --urlbar-min-height: calc(var(--toolbar-height-personal) - var(--my-tab-margin-top, 0px) - 7px) !important;
+      
+      /* Menubar always visible + urlbar 'open' */
+      &[open] {
+        z-index: 3 !important;
+      }
     }
 
     #urlbar[open] .urlbar-input-container {
@@ -284,7 +288,6 @@
       display: flex;
       top: 0px;
       width: 100vw;
-      /*z-index: 4; /* test with window controls css - menubar alt/enable */
       z-index: 1;
       padding-inline-start: calc(var(--padding-left-tab) + 2px) !important;
 
@@ -311,7 +314,7 @@
     #main-menubar {
       min-height: var(--toolbar-height-personal) !important; /* Makes the same size setted above to keep align __^ */
       background-image: linear-gradient(transparent, transparent),
-        linear-gradient(var(--toolbar-background-color), var(--toolbar-background-color)),
+        linear-gradient(transparent, transparent),
         var(--toolbox-background-image),
         linear-gradient(var(--lwt-accent-color,Field), var(--lwt-accent-color,Field)) !important;
       background-position: 0 0, 0 0, var(--lwt-background-alignment) !important;
@@ -320,11 +323,11 @@
       background-size: var(--my-background-size, var(--lwt-background-size)) !important;
       background-attachment: fixed, fixed, fixed !important;
       color: var(--panel-text-color) !important;
-      z-index: 0 !important;
+      z-index: 0 !important;  /* Needed to show hover effect */
 
       @media -moz-pref("firefoxgx.main-image") { 
         --toolbar-background-color: color-mix(in srgb,
-          var(--my-scheme-color), transparent var(--brightness-wallpaper)) !important;                               /* Toolbar background */
+          var(--my-scheme-color), transparent var(--brightness-wallpaper)) !important;  /* Toolbar background */
       }
 
       /* Bug fix background color in solid themes */
@@ -340,9 +343,9 @@
 
         /* When you hover over the elements, the size decreases as the top margin increases */
         &::after {
-          height: calc(100% - var(--my-tab-margin-top, 0px) - 6px) !important;
-          z-index: -1 !important;
-          border-radius: var(--border-radius-small);
+          height: calc(100% - var(--my-tab-margin-top, 0px) - 8px) !important;
+          z-index: -1 !important; /* Needed to show hover state */
+          border-radius: var(--border-radius-xsmall);
         }
       }
     }

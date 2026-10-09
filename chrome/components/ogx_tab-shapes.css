@@ -2,31 +2,25 @@
 https://github.com/Godiesc/firefox-gx */
 
 @media -moz-pref("firefoxgx.tab-shapes") and (not -moz-pref("sidebar.verticalTabs")) {
-
+  
   /* ___________________________________ Remove style from: 'ogx_tab-bar.css' ____________________________________ */
 
-  /* Selected tab - ogx-tabs-bar.css */
+  /* Selected tab - ogx_tabs-bar.css */
 
   .tab-background {
     clip-path: none !important;
     border-radius: 0 !important;
-    margin-inline: 0px !important;
   }
 
-  #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper .tab-background {
-    clip-path: var(--my-tab-background-clip) !important;
-    margin-inline: 1px !important;
-    border-radius: 0 !important;
-  }
-
-  .tabbrowser-tab[visuallyselected] > .tab-stack::before {
+  /* remove border used in 'stack pseudoelement before' - not for splitview tabs */
+  :not(tab-split-view-wrapper) > .tabbrowser-tab[visuallyselected] > .tab-stack::before {
     display: none !important;
   }
 
-  #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper {
-    .tabbrowser-tab[visuallyselected] > .tab-stack::before {
-      display: flex !important;
-    }
+  /* Add new shape for splitview tabs */
+  #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper .tab-background {
+    clip-path: var(--my-tab-background-clip) !important;
+    margin-inline: 1px !important;
   }
 
   /* Space between pinned tabs and regular tabs */
@@ -38,7 +32,7 @@ https://github.com/Godiesc/firefox-gx */
 
   /* Bug-fix: Collapsed group tabs invisible to solve it */
   tab-group:is([collapsed]) .tabbrowser-tab:not([selected]) {
-    opacity: 0 !important; 
+    opacity: 0 !important;
     pointer-events: none !important;
   }
 
@@ -57,10 +51,6 @@ https://github.com/Godiesc/firefox-gx */
         --border-radius-urlbar-personal: 14px !important;
         --urlbar-icon-border-radius: 14px !important;
         --urlbar-inner-border-radius: var(--urlbar-icon-border-radius) !important;
-      }
-
-      #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper {
-        clip-path: xywh(0 0 100% 100% round 14px);
       }
 
       #tabbrowser-tabs[orient="horizontal"] tab-split-view-wrapper {
@@ -275,7 +265,7 @@ https://github.com/Godiesc/firefox-gx */
           content: "";
           display: block;
           position: absolute;
-          z-index: -1;
+          /*z-index: -1;/**/
           top: 0px;
           /* Shape */
           width: var(--uc-tab-corner-size);

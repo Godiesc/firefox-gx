@@ -37,46 +37,37 @@ button[role="menuitem"] {   /* Apply only in items inside */
 /* Toggle button \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 .toggle-button {
+    --toggle-border-width: 1px !important;
+    --toggle-background-color-pressed: var(--color-accent-primary-small) !important;
+    --toggle-background-color-pressed-hover: var(--color-accent-primary-hover) !important;
+    --toggle-background-color-pressed-active: var(--color-accent-primary-active) !important;
+    --toggle-dot-background-color-on-pressed: currentColor !important;
+    /* Toggle off */
     --toggle-background-color: transparent !important;
-    --toggle-background-color-hover: var(--color-accent-primary-xsmall) !important;
-    --toggle-background-color-active: var(--color-accent-primary-hover) !important;
-    --toggle-border-radius: var(--border-radius-medium) !important;
+    --toggle-background-color-hover: var(--my-scheme-color) !important;/**/
+    --toggle-border-color-hover: var(--general-color) !important;
+    --toggle-dot-background-color-hover: var(--general-color) !important;
+    --toggle-border-radius: var(--border-radius-xsmall) !important;
     --toggle-height: 21px !important;
     --toggle-width: 36px !important;
     --toggle-dot-height: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
     --toggle-dot-width: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
-    --toggle-dot-background-color: var(--color-gray-60) !important;
-    border-color: var(--color-gray-60) !important;
 
     /* Toggle hexagon */
     &::before {
-        margin-inline: 2px !important;
-        border-radius: calc(var(--toggle-border-radius) - 2px) !important;
+        margin-inline: 3px !important;
+        --toggle-border-radius: calc(var(--border-radius-xsmall) - 2px) !important;
     }
 }
 
 /* Toggle Opacity when not 'hover' */
-.toggle-button:not(:hover) {
+.toggle-button:not([disabled],[aria-pressed="true"]):not(:hover) {
     opacity: 0.8 !important;
 }
 
 /* Toggle on */
-.toggle-button[aria-pressed="true"] {
-    --toggle-background-color-pressed: var(--color-accent-primary-small) !important;
-    --toggle-background-color-pressed-hover: var(--color-accent-primary-hover) !important;
-    --toggle-background-color-pressed-active: var(--color-accent-primary-active) !important;
+.toggle-button[aria-pressed="true"]:not([disabled]) {      
     border-color: var(--general-color) !important;
-    
-    &[disabled] {
-        --toggle-background-color-pressed: var(--color-accent-primary-xsmall) !important;
-        border-color: transparent !important;
-        opacity: var(--toggle-opacity-disabled) !important;
-    }
-
-    &::before {
-        margin-inline: 1px !important;
-        background-color: currentColor !important;
-    }
 }
 
 /* Combobox e.g. 'allow audio and video' into permissions button \

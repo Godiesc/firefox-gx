@@ -43,7 +43,7 @@
 @media (prefers-color-scheme: dark) { :root {
   --lwt-main-image: url("../newtab/about-page-dark.png") !important;                    /* 'about:' pages wallpaper - solid dark theme */
   --lwt-private-image: url("../newtab/private-dark.png") !important;                    /* Private New-tab wallpaper - dark theme */
-  --brightness-toolbar: 50%;                                                            /* Themes with images - dark filter to navbar - bookmarksbar */
+  --brightness-toolbar: 30%;                                                            /* Themes with images - dark filter to navbar - bookmarksbar */
   --brightness-wallpaper: 100%;                                                         /* 100% -> default */ }}
 
 @media (prefers-color-scheme: light) { :root {
@@ -88,14 +88,10 @@
 
 @media -moz-pref("firefoxgx.main-image") {  
   @media (prefers-color-scheme: dark) { :root {
-    --lwt-main-image: url("../newtab/main-image-dark.png") !important;                  /* new-tab page image - dark theme */
-    --brightness-toolbar: 50%;                                                          /* Dark filter to toolbars & web content */
-    --brightness-wallpaper: 80%;                                                        /* Black filter | no filter -> 100% */ }}
+    --lwt-main-image: url("../newtab/main-image-dark.png") !important;                  /* new-tab page image - dark theme */ }}
   
   @media (prefers-color-scheme: light) { :root {
-    --lwt-main-image: url("../newtab/main-image-light.png") !important;                 /* new-tab page image - light theme*/
-    --brightness-toolbar: 50%;                                                          /* light filter to toolbars & web content */
-    --brightness-wallpaper: 80%;                                                        /* White filter | no filter -> 100% */ }}
+    --lwt-main-image: url("../newtab/main-image-light.png") !important;                 /* new-tab page image - light theme*/ }}
 }
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------

@@ -13,10 +13,10 @@
 /* Fixed glich when clic mute button */
 
 .tabbrowser-tab {
-    --tab-icon-end-margin: 5.5px !important;
+    --tab-icon-margin-inline-end: 5.5px !important;
 
     &:is([muted], [soundplaying], [activemedia-blocked]) {
-        --tab-icon-end-margin: 2.75px !important;
+        --tab-icon-margin-inline-end: 2.75px !important;
     }
 }
 
