@@ -7,6 +7,7 @@ user_pref("svg.context-properties.content.enabled", true);
 user_pref("browser.tabs.delayHidingAudioPlayingIconMS", 0);
 user_pref("browser.tabs.allow_transparent_browser", true);
 user_pref("sidebar.revamp.round-content-area", false);
+user_pref("layout.css.corner-shape.enabled", true);
 
 /*To active container tabs without any extension */
 user_pref("privacy.userContext.enabled", true);
