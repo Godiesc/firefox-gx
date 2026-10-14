@@ -87,6 +87,7 @@
         /* Remove unwanted roundness in splitview */
         tab-split-view-wrapper & {
             --tab-border-radius: 0px !important;
+            margin-block-end: 1px !important;
         }
     }
     
@@ -214,7 +215,7 @@ tab-split-view-wrapper {
 
             /* Split 'selected tab' background - Test it in theme with images */
             &[visuallyselected] .tab-background {
-                box-shadow: inset 0 0 30px var(--general-color) !important;
+                box-shadow: inset 0 0 100px var(--color-accent-primary-active) !important;
             }
         }
     }
@@ -229,7 +230,7 @@ tab-split-view-wrapper {
         align-items: start !important;
         padding-inline: 1px !important;
         /* Smaller tab height */
-        --tab-min-height: calc(var(--tab-height-personal) - 3px) !important;
+        --tab-min-height: calc(var(--tab-height-personal) - 4px) !important;
         
         /* Remove unwanted extra tab margin */
         & .tabbrowser-tab {

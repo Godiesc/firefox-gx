@@ -49,9 +49,10 @@
 /* Margin left & right */
 .urlbarView-row {
   @media -moz-pref("browser.urlbar.richSuggestions.featureGate") {
-    &:not([rich-suggestion]), &[rich-suggestion][icon-size="16"] {
-      --urlbarView-icon-margin-start: 17px !important;
-      --urlbarView-icon-margin-end: 13px !important;
+    &:not([rich-suggestion]), 
+    &[rich-suggestion][icon-size="16"] {
+      --urlbarview-icon-margin-start: 17px !important;
+      --urlbarview-icon-margin-end: 13px !important;
       }
   }
 }
@@ -175,7 +176,7 @@
     |  Edit too '--urlbar-joint-background-shadow-margin' in 'ogx_root.css' |
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     --urlbar-background-box-shadow-open: 0 0 0 100vw rgba(0, 0, 0, 0.50) !important;
-    z-index: 1 !important;  /* Display over all other elements */
+    z-index: 3 !important;  /* Display over all other elements - tested with z-index for 'oneline' feature */
 }
 
 /* Smooth transition urlbar 'open' dark filter - 'top section' */

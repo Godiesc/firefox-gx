@@ -85,7 +85,7 @@
   
   --urlbarview-action-button-background-color: var(--color-accent-primary-xsmall) !important;         /* Action buttons background */
   --urlbarview-action-button-background-color-hover: var(--color-accent-primary-active) !important;   /* Action buttons background on 'hover' */
-  --urlbarView-rich-search-suggestion-icon-size: 16px !important;                                     /* Size favicon for rich suggestions */
+  --urlbarview-rich-search-suggestion-icon-size: 16px !important;                                     /* Size favicon for rich suggestions */
   
   --border-radius-urlbar-personal: 4px;                                                               /* Personal variable - urlbar buttons roundness with 'tab-shapes' config */
 
@@ -100,6 +100,9 @@
   --urlbar-component-gap: 0px !important;                                                             /* To keep same margin 'trust' icon & url */
   --urlbar-basic-component-size: calc(var(--urlbar-height) - 2.5 *                                    /* Url icon size - height & width */
     var(--urlbar-input-container-padding)) !important;
+  
+  --urlbarview-row-border-radius: 0px !important;                                                     /* Urlbar results roundness for each row */
+  --urlbarview-row-gutter: 0px !important;                                                            /* Unwanted padding for each row of results */
 
   /* Toolbar buttons \
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
@@ -242,6 +245,7 @@
     --general-color: var(--tab-group-color) !important;                                                 /* General color becomes the group accent color */
     --color-accent-primary: var(--general-color) !important;                                            /* Accent color */
     --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
+    --my-classic-sound-icon-margin: calc(var(--tab-group-line-thickness) + 1px);                        /* Variable used for 'classic-sound-icon' feature */
     --tab-group-label-padding: 4px !important;                                                          /* Group label padding inline */
     --tab-group-background-color: lch(from 
       var(--tab-group-color) l c h / 12%) !important;                                                   /* Group Background */

@@ -228,17 +228,6 @@
             }
         }
     }
-    /*
-    .tab-audio-button {
-        @media not -moz-pref("sidebar.visibility", "expand-on-hover") {
-            #tabbrowser-tabs[orient="horizontal"] &:not([pinned]):not([crashed]),
-            :root:not([sidebar-expand-on-hover]) #tabbrowser-tabs[orient="vertical"][expanded] &:not([pinned]):not([crashed]) {
-                &:is([soundplaying][muted], [activemedia-blocked]) {
-                    opacity: 0 !important;
-                }
-            }
-        }
-    }/**/
 
     /* General style for sound button */
     
@@ -257,17 +246,17 @@
     .tab-audio-button[soundplaying] {
         --button-min-height-small: calc(var(--tab-height-personal) - 4px) !important;
         --my-background-sound-image: var(--my-beats-image) !important;
+        --button-background-color-ghost-hover: var(--general-color) !important;
+        --button-background-color-ghost-active: var(--general-color) !important;
         --my-background-size: 22px 16px !important;
         --my-background-position: 0 bottom !important;
         --my-inset-inline-start: 4px !important;
-        --my-top: calc(var(--tab-height-personal)/2 - 11px) !important;
+        --my-top: calc(var(--tab-height-personal)/2 - 12px - var(--my-classic-sound-icon-margin, 0px)) !important;
 
         &:hover {
             --button-size-icon-small: 18px !important;
             --button-min-height-small: 18px !important;
             --my-background-sound-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;
-            --button-background-color-ghost-hover: var(--general-color) !important;
-            --button-background-color-ghost-active: var(--general-color) !important;
             --my-background-size: inherit !important;
             --my-background-position: center !important;
             --my-fill: var(--my-scheme-color) !important;
@@ -282,16 +271,15 @@
         --button-size-icon-small: 18px !important;
         --button-min-height-small: 18px !important;
         --my-background-sound-image: url("chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg") !important;
-        --my-background-color: var(--button-background-color-hover) !important;
+        --button-background-color-ghost-hover: alpha(from currentColor / 20%) !important;
+        --button-background-color-ghost-active: alpha(from currentColor / 20%) !important;
         --my-background-position: center !important;
         --my-fill: var(--my-font-color) !important;
         --my-top: calc(var(--tab-height-personal)/2 - 9px) !important;
         --my-inset-inline-start: 7px !important;
         --my-opacity: 0.8 !important;
 
-        &:hover {         
-            --my-background-color: var(--color-accent-primary-hover) !important;
-            --my-fill: var(--my-font-color) !important;
+        &:hover {
             --my-opacity: 1 !important;
         }
     }
