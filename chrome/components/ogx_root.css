@@ -204,8 +204,8 @@
     --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                     /* Urlbar [open] - noise background */
     --my-beats-image: url("../icons/Beats.webp") !important;                                                        /* Used in 'Extra' feature 'classic sound icon' */
 
-    --input-text-background-color: lch(from var(--panel-background-color) calc(l - 6) c h) !important;              /* Color of the 'input box' when saving a bookmark */
-    --input-text-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                 /* Border Color of the 'input box' not focused e.g. save password */
+    --input-background-color: lch(from var(--panel-background-color) calc(l - 6) c h) !important;              /* Color of the 'input box' when saving a bookmark */
+    --input-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                 /* Border Color of the 'input box' not focused e.g. save password */
     --input-border-color: lch(from var(--panel-background-color) calc(l + 10) c h) !important;                      /* Border Color of the 'input box' not focused */
     --focus-outline-color: var(--general-color) !important;                                                         /* Border color of the 'input box' when :focused */
 
