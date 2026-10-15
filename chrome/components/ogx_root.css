@@ -229,8 +229,8 @@
     --noise-urlbar-personal: url("../icons/urlbar-noise-light.png") !important;                                     /* Urlbar [open] - noise background */
     --my-beats-image: url("../icons/Beats.gif") !important;                                                         /* Used in 'Extra' feature 'classic sound icon' */
     
-    --input-text-background-color: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;          /* Color of the 'input box' when saving a bookmark */
-    --input-text-border-color: lch(from var(--panel-background-color) calc(l - 15) c h) !important;                 /* Border Color of the 'input box' not focused e.g. save password */
+    --input-background-color: color-mix(in srgb, var(--arrowpanel-background) 90%, black) !important;          /* Color of the 'input box' when saving a bookmark */
+    --input-border-color: lch(from var(--panel-background-color) calc(l - 15) c h) !important;                 /* Border Color of the 'input box' not focused e.g. save password */
     --input-border-color: color-mix(in srgb, var(--arrowpanel-background) 70%, black) !important;                   /* Border Color of the 'input box' 'non focused' */
     --focus-outline-color: var(--general-color) !important;                                                         /* Border color of the 'input box' when 'focused' */
     
