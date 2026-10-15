@@ -165,21 +165,20 @@
 /* searchbox \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 #input[type="search"] {
-    --input-text-background-color: color-mix(in srgb, Field, transparent) !important;
-    --border-color: light-dark(var(--color-gray-50), #70707070) !important;
-    outline: 1px solid var(--border-color) !important;
+    --input-background-color: color-mix(in srgb, Field, transparent) !important;
+    outline: 1px solid var(--input-border-color) !important;
     outline-offset: -1px !important;
     transition: outline 0.1s ease-in-out, background-color 0.2s ease-in-out;
 
     /* When 'hover' */
     &:hover:not(:focus-within) {
-        --input-text-background-color: color-mix(in srgb, var(--color-accent-primary-xsmall) 50%, transparent) !important; /* background color */
+        --input-background-color: color-mix(in srgb, var(--color-accent-primary-xsmall) 50%, transparent) !important; /* background color */
         outline-color: var(--color-accent-primary-hover) !important;
     }
 
     /* When 'focus' */
     &:focus-visible {
-        --input-text-background-color: alpha(from var(--my-scheme-color) / 20%) !important; /* background color */
+        --input-background-color: alpha(from var(--my-scheme-color) / 20%) !important; /* background color */
         outline: 2px solid var(--general-color) !important;
     }
 }

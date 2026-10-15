@@ -52,6 +52,7 @@
         --button-background-color-menu: light-dark(#dee2ed, var(--my-box-button-background-color)) !important;  /* Other Ghost button background */
 
         --border-color: light-dark(var(--color-gray-50), #70707070) !important;                                 /* Border color */
+        --input-border-color: light-dark(var(--color-gray-45), var(--color-gray-60)) !important;                /* Border color of input text - searchbox - using outline for transition */
 
         --link-color: var(--general-color) !important;                                                          /* Links color */
         --link-color-hover: FieldText !important;                                                               /* Links color on 'hover' */
