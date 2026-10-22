@@ -899,16 +899,23 @@
             background-color: white !important;
         }
     }
+    
+    /* Fix github icon in dark mode */
+    @media (prefers-color-scheme: dark) {
+        a.top-site-button[href*="github.com"] .top-site-icon {
+            background-image: url("https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/github-light.svg") !important;
+        }
+    }
 }
 
 /* _____________ Background and font color when selecting text on websites _____________ 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 ::selection {
     color: contrast-color(var(--my-selected-text-background)) !important;
     box-shadow: none !important;
     text-shadow: none !important;
     background: var(--my-selected-text-background) !important;
-}*/
+}
 
 /* _____________________________________________________ Private Newtab page _____________________________________________________ 
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */

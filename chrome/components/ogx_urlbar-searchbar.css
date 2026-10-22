@@ -6,7 +6,7 @@
 #urlbar-results,
 #searchbar-results {
     margin-inline: calc(-1*var(--urlbar-background-overhang-open)) !important;
-    margin-block-end: calc(-1*var(--urlbar-background-overhang-open)) !important;
+    margin-block: calc(-1*var(--urlbar-background-overhang-open)) !important;
 }
 
 /* "popup_highlight" - mouse highlight */
