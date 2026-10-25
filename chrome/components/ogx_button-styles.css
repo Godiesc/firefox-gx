@@ -42,20 +42,19 @@ button[role="menuitem"] {   /* Apply only in items inside */
     --toggle-background-color-pressed-hover: var(--color-accent-primary-hover) !important;
     --toggle-background-color-pressed-active: var(--color-accent-primary-active) !important;
     --toggle-dot-background-color-on-pressed: currentColor !important;
+    --toggle-dot-margin: 2px !important;
+    --toggle-dot-transform-x: calc(var(--toggle-width) - 2 * var(--toggle-dot-margin) - 2px - var(--toggle-dot-width)) !important;
     /* Toggle off */
     --toggle-background-color: transparent !important;
     --toggle-background-color-hover: var(--my-scheme-color) !important;/**/
     --toggle-border-color-hover: var(--general-color) !important;
     --toggle-dot-background-color-hover: var(--general-color) !important;
     --toggle-border-radius: var(--border-radius-xsmall) !important;
-    --toggle-height: 21px !important;
-    --toggle-width: 36px !important;
-    --toggle-dot-height: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
-    --toggle-dot-width: calc(var(--toggle-height) - 4 * var(--toggle-dot-margin) - 2 * var(--toggle-border-width)) !important;
+    --toggle-height: 20px !important;
+    --toggle-width: 34px !important;
 
     /* Toggle hexagon */
     &::before {
-        margin-inline: 3px !important;
         --toggle-border-radius: calc(var(--border-radius-xsmall) - 2px) !important;
     }
 }
@@ -66,7 +65,7 @@ button[role="menuitem"] {   /* Apply only in items inside */
 }
 
 /* Toggle on */
-.toggle-button[aria-pressed="true"]:not([disabled]) {      
+.toggle-button[aria-pressed="true"]:not([disabled]) {
     border-color: var(--general-color) !important;
 }
 
