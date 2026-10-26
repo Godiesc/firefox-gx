@@ -409,15 +409,36 @@ treechildren::-moz-tree-cell-text(selected) {
 
 /* _______________ Downloads popup menu _______________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+/* Downloand in progress */
+#downloadsListBox > richlistitem.openWhenFinished.hoveringMainArea:hover {
+    background-color: transparent !important;
+    background: var(--panel-separator-zap-gradient3) !important;
+    color: contrast-color(var(--color-accent-primary-hover)) !important;
+}
+
+/* Downloand in progress */
+#downloadsListBox > richlistitem.openWhenFinished:hover{
+    background-color: transparent !important;
+    background: var(--panel-separator-zap-gradient3) !important;
+    color: contrast-color(var(--color-accent-primary-hover)) !important;
+}
+
 #downloadsListBox > richlistitem {
+    --download-progress-fill-color: lch(from var(--color-accent-primary-hover) calc(l + 20) c calc(h + 10)) !important;
     border-radius: 0px !important;
     
-    .downloadMainArea:hover {
+    &[state="0"] .downloadMainArea:hover {
         color: contrast-color(var(--color-accent-primary-hover)) !important;
     }
 }
 
-#downloadsPanel-blockedSubview, #downloadsPanel-mainView {
+.downloadProgress::-moz-progress-bar {
+    outline: 2px solid var(--background-color-canvas) !important;
+    outline-offset: -1px !important;
+}
+/* Download items */
+#downloadsPanel-blockedSubview, 
+#downloadsPanel-mainView {
     padding-inline: 0px !important;
     padding-block: 4px !important;
 }
@@ -428,8 +449,8 @@ treechildren::-moz-tree-cell-text(selected) {
 
 .downloadButton {
     margin-inline-end: 2px !important;
-    color: var(--panel-text-color) !important;
-    &:hover:not(:active) {
+    color: initial !important;
+    &:hover:not(:active, [data-l10n-id="downloads-cmd-cancel-panel"]) {
         background-color: var(--color-accent-primary-hover) !important;
         color: contrast-color(var(--color-accent-primary-hover)) !important;
     }
