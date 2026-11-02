@@ -343,17 +343,19 @@
 
 /* __________________________________ Colors when the theme selected is 'System theme - dark/light/automatic' __________________________________ 
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-:root:is([theme-in-app], :not([lwtheme])), :host {
+:root:is([theme-in-app], 
+:not([lwtheme])), 
+:host {
   @layer tokens-browser-theme-nova {
     @media not ((forced-colors) or (-moz-native-theme)) {
       --lwt-accent-color: light-dark(#f9f9f9, #09080d) !important;                                                          /* Frame */
       --toolbar-background-color: light-dark(#f4f2f7, #120f19) !important;                                                  /* Toolbar */
       --panel-background-color: light-dark(#f4f2f7, #1c1726) !important;                                                    /* Popup */
       --toolbar-field-background-color-focus: light-dark(#f4f2f7, #2b2640) !important;                                      /* Urlbar focus */
-      --toolbarbutton-icon-fill-attention: var(--fuchsia) !important;                                                       /* Accent color */
-      --tab-border-color-accent: transparent !important;
-      --tab-background-color: transparent !important;
-      --toolbox-background-image: linear-gradient(to right, var(--lwt-accent-color), var(--lwt-accent-color)) !important;
+      --toolbarbutton-icon-fill-attention: unset !important;                                                                /* Remove */
+      --tab-border-color-accent: transparent !important;                                                                    /* Remove styles for default gradient themes */
+      --tab-background-color: transparent !important;                                                                       /* Remove styles for default gradient themes */
+      --toolbox-background-image: linear-gradient(to right, var(--lwt-accent-color), var(--lwt-accent-color)) !important;   /* Remove styles for default gradient themes */
     }
   }
 }

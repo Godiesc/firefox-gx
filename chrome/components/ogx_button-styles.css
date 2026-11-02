@@ -258,7 +258,9 @@ treechildren::-moz-tree-cell-text(selected) {
 #PersonalToolbar {
     --toolbarbutton-background-color-hover: var(--toolbarbutton-hover-personal) !important; 
     --toolbarbutton-icon-fill: var(--toolbar-text-color) !important;
+    --bookmark-block-padding: 3px !important;
     text-shadow: none !important;
+    padding-block-end: 2px !important;
 }
 
 :root:is([lwtheme-image],[style*="--lwt-additional-images"]) #PersonalToolbar {

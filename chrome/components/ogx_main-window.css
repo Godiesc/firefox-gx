@@ -52,16 +52,20 @@
 
 /* Remove unnecessary background to show the theme image \
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-#browser, .browserContainer {
-    --content-area-start-radius: 0px !important;    /* Web content roundness - test it with revamp + bookmarks 'open' */
-    background-color: transparent !important;
-    box-shadow: none !important;                /* Remove unwanted shadow when using 'revamp' */
-    border-block-start-width: 0px !important;   /* Remove unwanted border in 'browserContainer' */
+#browser, 
+.browserContainer {
+    background: transparent !important;
 }
 
-/* Sidebar-box background the same as the web content  */
-#tabbrowser-tabpanels {
+/* Web content background the same as the sidebar content  */
+#tabbrowser-tabbox {
     background-color: var(--toolbar-background-color) !important;
+}
+
+/* Remove transition for web content and sidebar content - bug fix: duplicated background color while transition */
+#tabbrowser-tabbox,
+#sidebar-box {
+  view-transition-name: unset !important;
 }
 
 /* Wallpaper for some 'about:' pages \
@@ -234,7 +238,6 @@ moz-card {
     max-width: none !important;
     min-width: 1px !important;
     border-radius: 0px !important;
-    box-shadow: 0 -1px var(--my-content-border-color) !important;
     /* Other styles */
     overflow-x: hidden !important;
     padding-block-end: 0px !important;
@@ -292,19 +295,15 @@ moz-card {
 
 @media -moz-pref("sidebar.revamp") {
     
-    /* Remove duplicate background */
-    #sidebar-box {
-        background-color: transparent !important;
-    }
-    
     /* Remove unwanted sidebar styles */
     #sidebar {
-        --sidebar-border-color: transparent !important;
-        --content-area-shadow: none !important;
+        /*--sidebar-border-color: transparent !important;/**/
+        --sidebar-background-color: transparent !important;
+        /*--content-area-shadow: none !important;/**/
     }
     
     /* Style of sidebar header */
-    #webextpanels-window #sidebar-panel-header {
+    #sidebar-panel-header {
         --button-size-icon: 24px !important;
         --button-min-height: var(--button-size-icon) !important;
         margin-block: 0px !important;
@@ -319,15 +318,17 @@ moz-card {
         }
     }
     
+    /* Combobox & close button */
+    .switcher-button,
+    moz-button[data-l10n-id="sidebar-panel-header-close-button"] {
+        &:hover {
+            color: contrast-color(var(--color-accent-primary-hover)) !important;
+        }
+    }
+    
     .sidebar-panel-heading {
         margin-block: 4px !important;
         font-size: unset !important;
-    }
-
-    /* Remove extra margin of sidebar header */
-    #sidebar-panel-header {
-        margin-block: 0px !important;
-        padding-block: 0px !important;
     }
     
     .sidebar-splitter {
