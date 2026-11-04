@@ -1092,6 +1092,7 @@
     regexp(".*startpage.*"),
     regexp(".*https://ogs.google.*"),   /* Test in google.com - account button */
     regexp(".*play.hbomax.*"),
+    regexp(".*hbomax.com.*"),
     regexp(".*https://fastcomments.*"),
     regexp(".*https://accounts.*"),
     regexp(".*0day.*"),
