@@ -254,7 +254,6 @@ https://github.com/Godiesc/firefox-gx */
         :root {
           --fxview-text-primary-color: #ffffff !important;  /* Test in 'Firefox view' - See bug 374 */
           --newtab-background-color-secondary: lch(from var(--newtab-background-color) calc(l + 8) c h) !important;       /* 'Manage' Buttons background color */
-          --my-newtab-elements-background: color-mix(in srgb, white 3%, var(--newtab-background-color) 65%, transparent); /* Elements background color */
         }
 
         /* Remove styles for light theme + dark wallpaper of 'ogx_UC-newtabpage.css' */
@@ -359,7 +358,6 @@ https://github.com/Godiesc/firefox-gx */
         :root {
           --fxview-text-primary-color: #000000 !important;  /* Test in 'Firefox view' - See bug 374 */
           --newtab-background-color-secondary: lch(from var(--newtab-background-color) calc(l + 8) c h) !important;       /* 'Manage' Buttons background color */
-          --my-newtab-elements-background: color-mix(in srgb, white 3%, var(--newtab-background-color) 65%, transparent); /* Elements background color */
         }
 
         /* Remove styles for light theme + dark wallpaper of 'ogx_UC-newtabpage.css' */

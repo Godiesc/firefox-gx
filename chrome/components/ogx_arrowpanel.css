@@ -69,6 +69,7 @@ toolbarbutton.subviewbutton:not([disabled], [open], .subviewbutton-back, .unifie
 .navigable.subviewbutton:not([disabled], [open]):is(:hover),
 menu.subviewbutton:not([disabled])[_moz-menuhover], 
 menuitem.subviewbutton:not([disabled])[_moz-menuhover], 
+tab-groups-list>.subviewbutton:hover,
 .widget-overflow-list .toolbarbutton-1:not([disabled], [open]):is(:hover), 
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open]):is(:hover),
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:hover {
@@ -87,6 +88,7 @@ toolbarbutton.subviewbutton:not([disabled], .subviewbutton-back,.unified-extensi
 .navigable.subviewbutton:not([disabled]):is(:active, [open]), 
 menu.subviewbutton:not([disabled])[_moz-menuactive], .panel-banner-item:hover, 
 menuitem.subviewbutton:not([disabled])[_moz-menuactive], 
+tab-groups-list>.subviewbutton>:active,
 .widget-overflow-list .toolbarbutton-1:not([disabled]):is(:active, [open]), 
 .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled]):is(:active, [open]),
 #downloadsListBox > richlistitem[state="1"][exists].hoveringMainArea:active {
