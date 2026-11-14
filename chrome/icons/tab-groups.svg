@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 24 24"
+   data-name="016_FOOD"
+   id="_016_FOOD"
+   fill="context-fill"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <g
+     id="SVGRepo_iconCarrier"
+     transform="matrix(1.1874928,0,0,1.185705,-2.3749763,-2.1414134)">
+    <defs
+       id="defs1">
+      <style
+         id="style1">.cls-1{fill:context-fill;}</style>
+    </defs>
+    <path
+       class="cls-1"
+       d="M 16.5,22 A 1,1 0 0 1 16,21.87 l -1.38,-0.8 a 1,1 0 0 1 1,-1.73 l 0.88,0.51 3.5,-2 v -4 l -3.5,-2 -3.5,2 V 18 a 1,1 0 0 1 -2,0 v -4.8 a 1,1 0 0 1 0.5,-0.87 L 16,9.74 a 1,1 0 0 1 1,0 l 4.5,2.6 a 1,1 0 0 1 0.5,0.87 v 5.19 a 1,1 0 0 1 -0.5,0.87 L 17,21.87 A 1,1 0 0 1 16.5,22 Z"
+       id="path1" />
+    <path
+       class="cls-1"
+       d="M 7.5,22 A 1,1 0 0 1 7,21.87 L 2.5,19.27 A 1,1 0 0 1 2,18.4 V 13.21 A 1,1 0 0 1 2.5,12.34 L 7,9.74 a 1,1 0 0 1 1,0 l 4.5,2.6 a 1,1 0 1 1 -1,1.73 l -4,-2.31 -3.5,2 v 4 l 3.5,2 4,-2.31 a 1,1 0 0 1 1.37,0.36 1,1 0 0 1 -0.37,1.37 L 8,21.87 A 1,1 0 0 1 7.5,22 Z"
+       id="path2" />
+    <path
+       class="cls-1"
+       d="m 16.5,11.6 a 1,1 0 0 1 -1,-1 V 6 L 12,4 8.5,6 v 4.6 a 1,1 0 1 1 -2,0 V 5.41 A 1,1 0 0 1 7,4.54 l 4.5,-2.6 a 1,1 0 0 1 1,0 l 4.5,2.6 a 1,1 0 0 1 0.5,0.87 v 5.19 a 1,1 0 0 1 -1,1 z"
+       id="path3" />
+  </g>
+</svg>
