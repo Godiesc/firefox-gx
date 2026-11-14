@@ -210,6 +210,9 @@
         --newtab-background-color-secondary: var(--my-context-menu-background) !important;            /* 3 dot context menu background */
         --background-color-box: var(--my-context-menu-background) !important;                         /* 'Weather' context menu background */
         
+        --card-border: var(--card-border-width) solid var(--card-border-color) !important;
+        --card-border-width: 0px !important;
+        
         --my-opaque-background: color-mix(in srgb, var(--my-scheme-color), transparent);              /* Background with transparency - follow newtab scheme*/
         --my-small-opaque-background: color-mix(in srgb, var(--my-scheme-color) 20%, transparent);    /* Background with transparency - follow newtab scheme*/
         --my-big-opaque-background: color-mix(in srgb, var(--my-scheme-color) 90%, transparent);      /* Background with transparency - follow newtab scheme*/
@@ -566,7 +569,7 @@
 
         &:hover {
             background: var(--my-gradient-background-hover) !important;
-            box-shadow:  inset 0 0 0 1px var(--color-accent-primary-active), 0 0 0 1px var(--color-accent-primary-active), var(--my-box-shadow) !important;
+            box-shadow:  inset 0 0 0 1px var(--color-accent-primary), 0 0 0 1px var(--color-accent-primary), var(--my-box-shadow) !important;
         }
     }
     
@@ -668,7 +671,7 @@
         .top-site-outer:is(:hover, :focus-within, .active) {
             .tile {
                 background: var(--my-gradient-background-hover) !important;
-                box-shadow:  inset 0 0 0 1px var(--color-accent-primary-active), 0 0 0 1px var(--color-accent-primary-active), var(--my-box-shadow) !important;
+                box-shadow:  inset 0 0 0 1px var(--color-accent-primary), 0 0 0 1px var(--color-accent-primary), var(--my-box-shadow) !important;
                 outline-color: transparent !important;
             }
         }
@@ -684,10 +687,11 @@
         &:hover,
         &.active {
             background: var(--my-gradient-background-hover) !important;
-            box-shadow: 0 0 0 2px var(--color-accent-primary-active), var(--my-box-shadow) !important;
+            box-shadow: 0 0 0 2px var(--color-accent-primary), var(--my-box-shadow) !important;
         }
         
         .card {
+            border-radius: inherit;
             background: var(--my-gradient-background) !important;
             backdrop-filter: var(--my-blur) !important;
             
@@ -697,9 +701,7 @@
             }
             
             /* Icon */
-            .card-context {
-                backdrop-filter: var(--my-blur);
-                background-color: var(--my-opaque-background) !important;
+            .card-context {                
                 border-radius: 50% !important;
 
                 &> .card-context-icon {
@@ -721,27 +723,6 @@
         }
     }
     
-    /* Recent activity wider 
-    .nova-enabled .ds-highlights .section-list {
-        grid-column: 1/18 !important;
-    }*/
-    
-    /* News wider 
-    .nova-enabled .content .ds-section-wrapper {
-        grid-template-columns: repeat(auto-fill, calc(3 * var(--col-width) + 4 * var(--space-medium))) !important;
-    }
-    
-    .nova-enabled .widgets-section-container {
-        grid-template-columns: repeat(auto-fill, calc(5 * var(--col-width) + 3 * var(--space-medium))) !important;
-    }*/
-    
-    /* widgets wider 
-    .nova-enabled .widgets-container {
-        --mrec-width: 375px;
-        --col-width: calc(var(--mrec-width) / 4);
-        grid-template-columns: repeat(auto-fill, var(--col-width)) !important;
-    }*/
-    
     /* ______________________________________________________ News Section _______________________________________________________ 
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
     .section-context-wrapper {
@@ -759,7 +740,7 @@
         transition: box-shadow ease-in-out 0.1s !important;
 
         &:hover {
-            box-shadow:  inset 0 0 0 1px var(--color-accent-primary-active), 0 0 0 2px var(--color-accent-primary-active), var(--my-box-shadow) !important;
+            box-shadow:  inset 0 0 0 1px var(--color-accent-primary), 0 0 0 2px var(--color-accent-primary), var(--my-box-shadow) !important;
             background: var(--my-gradient-background-hover) !important;
         }
 
@@ -770,7 +751,7 @@
             transition: box-shadow ease-in-out 0.1s !important;
 
             &:hover {
-                box-shadow:  inset 0 0 0 1px transparent, 0 0 0 1px var(--color-accent-primary-active) !important;
+                box-shadow:  inset 0 0 0 1px transparent, 0 0 0 1px var(--color-accent-primary) !important;
             }
         }
 
@@ -903,7 +884,7 @@
     /* Fix github icon in dark mode */
     @media (prefers-color-scheme: dark) {
         a.top-site-button[href*="github.com"] .top-site-icon {
-            background-image: url("https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/github-light.svg") !important;
+            background-image: url("../icons/github-light.svg") !important;
         }
     }
 }

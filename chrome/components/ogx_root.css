@@ -37,7 +37,7 @@
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   --tab-border-color-selected: var(--general-color) !important;                                       /* Selected tab border color */
   /*--tab-text-color-selected: var(--red) !important;                                                 /* tab_selected text color */
-  --tab-loading-fill: var(--general-color) !important;                                                /* Dot color when page loads */
+  /*--tab-icon-fill-loading: var(--general-color) !important;                                         /* Dot color when page loads */
   --tab-background-color-hover: var(--color-accent-primary-xsmall) !important;                        /* Tab background when 'hover' */
   --tab-background-color-selected: var(--toolbar-background-color) !important;                        /* tab-selected background color - Fix 'flash' bug when add tab 'hover' transition
                                                                                                        - test in theme with images - theme with colored tab selected */
@@ -246,14 +246,14 @@
     --color-accent-primary: var(--general-color) !important;                                            /* Accent color */
     --tab-group-line-thickness: var(--my-group-line-thickness) !important;                              /* Tab-group line width */
     --my-classic-sound-icon-margin: calc(var(--tab-group-line-thickness) + 1px);                        /* Variable used for 'classic-sound-icon' feature */
-    --tab-group-label-padding: 4px !important;                                                          /* Group label padding inline */
+    --tab-group-label-padding: 5px !important;                                                          /* Group label padding inline */
     --tab-group-background-color: lch(from 
       var(--tab-group-color) l c h / 12%) !important;                                                   /* Group Background */
     
     /* Need to duplicate some variable */
     --tab-border-color-selected: var(--general-color) !important;                                       /* Selected tab border color */
     --tab-background-color-hover: var(--color-accent-primary-xsmall) !important;                        /* Tab background when 'hover' */
-    --tab-loading-fill: var(--tab-selected-outline-color) !important;                                   /* Dot color when page loads */
+    --tab-icon-fill-loading: var(--general-color) !important;                                           /* Dot color when page loads */
     
     /* These variables from 'ogx_root-personal.css' are also needed here */
     --color-accent-primary-xsmall: color-mix(in srgb, transparent 75%, var(--color-accent-primary));                        /* Button background color smaller */

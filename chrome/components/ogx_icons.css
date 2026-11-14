@@ -551,6 +551,10 @@
   #appMenu-history-button {
     list-style-image: url("chrome://browser/skin/history.svg") !important;
   }
+  
+  #appMenu-tab-groups-button {
+    list-style-image: url("../icons/tab-groups.svg") !important;
+  }
 
   #appMenu-downloads-button {
     list-style-image: url("chrome://browser/skin/downloads/downloads.svg") !important;

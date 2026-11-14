@@ -181,7 +181,7 @@
     
     /* 'About:addons' page \
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-    #content {
+    #sidebar ~ #content {
         max-height: 100vh;
         display: grid !important;
         grid-template-rows: auto auto 1fr;
@@ -204,7 +204,7 @@
             --page-main-content-width: calc(100% + 28px + 4px) !important;
             display: block !important;
             max-width: calc(100% - var(--sidebar-width) - var(--main-margin-start, 0px)) !important;
-            padding-inline-start: 4px !important;
+            /*padding-inline-start: 4px !important;/**/
         }
 
         & discovery-pane {
@@ -212,6 +212,11 @@
             display: block !important;
             max-width: calc(100% - var(--sidebar-width) - var(--main-margin-start)) !important;
             padding-inline-start: 4px !important;
+        }
+        
+        /* Recommended themes container */
+        recommended-themes-section > moz-card {
+            max-width: calc(100% - var(--sidebar-width) - var(--main-margin-start)) !important;
         }
     }
     
