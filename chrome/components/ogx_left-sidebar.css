@@ -834,6 +834,13 @@
             border-image: none !important;
         }
     }
+    
+    /* Sidebar covering bookmarks bug fix */
+    @media (not -moz-pref("firefoxgx.left-sidebar")) and -moz-pref("sidebar.verticalTabs") {
+        :root:not([sidebar-expand-on-hover]) #sidebar-container[sidebar-launcher-expanded]:not([sidebar-positionend]) {
+            margin-block-start: -1px !important;
+        }
+    }
 }
 
 /* Separator below hamburger button */
